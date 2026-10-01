@@ -1,0 +1,18 @@
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/embed/v1.js
+  Cache-Control: public, max-age=31536000, immutable
+/iconify/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/search-index.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

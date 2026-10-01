@@ -1,0 +1,1 @@
+{"bin":{"iconvault":"./bin/iconvault.js"},"description":"Search and download icons from the IconVault library without leaving the terminal.","engines":{"node":">=18"},"files":["bin/","README.md","LICENSE"],"keywords":["icons","iconify","svg","cli","iconvault"],"license":"MIT","name":"@iconvault/cli","type":"module","version":"0.1.0"}
