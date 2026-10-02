@@ -103,8 +103,20 @@ export const SiteHeader = () => {
                     </button>
                   )}
                   {openMenu === section.label && (
-                    <div className="animate-pop absolute left-0 top-full w-[26rem] pt-2">
-                      <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-2xl border border-border bg-popover p-2 shadow-lift">
+                    <div
+                      className={cn(
+                        "animate-pop absolute top-full pt-2",
+                        section.label === "Tools"
+                          ? "left-1/2 w-[36rem] [translate:-50%_0]"
+                          : "left-0 w-[26rem]",
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "grid max-h-[70vh] gap-1 overflow-y-auto rounded-2xl border border-border bg-popover p-2 shadow-lift",
+                          section.label === "Tools" ? "grid-cols-3" : "grid-cols-2",
+                        )}
+                      >
                         {section.links.map((link) => (
                           <Link
                             key={link.path}
