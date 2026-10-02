@@ -23,6 +23,7 @@ import { getToolSeo } from "@/lib/tool-seo";
 import { getToolSeoMeta } from "@/lib/tool-seo-meta";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { cn } from "@/lib/utils";
+import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/background-remover")({
   head: () => {
@@ -581,7 +582,7 @@ function BackgroundRemoverTool() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "iconvault-no-background.png";
+      a.download = brandFilename("iconvault-no-background.png");
       a.click();
       URL.revokeObjectURL(url);
       toast.success("PNG downloaded.");

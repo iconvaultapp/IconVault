@@ -112,7 +112,7 @@ export async function exportDesign(canvas: Canvas, format: StudioExportFormat, s
       });
       const ext = format === "jpeg" ? "jpg" : format;
       const link = document.createElement("a");
-      link.download = `iconvault-thumbnail${scale === 2 ? "@2x" : ""}.${ext}`;
+      link.download = brandFilename(`iconvault-thumbnail${scale === 2 ? "@2x" : ""}.${ext}`);
       link.href = dataURL;
       link.click();
     }
@@ -493,6 +493,7 @@ async function floodFillBackground(img: FabricImage): Promise<number> {
 
 export type { BgProgress } from "@/lib/bg-ai";
 import { removeBackgroundAi, type BgProgress as BgProgressType } from "@/lib/bg-ai";
+import { brandFilename } from "@/lib/logo-builder";
 
 /**
  * Remove the background with the on-device AI segmenter. Falls back to the

@@ -1,3 +1,4 @@
+import { brandFilename } from "@/lib/logo-builder";
 /** Minimal, dependency-free CSV export helpers used by the account and admin pages. */
 
 const escapeCell = (value: unknown): string => {
@@ -19,7 +20,7 @@ export const downloadCsv = (filename: string, headers: string[], rows: unknown[]
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = filename;
+  link.download = brandFilename(filename);
   document.body.appendChild(link);
   link.click();
   link.remove();

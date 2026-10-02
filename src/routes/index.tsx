@@ -228,24 +228,25 @@ function ToolsTeaser() {
         </Reveal>
 
         <Reveal delay={140}>
-          <div className="mt-6 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
-            {TOOL_CATEGORIES.map((c) => {
-              const n = LIVE_TOOLS.filter((t) => t.category === c.id).length;
-              if (n === 0) return null;
-              return (
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
+            {TOOL_CATEGORIES.map((c) => ({
+              c,
+              n: LIVE_TOOLS.filter((t) => t.category === c.id).length,
+            }))
+              .filter(({ n }) => n > 0)
+              .map(({ c, n }, vi) => (
                 <Link
                   key={c.id}
                   to="/tools"
                   search={{ category: c.id }}
-                  className="focus-ring flex items-center justify-center rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4"
+                  className={`focus-ring flex items-center justify-center rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4 ${vi >= 8 ? "hidden sm:flex" : ""}`}
                 >
                   {c.label}
                   <span className="ml-1.5 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
                     {n}
                   </span>
                 </Link>
-              );
-            })}
+              ))}
           </div>
         </Reveal>
 
@@ -391,22 +392,21 @@ function Landing() {
           <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
           <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
             <Reveal>
-              <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-1.5 rounded-full border border-primary/25 bg-primary-soft px-3 py-1 text-center font-mono text-[9px] uppercase tracking-[0.12em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
-                <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {LIVE_TOOLS.length} free tools ·
-                one search
+              <span className="inline-flex max-w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.08em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
+                <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {LIVE_TOOLS.length} free tools · one search
               </span>
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mx-auto mt-7 max-w-4xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">
+              <h1 className="mx-auto mt-7 max-w-4xl font-display text-3xl font-semibold leading-[1.08] tracking-tight text-balance sm:text-6xl lg:text-7xl">
                 Every open-source icon,
                 <br className="hidden sm:block" /> indexed so you can{" "}
-                <span className="text-gradient inline-grid align-bottom text-left">
+                <span className="text-gradient inline-grid justify-center align-baseline">
                   {words.map((word, i) => (
                     <span
                       key={word}
                       aria-hidden={i !== rotating}
-                      className={`col-start-1 row-start-1 ${i !== rotating ? "invisible" : ""}`}
+                      className={`col-start-1 row-start-1 text-center ${i !== rotating ? "invisible" : ""}`}
                     >
                       {word}
                     </span>

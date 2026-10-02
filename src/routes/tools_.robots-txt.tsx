@@ -10,6 +10,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import { getToolSeo } from "@/lib/tool-seo";
 import { getToolSeoMeta } from "@/lib/tool-seo-meta";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
+import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/robots-txt")({
   head: () => {
@@ -117,7 +118,7 @@ function RobotsTxtTool() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "robots.txt";
+      a.download = brandFilename("robots.txt");
       document.body.appendChild(a);
       a.click();
       a.remove();

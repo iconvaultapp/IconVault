@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { parseIconId, fetchIconSvg } from "@/lib/iconify";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
 import { usePlan, YEARLY_PRICE } from "@/hooks/usePlan";
+import { brandFilename } from "@/lib/logo-builder";
 
 interface BulkActionBarProps {
   selected: Set<string>;
@@ -34,7 +35,7 @@ const saveBlob = (blob: Blob, filename: string) => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = filename;
+  a.download = brandFilename(filename);
   a.click();
   URL.revokeObjectURL(url);
 };

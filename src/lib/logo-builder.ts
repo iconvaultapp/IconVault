@@ -190,11 +190,24 @@ export function svgToPngBlob(svg: string, size: number): Promise<Blob> {
   });
 }
 
+/**
+ * Brand a download filename by inserting "-iconvault" before the extension:
+ * "poster.png" -> "poster-iconvault.png", "icons.zip" -> "icons-iconvault.zip".
+ * Idempotent: names already containing "iconvault" are returned unchanged.
+ * The extension itself is never modified.
+ */
+export function brandFilename(filename: string): string {
+  if (filename.toLowerCase().includes("iconvault")) return filename;
+  const dot = filename.lastIndexOf(".");
+  if (dot <= 0) return `${filename}-iconvault`;
+  return `${filename.slice(0, dot)}-iconvault${filename.slice(dot)}`;
+}
+
 export function downloadBlob(blob: Blob, filename: string) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = filename;
+  a.download = brandFilename(filename);
   document.body.appendChild(a);
   a.click();
   a.remove();

@@ -11,6 +11,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import { getToolSeo } from "@/lib/tool-seo";
 import { getToolSeoMeta } from "@/lib/tool-seo-meta";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
+import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/barcode-generator")({
   head: () => {
@@ -164,7 +165,7 @@ function BarcodeGeneratorTool() {
     const url = URL.createObjectURL(new Blob([text], { type: "image/svg+xml" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `barcode-${format.toLowerCase()}.svg`;
+    a.download = brandFilename(`barcode-${format.toLowerCase()}.svg`);
     a.click();
     URL.revokeObjectURL(url);
     toast.success("SVG downloaded");
@@ -195,7 +196,7 @@ function BarcodeGeneratorTool() {
       URL.revokeObjectURL(url);
       const a = document.createElement("a");
       a.href = canvas.toDataURL("image/png");
-      a.download = `barcode-${format.toLowerCase()}.png`;
+      a.download = brandFilename(`barcode-${format.toLowerCase()}.png`);
       a.click();
       toast.success("PNG downloaded");
     };

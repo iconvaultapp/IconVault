@@ -12,6 +12,7 @@ import { useFavourites } from "@/hooks/useFavourites";
 import { useAuth } from "@/hooks/useAuth";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { fetchIconSvg, getIconSvgUrl, parseIconId } from "@/lib/iconify";
+import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -73,7 +74,7 @@ function Page() {
         const url = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" }));
         const a = document.createElement("a");
         a.href = url;
-        a.download = `${prefix}-${iconName}.svg`;
+        a.download = brandFilename(`${prefix}-${iconName}.svg`);
         a.click();
         URL.revokeObjectURL(url);
       }

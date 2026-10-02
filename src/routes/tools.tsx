@@ -11,7 +11,6 @@ import {
   type ToolDef,
 } from "@/lib/tool-catalog";
 import { ToolIcon } from "@/components/ToolIcon";
-import { getToolSeo } from "@/lib/tool-seo";
 
 const ToolCard = ({ tool }: { tool: ToolDef }) => {
   const inner = (
@@ -122,8 +121,7 @@ function ToolsPage() {
     const words = q.split(/\s+/);
     return LIVE_TOOLS.filter((t) => {
       const cat = TOOL_CATEGORIES.find((c) => c.id === t.category);
-      const seoTags = getToolSeo(t.id)?.tags.join(" ") ?? "";
-      const hay = `${t.name} ${t.tagline} ${t.id.replace(/-/g, " ")} ${cat?.label ?? ""} ${seoTags}`.toLowerCase();
+      const hay = `${t.name} ${t.tagline} ${t.id.replace(/-/g, " ")} ${cat?.label ?? ""}`.toLowerCase();
       return words.every((w) => hay.includes(w));
     });
   }, [query]);
@@ -135,8 +133,9 @@ function ToolsPage() {
       title="Tools"
       description="579 free online tools for developers, designers and creators - no account needed."
       fullWidth
+      compactHero
     >
-      <div className="px-2 py-4 sm:px-4">
+      <div className="px-2 pb-4 pt-0 sm:px-4 sm:py-4">
         {/* Inner header hidden on mobile: PageShell already shows title + description,
             so the search lands directly beneath it on small screens. */}
         <div className="hidden items-center gap-3 sm:flex">
@@ -151,8 +150,8 @@ function ToolsPage() {
           </div>
         </div>
 
-        {/* Search sits directly beneath the heading + description */}
-        <div className="mb-10 mt-6">
+        {/* Search sits directly beneath the heading + description (tight on mobile) */}
+        <div className="mb-10 mt-2 sm:mt-6">
           <div className="relative mx-auto max-w-2xl">
             <Search className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <input

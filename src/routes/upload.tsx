@@ -6,6 +6,7 @@ import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading, Stack, CheckList, FaqList, CTABand } from "@/components/kit";
 import { cn } from "@/lib/utils";
+import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/upload")({
   head: () => ({
@@ -99,7 +100,7 @@ function Page() {
     const url = URL.createObjectURL(new Blob([icon.svg], { type: "image/svg+xml" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${icon.name}.svg`;
+    a.download = brandFilename(`${icon.name}.svg`);
     a.click();
     URL.revokeObjectURL(url);
   };

@@ -6,6 +6,7 @@ import { useFavourites } from "@/hooks/useFavourites";
 import { useCollections } from "@/hooks/useCollections";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
 import { cn } from "@/lib/utils";
+import { brandFilename } from "@/lib/logo-builder";
 
 interface IconifyDetailProps {
   iconId: string;
@@ -120,7 +121,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${name}.svg`;
+    a.download = brandFilename(`${name}.svg`);
     a.click();
     URL.revokeObjectURL(url);
     toast.success("SVG downloaded");
@@ -139,7 +140,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
       ctx.drawImage(img, 0, 0, px, px);
       const a = document.createElement("a");
       a.href = canvas.toDataURL("image/png");
-      a.download = `${name}-${px}.png`;
+      a.download = brandFilename(`${name}-${px}.png`);
       a.click();
       toast.success(`PNG ${px}px downloaded`);
     };
