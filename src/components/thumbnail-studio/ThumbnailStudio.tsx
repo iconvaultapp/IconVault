@@ -62,7 +62,7 @@ export default function ThumbnailStudio({ isPro, trial }: { isPro: boolean; tria
               to="/pro"
               className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white hover:opacity-90"
             >
-              <Crown className="h-4 w-4" /> Get Pro - $9.9/yr
+              <Crown className="h-4 w-4" /> Get Pro - $12/yr
             </Link>
             <button onClick={() => setShowPro(false)} className="mt-3 text-sm font-semibold text-muted-foreground hover:text-foreground">
               Keep editing free templates

@@ -23,7 +23,7 @@ export const Route = createFileRoute("/api-access")({
       { property: "og:url", content: "/api-access" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/api-access" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/api-access" }],
     scripts: [
       {
         type: "application/ld+json",

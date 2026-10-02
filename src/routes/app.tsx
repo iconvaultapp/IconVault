@@ -39,8 +39,10 @@ export const Route = createFileRoute("/app")({
       { property: "og:title", content: "Browse 421,020 icons - IconVault" },
       { property: "og:description", content: "Search, filter and export open-source icons instantly." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://iconvault.site/app" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://iconvault.site/app" }],
   }),
   component: AppBrowser,
 });

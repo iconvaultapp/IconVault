@@ -173,13 +173,13 @@ export function TrialUpsell({ toolName, left }: { toolName: string; left: number
       <Crown className="mx-auto mb-2 h-8 w-8 text-amber-500" />
       <h3 className="text-lg font-extrabold">You've used your 5 free {toolName} runs</h3>
       <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
-        Go Pro for unlimited runs, HD exports and every template - $9.9/year, cancel anytime.
+        Go Pro for unlimited runs, HD exports and every template - $12/year, cancel anytime.
       </p>
       <Link
         to="/pro"
         className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90"
       >
-        <Crown className="h-4 w-4" /> Get Pro - $9.9/yr
+        <Crown className="h-4 w-4" /> Get Pro - $12/yr
       </Link>
     </div>
   );
@@ -213,19 +213,19 @@ export default function ToolPageShell({ toolId, seo, trial, isPro, children }: P
       <div className="w-full">
         <Link
           to="/tools"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground"
+          className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground sm:mb-6"
         >
           <ArrowLeft className="h-4 w-4" /> All tools
         </Link>
 
-        <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
-          <div className="flex items-start gap-4">
-            <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <ToolIcon iconKey={tool?.icon ?? "shapes"} className="h-7 w-7" />
+        <div className="mb-5 flex flex-wrap items-start justify-between gap-3 sm:mb-8 sm:gap-4">
+          <div className="flex items-start gap-3 sm:gap-4">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary sm:h-14 sm:w-14">
+              <ToolIcon iconKey={tool?.icon ?? "shapes"} className="h-6 w-6 sm:h-7 sm:w-7" />
             </span>
             <div>
-              <h1 className="text-balance text-2xl font-extrabold tracking-tight sm:text-3xl">{tool?.name}</h1>
-              <p className="mt-1 max-w-xl text-sm text-muted-foreground">{tool?.tagline}</p>
+              <h1 className="text-balance text-xl font-extrabold tracking-tight sm:text-3xl">{tool?.name}</h1>
+              <p className="mt-1 max-w-xl text-[13px] text-muted-foreground sm:text-sm">{tool?.tagline}</p>
             </div>
           </div>
           <div
@@ -246,7 +246,7 @@ export default function ToolPageShell({ toolId, seo, trial, isPro, children }: P
           </div>
         </div>
 
-        <div className="mb-14">{children}</div>
+        <div className="mb-10 sm:mb-14">{children}</div>
 
         {/* About / FAQ / tags / more tools: single column like before, but wider
             (max-w-7xl) so the side gaps stay small. */}
@@ -271,20 +271,23 @@ export default function ToolPageShell({ toolId, seo, trial, isPro, children }: P
           </div>
         </section>
 
-        {/* Tags */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-balance text-xl font-extrabold">Popular searches</h2>
-          <div className="flex flex-wrap gap-2">
-            {seo.tags.map((t) => (
-              <span
-                key={t}
-                className="rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium text-muted-foreground"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </section>
+        {/* Tags: hidden entirely when a tool has none, so the heading
+            never renders above an empty chip row. */}
+        {seo.tags.length > 0 && (
+          <section className="mb-12">
+            <h2 className="mb-4 text-balance text-xl font-extrabold">Popular searches</h2>
+            <div className="flex flex-wrap items-center justify-start gap-2">
+              {seo.tags.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium text-muted-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* More tools */}
         <section>

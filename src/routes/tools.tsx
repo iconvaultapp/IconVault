@@ -74,7 +74,19 @@ export const Route = createFileRoute("/tools")({
         content:
           "579 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools, interactive web API playgrounds, text tools and more.",
       },
+      { property: "og:title", content: "Free Design & Developer Tools - IconVault" },
+      {
+        property: "og:description",
+        content:
+          "579 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools and more. No account needed.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://iconvault.site/tools" },
+      { property: "og:image", content: "https://iconvault.site/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Free Design & Developer Tools - IconVault" },
     ],
+    links: [{ rel: "canonical", href: "https://iconvault.site/tools" }],
   }),
   component: ToolsPage,
 });
@@ -125,7 +137,7 @@ function ToolsPage() {
       fullWidth
     >
       <div className="px-2 py-4 sm:px-4">
-        <div className="mb-8 flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Wrench className="h-5 w-5" />
           </span>
@@ -137,8 +149,8 @@ function ToolsPage() {
           </div>
         </div>
 
-        {/* Prominent search */}
-        <div className="mb-10">
+        {/* Search sits directly beneath the heading + description */}
+        <div className="mb-10 mt-6">
           <div className="relative mx-auto max-w-2xl">
             <Search className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <input

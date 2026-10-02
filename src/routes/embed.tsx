@@ -22,7 +22,7 @@ export const Route = createFileRoute("/embed")({
       { property: "og:url", content: "/embed" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/embed" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/embed" }],
   }),
   component: Page,
 });

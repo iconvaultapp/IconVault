@@ -17,7 +17,21 @@ import { baseName, formatBytes, loadImageFile } from "@/lib/image-tools";
 export const Route = createFileRoute("/tools_/image-to-pdf")({
   head: () => {
     const seo = getToolSeoMeta("image-to-pdf");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/image-to-pdf";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: ImageToPdf,
 });

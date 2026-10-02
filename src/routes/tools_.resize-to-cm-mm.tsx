@@ -26,7 +26,21 @@ import {
 export const Route = createFileRoute("/tools_/resize-to-cm-mm")({
   head: () => {
     const seo = getToolSeoMeta("resize-to-cm-mm");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/resize-to-cm-mm";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: ResizeToCmMmTool,
 });

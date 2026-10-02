@@ -27,7 +27,21 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/tools_/background-remover")({
   head: () => {
     const seo = getToolSeoMeta("background-remover");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/background-remover";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: BackgroundRemoverTool,
 });

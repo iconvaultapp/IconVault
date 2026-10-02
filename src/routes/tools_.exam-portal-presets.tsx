@@ -24,7 +24,21 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 export const Route = createFileRoute("/tools_/exam-portal-presets")({
   head: () => {
     const seo = getToolSeoMeta("exam-portal-presets");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/exam-portal-presets";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: PresetsTool,
 });

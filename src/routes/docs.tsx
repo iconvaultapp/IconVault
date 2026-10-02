@@ -54,7 +54,17 @@ export const Route = createFileRoute("/docs")({
         content:
           "Guides for every corner of IconVault: search, exports, Logo Builder, REST API, Pro billing and more.",
       },
+      { property: "og:title", content: "Documentation - IconVault" },
+      {
+        property: "og:description",
+        content:
+          "Guides for every corner of IconVault: search, exports, Logo Builder, REST API, Pro billing and more.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://iconvault.site/docs" },
+      { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://iconvault.site/docs" }],
   }),
   component: DocsPage,
 });

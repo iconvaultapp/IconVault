@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Twitter, Github, Linkedin, Youtube, Instagram } from "lucide-react";
 import { Brand } from "@/components/SiteHeader";
 import { navSections, type NavItem } from "@/components/nav-data";
+import { ToolIcon } from "@/components/ToolIcon";
 import { openCookieSettings } from "@/lib/cookie-consent";
 
 // TODO(Sameer): replace "#" with real social URLs
@@ -13,30 +14,21 @@ const SOCIALS = [
   { icon: Instagram, label: "IconVault on Instagram", href: "#" },
 ];
 
-/** Tool category entry: icon + label + short description, mirroring the header Tools menu. */
-function ToolLink({ link }: { link: NavItem }) {
-  const Icon = link.icon;
-  return (
-    <Link
-      to={link.path}
-      className="group flex items-start gap-2.5 rounded-xl p-2 transition-all duration-200 hover:bg-muted/60"
-    >
-      <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform duration-200 group-hover:scale-110">
-        <Icon className="h-4 w-4" />
-      </span>
-      <span className="min-w-0">
-        <span className="block text-sm font-medium leading-snug transition-colors group-hover:text-primary">
-          {link.label}
-        </span>
-        {link.desc && (
-          <span className="mt-0.5 block text-xs leading-snug text-muted-foreground line-clamp-2">
-            {link.desc}
-          </span>
-        )}
-      </span>
-    </Link>
-  );
-}
+/**
+ * The 9 most popular tools. Hardcoded (not pulled from the tool catalog) so
+ * the footer stays light on every page. Slugs verified against the catalog.
+ */
+const BEST_TOOLS = [
+  { id: "image-to-svg", name: "Image to SVG", path: "/tools/image-to-svg", icon: "shapes" },
+  { id: "qr-generator", name: "QR Code Generator", path: "/tools/qr-generator", icon: "qr" },
+  { id: "background-remover", name: "Background Remover", path: "/tools/background-remover", icon: "eraser" },
+  { id: "json-formatter", name: "JSON Formatter", path: "/tools/json-formatter", icon: "braces" },
+  { id: "password-generator", name: "Password Generator", path: "/tools/password-generator", icon: "lock" },
+  { id: "image-compressor", name: "Image Compressor", path: "/tools/image-compressor", icon: "minimize" },
+  { id: "image-color-picker", name: "Image Color Picker", path: "/tools/image-color-picker", icon: "pipette" },
+  { id: "unit-converter", name: "Unit Converter", path: "/tools/unit-converter", icon: "scaling" },
+  { id: "word-counter", name: "Word Counter", path: "/tools/word-counter", icon: "text" },
+];
 
 /** Simple label + link list column (Collections, Developers, Account). */
 function LinkColumn({ label, links }: { label: string; links: NavItem[] }) {
@@ -60,7 +52,6 @@ function LinkColumn({ label, links }: { label: string; links: NavItem[] }) {
 }
 
 export const SiteFooter = () => {
-  const toolsSection = navSections.find((s) => s.label === "Tools");
   const otherSections = navSections.filter((s) => s.label !== "Tools");
 
   return (
@@ -71,8 +62,8 @@ export const SiteFooter = () => {
         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
       />
 
-      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-        <div className="grid gap-12 md:grid-cols-3 lg:grid-cols-[1.1fr_2.1fr_0.9fr_0.9fr_0.9fr]">
+      <div className="mx-auto max-w-7xl px-5 pt-16 lg:px-8 lg:pt-20">
+        <div className="grid gap-12 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_0.8fr_0.8fr_0.8fr]">
           {/* Brand + socials */}
           <div className="max-w-xs">
             <Brand />
@@ -97,24 +88,48 @@ export const SiteFooter = () => {
             </p>
           </div>
 
-          {/* Tools mega-column: same icon + label + desc data as the header menu. */}
-          {toolsSection && (
-            <div className="md:col-span-2 lg:col-span-1">
-              <p className="eyebrow">{toolsSection.label}</p>
-              <div className="mt-3 grid grid-cols-1 gap-0.5 min-[420px]:grid-cols-2">
-                {toolsSection.links.map((link) => (
-                  <ToolLink key={link.path} link={link} />
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Tools column: All Tools + the 9 most popular tools. */}
+          <nav aria-label="Popular tools">
+            <p className="eyebrow">Tools</p>
+            <ul className="mt-5 space-y-1">
+              <li>
+                <Link
+                  to="/tools"
+                  className="inline-block py-1 text-sm font-semibold text-foreground transition-all duration-200 hover:translate-x-0.5 hover:text-primary"
+                >
+                  All Tools
+                </Link>
+              </li>
+              {BEST_TOOLS.map((t) => (
+                <li key={t.id}>
+                  <Link
+                    to={t.path}
+                    className="group inline-flex items-center gap-2 py-1 text-sm text-muted-foreground transition-all duration-200 hover:translate-x-0.5 hover:text-primary"
+                  >
+                    <ToolIcon
+                      iconKey={t.icon}
+                      className="h-3.5 w-3.5 text-primary/50 transition-colors group-hover:text-primary"
+                    />
+                    {t.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           {otherSections.map((section) => (
             <LinkColumn key={section.label} label={section.label} links={section.links} />
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-border pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        {/* Giant brand wordmark: oversized, low-opacity, gradient-faded. */}
+        <div aria-hidden="true" className="pointer-events-none mt-16 select-none overflow-hidden">
+          <p className="bg-gradient-to-b from-primary/20 via-primary/[0.07] to-transparent bg-clip-text text-center font-display text-[19vw] font-extrabold leading-[0.8] tracking-tighter text-transparent lg:text-[12rem]">
+            IconVault
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-border py-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} IconVault. Icons remain under their original licences.{" "}
             <button

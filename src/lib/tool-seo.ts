@@ -38,7 +38,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions, no account needed. IconVault Pro ($9.9/year) unlocks unlimited conversions, higher detail settings and batch vectorizing.",
+        a: "Every visitor gets 5 free conversions, no account needed. IconVault Pro ($12/year) unlocks unlimited conversions, higher detail settings and batch vectorizing.",
       },
       {
         q: "What is vectorizing useful for?",
@@ -310,7 +310,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Convert SVG to PNG online in seconds. Choose 256, 512, 1024 or 2048px, or batch-export all sizes as ZIP. 100% free, runs in your browser.",
     about: [
       "**IconVault**'s **SVG to PNG converter** turns any **SVG** vector file into crisp raster PNGs at exactly the size you need. New: 1x–4x scale presets, custom W×H inputs, and a background picker (**transparent**/white/black/custom) so exports render correctly everywhere. Paste your **SVG** markup or upload an .**svg** file, pick **256**, **512**, **1024** or **2048** pixels, and get a pixel-perfect **PNG** with the aspect ratio preserved from the **SVG**'s viewBox. Need every size at once? One click exports all four as a ZIP - ideal for favicons, app icons and social assets.",
-      "Everything runs in your browser: your **SVG** is never uploaded to a server, so the tool works offline and your files stay private. Every visitor gets 5 **free** conversions with no account needed. **IconVault** Pro ($9.9/year) unlocks unlimited conversions across all tools, HD exports and every template.",
+      "Everything runs in your browser: your **SVG** is never uploaded to a server, so the tool works offline and your files stay private. Every visitor gets 5 **free** conversions with no account needed. **IconVault** Pro ($12/year) unlocks unlimited conversions across all tools, HD exports and every template.",
     ],
     faqs: [
       {
@@ -335,7 +335,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($9.9/year) unlocks unlimited conversions, HD exports and every template.",
+        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($12/year) unlocks unlimited conversions, HD exports and every template.",
       },
     ],
     tags: [
@@ -365,7 +365,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Shrink SVG file size instantly with a real DOM-based optimizer: precision control, metadata/empty-element/unused-ID cleanup and hidden-element removal - see before/after bytes. Free, private, in-browser.",
     about: [
       "**IconVault**'s **SVG Optimizer** trims the bloat out of **SVG** files so they load faster on your site. Design tools like Illustrator, Figma and Inkscape export SVGs stuffed with comments, editor metadata, redundant whitespace and absurdly precise decimals (12.3456789 when 12.35 would do). This tool strips comments, collapses whitespace between tags and rounds long decimals to two places - typically cutting **file** **size** by 20–60% with zero visual change.",
-      "You see the before and after byte counts plus the exact percentage saved, then copy or download the leaner **SVG**. Everything runs in your browser, so your artwork is never uploaded anywhere. Every visitor gets 5 **free** optimizations with no account needed. **IconVault** Pro ($9.9/year) unlocks unlimited runs across all tools plus HD exports and every template.",
+      "You see the before and after byte counts plus the exact percentage saved, then copy or download the leaner **SVG**. Everything runs in your browser, so your artwork is never uploaded anywhere. Every visitor gets 5 **free** optimizations with no account needed. **IconVault** Pro ($12/year) unlocks unlimited runs across all tools plus HD exports and every template.",
     ],
     faqs: [
       {
@@ -390,7 +390,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free optimizations do I get?",
-        a: "Every visitor gets 5 free optimizations per tool, no account needed. IconVault Pro ($9.9/year) unlocks unlimited optimizations and every other Pro feature.",
+        a: "Every visitor gets 5 free optimizations per tool, no account needed. IconVault Pro ($12/year) unlocks unlimited optimizations and every other Pro feature.",
       },
     ],
     tags: [
@@ -420,7 +420,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Convert SVG to JSX, TSX, Vue or Svelte components instantly. Auto-maps attributes, self-closes tags. Free, runs entirely in your browser.",
     about: [
       "**IconVault**'s **SVG to JSX converter** turns raw **SVG** markup into framework-ready components in one click. Paste any **SVG** and get clean **JSX** with kebab-case attributes mapped to camelCase (stroke-width → strokeWidth, fill-rule → fillRule, class → className) and every tag properly self-closed New: **TypeScript** toggle with typed props, Icon mode (1em sizing for icon components), an editable **component** name, and optional {...props} spread. - the two things that break SVGs pasted straight into **React**. Switch tabs to get a typed **TSX** **component**, a **Vue** single-file **component**, or a **Svelte** **component** instead.",
-      "The **TSX** output includes a proper SVGProps type signature and spreads props onto the root element, so your icon accepts className, onClick and every standard **SVG** prop. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** conversions per tool with no account needed. **IconVault** Pro ($9.9/year) unlocks unlimited conversions, HD exports and every template.",
+      "The **TSX** output includes a proper SVGProps type signature and spreads props onto the root element, so your icon accepts className, onClick and every standard **SVG** prop. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** conversions per tool with no account needed. **IconVault** Pro ($12/year) unlocks unlimited conversions, HD exports and every template.",
     ],
     faqs: [
       {
@@ -445,7 +445,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($9.9/year) unlocks unlimited conversions across all tools.",
+        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($12/year) unlocks unlimited conversions across all tools.",
       },
     ],
     tags: [
@@ -476,7 +476,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Turn any SVG into a CSS-ready data URI or HTML embed snippet. URL-encoded, copy-paste ready. Free, private, runs in your browser.",
     about: [
       "**IconVault**'s **SVG to Data URI** **generator** encodes your **SVG** into a **data**:**image**/**svg**+xml **URI** you can paste straight into **CSS** as a **background**-**image** or into **HTML** as an <img> src. The output is URL-encoded with encodeURIComponent, so characters like # in fill colors are correctly escaped to %23 - the most common reason hand-made **SVG** **data** URIs fail in Firefox and other browsers.",
-      "**Data** URIs are perfect for small decorative icons, patterns and textures: they eliminate an HTTP request and keep the graphic **inline** with your stylesheet. You get both the **CSS** **background**-**image** rule and the **HTML** **embed** snippet, each with a one-click copy button New: decode mode recovers the original **SVG** from any **data** **URI** (**base64** or URL-encoded), plus extra output formats - raw **URI**, **CSS** **background**, <img> tag and **CSS** mask., plus the exact byte length of the **URI**. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** generations per tool; **IconVault** Pro ($9.9/year) unlocks unlimited runs across all tools.",
+      "**Data** URIs are perfect for small decorative icons, patterns and textures: they eliminate an HTTP request and keep the graphic **inline** with your stylesheet. You get both the **CSS** **background**-**image** rule and the **HTML** **embed** snippet, each with a one-click copy button New: decode mode recovers the original **SVG** from any **data** **URI** (**base64** or URL-encoded), plus extra output formats - raw **URI**, **CSS** **background**, <img> tag and **CSS** mask., plus the exact byte length of the **URI**. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** generations per tool; **IconVault** Pro ($12/year) unlocks unlimited runs across all tools.",
     ],
     faqs: [
       {
@@ -501,7 +501,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations per tool, no account needed. IconVault Pro ($9.9/year) unlocks unlimited generations and every other Pro feature.",
+        a: "Every visitor gets 5 free generations per tool, no account needed. IconVault Pro ($12/year) unlocks unlimited generations and every other Pro feature.",
       },
     ],
     tags: [
@@ -533,7 +533,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Combine multiple SVGs into one sprite.svg with <symbol> entries. Download the sprite + copy the <use> snippet. Free, in-browser.",
     about: [
       "**IconVault**'s **SVG Sprite Generator** merges any number of **SVGs** into a single **sprite**.**svg** file, where each **icon** becomes a <**symbol**> with its own id and viewBox. Add as many **SVGs** as you like - name each **one**, and the tool extracts the inner artwork, preserves the viewBox, and assembles a clean, hidden **sprite** ready to reference anywhere with <**svg**><use href=\"**sprite**.**svg**#**icon**-name\"></use></**svg**>.",
-      "Sprites are the classic performance pattern for **icon** systems: **one** cached HTTP request serves your whole **icon** set, and each **symbol** stays styleable with CSS (fill: currentColor works beautifully). You get the downloadable **sprite**.**svg** plus a copy-ready usage snippet for every **icon**, and a currentColor toggle that makes the whole **sprite** recolorable via CSS. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** sprites per tool; **IconVault** Pro ($9.9/year) unlocks unlimited runs, HD exports and every template.",
+      "Sprites are the classic performance pattern for **icon** systems: **one** cached HTTP request serves your whole **icon** set, and each **symbol** stays styleable with CSS (fill: currentColor works beautifully). You get the downloadable **sprite**.**svg** plus a copy-ready usage snippet for every **icon**, and a currentColor toggle that makes the whole **sprite** recolorable via CSS. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** sprites per tool; **IconVault** Pro ($12/year) unlocks unlimited runs, HD exports and every template.",
     ],
     faqs: [
       {
@@ -558,7 +558,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free sprites do I get?",
-        a: "Every visitor gets 5 free sprite generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited generations across all tools.",
+        a: "Every visitor gets 5 free sprite generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations across all tools.",
       },
     ],
     tags: [
@@ -590,7 +590,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Resize up to 10 images at once in your browser. Exact dimensions, percentage scaling, PNG/JPG/WebP output - free, private, no upload.",
     about: [
       "**IconVault**'s **Image Resizer** changes the dimensions of your **photos** and graphics right in your browser - no uploads, no queues, no watermarks. Drop up to 10 **images**, pick an exact pixel size or drag a percentage slider, and download everything resized in PNG, JPG or **WebP**. A **quality** slider tunes JPEG/**WebP** compression, and a “don't enlarge smaller **images**” toggle protects you from blurry upscales. It's the fastest way to prep **images** for websites, marketplaces, social posts and print.",
-      "Everything runs client-side, so your files never leave your device - a genuine privacy advantage over upload-based resizers. Every visitor gets 5 **free** uses with no account needed; **IconVault** Pro ($9.9/year) unlocks unlimited resizing along with unlimited runs of every other tool.",
+      "Everything runs client-side, so your files never leave your device - a genuine privacy advantage over upload-based resizers. Every visitor gets 5 **free** uses with no account needed; **IconVault** Pro ($12/year) unlocks unlimited resizing along with unlimited runs of every other tool.",
     ],
     faqs: [
       {
@@ -615,7 +615,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free resizes do I get?",
-        a: "Every visitor gets 5 free resizing runs, no account needed. IconVault Pro ($9.9/year) unlocks unlimited resizing plus unlimited uses of all 11+ tools.",
+        a: "Every visitor gets 5 free resizing runs, no account needed. IconVault Pro ($12/year) unlocks unlimited resizing plus unlimited uses of all 11+ tools.",
       },
     ],
     tags: [
@@ -641,7 +641,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Generate favicons from any of 421,020 icons or your own image. All sizes 16–512px, free PNGs, Pro favicon kit with webmanifest.",
     about: [
       "**IconVault**'s **Favicon Generator** builds every **favicon** size your site needs - 16, 32, 180, 192 and 512 pixels - from any of 421,020 library **icons**, an **image** you upload - or the new Text mode (initials with font, color and shape) and Emoji mode. No design software, no pixel-tweaking: pick a source, hit generate, and download crisp PNGs rendered at each standard size, all in your browser.",
-      "Individual PNG downloads are completely **free**. Everything runs client-side, so your source **image** never leaves your device. You get 5 **free** generations without an account; **IconVault** Pro ($9.9/year) unlocks the full **favicon** kit ZIP - all PNGs plus a ready-to-drop-in site.webmanifest - and unlimited uses of every tool.",
+      "Individual PNG downloads are completely **free**. Everything runs client-side, so your source **image** never leaves your device. You get 5 **free** generations without an account; **IconVault** Pro ($12/year) unlocks the full **favicon** kit ZIP - all PNGs plus a ready-to-drop-in site.webmanifest - and unlimited uses of every tool.",
     ],
     faqs: [
       {
@@ -666,7 +666,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free favicon generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. Individual PNG downloads are always free. IconVault Pro ($9.9/year) unlocks unlimited generations and the full kit ZIP.",
+        a: "Every visitor gets 5 free generations, no account needed. Individual PNG downloads are always free. IconVault Pro ($12/year) unlocks unlimited generations and the full kit ZIP.",
       },
     ],
     tags: [
@@ -694,7 +694,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Convert PNG to a real Windows .ico file online free. Multi-size 16/32/48 icons, PNG-compressed entries, in-browser, no upload.",
     about: [
       "**IconVault**'s **PNG to ICO converter** turns your **PNG** **image** into a genuine, standards-compliant **Windows** .**ico** **file** - the format browsers still look for at /**favicon**.**ico** and **Windows** uses for shortcuts and taskbar icons. It packs 16, 32 and 48-pixel entries with **PNG** compression into one **file**, so **Windows** picks the sharpest size for every context, from tab to desktop.",
-      "The entire conversion runs in your browser: your **image** is never uploaded, and there are no watermarks or queues. You get 5 **free** conversions with no account; **IconVault** Pro ($9.9/year) unlocks unlimited conversions plus unlimited runs of every other tool.",
+      "The entire conversion runs in your browser: your **image** is never uploaded, and there are no watermarks or queues. You get 5 **free** conversions with no account; **IconVault** Pro ($12/year) unlocks unlimited conversions plus unlimited runs of every other tool.",
     ],
     faqs: [
       {
@@ -719,7 +719,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free PNG-to-ICO conversions, no account needed. IconVault Pro ($9.9/year) unlocks unlimited conversions and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free PNG-to-ICO conversions, no account needed. IconVault Pro ($12/year) unlocks unlimited conversions and unlimited uses of all tools.",
       },
     ],
     tags: [
@@ -748,7 +748,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Create free QR codes for URLs, plain text, contact cards (vCard), Wi-Fi, SMS, email and phone calls. 22 fancy styles (8 free, 14 Pro), custom colors, brand-logo overlay and quiet-zone control - crisp 256–1024px PNG downloads, in-browser, no signup needed.",
     about: [
       "**IconVault**'s **QR Code Generator** turns URLs, plain text, contact cards (vCard), Wi-Fi credentials, SMS drafts, email drafts and phone numbers into scannable QR **codes** in seconds. Pick a content type - the tool builds the correct format (vCard, **WIFI**:, SMSTO:, mailto:, tel:) automatically. Then choose from 22 fancy styles - rounded dots, diamonds, stars, neon gradients and more - upload your brand logo in the center, and render at 256, 512 or 1024 pixels - or download an SVG for print. A live low-contrast warning flags color pairs that may not scan reliably before you download.",
-      "**Codes** are generated entirely in your browser - your content is never sent to a server, tracked, or expiring like the links from ad-driven QR services. Every visitor gets 5 **free** generations with no account; **IconVault** Pro ($9.9/year) unlocks unlimited QR generation, all 14 premium styles, and unlimited uses of every tool.",
+      "**Codes** are generated entirely in your browser - your content is never sent to a server, tracked, or expiring like the links from ad-driven QR services. Every visitor gets 5 **free** generations with no account; **IconVault** Pro ($12/year) unlocks unlimited QR generation, all 14 premium styles, and unlimited uses of every tool.",
     ],
     faqs: [
       {
@@ -773,7 +773,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free QR codes do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited QR codes and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited QR codes and unlimited uses of all tools.",
       },
       {
         q: "Can I style my QR code with colors and a logo?",
@@ -807,7 +807,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Design beautiful CSS gradients online free. Angle control, unlimited color stops, linear & radial, 12 one-click presets - live preview, copy-ready CSS.",
     about: [
       "**IconVault**'s **Gradient Generator** is a visual playground for **CSS** gradients: drag an angle slider, stack as many **color** stops as you like with per-stop position control, switch between **linear** and **radial** - now with a 12-preset gallery, Tailwind **CSS** class output, PNG export and shareable **gradient** links fades, and jump-start from 12 curated presets like Sunset, Ocean and Neon while a live preview updates in real time. Every tweak outputs clean, copy-ready **CSS** you can paste straight into a stylesheet or Tailwind arbitrary value.",
-      "It runs entirely in your browser with no account and no limits on experimentation. Every visitor gets 5 **free** **CSS** copies; **IconVault** Pro ($9.9/year) unlocks unlimited copies along with unlimited runs of every other design **tool**.",
+      "It runs entirely in your browser with no account and no limits on experimentation. Every visitor gets 5 **free** **CSS** copies; **IconVault** Pro ($12/year) unlocks unlimited copies along with unlimited runs of every other design **tool**.",
     ],
     faqs: [
       {
@@ -832,7 +832,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free gradients do I get?",
-        a: "Every visitor gets 5 free CSS copies, no account needed. IconVault Pro ($9.9/year) unlocks unlimited copies and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free CSS copies, no account needed. IconVault Pro ($12/year) unlocks unlimited copies and unlimited uses of all tools.",
       },
     ],
     tags: [
@@ -863,7 +863,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Convert colors between HEX, RGB, HSL, HSV, HWB, CMYK, LAB & LCH instantly. Harmonies, shades, WCAG contrast, CSS export - free.",
     about: [
       "**IconVault**'s **Color Converter** translates any **color** between **HEX**, **RGB**, **HSL**, HSV, HWB, **CMYK**, CIE-**LAB** and LCH in real time - type a value in any field, pick visually, or browse the 1,000+ named-**color** library below, and every other format updates instantly. Beyond conversion you get **color** harmonies (complementary, triadic, tetradic…), stepped shades & tints, WCAG contrast ratios against black and white, and one-click CSS variable export.",
-      "Everything runs in your browser: no uploads, no accounts, no waiting. Every visitor gets 5 **free** copies - Pro members ($9.9/year) get unlimited conversions across all tools plus unlimited Logo Builder, image and JSON tooling.",
+      "Everything runs in your browser: no uploads, no accounts, no waiting. Every visitor gets 5 **free** copies - Pro members ($12/year) get unlimited conversions across all tools plus unlimited Logo Builder, image and JSON tooling.",
     ],
     faqs: [
       {
@@ -884,7 +884,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($9.9/year) unlocks unlimited use of the Color Converter and every other tool.",
+        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($12/year) unlocks unlimited use of the Color Converter and every other tool.",
       },
       {
         q: "Is my data sent anywhere?",
@@ -919,7 +919,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Check text-to-background contrast ratios against WCAG 2.1. Live preview, AA/AAA pass-fail badges, one-click color swap and an auto-suggest fix for failing pairs - free in your browser.",
     about: [
       "**IconVault**'s **Contrast Checker** computes the **WCAG** 2.1 **contrast** **ratio** between any **text** and background **color** - the number that decides whether your **text** is readable for everyone, including the 1 in 12 men with **color**-vision deficiency. It renders a live preview of your exact pairing and scores it against all four bars: AA normal, AA large, **AAA** normal and **AAA** large. Ratios recalculate live as you type, a swap button flips foreground/background, and “Suggest AA fix” auto-nudges your **text** **color** to the nearest passing shade.",
-      "Everything runs in your browser with zero uploads. Every visitor gets 5 free checks - Pro members ($9.9/year) get unlimited checks plus unlimited use of the **Color** Converter, Box Shadow Generator and every other **IconVault** **tool**.",
+      "Everything runs in your browser with zero uploads. Every visitor gets 5 free checks - Pro members ($12/year) get unlimited checks plus unlimited use of the **Color** Converter, Box Shadow Generator and every other **IconVault** **tool**.",
     ],
     faqs: [
       {
@@ -940,7 +940,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free checks do I get?",
-        a: "Every visitor gets 5 free contrast checks, no account needed. IconVault Pro ($9.9/year) unlocks unlimited checks and every other tool.",
+        a: "Every visitor gets 5 free contrast checks, no account needed. IconVault Pro ($12/year) unlocks unlimited checks and every other tool.",
       },
       {
         q: "Is the preview accurate?",
@@ -975,7 +975,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Design CSS box shadows visually: offsets, blur, spread, color, opacity and inset, 8 one-click presets. Live preview, one-click copy - free.",
     about: [
       "**IconVault**'s **Box Shadow Generator** lets you design **CSS** **box**-shadows the visual way: drag sliders for X/Y offset, blur radius and spread, pick a color and opacity, toggle inset - and watch a live preview update on a real card. When it looks right, **copy** the exact **box**-**shadow** declaration straight into your stylesheet - or grab the Tailwind arbitrary-value class (**shadow**-[...]) and a one-click preset gallery (**Soft** card, Glow, Neumorphic…).",
-      "Everything runs in your browser: no uploads, no accounts. Every visitor gets 5 free copies - Pro members ($9.9/year) get unlimited copies plus unlimited use of every other **IconVault** tool, from the Color Converter to the Logo Builder.",
+      "Everything runs in your browser: no uploads, no accounts. Every visitor gets 5 free copies - Pro members ($12/year) get unlimited copies plus unlimited use of every other **IconVault** tool, from the Color Converter to the Logo Builder.",
     ],
     faqs: [
       {
@@ -996,7 +996,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free shadows can I copy?",
-        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($9.9/year) unlocks unlimited copies and every other tool.",
+        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($12/year) unlocks unlimited copies and every other tool.",
       },
       {
         q: "Does the output work in all browsers?",
@@ -1031,7 +1031,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Format, minify, validate and sort-keys in JSON in your browser. Error messages, copy, .json download - free, nothing uploaded.",
     about: [
       "**IconVault**'s **JSON Formatter** takes messy, minified or broken **JSON** and makes it readable: **pretty**-**print** with 2-space indentation, **minify** it back down for production, or **validate** it and get a plain-English error message pointing at the problem. It also loads .**json** files straight from your computer.",
-      "Everything runs in your browser - your **JSON** is parsed locally and never uploaded to any server, so API keys and payloads stay private. Every visitor gets 5 **free** **format**/**minify** runs (validation is unlimited); Pro members ($9.9/year) get unlimited runs across all **IconVault** tools.",
+      "Everything runs in your browser - your **JSON** is parsed locally and never uploaded to any server, so API keys and payloads stay private. Every visitor gets 5 **free** **format**/**minify** runs (validation is unlimited); Pro members ($12/year) get unlimited runs across all **IconVault** tools.",
     ],
     faqs: [
       {
@@ -1056,7 +1056,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free formats do I get?",
-        a: "Every visitor gets 5 free format/minify runs, no account needed; validation is unlimited. IconVault Pro ($9.9/year) unlocks unlimited runs of every tool.",
+        a: "Every visitor gets 5 free format/minify runs, no account needed; validation is unlimited. IconVault Pro ($12/year) unlocks unlimited runs of every tool.",
       },
     ],
     tags: [
@@ -1087,7 +1087,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Encode and decode Base64 text, or convert any file to a data URL - free in your browser. Unicode-safe, nothing uploaded.",
     about: [
       "**IconVault**'s Base64 tool encodes any text to Base64 and decodes Base64 back to text - fully Unicode-safe, so emoji and non-Latin scripts round-trip correctly. New: Standard and URL-safe (base64url, as used in JWTs) alphabets, plus auto-detect that picks encode or decode from what you paste. The File tab converts any file on your computer into a Base64 data URL, the **format** used to inline images, fonts and small assets directly into HTML, CSS and **JSON**.",
-      "Everything runs in your browser: encoding uses the Web TextEncoder API locally, so your text and files are never uploaded. Every visitor gets 5 **free** conversions - Pro members ($9.9/year) get unlimited conversions across all **IconVault** tools.",
+      "Everything runs in your browser: encoding uses the Web TextEncoder API locally, so your text and files are never uploaded. Every visitor gets 5 **free** conversions - Pro members ($12/year) get unlimited conversions across all **IconVault** tools.",
     ],
     faqs: [
       {
@@ -1112,7 +1112,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free encode/decode/file conversions, no account needed. IconVault Pro ($9.9/year) unlocks unlimited conversions of every tool.",
+        a: "Every visitor gets 5 free encode/decode/file conversions, no account needed. IconVault Pro ($12/year) unlocks unlimited conversions of every tool.",
       },
     ],
     tags: [
@@ -1181,7 +1181,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Decode any JWT token instantly in your browser - now with optional HMAC (HS256/384/512) signature verification. View header, payload, expiry and claims as readable JSON - 100% private, no signup.",
     about: [
       "**IconVault**'s **JWT Decoder** turns a compact **token** string into readable JSON in one click. Paste the **token** and the header (algorithm, **token** type), the **payload** (claims like sub, name, iat and exp) and the raw signature appear in separate panels, so you can inspect exactly what an auth **token** carries - essential when debugging login flows, expired sessions or role-based access bugs.",
-      "Everything happens in your browser: the **token** is decoded locally and never uploaded to any server, so it's safe to paste staging or production **tokens**. Expiry is calculated automatically and shown as a green “expires in…” or red “expired…” badge. A built-in security panel warns about unsigned **tokens** (alg:none), missing or expired exp claims, and sensitive data like passwords or secrets hiding in the **payload**. Every visitor gets 5 **free** decodes - **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "Everything happens in your browser: the **token** is decoded locally and never uploaded to any server, so it's safe to paste staging or production **tokens**. Expiry is calculated automatically and shown as a green “expires in…” or red “expired…” badge. A built-in security panel warns about unsigned **tokens** (alg:none), missing or expired exp claims, and sensitive data like passwords or secrets hiding in the **payload**. Every visitor gets 5 **free** decodes - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -1206,7 +1206,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free decodes do I get?",
-        a: "Every visitor gets 5 free JWT decodes with no account needed. IconVault Pro ($9.9/year) gives unlimited decodes plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free JWT decodes with no account needed. IconVault Pro ($12/year) gives unlimited decodes plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -1237,7 +1237,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Test JavaScript regular expressions live in your browser. Live match highlighting, flag toggles, capture-group inspection and find-and-replace with $1 group references - free, no signup.",
     about: [
       "**IconVault**'s **Regex Tester** is a live workbench for **regular** **expressions**. Type your pattern, toggle flags like g, i, m, s, u and y, and paste a **test** string - matches are highlighted instantly, each match is listed with its index, and captured groups are shown one by one so you can see exactly what your pattern grabbed.",
-      "It runs entirely in your browser using the real **JavaScript** RegExp engine, so what you **test** here behaves exactly like it will in your code. Invalid patterns get a clear red error message instead of silent failure, and you can copy the pattern as a ready-to-paste /pattern/flags literal. A built-in replace mode lets you **test** find-and-replace with $1-style backreferences before touching your code, a searchable cheat-sheet inserts common tokens with one click, and a share button encodes pattern, flags and **test** text into a linkable URL. Every visitor gets 5 **free** tests - **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "It runs entirely in your browser using the real **JavaScript** RegExp engine, so what you **test** here behaves exactly like it will in your code. Invalid patterns get a clear red error message instead of silent failure, and you can copy the pattern as a ready-to-paste /pattern/flags literal. A built-in replace mode lets you **test** find-and-replace with $1-style backreferences before touching your code, a searchable cheat-sheet inserts common tokens with one click, and a share button encodes pattern, flags and **test** text into a linkable URL. Every visitor gets 5 **free** tests - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -1262,7 +1262,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free tests do I get?",
-        a: "Every visitor gets 5 free regex tests with no account needed. IconVault Pro ($9.9/year) gives unlimited tests plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free regex tests with no account needed. IconVault Pro ($12/year) gives unlimited tests plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -1293,7 +1293,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Convert Unix timestamps to readable dates and back. Seconds or milliseconds, UTC, local time and relative time - free, in your browser.",
     about: [
       "**IconVault**'s **Timestamp Converter** translates **Unix** **epoch** timestamps into human-readable dates - and **back** again. Paste an **epoch** value - the tool auto-detects seconds, milliseconds, microseconds or nanoseconds by digit length - and instantly see the UTC ISO string, your local **time** and a relative phrase like “3 hours ago”, or pick any **date** and **time** to get its **epoch** seconds and milliseconds for APIs and databases. A two-way duration calculator converts seconds to and from 1d 2h 3m 4s notation.",
-      "Everything is computed locally in your browser - no API calls, no rounding errors from a server, and it works with the full JavaScript **date** range. A Now button fills the current **time** in one click, and every result is click-to-copy. Every visitor gets 5 **free** conversions - **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "Everything is computed locally in your browser - no API calls, no rounding errors from a server, and it works with the full JavaScript **date** range. A Now button fills the current **time** in one click, and every result is click-to-copy. Every visitor gets 5 **free** conversions - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -1318,7 +1318,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free timestamp conversions with no account needed. IconVault Pro ($9.9/year) gives unlimited conversions plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free timestamp conversions with no account needed. IconVault Pro ($12/year) gives unlimited conversions plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -1351,7 +1351,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Encode and decode URLs online. encodeURIComponent, encodeURI and smart decode modes - 100% in your browser, free, no signup.",
     about: [
       "**IconVault**'s **URL Encoder** / **Decoder** handles **percent**-**encoding** the way browsers do. Choose **encodeURIComponent** for a single query parameter or form value (encodes everything unsafe), **encodeURI** for a full **URL** (keeps : / ? & = # intact), or **Decode** to turn %XX sequences back into readable characters - with a smart fallback that handles full-**URL** encodings too.",
-      "Everything runs in your browser: nothing is uploaded, logged or stored, so it's safe for **URLs** containing tokens or PII. Input/output character counts show exactly how much the string grew, and one click moves the output back into the input for round-trip checks. Every visitor gets 5 **free** encodes - **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "Everything runs in your browser: nothing is uploaded, logged or stored, so it's safe for **URLs** containing tokens or PII. Input/output character counts show exactly how much the string grew, and one click moves the output back into the input for round-trip checks. Every visitor gets 5 **free** encodes - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -1376,7 +1376,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free encodes do I get?",
-        a: "Every visitor gets 5 free URL encodes/decodes with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free URL encodes/decodes with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -1408,7 +1408,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Generate 1–100 secure UUID v4s instantly with crypto.randomUUID. One-click copy per UUID or copy all - free, in your browser, no signup.",
     about: [
       "**IconVault**'s **UUID Generator** creates cryptographically secure **version** 4 UUIDs using the browser's built-in crypto.randomUUID() - the same API Node.js and Deno use. **Generate** 1, 10, 50 or 100 at a time in v4 or time-ordered v7 (RFC 9562) - the modern default for database keys - with uppercase and no-dashes format options. Copy any single **UUID** with one click, or copy the whole batch as newline-separated text for seeding databases, configs and fixtures.",
-      "Because generation happens locally with the platform's secure **random** source, UUIDs are never sent over the network or stored anywhere - safe for API keys, session identifiers and test data. Every visitor gets 5 **free** generations - **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "Because generation happens locally with the platform's secure **random** source, UUIDs are never sent over the network or stored anywhere - safe for API keys, session identifiers and test data. Every visitor gets 5 **free** generations - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -1433,7 +1433,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free UUID generations with no account needed. IconVault Pro ($9.9/year) gives unlimited generations plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free UUID generations with no account needed. IconVault Pro ($12/year) gives unlimited generations plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -1464,7 +1464,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Generate strong random passwords or memorable passphrases instantly in your browser. Custom length, symbols, ambiguous-character exclusion, word count and entropy meter - free, private, no signup needed.",
     about: [
       "**IconVault**'s **Password** **Generator** creates truly **random**, cryptographically **secure** **passwords** using your browser's built-in crypto.getRandomValues - the same source of randomness your operating system uses for encryption keys. Nothing is sent to a server, logged or stored: the **password** exists only in your tab until you copy it. Choose a length from 8 to 64 characters and mix lowercase, uppercase, digits and symbols to taste.",
-      "Every **password** comes with a live entropy meter that shows its strength in bits, so you can see exactly how hard it would be to crack. You get 5 **free** generations with no account - **IconVault** Pro ($9.9/year) unlocks unlimited generations and every other tool on the platform.",
+      "Every **password** comes with a live entropy meter that shows its strength in bits, so you can see exactly how hard it would be to crack. You get 5 **free** generations with no account - **IconVault** Pro ($12/year) unlocks unlimited generations and every other tool on the platform.",
     ],
     faqs: [
       {
@@ -1489,7 +1489,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free passwords can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited password generations plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited password generations plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
@@ -1522,7 +1522,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Compare two texts and see every change highlighted line by line, with character-level highlights inside changed lines. Free online diff checker with addition/deletion counts - private and in-browser.",
     about: [
       "The **Diff Checker** compares **two** pieces of **text** and highlights exactly what changed - removed lines in red with a − prefix, added lines in green with a + prefix, and unchanged lines dimmed for context. It runs a classic LCS (longest common subsequence) **diff** over lines, the same family of algorithm behind Git's **diff**, and shows you a count of additions and deletions at a glance. Character-level highlights pinpoint edits inside changed lines, Ignore-whitespace / Ignore-case toggles cut noise, and **Unified**/Split views switch the layout.",
-      "Everything happens in your browser: paste drafts, **code** snippets, configs or JSON and your **text** is never uploaded anywhere. You get 5 **free** comparisons with no account - **IconVault** Pro ($9.9/year) unlocks unlimited comparisons and every other **tool** on the platform.",
+      "Everything happens in your browser: paste drafts, **code** snippets, configs or JSON and your **text** is never uploaded anywhere. You get 5 **free** comparisons with no account - **IconVault** Pro ($12/year) unlocks unlimited comparisons and every other **tool** on the platform.",
     ],
     faqs: [
       {
@@ -1547,7 +1547,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free comparisons do I get?",
-        a: "Every visitor gets 5 free comparisons, no account needed. IconVault Pro ($9.9/year) unlocks unlimited diffs plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free comparisons, no account needed. IconVault Pro ($12/year) unlocks unlimited diffs plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
@@ -1577,7 +1577,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes instantly. Free online hash generator - private, runs entirely in your browser.",
     about: [
       "The **Hash Generator** turns any **text** into its cryptographic fingerprint - a fixed-length digest that changes completely if even one character changes. It computes **MD5**, **SHA**-1, **SHA**-**256**, **SHA**-384 and **SHA**-**512** all at once: the **SHA** family via your browser's built-in WebCrypto, **MD5** via a compact standards-compliant implementation, since browsers no longer ship **MD5**. New: HMAC mode signs **text** with your secret key (HMAC-**SHA**-**256**/**512**, e.g. for webhook signature debugging), and an expected-**hash** field gives a green Match / red Mismatch verdict.",
-      "Hashes are perfect for checksums, cache keys, Gravatar URLs and verifying file integrity. Everything is computed on your device - your input is never uploaded or stored. You get 5 **free** generations with no account - **IconVault** Pro ($9.9/year) unlocks unlimited hashing and every other tool on the platform.",
+      "Hashes are perfect for checksums, cache keys, Gravatar URLs and verifying file integrity. Everything is computed on your device - your input is never uploaded or stored. You get 5 **free** generations with no account - **IconVault** Pro ($12/year) unlocks unlimited hashing and every other tool on the platform.",
     ],
     faqs: [
       {
@@ -1602,7 +1602,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free hashes can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited hashing plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited hashing plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
@@ -1632,7 +1632,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     about: [
       "The **Markdown Preview** tool is a **live** two-pane **editor**: **write** **Markdown** on the left and watch it render as styled **HTML** on the right, instantly. It handles headings, bold and italic, lists, links, images, blockquotes, code blocks, tables and horizontal rules - everything you need for READMEs, blog posts and documentation.",
       "Code blocks get automatic **syntax** **highlighting**, tables render as clean bordered grids, and the **preview** pane scrolls independently so long documents stay easy to review. Paste an existing **README**.**md** or draft from scratch - the **editor** never uploads your **text** anywhere.",
-      "Hit **Copy** **HTML** to grab clean, embed-ready markup - script tags and inline event handlers are stripped automatically so the output is safe to paste into your site. The **preview** is unlimited and **free** forever; copying **HTML** counts as a use - 5 **free** per visitor, with **IconVault** Pro ($9.9/year) unlocking unlimited copies and every other tool.",
+      "Hit **Copy** **HTML** to grab clean, embed-ready markup - script tags and inline event handlers are stripped automatically so the output is safe to paste into your site. The **preview** is unlimited and **free** forever; copying **HTML** counts as a use - 5 **free** per visitor, with **IconVault** Pro ($12/year) unlocking unlimited copies and every other tool.",
     ],
     faqs: [
       {
@@ -1657,7 +1657,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free copies do I get?",
-        a: "Live previewing is unlimited and free. Copying the HTML counts as a use - 5 free per visitor, no account needed. IconVault Pro ($9.9/year) unlocks unlimited copies plus all 10+ tools.",
+        a: "Live previewing is unlimited and free. Copying the HTML counts as a use - 5 free per visitor, no account needed. IconVault Pro ($12/year) unlocks unlimited copies plus all 10+ tools.",
       },
     ],
     tags: [
@@ -1689,7 +1689,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     about: [
       "The **Code** **Playground** is a **live** web **editor**: **write** **HTML**, **CSS** and JavaScript in three panes and watch your page compile and run **live** in an isolated **preview** as you type. Perfect for testing snippets, prototyping layouts and learning front-end **code** without setting up a project.",
       "Your **code** runs inside a sandboxed iframe with scripts allowed but no access to the **IconVault** page - so experiments can never break anything. Hit **Copy** to grab the current pane, or **Download** .**html** to save everything as one standalone file you can open in any browser or send to anyone.",
-      "Everything runs 100% in your browser - your **code** never leaves your device. Coding and the **live** **preview** are **free** and unlimited; copying or downloading counts as a use - 5 **free** per visitor, with **IconVault** Pro ($9.9/year) unlocking unlimited uses and every other tool.",
+      "Everything runs 100% in your browser - your **code** never leaves your device. Coding and the **live** **preview** are **free** and unlimited; copying or downloading counts as a use - 5 **free** per visitor, with **IconVault** Pro ($12/year) unlocking unlimited uses and every other tool.",
     ],
     faqs: [
       {
@@ -1714,7 +1714,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free uses do I get?",
-        a: "Coding and the live preview are free and unlimited. Copying a pane or downloading the page counts as a use - 5 free per visitor, no account needed. IconVault Pro ($9.9/year) unlocks unlimited uses.",
+        a: "Coding and the live preview are free and unlimited. Copying a pane or downloading the page counts as a use - 5 free per visitor, no account needed. IconVault Pro ($12/year) unlocks unlimited uses.",
       },
     ],
     tags: [
@@ -1765,7 +1765,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       "Generate lorem ipsum paragraphs, sentences or words instantly. Free placeholder text generator for mockups - no signup needed.",
     about: [
       "The **Lorem Ipsum Generator** produces classic **placeholder** **text** for mockups, wireframes, font previews and layout drafts - starting with the authentic \"**Lorem ipsum** **dolor** sit **amet**…\" passage. Choose **paragraphs**, sentences or words and dial in any count from 1 to 50 for pixel-perfect control over your **dummy** **copy** - then export as plain **text**, HTML **paragraphs**, or an HTML bullet list.",
-      "**Placeholder** **text** lets you design around realistic **text** shapes without real **copy** distracting reviewers. Everything runs in your browser with one click to **copy**. You get 5 **free** generations with no account - **IconVault** Pro ($9.9/year) unlocks unlimited generations and every other tool on the platform.",
+      "**Placeholder** **text** lets you design around realistic **text** shapes without real **copy** distracting reviewers. Everything runs in your browser with one click to **copy**. You get 5 **free** generations with no account - **IconVault** Pro ($12/year) unlocks unlimited generations and every other tool on the platform.",
     ],
     faqs: [
       {
@@ -1790,7 +1790,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited lorem ipsum plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited lorem ipsum plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
@@ -1846,7 +1846,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free analyses do I get?",
-        a: "Every visitor gets 5 free font analyses, no account needed. IconVault Pro ($9.9/year) unlocks unlimited analyses.",
+        a: "Every visitor gets 5 free font analyses, no account needed. IconVault Pro ($12/year) unlocks unlimited analyses.",
       },
     ],
     tags: [
@@ -1925,7 +1925,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free removals do I get?",
-        a: "Every visitor gets 5 free background removals, no account needed. IconVault Pro ($9.9/year) unlocks unlimited removals.",
+        a: "Every visitor gets 5 free background removals, no account needed. IconVault Pro ($12/year) unlocks unlimited removals.",
       },
     ],
     tags: [
@@ -2006,7 +2006,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited generations.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
       },
     ],
     tags: [
@@ -2088,7 +2088,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited generations.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
       },
     ],
     tags: [
@@ -3154,7 +3154,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free barcodes can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($9.9/year) unlocks unlimited generations.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
       },
     ],
     tags: [
@@ -11272,7 +11272,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Roll virtual dice online free. D4, D6, D8, D10, D12, D20 and D100 with modifiers, animated rolls and roll history. Runs fully in your browser, no signup.",
     about: [
       "**IconVault**'s **Dice Roller** is a **free online dice roller** for tabletop RPGs, board games and quick decisions. Pick from **D4**, **D6**, **D8**, **D10**, **D12**, **D20** and **D100**, roll up to 10 dice at once and add a **modifier** (+3, -2) for attack rolls, skill checks and saving throws. Every roll plays a quick animation and shows the individual results plus the total.",
-      "Everything runs **100% in your browser**: no downloads, no account and no data sent anywhere. Your last 30 rolls are saved in **roll history** on your device, and one click copies a roll in standard **NdN+mod notation** (like 2d6+3) so you can paste it into chat or your character sheet. Visitors get 5 **free** rolls with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited rolls across every tool.",
+      "Everything runs **100% in your browser**: no downloads, no account and no data sent anywhere. Your last 30 rolls are saved in **roll history** on your device, and one click copies a roll in standard **NdN+mod notation** (like 2d6+3) so you can paste it into chat or your character sheet. Visitors get 5 **free** rolls with no signup; **IconVault** Pro ($12/year) unlocks unlimited rolls across every tool.",
     ],
     faqs: [
       {
@@ -11297,7 +11297,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free rolls do I get?",
-        a: "Every visitor gets 5 free rolls with no account needed. IconVault Pro ($9.9/year) gives unlimited rolls plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free rolls with no account needed. IconVault Pro ($12/year) gives unlimited rolls plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11325,7 +11325,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Check DNS records for any domain instantly. A, AAAA, MX, TXT, CNAME, NS and SOA lookups over encrypted DNS. Free, no signup, runs in your browser.",
     about: [
       "**IconVault**'s **DNS Lookup** checks **DNS records** for any domain right in your browser. Query **A**, **AAAA**, **MX**, **TXT**, **CNAME**, **NS** and **SOA** records and see the **TTL**, record type and value for every answer. It is perfect for verifying **mail server records**, **SPF** and **DMARC** entries, nameserver changes and website migrations.",
-      "Queries go straight from your browser to **Cloudflare's encrypted DNS-over-HTTPS** endpoint, so lookups are fast, private and tamper-proof, with no backend server in the middle and nothing logged. The tool is **100% free**, works without an account and runs entirely on your device. Visitors get 5 **free** lookups with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every tool.",
+      "Queries go straight from your browser to **Cloudflare's encrypted DNS-over-HTTPS** endpoint, so lookups are fast, private and tamper-proof, with no backend server in the middle and nothing logged. The tool is **100% free**, works without an account and runs entirely on your device. Visitors get 5 **free** lookups with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -11350,7 +11350,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free DNS lookups do I get?",
-        a: "Every visitor gets 5 free lookups with no account needed. IconVault Pro ($9.9/year) gives unlimited lookups plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free lookups with no account needed. IconVault Pro ($12/year) gives unlimited lookups plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11378,7 +11378,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Watch a DNS query travel from stub resolver to root, TLD and authoritative servers. Interactive step by step lab. Free, educational, no signup.",
     about: [
       "**IconVault**'s **DNS Lab** is an interactive **DNS resolution simulator** that shows exactly how a domain name becomes an IP address. Type any domain and watch the query move hop by hop: **stub resolver** on your device, **recursive resolver**, **root server**, **TLD server** and **authoritative nameserver**, with a plain-English explanation and realistic timing for every step.",
-      "Use **play**, **pause**, **step forward** and **step back** controls to study at your own pace, and see how **DNS caching** changes the path when an answer is already known. Everything is **simulated in your browser** using documentation IPs (no real network lookups), which makes it a safe, **free** study tool for students, bootcamp learners and interview prep. Visitors get 5 **free** lab runs with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every tool.",
+      "Use **play**, **pause**, **step forward** and **step back** controls to study at your own pace, and see how **DNS caching** changes the path when an answer is already known. Everything is **simulated in your browser** using documentation IPs (no real network lookups), which makes it a safe, **free** study tool for students, bootcamp learners and interview prep. Visitors get 5 **free** lab runs with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -11403,7 +11403,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free lab runs do I get?",
-        a: "Every visitor gets 5 free simulations with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free simulations with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11433,7 +11433,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Build docker-compose.yml visually. Add services, ports, volumes, env vars and networks with live YAML preview. Free, 100% client side, no signup.",
     about: [
       "**IconVault**'s **Compose Generator** builds a valid **docker-compose.yml** without you writing a line of YAML. Add services with a visual form: **image**, **ports**, **volumes**, **environment variables**, **depends_on**, **restart policy** and **networks**. One-click presets for **Nginx**, **Node.js**, **Postgres**, **Redis**, **MySQL** and **MongoDB** fill in sensible defaults you can tweak.",
-      "The **YAML output updates live** as you type, so you always see exactly what your stack will look like, then copy it or **download the file** with one click. Everything runs **100% client side** in your browser: no server, no account, no uploads. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "The **YAML output updates live** as you type, so you always see exactly what your stack will look like, then copy it or **download the file** with one click. Everything runs **100% client side** in your browser: no server, no account, no uploads. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -11458,7 +11458,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11495,7 +11495,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Convert docker run commands to docker-compose.yml instantly. Paste your command, get clean compose YAML to copy or download. Free, in your browser.",
     about: [
       "**IconVault**'s **Docker to Compose** turns a long **docker run** command into a clean **docker-compose.yml** service. Paste the command and it parses **ports** (-p), **volumes** (-v), **environment variables** (-e), **container name**, **network**, **restart policy** and more, then emits ready-to-run Compose YAML you can copy or download.",
-      "The conversion happens **100% client side** in your browser: your commands are never uploaded or logged, which keeps private registry URLs and secrets safe. It is the fastest way to migrate one-off containers into a maintainable **compose stack**. Note that very long or exotic flag combinations may need a quick manual review. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every tool.",
+      "The conversion happens **100% client side** in your browser: your commands are never uploaded or logged, which keeps private registry URLs and secrets safe. It is the fastest way to migrate one-off containers into a maintainable **compose stack**. Note that very long or exotic flag combinations may need a quick manual review. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -11520,7 +11520,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($9.9/year) gives unlimited conversions plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($12/year) gives unlimited conversions plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11556,7 +11556,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Generate best practice Dockerfiles for 10 languages. Multi-stage builds, ports, workdir and env vars with live preview. Free, no signup, in browser.",
     about: [
       "**IconVault**'s **Dockerfile Generator** writes a correct, **best-practice Dockerfile** for your stack in seconds. Pick from **10 languages** (including Node.js, Python and Go), toggle **multi-stage builds** for smaller images, then set the **port**, **workdir** and **environment variables**. The Dockerfile renders in a **live preview** as you change options, and you can copy or download it with one click.",
-      "Everything runs **100% in your browser**: no installs, no account, nothing uploaded. The output is a solid production-style starting point using slim base images and layer-friendly instruction order, though you should still review it for your specific app before shipping. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "Everything runs **100% in your browser**: no installs, no account, nothing uploaded. The output is a solid production-style starting point using slim base images and layer-friendly instruction order, though you should still review it for your specific app before shipping. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -11581,7 +11581,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free Dockerfile generations with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free Dockerfile generations with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11618,7 +11618,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Convert appsettings.json to .env format online. Nested sections become Section__Key pairs, connection strings shown in a table. Free, private, in browser.",
     about: [
       "**IconVault**'s **.NET Config Converter** turns **appsettings.json** into a **.env file** in one click. Nested sections are flattened into the **Section__Key** double-underscore format that .NET's environment variable configuration provider understands, and every entry in **ConnectionStrings** is parsed into a readable **key-value table** so you can inspect servers, databases and credentials at a glance.",
-      "The conversion runs **100% in your browser**: your config, including database passwords and API keys, is never uploaded, logged or stored anywhere, making it safe for production settings. Paste or upload your JSON, copy the **.env output** or scan the connection string table, then drop the result into your container or CI pipeline. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "The conversion runs **100% in your browser**: your config, including database passwords and API keys, is never uploaded, logged or stored anywhere, making it safe for production settings. Paste or upload your JSON, copy the **.env output** or scan the connection string table, then drop the result into your container or CI pipeline. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -11643,7 +11643,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11686,7 +11686,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Find duplicate files by SHA-256 content hash. Groups identical files and totals wasted space. 100% private, files never leave your device. Free.",
     about: [
       "**IconVault**'s **Duplicate Finder** finds **duplicate files** by content, not by name. It hashes every file with **SHA-256** and groups files with **identical hashes** together, so renamed copies, repeated downloads and forgotten backups are all caught. Each group shows the **wasted bytes** it costs you, with a running total across the whole scan.",
-      "Everything happens **100% in your browser**: file contents are hashed locally and **never uploaded**, so the tool is safe for private photos, documents and work files. On supported browsers you can scan a whole **folder** at once via the File System Access API; everywhere else you can select multiple files. Visitors get 5 **free** scans with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every tool.",
+      "Everything happens **100% in your browser**: file contents are hashed locally and **never uploaded**, so the tool is safe for private photos, documents and work files. On supported browsers you can scan a whole **folder** at once via the File System Access API; everywhere else you can select multiple files. Visitors get 5 **free** scans with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -11711,7 +11711,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free scans do I get?",
-        a: "Every visitor gets 5 free scans with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free scans with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11747,7 +11747,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Design CSS cubic-bezier easing curves visually. Drag handles, try presets, race against linear animation and copy the CSS. Free, no signup.",
     about: [
       "**IconVault**'s **Easing Visualizer** lets you design **CSS easing curves** by hand instead of guessing numbers. Drag the two **cubic-bezier handles** on the curve editor, or start from built-in **presets** like ease-in, ease-out, ease-in-out and springy custom curves, and watch an **animated dot race** your easing against linear motion so you can feel the difference instantly.",
-      "The tool outputs ready-to-paste **CSS** (cubic-bezier values and transition or animation snippets) with one click. Everything runs **100% in your browser**: no installs, no account, no uploads. It is a fast way for developers and designers to craft motion that feels right for buttons, modals and page transitions. Visitors get 5 **free** copies with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every tool.",
+      "The tool outputs ready-to-paste **CSS** (cubic-bezier values and transition or animation snippets) with one click. Everything runs **100% in your browser**: no installs, no account, no uploads. It is a fast way for developers and designers to craft motion that feels right for buttons, modals and page transitions. Visitors get 5 **free** copies with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -11772,7 +11772,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free uses do I get?",
-        a: "Every visitor gets 5 free uses with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free uses with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -11809,7 +11809,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     metaDescription: "Build .editorconfig files visually. Set root, sections, indent and line endings with live output preview. Free, copy or download, no signup.",
     about: [
       "**IconVault**'s **EditorConfig Generator** builds a correct **.editorconfig** file without memorizing the syntax. Toggle **root = true**, add per-section rows like **[*]**, **[*.{js,ts}]** or **[Makefile]**, and set **indent style and size**, **line endings**, **charset**, **trailing whitespace** and **final newline** for each section from a visual form.",
-      "The **.editorconfig output updates live** as you edit, so you always see the exact file your editor will read, then copy it or **download** it with one click. Everything runs **100% in your browser**: no installs, no account, nothing uploaded. It is the fastest way to keep **consistent code style** across editors and team members. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($9.9/year) unlocks unlimited use of every developer tool.",
+      "The **.editorconfig output updates live** as you edit, so you always see the exact file your editor will read, then copy it or **download** it with one click. Everything runs **100% in your browser**: no installs, no account, nothing uploaded. It is the fastest way to keep **consistent code style** across editors and team members. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -11834,7 +11834,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($9.9/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -28621,7 +28621,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free batch downloads do I get?",
-        a: "Every visitor gets 5 free batch downloads, no account needed. IconVault Pro ($9.9/year) unlocks unlimited batch exports.",
+        a: "Every visitor gets 5 free batch downloads, no account needed. IconVault Pro ($12/year) unlocks unlimited batch exports.",
       },
       {
         q: "Is my selection uploaded anywhere?",
@@ -28671,7 +28671,7 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
       },
       {
         q: "How many free logo exports do I get?",
-        a: "Every visitor gets 5 free exports (PNG-1024 or SVG), no account needed. IconVault Pro ($9.9/year) unlocks unlimited exports and the full logo kit ZIP.",
+        a: "Every visitor gets 5 free exports (PNG-1024 or SVG), no account needed. IconVault Pro ($12/year) unlocks unlimited exports and the full logo kit ZIP.",
       },
       {
         q: "Is my logo design uploaded anywhere?",

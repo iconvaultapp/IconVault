@@ -15,7 +15,21 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 export const Route = createFileRoute("/tools_/file-system-playground")({
   head: () => {
     const seo = getToolSeoMeta("file-system-playground");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/file-system-playground";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: FsTool,
 });

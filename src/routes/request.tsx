@@ -28,7 +28,7 @@ export const Route = createFileRoute("/request")({
       { property: "og:url", content: "/request" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/request" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/request" }],
   }),
   component: Page,
 });

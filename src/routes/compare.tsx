@@ -25,7 +25,7 @@ export const Route = createFileRoute("/compare")({
       { property: "og:url", content: "/compare" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/compare" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/compare" }],
   }),
   component: Page,
 });

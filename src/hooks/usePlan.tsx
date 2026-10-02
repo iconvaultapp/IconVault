@@ -11,7 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 
 export const FREE_BULK_DOWNLOAD_LIMIT = 7;
-export const YEARLY_PRICE = 9.9;
+export const YEARLY_PRICE = 12;
 
 type Plan = "free" | "yearly";
 

@@ -31,7 +31,7 @@ export const Route = createFileRoute("/collections")({
       { property: "og:url", content: "/collections" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/collections" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/collections" }],
   }),
   component: Page,
 });

@@ -22,7 +22,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-/** The single paid plan: Pro Yearly ($9.9/year). */
+/** The single paid plan: Pro Yearly ($12/year). */
 type PaidPlan = "yearly";
 
 async function grantPlan(userId: string, plan: PaidPlan, ref?: string) {

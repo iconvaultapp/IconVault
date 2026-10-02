@@ -21,6 +21,12 @@ import {
   TrendingUp,
   Wrench,
   LayoutGrid,
+  UserRound,
+  MessageSquareQuote,
+  Star,
+  Check,
+  X,
+  Pencil,
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -52,6 +58,8 @@ import {
 } from "@/lib/admin.functions";
 import { LIVE_TOOLS } from "@/lib/tool-catalog";
 import { downloadCsv, stamp } from "@/lib/csv";
+import { UsersTab } from "@/components/admin/UsersTab";
+import { TestimonialsTab } from "@/components/admin/TestimonialsTab";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -101,6 +109,7 @@ interface AccountRow {
   display_name: string | null;
   roles: string[];
   is_owner: boolean;
+  plan: string;
 }
 
 interface SiteSettings {
@@ -126,6 +135,8 @@ const STATUSES = ["pending", "in_progress", "completed", "rejected"] as const;
 const TABS = [
   { id: "overview", label: "Overview", icon: BarChart3 },
   { id: "analytics", label: "Analytics", icon: TrendingUp },
+  { id: "users", label: "Users", icon: UserRound },
+  { id: "testimonials", label: "Testimonials", icon: MessageSquareQuote },
   { id: "requests", label: "Requests", icon: Lightbulb },
   { id: "waitlist", label: "Waitlist", icon: Mail },
   { id: "accounts", label: "Accounts", icon: Users },
@@ -1093,6 +1104,32 @@ function AdminPage() {
                   ))}
                 </ul>
               )}
+            </div>
+          </div>
+        )}
+
+        {tab === "users" && (
+          <div>
+            <SectionHeading
+              eyebrow="People"
+              title="Users"
+              description="Every registered user: email, name, plan, join date and last sign-in. Select rows to download a CSV."
+            />
+            <div className="mt-8">
+              <UsersTab users={accounts} />
+            </div>
+          </div>
+        )}
+
+        {tab === "testimonials" && (
+          <div>
+            <SectionHeading
+              eyebrow="Content"
+              title="Testimonials"
+              description="Moderate the reviews shown in the homepage carousel. Approve the good ones, edit or delete the rest."
+            />
+            <div className="mt-8">
+              <TestimonialsTab />
             </div>
           </div>
         )}

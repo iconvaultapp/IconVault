@@ -33,7 +33,7 @@ export const Route = createFileRoute("/auth")({
       { property: "og:url", content: "/auth" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/auth" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/auth" }],
   }),
   component: Page,
 });
@@ -119,7 +119,7 @@ function Page() {
   };
 
   const field =
-    "w-full rounded-xl border border-border bg-background py-2.5 pl-11 pr-4 text-sm outline-none transition-colors focus:border-primary/50";
+    "w-full rounded-xl border border-border bg-background py-2.5 pl-11 pr-4 text-base outline-none transition-colors focus:border-primary/50";
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

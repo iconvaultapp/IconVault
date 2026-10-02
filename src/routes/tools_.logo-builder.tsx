@@ -30,6 +30,7 @@ import {
 } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
+import { getToolSeo } from "@/lib/tool-seo";
 import { toast } from "sonner";
 
 /* ---------------------------------- bits ---------------------------------- */
@@ -152,8 +153,18 @@ export const Route = createFileRoute("/tools_/logo-builder")({
         content:
           "Turn any of 421,020 icons into a logo: style the tile, add a wordmark, export PNG, SVG and a full favicon + app-icon kit.",
       },
-      { property: "og:title", content: "Logo Builder - IconVault" },
+      { property: "og:title", content: "Logo Builder - Free Favicon & App Icon Maker | IconVault" },
+      {
+        property: "og:description",
+        content:
+          "Turn any of 421,020 icons into a logo: style the tile, add a wordmark, export PNG, SVG and a full favicon + app-icon kit.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://iconvault.site/tools/logo-builder" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Logo Builder - Free Favicon & App Icon Maker | IconVault" },
     ],
+    links: [{ rel: "canonical", href: "https://iconvault.site/tools/logo-builder" }],
   }),
   component: LogoBuilderPage,
 });
@@ -574,11 +585,28 @@ function LogoBuilderPage() {
             <p className="text-xs leading-relaxed text-muted-foreground">
               {isPro
                 ? "Pro unlocked - kit includes favicons, app icons, SVG, manifest + HTML snippet."
-                : "Kit includes favicons, app icons, manifest + HTML snippet. Pro only - $11/mo or $29 once."}
+                : "Kit includes favicons, app icons, manifest + HTML snippet. Pro only - $12/year."}
             </p>
           </Section>
         </aside>
       </div>
+
+      {/* Popular searches: same tag chips every other tool page shows. */}
+      <section className="border-t border-border bg-background px-4 py-10 sm:px-6">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-balance text-xl font-extrabold">Popular searches</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {getToolSeo("logo-builder").tags.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium text-muted-foreground"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

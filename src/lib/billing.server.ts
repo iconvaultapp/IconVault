@@ -53,11 +53,11 @@ export interface CheckoutInput {
   origin: string;
 }
 
-/** The single paid plan: Pro Yearly ($9.9/year). */
+/** The single paid plan: Pro Yearly ($12/year). */
 export type PaidPlan = "yearly";
 
 /**
- * Pro Yearly ($9.9/year) subscription product id. Optional - Sameer creates the
+ * Pro Yearly ($12/year) subscription product id. Optional - Sameer creates the
  * subscription product in the Dodo dashboard and sets
  * DODO_PAYMENTS_PRODUCT_ID_YEARLY in the Worker environment.
  */
@@ -65,7 +65,7 @@ export function getYearlyProductId(): string {
   const id = getServerEnv("DODO_PAYMENTS_PRODUCT_ID_YEARLY");
   if (!id) {
     throw new Error(
-      "Dodo Payments yearly plan is not configured. Create a $9.9/year subscription product in the Dodo dashboard and set DODO_PAYMENTS_PRODUCT_ID_YEARLY in your Cloudflare Worker environment.",
+      "Dodo Payments yearly plan is not configured. Create a $12/year subscription product in the Dodo dashboard and set DODO_PAYMENTS_PRODUCT_ID_YEARLY in your Cloudflare Worker environment.",
     );
   }
   return id;
@@ -91,7 +91,7 @@ async function createCheckout(
 }
 
 /**
- * Create a Dodo checkout session for the $9.9/year Pro subscription and
+ * Create a Dodo checkout session for the $12/year Pro subscription and
  * return the hosted checkout URL to redirect the customer to.
  * Dodo handles the recurring billing; webhooks (subscription.active /
  * subscription.cancelled / subscription.expired) keep the Supabase plan

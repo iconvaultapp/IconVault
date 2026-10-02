@@ -14,7 +14,21 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 export const Route = createFileRoute("/tools_/remove-extra-spaces")({
   head: () => {
     const seo = getToolSeoMeta("remove-extra-spaces");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/remove-extra-spaces";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: RemoveExtraSpacesTool,
 });

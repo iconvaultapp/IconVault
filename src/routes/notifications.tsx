@@ -24,7 +24,7 @@ export const Route = createFileRoute("/notifications")({
       { property: "og:url", content: "/notifications" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/notifications" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/notifications" }],
   }),
   component: Page,
 });

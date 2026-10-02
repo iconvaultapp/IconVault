@@ -21,20 +21,15 @@ import {
   Minimize2,
   Star,
   MessageSquareQuote,
-  Trash2,
 } from "lucide-react";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { SectionHeading, Stack, CTABand } from "@/components/kit";
-import {
-  getUserTestimonials,
-  saveUserTestimonial,
-  deleteUserTestimonial,
-  TESTIMONIAL_MAX_LENGTH,
-  type UserTestimonial,
-} from "@/lib/user-testimonials";
+import { useServerFn } from "@tanstack/react-start";
+import { submitTestimonial } from "@/lib/testimonial.functions";
+import { TESTIMONIAL_MAX_LENGTH } from "@/lib/user-testimonials";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useFavourites } from "@/hooks/useFavourites";
@@ -62,7 +57,7 @@ export const Route = createFileRoute("/profile")({
       { property: "og:url", content: "/profile" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/profile" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/profile" }],
   }),
   component: Page,
 });
@@ -122,7 +117,8 @@ const POPULAR_TOOLS = [
   },
 ] as const;
 
-/** Let the user publish a short review that appears in the homepage testimonials. */
+/** Let the user publish a short review. Stored in Supabase as unapproved;
+ *  it appears in the homepage testimonials carousel once an admin approves it. */
 function TestimonialSection({ displayName }: { displayName: string }) {
   const [name, setName] = useState(displayName);
   const [quote, setQuote] = useState("");
@@ -130,17 +126,14 @@ function TestimonialSection({ displayName }: { displayName: string }) {
   const [hoverRating, setHoverRating] = useState(0);
   const [trap, setTrap] = useState("");
   const [saving, setSaving] = useState(false);
-  const [reviews, setReviews] = useState<UserTestimonial[]>([]);
-
-  useEffect(() => {
-    setReviews(getUserTestimonials());
-  }, []);
+  const [submitted, setSubmitted] = useState<{ name: string; quote: string; rating: number }[]>([]);
+  const submitFn = useServerFn(submitTestimonial);
 
   useEffect(() => {
     setName((prev) => prev || displayName);
   }, [displayName]);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isBotSubmission(trap)) {
       toast.success("Thanks for your review");
@@ -151,17 +144,22 @@ function TestimonialSection({ displayName }: { displayName: string }) {
       return;
     }
     setSaving(true);
-    const entry = saveUserTestimonial({ name: name.trim() || displayName, quote, rating });
-    setReviews((prev) => [entry, ...prev]);
-    setQuote("");
-    setSaving(false);
-    toast.success("Your review is live - it now appears on the homepage");
-  };
-
-  const remove = (createdAt: string) => {
-    deleteUserTestimonial(createdAt);
-    setReviews((prev) => prev.filter((r) => r.createdAt !== createdAt));
-    toast.success("Review removed");
+    try {
+      const result = await submitFn({
+        data: { name: name.trim() || displayName, text: quote.trim(), rating },
+      });
+      if (result.ok) {
+        setSubmitted((prev) => [{ name: name.trim() || displayName, quote: quote.trim(), rating }, ...prev]);
+        setQuote("");
+        toast.success("Review submitted - it goes live after a quick approval");
+      } else {
+        toast.error("Could not save your review. Please try again.");
+      }
+    } catch {
+      toast.error("Could not save your review. Please try again.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -169,7 +167,7 @@ function TestimonialSection({ displayName }: { displayName: string }) {
       <SectionHeading
         eyebrow="Community"
         title="Your review"
-        description="Share a short review - it appears in the homepage testimonials on this device."
+        description="Share a short review - approved reviews appear in the homepage testimonials."
       />
       <Reveal>
         <div className="surface-card mt-8 p-6">
@@ -245,39 +243,36 @@ function TestimonialSection({ displayName }: { displayName: string }) {
             </button>
           </form>
 
-          {reviews.length > 0 && (
+          {submitted.length > 0 && (
             <div className="mt-8 border-t border-border pt-6">
               <p className="text-sm font-medium">
-                Your published {reviews.length === 1 ? "review" : "reviews"}
+                Your submitted {submitted.length === 1 ? "review" : "reviews"}
               </p>
               <ul className="mt-4 grid gap-3">
-                {reviews.map((r) => (
+                {submitted.map((r, i) => (
                   <li
-                    key={r.createdAt}
-                    className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background p-4"
+                    key={`${r.name}-${i}`}
+                    className="rounded-xl border border-border bg-background p-4"
                   >
                     <div className="min-w-0">
-                      <div className="flex gap-0.5 text-accent">
-                        {Array.from({ length: 5 }).map((_, n) => (
-                          <Star
-                            key={n}
-                            className={`h-3 w-3 ${n < r.rating ? "fill-accent" : "opacity-30"}`}
-                          />
-                        ))}
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex gap-0.5 text-accent">
+                          {Array.from({ length: 5 }).map((_, n) => (
+                            <Star
+                              key={n}
+                              className={`h-3 w-3 ${n < r.rating ? "fill-accent" : "opacity-30"}`}
+                            />
+                          ))}
+                        </div>
+                        <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                          Pending approval
+                        </span>
                       </div>
                       <p className="mt-2 text-sm leading-relaxed">"{r.quote}"</p>
                       <p className="mt-1 text-xs text-muted-foreground">
                         {r.name} · IconVault User
                       </p>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => remove(r.createdAt)}
-                      aria-label="Delete review"
-                      className="focus-ring shrink-0 rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
                   </li>
                 ))}
               </ul>

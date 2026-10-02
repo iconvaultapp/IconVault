@@ -26,7 +26,7 @@ export const Route = createFileRoute("/design-tokens")({
       { property: "og:url", content: "/design-tokens" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/design-tokens" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/design-tokens" }],
   }),
   component: Page,
 });

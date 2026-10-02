@@ -326,6 +326,36 @@ export type Database = {
         }
         Relationships: []
       }
+      testimonials: {
+        Row: {
+          created_at: string
+          id: string
+          is_approved: boolean
+          name: string
+          rating: number
+          role: string
+          text: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_approved?: boolean
+          name: string
+          rating?: number
+          role?: string
+          text: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_approved?: boolean
+          name?: string
+          rating?: number
+          role?: string
+          text?: string
+        }
+        Relationships: []
+      }
       waitlist: {
         Row: {
           created_at: string

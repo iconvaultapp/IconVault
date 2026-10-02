@@ -14,7 +14,21 @@ import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 export const Route = createFileRoute("/tools_/nato-phonetic")({
   head: () => {
     const seo = getToolSeoMeta("nato-phonetic");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/nato-phonetic";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: NatoTool,
 });

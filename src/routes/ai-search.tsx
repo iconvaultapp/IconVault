@@ -28,7 +28,7 @@ export const Route = createFileRoute("/ai-search")({
       { property: "og:url", content: "/ai-search" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/ai-search" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/ai-search" }],
   }),
   component: Page,
 });

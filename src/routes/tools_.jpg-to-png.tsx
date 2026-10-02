@@ -17,7 +17,21 @@ import { baseName, canvasToBlob, formatBytes, loadImageFile } from "@/lib/image-
 export const Route = createFileRoute("/tools_/jpg-to-png")({
   head: () => {
     const seo = getToolSeoMeta("jpg-to-png");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/jpg-to-png";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: JpgToPng,
 });

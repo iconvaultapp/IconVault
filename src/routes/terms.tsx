@@ -97,7 +97,7 @@ function Page() {
               <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
                 Pro page
               </Link>
-              : Pro Yearly is a $9.9/year recurring subscription you can cancel
+              : Pro Yearly is a $12/year recurring subscription you can cancel
               anytime.
             </p>
             <p>

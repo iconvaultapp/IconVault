@@ -2,7 +2,7 @@
 //
 // The logged-in user clicks "Go Pro" on /pro. The client sends its Supabase
 // access token; the server validates the token, creates a Dodo checkout
-// session for the Pro Yearly ($9.9/year) subscription (with the Supabase
+// session for the Pro Yearly ($12/year) subscription (with the Supabase
 // user id in metadata), and returns the hosted checkout URL to redirect to.
 //
 // Requires server env: DODO_PAYMENTS_API_KEY, DODO_PAYMENTS_PRODUCT_ID_YEARLY,

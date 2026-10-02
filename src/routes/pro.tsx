@@ -15,12 +15,12 @@ export const Route = createFileRoute("/pro")({
       {
         name: "description",
         content:
-          "Free forever for solo work. Pro Yearly at $9.9/year for unlimited tools, exports and API access - one plan, billed once a year.",
+          "Free forever for solo work. Pro Yearly at $12/year for unlimited tools, exports and API access - one plan, billed once a year.",
       },
       { property: "og:title", content: "Pricing - IconVault Free & Pro Yearly plans" },
       {
         property: "og:description",
-        content: "Free forever, or Pro Yearly at $9.9/year for unlimited everything.",
+        content: "Free forever, or Pro Yearly at $12/year for unlimited everything.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/pro" },
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/pro")({
             {
               "@type": "Offer",
               name: "Pro Yearly",
-              price: "9.9",
+              price: "12",
               priceCurrency: "USD",
               description: "Per year, cancel anytime.",
             },
@@ -80,10 +80,10 @@ const plans = [
   {
     name: "Pro Yearly",
     tagline: "Unlimited everything, billed once a year.",
-    price: 9.9,
+    price: 12,
     priceNote: "per year, cancel anytime",
     highlight: true,
-    cta: "Go Pro - $9.9/yr",
+    cta: "Go Pro - $12/yr",
     planType: "yearly" as const,
     features: [
       "Unlimited tool runs (all 579 tools)",
@@ -147,7 +147,7 @@ const faqs = [
   },
   {
     q: "How does Pro Yearly billing work?",
-    a: "Pro Yearly costs $9.9 once per year. Dodo Payments handles the recurring billing on a secure hosted page, and you can cancel anytime from your profile page. You keep pro access until the end of the billing period.",
+    a: "Pro Yearly costs $12 once per year. Dodo Payments handles the recurring billing on a secure hosted page, and you can cancel anytime from your profile page. You keep pro access until the end of the billing period.",
   },
   {
     q: "What happens when I hit the free limits?",
@@ -170,7 +170,7 @@ const faqs = [
 /**
  * Paid plan CTA. Signed-out visitors go to /auth first (unchanged
  * behaviour); signed-in users get a Dodo checkout session created
- * server-side for the Pro Yearly ($9.9/year) subscription and are
+ * server-side for the Pro Yearly ($12/year) subscription and are
  * redirected to Dodo's hosted checkout. Active pro members see a
  * confirmation instead of the button.
  */
@@ -268,8 +268,8 @@ function Page() {
     <PageShell
       wide
       eyebrow="Pricing"
-      title="Free forever, or Pro at $9.9/year"
-      description="Start free and stay free for solo projects. Go Pro Yearly at $9.9/year for unlimited tools, exports and API access."
+      title="Free forever, or Pro at $12/year"
+      description="Start free and stay free for solo projects. Go Pro Yearly at $12/year for unlimited tools, exports and API access."
     >
       <Stack>
         <div>
@@ -344,14 +344,14 @@ function Page() {
           <SectionHeading
             eyebrow="Why upgrade"
             title="The workflow around the icons"
-            description="The icons are free. Pro Yearly at $9.9/year is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
+            description="The icons are free. Pro Yearly at $12/year is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
           />
           <div className="mt-8">
             <FeatureGrid
               items={[
                 { icon: Zap, title: "Bulk everything", body: "Export a whole collection as an optimised sprite, ZIP or icon font in one click." },
                 { icon: Crown, title: "Tokens that fit", body: "Emit CSS variables, Tailwind theme entries or JSON tokens shaped like your design system." },
-                { icon: RefreshCw, title: "Billed once a year", body: "$9.9 per year, cancel anytime - every pro feature we ship lands in your account while you're subscribed." },
+                { icon: RefreshCw, title: "Billed once a year", body: "$12 per year, cancel anytime - every pro feature we ship lands in your account while you're subscribed." },
                 { icon: ShieldCheck, title: "Licence clarity", body: "Every icon carries its licence through to export, so audits stop being a scavenger hunt." },
               ]}
               columns={2}
@@ -414,7 +414,7 @@ function Page() {
         </div>
 
         <CTABand
-          title="Unlock everything for $9.9/year"
+          title="Unlock everything for $12/year"
           body="Unlimited tool runs, exports and screenshots, billed once a year. Cancel anytime."
           primary={{ label: "Go Pro", to: "/auth" }}
           secondary={{ label: "Browse the vault", to: "/app" }}

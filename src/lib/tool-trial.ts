@@ -1,5 +1,5 @@
 // Free-trial system for tools: every visitor gets 5 free uses per tool,
-// tracked in localStorage (no account needed). Pro members (on the $9.9/year
+// tracked in localStorage (no account needed). Pro members (on the $12/year
 // plan) get unlimited uses.
 //
 // A "use" is counted when the tool produces its result (convert / generate /

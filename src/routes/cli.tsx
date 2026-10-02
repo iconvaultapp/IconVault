@@ -22,7 +22,7 @@ export const Route = createFileRoute("/cli")({
       { property: "og:url", content: "/cli" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/cli" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/cli" }],
   }),
   component: Page,
 });

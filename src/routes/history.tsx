@@ -28,7 +28,7 @@ export const Route = createFileRoute("/history")({
       { property: "og:url", content: "/history" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/history" }],
+    links: [{ rel: "canonical", href: "https://iconvault.site/history" }],
   }),
   component: Page,
 });

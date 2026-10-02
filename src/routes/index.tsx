@@ -18,7 +18,6 @@ import {
   Search,
   Shield,
   Sparkles,
-  Star,
   Terminal,
   Type,
 } from "lucide-react";
@@ -27,10 +26,10 @@ import { toast } from "sonner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SearchBar from "@/components/SearchBar";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
-import { getUserTestimonials, type UserTestimonial } from "@/lib/user-testimonials";
 import { LIVE_TOOLS, TOOL_CATEGORIES, type ToolDef } from "@/lib/tool-catalog";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -50,8 +49,20 @@ export const Route = createFileRoute("/")({
           "One search box for every open-source icon set and hundreds of free online tools. Preview, recolour and export in the format your codebase already speaks.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://iconvault.site/" },
+      { property: "og:image", content: "https://iconvault.site/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "IconVault - 421,020 icons and 579 free tools, one search box" },
+      {
+        name: "twitter:description",
+        content:
+          "One search box for every open-source icon set and hundreds of free online tools. Preview, recolour and export in the format your codebase already speaks.",
+      },
+      { name: "twitter:image", content: "https://iconvault.site/og-image.png" },
     ],
+    links: [{ rel: "canonical", href: "https://iconvault.site/" }],
   }),
   component: Landing,
 });
@@ -144,45 +155,6 @@ const STATS = [
   { value: "17", label: "Tool categories" },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "We standardised our whole design system on one collection in an afternoon. The token export dropped straight into our Tailwind config.",
-    name: "Marta Ilves",
-    role: "IconVault User",
-  },
-  {
-    quote:
-      "The CLI is the part I didn't know I needed. `iconvault add lucide:rocket` and it's in my repo, correctly named.",
-    name: "Dev Prakash",
-    role: "IconVault User",
-  },
-  {
-    quote:
-      "Comparing four candidate icons side by side stopped a week of Slack debate. That feature alone earned the Pro seat.",
-    name: "Sasha Renn",
-    role: "IconVault User",
-  },
-  {
-    quote:
-      "I replaced three bookmark folders with one IconVault collection. Finding the right icon now takes seconds, not minutes.",
-    name: "Arjun Mehta",
-    role: "IconVault User",
-  },
-  {
-    quote:
-      "The background remover saved my product listings. Clean cutouts in one click, no Photoshop needed.",
-    name: "Priya Sharma",
-    role: "IconVault User",
-  },
-  {
-    quote:
-      "579 tools and I keep discovering new ones. The QR generator and JSON formatter are part of my daily workflow now.",
-    name: "Rahul Verma",
-    role: "IconVault User",
-  },
-];
-
 /** Homepage tool discovery: chips, featured cards, trial line. */
 const FEATURED_TOOL_IDS = [
   "qr-generator",
@@ -236,19 +208,19 @@ function ToolsTeaser() {
         <Reveal delay={80}>
           <form
             onSubmit={goToolsSearch}
-            className="mx-auto mt-7 flex max-w-xl items-center gap-2 rounded-full border border-border bg-surface p-1.5 pl-5 shadow-soft"
+            className="mx-auto mt-7 flex h-16 max-w-xl items-center gap-2 rounded-2xl bg-surface p-2 pl-6 shadow-soft ring-1 ring-ink/10"
           >
-            <Search className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
+            <Search className="h-5 w-5 shrink-0 text-muted-foreground" aria-hidden />
             <input
               value={toolQuery}
               onChange={(e) => setToolQuery(e.target.value)}
               placeholder="Search tools: qr, compress, json, password…"
               aria-label="Search free tools"
-              className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+              className="min-w-0 flex-1 bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
             />
             <button
               type="submit"
-              className="focus-ring shrink-0 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              className="focus-ring shrink-0 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:px-6"
             >
               Search tools
             </button>
@@ -381,7 +353,7 @@ function WaitlistForm() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@studio.com"
         aria-label="Email address"
-        className="focus-ring h-12 min-w-0 flex-1 rounded-full border border-border bg-surface px-5 text-sm outline-none placeholder:text-muted-foreground"
+        className="focus-ring h-12 min-w-0 flex-1 rounded-full border border-border bg-surface px-5 text-base outline-none placeholder:text-muted-foreground"
       />
       <button
         type="submit"
@@ -405,12 +377,6 @@ function Landing() {
     return () => clearInterval(id);
   }, [words.length]);
 
-  // Reviews submitted from the user's own profile panel (device-local).
-  const [userReviews, setUserReviews] = useState<UserTestimonial[]>([]);
-  useEffect(() => {
-    setUserReviews(getUserTestimonials());
-  }, []);
-
   const goSearch = (q: string) => {
     void navigate({ to: "/app", search: (q ? { q } : {}) as { q?: string } });
   };
@@ -425,7 +391,7 @@ function Landing() {
           <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
           <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
             <Reveal>
-              <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
+              <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-1.5 rounded-full border border-primary/25 bg-primary-soft px-3 py-1 text-center font-mono text-[9px] uppercase tracking-[0.12em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
                 <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {LIVE_TOOLS.length} free tools ·
                 one search
               </span>
@@ -463,26 +429,28 @@ function Landing() {
             </div>
 
             <Reveal delay={280}>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
                 <Link
                   to="/tools"
-                  className="focus-ring group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+                  className="focus-ring group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:w-auto"
                 >
                   Explore free tools
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <Link
-                  to="/app"
-                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
-                >
-                  Browse the vault
-                </Link>
-                <Link
-                  to="/ai-search"
-                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
-                >
-                  <Sparkles className="h-4 w-4" /> Try AI search
-                </Link>
+                <div className="grid grid-cols-2 gap-3 sm:contents">
+                  <Link
+                    to="/app"
+                    className="focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-4 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary sm:px-6"
+                  >
+                    Browse the vault
+                  </Link>
+                  <Link
+                    to="/ai-search"
+                    className="focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-4 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary sm:px-6"
+                  >
+                    <Sparkles className="h-4 w-4 shrink-0" /> Try AI search
+                  </Link>
+                </div>
               </div>
             </Reveal>
 
@@ -642,39 +610,9 @@ function Landing() {
                 Quietly saving product teams an afternoon a week
               </h2>
             </Reveal>
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {userReviews.map((t, i) => (
-                <Reveal key={t.createdAt} delay={i * 80} className="surface-card lift-hover flex flex-col p-6">
-                  <div className="flex gap-0.5 text-accent">
-                    {Array.from({ length: 5 }).map((_, n) => (
-                      <Star
-                        key={n}
-                        className={`h-3.5 w-3.5 ${n < t.rating ? "fill-accent" : "opacity-30"}`}
-                      />
-                    ))}
-                  </div>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed">"{t.quote}"</p>
-                  <div className="mt-5 border-t border-border pt-4">
-                    <p className="text-sm font-medium">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">IconVault User</p>
-                  </div>
-                </Reveal>
-              ))}
-              {TESTIMONIALS.map((t, i) => (
-                <Reveal key={t.name} delay={(userReviews.length + i) * 80} className="surface-card lift-hover flex flex-col p-6">
-                  <div className="flex gap-0.5 text-accent">
-                    {Array.from({ length: 5 }).map((_, n) => (
-                      <Star key={n} className="h-3.5 w-3.5 fill-accent" />
-                    ))}
-                  </div>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed">"{t.quote}"</p>
-                  <div className="mt-5 border-t border-border pt-4">
-                    <p className="text-sm font-medium">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal className="mt-10">
+              <TestimonialCarousel />
+            </Reveal>
           </div>
         </section>
 

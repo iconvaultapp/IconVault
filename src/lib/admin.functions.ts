@@ -72,6 +72,7 @@ interface AccountRow {
   display_name: string | null;
   roles: string[];
   is_owner: boolean;
+  plan: string;
 }
 
 /** Admin-only listing of every account with its roles. */
@@ -83,13 +84,16 @@ export const listAccounts = createServerFn({ method: "POST" })
     if (!isAdmin) throw new Error("Forbidden");
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const [{ data: list }, { data: roles }, { data: profiles }] = await Promise.all([
+    const [{ data: list }, { data: roles }, { data: profiles }, { data: plans }] = await Promise.all([
       supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
       supabaseAdmin.from("user_roles").select("user_id, role, created_at").order("created_at"),
       supabaseAdmin.from("profiles").select("user_id, display_name, username"),
+      supabaseAdmin.from("user_plans").select("user_id, plan"),
     ]);
 
     const ownerId = roles?.find((r) => r.role === "admin")?.user_id ?? null;
+    const planByUser = new Map<string, string>();
+    (plans ?? []).forEach((p) => planByUser.set(p.user_id, p.plan));
 
     const accounts: AccountRow[] = (list?.users ?? []).map((u) => {
       const profile = profiles?.find((p) => p.user_id === u.id);
@@ -101,6 +105,7 @@ export const listAccounts = createServerFn({ method: "POST" })
         display_name: profile?.display_name ?? profile?.username ?? null,
         roles: (roles ?? []).filter((r) => r.user_id === u.id).map((r) => r.role as string),
         is_owner: u.id === ownerId,
+        plan: planByUser.get(u.id) ?? "free",
       };
     });
 

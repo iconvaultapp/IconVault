@@ -16,7 +16,21 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 export const Route = createFileRoute("/tools_/scale-of-universe")({
   head: () => {
     const seo = getToolSeoMeta("scale-of-universe");
-    return { meta: [{ title: seo.title }, { name: "description", content: seo.metaDescription }] };
+    const canonical = "https://iconvault.site/tools/scale-of-universe";
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.metaDescription },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.metaDescription },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonical },
+        { name: "twitter:card", content: "summary" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.metaDescription },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
   },
   component: ScaleOfUniverseTool,
 });
