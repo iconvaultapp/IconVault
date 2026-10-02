@@ -137,7 +137,9 @@ function ToolsPage() {
       fullWidth
     >
       <div className="px-2 py-4 sm:px-4">
-        <div className="flex items-center gap-3">
+        {/* Inner header hidden on mobile: PageShell already shows title + description,
+            so the search lands directly beneath it on small screens. */}
+        <div className="hidden items-center gap-3 sm:flex">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Wrench className="h-5 w-5" />
           </span>

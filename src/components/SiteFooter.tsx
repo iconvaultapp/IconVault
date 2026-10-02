@@ -123,7 +123,7 @@ export const SiteFooter = () => {
         </div>
 
         {/* Giant brand wordmark: oversized, low-opacity, gradient-faded. */}
-        <div aria-hidden="true" className="pointer-events-none mt-16 select-none overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none mt-20 mb-10 select-none overflow-hidden sm:mt-28 sm:mb-14">
           <p className="bg-gradient-to-b from-primary/20 via-primary/[0.07] to-transparent bg-clip-text text-center font-display text-[19vw] font-extrabold leading-[0.8] tracking-tighter text-transparent lg:text-[12rem]">
             IconVault
           </p>

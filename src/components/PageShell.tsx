@@ -14,6 +14,9 @@ interface PageShellProps {
   wide?: boolean;
   /** Wide content for /tools pages: capped at 1440px, comfortable side gaps. */
   fullWidth?: boolean;
+  /** Compact hero on mobile only (tighter spacing, slightly smaller title).
+      Used by ToolPageShell so all 579 tool pages share one mobile hero. */
+  compactHero?: boolean;
 }
 
 /** Shared shell for every inner page: header, hero band, content, footer. */
@@ -25,6 +28,7 @@ export const PageShell = ({
   children,
   wide = false,
   fullWidth = false,
+  compactHero = false,
 }: PageShellProps) => (
   <div className="flex min-h-screen flex-col bg-background">
     <SiteHeader />
@@ -34,18 +38,24 @@ export const PageShell = ({
         <div className="pointer-events-none absolute -right-24 -top-32 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
         <div className="pointer-events-none absolute -left-20 bottom-[-6rem] h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
         <div
-          className={
+          className={cn(
             fullWidth
               ? "relative mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-12 text-center sm:px-6 sm:py-14"
               : cn(
                   "relative mx-auto grid gap-6 px-5 py-14 sm:py-16 lg:px-8",
                   wide ? "max-w-7xl" : "max-w-5xl",
-                )
-          }
+                ),
+            compactHero && "gap-4 py-8 sm:gap-6 sm:py-14",
+          )}
         >
           <Reveal>
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-            <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+            <h1
+              className={cn(
+                "mt-3 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl",
+                compactHero && "text-3xl sm:text-5xl",
+              )}
+            >
               {title}
             </h1>
             {description && (
@@ -53,6 +63,7 @@ export const PageShell = ({
                 className={cn(
                   "mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg",
                   fullWidth && "mx-auto",
+                  compactHero && "mt-3 text-[15px] sm:mt-4 sm:text-lg",
                 )}
               >
                 {description}

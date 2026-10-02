@@ -86,6 +86,109 @@ export const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
+    id: "collections",
+    title: "Collections",
+    blocks: [
+      {
+        type: "p",
+        text: "Collections group icons into named packs per project: a brand kit, a dashboard set, a marketing pack. They sync across your devices when you are signed in, and you can export the whole set as SVG in one download.",
+      },
+      { type: "h", text: "Workflow" },
+      {
+        type: "list",
+        items: [
+          "Open the Collections page and create a collection with a name.",
+          "Add icons from anywhere: the multi-select toggle on the icon browser, or the add button on an icon's detail view.",
+          "Open a collection to preview every icon together, remove ones you don't need, and download the full set as a ZIP of SVGs.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Name collections after the project, not the style - \"acme-dashboard\" stays useful long after you forget which icons felt right in October.",
+      },
+    ],
+  },
+  {
+    id: "compare",
+    title: "Compare icons",
+    blocks: [
+      {
+        type: "p",
+        text: "Choosing between three similar arrows? The Compare page puts candidate icons next to each other at real sizes, on light and dark surfaces, so you can judge them the way users will actually see them.",
+      },
+      {
+        type: "list",
+        items: [
+          "Add icons to the comparison from the icon browser or a detail view.",
+          "Toggle sizes and backgrounds to see how each candidate holds up at 16px in a tab versus 48px on a landing page.",
+          "Pick the winner and copy its code straight from the comparison.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "upload",
+    title: "Upload custom icons",
+    blocks: [
+      {
+        type: "p",
+        text: "Bring your own SVGs into the same workspace as the open sets. Uploaded icons are cleaned, previewed at real sizes, and ready to export or share with your team - your private icons sit alongside the library without mixing into it.",
+      },
+      {
+        type: "list",
+        items: [
+          "Open the Upload page and drop your .svg files.",
+          "Each file is validated and cleaned on import, then previewed at multiple sizes so you can spot broken paths before you use them.",
+          "Your uploads appear in your own private section and export exactly like library icons.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Uploads are tied to your account, so sign in first - anonymous uploads cannot be recovered on another device.",
+      },
+    ],
+  },
+  {
+    id: "design-tokens",
+    title: "Design tokens",
+    blocks: [
+      {
+        type: "p",
+        text: "Design Tokens turns a saved icon set into tokens your codebase can consume directly: CSS custom properties, a JSON manifest, a Tailwind plugin, or typed TypeScript constants.",
+      },
+      {
+        type: "list",
+        items: [
+          "Build a collection of the icons your project uses.",
+          "Open Design Tokens, pick the collection and the output format.",
+          "Copy the tokens into your project - CSS variables for stylesheets, the Tailwind plugin for utility classes, or TypeScript constants for component libraries.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Regenerate tokens whenever the collection changes. Keeping the collection as the source of truth means icons and code never drift apart.",
+      },
+    ],
+  },
+  {
+    id: "request",
+    title: "Request an icon",
+    blocks: [
+      {
+        type: "p",
+        text: "Searched everything and the icon you need does not exist? Tell us what it should look like. We track requests, point you at the closest existing matches, and push popular ones upstream to the icon sets.",
+      },
+      {
+        type: "list",
+        items: [
+          "Open the Request page and describe the icon: what it depicts, where you will use it, and any style notes.",
+          "Check the near matches we suggest first - the icon you want may already exist under a different name.",
+          "Popular requests get priority, and Pro members' requests jump the queue.",
+        ],
+      },
+    ],
+  },
+  {
     id: "image-to-svg",
     title: "Image to SVG",
     blocks: [
@@ -235,6 +338,39 @@ export const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
+    id: "tools-hub",
+    title: "Tools hub",
+    blocks: [
+      {
+        type: "p",
+        text: "The Tools hub is home to 579 free online tools across 17 categories: image tools, developer utilities, text tools, converters, generators and more. Every tool runs in your browser, so your files never leave your device.",
+      },
+      { type: "h", text: "Finding a tool" },
+      {
+        type: "list",
+        items: [
+          "Use the big search bar at the top of the Tools page - it filters all 579 tools as you type.",
+          "Browse by category: click any of the 17 category chips, or open a category page to see every tool inside it.",
+          "Deep links work too: a search like /tools?q=qr jumps straight to matching tools.",
+        ],
+      },
+      { type: "h", text: "How tools work" },
+      {
+        type: "list",
+        items: [
+          "Each tool page has the same layout: the tool itself up top, then About, FAQs and related tags below.",
+          "Free visitors get 5 uses per tool, no account needed. Usage is tracked per tool on your device.",
+          "Pro ($12/year) unlocks unlimited runs of every tool.",
+          "Tags under each tool are clickable - they lead to related tools and icon searches.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "This documentation covers the most popular tools in detail. Every other tool follows the same 5-free-uses pattern, with its own About section and FAQs on its page.",
+      },
+    ],
+  },
+  {
     id: "logo-builder",
     title: "Logo Builder",
     blocks: [
@@ -280,35 +416,60 @@ export const DOC_SECTIONS: DocSection[] = [
   },
   {
     id: "api",
-    title: "REST API",
+    title: "REST API & API keys",
     blocks: [
       {
         type: "p",
-        text: "Every icon is reachable over a simple REST API - perfect for scripts, build tools and internal dashboards.",
+        text: "Every icon is reachable over a simple REST API - perfect for scripts, build tools and internal dashboards. You can start without any account: keyless calls work under per-minute IP limits.",
       },
       {
         type: "code",
-        label: "Search icons",
-        code: "curl 'https://iconvault.site/api/icons?prefix=mdi&limit=20'",
+        label: "Search icons (no key needed)",
+        code: "curl 'https://iconvault.site/api/iconify/search?query=shopping%20cart&limit=5'",
       },
       {
         type: "code",
-        label: "Get one icon as SVG",
-        code: "curl 'https://iconvault.site/api/icon/mdi/home.svg'",
+        label: "Get one icon as SVG (no key needed)",
+        code: "curl 'https://iconvault.site/api/icon/mdi/cart.svg'",
+      },
+      {
+        type: "code",
+        label: "Batch: many icons in one request",
+        code: "curl -X POST 'https://iconvault.site/api/icons' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"icons\": [\"mdi:cart\", \"lucide:heart\"]}'",
       },
       {
         type: "code",
         label: "List collections",
-        code: "curl 'https://iconvault.site/iconify/collections.json'",
+        code: "curl 'https://iconvault.site/api/iconify/collections'",
       },
-      { type: "h", text: "Rate limits" },
+      { type: "h", text: "Getting an API key" },
       {
         type: "list",
         items: [
-          "Search: 120 requests/minute per IP.",
-          "Single-icon fetch: 240 requests/minute per IP.",
-          "Collection metadata: cached at the edge for 24h - fetch freely.",
-          "Need more? Lifetime Pro raises API limits and adds an authenticated key with priority throughput.",
+          "Go to the API Access page and sign in.",
+          "Give your key a name (e.g. \"my-build-script\") and click Generate.",
+          "Copy the key immediately - it is shown only once. Store it somewhere safe, like an environment variable.",
+          "You can revoke a key any time from the same page; revoking takes effect instantly.",
+        ],
+      },
+      { type: "h", text: "Using your key" },
+      {
+        type: "p",
+        text: "Send the key as the x-api-key header (or as an Authorization: Bearer token). One JSON request with your key counts as one unit against that key's monthly quota.",
+      },
+      {
+        type: "code",
+        label: "Search with your key",
+        code: "curl 'https://iconvault.site/api/iconify/search?query=arrow&limit=20' \\\n  -H 'x-api-key: YOUR_KEY_HERE'",
+      },
+      { type: "h", text: "Limits and errors" },
+      {
+        type: "list",
+        items: [
+          "Keyless: 120 searches, 240 single-icon fetches and 120 batch calls per minute per IP.",
+          "Keyed: 1,000 calls per 30-day window per key, with no per-minute cap. Repeat SVG fetches served from the edge cache are free and do not count.",
+          "401 Invalid API key: the key is wrong, revoked, or missing where one is required. Check for typos and extra spaces.",
+          "429 Too many requests: you hit a per-minute IP limit (keyless) or your key's monthly quota is exhausted. Wait a minute, or generate a fresh key next month.",
         ],
       },
       {
@@ -318,26 +479,165 @@ export const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
+    id: "cli",
+    title: "Command-line interface (CLI)",
+    blocks: [
+      {
+        type: "p",
+        text: "The IconVault CLI brings the icon library into your terminal: search 421,020 icons and download them as optimized SVGs without leaving your workflow. It is free, open source, and has zero dependencies (Node 18+ only).",
+      },
+      {
+        type: "code",
+        label: "Install once",
+        code: "npm install -g @iconvault/cli",
+      },
+      {
+        type: "code",
+        label: "Or run without installing",
+        code: "npx @iconvault/cli search \"shopping cart\"",
+      },
+      { type: "h", text: "Commands" },
+      {
+        type: "code",
+        label: "Search: prints one prefix:name per line",
+        code: "iconvault search \"shopping cart\"\niconvault search arrow --limit 5",
+      },
+      {
+        type: "code",
+        label: "Add: download one icon as an SVG",
+        code: "iconvault add mdi:cart\niconvault add lucide:heart --out ./src/icons",
+      },
+      {
+        type: "code",
+        label: "Help and version",
+        code: "iconvault --help\niconvault --version",
+      },
+      { type: "h", text: "Options" },
+      {
+        type: "list",
+        items: [
+          "--limit N: number of search results (default 20, max 999).",
+          "--out DIR: output directory for add (default ./icons, created if missing).",
+          "--api URL: point at a different API base (default https://iconvault.site).",
+        ],
+      },
+      { type: "h", text: "Using an API key (optional)" },
+      {
+        type: "p",
+        text: "Without a key you share the public per-minute IP limits. Set your key once and the CLI sends it automatically, giving you 1,000 calls a month with no per-minute cap.",
+      },
+      {
+        type: "code",
+        label: "Set your key for this shell",
+        code: "export ICONVAULT_KEY=YOUR_KEY_HERE\niconvault search \"arrow\"",
+      },
+      {
+        type: "tip",
+        text: "Pipe search into add for quick sets: iconvault search \"arrow\" --limit 3 gives you names you can feed straight to iconvault add. Full reference lives on the CLI page.",
+      },
+    ],
+  },
+  {
+    id: "embed-widget",
+    title: "Embed widget",
+    blocks: [
+      {
+        type: "p",
+        text: "If your own product lets users pick icons (a dashboard, a CMS, a docs site), you do not have to build search and previews yourself. Paste one script tag and a live IconVault picker appears on your page.",
+      },
+      {
+        type: "code",
+        label: "html - paste where you want the picker",
+        code: "<div data-iconvault-picker data-theme=\"light\"></div>\n<script src=\"https://iconvault.site/embed/v1.js\" defer></script>",
+      },
+      { type: "h", text: "Options" },
+      {
+        type: "code",
+        label: "html - configure with data attributes",
+        code: "<div\n  data-iconvault-picker\n  data-theme=\"dark\"\n  data-limit=\"24\"\n  data-query=\"arrow\"\n></div>",
+      },
+      {
+        type: "list",
+        items: [
+          "data-theme: light or dark (default light).",
+          "data-limit: results per search, 1 to 48.",
+          "data-query: run this search as soon as the widget loads.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "The widget is vanilla JavaScript with no dependencies, so it works inside React, Vue, plain HTML, or any CMS that allows script tags. See it running live on the Embed page.",
+      },
+    ],
+  },
+  {
+    id: "profile",
+    title: "Your profile",
+    blocks: [
+      {
+        type: "p",
+        text: "Your profile page is mission control for your account: manage your display name, review saved icons and collections, check your plan, and copy your API key.",
+      },
+      { type: "h", text: "What lives here" },
+      {
+        type: "list",
+        items: [
+          "Plan status card: see whether you are on Free or Pro, with an upgrade button when you are not.",
+          "Trial usage: a per-tool summary of your 5 free uses, read from your device.",
+          "Quick picks: shortcuts back into your recent work.",
+          "API key: copy your existing key without visiting the API Access page.",
+        ],
+      },
+      { type: "h", text: "Leave a review" },
+      {
+        type: "p",
+        text: "Signed-in users can publish a review from their profile. Reviews go into a moderation queue and appear on the homepage once approved - you will see your submission marked as pending until then.",
+      },
+    ],
+  },
+  {
+    id: "history",
+    title: "History",
+    blocks: [
+      {
+        type: "p",
+        text: "The History page keeps your search and icon trail: every query you typed and every icon you opened, newest first. Signed in, it follows you across devices; signed out, it stays on the device.",
+      },
+      {
+        type: "list",
+        items: [
+          "Click any past search to re-run it instantly.",
+          "Click any icon to jump back to its detail view.",
+          "Clear history any time from the page - deletion is immediate and permanent.",
+        ],
+      },
+    ],
+  },
+  {
     id: "pro",
     title: "Pro & billing",
     blocks: [
       {
         type: "p",
-        text: "IconVault Pro is a single lifetime payment - pay once, keep it forever. No subscriptions, no renewals.",
+        text: "IconVault Pro is $12 per year: one plan that unlocks unlimited runs of every tool, unlimited bulk ZIP downloads, the full Logo Builder kit, and a 1,000-call monthly API quota with no per-minute cap.",
       },
       {
         type: "list",
         items: [
+          "Unlimited runs of all 579 tools (free visitors get 5 uses per tool).",
           "Unlimited bulk ZIP downloads.",
           "Full Logo Builder kit export (favicons, app icons, manifest).",
-          "Higher API rate limits + authenticated key.",
+          "API key with 1,000 calls/month and no per-minute limits.",
           "Priority for new collections and icon requests.",
-          "Everything we ship in the future for Pro members.",
         ],
       },
       {
         type: "p",
-        text: "Payments are processed securely by Dodo Payments. After checkout you return to the site and your plan activates automatically - if it doesn't show within a minute, sign out and back in.",
+        text: "Payments are processed securely by Dodo Payments on a hosted checkout page. After payment you return to the site and your plan activates automatically - if it doesn't show within a minute, sign out and back in. Cancel any time from your profile page; you keep Pro access until the end of the billing period.",
+      },
+      {
+        type: "tip",
+        text: "Your receipts and current plan status live on your profile page under the plan card.",
       },
     ],
   },
@@ -374,8 +674,16 @@ export const DOC_SECTIONS: DocSection[] = [
         items: [
           "VS Code extension - insert icons as you code, with inline previews.",
           "Figma plugin - search and drop 421,020 icons without leaving Figma.",
-          "CLI - npx iconvault to pull icon sets straight into your repo.",
           "Chrome extension - find and copy icons from the toolbar.",
+        ],
+      },
+      { type: "h", text: "Recently shipped" },
+      {
+        type: "list",
+        items: [
+          "CLI - npm install -g @iconvault/cli to search and download icons from your terminal.",
+          "Embed widget - one script tag puts a live icon picker inside your product.",
+          "API keys - generate a key on the API Access page for 1,000 calls/month.",
         ],
       },
       { type: "h", text: "Exploring" },
@@ -390,13 +698,32 @@ export const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
+    id: "changelog",
+    title: "Changelog",
+    blocks: [
+      {
+        type: "p",
+        text: "The Changelog page lists what shipped and when: new icon sets, new tools, API changes and fixes. Check it after an update if something looks different - breaking changes are called out explicitly.",
+      },
+      {
+        type: "list",
+        items: [
+          "New collections and icon count updates.",
+          "New tools added to the hub.",
+          "API, CLI and widget changes with migration notes.",
+          "Bug fixes worth knowing about.",
+        ],
+      },
+    ],
+  },
+  {
     id: "faq",
     title: "FAQ",
     blocks: [
       { type: "h", text: "Is IconVault really free?" },
       {
         type: "p",
-        text: "Yes - browsing, searching, copying and single downloads are free forever. Pro is one optional lifetime payment that unlocks bulk tools and higher limits.",
+        text: "Yes - browsing, searching, copying and single downloads are free forever, and every tool gives you 5 free uses. Pro is an optional $12/year plan that unlocks unlimited everything.",
       },
       { type: "h", text: "Can I use the icons commercially?" },
       {
@@ -406,7 +733,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "h", text: "Why do I need an account for the logo kit?" },
       {
         type: "p",
-        text: "The kit is a Pro feature tied to your lifetime purchase, so we need to know who you are. Browsing and single exports never need an account.",
+        text: "The kit is a Pro feature tied to your $12/year plan, so we need to know who you are. Browsing and single exports never need an account.",
       },
       { type: "h", text: "Do you add new icon sets?" },
       {

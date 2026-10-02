@@ -208,7 +208,7 @@ export default function ToolPageShell({ toolId, seo, trial, isPro, children }: P
   };
 
   return (
-    <PageShell title={seo.title} description={seo.metaDescription} fullWidth>
+    <PageShell title={seo.title} description={seo.metaDescription} fullWidth compactHero>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <div className="w-full">
         <Link

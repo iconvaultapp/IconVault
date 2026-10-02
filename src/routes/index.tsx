@@ -196,7 +196,7 @@ function ToolsTeaser() {
       <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Free online tools</p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
             Icons are only half the story
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -228,7 +228,7 @@ function ToolsTeaser() {
         </Reveal>
 
         <Reveal delay={140}>
-          <div className="mt-6 flex flex-wrap items-center justify-start gap-2 sm:justify-center">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
             {TOOL_CATEGORIES.map((c) => {
               const n = LIVE_TOOLS.filter((t) => t.category === c.id).length;
               if (n === 0) return null;
@@ -237,7 +237,7 @@ function ToolsTeaser() {
                   key={c.id}
                   to="/tools"
                   search={{ category: c.id }}
-                  className="focus-ring rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft"
+                  className="focus-ring flex items-center justify-center rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4"
                 >
                   {c.label}
                   <span className="ml-1.5 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
@@ -353,12 +353,12 @@ function WaitlistForm() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@studio.com"
         aria-label="Email address"
-        className="focus-ring h-12 min-w-0 flex-1 rounded-full border border-border bg-surface px-5 text-base outline-none placeholder:text-muted-foreground"
+        className="focus-ring h-14 min-w-0 flex-1 rounded-full border border-border bg-surface px-6 text-base outline-none placeholder:text-muted-foreground sm:h-12 sm:px-5"
       />
       <button
         type="submit"
         disabled={loading}
-        className="focus-ring h-12 shrink-0 rounded-full bg-ink px-6 text-sm font-medium text-background transition-transform hover:scale-[1.03] disabled:opacity-50"
+        className="focus-ring h-14 shrink-0 rounded-full bg-ink px-8 text-base font-semibold text-background transition-transform hover:scale-[1.03] disabled:opacity-50 sm:h-12 sm:px-6 sm:text-sm sm:font-medium"
       >
         {loading ? "Adding…" : "Join the list"}
       </button>
@@ -401,7 +401,17 @@ function Landing() {
               <h1 className="mx-auto mt-7 max-w-4xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">
                 Every open-source icon,
                 <br className="hidden sm:block" /> indexed so you can{" "}
-                <span className="text-gradient inline-block">{words[rotating]}</span>
+                <span className="text-gradient inline-grid align-bottom text-left">
+                  {words.map((word, i) => (
+                    <span
+                      key={word}
+                      aria-hidden={i !== rotating}
+                      className={`col-start-1 row-start-1 ${i !== rotating ? "invisible" : ""}`}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </span>
               </h1>
             </Reveal>
 
