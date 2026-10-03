@@ -1,12 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import {
   ShieldCheck,
   Users,
-  FolderOpen,
-  Heart,
-  Search,
   Lightbulb,
   Mail,
   Loader2,
@@ -14,35 +11,23 @@ import {
   Download,
   Settings,
   Activity,
-  BarChart3,
+  TrendingUp,
   Trash2,
   Crown,
   Lock,
-  TrendingUp,
-  Wrench,
-  LayoutGrid,
+  Key,
   UserRound,
   MessageSquareQuote,
-  Star,
+  LayoutDashboard,
+  DollarSign,
+  Zap,
   Check,
   X,
-  Pencil,
 } from "lucide-react";
-import {
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  BarChart,
-  Bar,
-} from "recharts";
-import PageShell from "@/components/PageShell";
-import { Stack, SectionHeading } from "@/components/kit";
+import { DashboardShell, type DashboardNavSection } from "@/components/dashboard/DashboardShell";
+import { StatCard } from "@/components/dashboard/StatCard";
+import { BarChart, LineChart, DonutChart } from "@/components/dashboard/charts";
+import { DataTable } from "@/components/dashboard/DataTable";
 import { CountUp } from "@/components/CountUp";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -53,10 +38,12 @@ import {
   getRoleStatus,
   claimFirstAdmin,
   getOperatingStats,
+  listApiKeys,
+  setApiKeyRevoked,
   type RecentUserRow,
   type PlanBreakdownRow,
+  type AdminApiKeyRow,
 } from "@/lib/admin.functions";
-import { LIVE_TOOLS } from "@/lib/tool-catalog";
 import { downloadCsv, stamp } from "@/lib/csv";
 import { UsersTab } from "@/components/admin/UsersTab";
 import { TestimonialsTab } from "@/components/admin/TestimonialsTab";
@@ -132,19 +119,30 @@ interface LogRow {
 
 const STATUSES = ["pending", "in_progress", "completed", "rejected"] as const;
 
-const TABS = [
-  { id: "overview", label: "Overview", icon: BarChart3 },
-  { id: "analytics", label: "Analytics", icon: TrendingUp },
-  { id: "users", label: "Users", icon: UserRound },
-  { id: "testimonials", label: "Testimonials", icon: MessageSquareQuote },
-  { id: "requests", label: "Requests", icon: Lightbulb },
-  { id: "waitlist", label: "Waitlist", icon: Mail },
-  { id: "accounts", label: "Accounts", icon: Users },
-  { id: "settings", label: "Settings", icon: Settings },
-  { id: "activity", label: "Activity", icon: Activity },
-] as const;
+type SectionId =
+  | "overview"
+  | "analytics"
+  | "users"
+  | "testimonials"
+  | "requests"
+  | "waitlist"
+  | "accounts"
+  | "apikeys"
+  | "settings"
+  | "activity";
 
-type TabId = (typeof TABS)[number]["id"];
+const SECTION_TITLES: Record<SectionId, { title: string; subtitle: string }> = {
+  overview: { title: "Overview", subtitle: "The headline numbers, updated every refresh." },
+  analytics: { title: "Analytics", subtitle: "Traffic and growth for the last 30 days." },
+  users: { title: "Users", subtitle: "Every registered user, searchable and exportable." },
+  testimonials: { title: "Testimonials", subtitle: "Moderate the reviews on the homepage." },
+  requests: { title: "Icon Requests", subtitle: "Triage what people are asking for." },
+  waitlist: { title: "Waitlist", subtitle: "People waiting for Pro to open up." },
+  accounts: { title: "Accounts & Roles", subtitle: "Access levels for every account." },
+  apikeys: { title: "API Keys", subtitle: "Every issued key, usage and revocation." },
+  settings: { title: "Settings", subtitle: "Owner-only controls for the public site." },
+  activity: { title: "Activity Log", subtitle: "Every change made from this panel." },
+};
 
 const DEFAULT_SETTINGS: SiteSettings = {
   site_name: "IconVault",
@@ -154,20 +152,34 @@ const DEFAULT_SETTINGS: SiteSettings = {
   waitlist_open: true,
 };
 
-const pill =
-  "focus-ring inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary";
+const YEARLY_PRICE = 12;
+
+function fmtDate(iso: string | null): string {
+  if (!iso) return "-";
+  try {
+    return new Date(iso).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  } catch {
+    return "-";
+  }
+}
 
 function AdminPage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, signOut } = useAuth();
+  const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isOwner, setIsOwner] = useState(false);
-  const [tab, setTab] = useState<TabId>("overview");
+  const [section, setSection] = useState<SectionId>("overview");
 
   const [counts, setCounts] = useState<Counts | null>(null);
   const [requests, setRequests] = useState<IconRequest[]>([]);
   const [waitlist, setWaitlist] = useState<{ email: string; created_at: string }[]>([]);
   const [accounts, setAccounts] = useState<AccountRow[]>([]);
+  const [apiKeys, setApiKeys] = useState<AdminApiKeyRow[]>([]);
   const [logs, setLogs] = useState<LogRow[]>([]);
   const [events, setEvents] = useState<{ event_type: string; page: string | null }[]>([]);
   const [pageViews, setPageViews] = useState<
@@ -187,6 +199,8 @@ function AdminPage() {
   const roleStatus = useServerFn(getRoleStatus);
   const claimAdminFn = useServerFn(claimFirstAdmin);
   const fetchOperatingStats = useServerFn(getOperatingStats);
+  const fetchApiKeys = useServerFn(listApiKeys);
+  const revokeKeyFn = useServerFn(setApiKeyRevoked);
 
   const checkRole = useCallback(async () => {
     if (!user) {
@@ -308,8 +322,14 @@ function AdminPage() {
     } catch {
       /* operating stats are best-effort */
     }
+    try {
+      const res = await fetchApiKeys({ data: undefined });
+      setApiKeys(res.keys);
+    } catch {
+      /* api keys are best-effort */
+    }
     setBusy(false);
-  }, [fetchAccounts, fetchOperatingStats]);
+  }, [fetchAccounts, fetchOperatingStats, fetchApiKeys]);
 
   useEffect(() => {
     if (isAdmin) void loadData();
@@ -408,6 +428,22 @@ function AdminPage() {
     }
   };
 
+  const toggleKeyRevoked = async (row: AdminApiKeyRow) => {
+    const next = !row.revoked;
+    if (
+      next &&
+      !window.confirm(`Revoke the key "${row.name}"? Existing integrations will stop working.`)
+    )
+      return;
+    try {
+      await revokeKeyFn({ data: { keyId: row.id, revoked: next } });
+      setApiKeys((prev) => prev.map((k) => (k.id === row.id ? { ...k, revoked: next } : k)));
+      toast.success(next ? "Key revoked" : "Key re-enabled");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Only the owner can manage keys");
+    }
+  };
+
   const eventSummary = useMemo(() => {
     const byType = new Map<string, number>();
     const byPage = new Map<string, number>();
@@ -477,497 +513,426 @@ function AdminPage() {
     [planBreakdown],
   );
 
-  const proViewPct = useMemo(
-    () =>
-      analytics.totalViews > 0
-        ? Math.round((analytics.proViews / analytics.totalViews) * 1000) / 10
-        : 0,
-    [analytics],
+  const yearlyRevenue = yearlyCount * YEARLY_PRICE;
+  const pendingRequests = useMemo(
+    () => requests.filter((r) => r.status === "pending").length,
+    [requests],
   );
+  const apiCallsMonth = useMemo(
+    () => apiKeys.reduce((s, k) => s + (k.used_this_month ?? 0), 0),
+    [apiKeys],
+  );
+
+  /** Signups per day for the last 14 days (bar chart). */
+  const signupSeries = useMemo(() => {
+    const out: { label: string; value: number }[] = [];
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
+      const key = d.toISOString().slice(0, 10);
+      const value = signupRows.filter((s) => s.created_at.slice(0, 10) === key).length;
+      out.push({ label: d.toLocaleDateString(undefined, { day: "numeric", month: "short" }), value });
+    }
+    return out;
+  }, [signupRows]);
+
+  const planDonut = useMemo(
+    () => [
+      { label: "Free", value: freeCount },
+      ...planBreakdown.map((p) => ({ label: p.plan, value: p.count })),
+    ],
+    [freeCount, planBreakdown],
+  );
+
+  const navSections: DashboardNavSection[] = useMemo(
+    () => [
+      {
+        title: "Main",
+        items: [
+          { id: "overview", label: "Overview", icon: LayoutDashboard },
+          { id: "analytics", label: "Analytics", icon: TrendingUp },
+        ],
+      },
+      {
+        title: "Manage",
+        items: [
+          { id: "users", label: "Users", icon: UserRound },
+          {
+            id: "testimonials",
+            label: "Testimonials",
+            icon: MessageSquareQuote,
+          },
+          {
+            id: "requests",
+            label: "Icon Requests",
+            icon: Lightbulb,
+            badge: pendingRequests > 0 ? pendingRequests : undefined,
+          },
+          { id: "waitlist", label: "Waitlist", icon: Mail, badge: counts?.waitlist || undefined },
+          { id: "accounts", label: "Accounts", icon: Users },
+        ],
+      },
+      {
+        title: "System",
+        items: [
+          { id: "apikeys", label: "API Keys", icon: Key, badge: apiKeys.length || undefined },
+          { id: "settings", label: "Settings", icon: Settings },
+          { id: "activity", label: "Activity Log", icon: Activity },
+        ],
+      },
+    ],
+    [pendingRequests, counts?.waitlist, apiKeys.length],
+  );
+
+  const activeMeta = SECTION_TITLES[section];
+  const displayName = user?.email?.split("@")[0] ?? "Admin";
 
   if (authLoading || checking) {
     return (
-      <PageShell eyebrow="Admin" title="Admin panel" description="Checking your access…">
-        <div className="flex items-center gap-2 py-16 text-muted-foreground">
-          <Loader2 className="h-5 w-5 animate-spin text-primary" /> Verifying permissions…
-        </div>
-      </PageShell>
+      <div className="flex min-h-screen items-center justify-center gap-2 bg-background text-muted-foreground">
+        <Loader2 className="h-5 w-5 animate-spin text-primary" /> Verifying permissions…
+      </div>
     );
   }
 
   if (!user) {
     return (
-      <PageShell
-        eyebrow="Admin"
-        title="Admin panel"
-        description="This area uses a separate owner sign-in, kept apart from customer accounts."
-      >
-        <Link
-          to="/admin-login"
-          className="focus-ring inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
-        >
-          Go to admin sign-in
-        </Link>
-      </PageShell>
+      <div className="flex min-h-screen items-center justify-center bg-background px-4">
+        <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
+          <ShieldCheck className="mx-auto h-8 w-8 text-primary" />
+          <h1 className="mt-4 font-display text-2xl font-semibold">Admin panel</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            This area uses a separate owner sign-in, kept apart from customer accounts.
+          </p>
+          <Link
+            to="/admin-login"
+            className="focus-ring mt-6 inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
+          >
+            Go to admin sign-in
+          </Link>
+        </div>
+      </div>
     );
   }
 
-
   if (!isAdmin) {
     return (
-      <PageShell
-        eyebrow="Admin"
-        title="Restricted area"
-        description="This account doesn't have administrator access."
-      >
-        <div className="surface-card max-w-xl p-6">
-          <ShieldCheck className="h-6 w-6 text-primary" />
-          <p className="mt-3 text-sm text-muted-foreground">
-            If you are the site owner and no admin has been assigned yet, you can claim the main
-            admin role once. After that, only existing admins can grant access.
+      <div className="flex min-h-screen items-center justify-center bg-background px-4">
+        <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
+          <ShieldCheck className="mx-auto h-8 w-8 text-primary" />
+          <h1 className="mt-4 font-display text-2xl font-semibold">Restricted area</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            This account doesn't have administrator access. If you are the site owner and no admin
+            has been assigned yet, you can claim the main admin role once.
           </p>
           <button
             type="button"
             onClick={() => void claimAdmin()}
-            className="focus-ring mt-5 inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+            className="focus-ring mt-6 inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
           >
             Claim admin access
           </button>
         </div>
-      </PageShell>
+      </div>
     );
   }
 
-  const stats = [
-    { icon: Users, label: "Accounts", value: counts?.profiles ?? 0 },
-    { icon: FolderOpen, label: "Collections", value: counts?.collections ?? 0 },
-    { icon: Heart, label: "Favourites", value: counts?.favourites ?? 0 },
-    { icon: Search, label: "Searches", value: counts?.searches ?? 0 },
-    { icon: Lightbulb, label: "Icon requests", value: counts?.requests ?? 0 },
-    { icon: Mail, label: "Waitlist", value: counts?.waitlist ?? 0 },
-  ];
-
-  const ownerStats = [
-    { icon: Wrench, label: "Live tools", value: LIVE_TOOLS.length },
-    { icon: LayoutGrid, label: "Icon sets", value: counts?.collections ?? 0 },
-    { icon: Users, label: "Registered users", value: counts?.profiles ?? 0 },
-    { icon: Crown, label: "Yearly subscribers", value: yearlyCount },
-  ];
-
   const ReadOnlyNote = () =>
     isOwner ? null : (
-      <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
-        <Lock className="h-3.5 w-3.5" /> Read-only - only the site owner can make changes here.
+      <p className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
+        <Lock className="h-3.5 w-3.5" /> Read-only: only the site owner can make changes here.
       </p>
     );
 
+  const pillBtn =
+    "focus-ring inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary";
+
   return (
-    <PageShell
-      wide
-      eyebrow="Admin"
-      title="Admin panel"
-      description="Site-wide activity, icon request moderation, accounts and settings in one place."
-    >
-      <Stack>
-        <div className="flex flex-wrap items-center justify-between gap-3">
+    <DashboardShell
+      sidebarSections={navSections}
+      activeId={section}
+      onNavigate={(id) => setSection(id as SectionId)}
+      title={activeMeta.title}
+      subtitle={activeMeta.subtitle}
+      actions={
+        <>
           <span
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs",
+              "hidden items-center gap-2 rounded-full border px-3 py-1.5 text-xs sm:inline-flex",
               isOwner
                 ? "border-primary/40 bg-primary-soft text-primary"
                 : "border-border text-muted-foreground",
             )}
           >
             {isOwner ? <Crown className="h-3.5 w-3.5" /> : <ShieldCheck className="h-3.5 w-3.5" />}
-            {isOwner ? "Site owner - full control" : "Administrator - read-only"}
+            {isOwner ? "Site owner" : "Administrator"}
           </span>
-          <button type="button" onClick={() => void loadData()} className={pill}>
-            <RefreshCw className={cn("h-3.5 w-3.5", busy && "animate-spin")} /> Refresh
+          <button type="button" onClick={() => void loadData()} className={pillBtn} aria-label="Refresh data">
+            <RefreshCw className={cn("h-3.5 w-3.5", busy && "animate-spin")} />
+            <span className="hidden sm:inline">Refresh</span>
           </button>
-        </div>
-
-        <div className="-mx-1 overflow-x-auto pb-1">
-          <div className="flex min-w-max gap-1.5 px-1">
-            {TABS.map((t) => (
-              <button
-                key={t.id}
-                type="button"
-                onClick={() => setTab(t.id)}
-                aria-current={tab === t.id ? "page" : undefined}
-                className={cn(
-                  "focus-ring inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-xs font-medium transition-colors",
-                  tab === t.id
-                    ? "border-primary/40 bg-primary-soft text-primary"
-                    : "border-border text-muted-foreground hover:border-primary/40",
-                )}
-              >
-                <t.icon className="h-3.5 w-3.5" />
-                {t.label}
-              </button>
-            ))}
+        </>
+      }
+      userMenu={{
+        name: displayName,
+        email: user.email ?? undefined,
+        profileTo: "/profile",
+        onSignOut: () => {
+          void supabase.auth.signOut().then(() => navigate({ to: "/" }));
+        },
+      }}
+    >
+      {section === "overview" && (
+        <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+            <StatCard
+              label="Total users"
+              value={<CountUp value={counts?.profiles ?? 0} />}
+              icon={Users}
+            />
+            <StatCard
+              label="Pro members"
+              value={<CountUp value={yearlyCount} />}
+              icon={Crown}
+              iconClassName="bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300"
+            />
+            <StatCard
+              label="API calls this month"
+              value={<CountUp value={apiCallsMonth} />}
+              icon={Zap}
+              iconClassName="bg-chart-3/15 text-chart-3"
+            />
+            <StatCard
+              label="Pending requests"
+              value={<CountUp value={pendingRequests} />}
+              icon={Lightbulb}
+              iconClassName="bg-accent-soft text-accent"
+            />
+            <StatCard
+              label="Yearly revenue"
+              value={`$${yearlyRevenue.toLocaleString()}`}
+              deltaLabel="per year"
+              icon={DollarSign}
+              iconClassName="bg-success/15 text-success"
+            />
           </div>
-        </div>
 
-        {tab === "overview" && (
-          <>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {stats.map((s) => (
-                <div key={s.label} className="surface-card p-5">
-                  <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft text-primary">
-                    <s.icon className="h-4.5 w-4.5" />
-                  </span>
-                  <p className="mt-4 font-display text-3xl font-semibold tabular-nums">
-                    <CountUp value={s.value} />
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <SectionHeading
-                eyebrow="Business"
-                title="Site at a glance"
-                description="The headline numbers an owner checks every day: product size, audience and paying plans."
-              />
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {ownerStats.map((s) => (
-                  <div key={s.label} className="surface-card p-5">
-                    <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft text-primary">
-                      <s.icon className="h-4.5 w-4.5" />
-                    </span>
-                    <p className="mt-4 font-display text-3xl font-semibold tabular-nums">
-                      <CountUp value={s.value} />
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                <div className="surface-card p-5">
-                  <p className="eyebrow">Plan breakdown</p>
-                  {freeCount === 0 && planBreakdown.length === 0 ? (
-                    <p className="mt-4 text-sm text-muted-foreground">No data yet.</p>
-                  ) : (
-                    <ul className="mt-4 divide-y divide-border">
-                      <li className="flex items-center justify-between gap-3 py-2.5 text-sm">
-                        <span className="text-muted-foreground">Free</span>
-                        <span className="tabular-nums">{freeCount}</span>
-                      </li>
-                      {planBreakdown.map((p) => (
-                        <li
-                          key={p.plan}
-                          className="flex items-center justify-between gap-3 py-2.5 text-sm"
-                        >
-                          <span className="inline-flex items-center gap-2 capitalize text-muted-foreground">
-                            <Crown className="h-3.5 w-3.5 text-primary" />
-                            {p.plan}
-                          </span>
-                          <span className="tabular-nums">{p.count}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <p className="mt-3 text-xs text-muted-foreground">
-                    Free = registered accounts with no paid plan row.
-                  </p>
-                </div>
-
-                <div className="surface-card p-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="eyebrow">Newest accounts</p>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        downloadCsv(
-                          `iconvault-recent-users-${stamp()}.csv`,
-                          ["Email", "Plan", "Joined"],
-                          recentUsers.map((u) => [u.email, u.plan, u.created_at]),
-                        )
-                      }
-                      className={pill}
-                    >
-                      <Download className="h-3.5 w-3.5" /> Export CSV
-                    </button>
-                  </div>
-                  {recentUsers.length === 0 ? (
-                    <p className="mt-4 text-sm text-muted-foreground">No data yet.</p>
-                  ) : (
-                    <ul className="mt-4 divide-y divide-border">
-                      {recentUsers.map((u) => (
-                        <li
-                          key={u.id}
-                          className="flex items-center justify-between gap-3 py-2.5 text-sm"
-                        >
-                          <span className="min-w-0 truncate">{u.email ?? u.id}</span>
-                          <span className="flex shrink-0 items-center gap-2">
-                            <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] capitalize text-muted-foreground">
-                              {u.plan}
-                            </span>
-                            <span className="font-mono text-[11px] text-muted-foreground">
-                              {new Date(u.created_at).toLocaleDateString()}
-                            </span>
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+          <div className="grid gap-4 lg:grid-cols-5">
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm lg:col-span-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Signups, last 14 days
+              </p>
+              <div className="mt-4">
+                {signupRows.length === 0 ? (
+                  <p className="py-8 text-center text-sm text-muted-foreground">No signups yet.</p>
+                ) : (
+                  <BarChart data={signupSeries} ariaLabel="Signups per day for the last 14 days" />
+                )}
               </div>
             </div>
-
-            <div>
-              <SectionHeading
-                eyebrow="Analytics"
-                title="What people are doing"
-                description="A rolling read on the most recent 500 recorded events."
-              />
-              <div className="mt-8 grid gap-4 lg:grid-cols-2">
-                {[
-                  { title: "Top events", rows: eventSummary.types },
-                  { title: "Top pages", rows: eventSummary.pages },
-                ].map((block) => (
-                  <div key={block.title} className="surface-card p-5">
-                    <p className="eyebrow">{block.title}</p>
-                    {block.rows.length === 0 ? (
-                      <p className="mt-4 text-sm text-muted-foreground">Nothing recorded yet.</p>
-                    ) : (
-                      <ul className="mt-4 divide-y divide-border">
-                        {block.rows.map(([label, count]) => (
-                          <li
-                            key={label}
-                            className="flex items-center justify-between gap-3 py-2.5 text-sm"
-                          >
-                            <span className="truncate font-mono text-xs text-muted-foreground">
-                              {label}
-                            </span>
-                            <span className="tabular-nums">{count}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ))}
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm lg:col-span-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Plan breakdown
+              </p>
+              <div className="mt-4">
+                {freeCount === 0 && planBreakdown.length === 0 ? (
+                  <p className="py-8 text-center text-sm text-muted-foreground">No data yet.</p>
+                ) : (
+                  <DonutChart segments={planDonut} ariaLabel="User plan breakdown" />
+                )}
               </div>
-              <div className="mt-5">
+              <p className="mt-3 text-xs text-muted-foreground">
+                Free means registered accounts with no paid plan row.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div>
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <h2 className="font-display text-base font-semibold">Newest accounts</h2>
                 <button
                   type="button"
                   onClick={() =>
                     downloadCsv(
-                      `iconvault-admin-overview-${stamp()}.csv`,
-                      ["Metric", "Value"],
-                      stats.map((s) => [s.label, s.value]),
+                      `iconvault-recent-users-${stamp()}.csv`,
+                      ["Email", "Plan", "Joined"],
+                      recentUsers.map((u) => [u.email, u.plan, u.created_at]),
                     )
                   }
-                  className={pill}
+                  className={pillBtn}
                 >
-                  <Download className="h-3.5 w-3.5" /> Export overview CSV
+                  <Download className="h-3.5 w-3.5" /> CSV
                 </button>
               </div>
+              <DataTable<RecentUserRow>
+                columns={[
+                  {
+                    key: "email",
+                    header: "Email",
+                    render: (u) => (
+                      <span className="block max-w-[180px] truncate">{u.email ?? u.id}</span>
+                    ),
+                  },
+                  {
+                    key: "plan",
+                    header: "Plan",
+                    render: (u) => (
+                      <span className="inline-flex rounded-full bg-muted px-2.5 py-0.5 text-xs font-bold capitalize text-muted-foreground">
+                        {u.plan}
+                      </span>
+                    ),
+                  },
+                  {
+                    key: "joined",
+                    header: "Joined",
+                    className: "whitespace-nowrap",
+                    render: (u) => (
+                      <span className="font-mono text-[11px] text-muted-foreground">
+                        {fmtDate(u.created_at)}
+                      </span>
+                    ),
+                  },
+                ]}
+                rows={recentUsers.slice(0, 8)}
+                emptyText="No accounts yet."
+                minWidth={420}
+              />
             </div>
-          </>
-        )}
+            <div>
+              <h2 className="mb-3 font-display text-base font-semibold">Recent activity</h2>
+              <div className="overflow-hidden rounded-2xl border border-border bg-card">
+                {logs.length === 0 ? (
+                  <p className="p-8 text-center text-sm text-muted-foreground">
+                    No admin activity recorded yet.
+                  </p>
+                ) : (
+                  <ul className="divide-y divide-border">
+                    {logs.slice(0, 8).map((l) => (
+                      <li key={l.id} className="flex items-center gap-3 px-4 py-3 text-sm">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary">
+                          <Activity className="h-4 w-4" />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate font-mono text-xs text-foreground">{l.action}</p>
+                          <p className="truncate font-mono text-[11px] text-muted-foreground">
+                            {l.target ?? ""}
+                          </p>
+                        </div>
+                        <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
+                          {new Date(l.created_at).toLocaleDateString()}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
-        {tab === "analytics" && (
-          <div>
-            <SectionHeading
-              eyebrow="Analytics"
-              title="Traffic and growth"
-              description="Page views and signups for the last 30 days. Only visits where the cookie banner was accepted are recorded."
-            />
-            {!analytics.hasData ? (
-              <p className="surface-card mt-8 p-8 text-center text-sm text-muted-foreground">
-                No data yet.
-              </p>
-            ) : (
-              <>
-                <div className="mt-8 grid gap-4 lg:grid-cols-2">
-                  <div className="surface-card p-5">
-                    <p className="eyebrow">Page views, last 30 days</p>
-                    <div className="mt-4 h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart
-                          data={analytics.days}
-                          margin={{ top: 5, right: 8, bottom: 0, left: -12 }}
-                        >
-                          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                          <XAxis
-                            dataKey="label"
-                            tick={{ fontSize: 11 }}
-                            tickLine={false}
-                            axisLine={false}
-                            interval={6}
-                          />
-                          <YAxis
-                            tick={{ fontSize: 11 }}
-                            tickLine={false}
-                            axisLine={false}
-                            allowDecimals={false}
-                          />
-                          <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12 }} />
-                          <Area
-                            type="monotone"
-                            dataKey="views"
-                            name="Views"
-                            stroke="#0F766E"
-                            strokeWidth={2}
-                            fill="#0F766E"
-                            fillOpacity={0.16}
-                          />
-                        </AreaChart>
-                      </ResponsiveContainer>
-                    </div>
-                  </div>
-
-                  <div className="surface-card p-5">
-                    <p className="eyebrow">Signups, last 30 days</p>
-                    <div className="mt-4 h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <LineChart
-                          data={analytics.days}
-                          margin={{ top: 5, right: 8, bottom: 0, left: -12 }}
-                        >
-                          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                          <XAxis
-                            dataKey="label"
-                            tick={{ fontSize: 11 }}
-                            tickLine={false}
-                            axisLine={false}
-                            interval={6}
-                          />
-                          <YAxis
-                            tick={{ fontSize: 11 }}
-                            tickLine={false}
-                            axisLine={false}
-                            allowDecimals={false}
-                          />
-                          <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12 }} />
-                          <Line
-                            type="monotone"
-                            dataKey="signups"
-                            name="Signups"
-                            stroke="#0F766E"
-                            strokeWidth={2}
-                            dot={false}
-                          />
-                        </LineChart>
-                      </ResponsiveContainer>
-                    </div>
-                    <p className="mt-3 text-xs text-muted-foreground">
-                      Counted from new profiles: the site does not write a signup event to the
-                      analytics table.
-                    </p>
+      {section === "analytics" && (
+        <div className="grid gap-4">
+          {!analytics.hasData ? (
+            <div className="rounded-2xl border border-border bg-card p-8 text-center text-sm text-muted-foreground shadow-sm">
+              No data yet. Only visits where the cookie banner was accepted are recorded.
+            </div>
+          ) : (
+            <>
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Page views, last 30 days
+                  </p>
+                  <div className="mt-4">
+                    <LineChart
+                      data={analytics.days.map((d) => d.views)}
+                      labels={analytics.days.map((d) => d.label)}
+                      ariaLabel="Page views per day for the last 30 days"
+                    />
                   </div>
                 </div>
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Signups, last 30 days
+                  </p>
+                  <div className="mt-4">
+                    <LineChart
+                      data={analytics.days.map((d) => d.signups)}
+                      labels={analytics.days.map((d) => d.label)}
+                      ariaLabel="Signups per day for the last 30 days"
+                    />
+                  </div>
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    Counted from new profiles: the site does not write a signup event to the
+                    analytics table.
+                  </p>
+                </div>
+              </div>
 
-                <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                  <div className="surface-card p-5">
-                    <p className="eyebrow">Top pages, last 30 days</p>
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Top pages, last 30 days
+                  </p>
+                  <div className="mt-4">
                     {analytics.topPages.length === 0 ? (
-                      <p className="mt-4 text-sm text-muted-foreground">No data yet.</p>
+                      <p className="py-6 text-center text-sm text-muted-foreground">No data yet.</p>
                     ) : (
-                      <div className="mt-4 h-72">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={analytics.topPages}
-                            layout="vertical"
-                            margin={{ top: 0, right: 16, bottom: 0, left: 0 }}
-                          >
-                            <CartesianGrid
-                              strokeDasharray="3 3"
-                              horizontal={false}
-                              stroke="hsl(var(--border))"
-                            />
-                            <XAxis
-                              type="number"
-                              tick={{ fontSize: 11 }}
-                              tickLine={false}
-                              axisLine={false}
-                              allowDecimals={false}
-                            />
-                            <YAxis
-                              type="category"
-                              dataKey="name"
-                              width={150}
-                              tick={{ fontSize: 11 }}
-                              tickLine={false}
-                              axisLine={false}
-                              tickFormatter={(v: string) =>
-                                v.length > 24 ? `${v.slice(0, 23)}…` : v
-                              }
-                            />
-                            <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12 }} />
-                            <Bar
-                              dataKey="views"
-                              name="Views"
-                              fill="#0F766E"
-                              radius={[0, 6, 6, 0]}
-                            />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
+                      <BarChart
+                        data={analytics.topPages.map((p) => ({ label: p.name, value: p.views }))}
+                        ariaLabel="Top pages by views"
+                      />
                     )}
-                  </div>
-
-                  <div className="surface-card p-5">
-                    <p className="eyebrow">Top tools, last 30 days</p>
-                    {analytics.topTools.length === 0 ? (
-                      <p className="mt-4 text-sm text-muted-foreground">No data yet.</p>
-                    ) : (
-                      <div className="mt-4 h-72">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={analytics.topTools}
-                            layout="vertical"
-                            margin={{ top: 0, right: 16, bottom: 0, left: 0 }}
-                          >
-                            <CartesianGrid
-                              strokeDasharray="3 3"
-                              horizontal={false}
-                              stroke="hsl(var(--border))"
-                            />
-                            <XAxis
-                              type="number"
-                              tick={{ fontSize: 11 }}
-                              tickLine={false}
-                              axisLine={false}
-                              allowDecimals={false}
-                            />
-                            <YAxis
-                              type="category"
-                              dataKey="name"
-                              width={150}
-                              tick={{ fontSize: 11 }}
-                              tickLine={false}
-                              axisLine={false}
-                              tickFormatter={(v: string) =>
-                                v.length > 24 ? `${v.slice(0, 23)}…` : v
-                              }
-                            />
-                            <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12 }} />
-                            <Bar
-                              dataKey="views"
-                              name="Views"
-                              fill="#0F766E"
-                              radius={[0, 6, 6, 0]}
-                            />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    )}
-                    <p className="mt-3 text-xs text-muted-foreground">
-                      Derived from page views on paths starting with /tools/.
-                    </p>
                   </div>
                 </div>
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Top tools, last 30 days
+                  </p>
+                  <div className="mt-4">
+                    {analytics.topTools.length === 0 ? (
+                      <p className="py-6 text-center text-sm text-muted-foreground">No data yet.</p>
+                    ) : (
+                      <BarChart
+                        data={analytics.topTools.map((t) => ({ label: t.name, value: t.views }))}
+                        ariaLabel="Top tools by views"
+                      />
+                    )}
+                  </div>
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    Derived from page views on paths starting with /tools/.
+                  </p>
+                </div>
+              </div>
 
-                <div className="surface-card mt-4 p-5">
-                  <p className="eyebrow">Trial conversion proxy</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    Free trial usage is stored only in each visitor's browser, so real
-                    trial-to-paid conversion cannot be measured server-side. As a proxy, over
-                    the last 30 days{" "}
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Top events
+                  </p>
+                  {eventSummary.types.length === 0 ? (
+                    <p className="py-6 text-center text-sm text-muted-foreground">
+                      Nothing recorded yet.
+                    </p>
+                  ) : (
+                    <ul className="mt-4 divide-y divide-border">
+                      {eventSummary.types.map(([label, count]) => (
+                        <li key={label} className="flex items-center justify-between gap-3 py-2.5 text-sm">
+                          <span className="truncate font-mono text-xs text-muted-foreground">{label}</span>
+                          <span className="tabular-nums">{count}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Trial conversion proxy
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    Free trial usage lives only in each visitor's browser, so real trial-to-paid
+                    conversion cannot be measured server-side. As a proxy,{" "}
                     <span className="font-medium text-foreground">
                       <CountUp value={analytics.proViews} />
                     </span>{" "}
@@ -975,365 +940,462 @@ function AdminPage() {
                     <span className="font-medium text-foreground">
                       <CountUp value={analytics.totalViews} />
                     </span>{" "}
-                    page views ({proViewPct}%) landed on the /pro pricing page.
+                    page views landed on the /pro pricing page.
                   </p>
                 </div>
-              </>
+              </div>
+            </>
+          )}
+        </div>
+      )}
+
+      {section === "users" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <UsersTab users={accounts} />
+        </div>
+      )}
+
+      {section === "testimonials" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <TestimonialsTab />
+        </div>
+      )}
+
+      {section === "requests" && (
+        <div className="grid gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <ReadOnlyNote />
+            <button
+              type="button"
+              onClick={() =>
+                downloadCsv(
+                  `iconvault-icon-requests-${stamp()}.csv`,
+                  ["Icon name", "Description", "Use case", "Category", "Status", "Created"],
+                  requests.map((r) => [
+                    r.icon_name,
+                    r.description,
+                    r.use_case,
+                    r.category,
+                    r.status,
+                    r.created_at,
+                  ]),
+                )
+              }
+              className={pillBtn}
+            >
+              <Download className="h-3.5 w-3.5" /> Export CSV
+            </button>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+            {requests.length === 0 ? (
+              <p className="p-8 text-center text-sm text-muted-foreground">No requests yet.</p>
+            ) : (
+              <ul className="divide-y divide-border">
+                {requests.map((r) => (
+                  <li key={r.id} className="flex flex-wrap items-center gap-3 px-5 py-4">
+                    <div className="min-w-0 flex-1">
+                      <p className="flex items-center gap-2 truncate text-sm font-medium">
+                        {r.icon_name ?? "Untitled"}
+                        <span
+                          className={cn(
+                            "rounded-full px-2 py-0.5 font-mono text-[10px]",
+                            r.status === "pending"
+                              ? "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300"
+                              : r.status === "completed"
+                                ? "bg-success/15 text-success"
+                                : "bg-muted text-muted-foreground",
+                          )}
+                        >
+                          {(r.status ?? "pending").replace("_", " ")}
+                        </span>
+                      </p>
+                      {r.description && (
+                        <p className="mt-0.5 truncate text-xs text-muted-foreground">{r.description}</p>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {STATUSES.map((s) => (
+                        <button
+                          key={s}
+                          type="button"
+                          disabled={!isOwner}
+                          onClick={() => void setStatus(r.id, s)}
+                          className={cn(
+                            "focus-ring rounded-full border px-2.5 py-1 font-mono text-[10px] transition-colors disabled:opacity-50",
+                            r.status === s
+                              ? "border-primary/40 bg-primary-soft text-primary"
+                              : "border-border text-muted-foreground hover:border-primary/40",
+                          )}
+                        >
+                          {s.replace("_", " ")}
+                        </button>
+                      ))}
+                      {isOwner && (
+                        <button
+                          type="button"
+                          onClick={() => void deleteRequest(r.id)}
+                          aria-label="Delete request"
+                          className="focus-ring rounded-full border border-border p-1.5 text-muted-foreground transition-colors hover:border-destructive/40 hover:text-destructive"
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
-        )}
+        </div>
+      )}
 
-        {tab === "requests" && (
-          <div>
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading
-                eyebrow="Moderation"
-                title="Icon requests"
-                description="Triage what people are asking for and move each request through the queue."
-              />
-              <button
-                type="button"
-                onClick={() =>
-                  downloadCsv(
-                    `iconvault-icon-requests-${stamp()}.csv`,
-                    ["Icon name", "Description", "Use case", "Category", "Status", "Created"],
-                    requests.map((r) => [
-                      r.icon_name,
-                      r.description,
-                      r.use_case,
-                      r.category,
-                      r.status,
-                      r.created_at,
-                    ]),
-                  )
-                }
-                className={pill}
-              >
-                <Download className="h-3.5 w-3.5" /> Export CSV
-              </button>
-            </div>
+      {section === "waitlist" && (
+        <div className="grid gap-4">
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={() =>
+                downloadCsv(
+                  `iconvault-waitlist-${stamp()}.csv`,
+                  ["Email", "Joined"],
+                  waitlist.map((w) => [w.email, w.created_at]),
+                )
+              }
+              className={pillBtn}
+            >
+              <Download className="h-3.5 w-3.5" /> Export CSV
+            </button>
+          </div>
+          <DataTable<{ id: string; email: string; created_at: string }>
+            columns={[
+              {
+                key: "email",
+                header: "Email",
+                render: (w) => <span className="truncate">{w.email}</span>,
+              },
+              {
+                key: "joined",
+                header: "Joined",
+                className: "whitespace-nowrap",
+                render: (w) => (
+                  <span className="font-mono text-[11px] text-muted-foreground">
+                    {fmtDate(w.created_at)}
+                  </span>
+                ),
+              },
+            ]}
+            rows={waitlist.map((w) => ({ id: w.email, ...w }))}
+            emptyText="Nobody on the waitlist yet."
+          />
+        </div>
+      )}
+
+      {section === "accounts" && (
+        <div className="grid gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <ReadOnlyNote />
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-surface">
-              {requests.length === 0 ? (
-                <p className="p-8 text-center text-sm text-muted-foreground">No requests yet.</p>
-              ) : (
-                <ul className="divide-y divide-border">
-                  {requests.map((r) => (
-                    <li key={r.id} className="flex flex-wrap items-center gap-3 px-5 py-4">
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium">{r.icon_name ?? "Untitled"}</p>
-                        {r.description && (
-                          <p className="mt-0.5 truncate text-xs text-muted-foreground">
-                            {r.description}
-                          </p>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        {STATUSES.map((s) => (
-                          <button
-                            key={s}
-                            type="button"
-                            disabled={!isOwner}
-                            onClick={() => void setStatus(r.id, s)}
-                            className={cn(
-                              "focus-ring rounded-full border px-2.5 py-1 font-mono text-[10px] transition-colors disabled:opacity-50",
-                              r.status === s
-                                ? "border-primary/40 bg-primary-soft text-primary"
-                                : "border-border text-muted-foreground hover:border-primary/40",
-                            )}
-                          >
-                            {s.replace("_", " ")}
-                          </button>
-                        ))}
-                        {isOwner && (
-                          <button
-                            type="button"
-                            onClick={() => void deleteRequest(r.id)}
-                            aria-label="Delete request"
-                            className="focus-ring rounded-full border border-border p-1.5 text-muted-foreground transition-colors hover:border-destructive/40 hover:text-destructive"
-                          >
-                            <Trash2 className="h-3.5 w-3.5" />
-                          </button>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <button
+              type="button"
+              onClick={() =>
+                downloadCsv(
+                  `iconvault-accounts-${stamp()}.csv`,
+                  ["Email", "Name", "Roles", "Created", "Last sign in"],
+                  accounts.map((a) => [
+                    a.email,
+                    a.display_name,
+                    a.roles.join(" "),
+                    a.created_at,
+                    a.last_sign_in_at,
+                  ]),
+                )
+              }
+              className={pillBtn}
+            >
+              <Download className="h-3.5 w-3.5" /> Export CSV
+            </button>
           </div>
-        )}
-
-        {tab === "waitlist" && (
-          <div>
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading
-                eyebrow="Growth"
-                title="Pro waitlist"
-                description="The most recent people who asked to be told when Pro opens up."
-              />
-              <button
-                type="button"
-                onClick={() =>
-                  downloadCsv(
-                    `iconvault-waitlist-${stamp()}.csv`,
-                    ["Email", "Joined"],
-                    waitlist.map((w) => [w.email, w.created_at]),
-                  )
-                }
-                className={pill}
-              >
-                <Download className="h-3.5 w-3.5" /> Export CSV
-              </button>
-            </div>
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-surface">
-              {waitlist.length === 0 ? (
-                <p className="p-8 text-center text-sm text-muted-foreground">Nobody yet.</p>
-              ) : (
-                <ul className="divide-y divide-border">
-                  {waitlist.map((w) => (
-                    <li
-                      key={w.email}
-                      className="flex items-center justify-between gap-3 px-5 py-3.5 text-sm"
-                    >
-                      <span className="truncate">{w.email}</span>
-                      <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
-                        {new Date(w.created_at).toLocaleDateString()}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        )}
-
-        {tab === "users" && (
-          <div>
-            <SectionHeading
-              eyebrow="People"
-              title="Users"
-              description="Every registered user: email, name, plan, join date and last sign-in. Select rows to download a CSV."
-            />
-            <div className="mt-8">
-              <UsersTab users={accounts} />
-            </div>
-          </div>
-        )}
-
-        {tab === "testimonials" && (
-          <div>
-            <SectionHeading
-              eyebrow="Content"
-              title="Testimonials"
-              description="Moderate the reviews shown in the homepage carousel. Approve the good ones, edit or delete the rest."
-            />
-            <div className="mt-8">
-              <TestimonialsTab />
-            </div>
-          </div>
-        )}
-
-        {tab === "accounts" && (
-          <div>
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading
-                eyebrow="People"
-                title="Accounts & roles"
-                description="Every registered account, when they last signed in, and what they can do."
-              />
-              <button
-                type="button"
-                onClick={() =>
-                  downloadCsv(
-                    `iconvault-accounts-${stamp()}.csv`,
-                    ["Email", "Name", "Roles", "Created", "Last sign in"],
-                    accounts.map((a) => [
-                      a.email,
-                      a.display_name,
-                      a.roles.join(" "),
-                      a.created_at,
-                      a.last_sign_in_at,
-                    ]),
-                  )
-                }
-                className={pill}
-              >
-                <Download className="h-3.5 w-3.5" /> Export CSV
-              </button>
-            </div>
-            <ReadOnlyNote />
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-surface">
-              {accounts.length === 0 ? (
-                <p className="p-8 text-center text-sm text-muted-foreground">No accounts loaded.</p>
-              ) : (
-                <ul className="divide-y divide-border">
-                  {accounts.map((a) => (
-                    <li key={a.id} className="flex flex-wrap items-center gap-3 px-5 py-4">
-                      <div className="min-w-0 flex-1">
-                        <p className="flex items-center gap-2 truncate text-sm font-medium">
-                          {a.display_name ?? a.email ?? "Account"}
-                          {a.is_owner && <Crown className="h-3.5 w-3.5 text-primary" />}
-                        </p>
-                        <p className="mt-0.5 truncate font-mono text-[11px] text-muted-foreground">
-                          {a.email ?? a.id} ·{" "}
-                          {a.last_sign_in_at
-                            ? `last seen ${new Date(a.last_sign_in_at).toLocaleDateString()}`
-                            : "never signed in"}
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        {(["admin", "moderator"] as const).map((role) => (
-                          <button
-                            key={role}
-                            type="button"
-                            disabled={!isOwner || a.is_owner}
-                            onClick={() => void toggleRole(a, role)}
-                            className={cn(
-                              "focus-ring rounded-full border px-2.5 py-1 font-mono text-[10px] transition-colors disabled:opacity-50",
-                              a.roles.includes(role)
-                                ? "border-primary/40 bg-primary-soft text-primary"
-                                : "border-border text-muted-foreground hover:border-primary/40",
-                            )}
-                          >
-                            {role}
-                          </button>
-                        ))}
-                        {isOwner && !a.is_owner && (
-                          <button
-                            type="button"
-                            onClick={() => void removeUser(a)}
-                            aria-label="Delete account"
-                            className="focus-ring rounded-full border border-border p-1.5 text-muted-foreground transition-colors hover:border-destructive/40 hover:text-destructive"
-                          >
-                            <Trash2 className="h-3.5 w-3.5" />
-                          </button>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        )}
-
-        {tab === "settings" && (
-          <div>
-            <SectionHeading
-              eyebrow="Configuration"
-              title="Site settings"
-              description="Owner-only controls for the public site."
-            />
-            <ReadOnlyNote />
-            <div className="surface-card mt-8 max-w-2xl p-6">
-              <label className="block text-sm font-medium" htmlFor="site-name">
-                Site name
-              </label>
-              <input
-                id="site-name"
-                value={settings.site_name}
-                disabled={!isOwner}
-                onChange={(e) => setSettings((s) => ({ ...s, site_name: e.target.value }))}
-                className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50 disabled:opacity-60"
-              />
-
-              <label className="mt-6 block text-sm font-medium" htmlFor="announcement">
-                Announcement banner text
-              </label>
-              <textarea
-                id="announcement"
-                rows={3}
-                value={settings.announcement}
-                disabled={!isOwner}
-                onChange={(e) => setSettings((s) => ({ ...s, announcement: e.target.value }))}
-                className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50 disabled:opacity-60"
-              />
-
-              <div className="mt-6 grid gap-3">
-                {(
-                  [
-                    ["maintenance_mode", "Maintenance mode"],
-                    ["signups_enabled", "Allow new sign-ups"],
-                    ["waitlist_open", "Pro waitlist open"],
-                  ] as const
-                ).map(([key, label]) => (
-                  <label
-                    key={key}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 text-sm"
-                  >
-                    {label}
-                    <input
-                      type="checkbox"
-                      checked={settings[key]}
-                      disabled={!isOwner}
-                      onChange={(e) => setSettings((s) => ({ ...s, [key]: e.target.checked }))}
-                      className="h-4 w-4 accent-[hsl(var(--primary))]"
-                    />
-                  </label>
+          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+            {accounts.length === 0 ? (
+              <p className="p-8 text-center text-sm text-muted-foreground">No accounts loaded.</p>
+            ) : (
+              <ul className="divide-y divide-border">
+                {accounts.map((a) => (
+                  <li key={a.id} className="flex flex-wrap items-center gap-3 px-5 py-4">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary-soft font-display text-sm font-semibold text-primary">
+                      {(a.display_name ?? a.email ?? "?").charAt(0).toUpperCase()}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="flex items-center gap-2 truncate text-sm font-medium">
+                        {a.display_name ?? a.email ?? "Account"}
+                        {a.is_owner && <Crown className="h-3.5 w-3.5 shrink-0 text-primary" />}
+                      </p>
+                      <p className="mt-0.5 truncate font-mono text-[11px] text-muted-foreground">
+                        {a.email ?? a.id} ·{" "}
+                        {a.last_sign_in_at
+                          ? `last seen ${fmtDate(a.last_sign_in_at)}`
+                          : "never signed in"}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {(["admin", "moderator"] as const).map((role) => (
+                        <button
+                          key={role}
+                          type="button"
+                          disabled={!isOwner || a.is_owner}
+                          onClick={() => void toggleRole(a, role)}
+                          className={cn(
+                            "focus-ring rounded-full border px-2.5 py-1 font-mono text-[10px] transition-colors disabled:opacity-50",
+                            a.roles.includes(role)
+                              ? "border-primary/40 bg-primary-soft text-primary"
+                              : "border-border text-muted-foreground hover:border-primary/40",
+                          )}
+                        >
+                          {role}
+                        </button>
+                      ))}
+                      {isOwner && !a.is_owner && (
+                        <button
+                          type="button"
+                          onClick={() => void removeUser(a)}
+                          aria-label="Delete account"
+                          className="focus-ring rounded-full border border-border p-1.5 text-muted-foreground transition-colors hover:border-destructive/40 hover:text-destructive"
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      )}
+                    </div>
+                  </li>
                 ))}
-              </div>
-
-              {isOwner && (
-                <button
-                  type="button"
-                  onClick={() => void saveSettings()}
-                  disabled={savingSettings}
-                  className="focus-ring mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground disabled:opacity-60"
-                >
-                  {savingSettings && <Loader2 className="h-4 w-4 animate-spin" />} Save settings
-                </button>
-              )}
-            </div>
+              </ul>
+            )}
           </div>
-        )}
+        </div>
+      )}
 
-        {tab === "activity" && (
-          <div>
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading
-                eyebrow="Audit"
-                title="Admin activity"
-                description="Every change made from this panel, newest first."
-              />
+      {section === "apikeys" && (
+        <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <StatCard label="Total keys" value={<CountUp value={apiKeys.length} />} icon={Key} />
+            <StatCard
+              label="Calls this month"
+              value={<CountUp value={apiCallsMonth} />}
+              icon={Zap}
+              iconClassName="bg-chart-3/15 text-chart-3"
+            />
+            <StatCard
+              label="Revoked"
+              value={<CountUp value={apiKeys.filter((k) => k.revoked).length} />}
+              icon={Lock}
+              iconClassName="bg-destructive/10 text-destructive"
+            />
+          </div>
+          <ReadOnlyNote />
+          <DataTable<AdminApiKeyRow>
+            columns={[
+              {
+                key: "name",
+                header: "Key",
+                render: (k) => (
+                  <div className="min-w-0">
+                    <p className="truncate font-medium">{k.name}</p>
+                    <p className="truncate font-mono text-[11px] text-muted-foreground">
+                      {k.key_prefix}… · {k.user_email ?? k.user_id.slice(0, 8)}
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                key: "usage",
+                header: "Usage",
+                render: (k) => {
+                  const pct = k.monthly_quota > 0 ? Math.min(100, Math.round((k.used_this_month / k.monthly_quota) * 100)) : 0;
+                  return (
+                    <div className="min-w-[140px]">
+                      <p className="text-xs tabular-nums">
+                        {k.used_this_month.toLocaleString()} / {k.monthly_quota.toLocaleString()}
+                      </p>
+                      <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted">
+                        <div
+                          className={cn("h-full rounded-full", pct >= 90 ? "bg-destructive" : "bg-primary")}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                },
+              },
+              {
+                key: "status",
+                header: "Status",
+                render: (k) => (
+                  <span
+                    className={cn(
+                      "inline-flex rounded-full px-2.5 py-0.5 text-xs font-bold",
+                      k.revoked
+                        ? "bg-destructive/10 text-destructive"
+                        : "bg-success/15 text-success",
+                    )}
+                  >
+                    {k.revoked ? "Revoked" : "Active"}
+                  </span>
+                ),
+              },
+              {
+                key: "created",
+                header: "Created",
+                className: "whitespace-nowrap",
+                render: (k) => (
+                  <span className="font-mono text-[11px] text-muted-foreground">
+                    {fmtDate(k.created_at)}
+                  </span>
+                ),
+              },
+              {
+                key: "actions",
+                header: "",
+                className: "whitespace-nowrap text-right",
+                render: (k) => (
+                  <button
+                    type="button"
+                    disabled={!isOwner}
+                    onClick={() => void toggleKeyRevoked(k)}
+                    className={cn(
+                      "focus-ring inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors disabled:opacity-50",
+                      k.revoked
+                        ? "border-success/40 text-success hover:bg-success/10"
+                        : "border-destructive/40 text-destructive hover:bg-destructive/10",
+                    )}
+                  >
+                    {k.revoked ? (
+                      <>
+                        <Check className="h-3.5 w-3.5" /> Re-enable
+                      </>
+                    ) : (
+                      <>
+                        <X className="h-3.5 w-3.5" /> Revoke
+                      </>
+                    )}
+                  </button>
+                ),
+              },
+            ]}
+            rows={apiKeys}
+            emptyText="No API keys issued yet."
+            minWidth={720}
+          />
+        </div>
+      )}
+
+      {section === "settings" && (
+        <div className="grid gap-4">
+          <ReadOnlyNote />
+          <div className="max-w-2xl rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <label className="block text-sm font-medium" htmlFor="site-name">
+              Site name
+            </label>
+            <input
+              id="site-name"
+              value={settings.site_name}
+              disabled={!isOwner}
+              onChange={(e) => setSettings((s) => ({ ...s, site_name: e.target.value }))}
+              className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50 disabled:opacity-60"
+            />
+
+            <label className="mt-6 block text-sm font-medium" htmlFor="announcement">
+              Announcement banner text
+            </label>
+            <textarea
+              id="announcement"
+              rows={3}
+              value={settings.announcement}
+              disabled={!isOwner}
+              onChange={(e) => setSettings((s) => ({ ...s, announcement: e.target.value }))}
+              className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50 disabled:opacity-60"
+            />
+
+            <div className="mt-6 grid gap-3">
+              {(
+                [
+                  ["maintenance_mode", "Maintenance mode"],
+                  ["signups_enabled", "Allow new sign-ups"],
+                  ["waitlist_open", "Pro waitlist open"],
+                ] as const
+              ).map(([key, label]) => (
+                <label
+                  key={key}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 text-sm"
+                >
+                  {label}
+                  <input
+                    type="checkbox"
+                    checked={settings[key]}
+                    disabled={!isOwner}
+                    onChange={(e) => setSettings((s) => ({ ...s, [key]: e.target.checked }))}
+                    className="h-4 w-4 accent-[hsl(var(--primary))]"
+                  />
+                </label>
+              ))}
+            </div>
+
+            {isOwner && (
               <button
                 type="button"
-                onClick={() =>
-                  downloadCsv(
-                    `iconvault-admin-activity-${stamp()}.csv`,
-                    ["Action", "Target", "Actor", "When"],
-                    logs.map((l) => [l.action, l.target, l.actor_id, l.created_at]),
-                  )
-                }
-                className={pill}
+                onClick={() => void saveSettings()}
+                disabled={savingSettings}
+                className="focus-ring mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground disabled:opacity-60"
               >
-                <Download className="h-3.5 w-3.5" /> Export CSV
+                {savingSettings && <Loader2 className="h-4 w-4 animate-spin" />} Save settings
               </button>
-            </div>
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-surface">
-              {logs.length === 0 ? (
-                <p className="p-8 text-center text-sm text-muted-foreground">
-                  No admin activity recorded yet.
-                </p>
-              ) : (
-                <ul className="divide-y divide-border">
-                  {logs.map((l) => (
-                    <li key={l.id} className="flex items-center gap-3 px-5 py-3.5 text-sm">
-                      <span className="font-mono text-xs text-primary">{l.action}</span>
-                      <span className="min-w-0 flex-1 truncate font-mono text-[11px] text-muted-foreground">
-                        {l.target ?? ""}
-                      </span>
-                      <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
-                        {new Date(l.created_at).toLocaleString()}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            )}
           </div>
-        )}
-      </Stack>
-    </PageShell>
+        </div>
+      )}
+
+      {section === "activity" && (
+        <div className="grid gap-4">
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={() =>
+                downloadCsv(
+                  `iconvault-admin-activity-${stamp()}.csv`,
+                  ["Action", "Target", "Actor", "When"],
+                  logs.map((l) => [l.action, l.target, l.actor_id, l.created_at]),
+                )
+              }
+              className={pillBtn}
+            >
+              <Download className="h-3.5 w-3.5" /> Export CSV
+            </button>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+            {logs.length === 0 ? (
+              <p className="p-8 text-center text-sm text-muted-foreground">
+                No admin activity recorded yet.
+              </p>
+            ) : (
+              <ul className="divide-y divide-border">
+                {logs.map((l) => (
+                  <li key={l.id} className="flex items-center gap-3 px-5 py-3.5 text-sm">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary">
+                      <Activity className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate font-mono text-xs text-foreground">{l.action}</p>
+                      <p className="truncate font-mono text-[11px] text-muted-foreground">
+                        {l.target ?? ""} · actor {l.actor_id.slice(0, 8)}
+                      </p>
+                    </div>
+                    <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
+                      {new Date(l.created_at).toLocaleString()}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+    </DashboardShell>
   );
 }

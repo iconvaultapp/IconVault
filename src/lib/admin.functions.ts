@@ -179,8 +179,7 @@ export const deleteAccount = createServerFn({ method: "POST" })
   });
 
 /** Current caller's admin/owner status, computed server-side. */
-export const getRoleStatus = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
+export const getRoleStatus = createServerFn({ method: "POST" })  .middleware([requireSupabaseAuth])
   .handler(async ({ context }): Promise<{ isAdmin: boolean; isOwner: boolean }> => {
     const { fetchRoleStatus } = await import("@/lib/admin-roles.server");
     const { isAdmin, isOwner } = await fetchRoleStatus(context.userId);
@@ -258,3 +257,92 @@ export const getOperatingStats = createServerFn({ method: "POST" })
       return { totalUsers: totalUsers ?? 0, planBreakdown, freeCount, recentUsers };
     },
   );
+
+export interface AdminApiKeyRow {
+  id: string;
+  user_id: string;
+  user_email: string | null;
+  name: string;
+  key_prefix: string;
+  monthly_quota: number;
+  used_this_month: number;
+  revoked: boolean;
+  created_at: string;
+}
+
+/** Admin-only listing of every API key with its owner's email and usage. */
+export const listApiKeys = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }): Promise<{ keys: AdminApiKeyRow[] }> => {
+    const { fetchRoleStatus } = await import("@/lib/admin-roles.server");
+    const { isAdmin } = await fetchRoleStatus(context.userId);
+    if (!isAdmin) throw new Error("Forbidden");
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const [{ data: keys }, { data: list }] = await Promise.all([
+      (supabaseAdmin as any)
+        .from("api_keys")
+        .select("id, user_id, name, key_prefix, monthly_quota, used_this_month, revoked, created_at")
+        .order("created_at", { ascending: false })
+        .limit(500),
+      supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
+    ]);
+
+    const emailById = new Map<string, string>();
+    (list?.users ?? []).forEach((u) => {
+      if (u.email) emailById.set(u.id, u.email);
+    });
+
+    return {
+      keys: (keys ?? []).map(
+        (k: {
+          id: string;
+          user_id: string;
+          name: string;
+          key_prefix: string;
+          monthly_quota: number;
+          used_this_month: number;
+          revoked: boolean;
+          created_at: string;
+        }) => ({
+          id: k.id,
+          user_id: k.user_id,
+          user_email: emailById.get(k.user_id) ?? null,
+          name: k.name,
+          key_prefix: k.key_prefix,
+          monthly_quota: k.monthly_quota,
+          used_this_month: k.used_this_month,
+          revoked: k.revoked,
+          created_at: k.created_at,
+        }),
+      ),
+    };
+  });
+
+/** Owner-only revoke / unrevoke for an API key. */
+export const setApiKeyRevoked = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: { keyId: string; revoked: boolean }) => {
+    if (!input.keyId) throw new Error("keyId required");
+    return input;
+  })
+  .handler(async ({ data, context }) => {
+    const { fetchRoleStatus } = await import("@/lib/admin-roles.server");
+    const { isOwner } = await fetchRoleStatus(context.userId);
+    if (!isOwner) throw new Error("Forbidden");
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await (supabaseAdmin as any)
+      .from("api_keys")
+      .update({ revoked: data.revoked })
+      .eq("id", data.keyId);
+    if (error) throw new Error(error.message);
+
+    await supabaseAdmin.from("admin_activity_log").insert({
+      actor_id: context.userId,
+      action: data.revoked ? "apikey.revoke" : "apikey.unrevoke",
+      target: data.keyId,
+    });
+
+    return { ok: true as const };
+  });

@@ -21,12 +21,15 @@ import {
   Minimize2,
   Star,
   MessageSquareQuote,
+  LayoutDashboard,
+  Settings,
+  Zap,
+  Trash2,
 } from "lucide-react";
 import { toast } from "sonner";
-import PageShell from "@/components/PageShell";
-import { Reveal } from "@/components/Reveal";
+import { DashboardShell, type DashboardNavSection } from "@/components/dashboard/DashboardShell";
+import { StatCard } from "@/components/dashboard/StatCard";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
-import { SectionHeading, Stack, CTABand } from "@/components/kit";
 import { useServerFn } from "@tanstack/react-start";
 import { submitTestimonial } from "@/lib/testimonial.functions";
 import { TESTIMONIAL_MAX_LENGTH } from "@/lib/user-testimonials";
@@ -38,6 +41,7 @@ import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { usePlan, YEARLY_PRICE } from "@/hooks/usePlan";
 import { getIconSvgUrl, parseIconId } from "@/lib/iconify";
 import { TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({
@@ -117,6 +121,35 @@ const POPULAR_TOOLS = [
   },
 ] as const;
 
+type SectionId =
+  | "overview"
+  | "favourites"
+  | "collections"
+  | "history"
+  | "subscription"
+  | "apikey"
+  | "review"
+  | "settings";
+
+const SECTION_META: Record<SectionId, { title: string; subtitle: string }> = {
+  overview: { title: "Overview", subtitle: "Your IconVault at a glance." },
+  favourites: { title: "Favourite Icons", subtitle: "Every icon you hearted, in one place." },
+  collections: { title: "Collections", subtitle: "Your saved icon sets." },
+  history: { title: "History", subtitle: "Icons you recently viewed on this device." },
+  subscription: { title: "Subscription", subtitle: "Your plan and billing." },
+  apikey: { title: "API Key", subtitle: "Keys for the REST API, CLI and embed widget." },
+  review: { title: "My Review", subtitle: "Share a review for the homepage." },
+  settings: { title: "Settings", subtitle: "Identity and account controls." },
+};
+
+interface UserApiKey {
+  id: string;
+  name: string;
+  key_prefix: string;
+  monthly_quota: number;
+  used_this_month: number;
+}
+
 /** Let the user publish a short review. Stored in Supabase as unapproved;
  *  it appears in the homepage testimonials carousel once an admin approves it. */
 function TestimonialSection({ displayName }: { displayName: string }) {
@@ -163,124 +196,138 @@ function TestimonialSection({ displayName }: { displayName: string }) {
   };
 
   return (
-    <div>
-      <SectionHeading
-        eyebrow="Community"
-        title="Your review"
-        description="Share a short review - approved reviews appear in the homepage testimonials."
-      />
-      <Reveal>
-        <div className="surface-card mt-8 p-6">
-          <form onSubmit={submit} className="grid gap-5">
-            <HoneypotField onFill={setTrap} />
-            <div className="grid gap-2">
-              <span className="text-sm font-medium">Your rating</span>
-              <div className="flex gap-1" role="radiogroup" aria-label="Star rating">
-                {[1, 2, 3, 4, 5].map((n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    role="radio"
-                    aria-checked={rating === n}
-                    aria-label={`${n} star${n > 1 ? "s" : ""}`}
-                    onClick={() => setRating(n)}
-                    onMouseEnter={() => setHoverRating(n)}
-                    onMouseLeave={() => setHoverRating(0)}
-                    className="focus-ring rounded-md p-0.5 text-accent transition-transform hover:scale-110"
-                  >
-                    <Star
-                      className={`h-6 w-6 ${(hoverRating || rating) >= n ? "fill-accent" : "opacity-30"}`}
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-2">
-              <label htmlFor="review-name" className="text-sm font-medium">
-                Display name
-              </label>
-              <input
-                id="review-name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                maxLength={60}
-                placeholder="Your name"
-                className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
-              />
-            </div>
-
-            <div className="grid gap-2">
-              <div className="flex items-baseline justify-between">
-                <label htmlFor="review-text" className="text-sm font-medium">
-                  Your review
-                </label>
-                <span className="text-xs text-muted-foreground">
-                  {quote.length}/{TESTIMONIAL_MAX_LENGTH}
-                </span>
-              </div>
-              <textarea
-                id="review-text"
-                value={quote}
-                onChange={(e) => setQuote(e.target.value.slice(0, TESTIMONIAL_MAX_LENGTH))}
-                rows={3}
-                placeholder="What do you love about IconVault?"
-                className="w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={saving || quote.trim().length < 10}
-              className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
-            >
-              {saving ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <MessageSquareQuote className="h-4 w-4" />
-              )}
-              Publish review
-            </button>
-          </form>
-
-          {submitted.length > 0 && (
-            <div className="mt-8 border-t border-border pt-6">
-              <p className="text-sm font-medium">
-                Your submitted {submitted.length === 1 ? "review" : "reviews"}
-              </p>
-              <ul className="mt-4 grid gap-3">
-                {submitted.map((r, i) => (
-                  <li
-                    key={`${r.name}-${i}`}
-                    className="rounded-xl border border-border bg-background p-4"
-                  >
-                    <div className="min-w-0">
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex gap-0.5 text-accent">
-                          {Array.from({ length: 5 }).map((_, n) => (
-                            <Star
-                              key={n}
-                              className={`h-3 w-3 ${n < r.rating ? "fill-accent" : "opacity-30"}`}
-                            />
-                          ))}
-                        </div>
-                        <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
-                          Pending approval
-                        </span>
-                      </div>
-                      <p className="mt-2 text-sm leading-relaxed">"{r.quote}"</p>
-                      <p className="mt-1 text-xs text-muted-foreground">
-                        {r.name} · IconVault User
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+      <form onSubmit={submit} className="grid gap-5">
+        <HoneypotField onFill={setTrap} />
+        <div className="grid gap-2">
+          <span className="text-sm font-medium">Your rating</span>
+          <div className="flex gap-1" role="radiogroup" aria-label="Star rating">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <button
+                key={n}
+                type="button"
+                role="radio"
+                aria-checked={rating === n}
+                aria-label={`${n} star${n > 1 ? "s" : ""}`}
+                onClick={() => setRating(n)}
+                onMouseEnter={() => setHoverRating(n)}
+                onMouseLeave={() => setHoverRating(0)}
+                className="focus-ring rounded-md p-0.5 text-accent transition-transform hover:scale-110"
+              >
+                <Star
+                  className={`h-6 w-6 ${(hoverRating || rating) >= n ? "fill-accent" : "opacity-30"}`}
+                />
+              </button>
+            ))}
+          </div>
         </div>
-      </Reveal>
+
+        <div className="grid gap-2">
+          <label htmlFor="review-name" className="text-sm font-medium">
+            Display name
+          </label>
+          <input
+            id="review-name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            maxLength={60}
+            placeholder="Your name"
+            className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <div className="flex items-baseline justify-between">
+            <label htmlFor="review-text" className="text-sm font-medium">
+              Your review
+            </label>
+            <span className="text-xs text-muted-foreground">
+              {quote.length}/{TESTIMONIAL_MAX_LENGTH}
+            </span>
+          </div>
+          <textarea
+            id="review-text"
+            value={quote}
+            onChange={(e) => setQuote(e.target.value.slice(0, TESTIMONIAL_MAX_LENGTH))}
+            rows={3}
+            placeholder="What do you love about IconVault?"
+            className="w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={saving || quote.trim().length < 10}
+          className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+        >
+          {saving ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <MessageSquareQuote className="h-4 w-4" />
+          )}
+          Publish review
+        </button>
+      </form>
+
+      {submitted.length > 0 && (
+        <div className="mt-8 border-t border-border pt-6">
+          <p className="text-sm font-medium">
+            Your submitted {submitted.length === 1 ? "review" : "reviews"}
+          </p>
+          <ul className="mt-4 grid gap-3">
+            {submitted.map((r, i) => (
+              <li
+                key={`${r.name}-${i}`}
+                className="rounded-xl border border-border bg-background p-4"
+              >
+                <div className="min-w-0">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex gap-0.5 text-accent">
+                      {Array.from({ length: 5 }).map((_, n) => (
+                        <Star
+                          key={n}
+                          className={`h-3 w-3 ${n < r.rating ? "fill-accent" : "opacity-30"}`}
+                        />
+                      ))}
+                    </div>
+                    <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                      Pending approval
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed">"{r.quote}"</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {r.name} · IconVault User
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
+  );
+}
+
+function IconTile({ iconId, to }: { iconId: string; to?: string }) {
+  const { prefix, name: iconName } = parseIconId(iconId);
+  const inner = (
+    <img
+      src={getIconSvgUrl(prefix, iconName, { width: 24, height: 24, color: "currentColor" })}
+      alt={iconName}
+      loading="lazy"
+      className="h-6 w-6"
+    />
+  );
+  const cls =
+    "focus-ring grid h-12 w-12 place-items-center rounded-xl border border-border bg-surface text-foreground transition-colors hover:border-primary/40 hover:text-primary";
+  return to ? (
+    <Link key={iconId} to={to} title={iconId} className={cls}>
+      {inner}
+    </Link>
+  ) : (
+    <span key={iconId} title={iconId} className={cls}>
+      {inner}
+    </span>
   );
 }
 
@@ -289,13 +336,15 @@ function Page() {
   const navigate = useNavigate();
   const { favourites } = useFavourites();
   const { collections } = useCollections();
-  const { recent } = useRecentlyViewed();
+  const { recent, clearRecent } = useRecentlyViewed();
   const { plan, isPro, loading: planLoading } = usePlan();
   const [displayName, setDisplayName] = useState("");
   const [trap, setTrap] = useState("");
   const [saving, setSaving] = useState(false);
   const [copied, setCopied] = useState(false);
   const [trialSummary, setTrialSummary] = useState<TrialSummary | null>(null);
+  const [apiKeys, setApiKeys] = useState<UserApiKey[]>([]);
+  const [section, setSection] = useState<SectionId>("overview");
 
   useEffect(() => {
     if (!loading && !user) void navigate({ to: "/auth" });
@@ -317,6 +366,20 @@ function Page() {
   useEffect(() => {
     if (user && !isPro) setTrialSummary(readTrialSummary());
   }, [user, isPro]);
+
+  // The user's own API keys (RLS lets users read their own rows).
+  useEffect(() => {
+    if (!user) {
+      setApiKeys([]);
+      return;
+    }
+    void supabase
+      .from("api_keys")
+      .select("id, name, key_prefix, monthly_quota, used_this_month")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setApiKeys((data as UserApiKey[] | null) ?? []));
+  }, [user]);
 
   // Only admins see the admin entry point; the panel itself re-verifies access.
   const [isAdmin, setIsAdmin] = useState(false);
@@ -353,310 +416,450 @@ function Page() {
 
   if (loading || !user) {
     return (
-      <PageShell eyebrow="Account" title="Profile">
-        <div className="flex items-center justify-center gap-2 py-20 text-muted-foreground">
-          <Loader2 className="h-5 w-5 animate-spin text-primary" /> Loading your account…
-        </div>
-      </PageShell>
+      <div className="flex min-h-screen items-center justify-center gap-2 bg-background text-muted-foreground">
+        <Loader2 className="h-5 w-5 animate-spin text-primary" /> Loading your account…
+      </div>
     );
   }
 
   const apiKey = `iv_live_${user.id.replace(/-/g, "").slice(0, 24)}`;
-  const stats = [
-    { icon: Heart, label: "Favourites", value: favourites.length, to: "/collections" as const },
-    { icon: FolderOpen, label: "Collections", value: collections.length, to: "/collections" as const },
-    { icon: Clock, label: "Recently viewed", value: recent.length, to: "/history" as const },
+  const apiCallsUsed = apiKeys.reduce((s, k) => s + (k.used_this_month ?? 0), 0);
+  const meta = SECTION_META[section];
+
+  const navSections: DashboardNavSection[] = [
+    {
+      title: "Main",
+      items: [{ id: "overview", label: "Overview", icon: LayoutDashboard }],
+    },
+    {
+      title: "Library",
+      items: [
+        {
+          id: "favourites",
+          label: "Favourite Icons",
+          icon: Heart,
+          badge: favourites.length > 0 ? favourites.length : undefined,
+        },
+        {
+          id: "collections",
+          label: "Collections",
+          icon: FolderOpen,
+          badge: collections.length > 0 ? collections.length : undefined,
+        },
+        { id: "history", label: "History", icon: Clock },
+      ],
+    },
+    {
+      title: "Account",
+      items: [
+        { id: "subscription", label: "Subscription", icon: Crown },
+        { id: "apikey", label: "API Key", icon: Key },
+        { id: "review", label: "My Review", icon: MessageSquareQuote },
+        { id: "settings", label: "Settings", icon: Settings },
+      ],
+    },
   ];
 
   return (
-    <PageShell
-      wide
-      eyebrow="Account"
-      title="Your profile"
-      description="Everything tied to your account: identity, saved work, plan and keys."
+    <DashboardShell
+      sidebarSections={navSections}
+      activeId={section}
+      onNavigate={(id) => setSection(id as SectionId)}
+      title={meta.title}
+      subtitle={meta.subtitle}
       actions={
-        <div className="flex flex-wrap gap-2">
-          {isAdmin && (
-            <Link
-              to="/admin"
-              className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5 text-sm transition-colors hover:border-primary/40 hover:text-primary"
-            >
-              <ShieldCheck className="h-4 w-4" /> Admin panel
-            </Link>
-          )}
-          <button
-            type="button"
-            onClick={() => {
-              void signOut().then(() => navigate({ to: "/" }));
-            }}
-            className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5 text-sm transition-colors hover:border-destructive/40 hover:text-destructive"
+        isAdmin ? (
+          <Link
+            to="/admin"
+            className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs transition-colors hover:border-primary/40 hover:text-primary"
           >
-            <LogOut className="h-4 w-4" /> Sign out
-          </button>
-        </div>
+            <ShieldCheck className="h-3.5 w-3.5" /> Admin panel
+          </Link>
+        ) : undefined
       }
+      userMenu={{
+        name: displayName || user.email?.split("@")[0] || "Account",
+        email: user.email ?? undefined,
+        onSignOut: () => {
+          void signOut().then(() => navigate({ to: "/" }));
+        },
+      }}
     >
-      <Stack>
-        <div className="grid gap-4 sm:grid-cols-3">
-          {stats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 45}>
-              <Link to={stat.to} className="surface-card lift-hover block h-full p-5">
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft text-primary">
-                  <stat.icon className="h-4.5 w-4.5" />
-                </span>
-                <p className="mt-4 font-display text-3xl font-semibold tabular-nums">{stat.value}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-2">
-          <div>
-            <SectionHeading eyebrow="Plan" title="Subscription" />
-            <Reveal>
-              <div className="surface-card mt-8 flex h-full flex-col justify-between gap-4 p-6">
-                {planLoading ? (
-                  <div className="flex items-center gap-2 py-6 text-sm text-muted-foreground">
-                    <Loader2 className="h-4 w-4 animate-spin text-primary" /> Checking your plan…
-                  </div>
-                ) : isPro ? (
-                  <>
-                    <div className="flex items-center gap-4">
-                      <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
-                        <Crown className="h-4.5 w-4.5" />
-                      </span>
-                      <div>
-                        <p className="font-display text-base font-semibold">
-                          Pro Yearly · ${YEARLY_PRICE}/year
-                        </p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
-                          Unlimited tool uses, exports and API access.
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Billing is handled by Dodo.{" "}
-                      <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
-                        See the Pro page
-                      </Link>{" "}
-                      for plan details and support options.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-4">
-                      <span className="grid h-10 w-10 place-items-center rounded-xl bg-surface-2 text-muted-foreground">
-                        <Crown className="h-4.5 w-4.5" />
-                      </span>
-                      <div>
-                        <p className="font-display text-base font-semibold">Free plan</p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
-                          Unlimited search and downloads · 3 collections · 1,000 API calls a
-                          month · 5 free uses per tool
-                        </p>
-                      </div>
-                    </div>
-                    <Link
-                      to="/pro"
-                      className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-ring transition-transform hover:-translate-y-0.5"
-                    >
-                      Go Pro · ${YEARLY_PRICE}/year <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </>
-                )}
-              </div>
-            </Reveal>
+      {section === "overview" && (
+        <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <StatCard label="Saved icons" value={favourites.length} icon={Heart} />
+            <StatCard label="Collections" value={collections.length} icon={FolderOpen} />
+            <StatCard
+              label="Tools tried"
+              value={trialSummary ? trialSummary.tried : 0}
+              icon={Gauge}
+              iconClassName="bg-accent-soft text-accent"
+            />
+            <StatCard
+              label="API calls used"
+              value={apiCallsUsed.toLocaleString()}
+              deltaLabel={apiKeys.length > 0 ? "this month" : "no key yet"}
+              icon={Zap}
+              iconClassName="bg-chart-3/15 text-chart-3"
+            />
           </div>
 
-          <div>
-            <SectionHeading eyebrow="Free trials" title="Tool usage" />
-            <Reveal delay={45}>
-              <div className="surface-card mt-8 flex h-full flex-col justify-between gap-4 p-6">
-                {isPro ? (
-                  <>
-                    <div className="flex items-center gap-4">
-                      <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
-                        <Sparkles className="h-4.5 w-4.5" />
-                      </span>
-                      <div>
-                        <p className="font-display text-base font-semibold">Unlimited tool uses</p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
-                          Your Pro Yearly plan removes all trial limits.
-                        </p>
-                      </div>
-                    </div>
-                    <Link
-                      to="/tools"
-                      className="focus-ring inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
-                    >
-                      Browse all tools <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-4">
-                      <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
-                        <Gauge className="h-4.5 w-4.5" />
-                      </span>
-                      <div>
-                        <p className="font-display text-base font-semibold">
-                          {trialSummary && trialSummary.tried > 0
-                            ? `${trialSummary.tried} ${trialSummary.tried === 1 ? "tool" : "tools"} tried on this device`
-                            : "No trials used yet"}
-                        </p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
-                          {trialSummary && trialSummary.tried > 0 ? (
-                            <>
-                              {trialSummary.usedUp} used up
-                              {trialSummary.withUsesLeft > 0 &&
-                                ` · ${trialSummary.withUsesLeft} with free uses left`}
-                            </>
-                          ) : (
-                            `Every tool gives you ${TOOL_TRIAL_LIMIT} free uses on this device - no account needed.`
-                          )}
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Trials reset never -{" "}
-                      <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
-                        go Pro for unlimited uses
-                      </Link>
-                      .
-                    </p>
-                  </>
-                )}
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <h2 className="font-display text-base font-semibold">Recent history</h2>
+                <button
+                  type="button"
+                  onClick={() => setSection("history")}
+                  className="focus-ring text-xs font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  View all
+                </button>
               </div>
-            </Reveal>
-          </div>
-        </div>
-
-        <div>
-          <SectionHeading
-            eyebrow="Quick picks"
-            title={favourites.length > 0 ? "Your favourite icons" : "Popular tools"}
-            description={
-              favourites.length > 0
-                ? "Your most-loved icons, one click away. Manage them all in collections."
-                : "You have not hearted any icons yet - start with a few of the most-used tools."
-            }
-          />
-          <Reveal>
-            <div className="mt-8">
-              {favourites.length > 0 ? (
-                <div className="surface-card flex flex-wrap items-center gap-3 p-5">
-                  {favourites.slice(0, 8).map((iconId) => {
-                    const { prefix, name: iconName } = parseIconId(iconId);
-                    return (
-                      <Link
-                        key={iconId}
-                        to="/collections"
-                        title={iconId}
-                        className="focus-ring grid h-12 w-12 place-items-center rounded-xl border border-border bg-surface text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                      >
-                        <img
-                          src={getIconSvgUrl(prefix, iconName, {
-                            width: 24,
-                            height: 24,
-                            color: "currentColor",
-                          })}
-                          alt={iconName}
-                          loading="lazy"
-                          className="h-6 w-6"
-                        />
-                      </Link>
-                    );
-                  })}
-                  {favourites.length > 8 && (
-                    <Link
-                      to="/collections"
-                      className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                    >
-                      +{favourites.length - 8} more <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  )}
-                </div>
+              {recent.length === 0 ? (
+                <p className="py-6 text-center text-sm text-muted-foreground">
+                  Nothing viewed yet on this device.
+                </p>
               ) : (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {POPULAR_TOOLS.map((tool) => (
-                    <Link
-                      key={tool.path}
-                      to={tool.path}
-                      className="surface-card lift-hover block p-4"
-                    >
-                      <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft text-primary">
-                        <tool.icon className="h-4.5 w-4.5" />
-                      </span>
-                      <p className="mt-3 font-display text-sm font-semibold">{tool.name}</p>
-                      <p className="mt-1 text-xs text-muted-foreground">{tool.tagline}</p>
-                    </Link>
+                <div className="flex flex-wrap gap-2.5">
+                  {recent.slice(0, 10).map((iconId) => (
+                    <IconTile key={iconId} iconId={iconId} />
                   ))}
                 </div>
               )}
             </div>
-          </Reveal>
-        </div>
 
-        <div>
-          <SectionHeading eyebrow="Identity" title="Account details" />
-          <Reveal>
-            <form onSubmit={save} className="surface-card mt-8 grid gap-5 p-6">
-              <HoneypotField onFill={setTrap} />
-              <div className="flex items-center gap-4">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
-                  <User className="h-5 w-5" />
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate font-display text-base font-semibold">
-                    {displayName || "Unnamed"}
-                  </p>
-                  <p className="truncate text-sm text-muted-foreground">{user.email}</p>
-                </div>
-              </div>
-
-              <div className="grid gap-2">
-                <label htmlFor="display-name" className="text-sm font-medium">
-                  Display name
-                </label>
-                <input
-                  id="display-name"
-                  value={displayName}
-                  onChange={(e) => setDisplayName(e.target.value)}
-                  className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
-                />
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <h2 className="font-display text-base font-semibold">Plan</h2>
                 <button
-                  type="submit"
-                  disabled={saving}
-                  className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground disabled:opacity-60"
+                  type="button"
+                  onClick={() => setSection("subscription")}
+                  className="focus-ring text-xs font-medium text-primary underline-offset-4 hover:underline"
                 >
-                  {saving && <Loader2 className="h-4 w-4 animate-spin" />}
-                  Save changes
+                  Manage
                 </button>
+              </div>
+              {planLoading ? (
+                <div className="flex items-center gap-2 py-6 text-sm text-muted-foreground">
+                  <Loader2 className="h-4 w-4 animate-spin text-primary" /> Checking your plan…
+                </div>
+              ) : isPro ? (
+                <div className="flex items-center gap-4">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
+                    <Crown className="h-4.5 w-4.5" />
+                  </span>
+                  <div>
+                    <p className="font-display text-base font-semibold">
+                      Pro Yearly · ${YEARLY_PRICE}/year
+                    </p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      Unlimited tool uses, exports and API access.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex items-center gap-4">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface-2 text-muted-foreground">
+                    <Crown className="h-4.5 w-4.5" />
+                  </span>
+                  <div>
+                    <p className="font-display text-base font-semibold">Free plan</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      Unlimited search and downloads · 3 collections · 1,000 API calls a month
+                    </p>
+                  </div>
+                </div>
+              )}
+              {!planLoading && !isPro && (
                 <Link
-                  to="/privacy"
-                  className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+                  to="/pro"
+                  className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
                 >
-                  Privacy policy
+                  Go Pro · ${YEARLY_PRICE}/year <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h2 className="font-display text-base font-semibold">
+                {favourites.length > 0 ? "Your favourite icons" : "Popular tools"}
+              </h2>
+              {favourites.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setSection("favourites")}
+                  className="focus-ring text-xs font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  View all
+                </button>
+              )}
+            </div>
+            {favourites.length > 0 ? (
+              <div className="flex flex-wrap gap-2.5">
+                {favourites.slice(0, 12).map((iconId) => (
+                  <IconTile key={iconId} iconId={iconId} to="/collections" />
+                ))}
+                {favourites.length > 12 && (
+                  <span className="grid h-12 w-12 place-items-center rounded-xl border border-border text-xs font-medium text-muted-foreground">
+                    +{favourites.length - 12}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {POPULAR_TOOLS.map((tool) => (
+                  <Link key={tool.path} to={tool.path} className="block rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary/40">
+                    <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft text-primary">
+                      <tool.icon className="h-4.5 w-4.5" />
+                    </span>
+                    <p className="mt-3 font-display text-sm font-semibold">{tool.name}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{tool.tagline}</p>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {section === "favourites" && (
+        <div className="grid gap-4">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            {favourites.length === 0 ? (
+              <div className="py-10 text-center">
+                <Heart className="mx-auto h-8 w-8 text-muted-foreground" />
+                <p className="mt-3 font-display text-base font-semibold">No favourites yet</p>
+                <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
+                  Heart any icon while browsing and it will show up here for quick access.
+                </p>
+                <Link
+                  to="/app"
+                  className="focus-ring mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+                >
+                  Browse icons <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-            </form>
-          </Reveal>
+            ) : (
+              <>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  {favourites.length} saved {favourites.length === 1 ? "icon" : "icons"}
+                </p>
+                <div className="flex flex-wrap gap-2.5">
+                  {favourites.map((iconId) => (
+                    <IconTile key={iconId} iconId={iconId} to="/collections" />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
+      )}
 
-        <TestimonialSection displayName={displayName} />
+      {section === "collections" && (
+        <div className="grid gap-4">
+          {collections.length === 0 ? (
+            <div className="rounded-2xl border border-border bg-card p-10 text-center shadow-sm">
+              <FolderOpen className="mx-auto h-8 w-8 text-muted-foreground" />
+              <p className="mt-3 font-display text-base font-semibold">No collections yet</p>
+              <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
+                Group icons into collections to download them together or share them.
+              </p>
+              <Link
+                to="/collections"
+                className="focus-ring mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+              >
+                Open collections <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2">
+              {collections.map((c) => (
+                <Link
+                  key={c.id}
+                  to="/collections"
+                  className="focus-ring rounded-2xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/40"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
+                      <FolderOpen className="h-5 w-5" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="truncate font-display text-base font-semibold">{c.name}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {c.icon_ids.length} {c.icon_ids.length === 1 ? "icon" : "icons"}
+                      </p>
+                    </div>
+                  </div>
+                  {c.description && (
+                    <p className="mt-3 line-clamp-2 text-sm text-muted-foreground">{c.description}</p>
+                  )}
+                  {c.icon_ids.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {c.icon_ids.slice(0, 6).map((iconId) => (
+                        <IconTile key={iconId} iconId={iconId} />
+                      ))}
+                      {c.icon_ids.length > 6 && (
+                        <span className="grid h-12 w-12 place-items-center rounded-xl border border-border text-xs font-medium text-muted-foreground">
+                          +{c.icon_ids.length - 6}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
-        <div>
-          <SectionHeading
-            eyebrow="Developers"
-            title="API key"
-            description="Use this key with the REST API, the CLI and the embed widget. Treat it like a password - rotate it from the API page if it leaks."
-          />
-          <Reveal>
-            <div className="surface-card mt-8 flex flex-wrap items-center gap-3 p-5">
+      {section === "history" && (
+        <div className="grid gap-4">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <p className="text-sm text-muted-foreground">
+                {recent.length} {recent.length === 1 ? "icon" : "icons"} viewed on this device
+              </p>
+              {recent.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    clearRecent();
+                    toast.success("History cleared");
+                  }}
+                  className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-destructive/40 hover:text-destructive"
+                >
+                  <Trash2 className="h-3.5 w-3.5" /> Clear
+                </button>
+              )}
+            </div>
+            {recent.length === 0 ? (
+              <p className="py-10 text-center text-sm text-muted-foreground">
+                Nothing here yet. Icons you open will appear in this list.
+              </p>
+            ) : (
+              <div className="flex flex-wrap gap-2.5">
+                {recent.map((iconId) => (
+                  <IconTile key={iconId} iconId={iconId} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {section === "subscription" && (
+        <div className="grid gap-4">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            {planLoading ? (
+              <div className="flex items-center gap-2 py-6 text-sm text-muted-foreground">
+                <Loader2 className="h-4 w-4 animate-spin text-primary" /> Checking your plan…
+              </div>
+            ) : isPro ? (
+              <div className="grid gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+                    <Crown className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-display text-lg font-semibold">
+                      Pro Yearly · ${YEARLY_PRICE}/year
+                    </p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      Unlimited tool uses, exports and API access.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Billing is handled by Dodo.{" "}
+                  <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
+                    See the Pro page
+                  </Link>{" "}
+                  for plan details and support options.
+                </p>
+              </div>
+            ) : (
+              <div className="grid gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-surface-2 text-muted-foreground">
+                    <Crown className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-display text-lg font-semibold">Free plan</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      Unlimited search and downloads · 3 collections · 1,000 API calls a month · 5
+                      free uses per tool
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <Link
+                    to="/pro"
+                    className="focus-ring inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+                  >
+                    Go Pro · ${YEARLY_PRICE}/year <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <div className="flex items-center gap-4">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
+                {isPro ? <Sparkles className="h-5 w-5" /> : <Gauge className="h-5 w-5" />}
+              </span>
+              <div>
+                <p className="font-display text-base font-semibold">
+                  {isPro
+                    ? "Unlimited tool uses"
+                    : trialSummary && trialSummary.tried > 0
+                      ? `${trialSummary.tried} ${trialSummary.tried === 1 ? "tool" : "tools"} tried on this device`
+                      : "No trials used yet"}
+                </p>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  {isPro ? (
+                    "Your Pro Yearly plan removes all trial limits."
+                  ) : trialSummary && trialSummary.tried > 0 ? (
+                    <>
+                      {trialSummary.usedUp} used up
+                      {trialSummary.withUsesLeft > 0 &&
+                        ` · ${trialSummary.withUsesLeft} with free uses left`}
+                    </>
+                  ) : (
+                    `Every tool gives you ${TOOL_TRIAL_LIMIT} free uses on this device - no account needed.`
+                  )}
+                </p>
+              </div>
+            </div>
+            {!isPro && (
+              <p className="mt-4 text-sm text-muted-foreground">
+                Trials never reset -{" "}
+                <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
+                  go Pro for unlimited uses
+                </Link>
+                .
+              </p>
+            )}
+            {isPro && (
+              <Link
+                to="/tools"
+                className="focus-ring mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                Browse all tools <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
+
+      {section === "apikey" && (
+        <div className="grid gap-4">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <div className="flex flex-wrap items-center gap-3">
               <Key className="h-4 w-4 shrink-0 text-primary" />
               <code className="min-w-0 flex-1 truncate font-mono text-sm text-muted-foreground">
                 {apiKey}
@@ -680,16 +883,132 @@ function Page() {
                 API docs
               </Link>
             </div>
-          </Reveal>
-        </div>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Use this key with the REST API, the CLI and the embed widget. Treat it like a
+              password - rotate it from the API page if it leaks.
+            </p>
+          </div>
 
-        <CTABand
-          title="Working with other people?"
-          body="Team workspaces share collections, custom uploads and one approved icon family across everyone."
-          primary={{ label: "See team workspaces", to: "/team" }}
-          secondary={{ label: "Usage stats", to: "/usage-stats" }}
-        />
-      </Stack>
-    </PageShell>
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <h2 className="font-display text-base font-semibold">Usage this month</h2>
+            {apiKeys.length === 0 ? (
+              <p className="mt-3 text-sm text-muted-foreground">
+                No API keys on your account yet. Create one from the{" "}
+                <Link to="/api-access" className="text-primary underline-offset-4 hover:underline">
+                  API access page
+                </Link>
+                .
+              </p>
+            ) : (
+              <ul className="mt-4 grid gap-3">
+                {apiKeys.map((k) => {
+                  const pct =
+                    k.monthly_quota > 0
+                      ? Math.min(100, Math.round((k.used_this_month / k.monthly_quota) * 100))
+                      : 0;
+                  return (
+                    <li key={k.id} className="rounded-xl border border-border bg-background p-4">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="truncate text-sm font-medium">{k.name}</p>
+                          <p className="truncate font-mono text-[11px] text-muted-foreground">
+                            {k.key_prefix}…
+                          </p>
+                        </div>
+                        <p className="shrink-0 text-sm tabular-nums">
+                          {k.used_this_month.toLocaleString()}
+                          <span className="text-muted-foreground">
+                            {" "}
+                            / {k.monthly_quota.toLocaleString()}
+                          </span>
+                        </p>
+                      </div>
+                      <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-muted">
+                        <div
+                          className={cn(
+                            "h-full rounded-full transition-all",
+                            pct >= 90 ? "bg-destructive" : "bg-primary",
+                          )}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+
+      {section === "review" && <TestimonialSection displayName={displayName} />}
+
+      {section === "settings" && (
+        <div className="grid gap-4">
+          <form
+            onSubmit={save}
+            className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+          >
+            <HoneypotField onFill={setTrap} />
+            <div className="flex items-center gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary-soft font-display text-lg font-semibold text-primary">
+                {(displayName || user.email || "?").charAt(0).toUpperCase()}
+              </span>
+              <div className="min-w-0">
+                <p className="truncate font-display text-base font-semibold">
+                  {displayName || "Unnamed"}
+                </p>
+                <p className="truncate text-sm text-muted-foreground">{user.email}</p>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-2">
+              <label htmlFor="display-name" className="text-sm font-medium">
+                Display name
+              </label>
+              <input
+                id="display-name"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
+              />
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+              <button
+                type="submit"
+                disabled={saving}
+                className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground disabled:opacity-60"
+              >
+                {saving && <Loader2 className="h-4 w-4 animate-spin" />}
+                Save changes
+              </button>
+              <Link
+                to="/privacy"
+                className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+              >
+                Privacy policy
+              </Link>
+            </div>
+          </form>
+
+          <div className="rounded-2xl border border-destructive/30 bg-card p-6 shadow-sm">
+            <h2 className="font-display text-base font-semibold text-destructive">Danger zone</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Signing out ends your session on this device.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                void signOut().then(() => navigate({ to: "/" }));
+              }}
+              className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full border border-destructive/40 px-5 py-2.5 text-sm font-medium text-destructive transition-colors hover:bg-destructive/10"
+            >
+              <LogOut className="h-4 w-4" /> Sign out
+            </button>
+          </div>
+        </div>
+      )}
+    </DashboardShell>
   );
 }
