@@ -65,7 +65,9 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
         .eq("kind", "bulk"),
     ]);
     const rawPlan = planRow?.plan;
-    setPlan(rawPlan === "yearly" ? rawPlan : "free");
+    setPlan(
+      rawPlan === "monthly" || rawPlan === "yearly" || rawPlan === "lifetime" ? rawPlan : "free",
+    );
     setBulkUsed(count ?? 0);
     setLoading(false);
   }, [user]);

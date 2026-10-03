@@ -2,6 +2,14 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+// NOTE: this MUST stay a static import. A dynamic
+// import("@tanstack/react-start/server-entry") makes rolldown emit the
+// server entry behind a facade chunk that shares the __exportStar runtime
+// helper with the entry chunk, creating a circular chunk import. The entry
+// chunk then calls the helper (still undefined, `var`-hoisted) during its
+// own evaluation -> "TypeError: __exportAll is not a function" -> every
+// request 500s with the static error page (seen 2026-10-03).
+import serverEntryModule from "@tanstack/react-start/server-entry";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -11,9 +19,11 @@ let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
-    serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (m) => (m.default ?? m) as ServerEntry,
-    );
+    // The virtual module's type declaration doesn't expose `.default`, but
+    // the built module namespace carries it (same shape the old dynamic
+    // import consumed via `m.default ?? m`).
+    const mod = serverEntryModule as unknown as { default?: unknown };
+    serverEntryPromise = Promise.resolve((mod.default ?? serverEntryModule) as ServerEntry);
   }
   return serverEntryPromise;
 }
