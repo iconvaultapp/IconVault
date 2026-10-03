@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, Download, Search } from "lucide-react";
+import { Ban, ChevronLeft, ChevronRight, Download, Search, Undo2 } from "lucide-react";
 import { downloadCsv, stamp } from "@/lib/csv";
 import { cn } from "@/lib/utils";
 
@@ -11,6 +11,15 @@ export interface AdminUserRow {
   display_name: string | null;
   plan: string;
   is_owner: boolean;
+  is_banned: boolean;
+}
+
+interface UsersTabProps {
+  users: AdminUserRow[];
+  /** Ban a user. Reason comes from a window.prompt, null when the admin cancels. */
+  onBan?: (userId: string, reason: string | null) => void | Promise<void>;
+  onUnban?: (userId: string) => void | Promise<void>;
+  onPlanChange?: (userId: string, plan: "free" | "pro") => void | Promise<void>;
 }
 
 const PAGE_SIZE = 25;
@@ -33,10 +42,19 @@ function fmtDate(iso: string | null): string {
  * bulk-select checkboxes and CSV download (selected, or all when none
  * are selected).
  */
-export function UsersTab({ users }: { users: AdminUserRow[] }) {
+export function UsersTab({ users, onBan, onUnban, onPlanChange }: UsersTabProps) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const showActions = Boolean(onBan || onUnban || onPlanChange);
+
+  const ban = (u: AdminUserRow) => {
+    const reason = window.prompt(
+      `Ban ${u.email ?? "this user"}? They will be signed out and blocked from signing in. Enter a reason (optional):`,
+    );
+    if (reason === null) return; // prompt cancelled
+    void onBan?.(u.id, reason);
+  };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -119,7 +137,7 @@ export function UsersTab({ users }: { users: AdminUserRow[] }) {
       </div>
 
       <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-surface">
-        <table className="w-full min-w-[720px] text-left text-sm">
+        <table className="w-full min-w-[880px] text-left text-sm">
           <thead>
             <tr className="border-b border-border text-xs uppercase tracking-wide text-muted-foreground">
               <th className="w-10 px-4 py-3">
@@ -136,12 +154,13 @@ export function UsersTab({ users }: { users: AdminUserRow[] }) {
               <th className="px-4 py-3 font-semibold">Plan</th>
               <th className="px-4 py-3 font-semibold">Created</th>
               <th className="px-4 py-3 font-semibold">Last sign in</th>
+              {showActions && <th className="px-4 py-3 font-semibold">Actions</th>}
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
             {pageRows.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-muted-foreground">
+                <td colSpan={showActions ? 7 : 6} className="px-4 py-10 text-center text-muted-foreground">
                   {query ? "No users match your search." : "No users yet."}
                 </td>
               </tr>
@@ -162,15 +181,22 @@ export function UsersTab({ users }: { users: AdminUserRow[] }) {
                   </td>
                   <td className="max-w-[180px] truncate px-4 py-3">{u.display_name ?? "-"}</td>
                   <td className="px-4 py-3">
-                    <span
-                      className={cn(
-                        "inline-flex rounded-full px-2.5 py-0.5 text-xs font-bold",
-                        u.plan === "free"
-                          ? "bg-muted text-muted-foreground"
-                          : "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
+                    <span className="flex flex-wrap items-center gap-1.5">
+                      <span
+                        className={cn(
+                          "inline-flex rounded-full px-2.5 py-0.5 text-xs font-bold",
+                          u.plan === "free"
+                            ? "bg-muted text-muted-foreground"
+                            : "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
+                        )}
+                      >
+                        {u.plan}
+                      </span>
+                      {u.is_banned && (
+                        <span className="inline-flex rounded-full bg-destructive/10 px-2.5 py-0.5 text-xs font-bold text-destructive">
+                          Banned
+                        </span>
                       )}
-                    >
-                      {u.plan}
                     </span>
                   </td>
                   <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
@@ -179,6 +205,44 @@ export function UsersTab({ users }: { users: AdminUserRow[] }) {
                   <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
                     {u.last_sign_in_at ? fmtDate(u.last_sign_in_at) : "Never"}
                   </td>
+                  {showActions && (
+                    <td className="whitespace-nowrap px-4 py-3">
+                      <span className="flex items-center gap-2">
+                        {onPlanChange && (
+                          <select
+                            value={u.plan === "pro" ? "pro" : "free"}
+                            onChange={(e) =>
+                              void onPlanChange(u.id, e.target.value as "free" | "pro")
+                            }
+                            aria-label={`Plan for ${u.email ?? u.id}`}
+                            className="focus-ring rounded-full border border-border bg-background px-2.5 py-1.5 text-xs font-medium outline-none transition-colors hover:border-primary/40"
+                          >
+                            <option value="free">Free</option>
+                            <option value="pro">Pro</option>
+                          </select>
+                        )}
+                        {u.is_banned
+                          ? onUnban && (
+                              <button
+                                type="button"
+                                onClick={() => void onUnban(u.id)}
+                                className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-success/40 px-3 py-1.5 text-xs font-medium text-success transition-colors hover:bg-success/10"
+                              >
+                                <Undo2 className="h-3.5 w-3.5" /> Unban
+                              </button>
+                            )
+                          : onBan && (
+                              <button
+                                type="button"
+                                onClick={() => ban(u)}
+                                className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-destructive/40 px-3 py-1.5 text-xs font-medium text-destructive transition-colors hover:bg-destructive/10"
+                              >
+                                <Ban className="h-3.5 w-3.5" /> Ban
+                              </button>
+                            )}
+                      </span>
+                    </td>
+                  )}
                 </tr>
               ))
             )}

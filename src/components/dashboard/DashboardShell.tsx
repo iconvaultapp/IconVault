@@ -85,10 +85,10 @@ function SidebarBody({
                       }}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "focus-ring flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
+                        "focus-ring group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-150",
                         active
-                          ? "bg-primary text-primary-foreground shadow-sm"
-                          : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                          ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-[0_4px_16px_-4px_var(--primary)]"
+                          : "text-sidebar-foreground hover:translate-x-0.5 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                       )}
                     >
                       <Icon className="h-4.5 w-4.5 shrink-0" />
@@ -138,9 +138,9 @@ function UserMenuBlock({ userMenu }: { userMenu: DashboardUserMenu }) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Account menu"
-        className="focus-ring flex items-center gap-2 rounded-full border border-border bg-surface py-1.5 pl-1.5 pr-2.5 transition-colors hover:border-primary/40"
+        className="focus-ring flex items-center gap-2 rounded-full border border-border bg-surface py-1.5 pl-1.5 pr-2.5 transition-all hover:-translate-y-px hover:border-primary/40 hover:shadow-sm"
       >
-        <span className="grid h-8 w-8 place-items-center rounded-full bg-primary-soft font-display text-sm font-semibold text-primary">
+        <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-primary to-primary/60 font-display text-sm font-semibold text-primary-foreground ring-2 ring-primary/20">
           {initial}
         </span>
         <span className="hidden max-w-[120px] truncate text-sm font-medium sm:block">
@@ -265,6 +265,11 @@ export function DashboardShell({
       {/* Main column */}
       <div className="lg:pl-64">
         <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur">
+          {/* Subtle brand gradient accent */}
+          <div
+            aria-hidden
+            className="h-0.5 bg-gradient-to-r from-primary via-primary/40 to-transparent"
+          />
           <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
             <button
               type="button"

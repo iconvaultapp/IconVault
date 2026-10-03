@@ -25,13 +25,47 @@ import {
   Settings,
   Zap,
   Trash2,
+  Download,
+  Bell,
+  BellRing,
+  LifeBuoy,
+  Gift,
+  Receipt,
+  FileDown,
+  UserX,
+  ChevronDown,
+  ExternalLink,
+  Send,
 } from "lucide-react";
 import { toast } from "sonner";
 import { DashboardShell, type DashboardNavSection } from "@/components/dashboard/DashboardShell";
 import { StatCard } from "@/components/dashboard/StatCard";
+import { DataTable } from "@/components/dashboard/DataTable";
+import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { useServerFn } from "@tanstack/react-start";
 import { submitTestimonial } from "@/lib/testimonial.functions";
+import {
+  getBillingHistory,
+  getSubscriptionStatus,
+  cancelSubscription,
+  getCustomerPortalUrl,
+  getDownloadHistory,
+  getNotifications,
+  markNotificationRead,
+  markAllNotificationsRead,
+  exportUserData,
+  deleteMyAccount,
+  createTicket,
+  getMyTickets,
+  getMyReferralCode,
+  getMyReferrals,
+  type BillingPayment,
+  type DownloadRow,
+  type NotificationRow,
+  type TicketRow,
+  type SubscriptionInfo,
+} from "@/lib/user-account.functions";
 import { TESTIMONIAL_MAX_LENGTH } from "@/lib/user-testimonials";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -126,9 +160,13 @@ type SectionId =
   | "favourites"
   | "collections"
   | "history"
+  | "downloads"
   | "subscription"
   | "apikey"
   | "review"
+  | "notifications"
+  | "support"
+  | "referrals"
   | "settings";
 
 const SECTION_META: Record<SectionId, { title: string; subtitle: string }> = {
@@ -136,9 +174,13 @@ const SECTION_META: Record<SectionId, { title: string; subtitle: string }> = {
   favourites: { title: "Favourite Icons", subtitle: "Every icon you hearted, in one place." },
   collections: { title: "Collections", subtitle: "Your saved icon sets." },
   history: { title: "History", subtitle: "Icons you recently viewed on this device." },
+  downloads: { title: "Downloads", subtitle: "Files you downloaded from IconVault tools." },
   subscription: { title: "Subscription", subtitle: "Your plan and billing." },
   apikey: { title: "API Key", subtitle: "Keys for the REST API, CLI and embed widget." },
   review: { title: "My Review", subtitle: "Share a review for the homepage." },
+  notifications: { title: "Notifications", subtitle: "Updates from IconVault." },
+  support: { title: "Support", subtitle: "Get help or check your tickets." },
+  referrals: { title: "Referrals", subtitle: "Invite friends and track signups." },
   settings: { title: "Settings", subtitle: "Identity and account controls." },
 };
 
@@ -346,6 +388,65 @@ function Page() {
   const [apiKeys, setApiKeys] = useState<UserApiKey[]>([]);
   const [section, setSection] = useState<SectionId>("overview");
 
+  // ---- New user features ----
+  const billingFn = useServerFn(getBillingHistory);
+  const subStatusFn = useServerFn(getSubscriptionStatus);
+  const cancelSubFn = useServerFn(cancelSubscription);
+  const portalFn = useServerFn(getCustomerPortalUrl);
+  const downloadsFn = useServerFn(getDownloadHistory);
+  const notificationsFn = useServerFn(getNotifications);
+  const markReadFn = useServerFn(markNotificationRead);
+  const markAllReadFn = useServerFn(markAllNotificationsRead);
+  const exportFn = useServerFn(exportUserData);
+  const deleteAccountFn = useServerFn(deleteMyAccount);
+  const createTicketFn = useServerFn(createTicket);
+  const myTicketsFn = useServerFn(getMyTickets);
+  const refCodeFn = useServerFn(getMyReferralCode);
+  const myRefsFn = useServerFn(getMyReferrals);
+
+  const [downloads, setDownloads] = useState<DownloadRow[]>([]);
+  const [notifications, setNotifications] = useState<NotificationRow[]>([]);
+  const [billing, setBilling] = useState<BillingPayment[]>([]);
+  const [billingOk, setBillingOk] = useState(true);
+  const [subInfo, setSubInfo] = useState<SubscriptionInfo | null>(null);
+  const [tickets, setTickets] = useState<TicketRow[]>([]);
+  const [refCode, setRefCode] = useState("");
+  const [referrals, setReferrals] = useState<{ referred_email: string | null; status: string; created_at: string }[]>([]);
+  const [cancelling, setCancelling] = useState(false);
+  const [exporting, setExporting] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [ticketSubject, setTicketSubject] = useState("");
+  const [ticketMessage, setTicketMessage] = useState("");
+  const [sendingTicket, setSendingTicket] = useState(false);
+  const [openTicketId, setOpenTicketId] = useState<string | null>(null);
+  const [refCopied, setRefCopied] = useState(false);
+
+  const unreadCount = notifications.filter((n) => !n.read).length;
+
+  const refreshNotifications = async () => {
+    try {
+      setNotifications(await notificationsFn({ data: undefined }));
+    } catch {
+      /* notifications are optional */
+    }
+  };
+
+  useEffect(() => {
+    if (!user) return;
+    void downloadsFn({ data: { limit: 50 } }).then(setDownloads).catch(() => {});
+    void refreshNotifications();
+    void billingFn({ data: undefined }).then((r) => {
+      setBilling(r.payments);
+      setBillingOk(r.ok);
+    }).catch(() => setBillingOk(false));
+    void subStatusFn({ data: undefined }).then(setSubInfo).catch(() => {});
+    void myTicketsFn({ data: undefined }).then(setTickets).catch(() => {});
+    void refCodeFn({ data: undefined }).then((r) => setRefCode(r.code)).catch(() => {});
+    void myRefsFn({ data: undefined }).then(setReferrals).catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
   useEffect(() => {
     if (!loading && !user) void navigate({ to: "/auth" });
   }, [user, loading, navigate]);
@@ -447,6 +548,12 @@ function Page() {
           badge: collections.length > 0 ? collections.length : undefined,
         },
         { id: "history", label: "History", icon: Clock },
+        {
+          id: "downloads",
+          label: "Downloads",
+          icon: Download,
+          badge: downloads.length > 0 ? downloads.length : undefined,
+        },
       ],
     },
     {
@@ -455,10 +562,34 @@ function Page() {
         { id: "subscription", label: "Subscription", icon: Crown },
         { id: "apikey", label: "API Key", icon: Key },
         { id: "review", label: "My Review", icon: MessageSquareQuote },
+        {
+          id: "notifications",
+          label: "Notifications",
+          icon: Bell,
+          badge: unreadCount > 0 ? unreadCount : undefined,
+        },
+        { id: "support", label: "Support", icon: LifeBuoy },
+        { id: "referrals", label: "Referrals", icon: Gift },
         { id: "settings", label: "Settings", icon: Settings },
       ],
     },
   ];
+
+  const notificationBell = (
+    <button
+      type="button"
+      onClick={() => setSection("notifications")}
+      aria-label={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ""}`}
+      className="focus-ring relative rounded-full border border-border bg-surface p-2.5 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+    >
+      {unreadCount > 0 ? <BellRing className="h-4.5 w-4.5" /> : <Bell className="h-4.5 w-4.5" />}
+      {unreadCount > 0 && (
+        <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-destructive px-1 text-[10px] font-bold text-white">
+          {unreadCount > 9 ? "9+" : unreadCount}
+        </span>
+      )}
+    </button>
+  );
 
   return (
     <DashboardShell
@@ -468,14 +599,17 @@ function Page() {
       title={meta.title}
       subtitle={meta.subtitle}
       actions={
-        isAdmin ? (
-          <Link
-            to="/admin"
-            className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs transition-colors hover:border-primary/40 hover:text-primary"
-          >
-            <ShieldCheck className="h-3.5 w-3.5" /> Admin panel
-          </Link>
-        ) : undefined
+        <div className="flex items-center gap-2">
+          {notificationBell}
+          {isAdmin ? (
+            <Link
+              to="/admin"
+              className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <ShieldCheck className="h-3.5 w-3.5" /> Admin panel
+            </Link>
+          ) : undefined}
+        </div>
       }
       userMenu={{
         name: displayName || user.email?.split("@")[0] || "Account",
@@ -487,7 +621,23 @@ function Page() {
     >
       {section === "overview" && (
         <div className="grid gap-4">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <WelcomeBanner
+            title={`Welcome back, ${displayName || user.email?.split("@")[0] || "friend"}`}
+            subtitle="Your icons, collections and tools, all in one place."
+            meta={
+              isPro ? (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  <Crown className="h-3.5 w-3.5" />
+                  Pro member
+                </span>
+              ) : (
+                <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                  Free plan
+                </span>
+              )
+            }
+          />
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
             <StatCard label="Saved icons" value={favourites.length} icon={Heart} />
             <StatCard label="Collections" value={collections.length} icon={FolderOpen} />
             <StatCard
@@ -502,6 +652,24 @@ function Page() {
               deltaLabel={apiKeys.length > 0 ? "this month" : "no key yet"}
               icon={Zap}
               iconClassName="bg-chart-3/15 text-chart-3"
+            />
+            <StatCard
+              label="Downloads"
+              value={downloads.length}
+              deltaLabel={downloads.length > 0 ? "tracked" : "none yet"}
+              icon={Download}
+              iconClassName="bg-chart-2/15 text-chart-2"
+              action={
+                downloads.length > 0 ? (
+                  <button
+                    type="button"
+                    onClick={() => setSection("downloads")}
+                    className="focus-ring text-xs font-medium text-primary underline-offset-4 hover:underline"
+                  >
+                    View
+                  </button>
+                ) : undefined
+              }
             />
           </div>
 
@@ -751,6 +919,53 @@ function Page() {
         </div>
       )}
 
+      {section === "downloads" && (
+        <div className="grid gap-4">
+          <DataTable<DownloadRow>
+            columns={[
+              {
+                key: "file",
+                header: "File",
+                render: (r) => (
+                  <span className="flex items-center gap-2.5">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary">
+                      <Download className="h-4 w-4" />
+                    </span>
+                    <span className="truncate font-mono text-[13px]">{r.item_label}</span>
+                  </span>
+                ),
+              },
+              {
+                key: "tool",
+                header: "Tool",
+                render: (r) => (
+                  <span className="text-muted-foreground">{r.tool_id ?? "—"}</span>
+                ),
+              },
+              {
+                key: "date",
+                header: "Downloaded",
+                className: "whitespace-nowrap",
+                render: (r) => (
+                  <span className="text-muted-foreground">
+                    {new Date(r.created_at).toLocaleDateString(undefined, {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                ),
+              },
+            ]}
+            rows={downloads}
+            emptyText="No downloads tracked yet. Files you download from IconVault tools will appear here."
+          />
+          <p className="text-xs text-muted-foreground">
+            Only downloads made while signed in are tracked.
+          </p>
+        </div>
+      )}
+
       {section === "subscription" && (
         <div className="grid gap-4">
           <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -780,6 +995,63 @@ function Page() {
                   </Link>{" "}
                   for plan details and support options.
                 </p>
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      try {
+                        const r = await portalFn({ data: undefined });
+                        if (r.ok && r.url) {
+                          window.open(r.url, "_blank", "noopener");
+                        } else {
+                          toast.error("Could not open the billing portal. Please contact support.");
+                        }
+                      } catch {
+                        toast.error("Could not open the billing portal. Please contact support.");
+                      }
+                    }}
+                    className="focus-ring inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+                  >
+                    <ExternalLink className="h-4 w-4" /> Manage billing
+                  </button>
+                  {!subInfo?.cancelAtNextBillingDate ? (
+                    <button
+                      type="button"
+                      disabled={cancelling}
+                      onClick={async () => {
+                        if (
+                          !window.confirm(
+                            "Cancel your Pro subscription? It stays active until the end of the billing period.",
+                          )
+                        )
+                          return;
+                        setCancelling(true);
+                        try {
+                          const r = await cancelSubFn({ data: undefined });
+                          if (r.ok) {
+                            toast.success("Subscription will cancel at the end of the billing period");
+                            const s = await subStatusFn({ data: undefined });
+                            setSubInfo(s);
+                          } else {
+                            toast.error("Could not cancel. Please contact support.");
+                          }
+                        } catch {
+                          toast.error("Could not cancel. Please contact support.");
+                        } finally {
+                          setCancelling(false);
+                        }
+                      }}
+                      className="focus-ring inline-flex items-center gap-2 rounded-full border border-destructive/40 px-5 py-2.5 text-sm font-medium text-destructive transition-colors hover:bg-destructive/10 disabled:opacity-60"
+                    >
+                      {cancelling && <Loader2 className="h-4 w-4 animate-spin" />}
+                      Cancel subscription
+                    </button>
+                  ) : (
+                    <p className="inline-flex items-center rounded-full bg-accent/10 px-4 py-2 text-sm font-medium text-accent">
+                      Cancels at the end of the billing period
+                    </p>
+                  )}
+                </div>
               </div>
             ) : (
               <div className="grid gap-4">
@@ -851,6 +1123,88 @@ function Page() {
               >
                 Browse all tools <ArrowRight className="h-4 w-4" />
               </Link>
+            )}
+          </div>
+
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <div className="mb-4 flex items-center gap-3">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
+                <Receipt className="h-5 w-5" />
+              </span>
+              <div>
+                <h2 className="font-display text-base font-semibold">Billing history</h2>
+                <p className="text-xs text-muted-foreground">Payments processed by Dodo.</p>
+              </div>
+            </div>
+            {!billingOk ? (
+              <p className="py-4 text-sm text-muted-foreground">
+                Billing history is unavailable right now. Please try again later.
+              </p>
+            ) : billing.length === 0 ? (
+              <p className="py-4 text-sm text-muted-foreground">
+                No payments yet. Your invoices will appear here after your first Pro payment.
+              </p>
+            ) : (
+              <DataTable<BillingPayment & { id: string }>
+                columns={[
+                  {
+                    key: "date",
+                    header: "Date",
+                    className: "whitespace-nowrap",
+                    render: (r) => (
+                      <span className="text-muted-foreground">
+                        {r.created_at
+                          ? new Date(r.created_at).toLocaleDateString(undefined, {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : "—"}
+                      </span>
+                    ),
+                  },
+                  {
+                    key: "amount",
+                    header: "Amount",
+                    className: "whitespace-nowrap tabular-nums",
+                    render: (r) => (
+                      <span className="font-medium">
+                        {r.currency} {r.amount.toFixed(2)}
+                      </span>
+                    ),
+                  },
+                  {
+                    key: "status",
+                    header: "Status",
+                    render: (r) => (
+                      <span
+                        className={cn(
+                          "inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium",
+                          r.status === "succeeded"
+                            ? "bg-primary-soft text-primary"
+                            : r.status === "failed"
+                              ? "bg-destructive/10 text-destructive"
+                              : "bg-muted text-muted-foreground",
+                        )}
+                      >
+                        {r.status}
+                      </span>
+                    ),
+                  },
+                  {
+                    key: "id",
+                    header: "Payment",
+                    render: (r) => (
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {r.id.slice(0, 18)}
+                      </span>
+                    ),
+                  },
+                ]}
+                rows={billing.map((b) => ({ ...b, id: b.id || Math.random().toString(36) }))}
+                emptyText="No payments yet."
+                minWidth={480}
+              />
             )}
           </div>
         </div>
@@ -943,6 +1297,319 @@ function Page() {
 
       {section === "review" && <TestimonialSection displayName={displayName} />}
 
+      {section === "notifications" && (
+        <div className="grid gap-4">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h2 className="font-display text-base font-semibold">
+                {unreadCount > 0 ? `${unreadCount} unread` : "All caught up"}
+              </h2>
+              {unreadCount > 0 && (
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await markAllReadFn({ data: undefined }).catch(() => {});
+                    await refreshNotifications();
+                    toast.success("All notifications marked as read");
+                  }}
+                  className="focus-ring text-xs font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  Mark all as read
+                </button>
+              )}
+            </div>
+            {notifications.length === 0 ? (
+              <div className="py-10 text-center">
+                <Bell className="mx-auto h-8 w-8 text-muted-foreground" />
+                <p className="mt-3 font-display text-base font-semibold">No notifications yet</p>
+                <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
+                  Plan changes, new features and important updates will show up here.
+                </p>
+              </div>
+            ) : (
+              <ul className="grid gap-3">
+                {notifications.map((n) => (
+                  <li key={n.id}>
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        if (!n.read) {
+                          await markReadFn({ data: { id: n.id } }).catch(() => {});
+                          setNotifications((prev) =>
+                            prev.map((x) => (x.id === n.id ? { ...x, read: true } : x)),
+                          );
+                        }
+                        if (n.link) window.open(n.link, "_blank", "noopener");
+                      }}
+                      className={cn(
+                        "focus-ring flex w-full items-start gap-3 rounded-xl border p-4 text-left transition-colors",
+                        n.read
+                          ? "border-border bg-background"
+                          : "border-primary/30 bg-primary-soft/40 hover:border-primary/50",
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl",
+                          n.read ? "bg-muted text-muted-foreground" : "bg-primary-soft text-primary",
+                        )}
+                      >
+                        {n.read ? <Bell className="h-4 w-4" /> : <BellRing className="h-4 w-4" />}
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-center gap-2">
+                          <span className="truncate text-sm font-medium">{n.title}</span>
+                          {!n.read && (
+                            <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-label="Unread" />
+                          )}
+                        </span>
+                        {n.body && (
+                          <span className="mt-1 line-clamp-2 block text-sm text-muted-foreground">
+                            {n.body}
+                          </span>
+                        )}
+                        <span className="mt-1.5 block text-xs text-muted-foreground">
+                          {new Date(n.created_at).toLocaleDateString(undefined, {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                          })}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+
+      {section === "support" && (
+        <div className="grid gap-4">
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (!ticketSubject.trim() || !ticketMessage.trim()) {
+                toast.error("Please add a subject and a message");
+                return;
+              }
+              setSendingTicket(true);
+              try {
+                const r = await createTicketFn({
+                  data: { subject: ticketSubject.trim(), message: ticketMessage.trim() },
+                });
+                if (r.ok) {
+                  toast.success("Ticket sent - we usually reply within a day");
+                  setTicketSubject("");
+                  setTicketMessage("");
+                  setTickets(await myTicketsFn({ data: undefined }));
+                } else {
+                  toast.error("Could not send your ticket. Please try again.");
+                }
+              } catch {
+                toast.error("Could not send your ticket. Please try again.");
+              } finally {
+                setSendingTicket(false);
+              }
+            }}
+            className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+          >
+            <h2 className="font-display text-base font-semibold">Contact support</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Billing issues, bug reports or feature requests - we read everything.
+            </p>
+            <div className="mt-4 grid gap-4">
+              <div className="grid gap-2">
+                <label htmlFor="ticket-subject" className="text-sm font-medium">
+                  Subject
+                </label>
+                <input
+                  id="ticket-subject"
+                  value={ticketSubject}
+                  onChange={(e) => setTicketSubject(e.target.value)}
+                  maxLength={120}
+                  placeholder="e.g. Pro payment failed twice"
+                  className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
+                />
+              </div>
+              <div className="grid gap-2">
+                <label htmlFor="ticket-message" className="text-sm font-medium">
+                  Message
+                </label>
+                <textarea
+                  id="ticket-message"
+                  value={ticketMessage}
+                  onChange={(e) => setTicketMessage(e.target.value.slice(0, 4000))}
+                  rows={4}
+                  placeholder="Describe the issue in a few lines…"
+                  className="w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary/50"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={sendingTicket}
+                className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground disabled:opacity-60"
+              >
+                {sendingTicket ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                Send ticket
+              </button>
+            </div>
+          </form>
+
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <h2 className="font-display text-base font-semibold">My tickets</h2>
+            {tickets.length === 0 ? (
+              <p className="mt-3 py-4 text-sm text-muted-foreground">
+                No tickets yet. Anything broken or confusing - send one above.
+              </p>
+            ) : (
+              <ul className="mt-4 grid gap-3">
+                {tickets.map((t) => {
+                  const open = openTicketId === t.id;
+                  return (
+                    <li key={t.id} className="rounded-xl border border-border bg-background">
+                      <button
+                        type="button"
+                        onClick={() => setOpenTicketId(open ? null : t.id)}
+                        aria-expanded={open}
+                        className="focus-ring flex w-full items-center gap-3 p-4 text-left"
+                      >
+                        <span
+                          className={cn(
+                            "shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium",
+                            t.status === "open"
+                              ? "bg-primary-soft text-primary"
+                              : t.status === "closed"
+                                ? "bg-muted text-muted-foreground"
+                                : "bg-accent/10 text-accent",
+                          )}
+                        >
+                          {t.status}
+                        </span>
+                        <span className="min-w-0 flex-1 truncate text-sm font-medium">
+                          {t.subject}
+                        </span>
+                        <span className="shrink-0 text-xs text-muted-foreground">
+                          {new Date(t.created_at).toLocaleDateString(undefined, {
+                            day: "numeric",
+                            month: "short",
+                          })}
+                        </span>
+                        <ChevronDown
+                          className={cn("h-4 w-4 shrink-0 text-muted-foreground transition-transform", open && "rotate-180")}
+                        />
+                      </button>
+                      {open && (
+                        <div className="border-t border-border px-4 py-4">
+                          <p className="text-sm leading-relaxed">{t.message}</p>
+                          {t.replies.length > 0 && (
+                            <div className="mt-4 grid gap-3">
+                              {t.replies.map((r, i) => (
+                                <div
+                                  key={i}
+                                  className={cn(
+                                    "rounded-xl p-3.5 text-sm",
+                                    r.from_admin
+                                      ? "border border-primary/20 bg-primary-soft/50"
+                                      : "bg-muted/60",
+                                  )}
+                                >
+                                  <p className="mb-1 text-xs font-medium text-muted-foreground">
+                                    {r.from_admin ? "IconVault support" : "You"}
+                                  </p>
+                                  <p className="leading-relaxed">{r.body}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+
+      {section === "referrals" && (
+        <div className="grid gap-4">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <div className="flex items-center gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+                <Gift className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-display text-lg font-semibold">Your referral code</p>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  Share it - when friends join with your link, they show up below.
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <code className="rounded-xl border border-border bg-background px-4 py-2.5 font-mono text-base font-semibold tracking-widest">
+                {refCode || "…"}
+              </code>
+              <button
+                type="button"
+                onClick={() => {
+                  const link = `https://iconvault.site/?ref=${refCode}`;
+                  void navigator.clipboard.writeText(link);
+                  setRefCopied(true);
+                  setTimeout(() => setRefCopied(false), 1600);
+                  toast.success("Referral link copied");
+                }}
+                disabled={!refCode}
+                className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground disabled:opacity-60"
+              >
+                {refCopied ? <CheckCheck className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {refCopied ? "Copied" : "Copy invite link"}
+              </button>
+            </div>
+          </div>
+
+          <DataTable<{ id: string; referred_email: string | null; status: string; created_at: string }>
+            columns={[
+              {
+                key: "email",
+                header: "Referred",
+                render: (r) => (
+                  <span className="text-sm">{r.referred_email ?? "Signed up"}</span>
+                ),
+              },
+              {
+                key: "status",
+                header: "Status",
+                render: (r) => (
+                  <span className="inline-flex rounded-full bg-primary-soft px-2.5 py-0.5 text-xs font-medium text-primary">
+                    {r.status}
+                  </span>
+                ),
+              },
+              {
+                key: "date",
+                header: "Date",
+                className: "whitespace-nowrap",
+                render: (r) => (
+                  <span className="text-muted-foreground">
+                    {new Date(r.created_at).toLocaleDateString(undefined, {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                ),
+              },
+            ]}
+            rows={referrals.map((r, i) => ({ ...r, id: `${r.created_at}-${i}` }))}
+            emptyText="No referrals yet. Share your link to get started."
+            minWidth={480}
+          />
+        </div>
+      )}
+
       {section === "settings" && (
         <div className="grid gap-4">
           <form
@@ -992,6 +1659,43 @@ function Page() {
             </div>
           </form>
 
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <h2 className="font-display text-base font-semibold">Your data</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Download everything IconVault stores about you as a JSON file.
+            </p>
+            <button
+              type="button"
+              disabled={exporting}
+              onClick={async () => {
+                setExporting(true);
+                try {
+                  const data = await exportFn({ data: undefined });
+                  const blob = new Blob([JSON.stringify(data, null, 2)], {
+                    type: "application/json",
+                  });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = "iconvault-data-export.json";
+                  document.body.appendChild(a);
+                  a.click();
+                  a.remove();
+                  setTimeout(() => URL.revokeObjectURL(url), 4000);
+                  toast.success("Data exported");
+                } catch {
+                  toast.error("Could not export your data. Please try again.");
+                } finally {
+                  setExporting(false);
+                }
+              }}
+              className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary disabled:opacity-60"
+            >
+              {exporting ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileDown className="h-4 w-4" />}
+              Export my data
+            </button>
+          </div>
+
           <div className="rounded-2xl border border-destructive/30 bg-card p-6 shadow-sm">
             <h2 className="font-display text-base font-semibold text-destructive">Danger zone</h2>
             <p className="mt-1 text-sm text-muted-foreground">
@@ -1006,6 +1710,66 @@ function Page() {
             >
               <LogOut className="h-4 w-4" /> Sign out
             </button>
+
+            <div className="mt-6 border-t border-border pt-6">
+              <p className="flex items-center gap-2 text-sm font-medium">
+                <UserX className="h-4 w-4 text-destructive" /> Delete my account
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Permanently deletes your profile, favourites, collections, API keys and history.
+                This cannot be undone.
+              </p>
+              {!showDeleteConfirm ? (
+                <button
+                  type="button"
+                  onClick={() => setShowDeleteConfirm(true)}
+                  className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full bg-destructive px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                >
+                  <Trash2 className="h-4 w-4" /> Delete account…
+                </button>
+              ) : (
+                <div className="mt-4 rounded-xl border border-destructive/40 bg-destructive/5 p-4">
+                  <p className="text-sm font-medium">
+                    Are you absolutely sure? Type DELETE below is not needed - just confirm twice.
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      disabled={deleting}
+                      onClick={async () => {
+                        setDeleting(true);
+                        try {
+                          const r = await deleteAccountFn({ data: { confirm: true } });
+                          if (r.ok) {
+                            toast.success("Account deleted");
+                            await signOut();
+                            navigate({ to: "/" });
+                          } else {
+                            toast.error("Could not delete your account. Please contact support.");
+                          }
+                        } catch {
+                          toast.error("Could not delete your account. Please contact support.");
+                        } finally {
+                          setDeleting(false);
+                          setShowDeleteConfirm(false);
+                        }
+                      }}
+                      className="focus-ring inline-flex items-center gap-2 rounded-full bg-destructive px-5 py-2.5 text-sm font-medium text-white disabled:opacity-60"
+                    >
+                      {deleting && <Loader2 className="h-4 w-4 animate-spin" />}
+                      Yes, delete everything
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowDeleteConfirm(false)}
+                      className="focus-ring rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary/40"
+                    >
+                      Keep my account
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

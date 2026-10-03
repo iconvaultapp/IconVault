@@ -12,6 +12,7 @@ import {
   Settings,
   Activity,
   TrendingUp,
+  TrendingDown,
   Trash2,
   Crown,
   Lock,
@@ -23,11 +24,22 @@ import {
   Zap,
   Check,
   X,
+  CreditCard,
+  TicketPercent,
+  LifeBuoy,
+  Wrench,
+  Newspaper,
+  ShieldAlert,
+  Share2,
+  Megaphone,
+  Bug,
+  Percent,
 } from "lucide-react";
 import { DashboardShell, type DashboardNavSection } from "@/components/dashboard/DashboardShell";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { BarChart, LineChart, DonutChart } from "@/components/dashboard/charts";
 import { DataTable } from "@/components/dashboard/DataTable";
+import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
 import { CountUp } from "@/components/CountUp";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -40,13 +52,27 @@ import {
   getOperatingStats,
   listApiKeys,
   setApiKeyRevoked,
+  banUser,
+  unbanUser,
+  setPlan,
+  getConversionStats,
   type RecentUserRow,
   type PlanBreakdownRow,
   type AdminApiKeyRow,
+  type ConversionStats,
 } from "@/lib/admin.functions";
 import { downloadCsv, stamp } from "@/lib/csv";
 import { UsersTab } from "@/components/admin/UsersTab";
 import { TestimonialsTab } from "@/components/admin/TestimonialsTab";
+import { PaymentsTab } from "@/components/admin/PaymentsTab";
+import { CouponsTab } from "@/components/admin/CouponsTab";
+import { SupportTab } from "@/components/admin/SupportTab";
+import { ToolsTab } from "@/components/admin/ToolsTab";
+import { ChangelogTab } from "@/components/admin/ChangelogTab";
+import { TakedownsTab } from "@/components/admin/TakedownsTab";
+import { ReferralsTab } from "@/components/admin/ReferralsTab";
+import { CampaignsTab } from "@/components/admin/CampaignsTab";
+import { ErrorLogsTab } from "@/components/admin/ErrorLogsTab";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -97,6 +123,7 @@ interface AccountRow {
   roles: string[];
   is_owner: boolean;
   plan: string;
+  is_banned: boolean;
 }
 
 interface SiteSettings {
@@ -129,7 +156,16 @@ type SectionId =
   | "accounts"
   | "apikeys"
   | "settings"
-  | "activity";
+  | "activity"
+  | "payments"
+  | "coupons"
+  | "support"
+  | "tools"
+  | "changelog"
+  | "takedowns"
+  | "referrals"
+  | "campaigns"
+  | "errorlogs";
 
 const SECTION_TITLES: Record<SectionId, { title: string; subtitle: string }> = {
   overview: { title: "Overview", subtitle: "The headline numbers, updated every refresh." },
@@ -142,6 +178,15 @@ const SECTION_TITLES: Record<SectionId, { title: string; subtitle: string }> = {
   apikeys: { title: "API Keys", subtitle: "Every issued key, usage and revocation." },
   settings: { title: "Settings", subtitle: "Owner-only controls for the public site." },
   activity: { title: "Activity Log", subtitle: "Every change made from this panel." },
+  payments: { title: "Payments", subtitle: "Subscriptions, payments and refunds via Dodo." },
+  coupons: { title: "Coupons", subtitle: "Discount codes for Pro." },
+  support: { title: "Support", subtitle: "Ticket inbox and replies." },
+  tools: { title: "Tools", subtitle: "Enable/disable tools and free limits." },
+  changelog: { title: "Changelog", subtitle: "Write release notes for the public page." },
+  takedowns: { title: "Takedowns", subtitle: "DMCA and licence takedown requests." },
+  referrals: { title: "Referrals", subtitle: "Who invited whom." },
+  campaigns: { title: "Campaigns", subtitle: "Newsletter drafts and email counts." },
+  errorlogs: { title: "Error Logs", subtitle: "Client errors reported from the site." },
 };
 
 const DEFAULT_SETTINGS: SiteSettings = {
@@ -189,6 +234,7 @@ function AdminPage() {
   const [planBreakdown, setPlanBreakdown] = useState<PlanBreakdownRow[]>([]);
   const [freeCount, setFreeCount] = useState(0);
   const [recentUsers, setRecentUsers] = useState<RecentUserRow[]>([]);
+  const [conversion, setConversion] = useState<ConversionStats | null>(null);
   const [settings, setSettings] = useState<SiteSettings>(DEFAULT_SETTINGS);
   const [savingSettings, setSavingSettings] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -201,6 +247,10 @@ function AdminPage() {
   const fetchOperatingStats = useServerFn(getOperatingStats);
   const fetchApiKeys = useServerFn(listApiKeys);
   const revokeKeyFn = useServerFn(setApiKeyRevoked);
+  const banUserFn = useServerFn(banUser);
+  const unbanUserFn = useServerFn(unbanUser);
+  const setPlanFn = useServerFn(setPlan);
+  const fetchConversionStats = useServerFn(getConversionStats);
 
   const checkRole = useCallback(async () => {
     if (!user) {
@@ -328,8 +378,14 @@ function AdminPage() {
     } catch {
       /* api keys are best-effort */
     }
+    try {
+      const res = await fetchConversionStats({ data: undefined });
+      setConversion(res);
+    } catch {
+      /* conversion stats are best-effort */
+    }
     setBusy(false);
-  }, [fetchAccounts, fetchOperatingStats, fetchApiKeys]);
+  }, [fetchAccounts, fetchOperatingStats, fetchApiKeys, fetchConversionStats]);
 
   useEffect(() => {
     if (isAdmin) void loadData();
@@ -441,6 +497,47 @@ function AdminPage() {
       toast.success(next ? "Key revoked" : "Key re-enabled");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Only the owner can manage keys");
+    }
+  };
+
+  const refreshAccounts = async () => {
+    try {
+      const res = await fetchAccounts({ data: undefined });
+      setAccounts(res.accounts);
+    } catch {
+      /* refresh is best-effort; the error toast already fired */
+    }
+  };
+
+  const handleBan = async (userId: string, reason: string | null) => {
+    try {
+      await banUserFn({
+        data: { userId, ...(reason != null ? { reason } : {}) },
+      });
+      toast.success("User banned");
+      await refreshAccounts();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Only the owner can ban users");
+    }
+  };
+
+  const handleUnban = async (userId: string) => {
+    try {
+      await unbanUserFn({ data: { userId } });
+      toast.success("User unbanned");
+      await refreshAccounts();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Only the owner can unban users");
+    }
+  };
+
+  const handlePlanChange = async (userId: string, plan: "free" | "pro") => {
+    try {
+      await setPlanFn({ data: { userId, plan } });
+      toast.success(`Plan set to ${plan}`);
+      await refreshAccounts();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Only the owner can change plans");
     }
   };
 
@@ -569,12 +666,31 @@ function AdminPage() {
           },
           { id: "waitlist", label: "Waitlist", icon: Mail, badge: counts?.waitlist || undefined },
           { id: "accounts", label: "Accounts", icon: Users },
+          { id: "payments", label: "Payments", icon: CreditCard },
+          { id: "coupons", label: "Coupons", icon: TicketPercent },
+          { id: "support", label: "Support", icon: LifeBuoy },
+          { id: "tools", label: "Tools", icon: Wrench },
+        ],
+      },
+      {
+        title: "Content",
+        items: [
+          { id: "changelog", label: "Changelog", icon: Newspaper },
+          { id: "takedowns", label: "Takedowns", icon: ShieldAlert },
+        ],
+      },
+      {
+        title: "Marketing",
+        items: [
+          { id: "referrals", label: "Referrals", icon: Share2 },
+          { id: "campaigns", label: "Campaigns", icon: Megaphone },
         ],
       },
       {
         title: "System",
         items: [
           { id: "apikeys", label: "API Keys", icon: Key, badge: apiKeys.length || undefined },
+          { id: "errorlogs", label: "Error Logs", icon: Bug },
           { id: "settings", label: "Settings", icon: Settings },
           { id: "activity", label: "Activity Log", icon: Activity },
         ],
@@ -683,17 +799,48 @@ function AdminPage() {
     >
       {section === "overview" && (
         <div className="grid gap-4">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+          <WelcomeBanner
+            title={`Welcome back, ${displayName}`}
+            subtitle="Here is what is happening across IconVault today. Track growth, revenue and engagement at a glance."
+            meta={
+              <>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
+                  <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                  All systems live
+                </span>
+                <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                  {new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}
+                </span>
+              </>
+            }
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <StatCard
               label="Total users"
               value={<CountUp value={counts?.profiles ?? 0} />}
               icon={Users}
+              sparkline={signupSeries.map((d) => d.value)}
+              deltaLabel="signups, last 14 days"
             />
             <StatCard
               label="Pro members"
               value={<CountUp value={yearlyCount} />}
               icon={Crown}
               iconClassName="bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300"
+            />
+            <StatCard
+              label="Conversion rate"
+              value={`${conversion?.conversion_pct ?? 0}%`}
+              deltaLabel="pro members of all users"
+              icon={Percent}
+              iconClassName="bg-chart-2/15 text-chart-2"
+            />
+            <StatCard
+              label="Churn"
+              value={`${conversion?.churn_pct ?? 0}%`}
+              deltaLabel="cancelled of all subscriptions"
+              icon={TrendingDown}
+              iconClassName="bg-destructive/10 text-destructive"
             />
             <StatCard
               label="API calls this month"
@@ -951,7 +1098,12 @@ function AdminPage() {
 
       {section === "users" && (
         <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-          <UsersTab users={accounts} />
+          <UsersTab
+            users={accounts}
+            {...(isOwner
+              ? { onBan: handleBan, onUnban: handleUnban, onPlanChange: handlePlanChange }
+              : {})}
+          />
         </div>
       )}
 
@@ -1394,6 +1546,60 @@ function AdminPage() {
               </ul>
             )}
           </div>
+        </div>
+      )}
+
+      {section === "payments" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <PaymentsTab />
+        </div>
+      )}
+
+      {section === "coupons" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <CouponsTab />
+        </div>
+      )}
+
+      {section === "support" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <SupportTab />
+        </div>
+      )}
+
+      {section === "tools" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <ToolsTab />
+        </div>
+      )}
+
+      {section === "changelog" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <ChangelogTab />
+        </div>
+      )}
+
+      {section === "takedowns" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <TakedownsTab />
+        </div>
+      )}
+
+      {section === "referrals" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <ReferralsTab />
+        </div>
+      )}
+
+      {section === "campaigns" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <CampaignsTab />
+        </div>
+      )}
+
+      {section === "errorlogs" && (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <ErrorLogsTab />
         </div>
       )}
     </DashboardShell>

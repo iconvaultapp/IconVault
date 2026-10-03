@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { EmptyStateIllustration } from "./EmptyState";
 
 export interface DataTableColumn<T> {
   key: string;
@@ -16,11 +17,13 @@ export function DataTable<T extends { id: string }>({
   columns,
   rows,
   emptyText = "Nothing here yet.",
+  emptyHint,
   minWidth = 640,
 }: {
   columns: DataTableColumn<T>[];
   rows: T[];
   emptyText?: string;
+  emptyHint?: string;
   minWidth?: number;
 }) {
   return (
@@ -38,8 +41,14 @@ export function DataTable<T extends { id: string }>({
         <tbody className="divide-y divide-border">
           {rows.length === 0 ? (
             <tr>
-              <td colSpan={columns.length} className="px-4 py-10 text-center text-muted-foreground">
-                {emptyText}
+              <td colSpan={columns.length} className="px-4 py-6">
+                <div className="flex flex-col items-center text-center">
+                  <EmptyStateIllustration className="h-24" />
+                  <p className="mt-3 text-sm font-medium">{emptyText}</p>
+                  {emptyHint && (
+                    <p className="mt-1 max-w-xs text-xs text-muted-foreground">{emptyHint}</p>
+                  )}
+                </div>
               </td>
             </tr>
           ) : (

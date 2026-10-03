@@ -24,7 +24,7 @@ export interface BarDatum {
   value: number;
 }
 
-/** Vertical bar chart with value labels on hover (title) and axis labels. */
+/** Vertical bar chart: gradient bars, rounded tops, hover tooltips. */
 export function BarChart({
   data,
   height = 220,
@@ -36,6 +36,7 @@ export function BarChart({
   barColor?: string;
   ariaLabel?: string;
 }) {
+  const gid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const W = 640;
   const H = height;
   const padL = 36;
@@ -46,7 +47,7 @@ export function BarChart({
   const innerH = H - padT - padB;
   const n = Math.max(data.length, 1);
   const slot = innerW / n;
-  const barW = Math.min(28, Math.max(8, slot * 0.55));
+  const barW = Math.min(30, Math.max(8, slot * 0.55));
 
   const ticks = [0, 0.5, 1].map((t) => Math.round(max * t));
 
@@ -57,12 +58,33 @@ export function BarChart({
       role="img"
       aria-label={ariaLabel ?? `Bar chart with ${data.length} bars`}
     >
+      <defs>
+        <linearGradient id={`bar-${gid}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={barColor} stopOpacity={1} />
+          <stop offset="100%" stopColor={barColor} stopOpacity={0.55} />
+        </linearGradient>
+      </defs>
       {ticks.map((t) => {
         const y = padT + innerH - (t / max) * innerH;
         return (
           <g key={t}>
-            <line x1={padL} x2={W - 8} y1={y} y2={y} stroke="var(--border)" strokeDasharray="3 3" />
-            <text x={padL - 8} y={y + 4} textAnchor="end" fontSize={11} fill="var(--muted-foreground)">
+            <line
+              x1={padL}
+              x2={W - 8}
+              y1={y}
+              y2={y}
+              stroke="var(--border)"
+              strokeOpacity={0.7}
+              strokeDasharray="3 4"
+            />
+            <text
+              x={padL - 8}
+              y={y + 4}
+              textAnchor="end"
+              fontSize={11}
+              fill="var(--muted-foreground)"
+              className="tabular-nums"
+            >
               {t}
             </text>
           </g>
@@ -73,16 +95,15 @@ export function BarChart({
         const x = padL + slot * i + (slot - barW) / 2;
         const y = padT + innerH - h;
         return (
-          <g key={`${d.label}-${i}`}>
-            <title>{`${d.label}: ${d.value}`}</title>
+          <g key={`${d.label}-${i}`} className="transition-opacity hover:opacity-100" opacity={0.92}>
+            <title>{`${d.label}: ${d.value.toLocaleString()}`}</title>
             <rect
               x={x}
               y={y}
               width={barW}
-              height={Math.max(h, 2)}
-              rx={4}
-              fill={barColor}
-              opacity={0.9}
+              height={Math.max(h, 3)}
+              rx={Math.min(6, barW / 2)}
+              fill={`url(#bar-${gid})`}
             />
             {n <= 16 && (
               <text
@@ -102,7 +123,7 @@ export function BarChart({
   );
 }
 
-/** Smooth line chart with soft area fill. */
+/** Smooth line chart with gradient area fill and glow dots. */
 export function LineChart({
   data,
   labels,
@@ -116,7 +137,7 @@ export function LineChart({
   lineColor?: string;
   ariaLabel?: string;
 }) {
-  const gid = useId().replace(/:/g, "");
+  const gid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const W = 640;
   const H = height;
   const padL = 36;
@@ -129,12 +150,26 @@ export function LineChart({
   const x = (i: number) => padL + (n <= 1 ? innerW / 2 : (i / (n - 1)) * innerW);
   const y = (v: number) => padT + innerH - (max > 0 ? (v / max) * innerH : 0);
 
+  // Smooth the polyline with a simple Catmull-Rom to bezier conversion.
   const linePath =
     n === 0
       ? ""
-      : data
-          .map((v, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(v).toFixed(1)}`)
-          .join(" ");
+      : n === 1
+        ? `M${x(0).toFixed(1)},${y(data[0]!).toFixed(1)}`
+        : data
+            .map((v, i) => {
+              if (i === 0) return `M${x(0).toFixed(1)},${y(data[0]!).toFixed(1)}`;
+              const p0 = data[Math.max(i - 2, 0)]!;
+              const p1 = data[i - 1]!;
+              const p2 = v;
+              const p3 = data[Math.min(i + 1, n - 1)]!;
+              const c1x = x(i - 1) + (x(i) - x(i - 1)) / 2;
+              const c1y = y(p1) + (y(p2) - y(p0)) / 6;
+              const c2x = x(i) - (x(i) - x(i - 1)) / 2;
+              const c2y = y(p2) - (y(p3) - y(p1)) / 6;
+              return `C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${x(i).toFixed(1)},${y(v).toFixed(1)}`;
+            })
+            .join(" ");
   const areaPath =
     n === 0
       ? ""
@@ -152,7 +187,7 @@ export function LineChart({
     >
       <defs>
         <linearGradient id={`lg-${gid}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={lineColor} stopOpacity={0.28} />
+          <stop offset="0%" stopColor={lineColor} stopOpacity={0.32} />
           <stop offset="100%" stopColor={lineColor} stopOpacity={0.02} />
         </linearGradient>
       </defs>
@@ -160,8 +195,23 @@ export function LineChart({
         const ty = padT + innerH - (t / max) * innerH;
         return (
           <g key={t}>
-            <line x1={padL} x2={W - 8} y1={ty} y2={ty} stroke="var(--border)" strokeDasharray="3 3" />
-            <text x={padL - 8} y={ty + 4} textAnchor="end" fontSize={11} fill="var(--muted-foreground)">
+            <line
+              x1={padL}
+              x2={W - 8}
+              y1={ty}
+              y2={ty}
+              stroke="var(--border)"
+              strokeOpacity={0.7}
+              strokeDasharray="3 4"
+            />
+            <text
+              x={padL - 8}
+              y={ty + 4}
+              textAnchor="end"
+              fontSize={11}
+              fill="var(--muted-foreground)"
+              className="tabular-nums"
+            >
               {t}
             </text>
           </g>
@@ -169,12 +219,26 @@ export function LineChart({
       })}
       {areaPath && <path d={areaPath} fill={`url(#lg-${gid})`} />}
       {linePath && (
-        <path d={linePath} fill="none" stroke={lineColor} strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
+        <path
+          d={linePath}
+          fill="none"
+          stroke={lineColor}
+          strokeWidth={2.5}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
       )}
       {data.map((v, i) => (
         <g key={i}>
-          <title>{`${labels?.[i] ?? `Point ${i + 1}`}: ${v}`}</title>
-          <circle cx={x(i)} cy={y(v)} r={3} fill={lineColor} stroke="var(--card)" strokeWidth={1.5} />
+          <title>{`${labels?.[i] ?? `Point ${i + 1}`}: ${v.toLocaleString()}`}</title>
+          <circle
+            cx={x(i)}
+            cy={y(v)}
+            r={3.5}
+            fill={lineColor}
+            stroke="var(--card)"
+            strokeWidth={1.5}
+          />
           {labels?.[i] && i % labelStep === 0 && (
             <text
               x={x(i)}
@@ -198,69 +262,102 @@ export interface DonutSegment {
   color?: string;
 }
 
-/** Donut chart with center total and a legend. */
+/** Donut chart with rounded segments, center total and a legend. */
 export function DonutChart({
   segments,
   size = 190,
   thickness = 30,
+  centerLabel = "total",
   ariaLabel,
 }: {
   segments: DonutSegment[];
   size?: number;
   thickness?: number;
+  /** Small caption under the center total. */
+  centerLabel?: string;
   ariaLabel?: string;
 }) {
   const total = segments.reduce((s, x) => s + x.value, 0);
   const r = (size - thickness) / 2;
   const cx = size / 2;
   const cy = size / 2;
+  const gap = segments.length > 1 ? 0.035 : 0;
   let angle = -Math.PI / 2;
 
   const arcs = segments.map((s, i) => {
     const frac = total > 0 ? s.value / total : 0;
-    const start = angle;
-    const end = angle + frac * Math.PI * 2;
-    angle = end;
+    const start = angle + gap / 2;
+    const end = angle + frac * Math.PI * 2 - gap / 2;
+    angle += frac * Math.PI * 2;
     const large = end - start > Math.PI ? 1 : 0;
     const x1 = cx + r * Math.cos(start);
     const y1 = cy + r * Math.sin(start);
     const x2 = cx + r * Math.cos(end);
     const y2 = cy + r * Math.sin(end);
-    return { ...s, i, d: `M${x1},${y1} A${r},${r} 0 ${large} 1 ${x2},${y2}`, color: s.color ?? CHART_COLORS[i % CHART_COLORS.length] };
+    return {
+      ...s,
+      i,
+      d: `M${x1.toFixed(2)},${y1.toFixed(2)} A${r},${r} 0 ${large} 1 ${x2.toFixed(2)},${y2.toFixed(2)}`,
+      color: s.color ?? CHART_COLORS[i % CHART_COLORS.length],
+    };
   });
 
   return (
     <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-      <svg
-        viewBox={`0 0 ${size} ${size}`}
-        width={size}
-        height={size}
-        className="shrink-0"
-        role="img"
-        aria-label={ariaLabel ?? `Donut chart with ${segments.length} segments`}
-      >
-        <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--muted)" strokeWidth={thickness} opacity={0.4} />
-        {arcs.map((a) =>
-          a.value > 0 ? (
-            <g key={a.i}>
-              <title>{`${a.label}: ${a.value}`}</title>
-              <path d={a.d} fill="none" stroke={a.color} strokeWidth={thickness} strokeLinecap="butt" />
-            </g>
-          ) : null,
-        )}
-        <text x={cx} y={cy - 2} textAnchor="middle" fontSize={22} fontWeight={700} fill="var(--foreground)" className="tabular-nums">
-          {total}
-        </text>
-        <text x={cx} y={cy + 18} textAnchor="middle" fontSize={11} fill="var(--muted-foreground)">
-          total
-        </text>
-      </svg>
+      <div className="relative shrink-0" style={{ width: size, height: size }}>
+        <svg
+          viewBox={`0 0 ${size} ${size}`}
+          width={size}
+          height={size}
+          role="img"
+          aria-label={ariaLabel ?? `Donut chart with ${segments.length} segments`}
+        >
+          <circle
+            cx={cx}
+            cy={cy}
+            r={r}
+            fill="none"
+            stroke="var(--muted)"
+            strokeWidth={thickness}
+            opacity={0.35}
+          />
+          {arcs.map((a) =>
+            a.value > 0 ? (
+              <g key={a.i}>
+                <title>{`${a.label}: ${a.value.toLocaleString()}`}</title>
+                <path
+                  d={a.d}
+                  fill="none"
+                  stroke={a.color}
+                  strokeWidth={thickness}
+                  strokeLinecap="round"
+                  className="transition-opacity hover:opacity-80"
+                />
+              </g>
+            ) : null,
+          )}
+        </svg>
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+          <p className="font-display text-2xl font-bold tabular-nums tracking-tight">
+            {total.toLocaleString()}
+          </p>
+          <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+            {centerLabel}
+          </p>
+        </div>
+      </div>
       <ul className="grid w-full gap-2">
         {arcs.map((a) => (
           <li key={a.i} className="flex items-center gap-2.5 text-sm">
-            <span className="h-3 w-3 shrink-0 rounded-full" style={{ background: a.color }} aria-hidden />
-            <span className="min-w-0 flex-1 truncate capitalize text-muted-foreground">{a.label}</span>
-            <span className="font-semibold tabular-nums">{a.value}</span>
+            <span
+              className="h-3 w-3 shrink-0 rounded-full shadow-sm"
+              style={{ background: a.color }}
+              aria-hidden
+            />
+            <span className="min-w-0 flex-1 truncate capitalize text-muted-foreground">
+              {a.label}
+            </span>
+            <span className="font-semibold tabular-nums">{a.value.toLocaleString()}</span>
             {total > 0 && (
               <span className="w-11 text-right text-xs tabular-nums text-muted-foreground">
                 {Math.round((a.value / total) * 100)}%

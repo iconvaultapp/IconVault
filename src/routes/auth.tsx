@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Loader2, Mail, Lock, ArrowRight, Check } from "lucide-react";
 import { toast } from "sonner";
@@ -55,13 +55,17 @@ function Page() {
   const [trap, setTrap] = useState("");
   const { user, loading } = useAuth();
   const navigate = useNavigate();
+  // True while the password sign-in flow (including the post-login ban
+  // check) is still running. The auto-redirect below must not fire before
+  // the ban check finishes, or a banned user would flash through /profile.
+  const signInPending = useRef(false);
 
   useEffect(() => {
     if (searchMode) setMode(searchMode);
   }, [searchMode]);
 
   useEffect(() => {
-    if (!loading && user) void navigate({ to: "/profile" });
+    if (!loading && user && !signInPending.current) void navigate({ to: "/profile" });
   }, [user, loading, navigate]);
 
   const submit = async (e: React.FormEvent) => {
@@ -90,13 +94,40 @@ function Page() {
         if (error) throw error;
         toast.success("Account created - check your inbox to confirm.");
       } else {
-        const { error } = await supabase.auth.signInWithPassword({
-          email: resolveLoginEmail(email),
-          password,
-        });
-        if (error) throw error;
-        toast.success("Welcome back.");
-        void navigate({ to: "/profile" });
+        signInPending.current = true;
+        try {
+          const { data, error } = await supabase.auth.signInWithPassword({
+            email: resolveLoginEmail(email),
+            password,
+          });
+          if (error) throw error;
+          // Suspended accounts are signed straight back out. Fail open:
+          // only block when the profile explicitly says banned.
+          let banned = false;
+          const userId = data.user?.id;
+          if (userId) {
+            try {
+              const { data: profile } = await supabase
+                .from("profiles")
+                .select("is_banned")
+                .eq("user_id", userId)
+                .maybeSingle();
+              banned = profile?.is_banned === true;
+            } catch {
+              banned = false;
+            }
+          }
+          if (banned) {
+            await supabase.auth.signOut();
+            throw new Error(
+              "This account has been suspended. Contact support if you think this is a mistake.",
+            );
+          }
+          toast.success("Welcome back.");
+          void navigate({ to: "/profile" });
+        } finally {
+          signInPending.current = false;
+        }
       }
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Something went wrong");

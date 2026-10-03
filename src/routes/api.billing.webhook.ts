@@ -11,10 +11,11 @@
 // requests are rejected with 401 and no plan is granted.
 //
 // Plans:
-//  - payment.succeeded  -> grants the "yearly" plan from checkout metadata
-//    via an idempotent upsert.
-//  - subscription.active -> grants "yearly" (renewals re-confirm it).
-//  - subscription.cancelled / subscription.expired -> downgrades to "free".
+//  - payment.succeeded  -> grants the plan from checkout metadata
+//    ("monthly" | "yearly" | "lifetime") via an idempotent upsert.
+//  - subscription.active -> grants the plan from metadata (renewals re-confirm).
+//  - subscription.cancelled / subscription.expired -> downgrades monthly/yearly
+//    to "free" (lifetime never lapses).
 //
 // Requires server env: DODO_PAYMENTS_WEBHOOK_SECRET (+ the other
 // DODO_PAYMENTS_* vars), SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY.
@@ -22,8 +23,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-/** The single paid plan: Pro Yearly ($12/year). */
-type PaidPlan = "yearly";
+/** Paid plans: monthly ($2/mo), yearly ($14/yr), lifetime ($39 one-time). */
+type PaidPlan = "monthly" | "yearly" | "lifetime";
+
+function asPaidPlan(value: unknown): PaidPlan {
+  return value === "monthly" || value === "lifetime" ? value : "yearly";
+}
 
 async function grantPlan(userId: string, plan: PaidPlan, ref?: string) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -40,16 +45,17 @@ async function grantPlan(userId: string, plan: PaidPlan, ref?: string) {
   console.info("[billing] granted plan", { userId, plan, ref });
 }
 
-async function downgradeIfYearly(userId: string) {
+async function downgradeIfRecurring(userId: string) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   const { data } = await supabaseAdmin.from("user_plans").select("plan").eq("user_id", userId).maybeSingle();
-  // Only a yearly subscription can lapse - downgrade it back to free.
-  if (data?.plan === "yearly") {
+  // Only recurring subscriptions (monthly/yearly) can lapse - lifetime never
+  // downgrades. Downgrade lapsed recurring plans back to free.
+  if (data?.plan === "monthly" || data?.plan === "yearly") {
     await supabaseAdmin
       .from("user_plans")
       .update({ plan: "free", updated_at: new Date().toISOString() })
       .eq("user_id", userId);
-    console.info("[billing] downgraded expired/cancelled yearly to free", { userId });
+    console.info("[billing] downgraded expired/cancelled subscription to free", { userId, was: data.plan });
   }
 }
 
@@ -83,9 +89,8 @@ export const Route = createFileRoute("/api/billing/webhook")({
           if (event.type === "payment.succeeded") {
             const metadata = metadataOf(event.data);
             const userId = metadata["user_id"];
-            // The only paid plan is "yearly". Older checkout metadata may
-            // still say "monthly" or "lifetime" - treat any of them as yearly.
-            const plan: PaidPlan = "yearly";
+            // Grant the plan from checkout metadata (monthly/yearly/lifetime).
+            const plan: PaidPlan = asPaidPlan(metadata["plan"]);
             const paymentId =
               typeof event.data?.["payment_id"] === "string" ? (event.data["payment_id"] as string) : undefined;
 
@@ -117,9 +122,14 @@ export const Route = createFileRoute("/api/billing/webhook")({
                 | undefined)?.["user_id"];
             if (userId) {
               try {
-                await grantPlan(userId, "yearly", event.type);
+                await grantPlan(userId, asPaidPlan(
+                  metadata["plan"] ??
+                  ((event.data?.["subscription"] as Record<string, unknown> | undefined)?.["metadata"] as
+                    | Record<string, string>
+                    | undefined)?.["plan"]
+                ), event.type);
               } catch (err) {
-                console.error("[billing] failed to grant yearly plan:", err, { userId });
+                console.error("[billing] failed to grant plan:", err, { userId });
                 return Response.json({ error: "Failed to fulfil order." }, { status: 500 });
               }
             } else {
@@ -130,7 +140,7 @@ export const Route = createFileRoute("/api/billing/webhook")({
             const userId = metadata["user_id"];
             if (userId) {
               try {
-                await downgradeIfYearly(userId);
+                await downgradeIfRecurring(userId);
               } catch (err) {
                 console.error("[billing] failed to downgrade plan:", err, { userId });
                 return Response.json({ error: "Handler error." }, { status: 500 });

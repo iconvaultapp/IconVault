@@ -11,13 +11,15 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 
 export const FREE_BULK_DOWNLOAD_LIMIT = 7;
-export const YEARLY_PRICE = 12;
+export const MONTHLY_PRICE = 2;
+export const YEARLY_PRICE = 14;
+export const LIFETIME_PRICE = 39;
 
-type Plan = "free" | "yearly";
+type Plan = "free" | "monthly" | "yearly" | "lifetime";
 
 interface PlanContextType {
   plan: Plan;
-  /** True for active yearly subscribers. */
+  /** True for active paid subscribers (monthly, yearly, or lifetime). */
   isPro: boolean;
   loading: boolean;
   bulkUsed: number;
@@ -87,7 +89,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const value = useMemo<PlanContextType>(() => {
-    const unlimited = plan === "yearly";
+    const unlimited = plan !== "free";
     const remaining = Math.max(0, FREE_BULK_DOWNLOAD_LIMIT - bulkUsed);
     return {
       plan,

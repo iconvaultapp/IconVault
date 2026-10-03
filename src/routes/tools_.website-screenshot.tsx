@@ -3,6 +3,11 @@
 // (no key needed); Pro unlocks unlimited full-page + retina captures.
 // Non-Pro visitors get 2 free full-page captures.
 //
+// Full-page captures wait for network idle + an extra settle delay and scroll
+// the page top-to-bottom first, so lazy-loaded images are loaded before the
+// shot. Downloads offer PNG, JPG and PDF (PDF is generated client-side from
+// the captured image) on every viewport.
+//
 // The "Scroll Video" tab records a real full-page scrolling screencast via
 // Microlink's screenshot.animated (free tier: 5s max per recording, MP4
 // only). Three 5s segments (top/middle/bottom third, Full HD) are recorded
@@ -142,6 +147,7 @@ function ScreenshotTool() {
   const [captionBg, setCaptionBg] = useState("#000000");
   const [captionColor, setCaptionColor] = useState("#ffffff");
   const [exporting, setExporting] = useState(false);
+  const [downloadFormat, setDownloadFormat] = useState<"png" | "jpeg" | "pdf">("png");
 
   // ---- scroll-video tab ----
   const [format, setFormat] = useState<VideoFormat>("mp4");
@@ -181,7 +187,22 @@ function ScreenshotTool() {
         meta: "false",
         "viewport.width": String(viewport.w),
         "viewport.height": String(viewport.h),
-        ...(wantFullPage ? { "screenshot.fullPage": "true" } : {}),
+        ...(wantFullPage
+          ? {
+              "screenshot.fullPage": "true",
+              // Wait for the network to go idle so images, fonts and lazy
+              // chunks finish loading before the capture.
+              waitUntil: "networkidle2",
+              // Extra settle time for lazy-loaded images and animations.
+              waitForTimeout: "4000",
+              // Scroll top-to-bottom first: triggers IntersectionObserver
+              // lazy-loading so below-the-fold images are loaded, then back
+              // to top for the capture.
+              scripts: [
+                "new Promise((resolve) => { let y = 0; const step = 600; const t = setInterval(() => { y += step; window.scrollTo(0, y); if (y >= document.documentElement.scrollHeight) { clearInterval(t); window.scrollTo(0, 0); setTimeout(resolve, 900); } }, 140); })",
+              ].join(","),
+            }
+          : {}),
       });
       const res = await fetch(`https://api.microlink.io?${params.toString()}`);
       if (!res.ok) throw new Error(`Screenshot service returned ${res.status}. Try again in a moment.`);
@@ -199,41 +220,76 @@ function ScreenshotTool() {
     }
   };
 
-  const download = async () => {
-    if (!shotUrl || exporting) return;
-    const text = caption.trim();
-    // No caption → original file, fastest path.
-    if (!text) {
-      try {
-        const res = await fetch(shotUrl);
-        const blob = await res.blob();
-        downloadBlob(blob, `screenshot-${viewportId}.png`);
-      } catch {
-        window.open(shotUrl, "_blank", "noopener");
-      }
-      return;
-    }
-    // Caption → composite on canvas (Microlink sends ACAO:*, so no taint).
-    setExporting(true);
-    try {
-      const res = await fetch(shotUrl);
-      const blob = await res.blob();
-      const img = await new Promise<HTMLImageElement>((resolve, reject) => {
-        const el = new Image();
-        const obj = URL.createObjectURL(blob);
-        el.onload = () => {
-          URL.revokeObjectURL(obj);
-          resolve(el);
-        };
-        el.onerror = reject;
-        el.src = obj;
-      });
-      const canvas = document.createElement("canvas");
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      const ctx = canvas.getContext("2d")!;
-      ctx.drawImage(img, 0, 0);
+  /**
+   * Minimal single-image PDF builder: embeds a JPEG as one full-bleed page.
+   * No dependency needed - writes the PDF structure by hand.
+   */
+  const jpegToPdfBlob = async (jpegBytes: Uint8Array, w: number, h: number): Promise<Blob> => {
+    const enc = new TextEncoder();
+    const parts: (Uint8Array | string)[] = [];
+    const offsets: number[] = [];
+    let pos = 0;
+    const push = (s: string | Uint8Array) => {
+      const b = typeof s === "string" ? enc.encode(s) : s;
+      parts.push(b);
+      pos += b.length;
+    };
+    const obj = (n: number, body: string | Uint8Array) => {
+      offsets[n] = pos;
+      push(`${n} 0 obj\n`);
+      push(body);
+      push(`\nendobj\n`);
+    };
 
+    push("%PDF-1.4\n");
+    obj(1, "<< /Type /Catalog /Pages 2 0 R >>");
+    obj(2, "<< /Type /Pages /Kids [3 0 R] /Count 1 >>");
+    obj(3, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${w} ${h}] /Contents 4 0 R /Resources << /XObject << /Im0 5 0 R >> >> >>`);
+    const content = `q\n${w} 0 0 ${h} 0 0 cm\n/Im0 Do\nQ`;
+    obj(4, `<< /Length ${enc.encode(content).length} >>\nstream\n${content}\nendstream`);
+    offsets[5] = pos;
+    push(`5 0 obj\n<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegBytes.length} >>\nstream\n`);
+    push(jpegBytes);
+    push(`\nendstream\nendobj\n`);
+
+    const xrefPos = pos;
+    push(`xref\n0 6\n0000000000 65535 f \n`);
+    for (let i = 1; i <= 5; i++) {
+      push(`${String(offsets[i]).padStart(10, "0")} 00000 n \n`);
+    }
+    push(`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefPos}\n%%EOF`);
+    return new Blob(parts as BlobPart[], { type: "application/pdf" });
+  };
+
+  /** Load the captured screenshot into an <img> (reused by all export paths). */
+  const loadShotImage = async (): Promise<HTMLImageElement> => {
+    const res = await fetch(shotUrl!);
+    const blob = await res.blob();
+    return new Promise<HTMLImageElement>((resolve, reject) => {
+      const el = new Image();
+      const obj = URL.createObjectURL(blob);
+      el.onload = () => {
+        URL.revokeObjectURL(obj);
+        resolve(el);
+      };
+      el.onerror = reject;
+      el.src = obj;
+    });
+  };
+
+  /** Draw the screenshot (+ optional caption overlay) onto a canvas. */
+  const renderToCanvas = (img: HTMLImageElement): HTMLCanvasElement => {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext("2d")!;
+    // White base so JPEG/PDF never get a black background.
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+
+    const text = caption.trim();
+    if (text) {
       const W = canvas.width, H = canvas.height;
       const fontSize = Math.max(30, Math.round(W * 0.048));
       ctx.font = `800 ${fontSize}px system-ui, -apple-system, "Segoe UI", sans-serif`;
@@ -259,7 +315,6 @@ function ScreenshotTool() {
         ctx.fillStyle = g;
         ctx.fillRect(0, captionPos === "top" ? 0 : H - barH * 1.6, W, barH * 1.6);
       } else {
-        // pill - centered rounded chip behind the text
         const widest = Math.max(...lines.map((l) => ctx.measureText(l).width), 10);
         const pw = widest + padX;
         const ph = textBlockH + padY * 1.4;
@@ -276,17 +331,39 @@ function ScreenshotTool() {
         ? y0 + (barH - textBlockH) / 2 + fontSize
         : y0 + padY + fontSize;
       lines.forEach((ln, i) => ctx.fillText(ln, W / 2, startY + i * lineH));
+    }
+    return canvas;
+  };
 
-      const out = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/png"));
-      if (out) downloadBlob(out, `screenshot-${viewportId}-caption.png`);
-      else window.open(shotUrl, "_blank", "noopener");
+  const download = async () => {
+    if (!shotUrl || exporting) return;
+    setExporting(true);
+    try {
+      const img = await loadShotImage();
+      const canvas = renderToCanvas(img);
+      const base = `screenshot-${viewportId}${shotFullPage ? "-fullpage" : ""}${caption.trim() ? "-caption" : ""}`;
+
+      if (downloadFormat === "pdf") {
+        const jpegBlob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", 0.92));
+        if (!jpegBlob) throw new Error("PDF export failed.");
+        const bytes = new Uint8Array(await jpegBlob.arrayBuffer());
+        const pdf = await jpegToPdfBlob(bytes, canvas.width, canvas.height);
+        downloadBlob(pdf, `${base}.pdf`);
+      } else if (downloadFormat === "jpeg") {
+        const out = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", 0.92));
+        if (out) downloadBlob(out, `${base}.jpg`);
+        else window.open(shotUrl, "_blank", "noopener");
+      } else {
+        const out = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/png"));
+        if (out) downloadBlob(out, `${base}.png`);
+        else window.open(shotUrl, "_blank", "noopener");
+      }
     } catch {
-      window.open(shotUrl, "_blank", "noopener");
+      window.open(shotUrl!, "_blank", "noopener");
     } finally {
       setExporting(false);
     }
   };
-
   const createVideo = async () => {
     if (videoBusy || !videoTrial.canUse) return;
     const target = normalizeUrl(url);
@@ -544,11 +621,28 @@ function ScreenshotTool() {
                   </div>
 
                   <div className="mt-4 flex flex-wrap items-center gap-3">
+                    <div className="inline-flex items-center rounded-xl border border-border bg-surface p-1">
+                      {(["png", "jpeg", "pdf"] as const).map((f) => (
+                        <button
+                          key={f}
+                          type="button"
+                          onClick={() => setDownloadFormat(f)}
+                          className={cn(
+                            "rounded-lg px-3 py-1.5 font-mono text-xs font-bold uppercase transition-colors",
+                            downloadFormat === f
+                              ? "bg-primary text-primary-foreground"
+                              : "text-muted-foreground hover:text-foreground",
+                          )}
+                        >
+                          {f === "jpeg" ? "JPG" : f.toUpperCase()}
+                        </button>
+                      ))}
+                    </div>
                     <button
                       type="button" onClick={download} disabled={exporting}
                       className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90 disabled:opacity-60"
                     >
-                      <Download className="h-4 w-4" /> {exporting ? "Composing…" : caption.trim() ? "Download with caption" : "Download PNG"}
+                      <Download className="h-4 w-4" /> {exporting ? "Composing…" : `Download ${downloadFormat === "jpeg" ? "JPG" : downloadFormat.toUpperCase()}`}
                     </button>
                     <span className="text-xs text-muted-foreground">
                       {viewport.w}×{viewport.h}{shotFullPage ? " · full page" : ""} · captured just now

@@ -1,11 +1,13 @@
 // POST /api/billing/checkout -> { checkout_url }
 //
-// The logged-in user clicks "Go Pro" on /pro. The client sends its Supabase
-// access token; the server validates the token, creates a Dodo checkout
-// session for the Pro Yearly ($12/year) subscription (with the Supabase
-// user id in metadata), and returns the hosted checkout URL to redirect to.
+// The logged-in user clicks a Pro plan on /pro. The client sends its Supabase
+// access token plus the chosen plan ("monthly" | "yearly" | "lifetime"); the
+// server validates the token, creates a Dodo checkout session for that plan
+// (with the Supabase user id in metadata), and returns the hosted checkout
+// URL to redirect to.
 //
-// Requires server env: DODO_PAYMENTS_API_KEY, DODO_PAYMENTS_PRODUCT_ID_YEARLY,
+// Requires server env: DODO_PAYMENTS_API_KEY, DODO_PAYMENTS_PRODUCT_ID_MONTHLY,
+// DODO_PAYMENTS_PRODUCT_ID_YEARLY, DODO_PAYMENTS_PRODUCT_ID_LIFETIME,
 // DODO_PAYMENTS_ENVIRONMENT (test_mode|live_mode), DODO_PAYMENTS_WEBHOOK_SECRET,
 // SUPABASE_URL (+ anon key via VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY).
 
@@ -55,7 +57,8 @@ export const Route = createFileRoute("/api/billing/checkout")({
         if (!accessToken) {
           return Response.json({ error: "Sign in first." }, { status: 401 });
         }
-        // The only paid plan is Pro Yearly - the requested plan is ignored.
+        // The requested plan (monthly/yearly/lifetime) is validated below;
+// anything else falls back to yearly.
 
         // Validate the token and resolve the user server-side. Never trust a
         // user id sent by the client - the webhook grants the plan to the id
@@ -69,14 +72,20 @@ export const Route = createFileRoute("/api/billing/checkout")({
         const origin = new URL(request.url).origin;
 
         try {
-          const { createYearlyCheckout } = await import("@/lib/billing.server");
+          const { createPlanCheckout } = await import("@/lib/billing.server");
+          type PaidPlan = import("@/lib/billing.server").PaidPlan;
+          const plan: PaidPlan =
+            body.plan === "monthly" || body.plan === "lifetime" ? body.plan : "yearly";
           const fullName = user.user_metadata?.["full_name"] as string | undefined;
-          const { checkoutUrl } = await createYearlyCheckout({
-            email: user.email,
-            ...(fullName ? { name: fullName } : {}),
-            userId: user.id,
-            origin,
-          });
+          const { checkoutUrl } = await createPlanCheckout(
+            {
+              email: user.email,
+              ...(fullName ? { name: fullName } : {}),
+              userId: user.id,
+              origin,
+            },
+            plan,
+          );
           return Response.json({ checkout_url: checkoutUrl });
         } catch (err) {
           console.error("[billing] checkout session failed:", err);

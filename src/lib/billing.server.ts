@@ -53,22 +53,34 @@ export interface CheckoutInput {
   origin: string;
 }
 
-/** The single paid plan: Pro Yearly ($12/year). */
-export type PaidPlan = "yearly";
+/** Paid plans: Pro Monthly ($2/mo), Pro Yearly ($14/yr), Lifetime ($39 one-time). */
+export type PaidPlan = "monthly" | "yearly" | "lifetime";
+
+const PLAN_PRODUCTS = {
+  monthly: { env: "DODO_PAYMENTS_PRODUCT_ID_MONTHLY", label: "$2/month" },
+  yearly: { env: "DODO_PAYMENTS_PRODUCT_ID_YEARLY", label: "$14/year" },
+  lifetime: { env: "DODO_PAYMENTS_PRODUCT_ID_LIFETIME", label: "$39 lifetime" },
+} as const;
 
 /**
- * Pro Yearly ($12/year) subscription product id. Optional - Sameer creates the
- * subscription product in the Dodo dashboard and sets
- * DODO_PAYMENTS_PRODUCT_ID_YEARLY in the Worker environment.
+ * Product id for a paid plan. Sameer creates the products in the Dodo
+ * dashboard and sets DODO_PAYMENTS_PRODUCT_ID_MONTHLY,
+ * DODO_PAYMENTS_PRODUCT_ID_YEARLY and DODO_PAYMENTS_PRODUCT_ID_LIFETIME
+ * in the Worker environment.
  */
-export function getYearlyProductId(): string {
-  const id = getServerEnv("DODO_PAYMENTS_PRODUCT_ID_YEARLY");
+export function getProductId(plan: PaidPlan): string {
+  const id = getServerEnv(PLAN_PRODUCTS[plan].env);
   if (!id) {
     throw new Error(
-      "Dodo Payments yearly plan is not configured. Create a $12/year subscription product in the Dodo dashboard and set DODO_PAYMENTS_PRODUCT_ID_YEARLY in your Cloudflare Worker environment.",
+      `Dodo Payments ${plan} plan is not configured. Create a ${PLAN_PRODUCTS[plan].label} product in the Dodo dashboard and set ${PLAN_PRODUCTS[plan].env} in your Cloudflare Worker environment.`,
     );
   }
   return id;
+}
+
+/** Backwards-compatible alias. */
+export function getYearlyProductId(): string {
+  return getProductId("yearly");
 }
 
 async function createCheckout(
@@ -91,15 +103,22 @@ async function createCheckout(
 }
 
 /**
- * Create a Dodo checkout session for the $12/year Pro subscription and
- * return the hosted checkout URL to redirect the customer to.
- * Dodo handles the recurring billing; webhooks (subscription.active /
- * subscription.cancelled / subscription.expired) keep the Supabase plan
- * in sync. The Supabase user id travels in `metadata` so the webhook can
- * grant the plan to the right user.
+ * Create a Dodo checkout session for a paid plan and return the hosted
+ * checkout URL. Dodo handles recurring billing for monthly/yearly;
+ * lifetime is a one-time payment. Webhooks keep the Supabase plan in sync.
+ * The Supabase user id travels in `metadata` so the webhook can grant
+ * the plan to the right user.
  */
 export async function createYearlyCheckout(input: CheckoutInput): Promise<{ checkoutUrl: string }> {
-  return createCheckout(input, getYearlyProductId(), "yearly");
+  return createCheckout(input, getProductId("yearly"), "yearly");
+}
+
+/** Create a checkout session for any paid plan. */
+export async function createPlanCheckout(
+  input: CheckoutInput,
+  plan: PaidPlan,
+): Promise<{ checkoutUrl: string }> {
+  return createCheckout(input, getProductId(plan), plan);
 }
 
 export interface VerifiedWebhookEvent {

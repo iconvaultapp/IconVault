@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, Wrench, Bug, Rocket } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { CTABand, Stack, SectionHeading } from "@/components/kit";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/changelog")({
   head: () => ({
@@ -29,6 +31,26 @@ export const Route = createFileRoute("/changelog")({
 });
 
 type Kind = "feature" | "improvement" | "fix";
+
+/** A published admin-written release note from the changelog_posts table. */
+interface ChangelogPost {
+  id: string;
+  title: string;
+  body: string;
+  created_at: string;
+}
+
+function fmtPostDate(iso: string): string {
+  try {
+    return new Date(iso).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  } catch {
+    return iso;
+  }
+}
 
 const kindMeta: Record<Kind, { label: string; icon: typeof Sparkles; className: string }> = {
   feature: { label: "New", icon: Sparkles, className: "bg-primary-soft text-primary" },
@@ -108,6 +130,28 @@ const releases: {
 ];
 
 function Page() {
+  const [posts, setPosts] = useState<ChangelogPost[]>([]);
+  const [postsLoaded, setPostsLoaded] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("changelog_posts")
+      .select("id,title,body,created_at")
+      .eq("published", true)
+      .order("created_at", { ascending: false })
+      .then(({ data }) => {
+        if (!active) return;
+        setPosts((data as ChangelogPost[] | null) ?? []);
+        setPostsLoaded(true);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const dynamicPosts = postsLoaded && posts.length > 0;
+
   return (
     <PageShell
       eyebrow="Changelog"
@@ -118,7 +162,26 @@ function Page() {
         <div className="relative">
           <span className="pointer-events-none absolute left-[7px] top-2 hidden h-[calc(100%-2rem)] w-px bg-border sm:block" />
           <div className="grid gap-10">
-            {releases.map((release, i) => (
+            {dynamicPosts
+              ? posts.map((post, i) => (
+                  <Reveal key={post.id} delay={i * 40}>
+                    <article className="relative sm:pl-10">
+                      <span className="absolute left-0 top-2 hidden h-3.5 w-3.5 rounded-full border-2 border-primary bg-background sm:block" />
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="font-mono text-xs text-muted-foreground">
+                          {fmtPostDate(post.created_at)}
+                        </span>
+                      </div>
+                      <h2 className="mt-3 font-display text-xl font-semibold sm:text-2xl">
+                        {post.title}
+                      </h2>
+                      <p className="mt-2 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+                        {post.body}
+                      </p>
+                    </article>
+                  </Reveal>
+                ))
+              : releases.map((release, i) => (
               <Reveal key={release.version} delay={i * 40}>
                 <article className="relative sm:pl-10">
                   <span className="absolute left-0 top-2 hidden h-3.5 w-3.5 rounded-full border-2 border-primary bg-background sm:block" />

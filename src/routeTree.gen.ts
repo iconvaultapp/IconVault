@@ -37,6 +37,7 @@ import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as UsageStatsRouteImport } from './routes/usage-stats'
 import { Route as ApiIconsRouteImport } from './routes/api.icons'
+import { Route as ApiLogErrorRouteImport } from './routes/api.log-error'
 import { Route as ApiVideoProxyRouteImport } from './routes/api.video-proxy'
 import { Route as BillingSuccessRouteImport } from './routes/billing.success'
 import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
@@ -763,6 +764,11 @@ const UsageStatsRoute = UsageStatsRouteImport.update({
 const ApiIconsRoute = ApiIconsRouteImport.update({
   id: '/api/icons',
   path: '/api/icons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiLogErrorRoute = ApiLogErrorRouteImport.update({
+  id: '/api/log-error',
+  path: '/api/log-error',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiVideoProxyRoute = ApiVideoProxyRouteImport.update({
@@ -3861,6 +3867,7 @@ export interface FileRoutesByFullPath {
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
   '/api/icons': typeof ApiIconsRoute
+  '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/categories/$slug': typeof CategoriesSlugRoute
@@ -4478,6 +4485,7 @@ export interface FileRoutesByTo {
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
   '/api/icons': typeof ApiIconsRoute
+  '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/categories/$slug': typeof CategoriesSlugRoute
@@ -5096,6 +5104,7 @@ export interface FileRoutesById {
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
   '/api/icons': typeof ApiIconsRoute
+  '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/categories/$slug': typeof CategoriesSlugRoute
@@ -5715,6 +5724,7 @@ export interface FileRouteTypes {
     | '/upload'
     | '/usage-stats'
     | '/api/icons'
+    | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/categories/$slug'
@@ -6332,6 +6342,7 @@ export interface FileRouteTypes {
     | '/upload'
     | '/usage-stats'
     | '/api/icons'
+    | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/categories/$slug'
@@ -6949,6 +6960,7 @@ export interface FileRouteTypes {
     | '/upload'
     | '/usage-stats'
     | '/api/icons'
+    | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/categories/$slug'
@@ -7567,6 +7579,7 @@ export interface RootRouteChildren {
   UploadRoute: typeof UploadRoute
   UsageStatsRoute: typeof UsageStatsRoute
   ApiIconsRoute: typeof ApiIconsRoute
+  ApiLogErrorRoute: typeof ApiLogErrorRoute
   ApiVideoProxyRoute: typeof ApiVideoProxyRoute
   BillingSuccessRoute: typeof BillingSuccessRoute
   PacksPrefixRoute: typeof PacksPrefixRoute
@@ -8351,6 +8364,13 @@ declare module '@tanstack/react-router' {
       path: '/api/icons'
       fullPath: '/api/icons'
       preLoaderRoute: typeof ApiIconsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/log-error': {
+      id: '/api/log-error'
+      path: '/api/log-error'
+      fullPath: '/api/log-error'
+      preLoaderRoute: typeof ApiLogErrorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/video-proxy': {
@@ -12506,6 +12526,7 @@ const rootRouteChildren: RootRouteChildren = {
   UploadRoute: UploadRoute,
   UsageStatsRoute: UsageStatsRoute,
   ApiIconsRoute: ApiIconsRoute,
+  ApiLogErrorRoute: ApiLogErrorRoute,
   ApiVideoProxyRoute: ApiVideoProxyRoute,
   BillingSuccessRoute: BillingSuccessRoute,
   PacksPrefixRoute: PacksPrefixRoute,

@@ -92,6 +92,33 @@ export type Database = {
         }
         Relationships: []
       }
+      changelog_posts: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          published: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          published?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          published?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       download_events: {
         Row: {
           created_at: string
@@ -209,27 +236,33 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          banned_reason: string | null
           created_at: string
           display_name: string | null
           id: string
+          is_banned: boolean
           updated_at: string
           user_id: string
           username: string | null
         }
         Insert: {
           avatar_url?: string | null
+          banned_reason?: string | null
           created_at?: string
           display_name?: string | null
           id?: string
+          is_banned?: boolean
           updated_at?: string
           user_id: string
           username?: string | null
         }
         Update: {
           avatar_url?: string | null
+          banned_reason?: string | null
           created_at?: string
           display_name?: string | null
           id?: string
+          is_banned?: boolean
           updated_at?: string
           user_id?: string
           username?: string | null
@@ -353,6 +386,27 @@ export type Database = {
           rating?: number
           role?: string
           text?: string
+        }
+        Relationships: []
+      }
+      tool_settings: {
+        Row: {
+          enabled: boolean
+          free_limit: number | null
+          tool_id: string
+          updated_at: string
+        }
+        Insert: {
+          enabled?: boolean
+          free_limit?: number | null
+          tool_id: string
+          updated_at?: string
+        }
+        Update: {
+          enabled?: boolean
+          free_limit?: number | null
+          tool_id?: string
+          updated_at?: string
         }
         Relationships: []
       }

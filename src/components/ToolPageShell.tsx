@@ -2,7 +2,7 @@
 // UI itself, then About / FAQ (with JSON-LD) / tags / related tools - the
 // same SEO playbook the /packs pages use.
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -124,10 +124,12 @@ import {
   Sprout,
   TriangleAlert,
   Volume2,
-  Waves
+  Waves,
+  Wrench
 } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 import { relatedTools, SOON_TOOLS, getTool, type ToolDef } from "@/lib/tool-catalog";
 import { TOOL_TRIAL_LIMIT, type TrialState } from "@/lib/tool-trial";
 import type { ToolSeo } from "@/lib/tool-seo";
@@ -197,6 +199,23 @@ export default function ToolPageShell({ toolId, seo, trial, isPro, children }: P
   const tool = getTool(toolId);
   const related = relatedTools(toolId, 4);
   const soon = SOON_TOOLS.slice(0, 8);
+  // null = unknown yet (or query failed: fail open and show the tool).
+  const [disabled, setDisabled] = useState<boolean | null>(null);
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("tool_settings")
+      .select("enabled")
+      .eq("tool_id", toolId)
+      .maybeSingle()
+      .then(({ data, error }) => {
+        if (!active || error) return;
+        setDisabled(data ? data.enabled === false : false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [toolId]);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -246,7 +265,27 @@ export default function ToolPageShell({ toolId, seo, trial, isPro, children }: P
           </div>
         </div>
 
-        <div className="mb-10 sm:mb-14">{children}</div>
+        <div className="mb-10 sm:mb-14">
+          {disabled === true ? (
+            <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-card px-6 py-16 text-center sm:py-24">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+                <Wrench className="h-7 w-7" />
+              </span>
+              <h2 className="font-display text-xl font-semibold">This tool is temporarily disabled</h2>
+              <p className="max-w-sm text-sm text-muted-foreground">
+                We&apos;re working on it - try another tool.
+              </p>
+              <Link
+                to="/tools"
+                className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+              >
+                <ArrowLeft className="h-4 w-4" /> Back to all tools
+              </Link>
+            </div>
+          ) : (
+            children
+          )}
+        </div>
 
         {/* About / FAQ / tags / more tools: single column like before, but wider
             (max-w-7xl) so the side gaps stay small. */}

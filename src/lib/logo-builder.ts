@@ -204,14 +204,25 @@ export function brandFilename(filename: string): string {
 }
 
 export function downloadBlob(blob: Blob, filename: string) {
+  const branded = brandFilename(filename);
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = brandFilename(filename);
+  a.download = branded;
   document.body.appendChild(a);
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 4000);
+  // Fire-and-forget download history for signed-in users. Never breaks downloads.
+  try {
+    void import("@/lib/user-account.functions")
+      .then(({ trackDownload }) =>
+        trackDownload({ data: { item_label: branded, tool_id: null } }),
+      )
+      .catch(() => {});
+  } catch {
+    /* ignore */
+  }
 }
 
 /** Full favicon / app-icon kit as a ZIP (Pro feature). */

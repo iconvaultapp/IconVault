@@ -13,7 +13,9 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { AuthProvider } from "@/hooks/useAuth";
+import { useServerFn } from "@tanstack/react-start";
+import { AuthProvider, useAuth } from "@/hooks/useAuth";
+import { recordReferral } from "@/lib/admin.functions";
 import { PlanProvider } from "@/hooks/usePlan";
 import { SignInPromptProvider } from "@/hooks/useSignInPrompt";
 import { SignInPrompt } from "@/components/SignInPrompt";
@@ -279,6 +281,75 @@ function AnalyticsTracker() {
 }
 
 /**
+ * Captures ?ref=<user-id> on first load and attributes the signup to the
+ * referrer. Runs once per page load, only when a user is signed in; the
+ * param is left in place for logged-out visitors so a later sign-in can
+ * still record it. Silent fail.
+ */
+function ReferralCapture() {
+  const { user, loading } = useAuth();
+  const record = useServerFn(recordReferral);
+  const done = useRef(false);
+  useEffect(() => {
+    if (done.current || loading || !user) return;
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("ref");
+    if (!code) return;
+    done.current = true;
+    record({ data: { code } }).catch(() => {
+      /* silent */
+    });
+    params.delete("ref");
+    const qs = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash}`,
+    );
+  }, [user, loading, record]);
+  return null;
+}
+
+/**
+ * Reports client-side errors to /api/log-error. Fire-and-forget, capped at
+ * 5 reports per page load so a crash loop can't spam the endpoint.
+ */
+function ErrorReporter() {
+  useEffect(() => {
+    let count = 0;
+    const send = (message: string, stack?: string) => {
+      if (count >= 5) return;
+      count += 1;
+      try {
+        void fetch("/api/log-error", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message, stack: stack ?? null, url: window.location.href }),
+        });
+      } catch {
+        /* reporting must never break the page */
+      }
+    };
+    const onError = (event: ErrorEvent) => {
+      send(event.message || "window error", event.error?.stack);
+    };
+    const onRejection = (event: PromiseRejectionEvent) => {
+      const reason = event.reason;
+      const message =
+        reason instanceof Error ? reason.message : String(reason ?? "unhandled rejection");
+      send(message, reason instanceof Error ? reason.stack : undefined);
+    };
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onRejection);
+    return () => {
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onRejection);
+    };
+  }, []);
+  return null;
+}
+
+/**
  * Scroll to top on route pathname changes (e.g. opening a tool from a
  * related-tools link at the bottom of a page). Search-param-only changes
  * (like /tools?category= switches) keep the scroll position.
@@ -304,6 +375,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <ReferralCapture />
+        <ErrorReporter />
         <PlanProvider>
         <SignInPromptProvider>
           <FavouritesProvider>
