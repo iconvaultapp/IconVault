@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/totp-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/totp-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/totp-generator")({
   head: () => {
-    const seo = getToolSeoMeta("totp-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/totp-generator";
     return {
       meta: [
@@ -98,7 +98,7 @@ const RING_C = 2 * Math.PI * RING_R;
 function TotpTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("totp-generator", isPro);
-  const seo = getToolSeo("totp-generator");
+  const seo = toolSeo;
 
   const [secret, setSecret] = useState("");
   const [algo, setAlgo] = useState<string>("SHA-1");

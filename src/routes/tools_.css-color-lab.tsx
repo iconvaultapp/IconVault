@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-color-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-color-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-color-lab")({
   head: () => {
-    const seo = getToolSeoMeta("css-color-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-color-lab";
     return {
       meta: [
@@ -224,7 +224,7 @@ function Swatch({ hex, label, css }: { hex: string; label?: string; css?: string
 function CssColorLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-color-lab", isPro);
-  const seo = getToolSeo("css-color-lab");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<TabKey>("mix");
 

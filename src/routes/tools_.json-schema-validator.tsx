@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-schema-validator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-schema-validator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-schema-validator")({
   head: () => {
-    const seo = getToolSeoMeta("json-schema-validator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-schema-validator";
     return {
       meta: [
@@ -185,7 +185,7 @@ const SAMPLE_SCHEMA = `{
 function JsonSchemaValidatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-schema-validator", isPro);
-  const seo = getToolSeo("json-schema-validator");
+  const seo = toolSeo;
 
   const [jsonText, setJsonText] = useState("");
   const [schemaText, setSchemaText] = useState("");

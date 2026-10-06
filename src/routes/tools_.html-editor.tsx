@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/html-editor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/html-editor";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/html-editor")({
   head: () => {
-    const seo = getToolSeoMeta("html-editor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/html-editor";
     return {
       meta: [
@@ -52,7 +52,7 @@ function cleanHtml(html: string): string {
 function HtmlEditorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("html-editor", isPro);
-  const seo = getToolSeo("html-editor");
+  const seo = toolSeo;
 
   const editorRef = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState("");

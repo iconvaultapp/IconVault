@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-to-pdf";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-to-pdf";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, formatBytes, loadImageFile } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/image-to-pdf")({
   head: () => {
-    const seo = getToolSeoMeta("image-to-pdf");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-to-pdf";
     return {
       meta: [
@@ -58,7 +58,7 @@ const LETTER = { w: 612, h: 792 };
 function ImageToPdf() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-to-pdf", isPro);
-  const seo = getToolSeo("image-to-pdf");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [pageSize, setPageSize] = useState<"fit" | "a4" | "letter">("fit");

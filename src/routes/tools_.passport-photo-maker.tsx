@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/passport-photo-maker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/passport-photo-maker";
 import { loadImageFile, canvasToBlob, baseName, jpegWithDpi } from "@/lib/image-tools";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/passport-photo-maker")({
   head: () => {
-    const seo = getToolSeoMeta("passport-photo-maker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/passport-photo-maker";
     return {
       meta: [
@@ -54,7 +54,7 @@ const PRESETS: Preset[] = [
 function PassportTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("passport-photo-maker", isPro);
-  const seo = getToolSeo("passport-photo-maker");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [fileName, setFileName] = useState("");

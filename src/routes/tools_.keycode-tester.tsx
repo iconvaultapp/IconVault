@@ -7,13 +7,13 @@ import { Keyboard, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/keycode-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/keycode-tester";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/keycode-tester")({
   head: () => {
-    const seo = getToolSeoMeta("keycode-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/keycode-tester";
     return {
       meta: [
@@ -56,7 +56,7 @@ const LOCATION_NAMES: Record<number, string> = {
 function KeycodeTesterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("keycode-tester", isPro);
-  const seo = getToolSeo("keycode-tester");
+  const seo = toolSeo;
   const [current, setCurrent] = useState<KeyEvent | null>(null);
   const [history, setHistory] = useState<KeyEvent[]>([]);
   const [focused, setFocused] = useState(false);

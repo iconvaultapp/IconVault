@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/container-style-queries";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/container-style-queries";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/container-style-queries")({
   head: () => {
-    const seo = getToolSeoMeta("container-style-queries");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/container-style-queries";
     return {
       meta: [
@@ -63,7 +63,7 @@ const STYLE_CSS = `/* the container: any container-type works for style queries 
 function StyleQueries() {
   const { isPro } = usePlan();
   const trial = useToolTrial("container-style-queries", isPro);
-  const seo = getToolSeo("container-style-queries");
+  const seo = toolSeo;
 
   const [theme, setTheme] = useState<Theme>("light");
   const [density, setDensity] = useState<Density>("comfortable");

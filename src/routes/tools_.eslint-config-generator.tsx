@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/eslint-config-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/eslint-config-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/eslint-config-generator")({
   head: () => {
-    const seo = getToolSeoMeta("eslint-config-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/eslint-config-generator";
     return {
       meta: [
@@ -125,7 +125,7 @@ async function copyText(s: string): Promise<boolean> {
 function EslintTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("eslint-config-generator", isPro);
-  const seo = getToolSeo("eslint-config-generator");
+  const seo = toolSeo;
 
   const [lang, setLang] = useState<Lang>("ts");
   const [sevs, setSevs] = useState<Record<string, Sev>>(() =>

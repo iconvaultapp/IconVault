@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/hash-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/hash-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/hash-generator")({
   head: () => {
-    const seo = getToolSeoMeta("hash-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/hash-generator";
     return {
       meta: [
@@ -143,7 +143,7 @@ type HashMode = "hash" | "hmac";
 function HashGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("hash-generator", isPro);
-  const seo = getToolSeo("hash-generator");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [hashes, setHashes] = useState<Record<string, string> | null>(null);

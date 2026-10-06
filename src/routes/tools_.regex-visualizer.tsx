@@ -6,13 +6,13 @@ import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/regex-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/regex-visualizer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/regex-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("regex-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/regex-visualizer";
     return {
       meta: [
@@ -364,7 +364,7 @@ const VALID_FLAGS = /^[gimsuy]*$/;
 function RegexVizTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("regex-visualizer", isPro);
-  const seo = getToolSeo("regex-visualizer");
+  const seo = toolSeo;
 
   const [src, setSrc] = useState("(\\d{3})-(\\d{4})");
   const [flags, setFlags] = useState("g");

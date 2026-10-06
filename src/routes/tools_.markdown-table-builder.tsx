@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/markdown-table-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/markdown-table-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/markdown-table-builder")({
   head: () => {
-    const seo = getToolSeoMeta("markdown-table-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/markdown-table-builder";
     return {
       meta: [
@@ -56,7 +56,7 @@ function toMarkdown(cells: string[][], aligns: Align[], header: boolean): string
 function MdTableTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("markdown-table-builder", isPro);
-  const seo = getToolSeo("markdown-table-builder");
+  const seo = toolSeo;
 
   const [cells, setCells] = useState<string[][]>(() => emptyGrid(3, 3));
   const [aligns, setAligns] = useState<Align[]>(["left", "left", "left"]);

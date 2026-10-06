@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/privacy-policy-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/privacy-policy-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/privacy-policy-generator")({
   head: () => {
-    const seo = getToolSeoMeta("privacy-policy-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/privacy-policy-generator";
     return {
       meta: [
@@ -48,7 +48,7 @@ const DATA_OPTIONS: DataOption[] = [
 function PrivacyPolicyTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("privacy-policy-generator", isPro);
-  const seo = getToolSeo("privacy-policy-generator");
+  const seo = toolSeo;
 
   const [company, setCompany] = useState("Example Inc.");
   const [website, setWebsite] = useState("https://example.com");

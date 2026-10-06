@@ -7,13 +7,13 @@ import { Bot, Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ai-cost-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ai-cost-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ai-cost-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("ai-cost-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ai-cost-calculator";
     return {
       meta: [
@@ -78,7 +78,7 @@ function fmtUsd(v: number): string {
 function AiCostTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ai-cost-calculator", isPro);
-  const seo = getToolSeo("ai-cost-calculator");
+  const seo = toolSeo;
 
   const [modelName, setModelName] = useState(MODELS![0]!.name!);
   const [inTokens, setInTokens] = useState("2000");

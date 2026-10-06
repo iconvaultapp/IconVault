@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-diff";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-diff";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-diff")({
   head: () => {
-    const seo = getToolSeoMeta("json-diff");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-diff";
     return {
       meta: [
@@ -115,7 +115,7 @@ const SAMPLE_B = `{
 function JsonDiffTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-diff", isPro);
-  const seo = getToolSeo("json-diff");
+  const seo = toolSeo;
 
   const [aText, setAText] = useState("");
   const [bText, setBText] = useState("");

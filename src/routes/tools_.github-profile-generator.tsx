@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/github-profile-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/github-profile-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/github-profile-generator")({
   head: () => {
-    const seo = getToolSeoMeta("github-profile-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/github-profile-generator";
     return {
       meta: [
@@ -77,7 +77,7 @@ const inputCls =
 function GithubProfileTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("github-profile-generator", isPro);
-  const seo = getToolSeo("github-profile-generator");
+  const seo = toolSeo;
 
   const [username, setUsername] = useState("");
   const [theme, setTheme] = useState("dracula");

@@ -8,14 +8,14 @@ import { Copy, ImagePlus, ScanSearch, RotateCcw, ExternalLink, Check } from "luc
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/font-finder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/font-finder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/tools_/font-finder")({
   head: () => {
-    const seo = getToolSeoMeta("font-finder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/font-finder";
     return {
       meta: [
@@ -410,7 +410,7 @@ interface BandResult {
 function FontFinderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("font-finder", isPro);
-  const seo = getToolSeo("font-finder");
+  const seo = toolSeo;
 
   const imgRef = useRef<HTMLImageElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);

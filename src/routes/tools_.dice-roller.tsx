@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dice-roller";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dice-roller";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/dice-roller")({
   head: () => {
-    const seo = getToolSeoMeta("dice-roller");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dice-roller";
     return {
       meta: [
@@ -68,7 +68,7 @@ function formatRoll(r: Roll) {
 function DiceRollerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dice-roller", isPro);
-  const seo = getToolSeo("dice-roller");
+  const seo = toolSeo;
 
   const [sides, setSides] = useState<number>(20);
   const [count, setCount] = useState(1);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/password-strength";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/password-strength";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/password-strength")({
   head: () => {
-    const seo = getToolSeoMeta("password-strength");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/password-strength";
     return {
       meta: [
@@ -96,7 +96,7 @@ const SPEEDS = [
 function StrengthTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("password-strength", isPro);
-  const seo = getToolSeo("password-strength");
+  const seo = toolSeo;
 
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);

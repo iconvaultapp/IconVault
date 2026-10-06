@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/csp-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/csp-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/csp-builder")({
   head: () => {
-    const seo = getToolSeoMeta("csp-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/csp-builder";
     return {
       meta: [
@@ -125,7 +125,7 @@ async function copyText(s: string): Promise<boolean> {
 function CspBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("csp-builder", isPro);
-  const seo = getToolSeo("csp-builder");
+  const seo = toolSeo;
 
   const [values, setValues] = useState<Record<string, string>>(PRESETS.balanced.values);
   const [upgrade, setUpgrade] = useState(true);

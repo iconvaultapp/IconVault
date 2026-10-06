@@ -7,13 +7,13 @@ import { ClipboardCopy, Plus, Trash2, UserPlus, UserX } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bill-splitter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bill-splitter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bill-splitter")({
   head: () => {
-    const seo = getToolSeoMeta("bill-splitter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bill-splitter";
     return {
       meta: [
@@ -51,7 +51,7 @@ function money(n: number): string {
 function BillSplitterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bill-splitter", isPro);
-  const seo = getToolSeo("bill-splitter");
+  const seo = toolSeo;
 
   const [people, setPeople] = useState<string[]>(["Alex", "Sam"]);
   const [items, setItems] = useState<Item[]>([

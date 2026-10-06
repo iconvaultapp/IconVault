@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/chinese-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/chinese-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/chinese-converter")({
   head: () => {
-    const seo = getToolSeoMeta("chinese-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/chinese-converter";
     return {
       meta: [
@@ -71,7 +71,7 @@ function convert(text: string, toTrad: boolean): { out: string; changed: number;
 function ChineseConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("chinese-converter", isPro);
-  const seo = getToolSeo("chinese-converter");
+  const seo = toolSeo;
 
   const [toTrad, setToTrad] = useState(true);
   const [input, setInput] = useState("");

@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/periodic-sync-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/periodic-sync-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/periodic-sync-playground")({
   head: () => {
-    const seo = getToolSeoMeta("periodic-sync-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/periodic-sync-playground";
     return {
       meta: [
@@ -54,7 +54,7 @@ const now = () => new Date().toLocaleTimeString();
 function PeriodicSyncPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("periodic-sync-playground", isPro);
-  const seo = getToolSeo("periodic-sync-playground");
+  const seo = toolSeo;
 
   const [caps, setCaps] = useState<Capability[] | null>(null);
   const [realTags, setRealTags] = useState<string[] | null>(null);

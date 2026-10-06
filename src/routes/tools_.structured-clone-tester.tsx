@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/structured-clone-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/structured-clone-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/structured-clone-tester")({
   head: () => {
-    const seo = getToolSeoMeta("structured-clone-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/structured-clone-tester";
     return {
       meta: [
@@ -241,7 +241,7 @@ const STATUS_LABEL: Record<Status, string> = {
 function StructuredCloneTester() {
   const { isPro } = usePlan();
   const trial = useToolTrial("structured-clone-tester", isPro);
-  const seo = getToolSeo("structured-clone-tester");
+  const seo = toolSeo;
 
   const [results, setResults] = useState<Result[]>(() => runTests());
   const [filter, setFilter] = useState<"all" | Status>("all");

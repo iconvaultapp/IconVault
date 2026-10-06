@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-unit-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-unit-converter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-unit-converter")({
   head: () => {
-    const seo = getToolSeoMeta("css-unit-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-unit-converter";
     return {
       meta: [
@@ -55,7 +55,7 @@ const round2 = (n: number) => {
 function UnitConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-unit-converter", isPro);
-  const seo = getToolSeo("css-unit-converter");
+  const seo = toolSeo;
 
   const [value, setValue] = useState("16");
   const [fromUnit, setFromUnit] = useState<Unit>("px");

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/periodic-table";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/periodic-table";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/periodic-table")({
   head: () => {
-    const seo = getToolSeoMeta("periodic-table");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/periodic-table";
     return {
       meta: [
@@ -183,7 +183,7 @@ const CAT_STYLE: Record<Category, { label: string; cell: string }> = {
 function PeriodicTableTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("periodic-table", isPro);
-  const seo = getToolSeo("periodic-table");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<El>(ELEMENTS[5]!); // Carbon

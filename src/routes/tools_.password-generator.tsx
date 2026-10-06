@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/password-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/password-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/password-generator")({
   head: () => {
-    const seo = getToolSeoMeta("password-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/password-generator";
     return {
       meta: [
@@ -81,7 +81,7 @@ const WORDS = (
 function PasswordGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("password-generator", isPro);
-  const seo = getToolSeo("password-generator");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"random" | "passphrase">("random");
   const [length, setLength] = useState(16);

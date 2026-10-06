@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/background-fetch-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/background-fetch-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/background-fetch-playground")({
   head: () => {
-    const seo = getToolSeoMeta("background-fetch-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/background-fetch-playground";
     return {
       meta: [
@@ -75,7 +75,7 @@ const STEP_LABELS = [
 function BackgroundFetchTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("background-fetch-playground", isPro);
-  const seo = getToolSeo("background-fetch-playground");
+  const seo = toolSeo;
 
   const [steps, setSteps] = useState<Step[]>(() =>
     STEP_LABELS.map((label) => ({ label, status: "idle", detail: "Not run yet." })),

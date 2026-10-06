@@ -7,13 +7,13 @@ import { Copy, FlaskConical } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/molar-mass";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/molar-mass";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/molar-mass")({
   head: () => {
-    const seo = getToolSeoMeta("molar-mass");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/molar-mass";
     return {
       meta: [
@@ -120,7 +120,7 @@ const EXAMPLES = ["H2SO4", "Ca(OH)2", "C6H12O6", "NaCl", "CuSO4(H2O)5"];
 function MolarMassTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("molar-mass", isPro);
-  const seo = getToolSeo("molar-mass");
+  const seo = toolSeo;
 
   const [formula, setFormula] = useState("H2SO4");
 

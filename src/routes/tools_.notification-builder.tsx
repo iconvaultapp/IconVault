@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/notification-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/notification-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/notification-builder")({
   head: () => {
-    const seo = getToolSeoMeta("notification-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/notification-builder";
     return {
       meta: [
@@ -44,7 +44,7 @@ interface FiredNote {
 function NotifyTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("notification-builder", isPro);
-  const seo = getToolSeo("notification-builder");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof window !== "undefined" && "Notification" in window);
   const [perm, setPerm] = useState<string>(() => (typeof window !== "undefined" && "Notification" in window ? Notification.permission : "unsupported"));

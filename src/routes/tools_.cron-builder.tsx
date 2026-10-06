@@ -8,8 +8,8 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/cron-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/cron-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -18,7 +18,7 @@ import parseExpression from "cron-parser";
 
 export const Route = createFileRoute("/tools_/cron-builder")({
   head: () => {
-    const seo = getToolSeoMeta("cron-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/cron-builder";
     return {
       meta: [
@@ -213,7 +213,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function CronBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("cron-builder", isPro);
-  const seo = getToolSeo("cron-builder");
+  const seo = toolSeo;
 
   const [fields, setFields] = useState<Record<FieldKey, FieldState>>(defaultFields);
   const [custom, setCustom] = useState("");

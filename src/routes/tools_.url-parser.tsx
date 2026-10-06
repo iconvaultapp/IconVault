@@ -8,15 +8,15 @@ import { Check, Copy, Link2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/url-parser";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/url-parser";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export const Route = createFileRoute("/tools_/url-parser")({
   head: () => {
-    const seo = getToolSeoMeta("url-parser");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/url-parser";
     return {
       meta: [
@@ -110,7 +110,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
 function UrlParserTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("url-parser", isPro);
-  const seo = getToolSeo("url-parser");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(SAMPLE);
   const [parsed, setParsed] = useState<ParsedUrl | null>(null);

@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-mixins-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-mixins-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-mixins-playground")({
   head: () => {
-    const seo = getToolSeoMeta("css-mixins-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-mixins-playground";
     return {
       meta: [
@@ -70,7 +70,7 @@ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);`;
 function MixinsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-mixins-playground", isPro);
-  const seo = getToolSeo("css-mixins-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [mixinName, setMixinName] = useState("card");

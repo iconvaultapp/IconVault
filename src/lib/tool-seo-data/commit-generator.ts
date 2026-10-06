@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Commit Generator - Free Online Conventional Commits Builder | IconVault",
+    metaDescription: "Build Conventional Commits messages with type, scope, subject, body, breaking changes and gitmoji. Live preview, one-click copy. Free.",
+    about: [
+      "**IconVault**'s **Commit Generator** builds clean **Conventional Commits** messages without memorizing the spec: pick the **type** (feat, fix, docs...), add an optional **scope**, write the subject with a live **50-character guideline**, extend it with a body, flag **breaking changes**, and finish with a **gitmoji**. Preview updates as you type and one click copies the result. It is free and runs fully in your browser.",
+      "**Consistent commit messages** power **changelogs**, **semantic versioning** and readable git history. Whether your team enforces **Conventional Commits** or you just want tidier personal projects, the generator removes the friction of getting the format right every time."
+    ],
+    faqs: [
+      { q: "What is Conventional Commits?", a: "A specification for commit messages with a structured format: type(scope): subject. Types like feat and fix let tools auto-generate changelogs and determine semantic version bumps." },
+      { q: "Which commit types are supported?", a: "All standard types: feat, fix, docs, style, refactor, perf, test, build, ci, chore and revert, plus breaking-change flags and an optional gitmoji picker." },
+      { q: "Why is there a 50-character subject guideline?", a: "Git tooling and many teams wrap or truncate subjects around 50-72 characters. The live counter helps you write subjects that display cleanly in git log and GitHub." },
+      { q: "How do breaking changes work in the message?", a: "Toggle the breaking-change option and the tool adds the ! marker after the type/scope plus a BREAKING CHANGE footer, which is what semantic-release uses to trigger a major version bump." },
+      { q: "What are gitmojis?", a: "Emoji used as visual shorthand for commit intent, like sparkles for features or bug for fixes. They are optional flair; the Conventional Commits structure is what tooling reads." },
+      { q: "Does this commit to my repo for me?", a: "No. It generates the message text for you to copy and paste into your own git commit. Nothing is uploaded or executed."
+      }
+    ],
+    tags: [
+      "commit message generator",
+      "conventional commits generator",
+      "git commit generator",
+      "commit generator online",
+      "free commit message generator",
+      "conventional commit message builder",
+      "git commit message template",
+      "commitizen alternative online",
+      "generate git commit message",
+      "commit message format",
+      "conventional commits cheat sheet",
+      "git commit types list",
+      "feat fix docs commit types",
+      "commit message best practices",
+      "how to write commit messages",
+      "gitmoji picker",
+      "gitmoji list",
+      "emoji commit messages",
+      "breaking change commit",
+      "semantic commit messages",
+      "commit message linter alternative",
+      "git commit subject 50 characters",
+      "commit message body example",
+      "scope in commit message",
+      "conventional commits scope examples",
+      "changelog from commits",
+      "semantic release commit format",
+      "git commit message generator free",
+      "online commit builder",
+      "commit message helper",
+      "better git commits",
+      "clean git history",
+      "commit message conventions",
+      "angular commit convention",
+      "karma commit format",
+      "git commit template generator",
+      "write good commit messages",
+      "commit message examples",
+      "feat commit example",
+      "fix commit example",
+      "docs commit example",
+      "refactor commit message",
+      "chore commit meaning",
+      "git commit message tool",
+      "developer commit helper",
+      "no signup commit generator",
+      "browser commit message builder",
+      "copy paste commit message",
+      "commitlint friendly messages",
+      "git commit best practice 2024"
+    ],
+  };
+
+export default seo;

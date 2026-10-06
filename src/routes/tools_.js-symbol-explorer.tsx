@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-symbol-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-symbol-explorer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-symbol-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("js-symbol-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-symbol-explorer";
     return {
       meta: [
@@ -281,7 +281,7 @@ Service[Symbol.metadata].loggedAt; // timestamp`,
 function SymbolExplorerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-symbol-explorer", isPro);
-  const seo = getToolSeo("js-symbol-explorer");
+  const seo = toolSeo;
   const [active, setActive] = useState(0);
   const [output, setOutput] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);

@@ -8,13 +8,13 @@ import { Check, Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/border-radius-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/border-radius-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/border-radius-generator")({
   head: () => {
-    const seo = getToolSeoMeta("border-radius-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/border-radius-generator";
     return {
       meta: [
@@ -49,7 +49,7 @@ const PRESETS: { name: string; v: number[]; e?: number[] }[] = [
 function RadiusTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("border-radius-generator", isPro);
-  const seo = getToolSeo("border-radius-generator");
+  const seo = toolSeo;
 
   const [h, setH] = useState<number[]>([16, 16, 16, 16]);
   const [v, setV] = useState<number[]>([16, 16, 16, 16]);

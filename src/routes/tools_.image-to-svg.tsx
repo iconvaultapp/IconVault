@@ -10,13 +10,13 @@ import { downloadBlob } from "@/lib/logo-builder";
 import { imageToSvg, loadImageFile, type TraceOptions } from "@/lib/tracer";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-to-svg";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-to-svg";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/image-to-svg")({
   head: () => {
-    const seo = getToolSeoMeta("image-to-svg");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-to-svg";
     return {
       meta: [
@@ -62,7 +62,7 @@ const Slider = ({ label, value, min, max, onChange, hint }: { label: string; val
 function ImageToSvgTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-to-svg", isPro);
-  const seo = getToolSeo("image-to-svg");
+  const seo = toolSeo;
 
   const [files, setFiles] = useState<File[]>([]);
   const [traced, setTraced] = useState<TracedFile[]>([]);

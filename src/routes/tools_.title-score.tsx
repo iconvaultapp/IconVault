@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/title-score";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/title-score";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/title-score")({
   head: () => {
-    const seo = getToolSeoMeta("title-score");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/title-score";
     return {
       meta: [
@@ -123,7 +123,7 @@ function gradeFor(score: number): { grade: string; color: string; note: string }
 function TitleScoreTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("title-score", isPro);
-  const seo = getToolSeo("title-score");
+  const seo = toolSeo;
 
   const [title, setTitle] = useState("7 Proven Ways to Double Your Blog Traffic in 2026");
   const result = useMemo(() => scoreTitle(title), [title]);

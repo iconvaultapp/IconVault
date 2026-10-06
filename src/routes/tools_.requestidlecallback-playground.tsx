@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/requestidlecallback-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/requestidlecallback-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/requestidlecallback-playground")({
   head: () => {
-    const seo = getToolSeoMeta("requestidlecallback-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/requestidlecallback-playground";
     return {
       meta: [
@@ -74,7 +74,7 @@ function busyWork(ms: number) {
 function RequestIdleCallbackPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("requestidlecallback-playground", isPro);
-  const seo = getToolSeo("requestidlecallback-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [taskCount, setTaskCount] = useState(12);

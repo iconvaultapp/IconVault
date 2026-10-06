@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/error-types-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/error-types-explorer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/error-types-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("error-types-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/error-types-explorer";
     return {
       meta: [
@@ -159,7 +159,7 @@ function analyze(e: unknown): Analysis {
 function ErrorTypesExplorer() {
   const { isPro } = usePlan();
   const trial = useToolTrial("error-types-explorer", isPro);
-  const seo = getToolSeo("error-types-explorer");
+  const seo = toolSeo;
 
   const [active, setActive] = useState(DEMOS[0]?.id ?? "");
   const [analysis, setAnalysis] = useState<Analysis | null>(null);

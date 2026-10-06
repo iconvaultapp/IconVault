@@ -9,8 +9,8 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/graphql-studio";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/graphql-studio";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,7 +21,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export const Route = createFileRoute("/tools_/graphql-studio")({
   head: () => {
-    const seo = getToolSeoMeta("graphql-studio");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/graphql-studio";
     return {
       meta: [
@@ -211,7 +211,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function GraphqlStudioTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("graphql-studio", isPro);
-  const seo = getToolSeo("graphql-studio");
+  const seo = toolSeo;
 
   const [sdl, setSdl] = useState(SAMPLE_SDL);
   const [activeType, setActiveType] = useState<string>("Query");

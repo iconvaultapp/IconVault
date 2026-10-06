@@ -10,14 +10,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/trim-transparent-edges";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/trim-transparent-edges";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, canvasToBlob, baseName, extForMime } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/trim-transparent-edges")({
   head: () => {
-    const seo = getToolSeoMeta("trim-transparent-edges");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/trim-transparent-edges";
     return {
       meta: [
@@ -67,7 +67,7 @@ function findBBox(img: HTMLImageElement, threshold: number): { x0: number; y0: n
 function TrimEdgesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("trim-transparent-edges", isPro);
-  const seo = getToolSeo("trim-transparent-edges");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [file, setFile] = useState<File | null>(null);

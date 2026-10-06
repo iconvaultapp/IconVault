@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/projectile-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/projectile-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/projectile-lab")({
   head: () => {
-    const seo = getToolSeoMeta("projectile-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/projectile-lab";
     return {
       meta: [
@@ -151,7 +151,7 @@ function niceStep(max: number): number {
 function ProjectileLabTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("projectile-lab", isPro);
-  const seo = getToolSeo("projectile-lab");
+  const seo = toolSeo;
 
   const [v0, setV0] = useState(25);
   const [angle, setAngle] = useState(45);

@@ -7,13 +7,13 @@ import { AlignLeft, Copy, Type } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/lorem-ipsum";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/lorem-ipsum";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/lorem-ipsum")({
   head: () => {
-    const seo = getToolSeoMeta("lorem-ipsum");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/lorem-ipsum";
     return {
       meta: [
@@ -110,7 +110,7 @@ function makeWords(n: number): string {
 function LoremIpsumTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("lorem-ipsum", isPro);
-  const seo = getToolSeo("lorem-ipsum");
+  const seo = toolSeo;
 
   const [type, setType] = useState<GenType>("paragraphs");
   const [count, setCount] = useState(3);

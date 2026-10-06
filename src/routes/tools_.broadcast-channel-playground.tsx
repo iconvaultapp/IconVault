@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/broadcast-channel-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/broadcast-channel-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/broadcast-channel-playground")({
   head: () => {
-    const seo = getToolSeoMeta("broadcast-channel-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/broadcast-channel-playground";
     return {
       meta: [
@@ -53,7 +53,7 @@ interface LogEntry {
 function BroadcastChannelTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("broadcast-channel-playground", isPro);
-  const seo = getToolSeo("broadcast-channel-playground");
+  const seo = toolSeo;
 
   const [tabId] = useState(() => `tab-${Math.random().toString(36).slice(2, 8)}`);
   const [supported] = useState<boolean>(() => typeof BroadcastChannel !== "undefined");

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/list-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/list-converter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/list-converter")({
   head: () => {
-    const seo = getToolSeoMeta("list-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/list-converter";
     return {
       meta: [
@@ -44,7 +44,7 @@ function titleCase(s: string): string {
 function ListConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("list-converter", isPro);
-  const seo = getToolSeo("list-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [trimLines, setTrimLines] = useState(true);

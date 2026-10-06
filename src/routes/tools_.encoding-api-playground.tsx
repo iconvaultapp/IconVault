@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/encoding-api-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/encoding-api-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/encoding-api-playground")({
   head: () => {
-    const seo = getToolSeoMeta("encoding-api-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/encoding-api-playground";
     return {
       meta: [
@@ -72,7 +72,7 @@ function charBreakdown(text: string): { ch: string; cp: string; bytes: number[] 
 function EncodingApiPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("encoding-api-playground", isPro);
-  const seo = getToolSeo("encoding-api-playground");
+  const seo = toolSeo;
 
   const [text, setText] = useState("Hello, 世界 🌍");
   const [decodeLabel, setDecodeLabel] = useState<string>("utf-8");

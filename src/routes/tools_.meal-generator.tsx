@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/meal-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/meal-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/meal-generator")({
   head: () => {
-    const seo = getToolSeoMeta("meal-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/meal-generator";
     return {
       meta: [
@@ -82,7 +82,7 @@ const CALORIE_TARGETS = [300, 400, 500, 600, 700, 800];
 function MealTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("meal-generator", isPro);
-  const seo = getToolSeo("meal-generator");
+  const seo = toolSeo;
 
   const [diet, setDiet] = useState<Diet>("any");
   const [target, setTarget] = useState(500);

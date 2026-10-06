@@ -32,8 +32,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/website-screenshot";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/website-screenshot";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import {
   VIDEO_ASPECTS,
@@ -47,7 +47,7 @@ import {
 
 export const Route = createFileRoute("/tools_/website-screenshot")({
   head: () => {
-    const seo = getToolSeoMeta("website-screenshot");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/website-screenshot";
     return {
       meta: [
@@ -128,7 +128,7 @@ function ScreenshotTool() {
   const fullPageTrial = useToolTrial("website-screenshot-fullpage", isPro, FULLPAGE_FREE_LIMIT);
   // Scroll videos are heavier - their own 5-free allowance.
   const videoTrial = useToolTrial("website-scroll-video", isPro);
-  const seo = getToolSeo("website-screenshot");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<Tab>("screenshot");
   const [url, setUrl] = useState("");

@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/qr-code-scanner";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/qr-code-scanner";
 import { loadImageFile } from "@/lib/image-tools";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/qr-code-scanner")({
   head: () => {
-    const seo = getToolSeoMeta("qr-code-scanner");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/qr-code-scanner";
     return {
       meta: [
@@ -61,7 +61,7 @@ async function detectQr(imageData: ImageData, source: CanvasImageSource): Promis
 function QrScannerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("qr-code-scanner", isPro);
-  const seo = getToolSeo("qr-code-scanner");
+  const seo = toolSeo;
 
   const [decoded, setDecoded] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState("");

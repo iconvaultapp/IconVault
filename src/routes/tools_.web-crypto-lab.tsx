@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-crypto-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-crypto-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/web-crypto-lab")({
   head: () => {
-    const seo = getToolSeoMeta("web-crypto-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-crypto-lab";
     return {
       meta: [
@@ -129,7 +129,7 @@ type HashAlgo = "SHA-1" | "SHA-256" | "SHA-384" | "SHA-512";
 function WebCryptoLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-crypto-lab", isPro);
-  const seo = getToolSeo("web-crypto-lab");
+  const seo = toolSeo;
 
   // hash
   const [hashInput, setHashInput] = useState("");

@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/toml-json-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/toml-json-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/toml-json-converter")({
   head: () => {
-    const seo = getToolSeoMeta("toml-json-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/toml-json-converter";
     return {
       meta: [
@@ -63,7 +63,7 @@ function isPlainObject(v: unknown): v is Record<string, unknown> {
 function TomlJsonConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("toml-json-converter", isPro);
-  const seo = getToolSeo("toml-json-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("toml2json");
   const [input, setInput] = useState("");

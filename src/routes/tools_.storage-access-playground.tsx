@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/storage-access-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/storage-access-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/storage-access-playground")({
   head: () => {
-    const seo = getToolSeoMeta("storage-access-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/storage-access-playground";
     return {
       meta: [
@@ -48,7 +48,7 @@ const now = () => new Date().toLocaleTimeString();
 function StorageAccessPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("storage-access-playground", isPro);
-  const seo = getToolSeo("storage-access-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);

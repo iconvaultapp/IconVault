@@ -1,0 +1,18 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "WebCodecs - Interactive Tool | IconVault",
+    metaDescription: "Learn WebCodecs: real codec support matrix, encoder config validator, and a working encode loop snippet. Free, runs in your browser.",
+    about: [ "**IconVault**'s **WebCodecs** playground is a hands-on lab for the browser's low-level media API. It runs real **isConfigSupported()** checks against your browser for H.264, VP8, VP9, AV1, HEVC, Opus, AAC, and FLAC, so the support matrix reflects your actual hardware and OS instead of a generic table. It is free and runs fully in your browser.", "The **encoder config validator** lets you build a codec, resolution, framerate, and bitrate combo and get a real yes or no before you write encode code. The page also detects every WebCodecs interface (VideoEncoder, VideoDecoder, AudioEncoder, AudioDecoder, VideoFrame) and includes a copy-paste encode loop showing how raw chunks flow out of the encoder." ],
+    faqs: [
+      { q: "What is WebCodecs?", a: "A browser API that exposes the platform's built-in video and audio encoders and decoders directly to JavaScript, without a <video> tag. You feed in VideoFrames and get back raw encoded chunks you can mux, stream, or process yourself." },
+      { q: "Are the support results real?", a: "Yes. The matrix calls VideoEncoder.isConfigSupported() and AudioEncoder.isConfigSupported() live in your browser at 1280x720, 30fps, 5 Mbps. Results depend on your OS codecs and hardware, which is exactly why testing beats reading docs." },
+      { q: "Which browsers support WebCodecs?", a: "Chrome and Edge have full support; Safari and Firefox have partial or behind-flag support. The playground detects each interface individually and shows what is present." },
+      { q: "Does WebCodecs output a playable file?", a: "No. It produces raw encoded chunks, not an MP4 or WebM container. Pair it with a muxer library like mp4-muxer or webm-muxer to write playable files." },
+      { q: "What is the config validator for?", a: "Encoder support depends on the exact combination of codec string, resolution, framerate, and bitrate. The validator checks your combination for real, so you discover limits during development instead of in production." },
+      { q: "Is anything uploaded?", a: "No. All detection and validation run locally. No media is captured or encoded by this page." },
+    ],
+    tags: [ "webcodecs", "webcodecs tutorial", "webcodecs example", "videoencoder", "videodecoder", "audioencoder", "webcodecs support", "isConfigSupported", "webcodecs browser support", "learn webcodecs", "webcodecs playground", "webcodecs demo", "video encoder javascript", "browser video encoding", "encode video in browser", "h264 browser support", "vp9 browser support", "av1 browser support", "hevc browser support", "opus encoder browser", "aac browser support", "codec support matrix", "video codec checker", "check codec support javascript", "videoframe api", "encodedvideochunk", "webcodecs encode loop", "mux webcodecs chunks", "mp4 muxer webcodecs", "webm muxer", "canvas to video browser", "record canvas webcodecs", "low latency video web", "realtime video processing", "webcodecs vs mediarecorder", "mediarecorder vs webcodecs", "hardware encoding browser", "gpu video encoding web", "webcodecs code sample", "javascript video encoding", "frontend video tools", "video api playground", "learn browser apis", "web api playground", "media capabilities api", "video encoding bitrate", "choose video codec web", "avc1 codec string", "vp09 codec string", "webcodecs videoframe tutorial "],
+  };
+
+export default seo;

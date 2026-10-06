@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-transform-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-transform-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-transform-generator")({
   head: () => {
-    const seo = getToolSeoMeta("css-transform-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-transform-generator";
     return {
       meta: [
@@ -55,7 +55,7 @@ const PRESETS: { name: string; v: [number, number, number, number, number, numbe
 function TransformTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-transform-generator", isPro);
-  const seo = getToolSeo("css-transform-generator");
+  const seo = toolSeo;
 
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);

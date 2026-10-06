@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/fullscreen-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/fullscreen-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/fullscreen-playground")({
   head: () => {
-    const seo = getToolSeoMeta("fullscreen-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/fullscreen-playground";
     return {
       meta: [
@@ -41,7 +41,7 @@ type Target = "demo" | "page";
 function FullscreenTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("fullscreen-playground", isPro);
-  const seo = getToolSeo("fullscreen-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof document !== "undefined" && "fullscreenEnabled" in document);
   const [enabled] = useState(() => typeof document !== "undefined" && document.fullscreenEnabled);

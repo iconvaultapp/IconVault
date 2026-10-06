@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/rot13-cipher";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/rot13-cipher";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/rot13-cipher")({
   head: () => {
-    const seo = getToolSeoMeta("rot13-cipher");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/rot13-cipher";
     return {
       meta: [
@@ -66,7 +66,7 @@ async function copyText(s: string): Promise<boolean> {
 function Rot13Tool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("rot13-cipher", isPro);
-  const seo = getToolSeo("rot13-cipher");
+  const seo = toolSeo;
 
   const [text, setText] = useState("");
   const [shift, setShift] = useState(13);

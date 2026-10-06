@@ -7,13 +7,13 @@ import { Check, Copy, Layers } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/box-shadow-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/box-shadow-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/box-shadow-generator")({
   head: () => {
-    const seo = getToolSeoMeta("box-shadow-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/box-shadow-generator";
     return {
       meta: [
@@ -45,7 +45,7 @@ function hexToRgba(hex: string, alpha: number): string {
 function BoxShadowTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("box-shadow-generator", isPro);
-  const seo = getToolSeo("box-shadow-generator");
+  const seo = toolSeo;
 
   const [x, setX] = useState(4);
   const [y, setY] = useState(8);

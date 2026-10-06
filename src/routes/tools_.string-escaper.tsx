@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/string-escaper";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/string-escaper";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/string-escaper")({
   head: () => {
-    const seo = getToolSeoMeta("string-escaper");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/string-escaper";
     return {
       meta: [
@@ -65,7 +65,7 @@ function escapeFor(lang: Lang, s: string): string {
 function StringEscaperTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("string-escaper", isPro);
-  const seo = getToolSeo("string-escaper");
+  const seo = toolSeo;
 
   const [lang, setLang] = useState<Lang>("java");
   const [input, setInput] = useState("");

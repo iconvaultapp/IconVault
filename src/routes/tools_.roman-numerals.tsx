@@ -6,13 +6,13 @@ import { ArrowLeftRight, Copy, Hash } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/roman-numerals";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/roman-numerals";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/roman-numerals")({
   head: () => {
-    const seo = getToolSeoMeta("roman-numerals");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/roman-numerals";
     return {
       meta: [
@@ -66,7 +66,7 @@ function fromRoman(s: string): number | null {
 function RomanTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("roman-numerals", isPro);
-  const seo = getToolSeo("roman-numerals");
+  const seo = toolSeo;
 
   const [num, setNum] = useState("2026");
   const [roman, setRoman] = useState("MMXXVI");

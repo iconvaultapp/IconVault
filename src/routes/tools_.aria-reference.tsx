@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/aria-reference";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/aria-reference";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/aria-reference")({
   head: () => {
-    const seo = getToolSeoMeta("aria-reference");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/aria-reference";
     return {
       meta: [
@@ -263,7 +263,7 @@ const ROLES: AriaRole[] = [
 function AriaTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("aria-reference", isPro);
-  const seo = getToolSeo("aria-reference");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [active, setActive] = useState<AriaRole | null>(ROLES[0]!);

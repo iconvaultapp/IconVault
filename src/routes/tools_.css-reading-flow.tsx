@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-reading-flow";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-reading-flow";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-reading-flow")({
   head: () => {
-    const seo = getToolSeoMeta("css-reading-flow");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-reading-flow";
     return {
       meta: [
@@ -63,7 +63,7 @@ function visualOrder(layout: LayoutKind): number[] {
 function ReadingFlowTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-reading-flow", isPro);
-  const seo = getToolSeo("css-reading-flow");
+  const seo = toolSeo;
 
   const [layout, setLayout] = useState<LayoutKind>("row-reverse");
   const [flow, setFlow] = useState<FlowKind>("normal");

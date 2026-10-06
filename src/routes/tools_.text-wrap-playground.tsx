@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/text-wrap-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/text-wrap-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/text-wrap-playground")({
   head: () => {
-    const seo = getToolSeoMeta("text-wrap-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/text-wrap-playground";
     return {
       meta: [
@@ -70,7 +70,7 @@ async function copyText(text: string) {
 function TextWrapTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("text-wrap-playground", isPro);
-  const seo = getToolSeo("text-wrap-playground");
+  const seo = toolSeo;
 
   const [text, setText] = useState(DEFAULT_TEXT);
   const [fontSize, setFontSize] = useState(20);

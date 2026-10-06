@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/data-size-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/data-size-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/data-size-converter")({
   head: () => {
-    const seo = getToolSeoMeta("data-size-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/data-size-converter";
     return {
       meta: [
@@ -58,7 +58,7 @@ function formatValue(n: number): string {
 function DataSizeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("data-size-converter", isPro);
-  const seo = getToolSeo("data-size-converter");
+  const seo = toolSeo;
 
   const [value, setValue] = useState("1");
   const [fromId, setFromId] = useState<string>("gb");

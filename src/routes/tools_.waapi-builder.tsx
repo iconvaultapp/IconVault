@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/waapi-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/waapi-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/waapi-builder")({
   head: () => {
-    const seo = getToolSeoMeta("waapi-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/waapi-builder";
     return {
       meta: [
@@ -92,7 +92,7 @@ async function copyText(text: string) {
 function WaapiTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("waapi-builder", isPro);
-  const seo = getToolSeo("waapi-builder");
+  const seo = toolSeo;
 
   const [keyframes, setKeyframes] = useState<Keyframe[]>([
     { ...blank(0), bg: "#6366f1" },

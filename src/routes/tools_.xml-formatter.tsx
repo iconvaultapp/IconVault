@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/xml-formatter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/xml-formatter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/xml-formatter")({
   head: () => {
-    const seo = getToolSeoMeta("xml-formatter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/xml-formatter";
     return {
       meta: [
@@ -173,7 +173,7 @@ function runXPath(doc: Document, expr: string): { hits: XPathHit[]; scalar: stri
 function XmlFormatterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("xml-formatter", isPro);
-  const seo = getToolSeo("xml-formatter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState<string | null>(null);

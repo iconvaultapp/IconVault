@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/manifest-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/manifest-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/manifest-generator")({
   head: () => {
-    const seo = getToolSeoMeta("manifest-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/manifest-generator";
     return {
       meta: [
@@ -116,7 +116,7 @@ function ColorField({ label, value, onChange }: { label: string; value: string; 
 function ManifestGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("manifest-generator", isPro);
-  const seo = getToolSeo("manifest-generator");
+  const seo = toolSeo;
 
   const [name, setName] = useState("My App");
   const [shortName, setShortName] = useState("App");

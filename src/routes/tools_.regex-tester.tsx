@@ -7,13 +7,13 @@ import { FlaskConical } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/regex-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/regex-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/regex-tester")({
   head: () => {
-    const seo = getToolSeoMeta("regex-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/regex-tester";
     return {
       meta: [
@@ -118,7 +118,7 @@ const SAMPLE_TEXT = "Contact jane.doe@example.com or support@iconvault.site - no
 function RegexTesterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("regex-tester", isPro);
-  const seo = getToolSeo("regex-tester");
+  const seo = toolSeo;
 
   const [pattern, setPattern] = useState(SAMPLE_PATTERN);
   const [flags, setFlags] = useState<string[]>(["g"]);

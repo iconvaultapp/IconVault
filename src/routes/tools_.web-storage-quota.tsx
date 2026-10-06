@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-storage-quota";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-storage-quota";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/web-storage-quota")({
   head: () => {
-    const seo = getToolSeoMeta("web-storage-quota");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-storage-quota";
     return {
       meta: [
@@ -50,7 +50,7 @@ const IDB_NAME = "iv_quota_test";
 function StorageQuotaTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-storage-quota", isPro);
-  const seo = getToolSeo("web-storage-quota");
+  const seo = toolSeo;
 
   const [usage, setUsage] = useState<number | null>(null);
   const [quota, setQuota] = useState<number | null>(null);

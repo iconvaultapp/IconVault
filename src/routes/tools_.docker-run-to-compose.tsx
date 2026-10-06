@@ -7,8 +7,8 @@ import { Copy, Download, FileUp } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/docker-run-to-compose";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/docker-run-to-compose";
 import { downloadBlob } from "@/lib/logo-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 
 export const Route = createFileRoute("/tools_/docker-run-to-compose")({
   head: () => {
-    const seo = getToolSeoMeta("docker-run-to-compose");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/docker-run-to-compose";
     return {
       meta: [
@@ -252,7 +252,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function DockerToComposeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("docker-run-to-compose", isPro);
-  const seo = getToolSeo("docker-run-to-compose");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(SAMPLE);
   const [yaml, setYaml] = useState<string | null>(null);

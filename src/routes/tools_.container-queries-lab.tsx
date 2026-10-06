@@ -8,13 +8,13 @@ import { Box, Check, Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/container-queries-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/container-queries-lab";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/container-queries-lab")({
   head: () => {
-    const seo = getToolSeoMeta("container-queries-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/container-queries-lab";
     return {
       meta: [
@@ -98,7 +98,7 @@ const BASE_CSS = `
 function ContainerQueriesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("container-queries-lab", isPro);
-  const seo = getToolSeo("container-queries-lab");
+  const seo = toolSeo;
 
   const [width, setWidth] = useState(560);
   const [rules, setRules] = useState(DEFAULT_RULES);

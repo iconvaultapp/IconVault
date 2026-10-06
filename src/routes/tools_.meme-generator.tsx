@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/meme-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/meme-generator";
 import { loadImageFile, canvasToBlob, baseName, fillBackground } from "@/lib/image-tools";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/meme-generator")({
   head: () => {
-    const seo = getToolSeoMeta("meme-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/meme-generator";
     return {
       meta: [
@@ -41,7 +41,7 @@ type Layer = { id: number; text: string; x: number; y: number };
 function MemeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("meme-generator", isPro);
-  const seo = getToolSeo("meme-generator");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [fileName, setFileName] = useState("");

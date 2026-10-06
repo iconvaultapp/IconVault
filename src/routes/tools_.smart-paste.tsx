@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/smart-paste";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/smart-paste";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/smart-paste")({
   head: () => {
-    const seo = getToolSeoMeta("smart-paste");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/smart-paste";
     return {
       meta: [
@@ -203,7 +203,7 @@ function buildPreview(type: DetectedType, t: string): string {
 function SmartPasteTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("smart-paste", isPro);
-  const seo = getToolSeo("smart-paste");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [result, setResult] = useState<{ type: DetectedType; detail?: string; preview: string } | null>(null);

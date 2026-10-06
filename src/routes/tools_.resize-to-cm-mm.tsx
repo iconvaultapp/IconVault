@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/resize-to-cm-mm";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/resize-to-cm-mm";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import {
   loadImageFile,
@@ -25,7 +25,7 @@ import {
 
 export const Route = createFileRoute("/tools_/resize-to-cm-mm")({
   head: () => {
-    const seo = getToolSeoMeta("resize-to-cm-mm");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/resize-to-cm-mm";
     return {
       meta: [
@@ -50,7 +50,7 @@ const DPI_PRESETS = [72, 150, 300, 600] as const;
 function ResizeToCmMmTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("resize-to-cm-mm", isPro);
-  const seo = getToolSeo("resize-to-cm-mm");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

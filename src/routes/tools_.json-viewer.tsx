@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-viewer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-viewer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-viewer")({
   head: () => {
-    const seo = getToolSeoMeta("json-viewer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-viewer";
     return {
       meta: [
@@ -208,7 +208,7 @@ const SAMPLE = `{
 function JsonViewerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-viewer", isPro);
-  const seo = getToolSeo("json-viewer");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [data, setData] = useState<unknown>(null);

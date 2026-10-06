@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-name-finder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-name-finder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-name-finder")({
   head: () => {
-    const seo = getToolSeoMeta("color-name-finder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-name-finder";
     return {
       meta: [
@@ -98,7 +98,7 @@ function distance(a: [number, number, number], b: Entry): number {
 function ColorNameFinder() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-name-finder", isPro);
-  const seo = getToolSeo("color-name-finder");
+  const seo = toolSeo;
 
   const [hex, setHex] = useState("#e86a8a");
   const [searched, setSearched] = useState<[number, number, number] | null>(null);

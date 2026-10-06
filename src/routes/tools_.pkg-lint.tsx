@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pkg-lint";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pkg-lint";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/pkg-lint")({
   head: () => {
-    const seo = getToolSeoMeta("pkg-lint");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pkg-lint";
     return {
       meta: [
@@ -160,7 +160,7 @@ function VerdictIcon({ v }: VerdictIconProps) {
 function PkgLintTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pkg-lint", isPro);
-  const seo = getToolSeo("pkg-lint");
+  const seo = toolSeo;
   const [text, setText] = useState(SAMPLE);
   const [checks, setChecks] = useState<Check[] | null>(null);
   const [score, setScore] = useState(0);

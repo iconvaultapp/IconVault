@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/smoothie-macros";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/smoothie-macros";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/smoothie-macros")({
   head: () => {
-    const seo = getToolSeoMeta("smoothie-macros");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/smoothie-macros";
     return {
       meta: [
@@ -91,7 +91,7 @@ let nextId = 1;
 function SmoothieTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("smoothie-macros", isPro);
-  const seo = getToolSeo("smoothie-macros");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<Row[]>([
     { id: nextId++, ingId: "banana", grams: "120" },

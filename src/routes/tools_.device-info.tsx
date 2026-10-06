@@ -7,13 +7,13 @@ import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/device-info";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/device-info";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/device-info")({
   head: () => {
-    const seo = getToolSeoMeta("device-info");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/device-info";
     return {
       meta: [
@@ -101,7 +101,7 @@ function getInfo(): { cards: { label: string; value: string }[]; json: Record<st
 function DeviceInfoTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("device-info", isPro);
-  const seo = getToolSeo("device-info");
+  const seo = toolSeo;
   const [refreshKey, setRefreshKey] = useState(0);
 
   const { cards, json } = useMemo(getInfo, [refreshKey]);

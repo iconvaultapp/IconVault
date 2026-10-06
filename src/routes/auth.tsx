@@ -73,7 +73,10 @@ function Page() {
     if (isBotSubmission(trap)) {
       // Bot filled the honeypot: pretend success without touching auth.
       if (mode === "signup") {
-        toast.success("Account created - check your inbox to confirm.");
+        toast.success(
+          "Account created - check your inbox to confirm. Please also check your spam folder.",
+          { duration: 8000 },
+        );
       } else {
         toast.success("Welcome back.");
         void navigate({ to: "/profile" });
@@ -83,7 +86,7 @@ function Page() {
     setBusy(true);
     try {
       if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -92,7 +95,21 @@ function Page() {
           },
         });
         if (error) throw error;
-        toast.success("Account created - check your inbox to confirm.");
+        // Supabase never errors on a duplicate email (anti-enumeration), but
+        // for an already-registered email the returned user carries an empty
+        // identities array, while a genuinely new signup has one identity.
+        const alreadyRegistered = (data.user?.identities ?? []).length === 0;
+        if (alreadyRegistered) {
+          toast.info("This email already has an account. Try signing in instead.", {
+            duration: 8000,
+          });
+          setMode("signin");
+        } else {
+          toast.success(
+            "Account created - check your inbox to confirm. Please also check your spam folder.",
+            { duration: 8000 },
+          );
+        }
       } else {
         signInPending.current = true;
         try {

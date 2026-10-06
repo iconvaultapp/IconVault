@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-task-scheduling";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-task-scheduling";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-task-scheduling")({
   head: () => {
-    const seo = getToolSeoMeta("js-task-scheduling");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-task-scheduling";
     return {
       meta: [
@@ -75,7 +75,7 @@ requestIdleCallback(() => log("idle"));
 function TaskSchedulingTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-task-scheduling", isPro);
-  const seo = getToolSeo("js-task-scheduling");
+  const seo = toolSeo;
   const [selected, setSelected] = useState<Set<ApiId>>(new Set(["microtask", "promise", "timeout", "raf"]));
   const [runs, setRuns] = useState<Run[]>([]);
   const [running, setRunning] = useState(false);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/tfidf-analyzer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/tfidf-analyzer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/tfidf-analyzer")({
   head: () => {
-    const seo = getToolSeoMeta("tfidf-analyzer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/tfidf-analyzer";
     return {
       meta: [
@@ -90,7 +90,7 @@ const fmt = (n: number) => (n >= 0.0001 ? n.toFixed(4) : n.toExponential(1));
 function TfidfAnalyzerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("tfidf-analyzer", isPro);
-  const seo = getToolSeo("tfidf-analyzer");
+  const seo = toolSeo;
 
   const [docs, setDocs] = useState<string[]>(["", ""]);
   const [query, setQuery] = useState("");

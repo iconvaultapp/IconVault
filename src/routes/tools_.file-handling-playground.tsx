@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/file-handling-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/file-handling-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/file-handling-playground")({
   head: () => {
-    const seo = getToolSeoMeta("file-handling-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/file-handling-playground";
     return {
       meta: [
@@ -45,7 +45,7 @@ function fmtBytes(n: number): string {
 function FileHandlingTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("file-handling-playground", isPro);
-  const seo = getToolSeo("file-handling-playground");
+  const seo = toolSeo;
 
   const [launchQueueOk] = useState(() => typeof window !== "undefined" && "launchQueue" in window);
   const [pickerOk] = useState(() => typeof window !== "undefined" && "showOpenFilePicker" in window);

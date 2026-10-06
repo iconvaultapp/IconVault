@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pdf-to-image";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pdf-to-image";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, canvasToBlob, formatBytes } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/pdf-to-image")({
   head: () => {
-    const seo = getToolSeoMeta("pdf-to-image");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pdf-to-image";
     return {
       meta: [
@@ -60,7 +60,7 @@ function parsePages(input: string, pageCount: number): number[] {
 function PdfToImage() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pdf-to-image", isPro);
-  const seo = getToolSeo("pdf-to-image");
+  const seo = toolSeo;
 
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState(0);

@@ -9,13 +9,13 @@ import { Check, Copy, MoveDiagonal, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/resize-observer-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/resize-observer-playground";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/resize-observer-playground")({
   head: () => {
-    const seo = getToolSeoMeta("resize-observer-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/resize-observer-playground";
     return {
       meta: [
@@ -51,7 +51,7 @@ interface SizeInfo {
 function ResizeObserverTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("resize-observer-playground", isPro);
-  const seo = getToolSeo("resize-observer-playground");
+  const seo = toolSeo;
 
   const [boxModel, setBoxModel] = useState<BoxModel>("content-box");
   const [size, setSize] = useState<SizeInfo | null>(null);

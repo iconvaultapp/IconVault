@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-matrix-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-matrix-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-matrix-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("css-matrix-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-matrix-calculator";
     return {
       meta: [
@@ -119,7 +119,7 @@ let nextId = 1;
 function MatrixTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-matrix-calculator", isPro);
-  const seo = getToolSeo("css-matrix-calculator");
+  const seo = toolSeo;
 
   const [steps, setSteps] = useState<Step[]>([
     { id: nextId++, kind: "translate", p1: 60, p2: 20 },

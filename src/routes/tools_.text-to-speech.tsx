@@ -8,13 +8,13 @@ import { Pause, Play, Square, Volume2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/text-to-speech";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/text-to-speech";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/text-to-speech")({
   head: () => {
-    const seo = getToolSeoMeta("text-to-speech");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/text-to-speech";
     return {
       meta: [
@@ -41,7 +41,7 @@ function supported(): boolean {
 function TextToSpeechTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("text-to-speech", isPro);
-  const seo = getToolSeo("text-to-speech");
+  const seo = toolSeo;
 
   const [text, setText] = useState("");
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);

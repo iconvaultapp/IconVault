@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/service-worker-recipes";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/service-worker-recipes";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/service-worker-recipes")({
   head: () => {
-    const seo = getToolSeoMeta("service-worker-recipes");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/service-worker-recipes";
     return {
       meta: [
@@ -187,7 +187,7 @@ if ("serviceWorker" in navigator) {
 function ServiceWorkerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("service-worker-recipes", isPro);
-  const seo = getToolSeo("service-worker-recipes");
+  const seo = toolSeo;
 
   const [recipe, setRecipe] = useState<Recipe>("cache-first");
   const [copied, setCopied] = useState(false);

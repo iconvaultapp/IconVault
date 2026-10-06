@@ -1,0 +1,18 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Window Controls Overlay - Interactive Tool | IconVault",
+    metaDescription: "Learn Window Controls Overlay: live titlebar geometry detection, drag-region mock preview, and a manifest builder. Free.",
+    about: [ "**IconVault**'s **Window Controls Overlay** playground teaches the PWA API that lets your installed app draw its own title bar. It detects **navigator.windowControlsOverlay** for real, reads the live **titlebar area rect** when you are inside an installed PWA, and is honest when you are just in a regular browser tab. It is free and runs fully in your browser.", "Alongside detection you get a visual mock of **drag regions** versus clickable controls, a titlebar CSS snippet using env(titlebar-area-*) variables and app-region, and a **manifest builder** that generates the display_override block your manifest needs. Copy the pieces straight into your PWA." ],
+    faqs: [
+      { q: "What is Window Controls Overlay?", a: "A PWA feature that hides the native title bar and lets your web content use that space. The OS window controls move to an overlay area, and your HTML draws the rest, like a native desktop app." },
+      { q: "Why is the titlebar rect not available?", a: "The geometry only exists inside an installed PWA whose manifest sets display_override to window-controls-overlay. In a normal browser tab the API reports support but has no rect to give, and the page says so plainly." },
+      { q: "Which browsers support it?", a: "Chromium browsers on desktop (Chrome, Edge). It is not available in Firefox or Safari, and it only applies to installed apps, not regular tabs." },
+      { q: "What is app-region: drag?", a: "A CSS property that marks an element as a window drag handle. Set the title bar to drag and set buttons inside it to no-drag so they stay clickable." },
+      { q: "What goes in the manifest?", a: "display_override: [\"window-controls-overlay\"] alongside display: standalone. The builder on this page generates the full manifest JSON with your app name and theme color." },
+      { q: "How do I handle the overlay area in CSS?", a: "Use the env() variables titlebar-area-x, titlebar-area-y, titlebar-area-width, and titlebar-area-height to size and position your custom title bar around the native controls." },
+    ],
+    tags: [ "window controls overlay", "windowControlsOverlay", "pwa title bar", "custom titlebar pwa", "display_override window-controls-overlay", "app-region drag", "titlebar-area-height", "env titlebar-area-x", "pwa window controls", "learn window controls overlay", "window controls overlay tutorial", "window controls overlay example", "navigator.windowControlsOverlay", "getTitlebarAreaRect", "geometrychange event", "display-mode window-controls-overlay", "pwa manifest builder", "manifest display_override", "installable web app titlebar", "desktop pwa custom chrome", "frameless pwa window", "pwa native look", "chromium pwa apis", "pwa capabilities", "window controls overlay support", "custom window chrome web", "drag region css", "webkit-app-region", "no-drag button pwa", "titlebar css snippet", "pwa design guide", "desktop web app ui", "tauri vs pwa titlebar", "electron frameless vs pwa", "web app manifest generator", "theme_color manifest", "pwa manifest example", "overlay title bar web", "browser window customization", "web api playground", "learn browser apis", "learn pwa", "pwa tutorial", "progressive web app guide", "pwa manifest display modes", "standalone vs window-controls-overlay", "pwa install prompt", "pwa custom title bar", "overlay scrollbar pwa", "desktop pwa ui patterns" ],
+  };
+
+export default seo;

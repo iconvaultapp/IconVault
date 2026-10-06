@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-hidden-classes";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-hidden-classes";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-hidden-classes")({
   head: () => {
-    const seo = getToolSeoMeta("js-hidden-classes");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-hidden-classes";
     return {
       meta: [
@@ -133,7 +133,7 @@ async function copyText(s: string): Promise<boolean> {
 function HiddenClassesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-hidden-classes", isPro);
-  const seo = getToolSeo("js-hidden-classes");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<"shapes" | "ic">("shapes");
   const [orderA, setOrderA] = useState<string[]>(["x", "y"]);

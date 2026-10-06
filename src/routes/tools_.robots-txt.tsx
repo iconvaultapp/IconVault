@@ -7,14 +7,14 @@ import { Bot, Copy, Download, Plus, Trash2, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/robots-txt";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/robots-txt";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/robots-txt")({
   head: () => {
-    const seo = getToolSeoMeta("robots-txt");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/robots-txt";
     return {
       meta: [
@@ -77,7 +77,7 @@ function buildRobots(rules: Rule[], crawlDelay: string, sitemapUrl: string): str
 function RobotsTxtTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("robots-txt", isPro);
-  const seo = getToolSeo("robots-txt");
+  const seo = toolSeo;
 
   const [rules, setRules] = useState<Rule[]>([{ id: 1, userAgent: "*", allow: "", disallow: "" }]);
   const [nextId, setNextId] = useState(2);

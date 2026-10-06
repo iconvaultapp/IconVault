@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/tls-handshake-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/tls-handshake-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/tls-handshake-lab")({
   head: () => {
-    const seo = getToolSeoMeta("tls-handshake-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/tls-handshake-lab";
     return {
       meta: [
@@ -117,7 +117,7 @@ const SEQ_13: Msg[] = [
 function TlsLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("tls-handshake-lab", isPro);
-  const seo = getToolSeo("tls-handshake-lab");
+  const seo = toolSeo;
 
   const [version, setVersion] = useState<Version>("1.3");
   const [stepIdx, setStepIdx] = useState(0);

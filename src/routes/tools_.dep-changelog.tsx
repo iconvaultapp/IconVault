@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dep-changelog";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dep-changelog";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/dep-changelog")({
   head: () => {
-    const seo = getToolSeoMeta("dep-changelog");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dep-changelog";
     return {
       meta: [
@@ -154,7 +154,7 @@ async function lookup(name: string, from: string, to: string): Promise<Result> {
 function DepChangelogTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dep-changelog", isPro);
-  const seo = getToolSeo("dep-changelog");
+  const seo = toolSeo;
 
   const [name, setName] = useState("react");
   const [from, setFrom] = useState("18.0.0");

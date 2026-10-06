@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-starting-style";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-starting-style";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-starting-style")({
   head: () => {
-    const seo = getToolSeoMeta("css-starting-style");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-starting-style";
     return {
       meta: [
@@ -54,7 +54,7 @@ const EFFECTS: { id: Effect; label: string; from: string }[] = [
 function StartingStyleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-starting-style", isPro);
-  const seo = getToolSeo("css-starting-style");
+  const seo = toolSeo;
 
   const [open, setOpen] = useState(true);
   const [technique, setTechnique] = useState<Technique>("both");

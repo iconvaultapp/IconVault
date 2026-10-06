@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/weakref-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/weakref-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/weakref-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("weakref-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/weakref-visualizer";
     return {
       meta: [
@@ -50,7 +50,7 @@ interface LogEntry {
 function WeakRefTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("weakref-visualizer", isPro);
-  const seo = getToolSeo("weakref-visualizer");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Tracked[]>([]);
   const [log, setLog] = useState<LogEntry[]>([]);

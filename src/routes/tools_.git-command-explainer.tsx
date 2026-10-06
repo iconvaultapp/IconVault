@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/git-command-explainer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/git-command-explainer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/git-command-explainer")({
   head: () => {
-    const seo = getToolSeoMeta("git-command-explainer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/git-command-explainer";
     return {
       meta: [
@@ -364,7 +364,7 @@ function explain(tokens: string[]): { base: string; parts: ParsedPart[]; known: 
 function GitExplainerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("git-command-explainer", isPro);
-  const seo = getToolSeo("git-command-explainer");
+  const seo = toolSeo;
   const [input, setInput] = useState("git rebase -i HEAD~3");
   const [explained, setExplained] = useState<ParsedPart[] | null>(null);
   const [base, setBase] = useState("");

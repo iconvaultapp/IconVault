@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/aes-encryptor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/aes-encryptor";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/aes-encryptor")({
   head: () => {
-    const seo = getToolSeoMeta("aes-encryptor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/aes-encryptor";
     return {
       meta: [
@@ -87,7 +87,7 @@ async function decryptText(b64: string, passphrase: string): Promise<string> {
 function AesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("aes-encryptor", isPro);
-  const seo = getToolSeo("aes-encryptor");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"encrypt" | "decrypt">("encrypt");
   const [input, setInput] = useState("");

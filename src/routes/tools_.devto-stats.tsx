@@ -7,13 +7,13 @@ import { ArrowUpRight, BarChart3, Eye, Heart, MessageCircle } from "lucide-react
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/devto-stats";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/devto-stats";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/devto-stats")({
   head: () => {
-    const seo = getToolSeoMeta("devto-stats");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/devto-stats";
     return {
       meta: [
@@ -114,7 +114,7 @@ async function loadDashboard(username: string): Promise<Dashboard> {
 function DevtoStatsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("devto-stats", isPro);
-  const seo = getToolSeo("devto-stats");
+  const seo = toolSeo;
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [dash, setDash] = useState<Dashboard | null>(null);

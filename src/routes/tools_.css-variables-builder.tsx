@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-variables-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-variables-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-variables-builder")({
   head: () => {
-    const seo = getToolSeoMeta("css-variables-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-variables-builder";
     return {
       meta: [
@@ -85,7 +85,7 @@ const mkVar = (name: string, value: string): CssVar => ({ id: `v${++uid}`, name,
 function CssVariablesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-variables-builder", isPro);
-  const seo = getToolSeo("css-variables-builder");
+  const seo = toolSeo;
 
   const [vars, setVars] = useState<CssVar[]>(THEMES[0]?.vars.map((v) => mkVar(v.name, v.value)) ?? []);
   const [newName, setNewName] = useState("");

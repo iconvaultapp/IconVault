@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-execution-context";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-execution-context";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-execution-context")({
   head: () => {
-    const seo = getToolSeoMeta("js-execution-context");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-execution-context";
     return {
       meta: [
@@ -305,7 +305,7 @@ async function copyText(s: string): Promise<boolean> {
 function ExecContextTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-execution-context", isPro);
-  const seo = getToolSeo("js-execution-context");
+  const seo = toolSeo;
 
   const [lesson, setLesson] = useState(LESSONS[0]!);
   const [idx, setIdx] = useState(0);

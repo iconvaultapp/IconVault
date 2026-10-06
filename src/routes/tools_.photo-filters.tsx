@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/photo-filters";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/photo-filters";
 import { loadImageFile, canvasToBlob, baseName, fillBackground } from "@/lib/image-tools";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/photo-filters")({
   head: () => {
-    const seo = getToolSeoMeta("photo-filters");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/photo-filters";
     return {
       meta: [
@@ -59,7 +59,7 @@ const PRESETS: Preset[] = [
 function FiltersTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("photo-filters", isPro);
-  const seo = getToolSeo("photo-filters");
+  const seo = toolSeo;
 
   const [images, setImages] = useState<{ img: HTMLImageElement; name: string }[]>([]);
   const [preset, setPreset] = useState("Original");

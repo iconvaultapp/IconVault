@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-grid-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-grid-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-grid-generator")({
   head: () => {
-    const seo = getToolSeoMeta("css-grid-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-grid-generator";
     return {
       meta: [
@@ -40,7 +40,7 @@ const AREA_COLORS = ["#0d9488", "#7c3aed", "#2563eb", "#dc2626", "#d97706", "#05
 function GridTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-grid-generator", isPro);
-  const seo = getToolSeo("css-grid-generator");
+  const seo = toolSeo;
 
   const [cols, setCols] = useState("1fr 1fr 1fr");
   const [rows, setRows] = useState("auto auto");

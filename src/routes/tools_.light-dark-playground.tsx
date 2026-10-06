@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/light-dark-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/light-dark-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/light-dark-playground")({
   head: () => {
-    const seo = getToolSeoMeta("light-dark-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/light-dark-playground";
     return {
       meta: [
@@ -54,7 +54,7 @@ const DEFAULTS: Token[] = [
 function LightDarkPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("light-dark-playground", isPro);
-  const seo = getToolSeo("light-dark-playground");
+  const seo = toolSeo;
 
   const [tokens, setTokens] = useState<Token[]>(DEFAULTS);
   const [theme, setTheme] = useState<"light" | "dark">("light");

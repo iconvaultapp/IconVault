@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/file-system-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/file-system-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/file-system-playground")({
   head: () => {
-    const seo = getToolSeoMeta("file-system-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/file-system-playground";
     return {
       meta: [
@@ -54,7 +54,7 @@ const TEXT_TYPES = {
 function FsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("file-system-playground", isPro);
-  const seo = getToolSeo("file-system-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(
     () =>

@@ -11,13 +11,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sql-to-mongodb";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sql-to-mongodb";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sql-to-mongodb")({
   head: () => {
-    const seo = getToolSeoMeta("sql-to-mongodb");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sql-to-mongodb";
     return {
       meta: [
@@ -435,7 +435,7 @@ function buildAggregate(q: Query): string {
 function SqlToMongoTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sql-to-mongodb", isPro);
-  const seo = getToolSeo("sql-to-mongodb");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [mode, setMode] = useState<"find" | "aggregate">("find");

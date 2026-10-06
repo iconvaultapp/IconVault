@@ -7,13 +7,13 @@ import { CalendarCheck, Copy, Snowflake } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/freeze-time-guide";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/freeze-time-guide";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/freeze-time-guide")({
   head: () => {
-    const seo = getToolSeoMeta("freeze-time-guide");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/freeze-time-guide";
     return {
       meta: [
@@ -92,7 +92,7 @@ function todayISO(): string {
 function FreezeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("freeze-time-guide", isPro);
-  const seo = getToolSeo("freeze-time-guide");
+  const seo = toolSeo;
 
   const [foodName, setFoodName] = useState(FOODS![0]!.name!);
   const [qty, setQty] = useState("2");

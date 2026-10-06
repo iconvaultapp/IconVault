@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/geolocation-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/geolocation-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/geolocation-playground")({
   head: () => {
-    const seo = getToolSeoMeta("geolocation-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/geolocation-playground";
     return {
       meta: [
@@ -54,7 +54,7 @@ function fmtClock(t: number) {
 function GeolocationPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("geolocation-playground", isPro);
-  const seo = getToolSeo("geolocation-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof navigator !== "undefined" && "geolocation" in navigator);
   const [watching, setWatching] = useState(false);

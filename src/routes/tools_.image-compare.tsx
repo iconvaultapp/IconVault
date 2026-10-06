@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-compare";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-compare";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/image-compare")({
   head: () => {
-    const seo = getToolSeoMeta("image-compare");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-compare";
     return {
       meta: [
@@ -48,7 +48,7 @@ function loadFile(f: File): Promise<HTMLImageElement> {
 function CompareTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-compare", isPro);
-  const seo = getToolSeo("image-compare");
+  const seo = toolSeo;
 
   const [imgA, setImgA] = useState<HTMLImageElement | null>(null);
   const [imgB, setImgB] = useState<HTMLImageElement | null>(null);

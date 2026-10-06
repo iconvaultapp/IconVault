@@ -7,13 +7,13 @@ import { Check, Copy, Plus, X } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-animation-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-animation-builder";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-animation-builder")({
   head: () => {
-    const seo = getToolSeoMeta("css-animation-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-animation-builder";
     return {
       meta: [
@@ -55,7 +55,7 @@ const PRESETS: { name: string; stops: [number, string][] }[] = [
 function AnimationTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-animation-builder", isPro);
-  const seo = getToolSeo("css-animation-builder");
+  const seo = toolSeo;
 
   const [name, setName] = useState("iv-anim");
   const [stops, setStops] = useState<Stop[]>([

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/eta-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/eta-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/eta-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("eta-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/eta-calculator";
     return {
       meta: [
@@ -56,7 +56,7 @@ function fmtTime(minutes: number): string {
 function EtaTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("eta-calculator", isPro);
-  const seo = getToolSeo("eta-calculator");
+  const seo = toolSeo;
 
   const [done, setDone] = useState("40");
   const [elapsedH, setElapsedH] = useState("2");

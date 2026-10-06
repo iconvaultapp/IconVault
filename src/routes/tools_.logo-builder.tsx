@@ -30,7 +30,7 @@ import {
 } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
-import { getToolSeo } from "@/lib/tool-seo";
+
 import { toast } from "sonner";
 
 /* ---------------------------------- bits ---------------------------------- */
@@ -585,28 +585,11 @@ function LogoBuilderPage() {
             <p className="text-xs leading-relaxed text-muted-foreground">
               {isPro
                 ? "Pro unlocked - kit includes favicons, app icons, SVG, manifest + HTML snippet."
-                : "Kit includes favicons, app icons, manifest + HTML snippet. Pro only - from $2/month."}
+                : "Kit includes favicons, app icons, manifest + HTML snippet. Pro only - from $19/year."}
             </p>
           </Section>
         </aside>
       </div>
-
-      {/* Popular searches: same tag chips every other tool page shows. */}
-      <section className="border-t border-border bg-background px-4 py-10 sm:px-6">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-balance text-xl font-extrabold">Popular searches</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {getToolSeo("logo-builder").tags.map((t) => (
-              <span
-                key={t}
-                className="rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium text-muted-foreground"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

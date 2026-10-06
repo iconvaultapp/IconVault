@@ -8,13 +8,13 @@ import { Copy, Eraser, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/code-formatter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/code-formatter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/code-formatter")({
   head: () => {
-    const seo = getToolSeoMeta("code-formatter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/code-formatter";
     return {
       meta: [
@@ -187,7 +187,7 @@ function formatCode(code: string, lang: string): string {
 function CodeFormatterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("code-formatter", isPro);
-  const seo = getToolSeo("code-formatter");
+  const seo = toolSeo;
 
   const [lang, setLang] = useState<(typeof LANGS)[number]["id"]>("js");
   const [input, setInput] = useState("");

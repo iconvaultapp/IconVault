@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/base32-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/base32-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/base32-converter")({
   head: () => {
-    const seo = getToolSeoMeta("base32-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/base32-converter";
     return {
       meta: [
@@ -81,7 +81,7 @@ type Mode = "encode" | "decode";
 function Base32Tool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("base32-converter", isPro);
-  const seo = getToolSeo("base32-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("encode");
   const [input, setInput] = useState("");

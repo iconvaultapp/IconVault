@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/time-duration-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/time-duration-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/time-duration-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("time-duration-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/time-duration-calculator";
     return {
       meta: [
@@ -50,7 +50,7 @@ function fmtNum(n: number): string {
 function TimeDurationTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("time-duration-calculator", isPro);
-  const seo = getToolSeo("time-duration-calculator");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<"between" | "shift">("between");
 

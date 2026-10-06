@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/team-randomizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/team-randomizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/team-randomizer")({
   head: () => {
-    const seo = getToolSeoMeta("team-randomizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/team-randomizer";
     return {
       meta: [
@@ -70,7 +70,7 @@ function loadPastSigs(): string[] {
 function TeamRandomizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("team-randomizer", isPro);
-  const seo = getToolSeo("team-randomizer");
+  const seo = toolSeo;
 
   const [namesText, setNamesText] = useState("");
   const [mode, setMode] = useState<"count" | "size">("count");

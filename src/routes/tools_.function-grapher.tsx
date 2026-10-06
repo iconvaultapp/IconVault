@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/function-grapher";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/function-grapher";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/function-grapher")({
   head: () => {
-    const seo = getToolSeoMeta("function-grapher");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/function-grapher";
     return {
       meta: [
@@ -269,7 +269,7 @@ function drawGraph(canvas: HTMLCanvasElement, fns: FnEntry[], view: View) {
 function FunctionGrapherTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("function-grapher", isPro);
-  const seo = getToolSeo("function-grapher");
+  const seo = toolSeo;
 
   const [fns, setFns] = useState<FnEntry[]>([
     { id: nextId++, expr: "x^2", color: COLORS[0]!, visible: true, error: null },

@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-anchor-positioning";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-anchor-positioning";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-anchor-positioning")({
   head: () => {
-    const seo = getToolSeoMeta("css-anchor-positioning");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-anchor-positioning";
     return {
       meta: [
@@ -78,7 +78,7 @@ function simulatedPos(area: string, ax: number, ay: number, mb: number, mi: numb
 function AnchorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-anchor-positioning", isPro);
-  const seo = getToolSeo("css-anchor-positioning");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [pos, setPos] = useState({ x: 32, y: 42 });

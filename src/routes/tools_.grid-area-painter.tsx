@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/grid-area-painter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/grid-area-painter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/grid-area-painter")({
   head: () => {
-    const seo = getToolSeoMeta("grid-area-painter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/grid-area-painter";
     return {
       meta: [
@@ -47,7 +47,7 @@ function sanitizeName(n: string) {
 function GridAreaPainter() {
   const { isPro } = usePlan();
   const trial = useToolTrial("grid-area-painter", isPro);
-  const seo = getToolSeo("grid-area-painter");
+  const seo = toolSeo;
 
   const [cols, setCols] = useState(4);
   const [rows, setRows] = useState(3);

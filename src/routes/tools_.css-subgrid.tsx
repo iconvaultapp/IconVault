@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-subgrid";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-subgrid";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-subgrid")({
   head: () => {
-    const seo = getToolSeoMeta("css-subgrid");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-subgrid";
     return {
       meta: [
@@ -45,7 +45,7 @@ const CARDS = [
 function SubgridTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-subgrid", isPro);
-  const seo = getToolSeo("css-subgrid");
+  const seo = toolSeo;
 
   const [subgrid, setSubgrid] = useState(true);
   const [columns, setColumns] = useState(3);

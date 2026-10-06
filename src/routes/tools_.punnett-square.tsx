@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/punnett-square";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/punnett-square";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/punnett-square")({
   head: () => {
-    const seo = getToolSeoMeta("punnett-square");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/punnett-square";
     return {
       meta: [
@@ -53,7 +53,7 @@ function normalize(offspring: string): string {
 function PunnettSquareTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("punnett-square", isPro);
-  const seo = getToolSeo("punnett-square");
+  const seo = toolSeo;
 
   const [p1, setP1] = useState<Geno>("Aa");
   const [p2, setP2] = useState<Geno>("Aa");

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-harmony";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-harmony";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-harmony")({
   head: () => {
-    const seo = getToolSeoMeta("color-harmony");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-harmony";
     return {
       meta: [
@@ -105,7 +105,7 @@ function harmonyColors(baseHex: string, id: HarmonyId): string[] {
 function ColorHarmonyTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-harmony", isPro);
-  const seo = getToolSeo("color-harmony");
+  const seo = toolSeo;
 
   const [base, setBase] = useState("#0F766E");
   const [harmony, setHarmony] = useState<HarmonyId>("complementary");

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ast-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ast-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ast-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("ast-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ast-visualizer";
     return {
       meta: [
@@ -228,7 +228,7 @@ function JsonTreeNode({
 function AstTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ast-visualizer", isPro);
-  const seo = getToolSeo("ast-visualizer");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("js");
   const [input, setInput] = useState(JS_SAMPLE);

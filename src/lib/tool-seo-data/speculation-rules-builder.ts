@@ -1,0 +1,18 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Speculation Rules - Interactive Lab | IconVault",
+    metaDescription: "Build prerender and prefetch speculation rules JSON with eagerness levels. Free, runs fully in your browser.",
+    about: [ "**IconVault**'s **Speculation Rules** builder turns guesswork into copy-ready JSON. Pick **prerender** or **prefetch**, set an **eagerness level** from immediate to conservative, and add URL lists or document `where` patterns with `href_matches` globs. The live preview shows exactly what the browser will parse, and one click copies the `<script type=\"speculationrules\">` embed block for your page.", "Everything is **free** and runs **fully in your browser**: no signup, no server, your rules never leave the device. Prerendering makes the next navigation feel instant, and this lab helps you keep the rules tight so you only speculate on pages users actually visit." ],
+    faqs: [
+      { q: "What are Speculation Rules?", a: "A JSON block that tells the browser to prerender or prefetch pages before the user clicks. Prerender loads the full page in the background for instant navigation, prefetch only fetches resources for a faster load." },
+      { q: "Which browsers support Speculation Rules?", a: "Chrome and Edge 109 and newer support the full API. Firefox and Safari ignore the block safely, so adding it never breaks anything for those users." },
+      { q: "What do the eagerness levels mean?", a: "immediate speculates right away, eager on hover, moderate after a short hover delay, and conservative only on strong intent signals like touch. Start with moderate prerender for likely next pages." },
+      { q: "What is the difference between list and document sources?", a: "A list source names exact URLs. A document source applies where-conditions like href_matches globs to every same-origin link on the page, which scales better on large sites." },
+      { q: "Can prerendering hurt performance?", a: "Yes, if overused. Each prerendered page costs bandwidth and memory, so keep rules narrow and use rel='no-prerender' on links you want to exclude." },
+      { q: "Is this tool free?", a: "Yes, completely free, and it runs entirely in your browser. Nothing you type is uploaded anywhere." },
+    ],
+    tags: ["speculation rules", "speculation rules builder", "speculationrules json", "prerender pages", "prefetch pages", "speculation rules generator", "prerender next page", "instant page navigation", "chrome prerender", "eagerness levels", "what are speculation rules", "how to use speculation rules", "speculation rules example", "prerender vs prefetch", "speculation rules syntax", "script type speculationrules", "href_matches", "where href_matches", "no-prerender", "rel no-prerender", "document rules", "list source speculation", "prerender on hover", "prefetch on hover", "speculation rules chrome", "speculation rules edge", "firefox speculation rules", "safari speculation rules", "instant navigation browser", "prerender api", "prefetch api", "page speed prerender", "reduce navigation delay", "speculative loading", "speculative loading api", "prerender pages chrome", "how to prerender pages", "prerender html", "prefetch html pages", "speculation rules tutorial", "speculation rules json example", "build speculation rules", "speculation rules online", "free speculation rules tool", "prerender builder", "prefetch builder", "website instant load", "next page instant", "preload next page", "speculation rules best practices", "prerender performance cost", "when to prerender", "prerender vs prefetch vs preload"],
+  };
+
+export default seo;

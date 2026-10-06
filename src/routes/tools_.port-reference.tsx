@@ -7,13 +7,13 @@ import { Copy, Plug, Search } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/port-reference";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/port-reference";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/port-reference")({
   head: () => {
-    const seo = getToolSeoMeta("port-reference");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/port-reference";
     return {
       meta: [
@@ -182,7 +182,7 @@ async function doCopy(port: number, trial: { canUse: boolean; recordUse: () => v
 function PortReferenceTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("port-reference", isPro);
-  const seo = getToolSeo("port-reference");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
 

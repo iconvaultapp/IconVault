@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/algorithm-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/algorithm-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/algorithm-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("algorithm-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/algorithm-visualizer";
     return {
       meta: [
@@ -199,7 +199,7 @@ const PSEUDO: Record<Mode, string> = {
 function AlgoLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("algorithm-visualizer", isPro);
-  const seo = getToolSeo("algorithm-visualizer");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("bubble");
   const [size, setSize] = useState(24);

@@ -8,13 +8,13 @@ import { AlertTriangle, Check, Copy, Eye, EyeOff, Info } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/jwt-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/jwt-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/jwt-builder")({
   head: () => {
-    const seo = getToolSeoMeta("jwt-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/jwt-builder";
     return {
       meta: [
@@ -83,7 +83,7 @@ const areaCls =
 function JwtBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("jwt-builder", isPro);
-  const seo = getToolSeo("jwt-builder");
+  const seo = toolSeo;
 
   const [headerText, setHeaderText] = useState(DEFAULT_HEADER);
   const [payloadText, setPayloadText] = useState(DEFAULT_PAYLOAD);

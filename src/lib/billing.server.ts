@@ -53,20 +53,19 @@ export interface CheckoutInput {
   origin: string;
 }
 
-/** Paid plans: Pro Monthly ($2/mo), Pro Yearly ($14/yr), Lifetime ($39 one-time). */
-export type PaidPlan = "monthly" | "yearly" | "lifetime";
+/** Paid plans: Pro Yearly ($19/yr), Lifetime ($39 one-time). The $2/month plan was removed 2026-10-06. */
+export type PaidPlan = "yearly" | "lifetime";
 
 const PLAN_PRODUCTS = {
-  monthly: { env: "DODO_PAYMENTS_PRODUCT_ID_MONTHLY", label: "$2/month" },
-  yearly: { env: "DODO_PAYMENTS_PRODUCT_ID_YEARLY", label: "$14/year" },
+  yearly: { env: "DODO_PAYMENTS_PRODUCT_ID_YEARLY", label: "$19/year" },
   lifetime: { env: "DODO_PAYMENTS_PRODUCT_ID_LIFETIME", label: "$39 lifetime" },
 } as const;
 
 /**
  * Product id for a paid plan. Sameer creates the products in the Dodo
- * dashboard and sets DODO_PAYMENTS_PRODUCT_ID_MONTHLY,
- * DODO_PAYMENTS_PRODUCT_ID_YEARLY and DODO_PAYMENTS_PRODUCT_ID_LIFETIME
- * in the Worker environment.
+ * dashboard and sets DODO_PAYMENTS_PRODUCT_ID_YEARLY and
+ * DODO_PAYMENTS_PRODUCT_ID_LIFETIME in the Worker environment.
+ * (DODO_PAYMENTS_PRODUCT_ID_MONTHLY is legacy - the monthly plan is gone.)
  */
 export function getProductId(plan: PaidPlan): string {
   const id = getServerEnv(PLAN_PRODUCTS[plan].env);
@@ -104,8 +103,8 @@ async function createCheckout(
 
 /**
  * Create a Dodo checkout session for a paid plan and return the hosted
- * checkout URL. Dodo handles recurring billing for monthly/yearly;
- * lifetime is a one-time payment. Webhooks keep the Supabase plan in sync.
+ * checkout URL. Dodo handles recurring billing for yearly; lifetime is a
+ * one-time payment. Webhooks keep the Supabase plan in sync.
  * The Supabase user id travels in `metadata` so the webhook can grant
  * the plan to the right user.
  */

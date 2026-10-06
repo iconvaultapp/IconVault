@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sanitizer-api-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sanitizer-api-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sanitizer-api-playground")({
   head: () => {
-    const seo = getToolSeoMeta("sanitizer-api-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sanitizer-api-playground";
     return {
       meta: [
@@ -149,7 +149,7 @@ function escapeHtml(s: string): string {
 function SanitizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sanitizer-api-playground", isPro);
-  const seo = getToolSeo("sanitizer-api-playground");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(PAYLOADS[0]?.html ?? "");
   const [result, setResult] = useState<SanitizeResult | null>(null);

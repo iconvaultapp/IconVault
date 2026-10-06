@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/page-lifecycle-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/page-lifecycle-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/page-lifecycle-playground")({
   head: () => {
-    const seo = getToolSeoMeta("page-lifecycle-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/page-lifecycle-playground";
     return {
       meta: [
@@ -45,7 +45,7 @@ const STATE_ORDER = ["active", "passive", "hidden", "frozen", "terminated"] as c
 function LifecycleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("page-lifecycle-playground", isPro);
-  const seo = getToolSeo("page-lifecycle-playground");
+  const seo = toolSeo;
 
   const [state, setState] = useState<(typeof STATE_ORDER)[number]>("active");
   const [visibility, setVisibility] = useState("visible");

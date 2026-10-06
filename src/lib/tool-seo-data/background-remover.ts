@@ -1,0 +1,85 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Background Remover - Free AI BG Eraser | IconVault",
+    metaDescription:
+      "Remove backgrounds from any photo free with on-device AI. Cut out people, products and pets, or erase solid backgrounds, in your browser - export transparent PNG.",
+    about: [
+      "**IconVault**'s **Background Remover** cuts the subject out of any **photo** with on-device **AI** - people, products, pets - no matter how busy the **background** is. Prefer the classic approach? **Auto (edges)** flood-fills solid backdrops and **Color key** removes an exact color, with tolerance and edge feathering for clean **transparent PNG** exports.",
+      "Everything runs in your **browser**: your **photo** is never uploaded. The AI model downloads once (then it is cached), classic removal is instant, and you get a checkerboard preview with an erase/restore brush for touch-ups. Every visitor gets 5 **free** removals - Pro members get unlimited background removal.",
+    ],
+    faqs: [
+      {
+        q: "How do I remove a background from an image?",
+        a: "Upload your image and hit Remove background - the AI mode finds the subject and clears everything else. For solid backdrops you can also use Auto (edges) or pick the exact background color, then export the transparent PNG.",
+      },
+      {
+        q: "What kind of backgrounds does it handle?",
+        a: "AI mode handles any background - textured walls, outdoor scenes, busy rooms. The classic modes are tuned for solid or near-solid backgrounds: white product shots, green/blue screens, studio backdrops.",
+      },
+      {
+        q: "Is my photo uploaded anywhere?",
+        a: "No. The AI model and all processing run entirely in your browser. Your photo never leaves your device.",
+      },
+      {
+        q: "What export formats are supported?",
+        a: "Transparent PNG at the original resolution. JPG input is converted - the output keeps full quality with an alpha channel.",
+      },
+      {
+        q: "How many free removals do I get?",
+        a: "Every visitor gets 5 free background removals, no account needed. IconVault Pro ($12/year) unlocks unlimited removals.",
+      },
+    ],
+    tags: [
+      "background remover", "remove background free", "transparent background maker",
+      "remove white background", "bg remover", "image background eraser",
+      "product photo background remover", "green screen remover", "remove bg online",
+      "transparent png maker", "erase background", "background remover no signup",
+      "free background remover", "remove background from image", "white background remover",
+      "png transparent background", "cutout maker", "background eraser tool",
+    
+      "ai background remover",
+      "auto background removal",
+      "remove background ai",
+      "one click background remover",
+      "remove image background",
+      "erase background online free",
+      "change background of photo",
+      "cut out image online",
+      "photo background changer",
+      "remove black background",
+      "image cutout tool",
+      "portrait background remover",
+      "headshot background remover",
+      "profile picture background remover",
+      "ecommerce background remover",
+      "remove background from photo free",
+      "transparent image maker",
+      "photo subject cutout",
+      "remove background high quality",
+      "magic eraser background",
+      "background remover hd",
+      "logo background remover",
+      "signature background remover",
+      "pet photo background remover",
+      "car photo background remover",
+      "remove picture background free",
+      "online photo cutout",
+      "picture background eraser",
+      "free transparent background tool",
+      "background removal online free",
+      "erase picture background",
+      "cutout photo online",
+      "make image background transparent",
+      "photo background remover app",
+      "remove background no watermark",
+      "transparent background maker free",
+      "smart background remover",
+      "remove background from logo",
+      "selfie background remover",
+      "food photo background remover",
+      "apparel background remover",
+      "image background remover ai free"],
+  };
+
+export default seo;

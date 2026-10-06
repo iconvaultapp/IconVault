@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/device-sensors-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/device-sensors-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/device-sensors-playground")({
   head: () => {
-    const seo = getToolSeoMeta("device-sensors-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/device-sensors-playground";
     return {
       meta: [
@@ -48,7 +48,7 @@ const ZERO_MOTION: Motion = { acc: [null, null, null], accG: [null, null, null],
 function SensorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("device-sensors-playground", isPro);
-  const seo = getToolSeo("device-sensors-playground");
+  const seo = toolSeo;
 
   const [orientation, setOrientation] = useState<Orientation>(ZERO_ORIENTATION);
   const [motion, setMotion] = useState<Motion>(ZERO_MOTION);

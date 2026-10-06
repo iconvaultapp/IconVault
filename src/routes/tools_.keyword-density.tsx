@@ -8,13 +8,13 @@ import { BarChart3, FileText } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/keyword-density";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/keyword-density";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/keyword-density")({
   head: () => {
-    const seo = getToolSeoMeta("keyword-density");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/keyword-density";
     return {
       meta: [
@@ -150,7 +150,7 @@ function FrequencyTable({
 function KeywordDensityTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("keyword-density", isPro);
-  const seo = getToolSeo("keyword-density");
+  const seo = toolSeo;
 
   const [text, setText] = useState("");
   const [keyword, setKeyword] = useState("");

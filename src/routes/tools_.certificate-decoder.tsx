@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/certificate-decoder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/certificate-decoder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/certificate-decoder")({
   head: () => {
-    const seo = getToolSeoMeta("certificate-decoder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/certificate-decoder";
     return {
       meta: [
@@ -380,7 +380,7 @@ function Row({ label, value, mono }: { label: string; value: string; mono?: bool
 function CertTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("certificate-decoder", isPro);
-  const seo = getToolSeo("certificate-decoder");
+  const seo = toolSeo;
 
   const [pem, setPem] = useState("");
   const [info, setInfo] = useState<CertInfo | null>(null);

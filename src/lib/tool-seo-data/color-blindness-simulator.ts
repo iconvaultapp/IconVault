@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Color Blindness Simulator - Free Online Accessibility Tool | IconVault",
+    metaDescription: "Preview images through 8 color vision deficiency simulations: protanopia, deuteranopia, tritanopia and more. Free, in-browser.",
+    about: [
+      "**IconVault**'s **Color Blindness Simulator** shows how your images look to people with **color vision deficiency**, rendering your upload through **8 simulations** including protanopia, protanomaly, deuteranopia, deuteranomaly, tritanopia, tritanomaly, achromatopsia and achromatomaly. Upload an image or use the sample and compare side by side. It is free and runs fully in your browser.",
+      "About **1 in 12 men** has some form of **color blindness**, most commonly **red-green**. Checking charts, dashboards, game art and marketing images through these filters catches problems like red/green status dots that look identical. The simulations use **SVG color matrix filters** for instant, accurate previews with no uploads."
+    ],
+    faqs: [
+      { q: "What types of color blindness are simulated?", a: "Eight: protanopia and protanomaly (red-blind), deuteranopia and deuteranomaly (green-blind), tritanopia and tritanomaly (blue-blind), plus achromatopsia and achromatomaly (total or partial color blindness)." },
+      { q: "What is the difference between -opia and -omaly?", a: "-opia means the cone type is missing entirely (dichromacy), -omaly means it is shifted or weakened (anomalous trichromacy). The -omaly versions are milder and more common in real life." },
+      { q: "How accurate are the simulations?", a: "They use standard color matrix transformations widely used for CVD simulation, which are good approximations. They cannot perfectly reproduce any individual's vision, but they reliably reveal problematic color pairs." },
+      { q: "Can I upload my own images?", a: "Yes. Upload any image from your device, or use the built-in sample image. Everything is processed locally in your browser; uploads never leave your machine." },
+      { q: "Which color combinations fail most often?", a: "Red/green pairs (the most common deficiency), green/brown, blue/purple and red/brown. If two colors only differ in hue, add differences in lightness or use labels and patterns too." },
+      { q: "Does this replace real accessibility testing?", a: "No. It is a fast design check, not a medical or compliance test. Combine it with contrast ratio checks and testing with actual users who have color vision deficiency."
+      }
+    ],
+    tags: [
+      "color blindness simulator",
+      "color blind simulator",
+      "colour blindness simulator",
+      "color vision deficiency simulator",
+      "simulate color blindness",
+      "color blind test image",
+      "protanopia simulator",
+      "deuteranopia simulator",
+      "tritanopia simulator",
+      "achromatopsia simulator",
+      "red green color blindness simulator",
+      "deuteranomaly simulator",
+      "protanomaly simulator",
+      "tritanomaly simulator",
+      "color blindness test online",
+      "check image color blindness",
+      "color blind friendly design checker",
+      "accessibility color checker",
+      "cvd simulator",
+      "color vision simulator",
+      "how do colorblind people see",
+      "what does color blindness look like",
+      "colorblind image filter",
+      "simulate protanopia online",
+      "simulate deuteranopia online",
+      "color blindness preview tool",
+      "free color blindness simulator",
+      "upload image color blind test",
+      "dashboard color blind check",
+      "chart color blindness accessibility",
+      "red green blind friendly colors",
+      "color blind safe palette checker",
+      "design for color blindness",
+      "wcag color blindness",
+      "color accessibility checker",
+      "colorblindness simulator online free",
+      "see through colorblind eyes",
+      "color deficiency preview",
+      "dichromacy simulator",
+      "anomalous trichromacy simulator",
+      "blue yellow color blindness test",
+      "total color blindness simulator",
+      "color blind filter online",
+      "image accessibility checker",
+      "inclusive design color tool",
+      "color contrast color blindness",
+      "test logo color blindness",
+      "colorblind proof design",
+      "color vision deficiency test image",
+      "browser color blindness simulator"
+    ],
+  };
+
+export default seo;

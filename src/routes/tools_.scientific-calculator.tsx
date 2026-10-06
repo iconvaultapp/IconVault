@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/scientific-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/scientific-calculator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/scientific-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("scientific-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/scientific-calculator";
     return {
       meta: [
@@ -268,7 +268,7 @@ const KEYS: Key[] = [
 function ScientificCalculatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("scientific-calculator", isPro);
-  const seo = getToolSeo("scientific-calculator");
+  const seo = toolSeo;
 
   const [expr, setExpr] = useState("");
   const [deg, setDeg] = useState(true);

@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/blur-face";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/blur-face";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, baseName, extForMime, fillBackground } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/blur-face")({
   head: () => {
-    const seo = getToolSeoMeta("blur-face");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/blur-face";
     return {
       meta: [
@@ -53,7 +53,7 @@ let nextId = 1;
 function BlurFaceTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("blur-face", isPro);
-  const seo = getToolSeo("blur-face");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [fileName, setFileName] = useState("");

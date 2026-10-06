@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/claude-md-scanner";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/claude-md-scanner";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/claude-md-scanner")({
   head: () => {
-    const seo = getToolSeoMeta("claude-md-scanner");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/claude-md-scanner";
     return {
       meta: [
@@ -291,7 +291,7 @@ function grade(score: number): string {
 function ClaudeMdScannerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("claude-md-scanner", isPro);
-  const seo = getToolSeo("claude-md-scanner");
+  const seo = toolSeo;
 
   const [text, setText] = useState("");
   const [name, setName] = useState("");

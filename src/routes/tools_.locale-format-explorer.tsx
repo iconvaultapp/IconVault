@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/locale-format-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/locale-format-explorer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/locale-format-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("locale-format-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/locale-format-explorer";
     return {
       meta: [
@@ -56,7 +56,7 @@ function toLocalInput(d: Date) {
 function LocaleExplorerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("locale-format-explorer", isPro);
-  const seo = getToolSeo("locale-format-explorer");
+  const seo = toolSeo;
 
   const [locale, setLocale] = useState("en-US");
   const [dateStr, setDateStr] = useState(() => toLocalInput(new Date()));

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/credential-management-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/credential-management-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/credential-management-playground")({
   head: () => {
-    const seo = getToolSeoMeta("credential-management-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/credential-management-playground";
     return {
       meta: [
@@ -66,7 +66,7 @@ const MEDIATIONS = ["optional", "required", "silent"] as const;
 function CredentialTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("credential-management-playground", isPro);
-  const seo = getToolSeo("credential-management-playground");
+  const seo = toolSeo;
 
   const [support, setSupport] = useState<Support>({
     checked: false,

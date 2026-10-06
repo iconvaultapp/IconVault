@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pomodoro-timer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pomodoro-timer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/pomodoro-timer")({
   head: () => {
-    const seo = getToolSeoMeta("pomodoro-timer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pomodoro-timer";
     return {
       meta: [
@@ -105,7 +105,7 @@ const numInputCls =
 function PomodoroTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pomodoro-timer", isPro);
-  const seo = getToolSeo("pomodoro-timer");
+  const seo = toolSeo;
 
   const [focusMin, setFocusMin] = useState(25);
   const [shortMin, setShortMin] = useState(5);

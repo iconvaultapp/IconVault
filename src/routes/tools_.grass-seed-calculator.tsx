@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/grass-seed-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/grass-seed-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/grass-seed-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("grass-seed-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/grass-seed-calculator";
     return {
       meta: [
@@ -47,7 +47,7 @@ function num(v: string): number {
 function SeedTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("grass-seed-calculator", isPro);
-  const seo = getToolSeo("grass-seed-calculator");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"dims" | "acres">("dims");
   const [length, setLength] = useState("40");

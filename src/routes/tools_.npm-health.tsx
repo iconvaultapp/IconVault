@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-health";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-health";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-health")({
   head: () => {
-    const seo = getToolSeoMeta("npm-health");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-health";
     return {
       meta: [
@@ -168,7 +168,7 @@ async function checkHealth(name: string): Promise<HealthResult> {
 function NpmHealthTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-health", isPro);
-  const seo = getToolSeo("npm-health");
+  const seo = toolSeo;
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<HealthResult | null>(null);

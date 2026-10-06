@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/wasm-inspector";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/wasm-inspector";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/wasm-inspector")({
   head: () => {
-    const seo = getToolSeoMeta("wasm-inspector");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/wasm-inspector";
     return {
       meta: [
@@ -262,7 +262,7 @@ function parseWasm(fileName: string, data: Uint8Array): WasmReport {
 function WasmTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("wasm-inspector", isPro);
-  const seo = getToolSeo("wasm-inspector");
+  const seo = toolSeo;
 
   const [report, setReport] = useState<WasmReport | null>(null);
   const [busy, setBusy] = useState(false);

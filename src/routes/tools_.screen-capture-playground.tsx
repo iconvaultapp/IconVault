@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/screen-capture-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/screen-capture-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/screen-capture-playground")({
   head: () => {
-    const seo = getToolSeoMeta("screen-capture-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/screen-capture-playground";
     return {
       meta: [
@@ -55,7 +55,7 @@ interface TrackInfo {
 function ScreenCapturePlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("screen-capture-playground", isPro);
-  const seo = getToolSeo("screen-capture-playground");
+  const seo = toolSeo;
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);

@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/nato-phonetic";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/nato-phonetic";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/nato-phonetic")({
   head: () => {
-    const seo = getToolSeoMeta("nato-phonetic");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/nato-phonetic";
     return {
       meta: [
@@ -71,7 +71,7 @@ function fromNato(text: string): { ok: boolean; text: string; unknown: string[] 
 function NatoTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("nato-phonetic", isPro);
-  const seo = getToolSeo("nato-phonetic");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"encode" | "decode">("encode");
   const [input, setInput] = useState("Hello World 123");

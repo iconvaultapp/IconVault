@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/commit-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/commit-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/commit-generator")({
   head: () => {
-    const seo = getToolSeoMeta("commit-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/commit-generator";
     return {
       meta: [
@@ -69,7 +69,7 @@ const GITMOJIS = [
 function CommitGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("commit-generator", isPro);
-  const seo = getToolSeo("commit-generator");
+  const seo = toolSeo;
 
   const [type, setType] = useState("feat");
   const [scope, setScope] = useState("");

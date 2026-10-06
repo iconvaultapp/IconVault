@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/email-signature-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/email-signature-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/email-signature-generator")({
   head: () => {
-    const seo = getToolSeoMeta("email-signature-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/email-signature-generator";
     return {
       meta: [
@@ -79,7 +79,7 @@ function buildHtml(o: {
 function SignatureTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("email-signature-generator", isPro);
-  const seo = getToolSeo("email-signature-generator");
+  const seo = toolSeo;
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [name, setName] = useState("");

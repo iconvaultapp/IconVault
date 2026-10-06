@@ -8,13 +8,13 @@ import { Braces, Check, Copy, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-nesting-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-nesting-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-nesting-lab")({
   head: () => {
-    const seo = getToolSeoMeta("css-nesting-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-nesting-lab";
     return {
       meta: [
@@ -153,7 +153,7 @@ function flattenNesting(src: string): { css: string; error: string | null } {
 function NestingLabTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-nesting-lab", isPro);
-  const seo = getToolSeo("css-nesting-lab");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(DEFAULT_CSS);
   const [busy, setBusy] = useState(false);

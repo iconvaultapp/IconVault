@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-to-data-uri";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-to-data-uri";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-to-data-uri")({
   head: () => {
-    const seo = getToolSeoMeta("svg-to-data-uri");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-to-data-uri";
     return {
       meta: [
@@ -89,7 +89,7 @@ function decodeDataUri(raw: string): string {
 function SvgToDataUriTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-to-data-uri", isPro);
-  const seo = getToolSeo("svg-to-data-uri");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("encode");
   const [format, setFormat] = useState<Format>("css-bg");

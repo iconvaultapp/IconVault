@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/speculation-rules-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/speculation-rules-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/speculation-rules-builder")({
   head: () => {
-    const seo = getToolSeoMeta("speculation-rules-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/speculation-rules-builder";
     return {
       meta: [
@@ -79,7 +79,7 @@ async function copyText(text: string) {
 function SpeculationRulesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("speculation-rules-builder", isPro);
-  const seo = getToolSeo("speculation-rules-builder");
+  const seo = toolSeo;
 
   const [rules, setRules] = useState<Rule[]>([
     { id: nextId++, kind: "prerender", eagerness: "moderate", mode: "document", urls: "/products/*" },

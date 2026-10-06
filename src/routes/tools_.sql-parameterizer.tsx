@@ -8,13 +8,13 @@ import { Check, Copy, Eraser, Zap } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sql-parameterizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sql-parameterizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sql-parameterizer")({
   head: () => {
-    const seo = getToolSeoMeta("sql-parameterizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sql-parameterizer";
     return {
       meta: [
@@ -162,7 +162,7 @@ function parameterize(sql: string, style: Style): { sql: string; params: Param[]
 function SqlParameterizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sql-parameterizer", isPro);
-  const seo = getToolSeo("sql-parameterizer");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [style, setStyle] = useState<Style>("question");

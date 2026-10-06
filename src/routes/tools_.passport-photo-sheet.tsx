@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/passport-photo-sheet";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/passport-photo-sheet";
 import {
   loadImageFile,
   drawCover,
@@ -21,7 +21,7 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 
 export const Route = createFileRoute("/tools_/passport-photo-sheet")({
   head: () => {
-    const seo = getToolSeoMeta("passport-photo-sheet");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/passport-photo-sheet";
     return {
       meta: [
@@ -69,7 +69,7 @@ function capacity(sheetW: number, sheetH: number, photoW: number, photoH: number
 function SheetTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("passport-photo-sheet", isPro);
-  const seo = getToolSeo("passport-photo-sheet");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

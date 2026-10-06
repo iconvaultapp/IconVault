@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/field-sizing-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/field-sizing-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/field-sizing-playground")({
   head: () => {
-    const seo = getToolSeoMeta("field-sizing-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/field-sizing-playground";
     return {
       meta: [
@@ -40,7 +40,7 @@ const SUPPORTED = typeof CSS !== "undefined" && CSS.supports("field-sizing", "co
 function FieldSizingPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("field-sizing-playground", isPro);
-  const seo = getToolSeo("field-sizing-playground");
+  const seo = toolSeo;
 
   const [inputText, setInputText] = useState("Type here and watch me grow");
   const [areaText, setAreaText] = useState("Textareas grow vertically.\nAdd more lines to see it.\nNo JavaScript involved.");

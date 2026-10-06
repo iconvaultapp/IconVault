@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-vitals-budget";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-vitals-budget";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/web-vitals-budget")({
   head: () => {
-    const seo = getToolSeoMeta("web-vitals-budget");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-vitals-budget";
     return {
       meta: [
@@ -113,7 +113,7 @@ function Slider({
 function WebVitalsBudget() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-vitals-budget", isPro);
-  const seo = getToolSeo("web-vitals-budget");
+  const seo = toolSeo;
 
   const [totalKb, setTotalKb] = useState(1200);
   const [speedIdx, setSpeedIdx] = useState(1);

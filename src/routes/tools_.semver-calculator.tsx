@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/semver-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/semver-calculator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/semver-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("semver-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/semver-calculator";
     return {
       meta: [
@@ -185,7 +185,7 @@ const BUMPS: { kind: BumpKind; label: string; hint: string }[] = [
 function SemverCalculatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("semver-calculator", isPro);
-  const seo = getToolSeo("semver-calculator");
+  const seo = toolSeo;
 
   const [version, setVersion] = useState("1.2.3");
   const [bumpResult, setBumpResult] = useState("");

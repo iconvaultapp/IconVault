@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/indexeddb-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/indexeddb-explorer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -20,7 +20,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 export const Route = createFileRoute("/tools_/indexeddb-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("indexeddb-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/indexeddb-explorer";
     return {
       meta: [
@@ -88,7 +88,7 @@ function summarize(v: unknown): string {
 function IndexedDbExplorerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("indexeddb-explorer", isPro);
-  const seo = getToolSeo("indexeddb-explorer");
+  const seo = toolSeo;
 
   const [dbs, setDbs] = useState<string[]>([]);
   const [dbError, setDbError] = useState<string | null>(null);

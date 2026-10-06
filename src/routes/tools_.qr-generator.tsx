@@ -26,8 +26,8 @@ import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/qr-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/qr-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { cn } from "@/lib/utils";
 import {
@@ -40,7 +40,7 @@ import {
 
 export const Route = createFileRoute("/tools_/qr-generator")({
   head: () => {
-    const seo = getToolSeoMeta("qr-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/qr-generator";
     return {
       meta: [
@@ -276,7 +276,7 @@ function QrTool() {
   const { isPro } = usePlan();
   const { requireAuth } = useRequireAuth();
   const trial = useToolTrial("qr-generator", isPro);
-  const seo = getToolSeo("qr-generator");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<TabId>("url");
   const [fields, setFields] = useState<QrFields>(EMPTY_FIELDS);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/escape-unescape";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/escape-unescape";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/escape-unescape")({
   head: () => {
-    const seo = getToolSeoMeta("escape-unescape");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/escape-unescape";
     return {
       meta: [
@@ -107,7 +107,7 @@ function transform(mode: Mode, dir: Dir, s: string): { text: string; error: stri
 function EscapeUnescapeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("escape-unescape", isPro);
-  const seo = getToolSeo("escape-unescape");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("js");
   const [dir, setDir] = useState<Dir>("escape");

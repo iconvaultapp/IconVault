@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/network-info-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/network-info-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/network-info-playground")({
   head: () => {
-    const seo = getToolSeoMeta("network-info-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/network-info-playground";
     return {
       meta: [
@@ -72,7 +72,7 @@ const TYPE_SPEED: Record<string, { label: string; pct: number }> = {
 function NetworkTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("network-info-playground", isPro);
-  const seo = getToolSeo("network-info-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState(true);
   const [info, setInfo] = useState<ConnInfo>(readConnection().info);

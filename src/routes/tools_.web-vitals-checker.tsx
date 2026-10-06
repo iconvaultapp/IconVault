@@ -9,14 +9,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-vitals-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-vitals-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Progress } from "@/components/ui/progress";
 
 export const Route = createFileRoute("/tools_/web-vitals-checker")({
   head: () => {
-    const seo = getToolSeoMeta("web-vitals-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-vitals-checker";
     return {
       meta: [
@@ -99,7 +99,7 @@ function ratingProgress(m: Metric, rating: Rating): number {
 function WebVitalsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-vitals-checker", isPro);
-  const seo = getToolSeo("web-vitals-checker");
+  const seo = toolSeo;
 
   const [values, setValues] = useState<Record<string, number | null>>({ lcp: null, inp: null, cls: null });
   const [running, setRunning] = useState(false);

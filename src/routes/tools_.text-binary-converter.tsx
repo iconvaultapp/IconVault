@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/text-binary-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/text-binary-converter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/text-binary-converter")({
   head: () => {
-    const seo = getToolSeoMeta("text-binary-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/text-binary-converter";
     return {
       meta: [
@@ -58,7 +58,7 @@ function binaryToText(binary: string): { ok: boolean; text: string; error?: stri
 function BinaryTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("text-binary-converter", isPro);
-  const seo = getToolSeo("text-binary-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"toBinary" | "toText">("toBinary");
   const [input, setInput] = useState("Hello");

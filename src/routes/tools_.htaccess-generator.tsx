@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/htaccess-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/htaccess-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,7 +21,7 @@ import { Switch } from "@/components/ui/switch";
 
 export const Route = createFileRoute("/tools_/htaccess-generator")({
   head: () => {
-    const seo = getToolSeoMeta("htaccess-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/htaccess-generator";
     return {
       meta: [
@@ -182,7 +182,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function HtaccessGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("htaccess-generator", isPro);
-  const seo = getToolSeo("htaccess-generator");
+  const seo = toolSeo;
 
   const [https, setHttps] = useState(true);
   const [www, setWww] = useState<"none" | "to-www" | "to-nonwww">("none");

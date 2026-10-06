@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gif-to-frames";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gif-to-frames";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, fillBackground } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/gif-to-frames")({
   head: () => {
-    const seo = getToolSeoMeta("gif-to-frames");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gif-to-frames";
     return {
       meta: [
@@ -50,7 +50,7 @@ type Format = "png" | "jpg";
 function GifToFramesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gif-to-frames", isPro);
-  const seo = getToolSeo("gif-to-frames");
+  const seo = toolSeo;
 
   const [fileName, setFileName] = useState("");
   const [format, setFormat] = useState<Format>("png");

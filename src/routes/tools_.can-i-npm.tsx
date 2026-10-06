@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/can-i-npm";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/can-i-npm";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/can-i-npm")({
   head: () => {
-    const seo = getToolSeoMeta("can-i-npm");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/can-i-npm";
     return {
       meta: [
@@ -78,7 +78,7 @@ async function checkOne(name: string): Promise<Check> {
 function CanINpmTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("can-i-npm", isPro);
-  const seo = getToolSeo("can-i-npm");
+  const seo = toolSeo;
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const [checks, setChecks] = useState<Check[]>([]);

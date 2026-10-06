@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pypi-search";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pypi-search";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/pypi-search")({
   head: () => {
-    const seo = getToolSeoMeta("pypi-search");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pypi-search";
     return {
       meta: [
@@ -58,7 +58,7 @@ interface PkgResult {
 function PypiSearchTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pypi-search", isPro);
-  const seo = getToolSeo("pypi-search");
+  const seo = toolSeo;
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<PkgResult | null>(null);

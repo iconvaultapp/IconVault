@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-to-csharp";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-to-csharp";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-to-csharp")({
   head: () => {
-    const seo = getToolSeoMeta("json-to-csharp");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-to-csharp";
     return {
       meta: [
@@ -144,7 +144,7 @@ function csharpToJson(cs: string): string {
 function JsonToCsharpTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-to-csharp", isPro);
-  const seo = getToolSeo("json-to-csharp");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<"to-csharp" | "to-json">("to-csharp");
   const [rootName, setRootName] = useState("Root");

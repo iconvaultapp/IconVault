@@ -7,13 +7,13 @@ import { Copy, ExternalLink, Info } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/text-fragment-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/text-fragment-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/text-fragment-builder")({
   head: () => {
-    const seo = getToolSeoMeta("text-fragment-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/text-fragment-builder";
     return {
       meta: [
@@ -58,7 +58,7 @@ const enc = (s: string) => encodeURIComponent(s.trim());
 function TextFragmentTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("text-fragment-builder", isPro);
-  const seo = getToolSeo("text-fragment-builder");
+  const seo = toolSeo;
 
   const [pageUrl, setPageUrl] = useState("https://example.com/article");
   const [text, setText] = useState("the quick brown fox");

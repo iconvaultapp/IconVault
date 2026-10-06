@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mesh-gradient";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mesh-gradient";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mesh-gradient")({
   head: () => {
-    const seo = getToolSeoMeta("mesh-gradient");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mesh-gradient";
     return {
       meta: [
@@ -56,7 +56,7 @@ const RANDOM_COLORS = ["#f472b6", "#60a5fa", "#a78bfa", "#34d399", "#fbbf24", "#
 function MeshGradientTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mesh-gradient", isPro);
-  const seo = getToolSeo("mesh-gradient");
+  const seo = toolSeo;
 
   const [pins, setPins] = useState<Pin[]>(DEFAULT_PINS);
   const [base, setBase] = useState("#0f172a");

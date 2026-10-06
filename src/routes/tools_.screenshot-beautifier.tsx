@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/screenshot-beautifier";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/screenshot-beautifier";
 import { loadImageFile, canvasToBlob, baseName } from "@/lib/image-tools";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/screenshot-beautifier")({
   head: () => {
-    const seo = getToolSeoMeta("screenshot-beautifier");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/screenshot-beautifier";
     return {
       meta: [
@@ -64,7 +64,7 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
 function BeautifierTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("screenshot-beautifier", isPro);
-  const seo = getToolSeo("screenshot-beautifier");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [fileName, setFileName] = useState("");

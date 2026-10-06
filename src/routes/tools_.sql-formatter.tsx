@@ -8,13 +8,13 @@ import { Check, Copy, Eraser, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sql-formatter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sql-formatter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sql-formatter")({
   head: () => {
-    const seo = getToolSeoMeta("sql-formatter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sql-formatter";
     return {
       meta: [
@@ -385,7 +385,7 @@ const labelCls = "mb-1.5 block text-[13px] font-medium text-foreground/80";
 function SqlFormatterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sql-formatter", isPro);
-  const seo = getToolSeo("sql-formatter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [dialect, setDialect] = useState<Dialect>("generic");

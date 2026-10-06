@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mac-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mac-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mac-generator")({
   head: () => {
-    const seo = getToolSeoMeta("mac-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mac-generator";
     return {
       meta: [
@@ -101,7 +101,7 @@ async function copy(text: string, label: string) {
 function MacGenerator() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mac-generator", isPro);
-  const seo = getToolSeo("mac-generator");
+  const seo = toolSeo;
 
   const [count, setCount] = useState<number>(5);
   const [oui, setOui] = useState("");

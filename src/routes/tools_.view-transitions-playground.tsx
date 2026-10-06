@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/view-transitions-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/view-transitions-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/view-transitions-playground")({
   head: () => {
-    const seo = getToolSeoMeta("view-transitions-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/view-transitions-playground";
     return {
       meta: [
@@ -93,7 +93,7 @@ async function copyText(text: string) {
 function ViewTransitionsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("view-transitions-playground", isPro);
-  const seo = getToolSeo("view-transitions-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState(false);
   const [cards, setCards] = useState(CARDS);

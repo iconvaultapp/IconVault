@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mermaid-editor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mermaid-editor";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mermaid-editor")({
   head: () => {
-    const seo = getToolSeoMeta("mermaid-editor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mermaid-editor";
     return {
       meta: [
@@ -105,7 +105,7 @@ const selectCls =
 function MermaidEditorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mermaid-editor", isPro);
-  const seo = getToolSeo("mermaid-editor");
+  const seo = toolSeo;
 
   const [code, setCode] = useState<string>(SAMPLES["Flowchart"] ?? "");
   const [theme, setTheme] = useState<ThemeId>("default");

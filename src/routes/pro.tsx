@@ -4,9 +4,8 @@ import { Check, Minus, Crown, Zap, ShieldCheck, RefreshCw, Loader2 } from "lucid
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading, FaqList, CTABand, Stack, FeatureGrid } from "@/components/kit";
-import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
-import { usePlan, MONTHLY_PRICE, YEARLY_PRICE, LIFETIME_PRICE } from "@/hooks/usePlan";
+import { usePlan, YEARLY_PRICE, LIFETIME_PRICE } from "@/hooks/usePlan";
 
 export const Route = createFileRoute("/pro")({
   head: () => ({
@@ -15,12 +14,12 @@ export const Route = createFileRoute("/pro")({
       {
         name: "description",
         content:
-          "Free forever for solo work. Pro from $2/month for unlimited tools, exports and API access - monthly, yearly, or lifetime.",
+          "Free forever for solo work. Pro from $19/year for unlimited tools, exports and API access - yearly or lifetime.",
       },
       { property: "og:title", content: "Pricing - IconVault Free & Pro Yearly plans" },
       {
         property: "og:description",
-        content: "Free forever, or Pro from $2/month for unlimited everything.",
+        content: "Free forever, or Pro from $19/year for unlimited everything.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/pro" },
@@ -47,15 +46,8 @@ export const Route = createFileRoute("/pro")({
             },
             {
               "@type": "Offer",
-              name: "Pro Monthly",
-              price: "2",
-              priceCurrency: "USD",
-              description: "Per month, cancel anytime.",
-            },
-            {
-              "@type": "Offer",
               name: "Pro Yearly",
-              price: "14",
+              price: "19",
               priceCurrency: "USD",
               description: "Per year, cancel anytime.",
             },
@@ -73,8 +65,6 @@ export const Route = createFileRoute("/pro")({
   }),
   component: Page,
 });
-
-type BillingPeriod = "monthly" | "yearly";
 
 const proFeatures = [
   "Unlimited tool runs (all 579 tools)",
@@ -94,7 +84,8 @@ const freePlan = {
     "Search 421,020 open-source icons",
     "SVG, PNG and JSX copy-out",
     "7 bulk downloads in total",
-    "5 free runs per tool, no account needed",
+    "5 free runs per tool per day, no account needed",
+    "20+ tools free unlimited, forever",
     "Recolour and resize in the browser",
     "Favourites and collections sync across devices",
   ],
@@ -129,7 +120,7 @@ const matrix: { group: string; rows: { label: string; values: [Cell, Cell, Cell]
   {
     group: "Tools",
     rows: [
-      { label: "Free tool runs", values: ["5 per tool", "Unlimited", "Unlimited"] },
+      { label: "Free tool runs", values: ["5 per tool / day", "Unlimited", "Unlimited"] },
       { label: "Image to SVG vectorizer", values: ["5 runs", "Unlimited + batch", "Unlimited + batch"] },
       { label: "OG image generator", values: ["5 exports", "Unlimited", "Unlimited"] },
       { label: "Website screenshots", values: ["5 captures", "Unlimited + full-page HD", "Unlimited + full-page HD"] },
@@ -165,11 +156,11 @@ const faqs = [
   },
   {
     q: "How does Pro Yearly billing work?",
-    a: "Pro Monthly costs $2 per month and Pro Yearly costs $14 per year. Dodo Payments handles the recurring billing on a secure hosted page, and you can cancel anytime from your profile page. You keep pro access until the end of the billing period. Lifetime is a $39 one-time payment, yours forever.",
+    a: "Pro Yearly costs $19 per year. Dodo Payments handles the recurring billing on a secure hosted page, and you can cancel anytime from your profile page. You keep pro access until the end of the billing period. Lifetime is a $39 one-time payment, yours forever.",
   },
   {
     q: "What happens when I hit the free limits?",
-    a: "Nothing breaks. Search and single-icon copy stay unlimited. Free accounts get 7 bulk downloads in total and 5 free runs per tool - after that, upgrade to Pro Yearly for unlimited use.",
+    a: "Nothing breaks. Search and single-icon copy stay unlimited. Free accounts get 7 bulk downloads in total and 5 free runs per tool per day (20+ tools are free unlimited) - after that, upgrade to Pro Yearly for unlimited use.",
   },
   {
     q: "Can I cancel Pro Yearly?",
@@ -188,7 +179,7 @@ const faqs = [
 /**
  * Paid plan CTA. Signed-out visitors go to /auth first (unchanged
  * behaviour); signed-in users get a Dodo checkout session created
- * server-side for the Pro ($2/month, $14/year) and Lifetime ($39) plans and are
+ * server-side for the Pro Yearly ($19/year) and Lifetime ($39) plans and are
  * redirected to Dodo's hosted checkout. Active pro members see a
  * confirmation instead of the button.
  */
@@ -206,7 +197,7 @@ const TermsNote = () => (
   </p>
 );
 
-function CheckoutButton({ label, planType }: { label: string; planType: "monthly" | "yearly" | "lifetime" }) {
+function CheckoutButton({ label, planType }: { label: string; planType: "yearly" | "lifetime" }) {
   const { user, session } = useAuth();
   const { plan } = usePlan();
   const navigate = useNavigate();
@@ -283,47 +274,15 @@ function CheckoutButton({ label, planType }: { label: string; planType: "monthly
 }
 
 function Page() {
-  const [period, setPeriod] = useState<BillingPeriod>("yearly");
-
-  const proPrice = period === "monthly" ? MONTHLY_PRICE : YEARLY_PRICE;
-  const proPriceNote = period === "monthly" ? "per month, cancel anytime" : "per year, cancel anytime";
-  const proCta = period === "monthly" ? `Go Pro - $${MONTHLY_PRICE}/mo` : `Go Pro - $${YEARLY_PRICE}/yr`;
-  const proPlanType: "monthly" | "yearly" = period;
-
   return (
     <PageShell
       wide
       eyebrow="Pricing"
       title="Free forever, or Pro your way"
-      description="Start free and stay free for solo projects. Go Pro monthly, yearly, or once for lifetime — unlimited tools, exports and API access."
+      description="Start free and stay free for solo projects. Go Pro yearly, or once for lifetime — unlimited tools, exports and API access."
     >
       <Stack>
         <div>
-          {/* Monthly / Yearly toggle */}
-          <div className="mb-8 flex justify-center">
-            <div className="inline-flex items-center rounded-full border border-border bg-surface p-1">
-              {(["monthly", "yearly"] as const).map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  onClick={() => setPeriod(p)}
-                  className={cn(
-                    "rounded-full px-5 py-2 text-sm font-medium transition-colors",
-                    period === p
-                      ? "bg-primary text-primary-foreground shadow"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {p === "monthly" ? "Monthly" : "Yearly"}
-                </button>
-              ))}
-            </div>
-          </div>
-          {period === "yearly" && (
-            <p className="mb-6 text-center text-sm text-primary">
-              Save 42% with yearly billing
-            </p>
-          )}
           <div className="grid gap-5 lg:grid-cols-3 lg:px-4">
             {/* Free */}
             <Reveal delay={0}>
@@ -359,8 +318,8 @@ function Page() {
                 <h3 className="font-display text-lg font-semibold">Pro</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">Unlimited everything.</p>
                 <p className="mt-6 flex items-baseline gap-1.5">
-                  <span className="font-display text-4xl font-semibold tracking-tight">${proPrice}</span>
-                  <span className="text-sm text-muted-foreground">{proPriceNote}</span>
+                  <span className="font-display text-4xl font-semibold tracking-tight">${YEARLY_PRICE}</span>
+                  <span className="text-sm text-muted-foreground">per year, cancel anytime</span>
                 </p>
                 <p className="mt-1 font-mono text-[11px] text-muted-foreground">
                   Recurring - cancel anytime
@@ -373,7 +332,7 @@ function Page() {
                     </li>
                   ))}
                 </ul>
-                <CheckoutButton label={proCta} planType={proPlanType} />
+                <CheckoutButton label={`Go Pro - $${YEARLY_PRICE}/yr`} planType="yearly" />
               </div>
             </Reveal>
             {/* Lifetime */}
@@ -420,14 +379,14 @@ function Page() {
           <SectionHeading
             eyebrow="Why upgrade"
             title="The workflow around the icons"
-            description="The icons are free. Pro from $2/month is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
+            description="The icons are free. Pro from $19/year is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
           />
           <div className="mt-8">
             <FeatureGrid
               items={[
                 { icon: Zap, title: "Bulk everything", body: "Export a whole collection as an optimised sprite, ZIP or icon font in one click." },
                 { icon: Crown, title: "Tokens that fit", body: "Emit CSS variables, Tailwind theme entries or JSON tokens shaped like your design system." },
-                { icon: RefreshCw, title: "Billed once a year", body: "$2/month, $14/year, or $39 once for lifetime - cancel anytime, every pro feature we ship lands in your account." },
+                { icon: RefreshCw, title: "Billed once a year", body: "$19/year, or $39 once for lifetime - cancel anytime, every pro feature we ship lands in your account." },
                 { icon: ShieldCheck, title: "Licence clarity", body: "Every icon carries its licence through to export, so audits stop being a scavenger hunt." },
               ]}
               columns={2}
@@ -490,7 +449,7 @@ function Page() {
         </div>
 
         <CTABand
-          title="Unlock everything from $2/month"
+          title="Unlock everything from $19/year"
           body="Unlimited tool runs, exports and screenshots, billed once a year. Cancel anytime."
           primary={{ label: "Go Pro", to: "/auth" }}
           secondary={{ label: "Browse the vault", to: "/app" }}

@@ -7,13 +7,13 @@ import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/character-counter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/character-counter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/character-counter")({
   head: () => {
-    const seo = getToolSeoMeta("character-counter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/character-counter";
     return {
       meta: [
@@ -45,7 +45,7 @@ function StatCard({ label, value }: { label: string; value: string }) {
 function CharacterCounterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("character-counter", isPro);
-  const seo = getToolSeo("character-counter");
+  const seo = toolSeo;
 
   const [text, setText] = useState("");
   const [limitRaw, setLimitRaw] = useState("280");

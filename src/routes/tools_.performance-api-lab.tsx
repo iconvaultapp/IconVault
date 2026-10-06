@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/performance-api-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/performance-api-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/performance-api-lab")({
   head: () => {
-    const seo = getToolSeoMeta("performance-api-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/performance-api-lab";
     return {
       meta: [
@@ -55,7 +55,7 @@ function busyWork(ms: number) {
 function PerformanceApiTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("performance-api-lab", isPro);
-  const seo = getToolSeo("performance-api-lab");
+  const seo = toolSeo;
 
   const [marks, setMarks] = useState<MarkRow[]>([]);
   const [measures, setMeasures] = useState<MeasureRow[]>([]);

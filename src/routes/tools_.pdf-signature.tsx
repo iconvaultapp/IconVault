@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pdf-signature";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pdf-signature";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,7 +21,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export const Route = createFileRoute("/tools_/pdf-signature")({
   head: () => {
-    const seo = getToolSeoMeta("pdf-signature");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pdf-signature";
     return {
       meta: [
@@ -46,7 +46,7 @@ type LoadedPdf = { name: string; bytes: Uint8Array; pages: number; width: number
 function PdfSignatureTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pdf-signature", isPro);
-  const seo = getToolSeo("pdf-signature");
+  const seo = toolSeo;
 
   const [pdf, setPdf] = useState<LoadedPdf | null>(null);
   const [page, setPage] = useState("1");

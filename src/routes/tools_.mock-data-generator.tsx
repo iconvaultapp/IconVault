@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mock-data-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mock-data-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mock-data-generator")({
   head: () => {
-    const seo = getToolSeoMeta("mock-data-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mock-data-generator";
     return {
       meta: [
@@ -135,7 +135,7 @@ let nextId = 1;
 function MockDataTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mock-data-generator", isPro);
-  const seo = getToolSeo("mock-data-generator");
+  const seo = toolSeo;
 
   const [fields, setFields] = useState<Field[]>([
     { id: nextId++, name: "name", type: "fullName", min: "0", max: "1000", words: "3" },

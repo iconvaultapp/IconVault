@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-promise-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-promise-visualizer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-promise-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("js-promise-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-promise-visualizer";
     return {
       meta: [
@@ -93,7 +93,7 @@ const DEFAULTS: PDef[] = [
 function PromiseVizTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-promise-visualizer", isPro);
-  const seo = getToolSeo("js-promise-visualizer");
+  const seo = toolSeo;
 
   const [promises, setPromises] = useState<PDef[]>(DEFAULTS);
   const [combo, setCombo] = useState<Combo>("all");

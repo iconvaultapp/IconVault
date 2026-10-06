@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/code-snippet-manager";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/code-snippet-manager";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,7 +20,7 @@ import "highlight.js/styles/github-dark.css";
 
 export const Route = createFileRoute("/tools_/code-snippet-manager")({
   head: () => {
-    const seo = getToolSeoMeta("code-snippet-manager");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/code-snippet-manager";
     return {
       meta: [
@@ -103,7 +103,7 @@ const emptyForm = { title: "", language: "javascript", code: "", tags: "" };
 function SnippetManagerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("code-snippet-manager", isPro);
-  const seo = getToolSeo("code-snippet-manager");
+  const seo = toolSeo;
 
   const [snippets, setSnippets] = useState<Snippet[]>([]);
   const [query, setQuery] = useState("");

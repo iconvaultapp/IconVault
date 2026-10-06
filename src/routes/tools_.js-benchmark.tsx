@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-benchmark";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-benchmark";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-benchmark")({
   head: () => {
-    const seo = getToolSeoMeta("js-benchmark");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-benchmark";
     return {
       meta: [
@@ -82,7 +82,7 @@ function fmtOps(n: number): string {
 function JsBenchmarkTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-benchmark", isPro);
-  const seo = getToolSeo("js-benchmark");
+  const seo = toolSeo;
   const [snippets, setSnippets] = useState<Snippet[]>(DEFAULT_SNIPPETS);
   const [iterations, setIterations] = useState(10000);
   const [results, setResults] = useState<BenchResult[]>([]);

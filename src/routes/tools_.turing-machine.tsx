@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/turing-machine";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/turing-machine";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/turing-machine")({
   head: () => {
-    const seo = getToolSeoMeta("turing-machine");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/turing-machine";
     return {
       meta: [
@@ -175,7 +175,7 @@ const EXAMPLES: { name: string; desc: string; input: string; start: string; rule
 function TuringLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("turing-machine", isPro);
-  const seo = getToolSeo("turing-machine");
+  const seo = toolSeo;
 
   const [rules, setRules] = useState<Rule[]>(() => EXAMPLES[0]!.rules.map((r) => ({ ...r })));
   const [input, setInput] = useState(EXAMPLES[0]!.input);

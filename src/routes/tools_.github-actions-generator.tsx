@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/github-actions-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/github-actions-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,7 +21,7 @@ import { Switch } from "@/components/ui/switch";
 
 export const Route = createFileRoute("/tools_/github-actions-generator")({
   head: () => {
-    const seo = getToolSeoMeta("github-actions-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/github-actions-generator";
     return {
       meta: [
@@ -172,7 +172,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function GithubActionsGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("github-actions-generator", isPro);
-  const seo = getToolSeo("github-actions-generator");
+  const seo = toolSeo;
 
   const [name, setName] = useState("CI");
   const [lang, setLang] = useState<Lang>("node");

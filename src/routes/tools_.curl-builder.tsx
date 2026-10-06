@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/curl-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/curl-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/curl-builder")({
   head: () => {
-    const seo = getToolSeoMeta("curl-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/curl-builder";
     return {
       meta: [
@@ -192,7 +192,7 @@ function parseCurl(cmd: string): Parsed {
 function CurlBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("curl-builder", isPro);
-  const seo = getToolSeo("curl-builder");
+  const seo = toolSeo;
 
   const [method, setMethod] = useState<string>("GET");
   const [url, setUrl] = useState("https://api.example.com/v1/items");

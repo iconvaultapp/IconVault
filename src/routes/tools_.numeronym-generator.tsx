@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/numeronym-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/numeronym-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/numeronym-generator")({
   head: () => {
-    const seo = getToolSeoMeta("numeronym-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/numeronym-generator";
     return {
       meta: [
@@ -56,7 +56,7 @@ const EXAMPLES = ["internationalization", "localization", "accessibility", "Kube
 function NumeronymTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("numeronym-generator", isPro);
-  const seo = getToolSeo("numeronym-generator");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("internationalization\nlocalization\naccessibility");
 

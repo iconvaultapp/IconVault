@@ -7,13 +7,13 @@ import { Copy, Link2, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/slug-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/slug-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/slug-generator")({
   head: () => {
-    const seo = getToolSeoMeta("slug-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/slug-generator";
     return {
       meta: [
@@ -89,7 +89,7 @@ function buildSlugs(
 function SlugGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("slug-generator", isPro);
-  const seo = getToolSeo("slug-generator");
+  const seo = toolSeo;
 
   const [headlines, setHeadlines] = useState("");
   const [lowercase, setLowercase] = useState(true);

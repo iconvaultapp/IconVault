@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/contrast-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/contrast-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/contrast-checker")({
   head: () => {
-    const seo = getToolSeoMeta("contrast-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/contrast-checker";
     return {
       meta: [
@@ -73,7 +73,7 @@ function badgesFor(ratio: number): Badge[] {
 function ContrastCheckerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("contrast-checker", isPro);
-  const seo = getToolSeo("contrast-checker");
+  const seo = toolSeo;
 
   const [fg, setFg] = useState("#111827");
   const [bg, setBg] = useState("#ffffff");

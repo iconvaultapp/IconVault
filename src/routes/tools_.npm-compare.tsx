@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-compare";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-compare";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-compare")({
   head: () => {
-    const seo = getToolSeoMeta("npm-compare");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-compare";
     return {
       meta: [
@@ -106,7 +106,7 @@ async function fetchPkg(name: string): Promise<Pkg> {
 function NpmCompareTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-compare", isPro);
-  const seo = getToolSeo("npm-compare");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [names, setNames] = useState<string[]>(["react", "vue", "svelte"]);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/drag-drop-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/drag-drop-playground";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/drag-drop-playground")({
   head: () => {
-    const seo = getToolSeoMeta("drag-drop-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/drag-drop-playground";
     return {
       meta: [
@@ -49,7 +49,7 @@ function fmtBytes(n: number): string {
 function DnDTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("drag-drop-playground", isPro);
-  const seo = getToolSeo("drag-drop-playground");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<string[]>(STARTERS);
   const [dragIdx, setDragIdx] = useState<number | null>(null);

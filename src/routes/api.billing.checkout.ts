@@ -1,12 +1,12 @@
 // POST /api/billing/checkout -> { checkout_url }
 //
 // The logged-in user clicks a Pro plan on /pro. The client sends its Supabase
-// access token plus the chosen plan ("monthly" | "yearly" | "lifetime"); the
+// access token plus the chosen plan ("yearly" | "lifetime"); the
 // server validates the token, creates a Dodo checkout session for that plan
 // (with the Supabase user id in metadata), and returns the hosted checkout
 // URL to redirect to.
 //
-// Requires server env: DODO_PAYMENTS_API_KEY, DODO_PAYMENTS_PRODUCT_ID_MONTHLY,
+// Requires server env: DODO_PAYMENTS_API_KEY,
 // DODO_PAYMENTS_PRODUCT_ID_YEARLY, DODO_PAYMENTS_PRODUCT_ID_LIFETIME,
 // DODO_PAYMENTS_ENVIRONMENT (test_mode|live_mode), DODO_PAYMENTS_WEBHOOK_SECRET,
 // SUPABASE_URL (+ anon key via VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY).
@@ -57,8 +57,8 @@ export const Route = createFileRoute("/api/billing/checkout")({
         if (!accessToken) {
           return Response.json({ error: "Sign in first." }, { status: 401 });
         }
-        // The requested plan (monthly/yearly/lifetime) is validated below;
-// anything else falls back to yearly.
+        // The requested plan (yearly/lifetime) is validated below;
+// anything else falls back to yearly. ("monthly" is no longer sold.)
 
         // Validate the token and resolve the user server-side. Never trust a
         // user id sent by the client - the webhook grants the plan to the id
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/api/billing/checkout")({
           const { createPlanCheckout } = await import("@/lib/billing.server");
           type PaidPlan = import("@/lib/billing.server").PaidPlan;
           const plan: PaidPlan =
-            body.plan === "monthly" || body.plan === "lifetime" ? body.plan : "yearly";
+            body.plan === "lifetime" ? "lifetime" : "yearly";
           const fullName = user.user_metadata?.["full_name"] as string | undefined;
           const { checkoutUrl } = await createPlanCheckout(
             {

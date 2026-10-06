@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Color Name Finder - Free Online Color Name Lookup | IconVault",
+    metaDescription: "Pick any color and find the nearest of the 148 CSS named colors by RGB distance, with swatch, name and hex. Free, in-browser.",
+    about: [
+      "**IconVault**'s **Color Name Finder** answers the question every designer asks: what is this color called? Pick any color and it finds the **nearest of the 148 CSS named colors** by **RGB distance**, showing the name, a swatch and the exact hex. It is free and runs fully in your browser.",
+      "**Named colors** like **rebeccapurple**, **papayawhip** and **dodgerblue** are easier to remember and talk about than hex codes. The finder is handy for naming design tokens, writing documentation, or settling debates about whether a color is teal or turquoise."
+    ],
+    faqs: [
+      { q: "How does the color name finder work?", a: "It measures the RGB distance between your picked color and all 148 official CSS named colors, then shows the closest match with its name, swatch and hex value." },
+      { q: "Which color names are included?", a: "All 148 CSS named colors, from classics like red and navy to fun ones like papayawhip, blanchedalmond and rebeccapurple." },
+      { q: "Is the match exact or approximate?", a: "Approximate by design. Unless your color exactly equals a named color, the tool shows the nearest one, which is the standard way color-naming tools work." },
+      { q: "Can I search by name instead of picking a color?", a: "The tool is built for color-to-name lookup: pick or enter a color and get its name. Entering a hex code directly works as the starting color." },
+      { q: "Why use named colors in CSS?", a: "Names are readable in code and easy to discuss with teammates. For precision, hex or rgb values are still better since names only cover 148 fixed colors." },
+      { q: "Is it free?", a: "Yes, completely free with no account. Pick colors and look up names as much as you like."
+      }
+    ],
+    tags: [
+      "color name finder",
+      "find color name from hex",
+      "what color is this",
+      "color name lookup",
+      "hex to color name",
+      "rgb to color name",
+      "identify color name",
+      "color namer",
+      "name that color",
+      "color name generator",
+      "css color names list",
+      "148 css named colors",
+      "css color name finder",
+      "find nearest named color",
+      "color picker with name",
+      "what is this color called",
+      "color name from picker",
+      "online color identifier",
+      "free color name tool",
+      "color name database",
+      "all css color names",
+      "weird color names list",
+      "funny css color names",
+      "rebeccapurple hex",
+      "papayawhip color",
+      "dodgerblue hex",
+      "blanchedalmond color",
+      "color name for design tokens",
+      "naming colors for design system",
+      "color name api alternative",
+      "hex code to name converter",
+      "color name search",
+      "find color by hex code name",
+      "is this teal or turquoise",
+      "color name quiz tool",
+      "learn css color names",
+      "web color names chart",
+      "html color names list",
+      "color name reference",
+      "closest css color",
+      "color distance name match",
+      "pick color get name",
+      "color swatch name finder",
+      "design color naming tool",
+      "color name lookup online free",
+      "browser color name finder",
+      "no signup color namer",
+      "color name with hex code",
+      "official web color names",
+      "color name thesaurus"
+    ],
+  };
+
+export default seo;

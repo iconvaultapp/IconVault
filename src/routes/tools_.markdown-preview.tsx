@@ -9,13 +9,13 @@ import "highlight.js/styles/github.css";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/markdown-preview";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/markdown-preview";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/markdown-preview")({
   head: () => {
-    const seo = getToolSeoMeta("markdown-preview");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/markdown-preview";
     return {
       meta: [
@@ -87,7 +87,7 @@ const PREVIEW_CLASSES =
 function MarkdownPreviewTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("markdown-preview", isPro);
-  const seo = getToolSeo("markdown-preview");
+  const seo = toolSeo;
 
   const [md, setMd] = useState(DEFAULT_MD);
   // DOMPurify needs a DOM, so sanitize on the client only - SSR renders the

@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/unicode-escapes";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/unicode-escapes";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/unicode-escapes")({
   head: () => {
-    const seo = getToolSeoMeta("unicode-escapes");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/unicode-escapes";
     return {
       meta: [
@@ -87,7 +87,7 @@ function decode(text: string): string {
 function EscapesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("unicode-escapes", isPro);
-  const seo = getToolSeo("unicode-escapes");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"encode" | "decode">("encode");
   const [format, setFormat] = useState<Format>("backslash-u");

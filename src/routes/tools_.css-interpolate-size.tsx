@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-interpolate-size";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-interpolate-size";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-interpolate-size")({
   head: () => {
-    const seo = getToolSeoMeta("css-interpolate-size");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-interpolate-size";
     return {
       meta: [
@@ -67,7 +67,7 @@ const EASINGS = ["ease", "ease-in-out", "cubic-bezier(0.34, 1.3, 0.64, 1)", "lin
 function InterpolateSizeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-interpolate-size", isPro);
-  const seo = getToolSeo("css-interpolate-size");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [allowKeywords, setAllowKeywords] = useState(true);

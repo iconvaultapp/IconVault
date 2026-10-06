@@ -11,8 +11,15 @@ import {
   type ToolDef,
 } from "@/lib/tool-catalog";
 import { ToolIcon } from "@/components/ToolIcon";
+import { isToolFreeUnlimited } from "@/lib/tool-trial";
+
+const PAGE_SIZE = 12;
 
 const ToolCard = ({ tool }: { tool: ToolDef }) => {
+  // Fully-free tools (no daily limit, no account) get a visible "Free" badge
+  // so the catalog honestly shows how much is free. "Free" wins over the
+  // catalog "New" badge - the free status matters more to visitors.
+  const badge = isToolFreeUnlimited(tool.id) ? "Free" : tool.badge;
   const inner = (
     <div
       className={cn(
@@ -25,17 +32,17 @@ const ToolCard = ({ tool }: { tool: ToolDef }) => {
         <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
           <ToolIcon iconKey={tool.icon} className="h-6 w-6" />
         </span>
-        {tool.badge && (
+        {badge && (
           <span
             className={cn(
               "flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-bold",
-              tool.badge === "Pro"
+              badge === "Pro"
                 ? "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300"
                 : "bg-primary/10 text-primary",
             )}
           >
-            {tool.badge === "Pro" && <Crown className="h-3 w-3" />}
-            {tool.badge}
+            {badge === "Pro" && <Crown className="h-3 w-3" />}
+            {badge}
           </span>
         )}
       </div>
@@ -104,6 +111,20 @@ function ToolsPage() {
   );
   const activeCat = TOOL_CATEGORIES.find((c) => c.id === activeCategory) ?? null;
 
+  // Progressive rendering: each category section initially shows the first
+  // PAGE_SIZE tools; "Show all" expands it client-side. This keeps the SSR
+  // HTML (and hydration cost) small - the page used to ship all 579 cards
+  // at once (~870KB HTML). Search still scans the full catalog.
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
+  const expandCat = (catId: string) =>
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      next.add(catId);
+      return next;
+    });
+  const visibleTools = (catId: string, tools: ToolDef[]) =>
+    expanded.has(catId) ? tools : tools.slice(0, PAGE_SIZE);
+
   // Keep the filters in sync when navigating between /tools URLs client-side
   // (e.g. picking another category from the header menu) without a remount.
   const router = useRouter();
@@ -127,6 +148,35 @@ function ToolsPage() {
   }, [query]);
 
   const searching = results !== null;
+  // Search scans everything but only renders the first 60 matches to keep
+  // the DOM small; the count line tells the user to refine when capped.
+  const SEARCH_CAP = 60;
+  const cappedResults = searching ? results.slice(0, SEARCH_CAP) : [];
+
+  const renderCategoryGrid = (catId: string, tools: ToolDef[]) => {
+    const visible = visibleTools(catId, tools);
+    const collapsed = !expanded.has(catId) && tools.length > PAGE_SIZE;
+    return (
+      <>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5">
+          {visible.map((t) => (
+            <ToolCard key={t.id} tool={t} />
+          ))}
+        </div>
+        {collapsed && (
+          <div className="mt-6 text-center">
+            <button
+              type="button"
+              onClick={() => expandCat(catId)}
+              className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-bold text-primary shadow-sm transition-colors hover:border-primary/40"
+            >
+              Show all {tools.length} tools
+            </button>
+          </div>
+        )}
+      </>
+    );
+  };
 
   return (
     <PageShell
@@ -145,7 +195,7 @@ function ToolsPage() {
           <div>
             <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Tools</h1>
             <p className="text-sm text-muted-foreground">
-              {LIVE_TOOLS.length} free tools, grouped by what they do - 5 free uses per tool, no account needed.
+              {LIVE_TOOLS.length} free tools, grouped by what they do - 5 free uses per tool per day, 20+ tools free unlimited, no account needed.
             </p>
           </div>
         </div>
@@ -181,6 +231,9 @@ function ToolsPage() {
               ) : (
                 <>
                   {results.length} result{results.length === 1 ? "" : "s"} for &quot;{query.trim()}&quot;
+                  {results.length > SEARCH_CAP && (
+                    <> - showing the first {SEARCH_CAP}, refine your search to narrow it down</>
+                  )}
                 </>
               )}
             </p>
@@ -208,7 +261,7 @@ function ToolsPage() {
             </div>
           ) : (
             <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5">
-              {results.map((t) => (
+              {cappedResults.map((t) => (
                 <ToolCard key={t.id} tool={t} />
               ))}
             </div>
@@ -230,10 +283,8 @@ function ToolsPage() {
                 All categories
               </button>
             </div>
-            <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5">
-              {toolsByCategory(activeCat.id).map((t) => (
-                <ToolCard key={t.id} tool={t} />
-              ))}
+            <div className="mb-12">
+              {renderCategoryGrid(activeCat.id, toolsByCategory(activeCat.id))}
             </div>
           </section>
         ) : (
@@ -247,11 +298,7 @@ function ToolsPage() {
                     <h2 className="text-lg font-extrabold tracking-tight">{cat.label}</h2>
                     <p className="text-sm text-muted-foreground">{cat.blurb}</p>
                   </div>
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5">
-                    {tools.map((t) => (
-                      <ToolCard key={t.id} tool={t} />
-                    ))}
-                  </div>
+                  {renderCategoryGrid(cat.id, tools)}
                 </section>
               );
             })}

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/chmod-calc";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/chmod-calc";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/chmod-calc")({
   head: () => {
-    const seo = getToolSeoMeta("chmod-calc");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/chmod-calc";
     return {
       meta: [
@@ -121,7 +121,7 @@ function describe(octal: string): string {
 function ChmodCalc() {
   const { isPro } = usePlan();
   const trial = useToolTrial("chmod-calc", isPro);
-  const seo = getToolSeo("chmod-calc");
+  const seo = toolSeo;
 
   const [matrix, setMatrix] = useState<Matrix>(DEFAULT_MATRIX);
   const [special, setSpecial] = useState({ suid: false, sgid: false, sticky: false });

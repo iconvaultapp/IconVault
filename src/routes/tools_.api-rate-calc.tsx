@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/api-rate-calc";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/api-rate-calc";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/api-rate-calc")({
   head: () => {
-    const seo = getToolSeoMeta("api-rate-calc");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/api-rate-calc";
     return {
       meta: [
@@ -66,7 +66,7 @@ function fmtBig(n: number): string {
 function ApiRateCalc() {
   const { isPro } = usePlan();
   const trial = useToolTrial("api-rate-calc", isPro);
-  const seo = getToolSeo("api-rate-calc");
+  const seo = toolSeo;
 
   const [limit, setLimit] = useState(1000);
   const [periodIdx, setPeriodIdx] = useState(2); // per hour

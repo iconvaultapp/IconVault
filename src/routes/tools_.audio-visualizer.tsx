@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/audio-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/audio-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/audio-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("audio-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/audio-visualizer";
     return {
       meta: [
@@ -55,7 +55,7 @@ const THEMES = [
 function AudioVisualizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("audio-visualizer", isPro);
-  const seo = getToolSeo("audio-visualizer");
+  const seo = toolSeo;
 
   const [source, setSource] = useState<"file" | "mic" | null>(null);
   const [active, setActive] = useState(false);

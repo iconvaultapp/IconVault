@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-property-descriptors";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-property-descriptors";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-property-descriptors")({
   head: () => {
-    const seo = getToolSeoMeta("js-property-descriptors");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-property-descriptors";
     return {
       meta: [
@@ -136,7 +136,7 @@ Object.defineProperty(obj, "id", { writable: true }); // TypeError`,
 function PropertyDescriptorsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-property-descriptors", isPro);
-  const seo = getToolSeo("js-property-descriptors");
+  const seo = toolSeo;
 
   const [props, setProps] = useState<PropDef[]>([
     { name: "id", raw: "1", writable: false, enumerable: true, configurable: false },

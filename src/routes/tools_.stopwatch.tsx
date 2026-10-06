@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/stopwatch";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/stopwatch";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/stopwatch")({
   head: () => {
-    const seo = getToolSeoMeta("stopwatch");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/stopwatch";
     return {
       meta: [
@@ -57,7 +57,7 @@ function fmtCsv(ms: number): string {
 function StopwatchTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("stopwatch", isPro);
-  const seo = getToolSeo("stopwatch");
+  const seo = toolSeo;
 
   const [elapsed, setElapsed] = useState(0);
   const [running, setRunning] = useState(false);

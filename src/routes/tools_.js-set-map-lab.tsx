@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-set-map-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-set-map-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-set-map-lab")({
   head: () => {
-    const seo = getToolSeoMeta("js-set-map-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-set-map-lab";
     return {
       meta: [
@@ -309,7 +309,7 @@ for (const [key, value] of map) console.log(key, value);`;
 function SetMapLabTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-set-map-lab", isPro);
-  const seo = getToolSeo("js-set-map-lab");
+  const seo = toolSeo;
   const [tab, setTab] = useState<Tab>("sets");
 
   return (

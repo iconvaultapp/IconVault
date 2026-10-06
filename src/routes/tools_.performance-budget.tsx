@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/performance-budget";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/performance-budget";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,7 +22,7 @@ import { Progress } from "@/components/ui/progress";
 
 export const Route = createFileRoute("/tools_/performance-budget")({
   head: () => {
-    const seo = getToolSeoMeta("performance-budget");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/performance-budget";
     return {
       meta: [
@@ -80,7 +80,7 @@ function formatKb(kb: number): string {
 function PerformanceBudgetTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("performance-budget", isPro);
-  const seo = getToolSeo("performance-budget");
+  const seo = toolSeo;
 
   const [assets, setAssets] = useState<Asset[]>([]);
   const [scanned, setScanned] = useState(false);

@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-scroll-state";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-scroll-state";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-scroll-state")({
   head: () => {
-    const seo = getToolSeoMeta("css-scroll-state");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-scroll-state";
     return {
       meta: [
@@ -49,7 +49,7 @@ function Badge({ label, active }: { label: string; active: boolean }) {
 function ScrollStateTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-scroll-state", isPro);
-  const seo = getToolSeo("css-scroll-state");
+  const seo = toolSeo;
 
   const [stickyHeader, setStickyHeader] = useState(true);
   const [snap, setSnap] = useState(true);

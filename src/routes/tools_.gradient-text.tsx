@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gradient-text";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gradient-text";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/gradient-text")({
   head: () => {
-    const seo = getToolSeoMeta("gradient-text");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gradient-text";
     return {
       meta: [
@@ -61,7 +61,7 @@ function stopsCss(stops: Stop[]): string {
 function GradientTextTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gradient-text", isPro);
-  const seo = getToolSeo("gradient-text");
+  const seo = toolSeo;
 
   const [text, setText] = useState("Gradient Text");
   const [stops, setStops] = useState<Stop[]>([mkStop("#f43f5e", 0), mkStop("#8b5cf6", 50), mkStop("#3b82f6", 100)]);

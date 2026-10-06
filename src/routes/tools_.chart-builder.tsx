@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/chart-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/chart-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import {
   ResponsiveContainer,
@@ -30,7 +30,7 @@ import {
 
 export const Route = createFileRoute("/tools_/chart-builder")({
   head: () => {
-    const seo = getToolSeoMeta("chart-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/chart-builder";
     return {
       meta: [
@@ -78,7 +78,7 @@ const TYPES: { id: ChartType; name: string; icon: typeof BarChart3 }[] = [
 function ChartBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("chart-builder", isPro);
-  const seo = getToolSeo("chart-builder");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<Row[]>([
     mkRow("Jan", 42),

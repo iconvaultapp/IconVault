@@ -8,13 +8,13 @@ import { Check, Copy, Eraser, Play, Search } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/xpath-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/xpath-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/xpath-tester")({
   head: () => {
-    const seo = getToolSeoMeta("xpath-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/xpath-tester";
     return {
       meta: [
@@ -142,7 +142,7 @@ function evaluate(doc: Document, expr: string): { hits: Hit[]; scalar: string | 
 function XPathTesterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("xpath-tester", isPro);
-  const seo = getToolSeo("xpath-tester");
+  const seo = toolSeo;
 
   const [xml, setXml] = useState("");
   const [expr, setExpr] = useState("");

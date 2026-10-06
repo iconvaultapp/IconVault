@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/content-index-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/content-index-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/content-index-playground")({
   head: () => {
-    const seo = getToolSeoMeta("content-index-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/content-index-playground";
     return {
       meta: [
@@ -72,7 +72,7 @@ const CATEGORIES = ["", "homepage", "article", "video", "audio"];
 function ContentIndexTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("content-index-playground", isPro);
-  const seo = getToolSeo("content-index-playground");
+  const seo = toolSeo;
 
   const [ready, setReady] = useState<"checking" | "ok" | "missing">("checking");
   const [missingReason, setMissingReason] = useState("");

@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/exif-viewer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/exif-viewer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { formatBytes, baseName } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/exif-viewer")({
   head: () => {
-    const seo = getToolSeoMeta("exif-viewer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/exif-viewer";
     return {
       meta: [
@@ -101,7 +101,7 @@ function buildRows(tags: Record<string, any>, gps: { latitude: number; longitude
 function ExifViewerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("exif-viewer", isPro);
-  const seo = getToolSeo("exif-viewer");
+  const seo = toolSeo;
 
   const [fileName, setFileName] = useState("");
   const [fileSize, setFileSize] = useState(0);

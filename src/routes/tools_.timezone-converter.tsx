@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/timezone-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/timezone-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/timezone-converter")({
   head: () => {
-    const seo = getToolSeoMeta("timezone-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/timezone-converter";
     return {
       meta: [
@@ -107,7 +107,7 @@ function fmtInZone(d: Date, timeZone: string): { text: string; offset: string } 
 function TimezoneTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("timezone-converter", isPro);
-  const seo = getToolSeo("timezone-converter");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<"convert" | "meeting">("convert");
 

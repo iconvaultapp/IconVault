@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ssh-config-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ssh-config-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ssh-config-generator")({
   head: () => {
-    const seo = getToolSeoMeta("ssh-config-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ssh-config-generator";
     return {
       meta: [
@@ -115,7 +115,7 @@ async function copyText(s: string): Promise<boolean> {
 function SshConfigTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ssh-config-generator", isPro);
-  const seo = getToolSeo("ssh-config-generator");
+  const seo = toolSeo;
 
   const idRef = useRef(3);
   const [hosts, setHosts] = useState<HostEntry[]>([

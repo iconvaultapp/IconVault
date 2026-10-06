@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/html-minifier";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/html-minifier";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/html-minifier")({
   head: () => {
-    const seo = getToolSeoMeta("html-minifier");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/html-minifier";
     return {
       meta: [
@@ -114,7 +114,7 @@ const OPT_LABELS: { key: keyof Options; label: string }[] = [
 function HtmlMinifierTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("html-minifier", isPro);
-  const seo = getToolSeo("html-minifier");
+  const seo = toolSeo;
 
   const [opts, setOpts] = useState<Options>({
     stripComments: true,

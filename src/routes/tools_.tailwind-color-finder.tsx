@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/tailwind-color-finder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/tailwind-color-finder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/tailwind-color-finder")({
   head: () => {
-    const seo = getToolSeoMeta("tailwind-color-finder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/tailwind-color-finder";
     return {
       meta: [
@@ -89,7 +89,7 @@ function distance(a: [number, number, number], b: Entry): number {
 function TailwindColorFinder() {
   const { isPro } = usePlan();
   const trial = useToolTrial("tailwind-color-finder", isPro);
-  const seo = getToolSeo("tailwind-color-finder");
+  const seo = toolSeo;
 
   const [hex, setHex] = useState("#0ea5e9");
   const [searched, setSearched] = useState<[number, number, number] | null>(null);

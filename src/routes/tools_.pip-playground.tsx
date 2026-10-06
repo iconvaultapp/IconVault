@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pip-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pip-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/pip-playground")({
   head: () => {
-    const seo = getToolSeoMeta("pip-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pip-playground";
     return {
       meta: [
@@ -46,7 +46,7 @@ type SourceKey = (typeof SOURCES)[number]["key"];
 function PipPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pip-playground", isPro);
-  const seo = getToolSeo("pip-playground");
+  const seo = toolSeo;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);

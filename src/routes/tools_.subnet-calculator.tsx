@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/subnet-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/subnet-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/subnet-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("subnet-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/subnet-calculator";
     return {
       meta: [
@@ -115,7 +115,7 @@ async function copy(text: string, label: string) {
 function SubnetCalculator() {
   const { isPro } = usePlan();
   const trial = useToolTrial("subnet-calculator", isPro);
-  const seo = getToolSeo("subnet-calculator");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("192.168.1.0/24");
   const [result, setResult] = useState<SubnetResult | null>(null);

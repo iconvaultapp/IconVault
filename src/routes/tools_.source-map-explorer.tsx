@@ -9,15 +9,15 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/source-map-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/source-map-explorer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export const Route = createFileRoute("/tools_/source-map-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("source-map-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/source-map-explorer";
     return {
       meta: [
@@ -100,7 +100,7 @@ function formatBytes(n: number): string {
 function SourceMapExplorerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("source-map-explorer", isPro);
-  const seo = getToolSeo("source-map-explorer");
+  const seo = toolSeo;
 
   const [fileName, setFileName] = useState("");
   const [fileSize, setFileSize] = useState(0);

@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/docker-compose-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/docker-compose-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,7 +19,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export const Route = createFileRoute("/tools_/docker-compose-generator")({
   head: () => {
-    const seo = getToolSeoMeta("docker-compose-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/docker-compose-generator";
     return {
       meta: [
@@ -161,7 +161,7 @@ function Field({ label, value, onChange, placeholder }: { label: string; value: 
 function ComposeGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("docker-compose-generator", isPro);
-  const seo = getToolSeo("docker-compose-generator");
+  const seo = toolSeo;
 
   const [services, setServices] = useState<Service[]>([
     blankService("web", PRESETS["web"]),

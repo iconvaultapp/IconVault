@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-cascade-debugger";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-cascade-debugger";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-cascade-debugger")({
   head: () => {
-    const seo = getToolSeoMeta("css-cascade-debugger");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-cascade-debugger";
     return {
       meta: [
@@ -199,7 +199,7 @@ function matches(selector: string, target: TargetBits): boolean {
 function CascadeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-cascade-debugger", isPro);
-  const seo = getToolSeo("css-cascade-debugger");
+  const seo = toolSeo;
 
   const [css, setCss] = useState(SAMPLE);
   const [target, setTarget] = useState("button#submit.btn.primary");

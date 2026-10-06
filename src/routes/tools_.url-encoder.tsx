@@ -7,13 +7,13 @@ import { Copy, Link2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/url-encoder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/url-encoder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/url-encoder")({
   head: () => {
-    const seo = getToolSeoMeta("url-encoder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/url-encoder";
     return {
       meta: [
@@ -50,7 +50,7 @@ const MODE_HINTS: Record<Mode, string> = {
 function UrlEncoderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("url-encoder", isPro);
-  const seo = getToolSeo("url-encoder");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [mode, setMode] = useState<Mode>("component");

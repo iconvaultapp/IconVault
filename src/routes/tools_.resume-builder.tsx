@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/resume-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/resume-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/resume-builder")({
   head: () => {
-    const seo = getToolSeoMeta("resume-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/resume-builder";
     return {
       meta: [
@@ -57,7 +57,7 @@ const inputCls =
 function ResumeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("resume-builder", isPro);
-  const seo = getToolSeo("resume-builder");
+  const seo = toolSeo;
 
   const [name, setName] = useState("");
   const [role, setRole] = useState("");

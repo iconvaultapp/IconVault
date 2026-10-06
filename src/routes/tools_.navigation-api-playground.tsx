@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/navigation-api-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/navigation-api-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/navigation-api-playground")({
   head: () => {
-    const seo = getToolSeoMeta("navigation-api-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/navigation-api-playground";
     return {
       meta: [
@@ -62,7 +62,7 @@ function readEntries(): NavEntry[] {
 function NavTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("navigation-api-playground", isPro);
-  const seo = getToolSeo("navigation-api-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof window !== "undefined" && "navigation" in window);
   const [entries, setEntries] = useState<NavEntry[]>([]);

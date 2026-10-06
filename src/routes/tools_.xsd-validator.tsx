@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/xsd-validator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/xsd-validator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/xsd-validator")({
   head: () => {
-    const seo = getToolSeoMeta("xsd-validator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/xsd-validator";
     return {
       meta: [
@@ -278,7 +278,7 @@ function validateNode(el: Element, decl: XsdElement, path: string, violations: s
 function XsdValidatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("xsd-validator", isPro);
-  const seo = getToolSeo("xsd-validator");
+  const seo = toolSeo;
 
   const [xml, setXml] = useState("");
   const [xsd, setXsd] = useState("");

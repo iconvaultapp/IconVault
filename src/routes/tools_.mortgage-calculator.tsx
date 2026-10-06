@@ -8,13 +8,13 @@ import { ClipboardCopy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mortgage-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mortgage-calculator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mortgage-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("mortgage-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mortgage-calculator";
     return {
       meta: [
@@ -143,7 +143,7 @@ function Chart({ rows }: { rows: YearRow[] }) {
 function MortgageTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mortgage-calculator", isPro);
-  const seo = getToolSeo("mortgage-calculator");
+  const seo = toolSeo;
 
   const [loan, setLoan] = useState("350000");
   const [rate, setRate] = useState("6.5");

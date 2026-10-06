@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/open-graph-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/open-graph-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/open-graph-checker")({
   head: () => {
-    const seo = getToolSeoMeta("open-graph-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/open-graph-checker";
     return {
       meta: [
@@ -106,7 +106,7 @@ function checkHtml(html: string): Check[] {
 function OgCheckerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("open-graph-checker", isPro);
-  const seo = getToolSeo("open-graph-checker");
+  const seo = toolSeo;
 
   const [html, setHtml] = useState("");
   const [url, setUrl] = useState("");

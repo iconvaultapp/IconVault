@@ -7,13 +7,13 @@ import { ArrowDown, ArrowUp, Check, Copy, Plus, X } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/text-shadow-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/text-shadow-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/text-shadow-generator")({
   head: () => {
-    const seo = getToolSeoMeta("text-shadow-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/text-shadow-generator";
     return {
       meta: [
@@ -54,7 +54,7 @@ function hexToRgba(hex: string, alpha: number): string {
 function TextShadowTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("text-shadow-generator", isPro);
-  const seo = getToolSeo("text-shadow-generator");
+  const seo = toolSeo;
 
   const [layers, setLayers] = useState<Layer[]>([
     { id: 1, x: 2, y: 2, blur: 0, color: "#000000", opacity: 100 },

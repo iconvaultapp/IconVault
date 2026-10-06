@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dependabot-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dependabot-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/dependabot-generator")({
   head: () => {
-    const seo = getToolSeoMeta("dependabot-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dependabot-generator";
     return {
       meta: [
@@ -67,7 +67,7 @@ function csvToList(v: string): string[] {
 function DependabotGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dependabot-generator", isPro);
-  const seo = getToolSeo("dependabot-generator");
+  const seo = toolSeo;
 
   const [selected, setSelected] = useState<string[]>(["npm", "github-actions"]);
   const [dirs, setDirs] = useState<Record<string, string>>({});

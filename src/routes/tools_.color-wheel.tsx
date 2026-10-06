@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-wheel";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-wheel";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-wheel")({
   head: () => {
-    const seo = getToolSeoMeta("color-wheel");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-wheel";
     return {
       meta: [
@@ -92,7 +92,7 @@ const WHEEL = 264;
 function ColorWheel() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-wheel", isPro);
-  const seo = getToolSeo("color-wheel");
+  const seo = toolSeo;
 
   const [hue, setHue] = useState(168);
   const [sat, setSat] = useState(72);

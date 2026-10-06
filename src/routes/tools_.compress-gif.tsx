@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/compress-gif";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/compress-gif";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, formatBytes } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/compress-gif")({
   head: () => {
-    const seo = getToolSeoMeta("compress-gif");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/compress-gif";
     return {
       meta: [
@@ -70,7 +70,7 @@ function readLoopCount(buf: Uint8Array): number {
 function CompressGifTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("compress-gif", isPro);
-  const seo = getToolSeo("compress-gif");
+  const seo = toolSeo;
 
   const [fileName, setFileName] = useState("");
   const [origSize, setOrigSize] = useState(0);

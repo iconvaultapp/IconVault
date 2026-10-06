@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dockerfile-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dockerfile-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,7 +20,7 @@ import { Switch } from "@/components/ui/switch";
 
 export const Route = createFileRoute("/tools_/dockerfile-generator")({
   head: () => {
-    const seo = getToolSeoMeta("dockerfile-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dockerfile-generator";
     return {
       meta: [
@@ -136,7 +136,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function DockerfileGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dockerfile-generator", isPro);
-  const seo = getToolSeo("dockerfile-generator");
+  const seo = toolSeo;
 
   const [langId, setLangId] = useState("node");
   const [multi, setMulti] = useState(true);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-async-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-async-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-async-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("js-async-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-async-visualizer";
     return {
       meta: [
@@ -400,7 +400,7 @@ const LANE_DOT: Record<string, string> = {
 function AsyncVizTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-async-visualizer", isPro);
-  const seo = getToolSeo("js-async-visualizer");
+  const seo = toolSeo;
 
   const [code, setCode] = useState(PRESETS[0]!.code);
   const [applied, setApplied] = useState(PRESETS[0]!.code);

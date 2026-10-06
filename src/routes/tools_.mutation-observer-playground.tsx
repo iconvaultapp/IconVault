@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mutation-observer-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mutation-observer-playground";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mutation-observer-playground")({
   head: () => {
-    const seo = getToolSeoMeta("mutation-observer-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mutation-observer-playground";
     return {
       meta: [
@@ -79,7 +79,7 @@ function describeTarget(node: Node): string {
 function MutationObserverTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mutation-observer-playground", isPro);
-  const seo = getToolSeo("mutation-observer-playground");
+  const seo = toolSeo;
 
   const [config, setConfig] = useState<ObsConfig>(DEFAULT_CONFIG);
   const [observing, setObserving] = useState(false);

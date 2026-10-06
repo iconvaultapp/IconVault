@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/metronome";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/metronome";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/metronome")({
   head: () => {
-    const seo = getToolSeoMeta("metronome");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/metronome";
     return {
       meta: [
@@ -49,7 +49,7 @@ function sigOf(id: SigId) {
 function MetronomeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("metronome", isPro);
-  const seo = getToolSeo("metronome");
+  const seo = toolSeo;
 
   const [bpm, setBpm] = useState(120);
   const [sig, setSig] = useState<SigId>("4/4");

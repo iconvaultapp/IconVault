@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/github-token-validator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/github-token-validator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/github-token-validator")({
   head: () => {
-    const seo = getToolSeoMeta("github-token-validator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/github-token-validator";
     return {
       meta: [
@@ -46,7 +46,7 @@ interface Result {
 function TokenValidatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("github-token-validator", isPro);
-  const seo = getToolSeo("github-token-validator");
+  const seo = toolSeo;
   const [token, setToken] = useState("");
   const [show, setShow] = useState(false);
   const [busy, setBusy] = useState(false);

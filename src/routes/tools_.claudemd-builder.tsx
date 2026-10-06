@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/claudemd-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/claudemd-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/claudemd-builder")({
   head: () => {
-    const seo = getToolSeoMeta("claudemd-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/claudemd-builder";
     return {
       meta: [
@@ -179,7 +179,7 @@ function Area({ label, hint, value, onChange, rows = 4, placeholder }: {
 function ClaudeMdBuilder() {
   const { isPro } = usePlan();
   const trial = useToolTrial("claudemd-builder", isPro);
-  const seo = getToolSeo("claudemd-builder");
+  const seo = toolSeo;
 
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<Form>(EMPTY);

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/neumorphism-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/neumorphism-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/neumorphism-generator")({
   head: () => {
-    const seo = getToolSeoMeta("neumorphism-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/neumorphism-generator";
     return {
       meta: [
@@ -79,7 +79,7 @@ function Slider({ label, value, min, max, onChange, suffix }: {
 function NeumorphismTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("neumorphism-generator", isPro);
-  const seo = getToolSeo("neumorphism-generator");
+  const seo = toolSeo;
 
   const [base, setBase] = useState("#e0e5ec");
   const [distance, setDistance] = useState(12);

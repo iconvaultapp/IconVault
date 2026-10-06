@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/html-entity-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/html-entity-converter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/html-entity-converter")({
   head: () => {
-    const seo = getToolSeoMeta("html-entity-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/html-entity-converter";
     return {
       meta: [
@@ -113,7 +113,7 @@ function decodeHtml(s: string): string {
 function EntityTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("html-entity-converter", isPro);
-  const seo = getToolSeo("html-entity-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"encode" | "decode">("encode");
   const [input, setInput] = useState(mode === "encode" ? "Tom & Jerry <3 — 50% off!" : "");

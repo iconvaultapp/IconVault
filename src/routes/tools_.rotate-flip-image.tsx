@@ -20,14 +20,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/rotate-flip-image";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/rotate-flip-image";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, canvasToBlob, baseName, extForMime } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/rotate-flip-image")({
   head: () => {
-    const seo = getToolSeoMeta("rotate-flip-image");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/rotate-flip-image";
     return {
       meta: [
@@ -99,7 +99,7 @@ function describe(it: Item): string {
 function RotateFlipTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("rotate-flip-image", isPro);
-  const seo = getToolSeo("rotate-flip-image");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [selectedId, setSelectedId] = useState<number | null>(null);

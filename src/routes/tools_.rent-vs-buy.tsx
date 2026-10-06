@@ -7,13 +7,13 @@ import { ClipboardCopy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/rent-vs-buy";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/rent-vs-buy";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/rent-vs-buy")({
   head: () => {
-    const seo = getToolSeoMeta("rent-vs-buy");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/rent-vs-buy";
     return {
       meta: [
@@ -174,7 +174,7 @@ function Chart({ rows, breakEven }: { rows: { year: number; rentCost: number; bu
 function RentVsBuyTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("rent-vs-buy", isPro);
-  const seo = getToolSeo("rent-vs-buy");
+  const seo = toolSeo;
 
   const [rent, setRent] = useState("1800");
   const [price, setPrice] = useState("350000");

@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/heic-to-png";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/heic-to-png";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, formatBytes } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/heic-to-png")({
   head: () => {
-    const seo = getToolSeoMeta("heic-to-png");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/heic-to-png";
     return {
       meta: [
@@ -49,7 +49,7 @@ let nextId = 1;
 function HeicToPng() {
   const { isPro } = usePlan();
   const trial = useToolTrial("heic-to-png", isPro);
-  const seo = getToolSeo("heic-to-png");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [busy, setBusy] = useState(false);

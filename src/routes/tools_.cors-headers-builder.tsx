@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/cors-headers-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/cors-headers-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/cors-headers-builder")({
   head: () => {
-    const seo = getToolSeoMeta("cors-headers-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/cors-headers-builder";
     return {
       meta: [
@@ -91,7 +91,7 @@ function cleanList(s: string): string[] {
 function CorsHeadersBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("cors-headers-builder", isPro);
-  const seo = getToolSeo("cors-headers-builder");
+  const seo = toolSeo;
 
   const [origins, setOrigins] = useState("https://app.example.com");
   const [methods, setMethods] = useState<string[]>(["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]);

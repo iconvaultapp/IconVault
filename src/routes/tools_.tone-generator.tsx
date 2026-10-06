@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/tone-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/tone-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/tone-generator")({
   head: () => {
-    const seo = getToolSeoMeta("tone-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/tone-generator";
     return {
       meta: [
@@ -47,7 +47,7 @@ function formatFreq(f: number) {
 function ToneGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("tone-generator", isPro);
-  const seo = getToolSeo("tone-generator");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"tone" | "sweep">("tone");
   const [slider, setSlider] = useState(toSlider(440));

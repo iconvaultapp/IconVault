@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/reporting-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/reporting-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/reporting-playground")({
   head: () => {
-    const seo = getToolSeoMeta("reporting-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/reporting-playground";
     return {
       meta: [
@@ -78,7 +78,7 @@ const now = () => new Date().toLocaleTimeString();
 function ReportingPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("reporting-playground", isPro);
-  const seo = getToolSeo("reporting-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [observing, setObserving] = useState(false);

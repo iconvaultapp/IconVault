@@ -68,6 +68,10 @@ function hardenResponse(response: Response, request: Request): Response {
   if (!headers.has("referrer-policy")) headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   if (!headers.has("permissions-policy"))
     headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
+  // HSTS: the site is HTTPS-only (Cloudflare). Preload-ready value; the
+  // domain itself must be added to the HSTS preload list separately if wanted.
+  if (!headers.has("strict-transport-security"))
+    headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
 
   const { pathname } = new URL(request.url);
   const isStaticData =
@@ -78,7 +82,16 @@ function hardenResponse(response: Response, request: Request): Response {
   const isApiOrHtml =
     pathname.startsWith("/api/") || pathname.startsWith("/_serverFn/");
   if (isStaticData && !isApiOrHtml && !headers.has("cache-control")) {
-    headers.set("Cache-Control", "public, max-age=86400, stale-while-revalidate=86400");
+    // Vite emits content-hashed filenames under /assets, so they are
+    // immutable within a deployment: cache for a year at edge + browser.
+    // Unversioned data (iconify JSON, search index) keeps the old 1-day SWR.
+    const immutable = pathname.startsWith("/assets/");
+    headers.set(
+      "Cache-Control",
+      immutable
+        ? "public, max-age=31536000, immutable"
+        : "public, max-age=86400, stale-while-revalidate=86400",
+    );
   }
   return new Response(response.body, {
     status: response.status,

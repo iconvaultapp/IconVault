@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/unit-circle";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/unit-circle";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/unit-circle")({
   head: () => {
-    const seo = getToolSeoMeta("unit-circle");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/unit-circle";
     return {
       meta: [
@@ -47,7 +47,7 @@ function fmt(n: number): string {
 function UnitCircleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("unit-circle", isPro);
-  const seo = getToolSeo("unit-circle");
+  const seo = toolSeo;
 
   const [angleDeg, setAngleDeg] = useState(30);
   const [radians, setRadians] = useState(false);

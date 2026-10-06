@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/diff-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/diff-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/diff-checker")({
   head: () => {
-    const seo = getToolSeoMeta("diff-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/diff-checker";
     return {
       meta: [
@@ -193,7 +193,7 @@ function DiffLineRow({ d, num }: { d: DiffLine; num?: number }) {
 function DiffCheckerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("diff-checker", isPro);
-  const seo = getToolSeo("diff-checker");
+  const seo = toolSeo;
 
   const [original, setOriginal] = useState("");
   const [modified, setModified] = useState("");

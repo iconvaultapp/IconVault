@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/mime-types";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/mime-types";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/mime-types")({
   head: () => {
-    const seo = getToolSeoMeta("mime-types");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/mime-types";
     return {
       meta: [
@@ -117,7 +117,7 @@ async function doCopy(text: string, label: string, trial: { canUse: boolean; rec
 function MimeTypesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("mime-types", isPro);
-  const seo = getToolSeo("mime-types");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
 

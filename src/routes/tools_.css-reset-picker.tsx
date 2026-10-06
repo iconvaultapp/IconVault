@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-reset-picker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-reset-picker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-reset-picker")({
   head: () => {
-    const seo = getToolSeoMeta("css-reset-picker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-reset-picker";
     return {
       meta: [
@@ -426,7 +426,7 @@ const SAMPLE = `
 function CssResetPicker() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-reset-picker", isPro);
-  const seo = getToolSeo("css-reset-picker");
+  const seo = toolSeo;
 
   const [activeId, setActiveId] = useState("modern");
   const [excluded, setExcluded] = useState<Record<string, Set<string>>>({});

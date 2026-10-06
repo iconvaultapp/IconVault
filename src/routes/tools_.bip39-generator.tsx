@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bip39-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bip39-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bip39-generator")({
   head: () => {
-    const seo = getToolSeoMeta("bip39-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bip39-generator";
     return {
       meta: [
@@ -48,7 +48,7 @@ async function loadBip39(): Promise<Bip39Lib> {
 function Bip39Tool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bip39-generator", isPro);
-  const seo = getToolSeo("bip39-generator");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"generate" | "validate">("generate");
   const [wordCount, setWordCount] = useState<12 | 24>(12);

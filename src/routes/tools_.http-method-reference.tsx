@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/http-method-reference";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/http-method-reference";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/http-method-reference")({
   head: () => {
-    const seo = getToolSeoMeta("http-method-reference");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/http-method-reference";
     return {
       meta: [
@@ -138,7 +138,7 @@ function Flag({ label, on }: { label: string; on: boolean }) {
 function HttpMethodTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("http-method-reference", isPro);
-  const seo = getToolSeo("http-method-reference");
+  const seo = toolSeo;
 
   const [method, setMethod] = useState<MethodDef>(METHODS[0]!);
   const [url, setUrl] = useState("https://api.example.com/products/42");

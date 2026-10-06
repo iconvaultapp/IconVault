@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/og-preview";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/og-preview";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/og-preview")({
   head: () => {
-    const seo = getToolSeoMeta("og-preview");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/og-preview";
     return {
       meta: [
@@ -164,7 +164,7 @@ function MockFrame({ label, children }: { label: string; children: React.ReactNo
 function OgPreviewTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("og-preview", isPro);
-  const seo = getToolSeo("og-preview");
+  const seo = toolSeo;
 
   const [title, setTitle] = useState("The 2026 Guide to Shipping Faster");
   const [subtitle, setSubtitle] = useState("Practical tactics for small teams with big deadlines.");

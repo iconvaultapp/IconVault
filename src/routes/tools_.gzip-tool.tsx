@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gzip-tool";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gzip-tool";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/gzip-tool")({
   head: () => {
-    const seo = getToolSeoMeta("gzip-tool");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gzip-tool";
     return {
       meta: [
@@ -97,7 +97,7 @@ type Tab = "compress" | "decompress";
 function GzipTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gzip-tool", isPro);
-  const seo = getToolSeo("gzip-tool");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<Tab>("compress");
   const [text, setText] = useState("");

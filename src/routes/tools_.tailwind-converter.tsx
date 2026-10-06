@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/tailwind-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/tailwind-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/tailwind-converter")({
   head: () => {
-    const seo = getToolSeoMeta("tailwind-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/tailwind-converter";
     return {
       meta: [
@@ -366,7 +366,7 @@ function cssToTailwind(input: string): { classes: string; unknown: string[] } {
 function TailwindConverter() {
   const { isPro } = usePlan();
   const trial = useToolTrial("tailwind-converter", isPro);
-  const seo = getToolSeo("tailwind-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"tw2css" | "css2tw">("tw2css");
   const [input, setInput] = useState("flex items-center justify-between gap-4 p-6 bg-slate-100 rounded-xl text-sky-600 font-semibold text-lg");

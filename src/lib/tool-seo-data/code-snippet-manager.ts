@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Snippet Manager - Free Online Code Snippet Organizer | IconVault",
+    metaDescription: "Save, search and organize reusable code snippets with syntax highlighting and tags. Free, stored privately in your browser.",
+    about: [
+      "**IconVault**'s **Snippet Manager** is your personal library for **reusable code snippets**: save them with **syntax highlighting**, tag and search them, edit or delete anytime, and export or import your collection as a file. It is free and everything is stored in your **browser's localStorage**, so your snippets stay private on your device.",
+      "Every developer reuses the same **regex**, **fetch wrapper** or config block across projects. Instead of digging through old repos or chat history, keep them here with a **name, language and tags**, then copy in one click. Because storage is local, it works offline and never sends your code anywhere."
+    ],
+    faqs: [
+      { q: "Where are my snippets stored?", a: "In your browser's localStorage on your own device. Nothing is uploaded to a server, so your snippets are private by design, but they also won't follow you to another browser unless you export and import the file." },
+      { q: "Can I back up or move my snippets?", a: "Yes. The tool can download your whole collection as a file and import it again later, which is how you back up or move snippets between devices and browsers." },
+      { q: "Does it support syntax highlighting?", a: "Yes, saved snippets render with syntax highlighting by language, which makes scanning a long snippet much faster than reading plain text." },
+      { q: "How do I find a snippet quickly?", a: "Use the search box to match titles and code, and organize snippets with tags like 'regex', 'api' or 'css' to filter your library." },
+      { q: "Is there a limit to how many snippets I can save?", a: "The practical limit is your browser's localStorage quota (usually around 5MB), which holds thousands of typical snippets. Very large collections may need periodic export and cleanup." },
+      { q: "Do I need an account?", a: "No account, no sign-up. Open the tool and start saving snippets immediately."
+      }
+    ],
+    tags: [
+      "code snippet manager",
+      "snippet manager",
+      "online snippet manager",
+      "code snippet organizer",
+      "save code snippets online",
+      "snippet library",
+      "code snippets app",
+      "free snippet manager",
+      "snippet keeper",
+      "code snippet storage",
+      "developer snippet manager",
+      "programmer snippet tool",
+      "code snippet collection",
+      "organize code snippets",
+      "search code snippets",
+      "snippet manager with syntax highlighting",
+      "javascript snippet manager",
+      "python snippet manager",
+      "css snippet manager",
+      "store code snippets browser",
+      "localstorage snippet manager",
+      "private snippet manager",
+      "no signup snippet manager",
+      "snippet manager export import",
+      "backup code snippets",
+      "code snippet notebook",
+      "developer notes code snippets",
+      "reusable code library",
+      "code snippet tags",
+      "snippet organizer for developers",
+      "my code snippets",
+      "save regex snippets",
+      "save sql snippets",
+      "api snippet library",
+      "frontend snippet collection",
+      "snippet manager offline",
+      "browser based snippet manager",
+      "code snippet vault",
+      "snippet clipboard manager",
+      "copy paste code snippets",
+      "snippet manager free online",
+      "code snippet bookmark",
+      "developer productivity snippet tool",
+      "snippet manager no account",
+      "import export snippets json",
+      "code snippet search tool",
+      "personal code library",
+      "snippet manager for programmers",
+      "web dev snippet organizer",
+      "snippet manager local storage"
+    ],
+  };
+
+export default seo;

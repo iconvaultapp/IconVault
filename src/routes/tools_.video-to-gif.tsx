@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/video-to-gif";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/video-to-gif";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, formatBytes } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/video-to-gif")({
   head: () => {
-    const seo = getToolSeoMeta("video-to-gif");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/video-to-gif";
     return {
       meta: [
@@ -52,7 +52,7 @@ function seekTo(video: HTMLVideoElement, t: number): Promise<void> {
 function VideoToGifTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("video-to-gif", isPro);
-  const seo = getToolSeo("video-to-gif");
+  const seo = toolSeo;
 
   const [videoUrl, setVideoUrl] = useState("");
   const [fileName, setFileName] = useState("");

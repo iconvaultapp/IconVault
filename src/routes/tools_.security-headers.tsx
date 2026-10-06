@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/security-headers";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/security-headers";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/security-headers")({
   head: () => {
-    const seo = getToolSeoMeta("security-headers");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/security-headers";
     return {
       meta: [
@@ -110,7 +110,7 @@ function grade(score: number): string {
 function SecurityHeadersTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("security-headers", isPro);
-  const seo = getToolSeo("security-headers");
+  const seo = toolSeo;
 
   const [enabled, setEnabled] = useState<Record<string, boolean>>(
     Object.fromEntries(HEADERS.map((h) => [h.key, true])),

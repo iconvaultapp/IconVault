@@ -10,14 +10,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/favicon-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/favicon-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import IconStickerPicker, { drawSvgToCanvas, type PickedIcon } from "@/components/IconStickerPicker";
 
 export const Route = createFileRoute("/tools_/favicon-generator")({
   head: () => {
-    const seo = getToolSeoMeta("favicon-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/favicon-generator";
     return {
       meta: [
@@ -80,7 +80,7 @@ function loadFile(f: File): Promise<HTMLImageElement> {
 function FaviconTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("favicon-generator", isPro);
-  const seo = getToolSeo("favicon-generator");
+  const seo = toolSeo;
 
   const [icon, setIcon] = useState<PickedIcon | null>(null);
   const [image, setImage] = useState<HTMLImageElement | null>(null);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/hreflang-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/hreflang-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/hreflang-generator")({
   head: () => {
-    const seo = getToolSeoMeta("hreflang-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/hreflang-generator";
     return {
       meta: [
@@ -51,7 +51,7 @@ const initialRows: Row[] = [
 function HreflangTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("hreflang-generator", isPro);
-  const seo = getToolSeo("hreflang-generator");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<Row[]>(initialRows);
   const [xDefault, setXDefault] = useState("https://example.com/");

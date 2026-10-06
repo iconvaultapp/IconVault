@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/easing-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/easing-visualizer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/easing-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("easing-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/easing-visualizer";
     return {
       meta: [
@@ -91,7 +91,7 @@ const py = (y: number) => H - PAD - y * (H - 2 * PAD);
 function EasingTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("easing-visualizer", isPro);
-  const seo = getToolSeo("easing-visualizer");
+  const seo = toolSeo;
 
   const [p, setP] = useState<[number, number, number, number]>([0.25, 0.1, 0.25, 1]);
   const [duration, setDuration] = useState(1200);

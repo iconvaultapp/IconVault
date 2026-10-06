@@ -11,10 +11,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 
 export const FREE_BULK_DOWNLOAD_LIMIT = 7;
-export const MONTHLY_PRICE = 2;
-export const YEARLY_PRICE = 14;
+export const YEARLY_PRICE = 19;
 export const LIFETIME_PRICE = 39;
 
+// "monthly" is kept as a readable value only: the $2/month plan is no longer
+// sold (removed 2026-10-06), but existing monthly subscribers keep Pro until
+// their subscription lapses (the webhook downgrades them to free on
+// cancel/expire). Nothing in the UI offers monthly anymore.
 type Plan = "free" | "monthly" | "yearly" | "lifetime";
 
 interface PlanContextType {

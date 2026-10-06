@@ -7,13 +7,13 @@ import { Copy, PaintRoller, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/paint-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/paint-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/paint-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("paint-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/paint-calculator";
     return {
       meta: [
@@ -59,7 +59,7 @@ const WINDOW_H = "4";
 function PaintTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("paint-calculator", isPro);
-  const seo = getToolSeo("paint-calculator");
+  const seo = toolSeo;
 
   const [walls, setWalls] = useState<Rect[]>([mkRect("12", "9"), mkRect("10", "9")]);
   const [openings, setOpenings] = useState<Rect[]>([mkRect(DOOR_W, DOOR_H), mkRect(WINDOW_W, WINDOW_H)]);

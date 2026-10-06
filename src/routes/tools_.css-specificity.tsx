@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-specificity";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-specificity";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-specificity")({
   head: () => {
-    const seo = getToolSeoMeta("css-specificity");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-specificity";
     return {
       meta: [
@@ -151,7 +151,7 @@ const fmt = (s: Score) => `(${s[0]}, ${s[1]}, ${s[2]})`;
 function SpecificityTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-specificity", isPro);
-  const seo = getToolSeo("css-specificity");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("calc");
   const [text, setText] = useState("#main .card\nul li a:hover\ninput[type=\"text\"]");

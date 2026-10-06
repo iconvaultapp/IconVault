@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-name-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-name-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-name-checker")({
   head: () => {
-    const seo = getToolSeoMeta("npm-name-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-name-checker";
     return {
       meta: [
@@ -58,7 +58,7 @@ async function checkName(name: string): Promise<Status> {
 function NpmNameCheckerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-name-checker", isPro);
-  const seo = getToolSeo("npm-name-checker");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [rows, setRows] = useState<Row[]>([]);

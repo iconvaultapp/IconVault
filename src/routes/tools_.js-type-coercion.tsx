@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-type-coercion";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-type-coercion";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-type-coercion")({
   head: () => {
-    const seo = getToolSeoMeta("js-type-coercion");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-type-coercion";
     return {
       meta: [
@@ -352,7 +352,7 @@ interface Analysis { steps: Step[]; result: boolean; note: string; op: "==" | "=
 function CoercionTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-type-coercion", isPro);
-  const seo = getToolSeo("js-type-coercion");
+  const seo = toolSeo;
 
   const [left, setLeft] = useState("[]");
   const [right, setRight] = useState("false");

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/twitter-card-preview";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/twitter-card-preview";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/twitter-card-preview")({
   head: () => {
-    const seo = getToolSeoMeta("twitter-card-preview");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/twitter-card-preview";
     return {
       meta: [
@@ -50,7 +50,7 @@ function Counter({ value, limit, label }: { value: string; limit: number; label:
 function TwitterCardTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("twitter-card-preview", isPro);
-  const seo = getToolSeo("twitter-card-preview");
+  const seo = toolSeo;
 
   const [cardType, setCardType] = useState<CardType>("summary_large_image");
   const [title, setTitle] = useState("My brilliant article");

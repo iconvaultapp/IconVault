@@ -1,0 +1,87 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Open Graph Generator - Free OG Tags | IconVault",
+    metaDescription:
+      "Generate Open Graph meta tags free: og:title, og:description, og:image, og:url and more. Perfect social link previews on every platform.",
+    about: [
+      "**IconVault**'s **Open Graph Generator** creates the **og:** **meta tags** that control how your links look when shared: **og:title**, **og:description**, **og:image**, **og:url**, og:type, og:site_name and image dimensions - the tags Facebook, LinkedIn, Slack, Discord and iMessage all read for rich **link previews**.",
+      "Enter your page details, paste your **preview image** URL, copy the tags. Pair it with the OG Image Generator to design the image itself. Everything runs client-side; every visitor gets 5 **free** generations, Pro unlocks unlimited.",
+    ],
+    faqs: [
+      {
+        q: "What are Open Graph tags?",
+        a: "Meta tags (og:title, og:image, etc.) that tell social platforms which title, description and image to show when your URL is shared. Without them, platforms guess - often badly.",
+      },
+      {
+        q: "What image size should og:image be?",
+        a: "1200x630px is the universal safe choice. The generator includes og:image:width and og:image:height so platforms render it without re-fetching.",
+      },
+      {
+        q: "How do I test my Open Graph tags?",
+        a: "After pasting the tags, validate with Facebook's Sharing Debugger, X's Card Validator or LinkedIn's Post Inspector. Note: platforms cache previews, so use their cache-refresh tools after changes.",
+      },
+      {
+        q: "Do Open Graph tags help SEO?",
+        a: "Indirectly - they don't change rankings, but better-looking shared links get more clicks, which drives traffic. They are essential for any content marketing.",
+      },
+      {
+        q: "How many free generations do I get?",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
+      },
+    ],
+    tags: [
+      "open graph generator", "og tags generator", "og:image generator tags",
+      "open graph meta tags", "facebook open graph", "link preview generator",
+      "social preview tags", "og title description", "generate og tags",
+      "open graph checker", "og meta generator free", "social media preview tags",
+      "linkedin preview tags", "discord embed generator", "og:image size",
+    
+      "open graph tag generator",
+      "og tag generator",
+      "open graph image generator",
+      "social card generator",
+      "twitter card preview",
+      "facebook link preview",
+      "og tags checker",
+      "open graph debugger",
+      "generate social meta tags",
+      "link unfurl preview",
+      "og image maker",
+      "social media link preview",
+      "og tags for website",
+      "open graph tags free",
+      "create og tags",
+      "og meta tags generator",
+      "twitter meta tags generator",
+      "facebook meta tags generator",
+      "og title generator",
+      "og description generator",
+      "og:image tag generator",
+      "social share preview",
+      "link preview tester",
+      "open graph preview tool",
+      "generate facebook tags",
+      "og tag validator",
+      "open graph tag tester",
+      "whatsapp link preview",
+      "telegram link preview tags",
+      "slack unfurl preview",
+      "open graph generator free",
+      "og tags for blogger",
+      "og tags for wordpress",
+      "social graph tags",
+      "create social preview",
+      "website link preview generator",
+      "url preview generator",
+      "open graph html generator",
+      "og image size checker",
+      "social card preview tool",
+      "facebook preview tool",
+      "linkedin post preview",
+      "generate open graph markup",
+      "og tags maker",
+      "free open graph tool"],
+  };
+
+export default seo;

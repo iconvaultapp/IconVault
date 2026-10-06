@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/a11y-scanner";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/a11y-scanner";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/a11y-scanner")({
   head: () => {
-    const seo = getToolSeoMeta("a11y-scanner");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/a11y-scanner";
     return {
       meta: [
@@ -243,7 +243,7 @@ function scan(html: string): Issue[] {
 function A11yScannerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("a11y-scanner", isPro);
-  const seo = getToolSeo("a11y-scanner");
+  const seo = toolSeo;
 
   const [html, setHtml] = useState("");
   const [issues, setIssues] = useState<Issue[] | null>(null);

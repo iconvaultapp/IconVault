@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-float-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-float-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-float-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("js-float-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-float-visualizer";
     return {
       meta: [
@@ -228,7 +228,7 @@ const PRESETS: { label: string; value: number }[] = [
 function FloatTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-float-visualizer", isPro);
-  const seo = getToolSeo("js-float-visualizer");
+  const seo = toolSeo;
 
   const [prec, setPrec] = useState<Prec>("f64");
   const [bits, setBits] = useState<bigint>(() => bitsOf(0.1, "f64"));

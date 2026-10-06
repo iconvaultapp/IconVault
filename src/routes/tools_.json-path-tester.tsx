@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-path-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-path-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-path-tester")({
   head: () => {
-    const seo = getToolSeoMeta("json-path-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-path-tester";
     return {
       meta: [
@@ -302,7 +302,7 @@ function fmtVal(v: unknown): string {
 function JsonPathTesterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-path-tester", isPro);
-  const seo = getToolSeo("json-path-tester");
+  const seo = toolSeo;
 
   const [jsonText, setJsonText] = useState("");
   const [query, setQuery] = useState("$.store.book[*].title");

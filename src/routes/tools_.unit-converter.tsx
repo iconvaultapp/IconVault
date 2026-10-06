@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/unit-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/unit-converter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/unit-converter")({
   head: () => {
-    const seo = getToolSeoMeta("unit-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/unit-converter";
     return {
       meta: [
@@ -160,7 +160,7 @@ const selectCls = "w-full rounded-xl border border-border bg-background px-3 py-
 function UnitConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("unit-converter", isPro);
-  const seo = getToolSeo("unit-converter");
+  const seo = toolSeo;
 
   const [catId, setCatId] = useState("length");
   const [value, setValue] = useState("1");

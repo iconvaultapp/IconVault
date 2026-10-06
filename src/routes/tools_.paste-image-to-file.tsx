@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/paste-image-to-file";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/paste-image-to-file";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { canvasToBlob, fillBackground, loadImageFile } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/paste-image-to-file")({
   head: () => {
-    const seo = getToolSeoMeta("paste-image-to-file");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/paste-image-to-file";
     return {
       meta: [
@@ -53,7 +53,7 @@ function defaultName(): string {
 function PasteImageToFile() {
   const { isPro } = usePlan();
   const trial = useToolTrial("paste-image-to-file", isPro);
-  const seo = getToolSeo("paste-image-to-file");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState("");

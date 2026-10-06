@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-custom-highlights";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-custom-highlights";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-custom-highlights")({
   head: () => {
-    const seo = getToolSeoMeta("css-custom-highlights");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-custom-highlights";
     return {
       meta: [
@@ -138,7 +138,7 @@ function rangesFor(root: HTMLElement, words: string[]): Range[] {
 function HighlightsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-custom-highlights", isPro);
-  const seo = getToolSeo("css-custom-highlights");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [query, setQuery] = useState("fox");

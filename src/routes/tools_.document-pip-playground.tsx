@@ -7,13 +7,13 @@ import { PictureInPicture2, Timer, X } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/document-pip-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/document-pip-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/document-pip-playground")({
   head: () => {
-    const seo = getToolSeoMeta("document-pip-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/document-pip-playground";
     return {
       meta: [
@@ -46,7 +46,7 @@ function fmtTime(ms: number): string {
 function DocPipTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("document-pip-playground", isPro);
-  const seo = getToolSeo("document-pip-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof window !== "undefined" && "documentPictureInPicture" in window);
   const [open, setOpen] = useState(false);

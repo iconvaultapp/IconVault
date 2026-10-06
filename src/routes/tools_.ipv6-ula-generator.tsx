@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ipv6-ula-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ipv6-ula-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ipv6-ula-generator")({
   head: () => {
-    const seo = getToolSeoMeta("ipv6-ula-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ipv6-ula-generator";
     return {
       meta: [
@@ -61,7 +61,7 @@ async function copy(text: string, label: string) {
 function Ipv6UlaGenerator() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ipv6-ula-generator", isPro);
-  const seo = getToolSeo("ipv6-ula-generator");
+  const seo = toolSeo;
 
   const [count, setCount] = useState<number>(5);
   const [prefixes, setPrefixes] = useState<string[]>([]);

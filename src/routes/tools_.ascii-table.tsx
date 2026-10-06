@@ -7,13 +7,13 @@ import { ClipboardCopy, Search, Table2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ascii-table";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ascii-table";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ascii-table")({
   head: () => {
-    const seo = getToolSeoMeta("ascii-table");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ascii-table";
     return {
       meta: [
@@ -67,7 +67,7 @@ const ROWS: AsciiRow[] = Array.from({ length: 128 }, (_, dec) => {
 function AsciiTableTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ascii-table", isPro);
-  const seo = getToolSeo("ascii-table");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
 

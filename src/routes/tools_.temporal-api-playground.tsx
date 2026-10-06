@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/temporal-api-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/temporal-api-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/temporal-api-playground")({
   head: () => {
-    const seo = getToolSeoMeta("temporal-api-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/temporal-api-playground";
     return {
       meta: [
@@ -48,7 +48,7 @@ const FALLBACK_NOTE =
 function TemporalTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("temporal-api-playground", isPro);
-  const seo = getToolSeo("temporal-api-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState(false);
   const [results, setResults] = useState<DemoResult[]>([]);

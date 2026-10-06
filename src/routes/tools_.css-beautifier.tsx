@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-beautifier";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-beautifier";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-beautifier")({
   head: () => {
-    const seo = getToolSeoMeta("css-beautifier");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-beautifier";
     return {
       meta: [
@@ -148,7 +148,7 @@ function countStats(rules: Rule[]): Omit<Stats, "before" | "after"> {
 function CssBeautifierTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-beautifier", isPro);
-  const seo = getToolSeo("css-beautifier");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(SAMPLE);
   const [output, setOutput] = useState("");

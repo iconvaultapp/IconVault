@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/editorconfig-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/editorconfig-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/editorconfig-generator")({
   head: () => {
-    const seo = getToolSeoMeta("editorconfig-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/editorconfig-generator";
     return {
       meta: [
@@ -114,7 +114,7 @@ async function copyText(s: string): Promise<boolean> {
 function EditorconfigTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("editorconfig-generator", isPro);
-  const seo = getToolSeo("editorconfig-generator");
+  const seo = toolSeo;
 
   const idRef = useRef(4);
   const [root, setRoot] = useState(true);

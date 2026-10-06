@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/box-model-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/box-model-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/box-model-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("box-model-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/box-model-visualizer";
     return {
       meta: [
@@ -85,7 +85,7 @@ function SideSliders({ label, sides, onChange }: {
 function BoxModelTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("box-model-visualizer", isPro);
-  const seo = getToolSeo("box-model-visualizer");
+  const seo = toolSeo;
 
   const [cw, setCw] = useState(220);
   const [ch, setCh] = useState(120);

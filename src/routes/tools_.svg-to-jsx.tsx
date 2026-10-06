@@ -8,13 +8,13 @@ import { Copy, Check, Braces } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-to-jsx";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-to-jsx";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-to-jsx")({
   head: () => {
-    const seo = getToolSeoMeta("svg-to-jsx");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-to-jsx";
     return {
       meta: [
@@ -131,7 +131,7 @@ const TABS: { id: Tab; label: string }[] = [
 function SvgToJsxTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-to-jsx", isPro);
-  const seo = getToolSeo("svg-to-jsx");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [tab, setTab] = useState<Tab>("jsx");

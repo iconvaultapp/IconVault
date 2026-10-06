@@ -7,8 +7,8 @@ import { ArrowDownToLine, Copy, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/query-string-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/query-string-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,7 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/tools_/query-string-builder")({
   head: () => {
-    const seo = getToolSeoMeta("query-string-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/query-string-builder";
     return {
       meta: [
@@ -56,7 +56,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function QueryStringBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("query-string-builder", isPro);
-  const seo = getToolSeo("query-string-builder");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<QsRow[]>([
     { id: rowSeq++, key: "q", value: "icon search" },

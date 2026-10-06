@@ -7,13 +7,13 @@ import { Copy, Image as ImageIcon, Share2, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/open-graph-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/open-graph-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/open-graph-generator")({
   head: () => {
-    const seo = getToolSeoMeta("open-graph-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/open-graph-generator";
     return {
       meta: [
@@ -93,7 +93,7 @@ function buildOgTags(f: OgFields): string {
 function OpenGraphGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("open-graph-generator", isPro);
-  const seo = getToolSeo("open-graph-generator");
+  const seo = toolSeo;
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

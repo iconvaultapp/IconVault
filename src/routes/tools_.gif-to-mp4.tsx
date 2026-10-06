@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gif-to-mp4";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gif-to-mp4";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, formatBytes } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/gif-to-mp4")({
   head: () => {
-    const seo = getToolSeoMeta("gif-to-mp4");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gif-to-mp4";
     return {
       meta: [
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/tools_/gif-to-mp4")({
 function GifToMp4Tool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gif-to-mp4", isPro);
-  const seo = getToolSeo("gif-to-mp4");
+  const seo = toolSeo;
 
   const [fileName, setFileName] = useState("");
   const [gifUrl, setGifUrl] = useState("");

@@ -8,13 +8,13 @@ import { Copy, ExternalLink, PackageSearch } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-alt";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-alt";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-alt")({
   head: () => {
-    const seo = getToolSeoMeta("npm-alt");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-alt";
     return {
       meta: [
@@ -108,7 +108,7 @@ async function findAlternatives(name: string): Promise<{ alts: Alt[]; keywords: 
 function NpmAltTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-alt", isPro);
-  const seo = getToolSeo("npm-alt");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("moment");
   const [alts, setAlts] = useState<Alt[]>([]);

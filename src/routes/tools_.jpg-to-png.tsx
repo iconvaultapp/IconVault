@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/jpg-to-png";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/jpg-to-png";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, canvasToBlob, formatBytes, loadImageFile } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/jpg-to-png")({
   head: () => {
-    const seo = getToolSeoMeta("jpg-to-png");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/jpg-to-png";
     return {
       meta: [
@@ -49,7 +49,7 @@ let nextId = 1;
 function JpgToPng() {
   const { isPro } = usePlan();
   const trial = useToolTrial("jpg-to-png", isPro);
-  const seo = getToolSeo("jpg-to-png");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [busy, setBusy] = useState(false);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/invoker-commands";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/invoker-commands";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/invoker-commands")({
   head: () => {
-    const seo = getToolSeoMeta("invoker-commands");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/invoker-commands";
     return {
       meta: [
@@ -139,7 +139,7 @@ async function copyText(s: string): Promise<boolean> {
 function InvokerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("invoker-commands", isPro);
-  const seo = getToolSeo("invoker-commands");
+  const seo = toolSeo;
 
   const [active, setActive] = useState(DEMOS[0]!);
   const [copied, setCopied] = useState(false);

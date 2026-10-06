@@ -175,13 +175,13 @@ export function TrialUpsell({ toolName, left }: { toolName: string; left: number
       <Crown className="mx-auto mb-2 h-8 w-8 text-amber-500" />
       <h3 className="text-lg font-extrabold">You've used your 5 free {toolName} runs</h3>
       <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
-        Go Pro for unlimited runs, HD exports and every template - $12/year, cancel anytime.
+        Go Pro for unlimited runs, HD exports and every template - $19/year, cancel anytime.
       </p>
       <Link
         to="/pro"
         className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90"
       >
-        <Crown className="h-4 w-4" /> Get Pro - $12/yr
+        <Crown className="h-4 w-4" /> Get Pro - $19/yr
       </Link>
     </div>
   );

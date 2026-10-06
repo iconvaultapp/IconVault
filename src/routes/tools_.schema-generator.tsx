@@ -8,13 +8,13 @@ import { Braces, Copy, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/schema-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/schema-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/schema-generator")({
   head: () => {
-    const seo = getToolSeoMeta("schema-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/schema-generator";
     return {
       meta: [
@@ -108,7 +108,7 @@ type BuildResult = { data: Record<string, unknown> } | { error: string };
 function SchemaGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("schema-generator", isPro);
-  const seo = getToolSeo("schema-generator");
+  const seo = toolSeo;
 
   const [schemaType, setSchemaType] = useState<SchemaType>("FAQPage");
   const [fields, setFields] = useState<Record<string, string>>({ currency: "USD", availability: "InStock" });

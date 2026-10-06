@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/compress-to-exact-kb";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/compress-to-exact-kb";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import {
   loadImageFile,
@@ -23,7 +23,7 @@ import {
 
 export const Route = createFileRoute("/tools_/compress-to-exact-kb")({
   head: () => {
-    const seo = getToolSeoMeta("compress-to-exact-kb");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/compress-to-exact-kb";
     return {
       meta: [
@@ -57,7 +57,7 @@ interface Result {
 function CompressExactKbTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("compress-to-exact-kb", isPro);
-  const seo = getToolSeo("compress-to-exact-kb");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

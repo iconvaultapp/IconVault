@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-package-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-package-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-package-checker")({
   head: () => {
-    const seo = getToolSeoMeta("npm-package-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-package-checker";
     return {
       meta: [
@@ -94,7 +94,7 @@ function grade(info: PkgInfo): { letter: string; color: string } {
 function NpmCheckerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-package-checker", isPro);
-  const seo = getToolSeo("npm-package-checker");
+  const seo = toolSeo;
 
   const [name, setName] = useState("");
   const [info, setInfo] = useState<PkgInfo | null>(null);

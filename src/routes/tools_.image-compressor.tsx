@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-compressor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-compressor";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/image-compressor")({
   head: () => {
-    const seo = getToolSeoMeta("image-compressor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-compressor";
     return {
       meta: [
@@ -83,7 +83,7 @@ function hasTransparency(img: HTMLImageElement): boolean {
 function CompressorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-compressor", isPro);
-  const seo = getToolSeo("image-compressor");
+  const seo = toolSeo;
 
   const [files, setFiles] = useState<File[]>([]);
   const [done, setDone] = useState<DoneFile[]>([]);

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/typography-scale";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/typography-scale";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/typography-scale")({
   head: () => {
-    const seo = getToolSeoMeta("typography-scale");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/typography-scale";
     return {
       meta: [
@@ -61,7 +61,7 @@ function varName(n: number): string {
 function TypeScaleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("typography-scale", isPro);
-  const seo = getToolSeo("typography-scale");
+  const seo = toolSeo;
 
   const [base, setBase] = useState(16);
   const [ratioIdx, setRatioIdx] = useState(4);

@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/photo-signature-joiner";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/photo-signature-joiner";
 import {
   loadImageFile,
   drawCover,
@@ -22,7 +22,7 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 
 export const Route = createFileRoute("/tools_/photo-signature-joiner")({
   head: () => {
-    const seo = getToolSeoMeta("photo-signature-joiner");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/photo-signature-joiner";
     return {
       meta: [
@@ -135,7 +135,7 @@ interface Slot {
 function JoinerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("photo-signature-joiner", isPro);
-  const seo = getToolSeo("photo-signature-joiner");
+  const seo = toolSeo;
 
   const [photo, setPhoto] = useState<Slot>({ img: null, name: "", url: "" });
   const [sign, setSign] = useState<Slot>({ img: null, name: "", url: "" });

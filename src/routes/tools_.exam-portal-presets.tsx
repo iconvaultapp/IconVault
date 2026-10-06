@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/exam-portal-presets";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/exam-portal-presets";
 import {
   loadImageFile,
   drawCover,
@@ -23,7 +23,7 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 
 export const Route = createFileRoute("/tools_/exam-portal-presets")({
   head: () => {
-    const seo = getToolSeoMeta("exam-portal-presets");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/exam-portal-presets";
     return {
       meta: [
@@ -152,7 +152,7 @@ function RuleRow({ title, rule }: { title: string; rule: SizeRule }) {
 function PresetsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("exam-portal-presets", isPro);
-  const seo = getToolSeo("exam-portal-presets");
+  const seo = toolSeo;
 
   const [photo, setPhoto] = useState<Slot>({ img: null, name: "", url: "" });
   const [sign, setSign] = useState<Slot>({ img: null, name: "", url: "" });

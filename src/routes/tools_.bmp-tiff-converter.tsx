@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bmp-tiff-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bmp-tiff-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, canvasToBlob, fillBackground, formatBytes, loadImageFile } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/bmp-tiff-converter")({
   head: () => {
-    const seo = getToolSeoMeta("bmp-tiff-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bmp-tiff-converter";
     return {
       meta: [
@@ -85,7 +85,7 @@ async function decodeToPages(file: File): Promise<HTMLCanvasElement[]> {
 function BmpTiffConverter() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bmp-tiff-converter", isPro);
-  const seo = getToolSeo("bmp-tiff-converter");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [outputId, setOutputId] = useState<OutputId>("jpeg");

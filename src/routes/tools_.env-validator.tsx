@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/env-validator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/env-validator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/env-validator")({
   head: () => {
-    const seo = getToolSeoMeta("env-validator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/env-validator";
     return {
       meta: [
@@ -143,7 +143,7 @@ function buildExample(vars: EnvVar[]): string {
 function EnvValidatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("env-validator", isPro);
-  const seo = getToolSeo("env-validator");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(SAMPLE);
   const [result, setResult] = useState<{ vars: EnvVar[]; issues: Issue[] } | null>(null);

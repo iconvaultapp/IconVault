@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-minifier";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-minifier";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-minifier")({
   head: () => {
-    const seo = getToolSeoMeta("css-minifier");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-minifier";
     return {
       meta: [
@@ -105,7 +105,7 @@ function fmtBytes(n: number): string {
 function CssMinifierTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-minifier", isPro);
-  const seo = getToolSeo("css-minifier");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"minify" | "beautify">("minify");
   const [input, setInput] = useState("");

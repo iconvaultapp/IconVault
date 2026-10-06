@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/screen-orientation-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/screen-orientation-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/screen-orientation-playground")({
   head: () => {
-    const seo = getToolSeoMeta("screen-orientation-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/screen-orientation-playground";
     return {
       meta: [
@@ -40,7 +40,7 @@ const LOCK_TYPES = ["portrait", "landscape", "portrait-primary", "portrait-secon
 function ScreenOrientationPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("screen-orientation-playground", isPro);
-  const seo = getToolSeo("screen-orientation-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [type, setType] = useState("");

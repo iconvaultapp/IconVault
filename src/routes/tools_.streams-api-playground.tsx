@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/streams-api-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/streams-api-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/streams-api-playground")({
   head: () => {
-    const seo = getToolSeoMeta("streams-api-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/streams-api-playground";
     return {
       meta: [
@@ -123,7 +123,7 @@ type DemoId = (typeof DEMOS)[number]["id"];
 function StreamsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("streams-api-playground", isPro);
-  const seo = getToolSeo("streams-api-playground");
+  const seo = toolSeo;
 
   const [log, setLog] = useState<string[]>([]);
   const [active, setActive] = useState<DemoId | null>(null);

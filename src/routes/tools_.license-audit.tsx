@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/license-audit";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/license-audit";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/license-audit")({
   head: () => {
-    const seo = getToolSeoMeta("license-audit");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/license-audit";
     return {
       meta: [
@@ -101,7 +101,7 @@ async function resolveLicense(name: string): Promise<string> {
 function LicenseAuditTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("license-audit", isPro);
-  const seo = getToolSeo("license-audit");
+  const seo = toolSeo;
   const [project, setProject] = useState<string>("MIT");
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState("");

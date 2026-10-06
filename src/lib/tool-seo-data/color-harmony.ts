@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Color Harmony - Free Online Palette Generator | IconVault",
+    metaDescription: "Pick a base color and generate complementary, triadic and analogous palettes with one-click HEX copy and CSS export. Free, in-browser.",
+    about: [
+      "**IconVault**'s **Color Harmony** turns one base color into a full **harmonious palette**: **complementary, triadic, analogous, split-complementary, tetradic and monochromatic** schemes, computed live on the color wheel. Click any swatch to copy its HEX and export the palette as **CSS variables**. It is free and runs fully in your browser.",
+      "**Color harmony rules** are how designers make palettes that feel intentional instead of random. Start from your **brand color**, preview which scheme fits your mood, then drop the **exported variables** into your stylesheet. Trial use is recorded only when you export."
+    ],
+    faqs: [
+      { q: "What color harmonies are supported?", a: "Complementary, split-complementary, triadic, tetradic (rectangle), square, analogous and monochromatic. Each is computed from your base color using standard color-wheel geometry." },
+      { q: "How do I copy a color?", a: "Click any swatch to copy its HEX value to your clipboard instantly, ready to paste into CSS, Figma or any design tool." },
+      { q: "Can I export the palette as CSS?", a: "Yes. The export button generates CSS custom properties (variables) for the whole palette, which you can paste into your stylesheet and reference as var(--color-1) and so on." },
+      { q: "Which harmony should I choose for my design?", a: "Complementary for bold contrast and CTAs, analogous for calm cohesive sections, triadic for vibrant balanced designs, and monochromatic when you want subtlety from a single hue." },
+      { q: "Do I need design experience to use this?", a: "No. Pick any color you like and the tool shows every harmony option visually. If it looks good on the swatches, it will look good in your design." },
+      { q: "Is my palette saved anywhere?", a: "No, palettes are generated on the fly and nothing is stored. Copy or export the colors you like before leaving the page."
+      }
+    ],
+    tags: [
+      "color harmony generator",
+      "color palette generator",
+      "color scheme generator",
+      "complementary color generator",
+      "triadic color palette",
+      "analogous color scheme",
+      "color wheel harmony",
+      "free color palette generator",
+      "online color scheme maker",
+      "color palette maker",
+      "website color scheme generator",
+      "brand color palette generator",
+      "complementary colors finder",
+      "split complementary palette",
+      "tetradic color scheme",
+      "monochromatic color palette",
+      "color harmonies explained",
+      "best color combinations",
+      "color palette from one color",
+      "generate palette from base color",
+      "css color palette generator",
+      "export palette css variables",
+      "color scheme for website",
+      "ui color palette generator",
+      "design color combinations",
+      "color theory tool",
+      "color wheel picker online",
+      "pick harmonious colors",
+      "color matching tool",
+      "what colors go with",
+      "colors that go together generator",
+      "color palette ideas",
+      "aesthetic color palette generator",
+      "pastel color harmony",
+      "vibrant color palette generator",
+      "dark mode color palette generator",
+      "color palette hex codes",
+      "copy hex color palette",
+      "color scheme copy paste",
+      "logo color palette generator",
+      "interior color scheme generator",
+      "color harmony chart",
+      "color relationships tool",
+      "adobe color alternative free",
+      "coolors alternative",
+      "free palette generator no signup",
+      "color palette tool online",
+      "harmonious color combinations",
+      "design color palette maker",
+      "color scheme generator hex"
+    ],
+  };
+
+export default seo;

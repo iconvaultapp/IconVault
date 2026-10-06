@@ -10,15 +10,15 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gitignore-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gitignore-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export const Route = createFileRoute("/tools_/gitignore-generator")({
   head: () => {
-    const seo = getToolSeoMeta("gitignore-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gitignore-generator";
     return {
       meta: [
@@ -214,7 +214,7 @@ const CATS = ["Language", "Framework", "Tool", "OS", "IDE"];
 function GitignoreGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gitignore-generator", isPro);
-  const seo = getToolSeo("gitignore-generator");
+  const seo = toolSeo;
 
   const [selected, setSelected] = useState<string[]>(["node", "macos", "windows", "vscode"]);
   const [query, setQuery] = useState("");

@@ -1,0 +1,18 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "View Transitions - Interactive Lab | IconVault",
+    metaDescription: "Animate SPA updates with document.startViewTransition: live shuffle demo, named elements, copyable CSS. Free, in-browser.",
+    about: [ "**IconVault**'s **View Transitions** playground shows the smoothest API you are probably not using. Hit **shuffle** and watch cards glide to their new slots, each with a stable **view-transition-name** so the browser morphs the old snapshot into the new one. Custom **fade and slide keyframes** on `::view-transition-old` and `::view-transition-new` control the choreography.", "It is **free** and runs **fully in your browser**. The lab detects support honestly: unsupported browsers get an instant update instead of animation. Copy the CSS snippet for the SPA pattern plus the one-line `@view-transition` rule that animates full page loads on multi-page sites." ],
+    faqs: [
+      { q: "What is the View Transitions API?", a: "A browser API that animates DOM changes. You wrap your update in document.startViewTransition(() => update()), and the browser cross-fades and morphs the old state into the new one instead of swapping instantly." },
+      { q: "What is view-transition-name?", a: "A CSS property that gives an element a stable identity across the transition. Elements with the same name in the old and new snapshots get morphed into each other, like shared-element transitions in native apps." },
+      { q: "Which browsers support View Transitions?", a: "Chrome 111+, Edge 111+ and Safari 18+ for SPA transitions. Cross-document transitions via @view-transition work in Chrome and Edge 126+. Always feature-detect before calling the API." },
+      { q: "How do cross-document view transitions work?", a: "Add @view-transition { navigation: auto; } to your CSS. Same-origin page loads then animate automatically, no JavaScript needed, with opt-out via the View-Transition header." },
+      { q: "Should I respect prefers-reduced-motion?", a: "Yes. Wrap your startViewTransition call in a media query check and skip the animation for users who prefer reduced motion." },
+      { q: "Is this playground free?", a: "Yes, free, running entirely in your browser." },
+    ],
+    tags: ["view transitions", "view transitions api", "view transitions tutorial", "document.startviewtransition", "startviewtransition example", "view-transition-name", "view transition name css", "shared element transition web", "spa page transition", "animate spa navigation", "page transition animation", "cross fade pages", "view transitions demo", "view transitions playground", "view transitions explained", "how view transitions work", "css view transitions", "view-transition-old", "view-transition-new", "custom view transition animation", "view transition keyframes", "cross-document view transitions", "mpa view transitions", "@view-transition", "navigation auto view transition", "view transition browser support", "view transitions safari", "view transitions firefox", "view transitions chrome", "prefers-reduced-motion transitions", "smooth page transitions", "app like page transitions", "react view transitions", "vue view transitions", "svelte view transitions", "astro view transitions", "nextjs view transitions", "nuxt view transitions", "page transition library", "barba.js alternative", "swup alternative", "flip animation", "layout animation web", "morph animation css", "free animation tool", "web animation lab", "view transitions api mdn", "page morph animation", "spa transition css", "view transition types", "nextjs view transitions app router"],
+  };
+
+export default seo;

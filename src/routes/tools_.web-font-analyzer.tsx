@@ -8,13 +8,13 @@ import { FileSearch, Copy, Check, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-font-analyzer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-font-analyzer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/web-font-analyzer")({
   head: () => {
-    const seo = getToolSeoMeta("web-font-analyzer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-font-analyzer";
     return {
       meta: [
@@ -120,7 +120,7 @@ const EXAMPLE_CSS = `/* Paste your @font-face CSS here, or a Google Fonts CSS UR
 function WebFontAnalyzerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-font-analyzer", isPro);
-  const seo = getToolSeo("web-font-analyzer");
+  const seo = toolSeo;
 
   const [cssInput, setCssInput] = useState(EXAMPLE_CSS);
   const [urlInput, setUrlInput] = useState("");

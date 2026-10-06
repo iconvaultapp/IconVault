@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-event-loop";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-event-loop";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-event-loop")({
   head: () => {
-    const seo = getToolSeoMeta("js-event-loop");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-event-loop";
     return {
       meta: [
@@ -286,7 +286,7 @@ function QueueBox({ title, items, empty, accent }: { title: string; items: strin
 function EventLoopTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-event-loop", isPro);
-  const seo = getToolSeo("js-event-loop");
+  const seo = toolSeo;
 
   const [code, setCode] = useState(PRESETS[0]!.code);
   const [applied, setApplied] = useState(PRESETS[0]!.code);

@@ -19,15 +19,15 @@ import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import { removeBackgroundAi, loadBgAi } from "@/lib/bg-ai";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/background-remover";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/background-remover";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { cn } from "@/lib/utils";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/background-remover")({
   head: () => {
-    const seo = getToolSeoMeta("background-remover");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/background-remover";
     return {
       meta: [
@@ -129,7 +129,7 @@ export function floodFill(
 function BackgroundRemoverTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("background-remover", isPro);
-  const seo = getToolSeo("background-remover");
+  const seo = toolSeo;
 
   const imgRef = useRef<HTMLImageElement | null>(null);
   /** Immutable original pixels - auto-remove and the restore brush read from this. */

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/list-comparer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/list-comparer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/list-comparer")({
   head: () => {
-    const seo = getToolSeoMeta("list-comparer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/list-comparer";
     return {
       meta: [
@@ -46,7 +46,7 @@ type SectionKey = (typeof SECTIONS)[number]["key"];
 function ListComparerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("list-comparer", isPro);
-  const seo = getToolSeo("list-comparer");
+  const seo = toolSeo;
 
   const [a, setA] = useState("");
   const [b, setB] = useState("");

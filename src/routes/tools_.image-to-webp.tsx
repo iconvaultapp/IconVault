@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-to-webp";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-to-webp";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { baseName, canvasToBlob, formatBytes, loadImageFile } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/image-to-webp")({
   head: () => {
-    const seo = getToolSeoMeta("image-to-webp");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-to-webp";
     return {
       meta: [
@@ -49,7 +49,7 @@ let nextId = 1;
 function ImageToWebp() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-to-webp", isPro);
-  const seo = getToolSeo("image-to-webp");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [quality, setQuality] = useState(80);

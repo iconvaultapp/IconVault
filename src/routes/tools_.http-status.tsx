@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/http-status";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/http-status";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/http-status")({
   head: () => {
-    const seo = getToolSeoMeta("http-status");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/http-status";
     return {
       meta: [
@@ -130,7 +130,7 @@ async function copy(code: number, trial: { canUse: boolean; recordUse: () => voi
 function HttpStatusTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("http-status", isPro);
-  const seo = getToolSeo("http-status");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<string>("All");

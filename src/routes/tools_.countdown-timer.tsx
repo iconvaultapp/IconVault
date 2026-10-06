@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/countdown-timer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/countdown-timer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/countdown-timer")({
   head: () => {
-    const seo = getToolSeoMeta("countdown-timer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/countdown-timer";
     return {
       meta: [
@@ -101,7 +101,7 @@ const numInputCls =
 function CountdownTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("countdown-timer", isPro);
-  const seo = getToolSeo("countdown-timer");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"date" | "duration">("duration");
   const [dateStr, setDateStr] = useState("");

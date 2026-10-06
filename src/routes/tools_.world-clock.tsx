@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/world-clock";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/world-clock";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/world-clock")({
   head: () => {
-    const seo = getToolSeoMeta("world-clock");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/world-clock";
     return {
       meta: [
@@ -66,7 +66,7 @@ const DEFAULT = ["America/New_York", "Europe/London", "Asia/Dubai", "Asia/Kolkat
 function WorldClockTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("world-clock", isPro);
-  const seo = getToolSeo("world-clock");
+  const seo = toolSeo;
 
   const [zones, setZones] = useState<string[]>(DEFAULT);
   const [hour12, setHour12] = useState(true);

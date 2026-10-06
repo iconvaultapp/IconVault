@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/redact-image";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/redact-image";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, baseName, extForMime, fillBackground } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/redact-image")({
   head: () => {
-    const seo = getToolSeoMeta("redact-image");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/redact-image";
     return {
       meta: [
@@ -52,7 +52,7 @@ let nextId = 1;
 function RedactImageTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("redact-image", isPro);
-  const seo = getToolSeo("redact-image");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [fileName, setFileName] = useState("");

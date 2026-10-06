@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/probability-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/probability-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/probability-lab")({
   head: () => {
-    const seo = getToolSeoMeta("probability-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/probability-lab";
     return {
       meta: [
@@ -154,7 +154,7 @@ function drawChart(canvas: HTMLCanvasElement, curve: number[], theory: number) {
 function ProbabilityLabTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("probability-lab", isPro);
-  const seo = getToolSeo("probability-lab");
+  const seo = toolSeo;
 
   const [expId, setExpId] = useState(EXPERIMENTS[0]!.id);
   const [trials, setTrials] = useState(10000);

@@ -1,4 +1,9 @@
 @import "tailwindcss" source(none);
+/* Self-hosted variable fonts (were Google Fonts render-blocking). */
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/dm-sans/wght-italic.css";
+@import "@fontsource-variable/jetbrains-mono";
 @source "../src";
 @import "tw-animate-css";
 

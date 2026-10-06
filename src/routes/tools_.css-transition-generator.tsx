@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-transition-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-transition-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-transition-generator")({
   head: () => {
-    const seo = getToolSeoMeta("css-transition-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-transition-generator";
     return {
       meta: [
@@ -59,7 +59,7 @@ const PROPERTIES = [
 function TransitionTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-transition-generator", isPro);
-  const seo = getToolSeo("css-transition-generator");
+  const seo = toolSeo;
 
   const [property, setProperty] = useState("transform");
   const [duration, setDuration] = useState(400);

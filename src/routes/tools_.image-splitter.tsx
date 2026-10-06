@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-splitter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-splitter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, canvasToBlob, baseName, extForMime } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/image-splitter")({
   head: () => {
-    const seo = getToolSeoMeta("image-splitter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-splitter";
     return {
       meta: [
@@ -50,7 +50,7 @@ const CAROUSEL_W = 1080;
 function ImageSplitterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-splitter", isPro);
-  const seo = getToolSeo("image-splitter");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [file, setFile] = useState<File | null>(null);

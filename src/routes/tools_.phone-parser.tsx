@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/phone-parser";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/phone-parser";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/phone-parser")({
   head: () => {
-    const seo = getToolSeoMeta("phone-parser");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/phone-parser";
     return {
       meta: [
@@ -202,7 +202,7 @@ function parsePhone(line: string): Parsed {
 function PhoneParserTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("phone-parser", isPro);
-  const seo = getToolSeo("phone-parser");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [rows, setRows] = useState<Parsed[] | null>(null);

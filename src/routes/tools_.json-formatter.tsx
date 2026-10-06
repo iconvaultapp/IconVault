@@ -7,14 +7,14 @@ import { AlertTriangle, Braces, Check, Copy, Download, Eraser } from "lucide-rea
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-formatter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-formatter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/json-formatter")({
   head: () => {
-    const seo = getToolSeoMeta("json-formatter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-formatter";
     return {
       meta: [
@@ -39,7 +39,7 @@ const SAMPLE = `{"name":"IconVault","icons":421020,"collections":239,"tags":["ic
 function JsonFormatterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-formatter", isPro);
-  const seo = getToolSeo("json-formatter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState<string | null>(null);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/hmac-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/hmac-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/hmac-generator")({
   head: () => {
-    const seo = getToolSeoMeta("hmac-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/hmac-generator";
     return {
       meta: [
@@ -62,7 +62,7 @@ async function computeHmac(algo: string, message: string, keyText: string): Prom
 function HmacTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("hmac-generator", isPro);
-  const seo = getToolSeo("hmac-generator");
+  const seo = toolSeo;
 
   const [message, setMessage] = useState("");
   const [secret, setSecret] = useState("");

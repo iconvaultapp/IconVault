@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-layers-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-layers-lab";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-layers-lab")({
   head: () => {
-    const seo = getToolSeoMeta("css-layers-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-layers-lab";
     return {
       meta: [
@@ -72,7 +72,7 @@ function layerBackground(css: string): string | null {
 function LayersLabTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-layers-lab", isPro);
-  const seo = getToolSeo("css-layers-lab");
+  const seo = toolSeo;
 
   const [order, setOrder] = useState<string[]>(["base", "components", "utilities"]);
   const [cssByLayer, setCssByLayer] = useState<Record<string, string>>(DEFAULT_CSS);

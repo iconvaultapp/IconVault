@@ -1,0 +1,18 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "CSS field-sizing - Interactive Lab | IconVault",
+    metaDescription: "Make inputs, textareas and selects auto-resize to fit content with CSS field-sizing. Live demos and copyable CSS. Free, runs in your browser.",
+    about: [ "**IconVault**'s **CSS field-sizing** playground demonstrates the one-line replacement for auto-growing form controls. Set **field-sizing: content** and watch inputs grow inline, textareas grow vertically and selects shrink to the chosen option, all with zero JavaScript. Live pixel measurements prove the growth as you type. It is free and runs fully in your browser.", "Adjust **min-width** and **max-width** to keep growth under control, compare against a fixed-width input side by side, and copy the finished CSS including the **width fallback** for older browsers. Auto-growing fields used to need hidden mirror elements and keystroke measuring; this property deletes all of that." ],
+    faqs: [
+      { q: "What does field-sizing: content do?", a: "It makes a form control size itself from its content: text inputs and selects grow in the inline axis, textareas grow in the block axis. It replaces the old JavaScript trick of measuring text in a hidden mirror element." },
+      { q: "Which browsers support CSS field-sizing?", a: "Chrome and Edge 123 and later support it. Firefox and Safari are implementing it. Because unsupported browsers simply ignore the declaration, you can ship it today with a width fallback." },
+      { q: "How do I make a textarea auto-grow with CSS?", a: "Apply field-sizing: content to the textarea and optionally cap it with max-height so very long content scrolls instead of growing forever. No JavaScript needed." },
+      { q: "How do I limit how big a field-sizing input gets?", a: "Use the normal min-width, max-width, min-height and max-height properties. field-sizing only changes how the intrinsic size is computed; all box constraints still apply." },
+      { q: "Does field-sizing work on select elements?", a: "Yes. A select with field-sizing: content sizes to the currently selected option instead of the longest option in the list, which keeps compact UIs tidy." },
+      { q: "Is this tool free?", a: "Yes. The CSS field-sizing playground is completely free and runs fully in your browser." },
+    ],
+    tags: [ "css field-sizing", "field-sizing content", "field sizing css", "auto growing input css", "auto resize input css", "input grows with text css", "auto expanding textarea css", "textarea auto height css", "css only autogrow textarea", "no javascript auto resize input", "select auto width css", "select fit content css", "field-sizing browser support", "field-sizing firefox", "field-sizing safari", "field-sizing chrome", "css field-sizing fallback", "field-sizing vs javascript", "auto size input to content", "input width fit text", "dynamic input width css", "textarea grow with content", "textarea rows auto", "contenteditable alternative", "form control sizing css", "intrinsic sizing form elements", "css field-sizing mdn", "field-sizing property", "field-sizing fixed", "input field-sizing example", "textarea field-sizing example", "select field-sizing example", "number input auto width", "date input field-sizing", "min-width field-sizing", "max-width field-sizing", "max-height textarea", "auto-resizing form", "elastic input css", "growing text field css", "css tricks auto grow input", "learn css field-sizing", "interactive css lab", "css field-sizing playground", "css field-sizing demo", "modern css form tricks", "css only form ux", "accessible auto grow input", "field-sizing performance", "replace mirror element textarea" ],
+  };
+
+export default seo;

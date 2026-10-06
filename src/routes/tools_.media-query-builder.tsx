@@ -8,13 +8,13 @@ import { Check, Copy, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/media-query-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/media-query-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/media-query-builder")({
   head: () => {
-    const seo = getToolSeoMeta("media-query-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/media-query-builder";
     return {
       meta: [
@@ -61,7 +61,7 @@ const mkBp = (name: string, min: string, max: string): Breakpoint => ({ id: `b${
 function MediaQueryTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("media-query-builder", isPro);
-  const seo = getToolSeo("media-query-builder");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<Breakpoint[]>(PRESETS.map((p) => mkBp(p.name, p.min, p.max)));
   const [copied, setCopied] = useState(false);

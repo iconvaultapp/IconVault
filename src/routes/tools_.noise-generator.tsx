@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/noise-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/noise-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/noise-generator")({
   head: () => {
-    const seo = getToolSeoMeta("noise-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/noise-generator";
     return {
       meta: [
@@ -101,7 +101,7 @@ function formatCountdown(totalSecs: number): string {
 function NoiseGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("noise-generator", isPro);
-  const seo = getToolSeo("noise-generator");
+  const seo = toolSeo;
 
   const [noise, setNoise] = useState<NoiseId>("pink");
   const [filter, setFilter] = useState<FilterId>("none");

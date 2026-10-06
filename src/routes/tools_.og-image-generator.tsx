@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/og-image-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/og-image-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import IconStickerPicker, { drawSvgToCanvas, type PickedIcon } from "@/components/IconStickerPicker";
 
 export const Route = createFileRoute("/tools_/og-image-generator")({
   head: () => {
-    const seo = getToolSeoMeta("og-image-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/og-image-generator";
     return {
       meta: [
@@ -130,7 +130,7 @@ function paintPattern(ctx: CanvasRenderingContext2D, w: number, h: number, patte
 function OgGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("og-image-generator", isPro);
-  const seo = getToolSeo("og-image-generator");
+  const seo = toolSeo;
 
   const [presetId, setPresetId] = useState("og");
   const [headline, setHeadline] = useState("Ship faster with IconVault");

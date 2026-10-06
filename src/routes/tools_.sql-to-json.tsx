@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sql-to-json";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sql-to-json";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sql-to-json")({
   head: () => {
-    const seo = getToolSeoMeta("sql-to-json");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sql-to-json";
     return {
       meta: [
@@ -214,7 +214,7 @@ function parseInsert(stmt: string): Parsed | null {
 function SqlToJsonTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sql-to-json", isPro);
-  const seo = getToolSeo("sql-to-json");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [parsed, setParsed] = useState<Parsed[] | null>(null);

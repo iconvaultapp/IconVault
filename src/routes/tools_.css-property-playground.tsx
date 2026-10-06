@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-property-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-property-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-property-playground")({
   head: () => {
-    const seo = getToolSeoMeta("css-property-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-property-playground";
     return {
       meta: [
@@ -122,7 +122,7 @@ function DemoCard({
 function PropertyPlaygroundTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-property-playground", isPro);
-  const seo = getToolSeo("css-property-playground");
+  const seo = toolSeo;
   const support = useMemo(supportInfo, []);
 
   const [regAngle, setRegAngle] = useState(true);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/morse-code";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/morse-code";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/morse-code")({
   head: () => {
-    const seo = getToolSeoMeta("morse-code");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/morse-code";
     return {
       meta: [
@@ -83,7 +83,7 @@ const sleep = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
 function MorseCodeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("morse-code", isPro);
-  const seo = getToolSeo("morse-code");
+  const seo = toolSeo;
 
   const [direction, setDirection] = useState<"encode" | "decode">("encode");
   const [input, setInput] = useState("");

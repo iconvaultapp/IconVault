@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/regex-cheatsheet";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/regex-cheatsheet";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/regex-cheatsheet")({
   head: () => {
-    const seo = getToolSeoMeta("regex-cheatsheet");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/regex-cheatsheet";
     return {
       meta: [
@@ -136,7 +136,7 @@ const TOTAL = GROUPS.reduce((a, g) => a + g.items.length, 0);
 function RegexCheatTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("regex-cheatsheet", isPro);
-  const seo = getToolSeo("regex-cheatsheet");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
 

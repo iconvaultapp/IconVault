@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pdf-toolkit";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pdf-toolkit";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -20,7 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export const Route = createFileRoute("/tools_/pdf-toolkit")({
   head: () => {
-    const seo = getToolSeoMeta("pdf-toolkit");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pdf-toolkit";
     return {
       meta: [
@@ -68,7 +68,7 @@ function parseRanges(input: string, total: number): number[] {
 function PdfToolkitTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pdf-toolkit", isPro);
-  const seo = getToolSeo("pdf-toolkit");
+  const seo = toolSeo;
 
   const [files, setFiles] = useState<PdfFile[]>([]);
   const [busy, setBusy] = useState(false);

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/number-base-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/number-base-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/number-base-converter")({
   head: () => {
-    const seo = getToolSeoMeta("number-base-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/number-base-converter";
     return {
       meta: [
@@ -76,7 +76,7 @@ const inputCls =
 function BaseConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("number-base-converter", isPro);
-  const seo = getToolSeo("number-base-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("255");
   const [fromBase, setFromBase] = useState(10);

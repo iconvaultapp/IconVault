@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/scroll-snap-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/scroll-snap-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/scroll-snap-builder")({
   head: () => {
-    const seo = getToolSeoMeta("scroll-snap-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/scroll-snap-builder";
     return {
       meta: [
@@ -68,7 +68,7 @@ function Slider({ label, value, onChange, min, max, suffix }: { label: string; v
 function ScrollSnapBuilder() {
   const { isPro } = usePlan();
   const trial = useToolTrial("scroll-snap-builder", isPro);
-  const seo = getToolSeo("scroll-snap-builder");
+  const seo = toolSeo;
 
   const [axis, setAxis] = useState<Axis>("x");
   const [type, setType] = useState<SnapType>("mandatory");

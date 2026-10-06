@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gif-maker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gif-maker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, baseName, formatBytes, drawCover, drawContain } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/gif-maker")({
   head: () => {
-    const seo = getToolSeoMeta("gif-maker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gif-maker";
     return {
       meta: [
@@ -50,7 +50,7 @@ let nextId = 1;
 function GifMakerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gif-maker", isPro);
-  const seo = getToolSeo("gif-maker");
+  const seo = toolSeo;
 
   const [frames, setFrames] = useState<Frame[]>([]);
   const [delay, setDelay] = useState(500);

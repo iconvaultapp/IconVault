@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/prompt-price";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/prompt-price";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/prompt-price")({
   head: () => {
-    const seo = getToolSeoMeta("prompt-price");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/prompt-price";
     return {
       meta: [
@@ -86,7 +86,7 @@ const SAMPLE = `You are a helpful assistant. Summarize the following meeting not
 function PromptPrice() {
   const { isPro } = usePlan();
   const trial = useToolTrial("prompt-price", isPro);
-  const seo = getToolSeo("prompt-price");
+  const seo = toolSeo;
 
   const [text, setText] = useState(SAMPLE);
   const [outPct, setOutPct] = useState(25);

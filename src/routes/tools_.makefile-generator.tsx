@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/makefile-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/makefile-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,7 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/tools_/makefile-generator")({
   head: () => {
-    const seo = getToolSeoMeta("makefile-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/makefile-generator";
     return {
       meta: [
@@ -175,7 +175,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function MakefileGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("makefile-generator", isPro);
-  const seo = getToolSeo("makefile-generator");
+  const seo = toolSeo;
 
   const loadTemplate = (key: string): { vars: Var[]; targets: Target[] } => {
     const t = TEMPLATES[key] ?? TEMPLATES["c"]!;

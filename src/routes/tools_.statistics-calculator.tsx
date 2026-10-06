@@ -6,13 +6,13 @@ import { BarChart3, Copy, Sigma } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/statistics-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/statistics-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/statistics-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("statistics-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/statistics-calculator";
     return {
       meta: [
@@ -51,7 +51,7 @@ function percentile(sorted: number[], p: number): number {
 function StatsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("statistics-calculator", isPro);
-  const seo = getToolSeo("statistics-calculator");
+  const seo = toolSeo;
 
   const [raw, setRaw] = useState("12, 18, 21, 21, 25, 30, 34, 40, 21, 27");
   const [done, setDone] = useState(false);

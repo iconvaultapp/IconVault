@@ -7,13 +7,13 @@ import { AlertTriangle, CheckCircle2, Type } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/title-analyzer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/title-analyzer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/title-analyzer")({
   head: () => {
-    const seo = getToolSeoMeta("title-analyzer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/title-analyzer";
     return {
       meta: [
@@ -156,7 +156,7 @@ function grade(score: number): { letter: string; color: string } {
 function TitleAnalyzerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("title-analyzer", isPro);
-  const seo = getToolSeo("title-analyzer");
+  const seo = toolSeo;
 
   const [title, setTitle] = useState("");
   const [elements, setElements] = useState<Element[] | null>(null);

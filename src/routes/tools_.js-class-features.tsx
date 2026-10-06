@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-class-features";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-class-features";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-class-features")({
   head: () => {
-    const seo = getToolSeoMeta("js-class-features");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-class-features";
     return {
       meta: [
@@ -284,7 +284,7 @@ console.log("area:", real.area().toFixed(2));`,
 function ClassFeaturesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-class-features", isPro);
-  const seo = getToolSeo("js-class-features");
+  const seo = toolSeo;
 
   const [active, setActive] = useState(FEATURES[0]!);
   const [code, setCode] = useState(FEATURES[0]!.code);

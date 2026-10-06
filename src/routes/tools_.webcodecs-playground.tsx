@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/webcodecs-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/webcodecs-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/webcodecs-playground")({
   head: () => {
-    const seo = getToolSeoMeta("webcodecs-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/webcodecs-playground";
     return {
       meta: [
@@ -54,7 +54,7 @@ type SupportMap = Record<string, boolean | null>;
 function WebCodecsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("webcodecs-playground", isPro);
-  const seo = getToolSeo("webcodecs-playground");
+  const seo = toolSeo;
 
   const [api, setApi] = useState<Record<string, boolean> | null>(null);
   const [videoSupport, setVideoSupport] = useState<SupportMap>({});

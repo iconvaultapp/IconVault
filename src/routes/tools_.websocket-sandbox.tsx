@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/websocket-sandbox";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/websocket-sandbox";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/websocket-sandbox")({
   head: () => {
-    const seo = getToolSeoMeta("websocket-sandbox");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/websocket-sandbox";
     return {
       meta: [
@@ -53,7 +53,7 @@ let nextId = 1;
 function WebsocketSandbox() {
   const { isPro } = usePlan();
   const trial = useToolTrial("websocket-sandbox", isPro);
-  const seo = getToolSeo("websocket-sandbox");
+  const seo = toolSeo;
 
   const [url, setUrl] = useState(ECHO_PRESET);
   const [sseMode, setSseMode] = useState(false);

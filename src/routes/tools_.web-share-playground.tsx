@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-share-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-share-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/web-share-playground")({
   head: () => {
-    const seo = getToolSeoMeta("web-share-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-share-playground";
     return {
       meta: [
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/tools_/web-share-playground")({
 function WebShareTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-share-playground", isPro);
-  const seo = getToolSeo("web-share-playground");
+  const seo = toolSeo;
 
   const [shareOk, setShareOk] = useState<boolean | null>(null);
   const [title, setTitle] = useState("IconVault");

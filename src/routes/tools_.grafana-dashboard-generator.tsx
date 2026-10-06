@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/grafana-dashboard-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/grafana-dashboard-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/grafana-dashboard-generator")({
   head: () => {
-    const seo = getToolSeoMeta("grafana-dashboard-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/grafana-dashboard-generator";
     return {
       meta: [
@@ -98,7 +98,7 @@ const inputCls =
 function GrafanaTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("grafana-dashboard-generator", isPro);
-  const seo = getToolSeo("grafana-dashboard-generator");
+  const seo = toolSeo;
 
   const [dashTitle, setDashTitle] = useState("My Service Overview");
   const [uid, setUid] = useState("my-service-overview");

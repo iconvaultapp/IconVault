@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/font-pairing";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/font-pairing";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/font-pairing")({
   head: () => {
-    const seo = getToolSeoMeta("font-pairing");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/font-pairing";
     return {
       meta: [
@@ -68,7 +68,7 @@ function fontsHref(): string {
 function FontPairingTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("font-pairing", isPro);
-  const seo = getToolSeo("font-pairing");
+  const seo = toolSeo;
 
   const [active, setActive] = useState(0);
   const [headingText, setHeadingText] = useState("Design that speaks clearly");

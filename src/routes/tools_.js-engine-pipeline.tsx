@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-engine-pipeline";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-engine-pipeline";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-engine-pipeline")({
   head: () => {
-    const seo = getToolSeoMeta("js-engine-pipeline");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-engine-pipeline";
     return {
       meta: [
@@ -355,7 +355,7 @@ function AstNode({ node, depth }: { node: ANode; depth: number }) {
 function EngineTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-engine-pipeline", isPro);
-  const seo = getToolSeo("js-engine-pipeline");
+  const seo = toolSeo;
 
   const [code, setCode] = useState(PRESETS[0]!.code);
   const [applied, setApplied] = useState(PRESETS[0]!.code);

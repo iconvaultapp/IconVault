@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bfc-layout-debugger";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bfc-layout-debugger";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bfc-layout-debugger")({
   head: () => {
-    const seo = getToolSeoMeta("bfc-layout-debugger");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bfc-layout-debugger";
     return {
       meta: [
@@ -49,7 +49,7 @@ function Toggle({ on, onChange, label }: { on: boolean; onChange: (v: boolean) =
 function BfcDebugger() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bfc-layout-debugger", isPro);
-  const seo = getToolSeo("bfc-layout-debugger");
+  const seo = toolSeo;
 
   const [contain, setContain] = useState(false);
   const [preventCollapse, setPreventCollapse] = useState(false);

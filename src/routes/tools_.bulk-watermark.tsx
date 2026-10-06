@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bulk-watermark";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bulk-watermark";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, canvasToBlob, baseName, extForMime } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/bulk-watermark")({
   head: () => {
-    const seo = getToolSeoMeta("bulk-watermark");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bulk-watermark";
     return {
       meta: [
@@ -116,7 +116,7 @@ function renderTiled(canvas: HTMLCanvasElement, img: HTMLImageElement, o: TileOp
 function BulkWatermarkTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bulk-watermark", isPro);
-  const seo = getToolSeo("bulk-watermark");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [type, setType] = useState<"text" | "logo">("text");

@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/blurhash-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/blurhash-generator";
 import { loadImageFile } from "@/lib/image-tools";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/blurhash-generator")({
   head: () => {
-    const seo = getToolSeoMeta("blurhash-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/blurhash-generator";
     return {
       meta: [
@@ -40,7 +40,7 @@ const PREVIEW_W = 320;
 function BlurhashTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("blurhash-generator", isPro);
-  const seo = getToolSeo("blurhash-generator");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState("");

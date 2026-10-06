@@ -1,0 +1,87 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Robots.txt Generator - Free | IconVault",
+    metaDescription:
+      "Generate a valid robots.txt free: allow/disallow rules per user-agent, sitemap URL and crawl-delay. Copy or download instantly.",
+    about: [
+      "**IconVault**'s **Robots.txt Generator** builds a valid **robots.txt** for your site without memorizing the syntax: add **allow**/**disallow** rules per **user-agent**, point to your **sitemap**, set **crawl-delay** - and get a clean file ready to drop at your domain root.",
+      "The output follows the RFC 9309 **robots.txt** spec and validates as you type. **Download** the file or copy it. Free for everyone, no account needed.",
+    ],
+    faqs: [
+      {
+        q: "What does robots.txt do?",
+        a: "It tells search engine crawlers which parts of your site they may or may not crawl. It lives at yourdomain.com/robots.txt and is the first thing well-behaved bots read.",
+      },
+      {
+        q: "Does disallow hide pages from Google?",
+        a: "Not reliably - disallow stops crawling, but the URL can still be indexed if linked elsewhere. For truly private pages, use noindex or authentication instead.",
+      },
+      {
+        q: "Should I add my sitemap to robots.txt?",
+        a: "Yes, it's good practice. The Sitemap directive helps crawlers discover your sitemap.xml without you submitting it everywhere.",
+      },
+      {
+        q: "What is crawl-delay?",
+        a: "A non-standard hint (supported by some bots, not Google) asking crawlers to wait N seconds between requests - useful for small servers under load.",
+      },
+      {
+        q: "Is the generated file valid?",
+        a: "Yes - the generator follows RFC 9309 syntax and orders directives correctly per user-agent group.",
+      },
+    ],
+    tags: [
+      "robots.txt generator", "robots txt generator free", "create robots.txt",
+      "robots.txt creator", "generate robots.txt online", "robots.txt disallow",
+      "robots.txt allow", "robots.txt sitemap", "robots.txt generator for blogger",
+      "robots.txt wordpress", "robots.txt example", "robots.txt tester",
+      "crawl-delay robots.txt", "user-agent robots.txt", "free robots.txt tool",
+    
+      "robots.txt file generator",
+      "robots txt maker",
+      "create robots txt online",
+      "robots.txt disallow all",
+      "robots.txt allow all",
+      "robots.txt block ai bots",
+      "robots.txt generator online",
+      "robots.txt validator",
+      "robots.txt syntax checker",
+      "robots.txt builder",
+      "generate robots txt free",
+      "robots.txt for blogger",
+      "robots.txt for shopify",
+      "robots.txt for wix",
+      "robots.txt for next.js",
+      "robots.txt block pages",
+      "robots.txt disallow wp-admin",
+      "robots.txt noindex pages",
+      "robots.txt generator seo",
+      "robots.txt checker online",
+      "robots.txt test tool",
+      "robots.txt user agent wildcard",
+      "robots.txt sitemap url",
+      "robots.txt disallow search",
+      "robots.txt allow googlebot",
+      "robots.txt block bingbot",
+      "robots.txt generator tool",
+      "create robots.txt file",
+      "robots.txt generator free online",
+      "robots.txt maker free",
+      "robots.txt disallow folder",
+      "robots.txt allow folder",
+      "robots.txt crawl delay 10",
+      "robots.txt block images",
+      "robots.txt disallow parameters",
+      "robots.txt allow specific page",
+      "robots.txt syntax guide",
+      "robots.txt checker tool",
+      "validate robots.txt",
+      "robots.txt generator no signup",
+      "robots.txt example generator",
+      "robots.txt for ecommerce",
+      "robots.txt block crawlers",
+      "robots.txt seo tool",
+      "free robots txt generator"],
+  };
+
+export default seo;

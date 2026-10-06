@@ -10,8 +10,8 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/cookie-inspector";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/cookie-inspector";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,7 +23,7 @@ import { Badge } from "@/components/ui/badge";
 
 export const Route = createFileRoute("/tools_/cookie-inspector")({
   head: () => {
-    const seo = getToolSeoMeta("cookie-inspector");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/cookie-inspector";
     return {
       meta: [
@@ -72,7 +72,7 @@ function looksSensitive(c: Cookie): boolean {
 function CookieInspectorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("cookie-inspector", isPro);
-  const seo = getToolSeo("cookie-inspector");
+  const seo = toolSeo;
 
   const [cookies, setCookies] = useState<Cookie[]>([]);
   const [dialogOpen, setDialogOpen] = useState(false);

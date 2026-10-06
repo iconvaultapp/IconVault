@@ -30,7 +30,7 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
-import { LIVE_TOOLS, TOOL_CATEGORIES, type ToolDef } from "@/lib/tool-catalog";
+import { TOOL_COUNT, TOOL_CATEGORY_META, FEATURED_TOOLS, type FeaturedToolMeta } from "@/lib/tool-catalog-meta";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/")({
@@ -156,16 +156,7 @@ const STATS = [
 ];
 
 /** Homepage tool discovery: chips, featured cards, trial line. */
-const FEATURED_TOOL_IDS = [
-  "qr-generator",
-  "image-compressor",
-  "password-generator",
-  "json-formatter",
-  "background-remover",
-  "word-counter",
-  "color-converter",
-  "uuid-generator",
-];
+/* FEATURED_TOOLS comes from the lightweight tool-catalog-meta (not the full catalog). */
 
 const FEATURED_ICONS: Record<string, LucideIcon> = {
   qr: QrCode,
@@ -187,9 +178,7 @@ function ToolsTeaser() {
     void navigate({ to: "/tools", search: { q: toolQuery.trim() } });
   };
 
-  const featured = FEATURED_TOOL_IDS.map((id) => LIVE_TOOLS.find((t) => t.id === id)).filter(
-    (t): t is ToolDef => Boolean(t),
-  );
+  const featured: FeaturedToolMeta[] = FEATURED_TOOLS;
 
   return (
     <section className="border-b border-border bg-surface-2/60">
@@ -200,7 +189,7 @@ function ToolsTeaser() {
             Icons are only half the story
           </h2>
           <p className="mt-4 text-muted-foreground">
-            {LIVE_TOOLS.length} free tools for developers, designers and creators. 5 free uses each,
+            {TOOL_COUNT} free tools for developers, designers and creators. 5 free uses each per day,
             no account needed.
           </p>
         </Reveal>
@@ -229,21 +218,17 @@ function ToolsTeaser() {
 
         <Reveal delay={140}>
           <div className="mt-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
-            {TOOL_CATEGORIES.map((c) => ({
-              c,
-              n: LIVE_TOOLS.filter((t) => t.category === c.id).length,
-            }))
-              .filter(({ n }) => n > 0)
-              .map(({ c, n }, vi) => (
+            {TOOL_CATEGORY_META.filter(({ count }) => count > 0)
+              .map(({ id, label, count }, vi) => (
                 <Link
-                  key={c.id}
+                  key={id}
                   to="/tools"
-                  search={{ category: c.id }}
+                  search={{ category: id }}
                   className={`focus-ring flex items-center justify-center rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4 ${vi >= 8 ? "hidden sm:flex" : ""}`}
                 >
-                  {c.label}
+                  {label}
                   <span className="ml-1.5 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
-                    {n}
+                    {count}
                   </span>
                 </Link>
               ))}
@@ -286,7 +271,7 @@ function ToolsTeaser() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <p className="mt-4 text-xs text-muted-foreground">
-            {LIVE_TOOLS.length} free tools, 5 free uses each, no account needed
+            {TOOL_COUNT} free tools, 5 free uses each per day, no account needed
           </p>
         </Reveal>
       </div>
@@ -393,7 +378,7 @@ function Landing() {
           <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
             <Reveal>
               <span className="inline-flex max-w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.08em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
-                <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {LIVE_TOOLS.length} free tools · one search
+                <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {TOOL_COUNT} free tools · one search
               </span>
             </Reveal>
 
@@ -419,7 +404,7 @@ function Landing() {
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 IconVault searches 421,020 icons from Lucide, Phosphor, Material Symbols, Tabler and
                 150 other families. Preview at real size, recolour to your brand, then copy the exact
-                snippet your framework wants. Need more? {LIVE_TOOLS.length} free online tools, from
+                snippet your framework wants. Need more? {TOOL_COUNT} free online tools, from
                 QR codes to background removers, run right in your browser.
               </p>
             </Reveal>
@@ -650,7 +635,7 @@ function Landing() {
               Icons and tools, ready when you are
             </h2>
             <p className="relative mx-auto mt-4 max-w-md text-sm text-background/70">
-              Free to search, free to export, {LIVE_TOOLS.length} free tools with 5 uses each. Sign
+              Free to search, free to export, {TOOL_COUNT} free tools with 5 uses each. Sign
               in only when you want favourites and collections to follow you.
             </p>
             <Link

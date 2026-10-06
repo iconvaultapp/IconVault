@@ -9,14 +9,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-size-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-size-checker";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, formatBytes } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/image-size-checker")({
   head: () => {
-    const seo = getToolSeoMeta("image-size-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-size-checker";
     return {
       meta: [
@@ -75,7 +75,7 @@ function guessFormat(file: File): string {
 function ImageSizeCheckerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-size-checker", isPro);
-  const seo = getToolSeo("image-size-checker");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [dragOver, setDragOver] = useState(false);

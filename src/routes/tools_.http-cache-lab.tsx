@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/http-cache-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/http-cache-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/http-cache-lab")({
   head: () => {
-    const seo = getToolSeoMeta("http-cache-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/http-cache-lab";
     return {
       meta: [
@@ -86,7 +86,7 @@ function fmtT(sec: number): string {
 function CacheLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("http-cache-lab", isPro);
-  const seo = getToolSeo("http-cache-lab");
+  const seo = toolSeo;
 
   const [policy, setPolicy] = useState<Policy>("fresh-1h");
   const [etag, setEtag] = useState('"v1-abc"');

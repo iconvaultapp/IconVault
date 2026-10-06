@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ascii-art-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ascii-art-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ascii-art-generator")({
   head: () => {
-    const seo = getToolSeoMeta("ascii-art-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ascii-art-generator";
     return {
       meta: [
@@ -276,7 +276,7 @@ const DEFAULT_FONT: FontDef = { label: "Standard", note: "", glyphs: {} };
 function AsciiArtTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ascii-art-generator", isPro);
-  const seo = getToolSeo("ascii-art-generator");
+  const seo = toolSeo;
 
   const [text, setText] = useState("Hello");
   const [fontKey, setFontKey] = useState("standard");

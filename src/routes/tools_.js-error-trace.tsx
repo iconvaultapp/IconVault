@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-error-trace";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-error-trace";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-error-trace")({
   head: () => {
-    const seo = getToolSeoMeta("js-error-trace");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-error-trace";
     return {
       meta: [
@@ -287,7 +287,7 @@ function buildAnimation(frames: Frame[], caughtAt: number, catchNote: string): A
 function ErrorTraceTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-error-trace", isPro);
-  const seo = getToolSeo("js-error-trace");
+  const seo = toolSeo;
 
   const [active, setActive] = useState(SCENARIOS[0]!);
   const [code, setCode] = useState(SCENARIOS[0]!.code);

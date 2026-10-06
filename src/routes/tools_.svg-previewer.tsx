@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-previewer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-previewer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-previewer")({
   head: () => {
-    const seo = getToolSeoMeta("svg-previewer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-previewer";
     return {
       meta: [
@@ -55,7 +55,7 @@ function validateSvg(code: string): { ok: boolean; error?: string } {
 function SvgPreviewTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-previewer", isPro);
-  const seo = getToolSeo("svg-previewer");
+  const seo = toolSeo;
 
   const [code, setCode] = useState("");
   const [zoom, setZoom] = useState(100);

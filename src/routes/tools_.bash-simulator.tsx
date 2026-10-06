@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bash-simulator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bash-simulator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bash-simulator")({
   head: () => {
-    const seo = getToolSeoMeta("bash-simulator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bash-simulator";
     return {
       meta: [
@@ -134,7 +134,7 @@ const HELP_TEXT = [
 function BashTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bash-simulator", isPro);
-  const seo = getToolSeo("bash-simulator");
+  const seo = toolSeo;
 
   const [fs, setFs] = useState<FsNode>(INITIAL_FS);
   const [cwd, setCwd] = useState<string[]>(["home", "guest"]);

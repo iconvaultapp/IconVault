@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/percentage-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/percentage-calculator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/percentage-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("percentage-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/percentage-calculator";
     return {
       meta: [
@@ -53,7 +53,7 @@ function fmt(n: number): string {
 function PercentageTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("percentage-calculator", isPro);
-  const seo = getToolSeo("percentage-calculator");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("of");
   const [a, setA] = useState("20");

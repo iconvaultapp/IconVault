@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/event-propagation";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/event-propagation";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/event-propagation")({
   head: () => {
-    const seo = getToolSeoMeta("event-propagation");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/event-propagation";
     return {
       meta: [
@@ -53,7 +53,7 @@ const PHASE_META: Record<number, { label: string; color: string; ring: string; b
 function EventPropagation() {
   const { isPro } = usePlan();
   const trial = useToolTrial("event-propagation", isPro);
-  const seo = getToolSeo("event-propagation");
+  const seo = toolSeo;
 
   const [capGp, setCapGp] = useState(true);
   const [capP, setCapP] = useState(true);

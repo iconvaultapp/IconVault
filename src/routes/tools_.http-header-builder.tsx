@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/http-header-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/http-header-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/http-header-builder")({
   head: () => {
-    const seo = getToolSeoMeta("http-header-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/http-header-builder";
     return {
       meta: [
@@ -101,7 +101,7 @@ const TOKEN_RE = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
 function HeaderBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("http-header-builder", isPro);
-  const seo = getToolSeo("http-header-builder");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<Row[]>([
     { id: nextId++, key: "Content-Type", value: "application/json" },

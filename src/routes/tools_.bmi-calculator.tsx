@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bmi-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bmi-calculator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bmi-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("bmi-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bmi-calculator";
     return {
       meta: [
@@ -84,7 +84,7 @@ function Gauge({ bmi }: { bmi: number }) {
 function BmiTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bmi-calculator", isPro);
-  const seo = getToolSeo("bmi-calculator");
+  const seo = toolSeo;
 
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [height, setHeight] = useState("175");

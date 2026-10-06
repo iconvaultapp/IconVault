@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sri-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sri-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sri-generator")({
   head: () => {
-    const seo = getToolSeoMeta("sri-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sri-generator";
     return {
       meta: [
@@ -83,7 +83,7 @@ type Tab = "text" | "file";
 function SriGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sri-generator", isPro);
-  const seo = getToolSeo("sri-generator");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<Tab>("text");
   const [text, setText] = useState("");

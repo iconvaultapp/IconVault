@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/changelog-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/changelog-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/changelog-generator")({
   head: () => {
-    const seo = getToolSeoMeta("changelog-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/changelog-generator";
     return {
       meta: [
@@ -54,7 +54,7 @@ const today = () => new Date().toISOString().slice(0, 10);
 function ChangelogGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("changelog-generator", isPro);
-  const seo = getToolSeo("changelog-generator");
+  const seo = toolSeo;
 
   const [entries, setEntries] = useState<Entry[]>([]);
   const [version, setVersion] = useState("1.0.0");

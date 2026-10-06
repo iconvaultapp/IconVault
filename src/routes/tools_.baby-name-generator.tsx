@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/baby-name-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/baby-name-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/baby-name-generator")({
   head: () => {
-    const seo = getToolSeoMeta("baby-name-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/baby-name-generator";
     return {
       meta: [
@@ -268,7 +268,7 @@ const inputCls =
 function BabyNameTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("baby-name-generator", isPro);
-  const seo = getToolSeo("baby-name-generator");
+  const seo = toolSeo;
 
   const [origin, setOrigin] = useState("english");
   const [gender, setGender] = useState<"all" | "boy" | "girl" | "neutral">("all");

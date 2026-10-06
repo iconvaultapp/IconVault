@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/responsive-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/responsive-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/responsive-tester")({
   head: () => {
-    const seo = getToolSeoMeta("responsive-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/responsive-tester";
     return {
       meta: [
@@ -60,7 +60,7 @@ function normalizeUrl(raw: string): string | null {
 function ResponsiveTesterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("responsive-tester", isPro);
-  const seo = getToolSeo("responsive-tester");
+  const seo = toolSeo;
   const [input, setInput] = useState("");
   const [src, setSrc] = useState("");
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);

@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/emoji-picker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/emoji-picker";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/emoji-picker")({
   head: () => {
-    const seo = getToolSeoMeta("emoji-picker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/emoji-picker";
     return {
       meta: [
@@ -158,7 +158,7 @@ function codePointOf(e: string): string {
 function EmojiPickerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("emoji-picker", isPro);
-  const seo = getToolSeo("emoji-picker");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("All");

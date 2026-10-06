@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/scroll-animations";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/scroll-animations";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/scroll-animations")({
   head: () => {
-    const seo = getToolSeoMeta("scroll-animations");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/scroll-animations";
     return {
       meta: [
@@ -48,7 +48,7 @@ const ANIMS: Record<string, AnimDef> = {
 function ScrollAnimationsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("scroll-animations", isPro);
-  const seo = getToolSeo("scroll-animations");
+  const seo = toolSeo;
 
   const [animKey, setAnimKey] = useState("slide-up");
   const [start, setStart] = useState(10);

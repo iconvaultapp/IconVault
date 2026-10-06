@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-paint-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-paint-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-paint-playground")({
   head: () => {
-    const seo = getToolSeoMeta("css-paint-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-paint-playground";
     return {
       meta: [
@@ -172,7 +172,7 @@ function CodeBlock({ title, code, onCopy }: { title: string; code: string; onCop
 function PaintPlaygroundTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-paint-playground", isPro);
-  const seo = getToolSeo("css-paint-playground");
+  const seo = toolSeo;
   const support = useMemo(supportBadge, []);
   const counter = useRef(0);
 

@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/window-controls-overlay";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/window-controls-overlay";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/window-controls-overlay")({
   head: () => {
-    const seo = getToolSeoMeta("window-controls-overlay");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/window-controls-overlay";
     return {
       meta: [
@@ -40,7 +40,7 @@ type Rect = { x: number; y: number; width: number; height: number };
 function WcoTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("window-controls-overlay", isPro);
-  const seo = getToolSeo("window-controls-overlay");
+  const seo = toolSeo;
 
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [inWco, setInWco] = useState<boolean | null>(null);

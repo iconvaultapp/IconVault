@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/beat-maker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/beat-maker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/beat-maker")({
   head: () => {
-    const seo = getToolSeoMeta("beat-maker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/beat-maker";
     return {
       meta: [
@@ -57,7 +57,7 @@ function emptyGrid(): boolean[][] {
 function BeatTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("beat-maker", isPro);
-  const seo = getToolSeo("beat-maker");
+  const seo = toolSeo;
 
   const [grid, setGrid] = useState<boolean[][]>(() => structuredClone(DEMO));
   const [bpm, setBpm] = useState(100);

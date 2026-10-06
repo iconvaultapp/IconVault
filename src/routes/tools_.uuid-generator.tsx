@@ -7,13 +7,13 @@ import { Copy, Dices } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/uuid-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/uuid-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/uuid-generator")({
   head: () => {
-    const seo = getToolSeoMeta("uuid-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/uuid-generator";
     return {
       meta: [
@@ -60,7 +60,7 @@ function formatUuid(u: string, upper: boolean, noDashes: boolean): string {
 function UuidGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("uuid-generator", isPro);
-  const seo = getToolSeo("uuid-generator");
+  const seo = toolSeo;
 
   const [count, setCount] = useState<(typeof COUNTS)[number]>(10);
   const [uuids, setUuids] = useState<string[]>([]);

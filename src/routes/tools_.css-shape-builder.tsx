@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-shape-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-shape-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-shape-builder")({
   head: () => {
-    const seo = getToolSeoMeta("css-shape-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-shape-builder";
     return {
       meta: [
@@ -58,7 +58,7 @@ function Slider({ label, value, onChange, min = 0, max = 100, suffix = "%" }: { 
 function ShapeBuilder() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-shape-builder", isPro);
-  const seo = getToolSeo("css-shape-builder");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<ShapeMode>("polygon");
   const [pts, setPts] = useState<Pt[]>(PRESETS[1]!.pts.map((p) => ({ ...p })));

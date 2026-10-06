@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/glassmorphism-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/glassmorphism-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/glassmorphism-generator")({
   head: () => {
-    const seo = getToolSeoMeta("glassmorphism-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/glassmorphism-generator";
     return {
       meta: [
@@ -72,7 +72,7 @@ function Slider({ label, value, min, max, onChange, suffix }: {
 function GlassmorphismTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("glassmorphism-generator", isPro);
-  const seo = getToolSeo("glassmorphism-generator");
+  const seo = toolSeo;
 
   const [blur, setBlur] = useState(12);
   const [bgOpacity, setBgOpacity] = useState(25);

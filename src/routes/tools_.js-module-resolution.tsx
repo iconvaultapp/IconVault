@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-module-resolution";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-module-resolution";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-module-resolution")({
   head: () => {
-    const seo = getToolSeoMeta("js-module-resolution");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-module-resolution";
     return {
       meta: [
@@ -308,7 +308,7 @@ function TreeView({ activeNode }: { activeNode?: string }) {
 function ModuleResolutionTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-module-resolution", isPro);
-  const seo = getToolSeo("js-module-resolution");
+  const seo = toolSeo;
   const [mode, setMode] = useState<Mode>("esm");
   const [spec, setSpec] = useState("./lib/util.js");
   const [from, setFrom] = useState("/project/src/app.js");

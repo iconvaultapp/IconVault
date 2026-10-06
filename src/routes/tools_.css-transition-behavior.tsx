@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-transition-behavior";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-transition-behavior";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-transition-behavior")({
   head: () => {
-    const seo = getToolSeoMeta("css-transition-behavior");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-transition-behavior";
     return {
       meta: [
@@ -93,7 +93,7 @@ function DemoPane({
 function TransitionBehaviorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-transition-behavior", isPro);
-  const seo = getToolSeo("css-transition-behavior");
+  const seo = toolSeo;
 
   const [prop, setProp] = useState<Prop>("display");
   const [visible, setVisible] = useState(true);

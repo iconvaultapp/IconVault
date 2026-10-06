@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/event-target-patterns";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/event-target-patterns";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/event-target-patterns")({
   head: () => {
-    const seo = getToolSeoMeta("event-target-patterns");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/event-target-patterns";
     return {
       meta: [
@@ -61,7 +61,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function EventTargetPatterns() {
   const { isPro } = usePlan();
   const trial = useToolTrial("event-target-patterns", isPro);
-  const seo = getToolSeo("event-target-patterns");
+  const seo = toolSeo;
   const { log, push, clear } = useEventLog();
 
   // CustomEvent

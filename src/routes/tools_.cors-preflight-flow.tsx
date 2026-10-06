@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/cors-preflight-flow";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/cors-preflight-flow";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/cors-preflight-flow")({
   head: () => {
-    const seo = getToolSeoMeta("cors-preflight-flow");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/cors-preflight-flow";
     return {
       meta: [
@@ -150,7 +150,7 @@ const SCENARIOS: Scenario[] = [
 function CorsFlow() {
   const { isPro } = usePlan();
   const trial = useToolTrial("cors-preflight-flow", isPro);
-  const seo = getToolSeo("cors-preflight-flow");
+  const seo = toolSeo;
 
   const [active, setActive] = useState<Scenario>(SCENARIOS[2]!);
   const [stepIdx, setStepIdx] = useState(0);

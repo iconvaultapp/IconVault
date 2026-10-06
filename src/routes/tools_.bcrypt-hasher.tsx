@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bcrypt-hasher";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bcrypt-hasher";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bcrypt-hasher")({
   head: () => {
-    const seo = getToolSeoMeta("bcrypt-hasher");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bcrypt-hasher";
     return {
       meta: [
@@ -44,7 +44,7 @@ async function loadBcrypt(): Promise<{ hashSync: (pw: string, rounds: number) =>
 function BcryptTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bcrypt-hasher", isPro);
-  const seo = getToolSeo("bcrypt-hasher");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"hash" | "verify">("hash");
   const [password, setPassword] = useState("");

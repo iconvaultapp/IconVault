@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/clip-path-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/clip-path-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/clip-path-generator")({
   head: () => {
-    const seo = getToolSeoMeta("clip-path-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/clip-path-generator";
     return {
       meta: [
@@ -64,7 +64,7 @@ const POLY_PRESETS: { name: string; pts: [number, number][] }[] = [
 function ClipTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("clip-path-generator", isPro);
-  const seo = getToolSeo("clip-path-generator");
+  const seo = toolSeo;
 
   const [shape, setShape] = useState<"polygon" | "circle" | "ellipse" | "inset">("polygon");
   const [pts, setPts] = useState<[number, number][]>(POLY_PRESETS[0]?.pts.map((p) => [...p] as [number, number]) ?? []);

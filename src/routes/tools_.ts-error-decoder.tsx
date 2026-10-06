@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ts-error-decoder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ts-error-decoder";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ts-error-decoder")({
   head: () => {
-    const seo = getToolSeoMeta("ts-error-decoder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ts-error-decoder";
     return {
       meta: [
@@ -338,7 +338,7 @@ async function copyText(text: string) {
 function TsErrorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ts-error-decoder", isPro);
-  const seo = getToolSeo("ts-error-decoder");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Entry>(DB[0]!);

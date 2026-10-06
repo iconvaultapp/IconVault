@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Color Mixer - Free Online Color Blending Tool | IconVault",
+    metaDescription: "Mix two colors with blend modes and weight, see results in HEX, RGB and HSL, and browse mix steps. Free, in-browser.",
+    about: [
+      "**IconVault**'s **Color Mixer** blends two colors with an adjustable **weight** and **blend mode**, showing the result in **HEX, RGB and HSL** plus a gradient of intermediate **mix steps** between them. Dial the ratio until you hit the exact tint, shade or in-between tone you need. It is free and runs fully in your browser.",
+      "Mixing is the fastest way to build **tints** (add white), **shades** (add black) and **tones** (add gray) that stay consistent with your base colors. The **step preview** is perfect for generating button hover states, gradient stops and data-viz scales. Trial use is recorded only when you copy a value."
+    ],
+    faqs: [
+      { q: "How does the color mixer work?", a: "Pick two colors, choose a blend mode and drag the weight slider to set the ratio. The result updates live in HEX, RGB and HSL, with a strip of intermediate steps between the two colors." },
+      { q: "What blend modes are available?", a: "Standard mixing plus modes like multiply, screen, overlay and others familiar from design tools, so you can match how colors would combine in Photoshop or Figma." },
+      { q: "Can I create tints and shades of a color?", a: "Yes, that is the classic use: mix your base color with white for tints, black for shades, or gray for tones. The steps strip gives you an evenly spaced scale for each." },
+      { q: "How do I copy the mixed color?", a: "Click the result to copy it in your preferred format: HEX, RGB or HSL. One click puts it on your clipboard." },
+      { q: "Why mix colors instead of picking from a wheel?", a: "Mixing guarantees the result sits exactly between two known colors, which keeps gradients, hover states and scales visually consistent with your palette." },
+      { q: "Is the mixer free to use?", a: "Yes. Mixing and previewing is unlimited; a trial counter tracks copies, and Pro removes the limit."
+      }
+    ],
+    tags: [
+      "color mixer",
+      "online color mixer",
+      "color blender",
+      "mix two colors",
+      "color mixing tool",
+      "blend colors online",
+      "free color mixer",
+      "color blend generator",
+      "mix colors online free",
+      "color combination mixer",
+      "blend two hex colors",
+      "color mixer hex",
+      "rgb color mixer",
+      "hsl color mixer",
+      "color gradient mixer",
+      "tint shade generator",
+      "make color lighter online",
+      "make color darker online",
+      "color tint generator",
+      "color shade generator",
+      "mix color with white",
+      "mix color with black",
+      "color scale generator",
+      "gradient steps between colors",
+      "color blend modes online",
+      "multiply blend color tool",
+      "screen blend color tool",
+      "overlay blend color",
+      "design color mixer",
+      "paint color mixer online",
+      "what color do you get when you mix",
+      "color mixing chart",
+      "blend hex colors",
+      "average of two colors",
+      "midpoint color finder",
+      "color transition generator",
+      "hover color generator",
+      "button hover shade generator",
+      "data viz color scale",
+      "mix brand colors",
+      "color mixer no signup",
+      "browser color blender",
+      "online color blender free",
+      "color mix ratio slider",
+      "two color blend tool",
+      "color mixer with steps",
+      "css color-mix alternative",
+      "color-mix in srgb tool",
+      "find color between two colors",
+      "mix paint colors online free"
+    ],
+  };
+
+export default seo;

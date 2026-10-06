@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/file-splitter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/file-splitter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/file-splitter")({
   head: () => {
-    const seo = getToolSeoMeta("file-splitter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/file-splitter";
     return {
       meta: [
@@ -64,7 +64,7 @@ let nextJoinId = 1;
 function FileSplitterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("file-splitter", isPro);
-  const seo = getToolSeo("file-splitter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"split" | "join">("split");
   const [busy, setBusy] = useState(false);

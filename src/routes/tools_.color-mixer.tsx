@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-mixer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-mixer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-mixer")({
   head: () => {
-    const seo = getToolSeoMeta("color-mixer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-mixer";
     return {
       meta: [
@@ -91,7 +91,7 @@ function mixColors(aHex: string, bHex: string, mode: Mode, weight: number): [num
 function ColorMixerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-mixer", isPro);
-  const seo = getToolSeo("color-mixer");
+  const seo = toolSeo;
 
   const [colorA, setColorA] = useState("#0F766E");
   const [colorB, setColorB] = useState("#7C3AED");

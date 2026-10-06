@@ -5,13 +5,13 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/word-counter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/word-counter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/word-counter")({
   head: () => {
-    const seo = getToolSeoMeta("word-counter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/word-counter";
     return {
       meta: [
@@ -52,7 +52,7 @@ function timeLabel(words: number, wpm: number): string {
 function WordCounterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("word-counter", isPro);
-  const seo = getToolSeo("word-counter");
+  const seo = toolSeo;
 
   const [text, setText] = useState("");
 

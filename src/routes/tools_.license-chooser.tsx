@@ -12,13 +12,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/license-chooser";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/license-chooser";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/license-chooser")({
   head: () => {
-    const seo = getToolSeoMeta("license-chooser");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/license-chooser";
     return {
       meta: [
@@ -260,7 +260,7 @@ function Cell({ ok }: { ok: boolean }) {
 function LicenseChooserTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("license-chooser", isPro);
-  const seo = getToolSeo("license-chooser");
+  const seo = toolSeo;
 
   const [picked, setPicked] = useState("mit");
   const [holder, setHolder] = useState("");

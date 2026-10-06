@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/safelink-decoder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/safelink-decoder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/safelink-decoder")({
   head: () => {
-    const seo = getToolSeoMeta("safelink-decoder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/safelink-decoder";
     return {
       meta: [
@@ -88,7 +88,7 @@ function decodeSafeLink(line: string): DecodedRow {
 function SafelinkTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("safelink-decoder", isPro);
-  const seo = getToolSeo("safelink-decoder");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [rows, setRows] = useState<DecodedRow[] | null>(null);

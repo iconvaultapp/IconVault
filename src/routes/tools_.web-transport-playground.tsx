@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/web-transport-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/web-transport-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/web-transport-playground")({
   head: () => {
-    const seo = getToolSeoMeta("web-transport-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/web-transport-playground";
     return {
       meta: [
@@ -63,7 +63,7 @@ const STREAM_POINTS = [
 function WebTransportTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("web-transport-playground", isPro);
-  const seo = getToolSeo("web-transport-playground");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [step, setStep] = useState(-1);

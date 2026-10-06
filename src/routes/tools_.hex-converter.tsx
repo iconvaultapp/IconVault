@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/hex-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/hex-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/hex-converter")({
   head: () => {
-    const seo = getToolSeoMeta("hex-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/hex-converter";
     return {
       meta: [
@@ -101,7 +101,7 @@ function hexTable(bytes: Uint8Array): TableRow[] {
 function HexConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("hex-converter", isPro);
-  const seo = getToolSeo("hex-converter");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<Tab>("toHex");
   const [input, setInput] = useState("");

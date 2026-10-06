@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-trends";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-trends";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-trends")({
   head: () => {
-    const seo = getToolSeoMeta("npm-trends");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-trends";
     return {
       meta: [
@@ -66,7 +66,7 @@ async function fetchSeries(name: string, period: Period): Promise<Series> {
 function NpmTrendsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-trends", isPro);
-  const seo = getToolSeo("npm-trends");
+  const seo = toolSeo;
   const [names, setNames] = useState<string[]>(["react", "vue", "svelte"]);
   const [input, setInput] = useState("");
   const [period, setPeriod] = useState<Period>("last-year");

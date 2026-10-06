@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/regex-replace";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/regex-replace";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/regex-replace")({
   head: () => {
-    const seo = getToolSeoMeta("regex-replace");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/regex-replace";
     return {
       meta: [
@@ -90,7 +90,7 @@ function compute(pattern: string, flags: string, replacement: string, input: str
 function RegexReplaceTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("regex-replace", isPro);
-  const seo = getToolSeo("regex-replace");
+  const seo = toolSeo;
 
   const [pattern, setPattern] = useState("(\\w+)@(\\w+)");
   const [flags, setFlags] = useState("g");

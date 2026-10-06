@@ -10,14 +10,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-excel-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-excel-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/json-excel-converter")({
   head: () => {
-    const seo = getToolSeoMeta("json-excel-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-excel-converter";
     return {
       meta: [
@@ -56,7 +56,7 @@ function cellText(v: unknown): string {
 function JsonExcelConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-excel-converter", isPro);
-  const seo = getToolSeo("json-excel-converter");
+  const seo = toolSeo;
 
   const [jsonText, setJsonText] = useState("");
   const [sheetName, setSheetName] = useState("Sheet1");

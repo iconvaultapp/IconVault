@@ -7,13 +7,13 @@ import { Monitor, Save, Smartphone } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/serp-preview";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/serp-preview";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/serp-preview")({
   head: () => {
-    const seo = getToolSeoMeta("serp-preview");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/serp-preview";
     return {
       meta: [
@@ -92,7 +92,7 @@ function SerpCard({ title, url, description, mobile }: { title: string; url: str
 function SerpPreviewTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("serp-preview", isPro);
-  const seo = getToolSeo("serp-preview");
+  const seo = toolSeo;
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");

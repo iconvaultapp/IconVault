@@ -7,13 +7,13 @@ import { Eye, EyeOff, ShieldAlert, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/password-breach-check";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/password-breach-check";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/password-breach-check")({
   head: () => {
-    const seo = getToolSeoMeta("password-breach-check");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/password-breach-check";
     return {
       meta: [
@@ -45,7 +45,7 @@ type Result = { kind: "clean" } | { kind: "breached"; count: number } | { kind: 
 function BreachTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("password-breach-check", isPro);
-  const seo = getToolSeo("password-breach-check");
+  const seo = toolSeo;
 
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);

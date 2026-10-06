@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/git-cheatsheet";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/git-cheatsheet";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/git-cheatsheet")({
   head: () => {
-    const seo = getToolSeoMeta("git-cheatsheet");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/git-cheatsheet";
     return {
       meta: [
@@ -141,7 +141,7 @@ const DANGER_STYLE: Record<Danger, { label: string; cls: string }> = {
 function GitCheatsheetTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("git-cheatsheet", isPro);
-  const seo = getToolSeo("git-cheatsheet");
+  const seo = toolSeo;
   const [query, setQuery] = useState("");
   const [dangerFilter, setDangerFilter] = useState<Danger | "all">("all");
 

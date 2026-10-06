@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/terraform-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/terraform-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/terraform-generator")({
   head: () => {
-    const seo = getToolSeoMeta("terraform-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/terraform-generator";
     return {
       meta: [
@@ -291,7 +291,7 @@ async function copyText(s: string): Promise<boolean> {
 function TerraformTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("terraform-generator", isPro);
-  const seo = getToolSeo("terraform-generator");
+  const seo = toolSeo;
 
   const varId = useRef(2);
   const [provider, setProvider] = useState<Provider>("aws");

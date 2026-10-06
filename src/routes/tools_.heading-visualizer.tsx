@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/heading-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/heading-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/heading-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("heading-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/heading-visualizer";
     return {
       meta: [
@@ -80,7 +80,7 @@ function buildOutline(html: string): Outline {
 function HeadingVisualizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("heading-visualizer", isPro);
-  const seo = getToolSeo("heading-visualizer");
+  const seo = toolSeo;
 
   const [html, setHtml] = useState("");
   const [outline, setOutline] = useState<Outline | null>(null);

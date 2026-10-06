@@ -8,14 +8,14 @@ import { Barcode, Copy, Download, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/barcode-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/barcode-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/barcode-generator")({
   head: () => {
-    const seo = getToolSeoMeta("barcode-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/barcode-generator";
     return {
       meta: [
@@ -81,7 +81,7 @@ interface RenderOpts {
 function BarcodeGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("barcode-generator", isPro);
-  const seo = getToolSeo("barcode-generator");
+  const seo = toolSeo;
 
   const svgRef = useRef<SVGSVGElement>(null);
   const [format, setFormat] = useState<BarcodeFormat>("CODE128");

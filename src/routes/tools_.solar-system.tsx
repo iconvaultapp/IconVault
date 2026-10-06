@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/solar-system";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/solar-system";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/solar-system")({
   head: () => {
-    const seo = getToolSeoMeta("solar-system");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/solar-system";
     return {
       meta: [
@@ -68,7 +68,7 @@ function orbitRadius(au: number, maxR: number): number {
 function SolarSystemTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("solar-system", isPro);
-  const seo = getToolSeo("solar-system");
+  const seo = toolSeo;
 
   const [speed, setSpeed] = useState(8); // days per second
   const [playing, setPlaying] = useState(true);

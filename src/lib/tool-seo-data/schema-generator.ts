@@ -1,0 +1,88 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Schema Generator - Free JSON-LD Structured Data | IconVault",
+    metaDescription:
+      "Generate JSON-LD schema markup free: FAQ, Article, Product, LocalBusiness, Organization and Breadcrumb. Valid structured data in one click.",
+    about: [
+      "**IconVault**'s **Schema Generator** builds valid **JSON-LD structured data** without hand-writing code: pick a **schema type** - **FAQPage**, Article, Product, LocalBusiness, Organization or BreadcrumbList - fill the fields, and get copy-paste **markup** that unlocks **rich results** in Google.",
+      "Output validates against schema.org and includes the script tag wrapper ready for your <head>. Free, no account, runs in your browser.",
+    ],
+    faqs: [
+      {
+        q: "What is schema markup?",
+        a: "Structured data (usually JSON-LD) that tells search engines what your content means - a product's price, an article's author, FAQ questions - enabling rich results like star ratings and FAQ dropdowns.",
+      },
+      {
+        q: "Which schema types are supported?",
+        a: "FAQPage, Article, Product, LocalBusiness, Organization and BreadcrumbList - the six types that drive the most common rich results.",
+      },
+      {
+        q: "How do I test my schema?",
+        a: "Paste the generated JSON-LD into Google's Rich Results Test or the Schema.org validator to confirm it's valid before deploying.",
+      },
+      {
+        q: "Does schema improve rankings?",
+        a: "Not directly, but rich results earn more clicks - FAQ dropdowns, product prices and review stars all lift click-through rates from the same ranking position.",
+      },
+      {
+        q: "Where do I put the JSON-LD?",
+        a: "Inside a <script type=\"application/ld+json\"> tag in your page <head> or before </body>. The generator includes the wrapper for you.",
+      },
+    ],
+    tags: [
+      "schema generator", "json-ld generator", "structured data generator",
+      "faq schema generator", "schema markup generator free", "rich snippets generator",
+      "product schema generator", "article schema generator", "localbusiness schema",
+      "organization schema generator", "breadcrumb schema", "google rich results",
+      "schema.org generator", "json ld creator",
+    
+      "schema markup generator",
+      "structured data markup generator",
+      "json ld generator",
+      "faq page schema generator",
+      "howto schema generator",
+      "recipe schema generator",
+      "review schema generator",
+      "event schema generator",
+      "job posting schema generator",
+      "video schema generator",
+      "rating schema generator",
+      "aggregate rating schema",
+      "person schema generator",
+      "website schema generator",
+      "sitelinks searchbox schema",
+      "software app schema",
+      "course schema generator",
+      "book schema generator",
+      "movie schema generator",
+      "restaurant schema generator",
+      "hotel schema generator",
+      "product review schema",
+      "qa page schema",
+      "speaking engagement schema",
+      "generate structured data",
+      "schema code generator",
+      "rich results generator",
+      "google structured data generator",
+      "schema markup tool",
+      "json-ld schema builder",
+      "create schema markup",
+      "schema generator free online",
+      "structured data testing tool",
+      "validate schema markup",
+      "schema checker",
+      "test rich results",
+      "faq rich snippet generator",
+      "breadcrumb schema generator",
+      "product schema markup",
+      "article schema markup",
+      "local business schema generator",
+      "organization schema markup",
+      "free schema generator",
+      "online schema generator",
+      "schema.org markup builder",
+      "generate json-ld"],
+  };
+
+export default seo;

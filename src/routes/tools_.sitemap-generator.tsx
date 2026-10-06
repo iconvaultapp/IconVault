@@ -7,14 +7,14 @@ import { Copy, Download, ListTree, TriangleAlert, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sitemap-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sitemap-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/sitemap-generator")({
   head: () => {
-    const seo = getToolSeoMeta("sitemap-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sitemap-generator";
     return {
       meta: [
@@ -52,7 +52,7 @@ function isHttpUrl(u: string): boolean {
 function SitemapGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sitemap-generator", isPro);
-  const seo = getToolSeo("sitemap-generator");
+  const seo = toolSeo;
 
   const [urlsText, setUrlsText] = useState("");
   const [changefreq, setChangefreq] = useState<(typeof CHANGEFREQ)[number]>("weekly");

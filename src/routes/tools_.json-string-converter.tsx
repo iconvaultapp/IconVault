@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-string-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-string-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-string-converter")({
   head: () => {
-    const seo = getToolSeoMeta("json-string-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-string-converter";
     return {
       meta: [
@@ -89,7 +89,7 @@ function unstringify(s: string): string {
 function JsonStringConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-string-converter", isPro);
-  const seo = getToolSeo("json-string-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("stringify");
   const [quote, setQuote] = useState<Quote>('"');

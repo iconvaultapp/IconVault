@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/openapi-viewer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/openapi-viewer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/openapi-viewer")({
   head: () => {
-    const seo = getToolSeoMeta("openapi-viewer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/openapi-viewer";
     return {
       meta: [
@@ -118,7 +118,7 @@ const SAMPLE = `{
 function OpenApiViewerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("openapi-viewer", isPro);
-  const seo = getToolSeo("openapi-viewer");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [spec, setSpec] = useState<Record<string, unknown> | null>(null);

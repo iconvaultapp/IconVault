@@ -1,0 +1,21 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "BIP39 Generator - Free Online Seed Phrase Tool | IconVault",
+    metaDescription: "Free BIP39 mnemonic generator: create valid 12 or 24 word crypto wallet seed phrases and validate checksums. Everything runs in your browser.",
+    about: [
+      "**IconVault**'s **BIP39 Generator** creates valid **12-word or 24-word mnemonic seed phrases** using the official **BIP39 English wordlist** with correct checksums, ready to import into any BIP39-compatible crypto wallet. It also includes a **validator mode** that checks a pasted mnemonic word by word and verifies its checksum, so you can confirm a backup phrase before you rely on it.",
+      "Everything is **free** and runs fully in your **browser**: entropy comes from your device's secure random generator, and no phrase is ever sent to a server. Honest note: this is a **demo-grade generator**. Real funds deserve a hardware wallet. Never share your phrase, never type it into a site you do not trust, and store written backups offline.",
+    ],
+    faqs: [
+      { q: "What is a BIP39 seed phrase?", a: "A BIP39 mnemonic is a list of 12 or 24 ordinary English words that encodes the master key of a crypto wallet. Because the phrase can recreate the entire wallet, anyone who has it controls the funds. The BIP39 standard adds a checksum so typos and invalid words can be detected." },
+      { q: "What is the difference between 12 and 24 words?", a: "A 12-word phrase encodes 128 bits of entropy, a 24-word phrase encodes 256 bits. Both are widely supported by wallets. 24 words gives a larger security margin while 12 words is quicker to write down and type." },
+      { q: "How does the validator work?", a: "Paste a mnemonic and the tool checks every word against the official 2048-word BIP39 English list, normalizes spacing and case, then verifies the embedded checksum. It reports valid or invalid, which helps you catch transcription mistakes before importing a backup." },
+      { q: "Is it safe to generate a seed phrase on a website?", a: "Generation here happens locally in your browser using your device's secure random source, and nothing is uploaded. Still, this is a demo-grade tool: for real funds use a hardware wallet or the wallet's own offline generator, and never type a seed phrase into a site you do not trust." },
+      { q: "Which wordlist does it use?", a: "The official BIP39 English wordlist of 2048 words. Other languages use different wordlists, and those are not checked or generated here." },
+      { q: "Is the BIP39 Generator free?", a: "Yes, completely free with no sign-up, and generation and validation happen entirely in your browser." },
+    ],
+    tags: [ "bip39 generator", "seed phrase generator", "mnemonic generator", "crypto seed phrase generator", "12 word seed phrase generator", "24 word seed phrase generator", "bip39 seed phrase generator", "bitcoin seed phrase generator", "wallet seed phrase generator", "mnemonic seed phrase generator", "bip39 mnemonic generator", "generate 12 word phrase", "generate 24 word phrase", "bip39 words", "bip39 word list", "bip39 english wordlist", "2048 word list bip39", "validate bip39 mnemonic", "bip39 validator", "check seed phrase validity", "mnemonic checksum validator", "verify seed phrase", "bip39 entropy", "128 bit vs 256 bit mnemonic", "crypto wallet recovery phrase", "bitcoin recovery phrase generator", "seed phrase checksum check", "valid mnemonic generator", "random seed phrase", "ethereum seed phrase generator", "crypto mnemonic generator", "bip39 tool online", "free seed phrase generator", "mnemonic phrase generator", "wallet recovery phrase generator", "bip39 seed words", "generate crypto wallet words", "check my seed phrase", "mnemonic validation tool", "bip39 phrase checker", "seed phrase validity checker", "bip39 word list english", "crypto seed words generator", "bitcoin mnemonic generator", "trust wallet seed phrase generator", "metamask seed phrase generator", "bip39 checksum calculator", "generate mnemonic code", "seed phrase generator no signup", "bip39 generator free", "secure seed phrase generator", "crypto wallet backup tool", "mnemonic code generator", "24 word recovery phrase generator", "wallet seed backup checker" ],
+  };
+
+export default seo;

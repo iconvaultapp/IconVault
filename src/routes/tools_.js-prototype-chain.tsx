@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-prototype-chain";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-prototype-chain";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-prototype-chain")({
   head: () => {
-    const seo = getToolSeoMeta("js-prototype-chain");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-prototype-chain";
     return {
       meta: [
@@ -226,7 +226,7 @@ const PRESETS = [
 function ProtoChainTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-prototype-chain", isPro);
-  const seo = getToolSeo("js-prototype-chain");
+  const seo = toolSeo;
 
   const [defs, setDefs] = useState(PRESETS[0]!.defs);
   const [appliedDefs, setAppliedDefs] = useState(PRESETS[0]!.defs);

@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-to-base64";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-to-base64";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { canvasToBlob, fileToDataUrl, formatBytes, loadImageFile } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/image-to-base64")({
   head: () => {
-    const seo = getToolSeoMeta("image-to-base64");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-to-base64";
     return {
       meta: [
@@ -46,7 +46,7 @@ type Encoding = (typeof ENCODINGS)[number]["id"];
 function ImageToBase64() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-to-base64", isPro);
-  const seo = getToolSeo("image-to-base64");
+  const seo = toolSeo;
 
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState("");

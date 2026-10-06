@@ -1,0 +1,18 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Fetch Playground - Interactive Lab | IconVault",
+    metaDescription: "Send real fetch requests with cache modes, streaming progress, timeouts and retry with exponential backoff. Free, runs in your browser.",
+    about: [ "**IconVault**'s **Fetch Playground** is a real **browser REST client** for learning the **Fetch API**. Send actual requests with any method, headers and body, switch between **cache modes** like no-store and force-cache, watch **streaming download progress** byte by byte, and configure **retry with exponential backoff** to see how resilient clients behave against 500s and dead hosts. It is free and runs fully in your browser.", "Every attempt is logged with timing, status and backoff waits, and the page generates a copyable **fetchWithRetry** pattern matching your settings. A honest note: cross-origin APIs may refuse browser requests with a **CORS** error, which is the server's policy and is reported as-is." ],
+    faqs: [
+      { q: "What are the fetch cache modes?", a: "default (honor HTTP caching), no-store (skip the cache entirely), reload (revalidate with the server), no-cache (revalidate before use), force-cache (use cache even if stale), and only-if-cached (fail without a network trip, same-origin only)." },
+      { q: "How do I retry fetch with exponential backoff?", a: "Wrap fetch in a loop: on failure wait baseDelay * 2^attempt milliseconds before the next try, up to a max retry count. This lab runs that exact algorithm live and logs every wait." },
+      { q: "How do I show download progress with fetch?", a: "Read response.body with a reader, accumulate chunk lengths, and compare against the content-length header. This playground renders a live progress bar using that technique." },
+      { q: "How do I add a timeout to fetch?", a: "Use AbortController: setTimeout(() => controller.abort(), ms) and pass controller.signal to fetch. There is no built-in timeout option in the Fetch API." },
+      { q: "Why does my fetch fail with a CORS error?", a: "Browsers block cross-origin reads unless the server sends Access-Control-Allow-Origin headers. It is a security policy enforced by the browser, not a bug in your code; the server owner or a proxy must allow it." },
+      { q: "Is this tool free?", a: "Yes. Fetch Playground is completely free and runs fully in your browser." },
+    ],
+    tags: [ "fetch api", "javascript fetch", "fetch tutorial", "fetch example", "fetch playground", "fetch api tutorial", "fetch get request", "fetch post request", "fetch with headers", "fetch request body", "fetch cache modes", "fetch cache no-store", "fetch cache force-cache", "fetch cache reload", "request cache mdn", "fetch retry", "fetch retry logic", "retry with backoff", "exponential backoff javascript", "fetchwithretry", "fetch retry on 500", "fetch timeout", "abortcontroller timeout", "abort fetch request", "cancel fetch", "fetch streaming", "fetch download progress", "response.body reader", "readable stream fetch", "progress bar fetch", "content-length fetch", "fetch response headers", "fetch status code", "fetch error handling", "!res.ok fetch", "fetch network error", "fetch cors error", "cors explained fetch", "access-control-allow-origin", "fetch vs axios", "fetch vs xmlhttprequest", "online rest client", "browser rest client", "test api in browser", "http client online", "send http request online", "api tester online free", "fetch json example", "fetch jsonplaceholder", "httpbin test", "learn fetch api", "interactive fetch lab", "fetch cheat sheet", "fetch options", "fetch credentials", "fetch mode cors" ],
+  };
+
+export default seo;

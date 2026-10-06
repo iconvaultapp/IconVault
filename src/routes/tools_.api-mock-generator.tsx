@@ -9,8 +9,8 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/api-mock-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/api-mock-generator";
 import { downloadBlob } from "@/lib/logo-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
@@ -19,7 +19,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export const Route = createFileRoute("/tools_/api-mock-generator")({
   head: () => {
-    const seo = getToolSeoMeta("api-mock-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/api-mock-generator";
     return {
       meta: [
@@ -162,7 +162,7 @@ let rowSeq = 1;
 function ApiMockGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("api-mock-generator", isPro);
-  const seo = getToolSeo("api-mock-generator");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<SchemaRow[]>([
     { id: rowSeq++, name: "id", type: "uuid" },

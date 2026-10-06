@@ -7,13 +7,13 @@ import { ArrowUpRight, GitFork, Star, UserSearch, Users } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/github-profile-stats";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/github-profile-stats";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/github-profile-stats")({
   head: () => {
-    const seo = getToolSeoMeta("github-profile-stats");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/github-profile-stats";
     return {
       meta: [
@@ -106,7 +106,7 @@ async function loadProfile(username: string): Promise<Profile> {
 function GithubProfileStatsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("github-profile-stats", isPro);
-  const seo = getToolSeo("github-profile-stats");
+  const seo = toolSeo;
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [profile, setProfile] = useState<Profile | null>(null);

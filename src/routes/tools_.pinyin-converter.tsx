@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pinyin-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pinyin-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/pinyin-converter")({
   head: () => {
-    const seo = getToolSeoMeta("pinyin-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pinyin-converter";
     return {
       meta: [
@@ -68,7 +68,7 @@ async function toPinyin(text: string, tone: ToneStyle): Promise<string> {
 function PinyinConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pinyin-converter", isPro);
-  const seo = getToolSeo("pinyin-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [tone, setTone] = useState<ToneStyle>("symbol");

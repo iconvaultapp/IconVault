@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/regex-engine-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/regex-engine-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/regex-engine-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("regex-engine-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/regex-engine-visualizer";
     return {
       meta: [
@@ -469,7 +469,7 @@ const STEP_STYLE: Record<StepKind, string> = {
 function RegexEngineLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("regex-engine-visualizer", isPro);
-  const seo = getToolSeo("regex-engine-visualizer");
+  const seo = toolSeo;
 
   const [pattern, setPattern] = useState("(\\w+)@(\\w+)\\.com");
   const [flags, setFlags] = useState<RxFlags>({ i: false, m: false, s: false });

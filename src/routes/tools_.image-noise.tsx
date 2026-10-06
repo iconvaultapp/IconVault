@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/image-noise";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/image-noise";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/image-noise")({
   head: () => {
-    const seo = getToolSeoMeta("image-noise");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/image-noise";
     return {
       meta: [
@@ -85,7 +85,7 @@ function addNoise(img: HTMLImageElement, intensity: number, mono: boolean, seed:
 function NoiseTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("image-noise", isPro);
-  const seo = getToolSeo("image-noise");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

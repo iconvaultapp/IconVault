@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/module-import-patterns";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/module-import-patterns";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/module-import-patterns")({
   head: () => {
-    const seo = getToolSeoMeta("module-import-patterns");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/module-import-patterns";
     return {
       meta: [
@@ -631,7 +631,7 @@ function CircularTab({ trial }: { trial: ReturnType<typeof useToolTrial> }) {
 function ImportPatternsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("module-import-patterns", isPro);
-  const seo = getToolSeo("module-import-patterns");
+  const seo = toolSeo;
   const [tab, setTab] = useState<Tab>("dynamic");
 
   const tabs: { id: Tab; label: string }[] = [

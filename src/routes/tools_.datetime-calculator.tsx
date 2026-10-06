@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/datetime-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/datetime-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/datetime-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("datetime-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/datetime-calculator";
     return {
       meta: [
@@ -60,7 +60,7 @@ function dayOfYear(d: Date): number {
 function DateTimeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("datetime-calculator", isPro);
-  const seo = getToolSeo("datetime-calculator");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<"add" | "diff" | "info">("add");
 

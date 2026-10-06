@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/idle-detection-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/idle-detection-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/idle-detection-playground")({
   head: () => {
-    const seo = getToolSeoMeta("idle-detection-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/idle-detection-playground";
     return {
       meta: [
@@ -56,7 +56,7 @@ function getIdleDetector(): (new () => IdleDetectorLike) | null {
 function IdleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("idle-detection-playground", isPro);
-  const seo = getToolSeo("idle-detection-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => getIdleDetector() !== null);
   const [perm, setPerm] = useState<string>("unknown");

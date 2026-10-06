@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-path-editor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-path-editor";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-path-editor")({
   head: () => {
-    const seo = getToolSeoMeta("svg-path-editor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-path-editor";
     return {
       meta: [
@@ -65,7 +65,7 @@ function buildD(points: Pt[], closed: boolean): string {
 function PathEditor() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-path-editor", isPro);
-  const seo = getToolSeo("svg-path-editor");
+  const seo = toolSeo;
 
   const [points, setPoints] = useState<Pt[]>([]);
   const [closed, setClosed] = useState(false);

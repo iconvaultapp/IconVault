@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gradient-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gradient-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/gradient-generator")({
   head: () => {
-    const seo = getToolSeoMeta("gradient-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gradient-generator";
     return {
       meta: [
@@ -76,7 +76,7 @@ const PRESETS: { name: string; colors: [string, number][]; angle: number }[] = [
 function GradientTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gradient-generator", isPro);
-  const seo = getToolSeo("gradient-generator");
+  const seo = toolSeo;
 
   const [type, setType] = useState<GradientType>("linear");
   const [angle, setAngle] = useState(135);

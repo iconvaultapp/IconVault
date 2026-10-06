@@ -8,13 +8,13 @@ import { Check, Copy, FileUp } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-filter-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-filter-generator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-filter-generator")({
   head: () => {
-    const seo = getToolSeoMeta("css-filter-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-filter-generator";
     return {
       meta: [
@@ -81,7 +81,7 @@ function hexToRgba(hex: string, alpha: number): string {
 function FilterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-filter-generator", isPro);
-  const seo = getToolSeo("css-filter-generator");
+  const seo = toolSeo;
 
   const [v, setV] = useState({ ...DEFAULTS });
   const [imgSrc, setImgSrc] = useState(SAMPLE_SVG);

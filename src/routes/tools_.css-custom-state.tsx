@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-custom-state";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-custom-state";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-custom-state")({
   head: () => {
-    const seo = getToolSeoMeta("css-custom-state");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-custom-state";
     return {
       meta: [
@@ -93,7 +93,7 @@ type StateKey = "--on" | "--invalid" | "--loading";
 function CustomStateTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-custom-state", isPro);
-  const seo = getToolSeo("css-custom-state");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [states, setStates] = useState<Record<StateKey, boolean>>({ "--on": false, "--invalid": false, "--loading": false });

@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-typed-om";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-typed-om";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-typed-om")({
   head: () => {
-    const seo = getToolSeoMeta("css-typed-om");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-typed-om";
     return {
       meta: [
@@ -81,7 +81,7 @@ type Step = { kind: "translate" | "rotate" | "scale"; x: number; y: number };
 function TypedOmTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-typed-om", isPro);
-  const seo = getToolSeo("css-typed-om");
+  const seo = toolSeo;
   const support = useMemo(supportInfo, []);
 
   // section 1: value builder + arithmetic

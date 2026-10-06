@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-attr-function";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-attr-function";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-attr-function")({
   head: () => {
-    const seo = getToolSeoMeta("css-attr-function");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-attr-function";
     return {
       meta: [
@@ -84,7 +84,7 @@ const TYPES = [
 function AttrTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-attr-function", isPro);
-  const seo = getToolSeo("css-attr-function");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [size, setSize] = useState(200);

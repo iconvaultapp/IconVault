@@ -1,0 +1,85 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Barcode Generator - Free CODE128, EAN-13, UPC | IconVault",
+    metaDescription:
+      "Generate barcodes free: CODE128, EAN-13, EAN-8, UPC-A, Code39 and ITF-14. Customize size and export print-ready PNG or SVG.",
+    about: [
+      "**IconVault**'s **Barcode Generator** creates scannable **barcodes** in seconds: **CODE128**, **EAN-13**, EAN-8, **UPC-A**, Code39 and ITF-14 - with control over width, height, margins, colors and human-readable text. Export **print-ready PNG** or infinitely scalable **SVG** for packaging and labels.",
+      "Checksums are computed automatically (EAN/UPC), and invalid input is flagged before rendering. Everything runs in your **browser** - free, no account needed.",
+    ],
+    faqs: [
+      {
+        q: "Which barcode formats are supported?",
+        a: "CODE128 (any ASCII data), EAN-13 and EAN-8 (retail), UPC-A (US retail), Code39 (industrial) and ITF-14 (cartons).",
+      },
+      {
+        q: "Will these barcodes scan?",
+        a: "Yes - bars are rendered to spec with correct checksums and quiet zones. Always test-scan with your actual hardware before mass printing.",
+      },
+      {
+        q: "What is the difference from QR codes?",
+        a: "Barcodes are 1D and hold short numeric/alphanumeric data (SKUs, ISBNs) for laser scanners; QR codes are 2D and hold URLs and more data for cameras. Use the QR Code Generator for links.",
+      },
+      {
+        q: "Which export should I use for print?",
+        a: "SVG for packaging and professional print (infinitely scalable), PNG for quick labels and documents.",
+      },
+      {
+        q: "How many free barcodes can I generate?",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
+      },
+    ],
+    tags: [
+      "barcode generator", "free barcode generator", "code128 generator",
+      "ean-13 barcode generator", "upc barcode generator", "barcode maker",
+      "generate barcode online", "ean 13 generator", "upc-a generator",
+      "code39 generator", "itf-14 generator", "barcode png", "barcode svg",
+      "printable barcode", "product barcode generator", "isbn barcode generator",
+      "barcode creator free", "1d barcode generator",
+    
+      "create barcode online",
+      "barcode generator free online",
+      "make barcode",
+      "online barcode maker",
+      "generate upc barcode",
+      "generate ean barcode",
+      "ean 8 barcode generator",
+      "code 128 barcode maker",
+      "code 39 barcode maker",
+      "itf barcode generator",
+      "qr and barcode generator",
+      "barcode generator no signup",
+      "bulk barcode generator",
+      "generate barcodes in bulk",
+      "barcode batch maker",
+      "print barcode online",
+      "barcode label generator",
+      "barcode label maker",
+      "product label barcode",
+      "retail barcode generator",
+      "inventory barcode generator",
+      "asset barcode generator",
+      "warehouse barcode labels",
+      "sku barcode generator",
+      "barcode with text",
+      "barcode number generator",
+      "generate isbn barcode",
+      "book barcode generator",
+      "gs1 barcode generator",
+      "gtin barcode generator",
+      "upc barcode maker",
+      "ean barcode maker",
+      "code128 barcode online",
+      "code39 barcode online",
+      "download barcode png",
+      "download barcode svg",
+      "barcode font generator",
+      "barcode scanner test",
+      "2d barcode generator",
+      "datamatrix generator",
+      "pdf417 generator",
+      "free barcode maker online"],
+  };
+
+export default seo;

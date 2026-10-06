@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/crop-image";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/crop-image";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import {
   loadImageFile,
@@ -23,7 +23,7 @@ import {
 
 export const Route = createFileRoute("/tools_/crop-image")({
   head: () => {
-    const seo = getToolSeoMeta("crop-image");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/crop-image";
     return {
       meta: [
@@ -94,7 +94,7 @@ function fitRatio(iw: number, ih: number, ratio: number | null): CropRect {
 function CropImageTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("crop-image", isPro);
-  const seo = getToolSeo("crop-image");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

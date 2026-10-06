@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/pixel-ruler";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/pixel-ruler";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/pixel-ruler")({
   head: () => {
-    const seo = getToolSeoMeta("pixel-ruler");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/pixel-ruler";
     return {
       meta: [
@@ -55,7 +55,7 @@ let nextId = 1;
 function PixelRuler() {
   const { isPro } = usePlan();
   const trial = useToolTrial("pixel-ruler", isPro);
-  const seo = getToolSeo("pixel-ruler");
+  const seo = toolSeo;
 
   const areaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);

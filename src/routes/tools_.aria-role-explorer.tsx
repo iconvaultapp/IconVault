@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/aria-role-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/aria-role-explorer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/aria-role-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("aria-role-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/aria-role-explorer";
     return {
       meta: [
@@ -72,7 +72,7 @@ const GROUPS = ["All", "Landmark", "Widget", "Structure"] as const;
 function AriaExplorer() {
   const { isPro } = usePlan();
   const trial = useToolTrial("aria-role-explorer", isPro);
-  const seo = getToolSeo("aria-role-explorer");
+  const seo = toolSeo;
 
   const [q, setQ] = useState("");
   const [group, setGroup] = useState<(typeof GROUPS)[number]>("All");

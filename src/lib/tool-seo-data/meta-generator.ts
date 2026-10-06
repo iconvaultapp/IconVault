@@ -1,0 +1,86 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Meta Tag Generator - Free SEO Meta Tags | IconVault",
+    metaDescription:
+      "Generate SEO meta tags free: title, description, keywords, Open Graph, Twitter cards, canonical and robots. Copy-paste ready HTML.",
+    about: [
+      "**IconVault**'s **Meta Tag Generator** builds your complete **<head>** **SEO** block in one click: **title**, **meta description**, **keywords**, author, canonical URL, robots directives, theme-color - plus full **Open Graph** and **Twitter Card** tags so links look right on Google, Facebook, X and LinkedIn.",
+      "Fill the form, preview how your **meta tags** render, then copy the clean **HTML**. Nothing is stored or sent anywhere. Every visitor gets 5 **free** generations - Pro members get unlimited meta tag generation.",
+    ],
+    faqs: [
+      {
+        q: "What meta tags does it generate?",
+        a: "Title, description, keywords, author, canonical, robots, theme-color, plus Open Graph (og:title, og:description, og:image, og:url, og:type) and Twitter Card (twitter:card, twitter:title, twitter:description, twitter:image) tags.",
+      },
+      {
+        q: "How long should my meta description be?",
+        a: "Aim for 120-160 characters. The generator shows a live character count and warns you when the title or description risks truncation in search results.",
+      },
+      {
+        q: "Do I still need Open Graph tags if I have SEO tags?",
+        a: "Yes. Search engines use title/description, but social platforms read Open Graph and Twitter Card tags for link previews. This generator outputs both sets together.",
+      },
+      {
+        q: "Is the output valid HTML?",
+        a: "Yes - properly escaped, standards-compliant meta tags you can paste straight into your <head>.",
+      },
+      {
+        q: "How many free generations do I get?",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
+      },
+    ],
+    tags: [
+      "meta tag generator", "seo meta tags", "meta tags generator free",
+      "generate meta tags", "meta description generator", "open graph generator",
+      "twitter card generator", "html meta tags", "seo tags generator",
+      "meta tag creator", "website meta tags", "meta title generator",
+      "canonical tag generator", "robots meta tag", "og tags generator",
+      "social media meta tags", "free meta generator",
+    
+      "meta keywords generator",
+      "meta generator online",
+      "seo title generator",
+      "create meta tags",
+      "meta description maker",
+      "website seo meta generator",
+      "free seo meta tags",
+      "meta tag builder",
+      "generate seo meta tags online",
+      "meta tags for website",
+      "meta description checker",
+      "seo meta tag tool",
+      "title and description generator",
+      "meta tags creator online",
+      "on page seo generator",
+      "generate meta title",
+      "meta tag optimizer",
+      "html meta generator",
+      "meta tags for blogger",
+      "meta tags for wordpress",
+      "meta tag generator tool",
+      "automatic meta tags",
+      "seo description generator",
+      "page title generator",
+      "meta content generator",
+      "free meta tag tool",
+      "seo snippet generator",
+      "title tag generator free",
+      "meta tags checker free",
+      "create seo tags",
+      "meta data generator",
+      "website description generator",
+      "keyword meta tag generator",
+      "author meta tag",
+      "theme color meta tag",
+      "viewport meta tag generator",
+      "charset meta tag",
+      "meta refresh tag generator",
+      "meta generator for youtube",
+      "seo tags for website",
+      "meta tag generator no signup",
+      "online meta description tool",
+      "free website meta tags"],
+  };
+
+export default seo;

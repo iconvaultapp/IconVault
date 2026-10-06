@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/exam-photo-resizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/exam-photo-resizer";
 import {
   loadImageFile,
   drawCover,
@@ -22,7 +22,7 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 
 export const Route = createFileRoute("/tools_/exam-photo-resizer")({
   head: () => {
-    const seo = getToolSeoMeta("exam-photo-resizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/exam-photo-resizer";
     return {
       meta: [
@@ -70,7 +70,7 @@ const labelCls = "mb-1.5 block text-[13px] font-medium text-foreground/80";
 function ExamPhotoResizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("exam-photo-resizer", isPro);
-  const seo = getToolSeo("exam-photo-resizer");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

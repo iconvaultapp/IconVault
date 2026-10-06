@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/cors-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/cors-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/cors-tester")({
   head: () => {
-    const seo = getToolSeoMeta("cors-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/cors-tester";
     return {
       meta: [
@@ -65,7 +65,7 @@ function originOf(raw: string): string {
 function CorsTesterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("cors-tester", isPro);
-  const seo = getToolSeo("cors-tester");
+  const seo = toolSeo;
 
   const [url, setUrl] = useState("");
   const [method, setMethod] = useState<"GET" | "POST">("GET");

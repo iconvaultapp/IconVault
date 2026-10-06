@@ -1,0 +1,88 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Sitemap Generator - Free XML Sitemap | IconVault",
+    metaDescription:
+      "Generate a valid sitemap.xml free: paste your URLs, set priority, changefreq and lastmod. Copy or download instantly.",
+    about: [
+      "**IconVault**'s **Sitemap Generator** turns a **URL list** into a valid **sitemap.xml**: paste URLs one per line (or import from text), set **priority**, **changefreq** and **lastmod** per URL or in bulk, and download a search-engine-ready **XML sitemap**.",
+      "Output validates against the sitemaps.org schema. Handles up to thousands of URLs with automatic sitemap-index splitting guidance. Free, no account, runs entirely in your browser.",
+    ],
+    faqs: [
+      {
+        q: "What is a sitemap.xml?",
+        a: "An XML file listing your site's URLs with metadata (last modified, change frequency, priority) that helps search engines discover and crawl your pages efficiently.",
+      },
+      {
+        q: "Where do I put sitemap.xml?",
+        a: "At your domain root (yourdomain.com/sitemap.xml), reference it in robots.txt, and submit it in Google Search Console and Bing Webmaster Tools.",
+      },
+      {
+        q: "What should priority and changefreq be?",
+        a: "Priority is a hint relative to your own pages (1.0 homepage, 0.5 typical pages). Changefreq tells crawlers how often content changes. Search engines treat both as hints, not commands.",
+      },
+      {
+        q: "Is there a URL limit?",
+        a: "The sitemap protocol allows 50,000 URLs / 50MB per file. The generator warns you as you approach the limit and explains sitemap-index files.",
+      },
+      {
+        q: "Do I need lastmod on every URL?",
+        a: "It's optional but recommended - accurate lastmod dates help crawlers prioritize fresh content.",
+      },
+    ],
+    tags: [
+      "sitemap generator", "xml sitemap generator", "sitemap.xml generator free",
+      "create sitemap", "generate sitemap online", "sitemap creator",
+      "website sitemap generator", "url list to sitemap", "sitemap.xml creator",
+      "free sitemap tool", "sitemap generator for blogger", "wordpress sitemap generator",
+      "sitemap priority changefreq", "sitemap index generator",
+    
+      "xml sitemap creator",
+      "create xml sitemap",
+      "online sitemap generator",
+      "sitemap.xml maker",
+      "free xml sitemap tool",
+      "generate sitemap xml",
+      "website url list",
+      "sitemap builder",
+      "create sitemap.xml online",
+      "sitemap generator free online",
+      "urls to xml sitemap",
+      "bulk url sitemap",
+      "sitemap validator",
+      "check sitemap online",
+      "sitemap tester",
+      "sitemap checker tool",
+      "sitemap for blogger",
+      "sitemap for wordpress",
+      "sitemap for shopify",
+      "sitemap generator no signup",
+      "visual sitemap generator",
+      "image sitemap generator",
+      "video sitemap generator",
+      "news sitemap generator",
+      "html sitemap generator",
+      "sitemap priority calculator",
+      "lastmod sitemap",
+      "changefreq priority sitemap",
+      "sitemap.xml example",
+      "sitemap index file generator",
+      "submit sitemap to google",
+      "google sitemap generator",
+      "free sitemap creator",
+      "create website sitemap",
+      "sitemap.xml builder",
+      "url list generator",
+      "sitemap tool free",
+      "generate sitemap for seo",
+      "sitemap xml validator",
+      "sitemap crawl tool",
+      "website pages list generator",
+      "sitemap download xml",
+      "sitemap generator tool",
+      "online xml sitemap",
+      "free sitemap maker",
+      "sitemap.xml generator online"],
+  };
+
+export default seo;

@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/localstorage-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/localstorage-explorer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -22,7 +22,7 @@ import { Progress } from "@/components/ui/progress";
 
 export const Route = createFileRoute("/tools_/localstorage-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("localstorage-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/localstorage-explorer";
     return {
       meta: [
@@ -66,7 +66,7 @@ function formatBytes(n: number): string {
 function LocalStorageExplorerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("localstorage-explorer", isPro);
-  const seo = getToolSeo("localstorage-explorer");
+  const seo = toolSeo;
 
   const [entries, setEntries] = useState<Entry[]>([]);
   const [query, setQuery] = useState("");

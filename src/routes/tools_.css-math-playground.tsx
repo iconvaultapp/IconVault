@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-math-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-math-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-math-playground")({
   head: () => {
-    const seo = getToolSeoMeta("css-math-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-math-playground";
     return {
       meta: [
@@ -75,7 +75,7 @@ function UnitSelect({ value, onChange }: { value: string; onChange: (v: string) 
 function CssMathTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-math-playground", isPro);
-  const seo = getToolSeo("css-math-playground");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("clamp");
   const [a, setA] = useState(200);

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/github-repo-compare";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/github-repo-compare";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/github-repo-compare")({
   head: () => {
-    const seo = getToolSeoMeta("github-repo-compare");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/github-repo-compare";
     return {
       meta: [
@@ -105,7 +105,7 @@ async function fetchRepo(ref: string): Promise<RepoInfo> {
 function RepoCompareTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("github-repo-compare", isPro);
-  const seo = getToolSeo("github-repo-compare");
+  const seo = toolSeo;
 
   const [aRef, setARef] = useState("");
   const [bRef, setBRef] = useState("");

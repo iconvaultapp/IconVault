@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/scale-of-universe";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/scale-of-universe";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/scale-of-universe")({
   head: () => {
-    const seo = getToolSeoMeta("scale-of-universe");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/scale-of-universe";
     return {
       meta: [
@@ -77,7 +77,7 @@ function formatScale(log: number): string {
 function ScaleOfUniverseTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("scale-of-universe", isPro);
-  const seo = getToolSeo("scale-of-universe");
+  const seo = toolSeo;
 
   const [log, setLog] = useState(0.23); // start at human scale
   const [selected, setSelected] = useState<ScaleObject>(OBJECTS[8]!);

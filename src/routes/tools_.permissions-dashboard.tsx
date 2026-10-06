@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/permissions-dashboard";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/permissions-dashboard";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/permissions-dashboard")({
   head: () => {
-    const seo = getToolSeoMeta("permissions-dashboard");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/permissions-dashboard";
     return {
       meta: [
@@ -70,7 +70,7 @@ const iconFor = (name: string) => {
 function PermissionsDashboard() {
   const { isPro } = usePlan();
   const trial = useToolTrial("permissions-dashboard", isPro);
-  const seo = getToolSeo("permissions-dashboard");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<PermRow[]>(() =>
     PERMISSIONS.map((p) => ({ name: p.name, label: p.label, icon: "other", state: "checking", requestable: p.requestable })),

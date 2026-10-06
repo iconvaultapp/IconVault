@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-iterators-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-iterators-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-iterators-playground")({
   head: () => {
-    const seo = getToolSeoMeta("js-iterators-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-iterators-playground";
     return {
       meta: [
@@ -380,7 +380,7 @@ function HelpersTab() {
 function IteratorsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-iterators-playground", isPro);
-  const seo = getToolSeo("js-iterators-playground");
+  const seo = toolSeo;
   const [tab, setTab] = useState<Tab>("step");
 
   const tabs: { id: Tab; label: string }[] = [

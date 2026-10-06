@@ -9,13 +9,13 @@ import { Copy, Check, Download, Zap } from "lucide-react";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-optimizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-optimizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-optimizer")({
   head: () => {
-    const seo = getToolSeoMeta("svg-optimizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-optimizer";
     return {
       meta: [
@@ -175,7 +175,7 @@ function optimizeSvg(svg: string, o: OptOpts): { out: string; removed: number } 
 function SvgOptimizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-optimizer", isPro);
-  const seo = getToolSeo("svg-optimizer");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState<string | null>(null);

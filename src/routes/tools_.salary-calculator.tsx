@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/salary-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/salary-calculator";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/salary-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("salary-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/salary-calculator";
     return {
       meta: [
@@ -44,7 +44,7 @@ function money(n: number): string {
 function SalaryTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("salary-calculator", isPro);
-  const seo = getToolSeo("salary-calculator");
+  const seo = toolSeo;
 
   const [wage, setWage] = useState("25");
   const [hours, setHours] = useState("40");

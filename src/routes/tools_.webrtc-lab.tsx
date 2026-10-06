@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/webrtc-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/webrtc-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/webrtc-lab")({
   head: () => {
-    const seo = getToolSeoMeta("webrtc-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/webrtc-lab";
     return {
       meta: [
@@ -120,7 +120,7 @@ function actorIndex(name: string): number {
 function WebRtcLabTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("webrtc-lab", isPro);
-  const seo = getToolSeo("webrtc-lab");
+  const seo = toolSeo;
 
   const [scenarioId, setScenarioId] = useState(SCENARIOS[0]!.id);
   const [step, setStep] = useState(0);

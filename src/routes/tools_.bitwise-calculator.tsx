@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/bitwise-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/bitwise-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/bitwise-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("bitwise-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/bitwise-calculator";
     return {
       meta: [
@@ -121,7 +121,7 @@ function OperandInput({
 function BitwiseTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("bitwise-calculator", isPro);
-  const seo = getToolSeo("bitwise-calculator");
+  const seo = toolSeo;
 
   const [aStr, setAStr] = useState("12");
   const [bStr, setBStr] = useState("10");

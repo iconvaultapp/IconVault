@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/jwt-decoder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/jwt-decoder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/jwt-decoder")({
   head: () => {
-    const seo = getToolSeoMeta("jwt-decoder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/jwt-decoder";
     return {
       meta: [
@@ -177,7 +177,7 @@ function copy(text: string, label: string) {
 function JwtDecoderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("jwt-decoder", isPro);
-  const seo = getToolSeo("jwt-decoder");
+  const seo = toolSeo;
 
   const [token, setToken] = useState("");
   const [decoded, setDecoded] = useState<Decoded | null>(null);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/launch-handler-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/launch-handler-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/launch-handler-playground")({
   head: () => {
-    const seo = getToolSeoMeta("launch-handler-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/launch-handler-playground";
     return {
       meta: [
@@ -49,7 +49,7 @@ const CLIENT_MODES = ["auto", "focus-existing", "navigate-existing", "navigate-n
 function LaunchTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("launch-handler-playground", isPro);
-  const seo = getToolSeo("launch-handler-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof window !== "undefined" && "launchQueue" in window);
   const [clientMode, setClientMode] = useState<(typeof CLIENT_MODES)[number]>("auto");

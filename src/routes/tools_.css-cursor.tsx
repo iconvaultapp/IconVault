@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-cursor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-cursor";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-cursor")({
   head: () => {
-    const seo = getToolSeoMeta("css-cursor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-cursor";
     return {
       meta: [
@@ -78,7 +78,7 @@ const CURSORS: { name: string; hint: string }[] = [
 function CssCursorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-cursor", isPro);
-  const seo = getToolSeo("css-cursor");
+  const seo = toolSeo;
 
   const [filter, setFilter] = useState("");
   const [copiedName, setCopiedName] = useState<string | null>(null);

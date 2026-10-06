@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dns-lookup";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dns-lookup";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/dns-lookup")({
   head: () => {
-    const seo = getToolSeoMeta("dns-lookup");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dns-lookup";
     return {
       meta: [
@@ -58,7 +58,7 @@ async function copy(text: string, label: string) {
 function DnsLookupTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dns-lookup", isPro);
-  const seo = getToolSeo("dns-lookup");
+  const seo = toolSeo;
 
   const [domain, setDomain] = useState("");
   const [type, setType] = useState<string>("A");

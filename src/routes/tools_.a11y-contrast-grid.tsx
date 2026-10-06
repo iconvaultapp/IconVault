@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/a11y-contrast-grid";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/a11y-contrast-grid";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createFileRoute("/tools_/a11y-contrast-grid")({
   head: () => {
-    const seo = getToolSeoMeta("a11y-contrast-grid");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/a11y-contrast-grid";
     return {
       meta: [
@@ -88,7 +88,7 @@ function normalizeHex(v: string): string | null {
 function ContrastGridTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("a11y-contrast-grid", isPro);
-  const seo = getToolSeo("a11y-contrast-grid");
+  const seo = toolSeo;
 
   const [foregrounds, setForegrounds] = useState<string[]>(["#0f172a", "#ffffff", "#0f766e", "#ef4444"]);
   const [backgrounds, setBackgrounds] = useState<string[]>(["#ffffff", "#f1f5f9", "#0f172a", "#0f766e"]);

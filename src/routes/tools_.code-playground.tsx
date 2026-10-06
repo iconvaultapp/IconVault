@@ -9,14 +9,14 @@ import { toast } from "sonner";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/code-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/code-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/tools_/code-playground")({
   head: () => {
-    const seo = getToolSeoMeta("code-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/code-playground";
     return {
       meta: [
@@ -107,7 +107,7 @@ type Pane = (typeof PANES)[number]["id"];
 function CodePlaygroundTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("code-playground", isPro);
-  const seo = getToolSeo("code-playground");
+  const seo = toolSeo;
 
   const [webHtml, setWebHtml] = useState(DEFAULT_HTML);
   const [webCss, setWebCss] = useState(DEFAULT_CSS);

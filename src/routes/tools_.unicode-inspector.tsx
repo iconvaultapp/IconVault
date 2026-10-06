@@ -6,13 +6,13 @@ import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/unicode-inspector";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/unicode-inspector";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/unicode-inspector")({
   head: () => {
-    const seo = getToolSeoMeta("unicode-inspector");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/unicode-inspector";
     return {
       meta: [
@@ -95,7 +95,7 @@ const MAX_ROWS = 500;
 function UnicodeInspectorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("unicode-inspector", isPro);
-  const seo = getToolSeo("unicode-inspector");
+  const seo = toolSeo;
 
   const [text, setText] = useState("Hello 👋");
 

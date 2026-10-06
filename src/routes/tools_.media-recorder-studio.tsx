@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/media-recorder-studio";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/media-recorder-studio";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/media-recorder-studio")({
   head: () => {
-    const seo = getToolSeoMeta("media-recorder-studio");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/media-recorder-studio";
     return {
       meta: [
@@ -60,7 +60,7 @@ function extFor(mime: string) {
 function RecorderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("media-recorder-studio", isPro);
-  const seo = getToolSeo("media-recorder-studio");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof window !== "undefined" && "MediaRecorder" in window);
   const [source, setSource] = useState<(typeof SOURCES)[number]["id"]>("camera");

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/env-vars-reference";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/env-vars-reference";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/env-vars-reference")({
   head: () => {
-    const seo = getToolSeoMeta("env-vars-reference");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/env-vars-reference";
     return {
       meta: [
@@ -146,7 +146,7 @@ const VARS: EnvVar[] = [
 function EnvVarsReference() {
   const { isPro } = usePlan();
   const trial = useToolTrial("env-vars-reference", isPro);
-  const seo = getToolSeo("env-vars-reference");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category | "all">("all");

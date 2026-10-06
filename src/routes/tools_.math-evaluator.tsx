@@ -6,13 +6,13 @@ import { Copy, Delete, Equal, Sigma } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/math-evaluator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/math-evaluator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/math-evaluator")({
   head: () => {
-    const seo = getToolSeoMeta("math-evaluator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/math-evaluator";
     return {
       meta: [
@@ -180,7 +180,7 @@ const KEYPAD = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0",
 function MathTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("math-evaluator", isPro);
-  const seo = getToolSeo("math-evaluator");
+  const seo = toolSeo;
 
   const [expr, setExpr] = useState("sqrt(16) + 2^3 * sin(pi/2)");
   const [result, setResult] = useState<number | null>(null);

@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/photo-collage";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/photo-collage";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { loadImageFile, canvasToBlob, drawCover } from "@/lib/image-tools";
 
 export const Route = createFileRoute("/tools_/photo-collage")({
   head: () => {
-    const seo = getToolSeoMeta("photo-collage");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/photo-collage";
     return {
       meta: [
@@ -133,7 +133,7 @@ function renderCollage(
 function PhotoCollageTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("photo-collage", isPro);
-  const seo = getToolSeo("photo-collage");
+  const seo = toolSeo;
 
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [layoutId, setLayoutId] = useState("2x2");

@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-palette-extractor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-palette-extractor";
 import { loadImageFile, medianCut, rgbToHex } from "@/lib/image-tools";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-palette-extractor")({
   head: () => {
-    const seo = getToolSeoMeta("color-palette-extractor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-palette-extractor";
     return {
       meta: [
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/tools_/color-palette-extractor")({
 function PaletteTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-palette-extractor", isPro);
-  const seo = getToolSeo("color-palette-extractor");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState("");

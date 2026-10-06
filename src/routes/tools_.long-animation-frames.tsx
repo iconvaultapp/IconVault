@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/long-animation-frames";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/long-animation-frames";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/long-animation-frames")({
   head: () => {
-    const seo = getToolSeoMeta("long-animation-frames");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/long-animation-frames";
     return {
       meta: [
@@ -76,7 +76,7 @@ if ("PerformanceObserver" in window) {
 function LoafTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("long-animation-frames", isPro);
-  const seo = getToolSeo("long-animation-frames");
+  const seo = toolSeo;
   const [observing, setObserving] = useState(false);
   const [entries, setEntries] = useState<LoafEntry[]>([]);
   const [busy, setBusy] = useState(false);

@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-converter";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-converter")({
   head: () => {
-    const seo = getToolSeoMeta("color-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-converter";
     return {
       meta: [
@@ -478,7 +478,7 @@ function ColorLibrary({ onPick }: { onPick: (hex: string) => void }) {
 function ColorConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-converter", isPro);
-  const seo = getToolSeo("color-converter");
+  const seo = toolSeo;
 
   const [color, setColor] = useState<Rgb>({ r: 99, g: 102, b: 241 }); // indigo-500
   const [hexInput, setHexInput] = useState(rgbToHex({ r: 99, g: 102, b: 241 }));

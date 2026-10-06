@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gamepad-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gamepad-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/gamepad-playground")({
   head: () => {
-    const seo = getToolSeoMeta("gamepad-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gamepad-playground";
     return {
       meta: [
@@ -56,7 +56,7 @@ const BUTTON_LABELS = [
 function GamepadTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gamepad-playground", isPro);
-  const seo = getToolSeo("gamepad-playground");
+  const seo = toolSeo;
 
   const [supported] = useState(() => typeof navigator !== "undefined" && "getGamepads" in navigator);
   const [pad, setPad] = useState<PadSnapshot | null>(null);

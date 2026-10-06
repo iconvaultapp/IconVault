@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/clipboard-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/clipboard-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/clipboard-playground")({
   head: () => {
-    const seo = getToolSeoMeta("clipboard-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/clipboard-playground";
     return {
       meta: [
@@ -44,7 +44,7 @@ interface ReadResult {
 function ClipboardTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("clipboard-playground", isPro);
-  const seo = getToolSeo("clipboard-playground");
+  const seo = toolSeo;
 
   const [hasClipboard] = useState<boolean>(() => typeof navigator !== "undefined" && "clipboard" in navigator);
   const [canWriteText] = useState<boolean>(() => typeof navigator?.clipboard?.writeText === "function");

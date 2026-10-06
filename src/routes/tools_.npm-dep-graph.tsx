@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/npm-dep-graph";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/npm-dep-graph";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/npm-dep-graph")({
   head: () => {
-    const seo = getToolSeoMeta("npm-dep-graph");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/npm-dep-graph";
     return {
       meta: [
@@ -159,7 +159,7 @@ function layout(nodes: GNode[], edges: GEdge[], ticks = 260) {
 function NpmDepGraphTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("npm-dep-graph", isPro);
-  const seo = getToolSeo("npm-dep-graph");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("react");
   const [depth, setDepth] = useState(2);

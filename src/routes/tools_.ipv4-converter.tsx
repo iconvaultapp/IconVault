@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ipv4-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ipv4-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ipv4-converter")({
   head: () => {
-    const seo = getToolSeoMeta("ipv4-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ipv4-converter";
     return {
       meta: [
@@ -59,7 +59,7 @@ async function copy(text: string, label: string) {
 function Ipv4Converter() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ipv4-converter", isPro);
-  const seo = getToolSeo("ipv4-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("192.168.1.1");
   const [rows, setRows] = useState<{ label: string; value: string }[] | null>(null);

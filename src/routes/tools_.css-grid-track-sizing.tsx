@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-grid-track-sizing";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-grid-track-sizing";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-grid-track-sizing")({
   head: () => {
-    const seo = getToolSeoMeta("css-grid-track-sizing");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-grid-track-sizing";
     return {
       meta: [
@@ -67,7 +67,7 @@ const ITEM_TEXTS = [
 function GridTrackSizing() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-grid-track-sizing", isPro);
-  const seo = getToolSeo("css-grid-track-sizing");
+  const seo = toolSeo;
 
   const [tracks, setTracks] = useState<string[]>(["1fr", "1fr", "1fr"]);
   const [containerW, setContainerW] = useState(760);

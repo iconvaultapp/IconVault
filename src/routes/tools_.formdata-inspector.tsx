@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/formdata-inspector";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/formdata-inspector";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/formdata-inspector")({
   head: () => {
-    const seo = getToolSeoMeta("formdata-inspector");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/formdata-inspector";
     return {
       meta: [
@@ -61,7 +61,7 @@ function fmtBytes(n: number) {
 function FormDataInspector() {
   const { isPro } = usePlan();
   const trial = useToolTrial("formdata-inspector", isPro);
-  const seo = getToolSeo("formdata-inspector");
+  const seo = toolSeo;
 
   const [fields, setFields] = useState<Field[]>([
     { id: nextId++, name: "username", kind: "text", text: "sameer", file: null },

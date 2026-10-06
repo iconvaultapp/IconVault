@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/http3-quic-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/http3-quic-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/http3-quic-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("http3-quic-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/http3-quic-visualizer";
     return {
       meta: [
@@ -374,7 +374,7 @@ const TABS = [
 function QuicTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("http3-quic-visualizer", isPro);
-  const seo = getToolSeo("http3-quic-visualizer");
+  const seo = toolSeo;
   const [tab, setTab] = useState<(typeof TABS)[number]["id"]>("handshake");
 
   const exportNotes = () => {

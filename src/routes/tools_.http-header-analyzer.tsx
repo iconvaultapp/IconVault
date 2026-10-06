@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/http-header-analyzer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/http-header-analyzer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/http-header-analyzer")({
   head: () => {
-    const seo = getToolSeoMeta("http-header-analyzer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/http-header-analyzer";
     return {
       meta: [
@@ -124,7 +124,7 @@ const FINDING_TEXT: Record<Finding["level"], string> = {
 function HeaderAnalyzer() {
   const { isPro } = usePlan();
   const trial = useToolTrial("http-header-analyzer", isPro);
-  const seo = getToolSeo("http-header-analyzer");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<"paste" | "url">("paste");
   const [raw, setRaw] = useState("");

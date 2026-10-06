@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/compress-jpg";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/compress-jpg";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import {
   loadImageFile,
@@ -25,7 +25,7 @@ import {
 
 export const Route = createFileRoute("/tools_/compress-jpg")({
   head: () => {
-    const seo = getToolSeoMeta("compress-jpg");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/compress-jpg";
     return {
       meta: [
@@ -73,7 +73,7 @@ function savedPct(orig: number, next: number) {
 function CompressJpgTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("compress-jpg", isPro);
-  const seo = getToolSeo("compress-jpg");
+  const seo = toolSeo;
 
   const [items, setItems] = useState<Item[]>([]);
   const [quality, setQuality] = useState(75);

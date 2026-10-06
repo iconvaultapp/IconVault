@@ -9,8 +9,8 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/websocket-frame-inspector";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/websocket-frame-inspector";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -21,7 +21,7 @@ import { Switch } from "@/components/ui/switch";
 
 export const Route = createFileRoute("/tools_/websocket-frame-inspector")({
   head: () => {
-    const seo = getToolSeoMeta("websocket-frame-inspector");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/websocket-frame-inspector";
     return {
       meta: [
@@ -191,7 +191,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function WsFrameInspectorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("websocket-frame-inspector", isPro);
-  const seo = getToolSeo("websocket-frame-inspector");
+  const seo = toolSeo;
 
   const [opcode, setOpcode] = useState("0x1");
   const [fin, setFin] = useState(true);

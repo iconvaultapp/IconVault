@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/tcp-state-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/tcp-state-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/tcp-state-lab")({
   head: () => {
-    const seo = getToolSeoMeta("tcp-state-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/tcp-state-lab";
     return {
       meta: [
@@ -145,7 +145,7 @@ const ALL_STATES = ["CLOSED", "LISTEN", "SYN_SENT", "SYN_RCVD", "ESTABLISHED", "
 function TcpLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("tcp-state-lab", isPro);
-  const seo = getToolSeo("tcp-state-lab");
+  const seo = toolSeo;
 
   const [stepIdx, setStepIdx] = useState(0);
   const [playing, setPlaying] = useState(false);

@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/package-json-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/package-json-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,7 +21,7 @@ import { Switch } from "@/components/ui/switch";
 
 export const Route = createFileRoute("/tools_/package-json-generator")({
   head: () => {
-    const seo = getToolSeoMeta("package-json-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/package-json-generator";
     return {
       meta: [
@@ -173,7 +173,7 @@ function EntryList({ title, entries, setEntries, namePlaceholder, valuePlacehold
 function PackageJsonGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("package-json-generator", isPro);
-  const seo = getToolSeo("package-json-generator");
+  const seo = toolSeo;
 
   const [type, setType] = useState<ProjectType>("app");
   const [name, setName] = useState("my-app");

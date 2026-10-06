@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/grid-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/grid-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/grid-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("grid-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/grid-calculator";
     return {
       meta: [
@@ -54,7 +54,7 @@ let nextBp = 1;
 function GridCalculator() {
   const { isPro } = usePlan();
   const trial = useToolTrial("grid-calculator", isPro);
-  const seo = getToolSeo("grid-calculator");
+  const seo = toolSeo;
 
   const [width, setWidth] = useState(1200);
   const [cols, setCols] = useState(12);

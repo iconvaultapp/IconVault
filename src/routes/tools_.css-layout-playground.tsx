@@ -11,13 +11,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-layout-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-layout-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-layout-playground")({
   head: () => {
-    const seo = getToolSeoMeta("css-layout-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-layout-playground";
     return {
       meta: [
@@ -135,7 +135,7 @@ const BOX_COLORS = ["#0f766e", "#0e7490", "#b45309", "#be123c", "#4d7c0f", "#6d2
 function LayoutPlaygroundTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-layout-playground", isPro);
-  const seo = getToolSeo("css-layout-playground");
+  const seo = toolSeo;
   const support = useMemo(supportBadge, []);
   const counter = useRef(0);
 

@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/signature-resizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/signature-resizer";
 import {
   loadImageFile,
   drawContain,
@@ -21,7 +21,7 @@ import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageS
 
 export const Route = createFileRoute("/tools_/signature-resizer")({
   head: () => {
-    const seo = getToolSeoMeta("signature-resizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/signature-resizer";
     return {
       meta: [
@@ -111,7 +111,7 @@ const labelCls = "mb-1.5 block text-[13px] font-medium text-foreground/80";
 function SignatureResizerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("signature-resizer", isPro);
-  const seo = getToolSeo("signature-resizer");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

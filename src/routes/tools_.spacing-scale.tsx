@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/spacing-scale";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/spacing-scale";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/spacing-scale")({
   head: () => {
-    const seo = getToolSeoMeta("spacing-scale");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/spacing-scale";
     return {
       meta: [
@@ -50,7 +50,7 @@ function fmt(v: number): string {
 function SpacingScaleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("spacing-scale", isPro);
-  const seo = getToolSeo("spacing-scale");
+  const seo = toolSeo;
 
   const [base, setBase] = useState("8");
   const [ratio, setRatio] = useState("1.5");

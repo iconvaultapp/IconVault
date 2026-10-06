@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dns-resolution-lab";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dns-resolution-lab";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/dns-resolution-lab")({
   head: () => {
-    const seo = getToolSeoMeta("dns-resolution-lab");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dns-resolution-lab";
     return {
       meta: [
@@ -135,7 +135,7 @@ function buildHops(domain: string, cached: boolean): Hop[] {
 function DnsLab() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dns-resolution-lab", isPro);
-  const seo = getToolSeo("dns-resolution-lab");
+  const seo = toolSeo;
 
   const [domain, setDomain] = useState("blog.example.com");
   const [lookups, setLookups] = useState(0); // completed lookups, drives cache

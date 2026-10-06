@@ -7,13 +7,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/word-search-game";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/word-search-game";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/word-search-game")({
   head: () => {
-    const seo = getToolSeoMeta("word-search-game");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/word-search-game";
     return {
       meta: [
@@ -107,7 +107,7 @@ function formatTime(s: number) {
 function WordSearchTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("word-search-game", isPro);
-  const seo = getToolSeo("word-search-game");
+  const seo = toolSeo;
 
   const [theme, setTheme] = useState("Animals");
   const [size, setSize] = useState<(typeof SIZES)[number]>(10);

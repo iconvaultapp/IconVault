@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/yaml-formatter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/yaml-formatter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/yaml-formatter")({
   head: () => {
-    const seo = getToolSeoMeta("yaml-formatter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/yaml-formatter";
     return {
       meta: [
@@ -53,7 +53,7 @@ type ViewMode = "yaml" | "json";
 function YamlFormatterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("yaml-formatter", isPro);
-  const seo = getToolSeo("yaml-formatter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [yamlOut, setYamlOut] = useState<string | null>(null);

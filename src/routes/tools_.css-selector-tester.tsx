@@ -7,13 +7,13 @@ import { Crosshair, Eraser, Play } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-selector-tester";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-selector-tester";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-selector-tester")({
   head: () => {
-    const seo = getToolSeoMeta("css-selector-tester");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-selector-tester";
     return {
       meta: [
@@ -72,7 +72,7 @@ const PRESETS = [
 function SelectorTester() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-selector-tester", isPro);
-  const seo = getToolSeo("css-selector-tester");
+  const seo = toolSeo;
 
   const [selector, setSelector] = useState(".item");
   const [matches, setMatches] = useState<string[]>([]);

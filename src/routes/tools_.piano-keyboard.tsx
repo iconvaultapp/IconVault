@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/piano-keyboard";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/piano-keyboard";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/piano-keyboard")({
   head: () => {
-    const seo = getToolSeoMeta("piano-keyboard");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/piano-keyboard";
     return {
       meta: [
@@ -55,7 +55,7 @@ const KEYMAP: Record<string, number> = {
 function PianoTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("piano-keyboard", isPro);
-  const seo = getToolSeo("piano-keyboard");
+  const seo = toolSeo;
 
   const [octave, setOctave] = useState(4);
   const [sustain, setSustain] = useState(false);

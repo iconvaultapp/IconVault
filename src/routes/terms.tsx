@@ -97,7 +97,7 @@ function Page() {
               <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
                 Pro page
               </Link>
-              : Pro Monthly ($2/month) and Pro Yearly ($14/year) are recurring subscriptions you can cancel
+              : Pro Yearly ($19/year) is a recurring subscription you can cancel
               anytime. Lifetime ($39) is a one-time payment with no expiry.
             </p>
             <p>

@@ -7,13 +7,13 @@ import { Check, Copy, ListX } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/remove-duplicate-lines";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/remove-duplicate-lines";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/remove-duplicate-lines")({
   head: () => {
-    const seo = getToolSeoMeta("remove-duplicate-lines");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/remove-duplicate-lines";
     return {
       meta: [
@@ -69,7 +69,7 @@ function dedupe(raw: string, opts: DedupeOptions): DedupeResult {
 function RemoveDuplicateLinesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("remove-duplicate-lines", isPro);
-  const seo = getToolSeo("remove-duplicate-lines");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");

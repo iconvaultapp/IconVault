@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-gc-visualizer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-gc-visualizer";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-gc-visualizer")({
   head: () => {
-    const seo = getToolSeoMeta("js-gc-visualizer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-gc-visualizer";
     return {
       meta: [
@@ -315,7 +315,7 @@ function nodeStroke(n: GNode): string {
 function GcTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-gc-visualizer", isPro);
-  const seo = getToolSeo("js-gc-visualizer");
+  const seo = toolSeo;
 
   const [scenId, setScenId] = useState("scavenge");
   const scen = useMemo(() => SCENARIOS.find((s) => s.id === scenId) ?? SCENARIOS[0]!, [scenId]);

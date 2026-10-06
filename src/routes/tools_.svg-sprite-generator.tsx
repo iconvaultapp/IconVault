@@ -8,13 +8,13 @@ import { Copy, Check, Download, Layers, Plus, X } from "lucide-react";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-sprite-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-sprite-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-sprite-generator")({
   head: () => {
-    const seo = getToolSeoMeta("svg-sprite-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-sprite-generator";
     return {
       meta: [
@@ -85,7 +85,7 @@ function extractSymbol(entry: Entry, index: number, currentColor: boolean): { id
 function SvgSpriteTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-sprite-generator", isPro);
-  const seo = getToolSeo("svg-sprite-generator");
+  const seo = toolSeo;
 
   const [entries, setEntries] = useState<Entry[]>([blankEntry(), blankEntry()]);
   const [sprite, setSprite] = useState<string | null>(null);

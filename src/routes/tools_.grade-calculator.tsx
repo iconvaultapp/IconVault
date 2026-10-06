@@ -7,13 +7,13 @@ import { ClipboardCopy, GraduationCap, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/grade-calculator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/grade-calculator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/grade-calculator")({
   head: () => {
-    const seo = getToolSeoMeta("grade-calculator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/grade-calculator";
     return {
       meta: [
@@ -47,7 +47,7 @@ const inputCls =
 function GradeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("grade-calculator", isPro);
-  const seo = getToolSeo("grade-calculator");
+  const seo = toolSeo;
 
   const idRef = useRef(4);
   const [rows, setRows] = useState<Row[]>([

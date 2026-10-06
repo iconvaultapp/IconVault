@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/rsa-key-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/rsa-key-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/rsa-key-generator")({
   head: () => {
-    const seo = getToolSeoMeta("rsa-key-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/rsa-key-generator";
     return {
       meta: [
@@ -52,7 +52,7 @@ function toPem(der: ArrayBuffer, label: string): string {
 function RsaTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("rsa-key-generator", isPro);
-  const seo = getToolSeo("rsa-key-generator");
+  const seo = toolSeo;
 
   const [size, setSize] = useState<number>(2048);
   const [privatePem, setPrivatePem] = useState("");

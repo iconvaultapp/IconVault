@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/env-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/env-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/env-generator")({
   head: () => {
-    const seo = getToolSeoMeta("env-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/env-generator";
     return {
       meta: [
@@ -57,7 +57,7 @@ function encodeValue(v: string): string {
 function EnvGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("env-generator", isPro);
-  const seo = getToolSeo("env-generator");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<EnvRow[]>([
     { id: rowId++, key: "DATABASE_URL", value: "postgres://user:pass@localhost:5432/app", comment: "Primary database" },

@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sw-lifecycle-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sw-lifecycle-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sw-lifecycle-playground")({
   head: () => {
-    const seo = getToolSeoMeta("sw-lifecycle-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sw-lifecycle-playground";
     return {
       meta: [
@@ -101,7 +101,7 @@ async function copyText(text: string) {
 function SwLifecycleTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sw-lifecycle-playground", isPro);
-  const seo = getToolSeo("sw-lifecycle-playground");
+  const seo = toolSeo;
 
   const [phase, setPhase] = useState<Phase>("idle");
   const [log, setLog] = useState<string[]>([]);

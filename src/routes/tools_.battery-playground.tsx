@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/battery-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/battery-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/battery-playground")({
   head: () => {
-    const seo = getToolSeoMeta("battery-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/battery-playground";
     return {
       meta: [
@@ -64,7 +64,7 @@ function fmtSeconds(s: number): string {
 function BatteryTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("battery-playground", isPro);
-  const seo = getToolSeo("battery-playground");
+  const seo = toolSeo;
 
   const [supported] = useState<boolean>(
     () => typeof navigator !== "undefined" && typeof navigator.getBattery === "function",

@@ -9,14 +9,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/fetch-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/fetch-playground";
 import { downloadBlob } from "@/lib/logo-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/fetch-playground")({
   head: () => {
-    const seo = getToolSeoMeta("fetch-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/fetch-playground";
     return {
       meta: [
@@ -63,7 +63,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 function FetchPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("fetch-playground", isPro);
-  const seo = getToolSeo("fetch-playground");
+  const seo = toolSeo;
 
   const [url, setUrl] = useState(DEMO_URL_DEFAULT());
   const [method, setMethod] = useState<string>("GET");

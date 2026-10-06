@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Clip Path Generator - Free Online CSS Shape Tool | IconVault",
+    metaDescription: "Build CSS clip-path shapes with a draggable polygon editor and copy the code. Free, runs fully in your browser.",
+    about: [
+      "**IconVault**'s **Clip Path Generator** lets you draw custom **clip-path** shapes with a **draggable polygon editor** instead of hand-writing coordinates. Add and move points over a live preview, then copy the generated CSS polygon() code straight into your stylesheet. It is free and runs fully in your browser.",
+      "**Clipped shapes** are a staple of **modern web design**: angled hero sections, hexagon avatars, speech bubbles and image masks. The visual editor makes it easy to experiment until the shape looks right, and the generated CSS uses **percentage coordinates** so the shape scales with the element. Trial use is recorded only when you copy the CSS."
+    ],
+    faqs: [
+      { q: "What is CSS clip-path?", a: "clip-path clips an element to a shape, hiding everything outside it. The polygon() function defines the shape as a list of x/y coordinate pairs, and this tool generates those coordinates visually." },
+      { q: "How do I use the generated CSS?", a: "Copy the clip-path declaration and paste it onto any selector, for example .hero { clip-path: polygon(...); }. Because the coordinates are percentages, the shape scales with the element's size." },
+      { q: "Can I edit points after drawing a shape?", a: "Yes. The editor is draggable: click to add points, drag to move them, and remove points you don't need. The CSS output updates live as you edit." },
+      { q: "Do clip-path shapes work in all browsers?", a: "polygon(), circle() and ellipse() are supported in all modern browsers. This tool generates plain standards-based CSS with no vendor prefixes needed for current browsers." },
+      { q: "Why does my clipped element still take up its box?", a: "clip-path only hides the painted pixels; layout still uses the element's full box. If you need the shape to affect layout, add negative margins or use shape-outside for floated text wrapping." },
+      { q: "Is the tool really free?", a: "Yes. There is no account and no paywall for generating and copying clip-path CSS. A trial counter tracks copies, and Pro unlocks unlimited use."
+      }
+    ],
+    tags: [
+      "clip path generator",
+      "css clip path generator",
+      "clip path maker",
+      "clip-path polygon generator",
+      "css shape generator",
+      "clip path css tool",
+      "css clip path editor",
+      "polygon clip path generator",
+      "clip path online",
+      "css mask generator",
+      "clip-path css shapes",
+      "css hexagon clip path",
+      "clip path triangle css",
+      "css clip path examples",
+      "clip path generator online free",
+      "draw clip path visually",
+      "css polygon maker",
+      "clip path code generator",
+      "css clip path hero section",
+      "angled section clip path css",
+      "clip path image css",
+      "css clip path circle",
+      "css clip path ellipse",
+      "clip path animation css",
+      "css shapes generator",
+      "clip-path polygon tool",
+      "generate clip path css",
+      "css clip path border",
+      "clip path button css",
+      "css clip path responsive",
+      "clip path percentage coordinates",
+      "css clip path cheat sheet",
+      "clip-path vs mask",
+      "clip path text css",
+      "css clip path arrow",
+      "clip path badge css",
+      "speech bubble clip path css",
+      "css clip path star",
+      "clip path pentagon css",
+      "css clip path diamond",
+      "clip path parallelogram css",
+      "clip-path inset generator",
+      "css clip path wavy",
+      "clip path divider css",
+      "svg vs css clip path",
+      "css clip path generator with preview",
+      "copy paste clip path css",
+      "clip path coordinates finder",
+      "css clip path playground",
+      "free clip path tool"
+    ],
+  };
+
+export default seo;

@@ -6,13 +6,13 @@ import { Copy, Tags, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/meta-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/meta-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/meta-generator")({
   head: () => {
-    const seo = getToolSeoMeta("meta-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/meta-generator";
     return {
       meta: [
@@ -96,7 +96,7 @@ function buildMeta(f: MetaFields): string {
 function MetaGeneratorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("meta-generator", isPro);
-  const seo = getToolSeo("meta-generator");
+  const seo = toolSeo;
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

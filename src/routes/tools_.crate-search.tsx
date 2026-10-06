@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/crate-search";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/crate-search";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/crate-search")({
   head: () => {
-    const seo = getToolSeoMeta("crate-search");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/crate-search";
     return {
       meta: [
@@ -63,7 +63,7 @@ function timeAgo(iso: string): string {
 function CrateSearchTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("crate-search", isPro);
-  const seo = getToolSeo("crate-search");
+  const seo = toolSeo;
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState(false);
   const [crates, setCrates] = useState<Crate[]>([]);

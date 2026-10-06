@@ -8,13 +8,13 @@ import { Check, Copy, FlaskConical } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-has-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-has-playground";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-has-playground")({
   head: () => {
-    const seo = getToolSeoMeta("css-has-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-has-playground";
     return {
       meta: [
@@ -124,7 +124,7 @@ function DemoCard({ demo, trial }: { demo: Demo; trial: ReturnType<typeof useToo
 function HasPlaygroundTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-has-playground", isPro);
-  const seo = getToolSeo("css-has-playground");
+  const seo = toolSeo;
   const supported = useSupportBadge();
   const [activeLink, setActiveLink] = useState(1);
 

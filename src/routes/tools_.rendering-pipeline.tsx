@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/rendering-pipeline";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/rendering-pipeline";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/rendering-pipeline")({
   head: () => {
-    const seo = getToolSeoMeta("rendering-pipeline");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/rendering-pipeline";
     return {
       meta: [
@@ -93,7 +93,7 @@ function stagesFor(row: PropRow): Stage[] {
 function RenderingPipelineTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("rendering-pipeline", isPro);
-  const seo = getToolSeo("rendering-pipeline");
+  const seo = toolSeo;
 
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Stage | "all">("all");

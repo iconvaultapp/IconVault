@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/csp-evaluator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/csp-evaluator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/csp-evaluator")({
   head: () => {
-    const seo = getToolSeoMeta("csp-evaluator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/csp-evaluator";
     return {
       meta: [
@@ -216,7 +216,7 @@ const STATUS_STYLE: Record<Status, { icon: typeof Check; cls: string; badge: str
 function CspEvaluatorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("csp-evaluator", isPro);
-  const seo = getToolSeo("csp-evaluator");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [result, setResult] = useState<{ score: number; checks: Check[] } | null>(null);

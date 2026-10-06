@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-memory-leaks";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-memory-leaks";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-memory-leaks")({
   head: () => {
-    const seo = getToolSeoMeta("js-memory-leaks");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-memory-leaks";
     return {
       meta: [
@@ -158,7 +158,7 @@ function startLeak() {
 function MemoryLeaksTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-memory-leaks", isPro);
-  const seo = getToolSeo("js-memory-leaks");
+  const seo = toolSeo;
 
   const [closures, setClosures] = useState(0);
   const [collected, setCollected] = useState(0);

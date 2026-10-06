@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/user-agent-parser";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/user-agent-parser";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/user-agent-parser")({
   head: () => {
-    const seo = getToolSeoMeta("user-agent-parser");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/user-agent-parser";
     return {
       meta: [
@@ -109,7 +109,7 @@ function parseUA(ua: string): Parsed {
 function UserAgentParserTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("user-agent-parser", isPro);
-  const seo = getToolSeo("user-agent-parser");
+  const seo = toolSeo;
   const [single, setSingle] = useState(
     typeof navigator !== "undefined" ? navigator.userAgent : "",
   );

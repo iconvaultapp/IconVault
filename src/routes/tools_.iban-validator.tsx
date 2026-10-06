@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/iban-validator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/iban-validator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/iban-validator")({
   head: () => {
-    const seo = getToolSeoMeta("iban-validator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/iban-validator";
     return {
       meta: [
@@ -107,7 +107,7 @@ function printFormat(electronic: string): string {
 function IbanTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("iban-validator", isPro);
-  const seo = getToolSeo("iban-validator");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [format, setFormat] = useState<"print" | "electronic">("print");

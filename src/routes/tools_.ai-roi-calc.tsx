@@ -7,13 +7,13 @@ import { Calculator, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/ai-roi-calc";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/ai-roi-calc";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/ai-roi-calc")({
   head: () => {
-    const seo = getToolSeoMeta("ai-roi-calc");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/ai-roi-calc";
     return {
       meta: [
@@ -62,7 +62,7 @@ function fmtMoney(n: number): string {
 function AiRoiCalc() {
   const { isPro } = usePlan();
   const trial = useToolTrial("ai-roi-calc", isPro);
-  const seo = getToolSeo("ai-roi-calc");
+  const seo = toolSeo;
 
   const [people, setPeople] = useState(8);
   const [hoursPerWeek, setHoursPerWeek] = useState(5);

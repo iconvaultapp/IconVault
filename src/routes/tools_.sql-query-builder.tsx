@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sql-query-builder";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sql-query-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/sql-query-builder")({
   head: () => {
-    const seo = getToolSeoMeta("sql-query-builder");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sql-query-builder";
     return {
       meta: [
@@ -117,7 +117,7 @@ function whereSql(rows: WhereRow[], dialect: Dialect): string {
 function SqlQueryBuilderTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sql-query-builder", isPro);
-  const seo = getToolSeo("sql-query-builder");
+  const seo = toolSeo;
 
   const [statement, setStatement] = useState<Statement>("SELECT");
   const [dialect, setDialect] = useState<Dialect>("generic");

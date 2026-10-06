@@ -14,8 +14,8 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/sqlite-browser";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/sqlite-browser";
 import { downloadBlob } from "@/lib/logo-builder";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,7 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/tools_/sqlite-browser")({
   head: () => {
-    const seo = getToolSeoMeta("sqlite-browser");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/sqlite-browser";
     return {
       meta: [
@@ -99,7 +99,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 function SqliteBrowserTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("sqlite-browser", isPro);
-  const seo = getToolSeo("sqlite-browser");
+  const seo = toolSeo;
 
   const [engineStatus, setEngineStatus] = useState<string | null>(null);
   const [engineError, setEngineError] = useState<string | null>(null);

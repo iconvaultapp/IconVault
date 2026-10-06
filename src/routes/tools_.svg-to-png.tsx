@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/svg-to-png";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/svg-to-png";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/svg-to-png")({
   head: () => {
-    const seo = getToolSeoMeta("svg-to-png");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/svg-to-png";
     return {
       meta: [
@@ -160,7 +160,7 @@ function renderPng(svg: string, size: number, bg: string | null): Promise<{ blob
 function SvgToPngTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("svg-to-png", isPro);
-  const seo = getToolSeo("svg-to-png");
+  const seo = toolSeo;
 
   const [svg, setSvg] = useState("");
   const [fileName, setFileName] = useState("icon");

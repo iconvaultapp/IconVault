@@ -7,13 +7,13 @@ import { Copy, KeyRound } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/basic-auth-generator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/basic-auth-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/basic-auth-generator")({
   head: () => {
-    const seo = getToolSeoMeta("basic-auth-generator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/basic-auth-generator";
     return {
       meta: [
@@ -43,7 +43,7 @@ function utf8ToB64(s: string): string {
 function BasicAuthTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("basic-auth-generator", isPro);
-  const seo = getToolSeo("basic-auth-generator");
+  const seo = toolSeo;
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

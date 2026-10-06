@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/canonical-checker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/canonical-checker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/canonical-checker")({
   head: () => {
-    const seo = getToolSeoMeta("canonical-checker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/canonical-checker";
     return {
       meta: [
@@ -120,7 +120,7 @@ function analyze(html: string): Result {
 function CanonicalTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("canonical-checker", isPro);
-  const seo = getToolSeo("canonical-checker");
+  const seo = toolSeo;
 
   const [html, setHtml] = useState("");
   const [result, setResult] = useState<Result | null>(null);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/url-pattern-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/url-pattern-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/url-pattern-playground")({
   head: () => {
-    const seo = getToolSeoMeta("url-pattern-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/url-pattern-playground";
     return {
       meta: [
@@ -54,7 +54,7 @@ interface TestResult {
 function UrlPatternPlayground() {
   const { isPro } = usePlan();
   const trial = useToolTrial("url-pattern-playground", isPro);
-  const seo = getToolSeo("url-pattern-playground");
+  const seo = toolSeo;
 
   const supported = typeof (globalThis as any).URLPattern !== "undefined";
   const [pattern, setPattern] = useState(PRESETS[0]?.pattern ?? "");

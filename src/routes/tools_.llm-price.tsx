@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/llm-price";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/llm-price";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/llm-price")({
   head: () => {
-    const seo = getToolSeoMeta("llm-price");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/llm-price";
     return {
       meta: [
@@ -68,7 +68,7 @@ function fmtCost(n: number): string {
 function LlmPrice() {
   const { isPro } = usePlan();
   const trial = useToolTrial("llm-price", isPro);
-  const seo = getToolSeo("llm-price");
+  const seo = toolSeo;
 
   const [models, setModels] = useState<Model[]>(DEFAULTS);
   const [inTokens, setInTokens] = useState(2000);

@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/color-blindness-simulator";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/color-blindness-simulator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/color-blindness-simulator")({
   head: () => {
-    const seo = getToolSeoMeta("color-blindness-simulator");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/color-blindness-simulator";
     return {
       meta: [
@@ -113,7 +113,7 @@ function makeSampleImage(): string {
 function ColorBlindnessTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("color-blindness-simulator", isPro);
-  const seo = getToolSeo("color-blindness-simulator");
+  const seo = toolSeo;
 
   const [imgUrl, setImgUrl] = useState("");
   const [name, setName] = useState("");

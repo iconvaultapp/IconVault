@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/log-parser";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/log-parser";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/log-parser")({
   head: () => {
-    const seo = getToolSeoMeta("log-parser");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/log-parser";
     return {
       meta: [
@@ -92,7 +92,7 @@ const LEVEL_STYLE: Record<Level, string> = {
 function LogParserTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("log-parser", isPro);
-  const seo = getToolSeo("log-parser");
+  const seo = toolSeo;
   const [input, setInput] = useState("");
   const [lines, setLines] = useState<LogLine[]>([]);
   const [parsed, setParsed] = useState(false);

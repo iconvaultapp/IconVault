@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-stacking-context";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-stacking-context";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-stacking-context")({
   head: () => {
-    const seo = getToolSeoMeta("css-stacking-context");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-stacking-context";
     return {
       meta: [
@@ -179,7 +179,7 @@ function BoxControls({ box, onChange }: { box: Box; onChange: (b: Box) => void }
 function StackingContextTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-stacking-context", isPro);
-  const seo = getToolSeo("css-stacking-context");
+  const seo = toolSeo;
 
   const [boxes, setBoxes] = useState<Box[]>(DEFAULTS);
   const [copied, setCopied] = useState(false);

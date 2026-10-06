@@ -8,13 +8,13 @@ import { Check, Copy, Type } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/case-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/case-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/case-converter")({
   head: () => {
-    const seo = getToolSeoMeta("case-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/case-converter";
     return {
       meta: [
@@ -122,7 +122,7 @@ function convert(t: string, c: CaseId): string {
 function CaseConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("case-converter", isPro);
-  const seo = getToolSeo("case-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");

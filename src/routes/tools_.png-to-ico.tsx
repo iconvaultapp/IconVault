@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/png-to-ico";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/png-to-ico";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/png-to-ico")({
   head: () => {
-    const seo = getToolSeoMeta("png-to-ico");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/png-to-ico";
     return {
       meta: [
@@ -92,7 +92,7 @@ async function buildIco(img: HTMLImageElement, sizes: number[]): Promise<Blob> {
 function IcoTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("png-to-ico", isPro);
-  const seo = getToolSeo("png-to-ico");
+  const seo = toolSeo;
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const [name, setName] = useState("");

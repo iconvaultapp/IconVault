@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/model-picker";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/model-picker";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/model-picker")({
   head: () => {
-    const seo = getToolSeoMeta("model-picker");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/model-picker";
     return {
       meta: [
@@ -107,7 +107,7 @@ const BUDGET_PENALTY = [1, 0.9, 0.75, 0.6]; // applied when model tier exceeds b
 function ModelPickerTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("model-picker", isPro);
-  const seo = getToolSeo("model-picker");
+  const seo = toolSeo;
 
   const [task, setTask] = useState<TaskId>("coding");
   const [budget, setBudget] = useState<number>(1);

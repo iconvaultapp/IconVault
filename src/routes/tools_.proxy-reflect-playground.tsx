@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/proxy-reflect-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/proxy-reflect-playground";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/proxy-reflect-playground")({
   head: () => {
-    const seo = getToolSeoMeta("proxy-reflect-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/proxy-reflect-playground";
     return {
       meta: [
@@ -185,7 +185,7 @@ const wrapped = new Proxy(greet, {
 function ProxyReflectTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("proxy-reflect-playground", isPro);
-  const seo = getToolSeo("proxy-reflect-playground");
+  const seo = toolSeo;
 
   const [scenario, setScenario] = useState<Scenario>("logging");
   const [logEntries, setLogEntries] = useState<TrapEntry[]>([]);

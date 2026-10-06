@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/fluid-typography";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/fluid-typography";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/fluid-typography")({
   head: () => {
-    const seo = getToolSeoMeta("fluid-typography");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/fluid-typography";
     return {
       meta: [
@@ -78,7 +78,7 @@ function NumField({ label, value, onChange, suffix }: {
 function FluidTypeTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("fluid-typography", isPro);
-  const seo = getToolSeo("fluid-typography");
+  const seo = toolSeo;
 
   const [minF, setMinF] = useState(16);
   const [maxF, setMaxF] = useState(28);

@@ -10,13 +10,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/shadow-dom-explorer";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/shadow-dom-explorer";
 import ToolPageShell, { TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/shadow-dom-explorer")({
   head: () => {
-    const seo = getToolSeoMeta("shadow-dom-explorer");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/shadow-dom-explorer";
     return {
       meta: [
@@ -101,7 +101,7 @@ root.innerHTML = \`
 function ShadowDomTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("shadow-dom-explorer", isPro);
-  const seo = getToolSeo("shadow-dom-explorer");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<Tab>("open-closed");
   const [log, setLog] = useState<string[]>([]);

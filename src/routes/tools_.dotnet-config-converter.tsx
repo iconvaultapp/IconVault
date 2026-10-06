@@ -8,13 +8,13 @@ import { ArrowRightLeft, Copy, Eraser } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/dotnet-config-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/dotnet-config-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/dotnet-config-converter")({
   head: () => {
-    const seo = getToolSeoMeta("dotnet-config-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/dotnet-config-converter";
     return {
       meta: [
@@ -71,7 +71,7 @@ function parseConnectionString(cs: string): [string, string][] {
 function DotnetConfigTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("dotnet-config-converter", isPro);
-  const seo = getToolSeo("dotnet-config-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [envText, setEnvText] = useState("");

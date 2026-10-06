@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/data-uri";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/data-uri";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/data-uri")({
   head: () => {
-    const seo = getToolSeoMeta("data-uri");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/data-uri";
     return {
       meta: [
@@ -53,7 +53,7 @@ function fmtBytes(n: number): string {
 function DataUriTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("data-uri", isPro);
-  const seo = getToolSeo("data-uri");
+  const seo = toolSeo;
 
   const [fileName, setFileName] = useState("");
   const [mime, setMime] = useState("");

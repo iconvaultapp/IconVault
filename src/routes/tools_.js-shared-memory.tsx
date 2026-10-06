@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-shared-memory";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-shared-memory";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-shared-memory")({
   head: () => {
-    const seo = getToolSeoMeta("js-shared-memory");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-shared-memory";
     return {
       meta: [
@@ -101,7 +101,7 @@ function release() {
 function SharedMemoryTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-shared-memory", isPro);
-  const seo = getToolSeo("js-shared-memory");
+  const seo = toolSeo;
 
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState<[number, number]>([0, 0]);

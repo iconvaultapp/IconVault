@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gh-card";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gh-card";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/gh-card")({
   head: () => {
-    const seo = getToolSeoMeta("gh-card");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gh-card";
     return {
       meta: [
@@ -114,7 +114,7 @@ function parseRepoInput(input: string): string | null {
 function GhCardTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gh-card", isPro);
-  const seo = getToolSeo("gh-card");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("facebook/react");
   const [repo, setRepo] = useState<RepoData | null>(null);

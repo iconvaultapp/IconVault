@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/yaml-json-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/yaml-json-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/yaml-json-converter")({
   head: () => {
-    const seo = getToolSeoMeta("yaml-json-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/yaml-json-converter";
     return {
       meta: [
@@ -57,7 +57,7 @@ const SAMPLE_JSON = `{
 function YamlJsonConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("yaml-json-converter", isPro);
-  const seo = getToolSeo("yaml-json-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("yaml2json");
   const [input, setInput] = useState("");

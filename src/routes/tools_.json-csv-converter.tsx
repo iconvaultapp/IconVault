@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/json-csv-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/json-csv-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/json-csv-converter")({
   head: () => {
-    const seo = getToolSeoMeta("json-csv-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/json-csv-converter";
     return {
       meta: [
@@ -143,7 +143,7 @@ function smartValue(v: string): unknown {
 function JsonCsvConverterTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("json-csv-converter", isPro);
-  const seo = getToolSeo("json-csv-converter");
+  const seo = toolSeo;
 
   const [mode, setMode] = useState<Mode>("json2csv");
   const [input, setInput] = useState("");

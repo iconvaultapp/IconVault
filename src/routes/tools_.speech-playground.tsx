@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/speech-playground";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/speech-playground";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/speech-playground")({
   head: () => {
-    const seo = getToolSeoMeta("speech-playground");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/speech-playground";
     return {
       meta: [
@@ -49,7 +49,7 @@ type RecogCtor = new () => {
 function SpeechTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("speech-playground", isPro);
-  const seo = getToolSeo("speech-playground");
+  const seo = toolSeo;
 
   const [sttOk, setSttOk] = useState<boolean | null>(null);
   const [ttsOk, setTtsOk] = useState<boolean | null>(null);

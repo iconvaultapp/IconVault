@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-font-size-adjust";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-font-size-adjust";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-font-size-adjust")({
   head: () => {
-    const seo = getToolSeoMeta("css-font-size-adjust");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-font-size-adjust";
     return {
       meta: [
@@ -63,7 +63,7 @@ const SAMPLE = "Pack my box with five dozen liquor jugs. 0123456789";
 function FontSizeAdjustTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-font-size-adjust", isPro);
-  const seo = getToolSeo("css-font-size-adjust");
+  const seo = toolSeo;
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [fontA, setFontA] = useState(2); // Georgia

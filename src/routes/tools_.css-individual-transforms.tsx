@@ -9,13 +9,13 @@ import { Copy, Info, RotateCw } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-individual-transforms";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-individual-transforms";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-individual-transforms")({
   head: () => {
-    const seo = getToolSeoMeta("css-individual-transforms");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-individual-transforms";
     return {
       meta: [
@@ -63,7 +63,7 @@ function Slider({ label, value, min, max, step, unit, onChange }: { label: strin
 function IndividualTransformsTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-individual-transforms", isPro);
-  const seo = getToolSeo("css-individual-transforms");
+  const seo = toolSeo;
 
   const [tx, setTx] = useState(60);
   const [ty, setTy] = useState(-30);

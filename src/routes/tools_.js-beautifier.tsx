@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/js-beautifier";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/js-beautifier";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/js-beautifier")({
   head: () => {
-    const seo = getToolSeoMeta("js-beautifier");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/js-beautifier";
     return {
       meta: [
@@ -310,7 +310,7 @@ function fmtBytes(n: number): string {
 function JsBeautifierTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("js-beautifier", isPro);
-  const seo = getToolSeo("js-beautifier");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(SAMPLE);
   const [mode, setMode] = useState<Mode>("beautify");

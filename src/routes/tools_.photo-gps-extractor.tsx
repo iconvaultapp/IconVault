@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import { downloadBlob } from "@/lib/logo-builder";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/photo-gps-extractor";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/photo-gps-extractor";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/photo-gps-extractor")({
   head: () => {
-    const seo = getToolSeoMeta("photo-gps-extractor");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/photo-gps-extractor";
     return {
       meta: [
@@ -45,7 +45,7 @@ interface GpsRow {
 function PhotoGpsExtractorTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("photo-gps-extractor", isPro);
-  const seo = getToolSeo("photo-gps-extractor");
+  const seo = toolSeo;
 
   const [rows, setRows] = useState<GpsRow[]>([]);
   const [busy, setBusy] = useState(false);

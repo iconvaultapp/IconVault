@@ -12,7 +12,8 @@
 //
 // Plans:
 //  - payment.succeeded  -> grants the plan from checkout metadata
-//    ("monthly" | "yearly" | "lifetime") via an idempotent upsert.
+//    ("yearly" | "lifetime"; "monthly" still honoured for grandfathered
+//    subscribers from before the plan was removed) via an idempotent upsert.
 //  - subscription.active -> grants the plan from metadata (renewals re-confirm).
 //  - subscription.cancelled / subscription.expired -> downgrades monthly/yearly
 //    to "free" (lifetime never lapses).
@@ -23,7 +24,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-/** Paid plans: monthly ($2/mo), yearly ($14/yr), lifetime ($39 one-time). */
+/** Paid plans: yearly ($19/yr), lifetime ($39 one-time). "monthly" is only
+ *  recognised for grandfathered subscribers from before the plan was removed. */
 type PaidPlan = "monthly" | "yearly" | "lifetime";
 
 function asPaidPlan(value: unknown): PaidPlan {
@@ -89,7 +91,8 @@ export const Route = createFileRoute("/api/billing/webhook")({
           if (event.type === "payment.succeeded") {
             const metadata = metadataOf(event.data);
             const userId = metadata["user_id"];
-            // Grant the plan from checkout metadata (monthly/yearly/lifetime).
+            // Grant the plan from checkout metadata (yearly/lifetime;
+            // "monthly" still honoured for grandfathered subscribers).
             const plan: PaidPlan = asPaidPlan(metadata["plan"]);
             const paymentId =
               typeof event.data?.["payment_id"] === "string" ? (event.data["payment_id"] as string) : undefined;

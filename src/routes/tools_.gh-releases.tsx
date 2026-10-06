@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/gh-releases";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/gh-releases";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/gh-releases")({
   head: () => {
-    const seo = getToolSeoMeta("gh-releases");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/gh-releases";
     return {
       meta: [
@@ -74,7 +74,7 @@ function fmtDate(iso: string | null): string {
 function GhReleasesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("gh-releases", isPro);
-  const seo = getToolSeo("gh-releases");
+  const seo = toolSeo;
   const [repoInput, setRepoInput] = useState("");
   const [filter, setFilter] = useState("");
   const [busy, setBusy] = useState(false);

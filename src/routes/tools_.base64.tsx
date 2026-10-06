@@ -8,13 +8,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/base64";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/base64";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/base64")({
   head: () => {
-    const seo = getToolSeoMeta("base64");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/base64";
     return {
       meta: [
@@ -94,7 +94,7 @@ function looksLikeBase64(s: string): boolean {
 function Base64Tool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("base64", isPro);
-  const seo = getToolSeo("base64");
+  const seo = toolSeo;
 
   const [tab, setTab] = useState<Tab>("text");
   const [text, setText] = useState("");

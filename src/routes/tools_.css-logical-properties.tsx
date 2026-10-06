@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/css-logical-properties";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/css-logical-properties";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/css-logical-properties")({
   head: () => {
-    const seo = getToolSeoMeta("css-logical-properties");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/css-logical-properties";
     return {
       meta: [
@@ -149,7 +149,7 @@ const PREVIEW_CSS = `.preview-box {
 function LogicalPropertiesTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("css-logical-properties", isPro);
-  const seo = getToolSeo("css-logical-properties");
+  const seo = toolSeo;
 
   const [input, setInput] = useState(DEFAULT_INPUT);
   const [dir, setDir] = useState<"ltr" | "rtl">("rtl");

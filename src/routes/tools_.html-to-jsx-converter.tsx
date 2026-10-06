@@ -7,13 +7,13 @@ import { ArrowRightLeft, Copy, Eraser } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { getToolSeo } from "@/lib/tool-seo";
-import { getToolSeoMeta } from "@/lib/tool-seo-meta";
+import toolSeo from "@/lib/tool-seo-data/html-to-jsx-converter";
+import toolSeoMeta from "@/lib/tool-seo-meta-data/html-to-jsx-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 
 export const Route = createFileRoute("/tools_/html-to-jsx-converter")({
   head: () => {
-    const seo = getToolSeoMeta("html-to-jsx-converter");
+    const seo = toolSeoMeta;
     const canonical = "https://iconvault.site/tools/html-to-jsx-converter";
     return {
       meta: [
@@ -130,7 +130,7 @@ const SAMPLE = `<div class="card" onclick="doThing()">
 function HtmlToJsxTool() {
   const { isPro } = usePlan();
   const trial = useToolTrial("html-to-jsx-converter", isPro);
-  const seo = getToolSeo("html-to-jsx-converter");
+  const seo = toolSeo;
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");

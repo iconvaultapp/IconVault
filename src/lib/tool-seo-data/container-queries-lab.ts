@@ -1,0 +1,73 @@
+import type { ToolSeo } from "../tool-seo";
+
+const seo: ToolSeo = {
+    title: "Container Queries Lab - Free Online CSS @container Playground | IconVault",
+    metaDescription: "Resize a container with a slider, write @container rules and watch components restyle live. Free, runs fully in your browser.",
+    about: [
+      "**IconVault**'s **Container Queries Lab** makes **CSS @container** click: drag a **slider to resize a container**, write **@container rules**, and watch the card inside **restyle live** as the container crosses your breakpoints. Copy the working code when you are done. It is free and runs fully in your browser.",
+      "**Container queries** are the biggest **responsive-design** shift since **media queries**: components now respond to their **container's size** instead of the viewport, which makes truly reusable cards, sidebars and widgets possible. The lab is the fastest way to build intuition before using them in production."
+    ],
+    faqs: [
+      { q: "What are CSS container queries?", a: "@container rules let an element's styles respond to the size of a named ancestor container instead of the viewport. A card can switch layouts when its container gets narrow, no matter where it sits on the page." },
+      { q: "How do I make an element a query container?", a: "Set container-type: inline-size on the parent (and optionally a container-name). Children can then use @container rules against it. The lab shows this setup live." },
+      { q: "How are container queries different from media queries?", a: "Media queries respond to the viewport; container queries respond to a component's own container. The same component can behave differently in a sidebar versus full-width content without extra classes." },
+      { q: "Do container queries work in all browsers?", a: "Yes, container queries are supported in all modern browsers since 2023. No polyfill is needed for current Chrome, Firefox, Safari and Edge." },
+      { q: "Can I copy the code from the lab?", a: "Yes. Once your @container rules behave the way you want, copy the CSS and drop it into your project. Trial use is recorded on copy." },
+      { q: "Why does my container query not trigger?", a: "The usual causes: the parent lacks container-type, you are querying a dimension the container does not establish, or the container name in @container does not match the parent's container-name."
+      }
+    ],
+    tags: [
+      "container queries",
+      "css container queries",
+      "container queries tutorial",
+      "css @container",
+      "container queries playground",
+      "container queries demo",
+      "container queries lab",
+      "learn container queries",
+      "css container queries examples",
+      "container-type inline-size",
+      "container query vs media query",
+      "responsive components css",
+      "component based responsive design",
+      "css container queries browser support",
+      "container queries cheat sheet",
+      "how to use container queries",
+      "@container css rule",
+      "container query breakpoints",
+      "container queries card layout",
+      "container queries sidebar",
+      "css container name",
+      "container queries units cqw",
+      "cqw cqh units",
+      "container query length units",
+      "style queries css",
+      "@container style query",
+      "css containment",
+      "container queries 2024",
+      "modern css responsive",
+      "intrinsic web design",
+      "reusable components css",
+      "card component responsive",
+      "container queries generator",
+      "test container queries online",
+      "container query visualizer",
+      "css container queries tool free",
+      "container queries codepen alternative",
+      "container queries explained",
+      "container queries for beginners",
+      "container queries best practices",
+      "container queries fallback",
+      "container queries polyfill",
+      "can i use container queries",
+      "css nesting container queries",
+      "container queries grid",
+      "container queries flexbox",
+      "responsive widget css",
+      "dashboard card responsive css",
+      "free css playground online",
+      "interactive container queries demo"
+    ],
+  };
+
+export default seo;
