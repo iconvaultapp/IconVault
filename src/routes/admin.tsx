@@ -359,7 +359,7 @@ function AdminPage() {
     }
 
     try {
-      const res = await fetchAccounts({ data: undefined });
+      const res = await fetchAccounts({ data: {} });
       setAccounts(res.accounts);
     } catch {
       /* non-admins never reach here; ignore transient failures */
@@ -502,7 +502,7 @@ function AdminPage() {
 
   const refreshAccounts = async () => {
     try {
-      const res = await fetchAccounts({ data: undefined });
+      const res = await fetchAccounts({ data: {} });
       setAccounts(res.accounts);
     } catch {
       /* refresh is best-effort; the error toast already fired */

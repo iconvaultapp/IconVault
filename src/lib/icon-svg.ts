@@ -77,6 +77,14 @@ export const resolveIcon = (data: CollectionJson, name: string): ResolvedIcon | 
   return { body, width, height, left, top, rotate, hFlip, vFlip };
 };
 
+/**
+ * Only these color values may be interpolated into SVG markup. Anything else
+ * (e.g. `"><script>...` or `x"onload="...`) is rejected: the `color` option
+ * comes from user-controlled query params, and SVG served as image/svg+xml
+ * executes scripts in the site origin.
+ */
+export const SAFE_COLOR = /^(?:#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})|[a-zA-Z]+)$/;
+
 /** Build a standalone SVG string from resolved icon data. */
 export const iconDataToSvg = (
   icon: {
@@ -98,7 +106,9 @@ export const iconDataToSvg = (
   const dw = opts?.width ?? w;
   const dh = opts?.height ?? h;
   let body = icon.body;
-  if (opts?.color) body = body.split("currentColor").join(opts.color);
+  // Only validated colors are interpolated; anything else is ignored.
+  const color = opts?.color && SAFE_COLOR.test(opts.color) ? opts.color : undefined;
+  if (color) body = body.split("currentColor").join(color);
 
   const transforms: string[] = [];
   if (icon.hFlip) transforms.push(`translate(${l * 2 + w} 0) scale(-1 1)`);
@@ -118,7 +128,9 @@ export const restyleSvg = (
   svg: string,
   opts?: { width?: number; height?: number; color?: string },
 ): string => {
-  let out = opts?.color ? svg.split("currentColor").join(opts.color) : svg;
+  // Same validation as iconDataToSvg: never interpolate untrusted colors.
+  const color = opts?.color && SAFE_COLOR.test(opts.color) ? opts.color : undefined;
+  let out = color ? svg.split("currentColor").join(color) : svg;
   if (opts?.width || opts?.height) {
     out = out.replace(/<svg([^>]*)>/i, (_m, attrs: string) => {
       let a = String(attrs).replace(/\s(width|height)="[^"]*"/gi, "");

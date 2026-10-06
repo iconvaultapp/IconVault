@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { ArrowRight, Crown, Search, SearchX, Wrench, X } from "lucide-react";
 import PageShell from "@/components/PageShell";
@@ -15,7 +15,9 @@ import { isToolFreeUnlimited } from "@/lib/tool-trial";
 
 const PAGE_SIZE = 12;
 
-const ToolCard = ({ tool }: { tool: ToolDef }) => {
+// Memoized: the card is pure in its props, so keystroke re-renders of the
+// catalog skip cards whose tool didn't change. Rendered output is identical.
+const ToolCard = memo(({ tool }: { tool: ToolDef }) => {
   // Fully-free tools (no daily limit, no account) get a visible "Free" badge
   // so the catalog honestly shows how much is free. "Free" wins over the
   // catalog "New" badge - the free status matters more to visitors.
@@ -69,7 +71,7 @@ const ToolCard = ({ tool }: { tool: ToolDef }) => {
   ) : (
     inner
   );
-};
+});
 
 export const Route = createFileRoute("/tools")({
   head: () => ({
@@ -111,6 +113,13 @@ function ToolsPage() {
   );
   const activeCat = TOOL_CATEGORIES.find((c) => c.id === activeCategory) ?? null;
 
+  // id -> label lookup for the search haystack; built once instead of a
+  // linear find per tool per keystroke.
+  const catLabelById = useMemo(
+    () => new Map(TOOL_CATEGORIES.map((c) => [c.id, c.label] as const)),
+    [],
+  );
+
   // Progressive rendering: each category section initially shows the first
   // PAGE_SIZE tools; "Show all" expands it client-side. This keeps the SSR
   // HTML (and hydration cost) small - the page used to ship all 579 cards
@@ -141,11 +150,11 @@ function ToolsPage() {
     if (!q) return null;
     const words = q.split(/\s+/);
     return LIVE_TOOLS.filter((t) => {
-      const cat = TOOL_CATEGORIES.find((c) => c.id === t.category);
-      const hay = `${t.name} ${t.tagline} ${t.id.replace(/-/g, " ")} ${cat?.label ?? ""}`.toLowerCase();
+      const catLabel = t.category ? (catLabelById.get(t.category) ?? "") : "";
+      const hay = `${t.name} ${t.tagline} ${t.id.replace(/-/g, " ")} ${catLabel}`.toLowerCase();
       return words.every((w) => hay.includes(w));
     });
-  }, [query]);
+  }, [query, catLabelById]);
 
   const searching = results !== null;
   // Search scans everything but only renders the first 60 matches to keep

@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { isRateLimited, rateLimitedResponse } from "../lib/rate-limit";
+import { ICONIFY_DATA_PKG_VERSIONS } from "../lib/iconify-data-meta";
+import { isCustomIconPrefix } from "../lib/custom-icons.server";
 
 const ICONIFY_APIS = [
   "https://api.iconify.design",
@@ -9,6 +12,20 @@ const ICONIFY_APIS = [
 const isSafePrefix = (value: string) => /^[a-z0-9][a-z0-9._-]*$/i.test(value);
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 type CacheNamespace = { caches?: { default?: Cache } };
+
+// Only collections we actually ship (pinned dataset + first-party sets) may
+// be proxied. Arbitrary prefixes would turn this route into a free,
+// cache-busting relay against the Iconify CDNs.
+// Lazily built on first request: module top-level evaluation order in the
+// SSR bundle is not guaranteed, so Object.keys() must not run at import time.
+let KNOWN_PREFIXES: Set<string> | null = null;
+const isKnownPrefix = (prefix: string) => {
+  if (!KNOWN_PREFIXES) KNOWN_PREFIXES = new Set(Object.keys(ICONIFY_DATA_PKG_VERSIONS ?? {}));
+  return KNOWN_PREFIXES.has(prefix) || isCustomIconPrefix(prefix);
+};
+
+// Refuse to buffer absurdly large upstream payloads into the Worker.
+const MAX_UPSTREAM_BYTES = 8 * 1024 * 1024;
 
 const fetchCollection = async (prefix: string) => {
   let lastError: unknown;
@@ -36,9 +53,16 @@ export const Route = createFileRoute("/api/iconify/collection/$prefix")({
   server: {
     handlers: {
       GET: async ({ request, params }) => {
+        if (isRateLimited(request, "api:iconify-collection", 120)) return rateLimitedResponse();
         const prefix = params.prefix;
         if (!prefix || !isSafePrefix(prefix)) {
           return new Response(JSON.stringify({ icons: [] }), { status: 400, headers: responseHeaders() });
+        }
+        if (!isKnownPrefix(prefix)) {
+          return new Response(JSON.stringify({ icons: [], error: "Unknown collection prefix" }), {
+            status: 400,
+            headers: responseHeaders(),
+          });
         }
 
         const url = new URL(request.url);
@@ -52,7 +76,23 @@ export const Route = createFileRoute("/api/iconify/collection/$prefix")({
 
         try {
           const upstream = await fetchCollection(prefix);
-          const data = (await upstream.json()) as {
+          // Never buffer a giant collection (e.g. emoji sets) into the
+          // Worker: check the declared size first, then the actual bytes.
+          const declared = Number(upstream.headers.get("content-length") ?? 0);
+          if (declared > MAX_UPSTREAM_BYTES) {
+            return new Response(JSON.stringify({ prefix, icons: [], total: 0 }), {
+              status: 502,
+              headers: responseHeaders(),
+            });
+          }
+          const text = await upstream.text();
+          if (text.length > MAX_UPSTREAM_BYTES) {
+            return new Response(JSON.stringify({ prefix, icons: [], total: 0 }), {
+              status: 502,
+              headers: responseHeaders(),
+            });
+          }
+          const data = JSON.parse(text) as {
             uncategorized?: string[];
             categories?: Record<string, string[]>;
           };

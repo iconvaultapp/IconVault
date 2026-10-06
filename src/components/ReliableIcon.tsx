@@ -1,7 +1,61 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { loadIconData, type IconifyIconData } from "@/lib/iconify";
 import { iconDataToSvg } from "@/lib/icon-svg";
 import { cn } from "@/lib/utils";
+
+/**
+ * One shared IntersectionObserver for every ReliableIcon on the page,
+ * instead of one observer per icon. Elements register a one-shot callback;
+ * once visible the element is unobserved and its callback dropped.
+ * Lazy-load behavior is identical to the old per-icon observer.
+ */
+const inViewCallbacks = new Map<Element, () => void>();
+let sharedObserver: IntersectionObserver | null = null;
+
+const getSharedObserver = (): IntersectionObserver => {
+  if (!sharedObserver) {
+    sharedObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const cb = inViewCallbacks.get(entry.target);
+            if (cb) {
+              inViewCallbacks.delete(entry.target);
+              sharedObserver?.unobserve(entry.target);
+              cb();
+            }
+          }
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+  }
+  return sharedObserver;
+};
+
+const useInView = (
+  ref: { current: Element | null },
+  priority: boolean,
+  onVisible: () => void,
+): void => {
+  useEffect(() => {
+    if (priority) {
+      onVisible();
+      return;
+    }
+    const element = ref.current;
+    if (!element || typeof IntersectionObserver === "undefined") {
+      onVisible();
+      return;
+    }
+    inViewCallbacks.set(element, onVisible);
+    getSharedObserver().observe(element);
+    return () => {
+      inViewCallbacks.delete(element);
+      sharedObserver?.unobserve(element);
+    };
+  }, [priority, ref, onVisible]);
+};
 
 interface ReliableIconProps {
   prefix: string;
@@ -50,31 +104,8 @@ export const ReliableIcon = ({
   const [data, setData] = useState<FallbackIconData | null>(null);
   const [failed, setFailed] = useState(false);
 
-  useEffect(() => {
-    if (priority) {
-      setShouldLoad(true);
-      return;
-    }
-
-    const element = holderRef.current;
-    if (!element || typeof IntersectionObserver === "undefined") {
-      setShouldLoad(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "600px 0px" },
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [priority]);
+  const handleVisible = useCallback(() => setShouldLoad(true), []);
+  useInView(holderRef, priority, handleVisible);
 
   useEffect(() => {
     if (!shouldLoad || !prefix || !name) return;

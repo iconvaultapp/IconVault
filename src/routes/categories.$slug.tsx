@@ -39,6 +39,9 @@ export const Route = createFileRoute("/categories/$slug")({
 });
 
 const PAGE_SIZE = 96;
+// Rendering cap: "Load more" stops here so huge categories can't grow the
+// DOM (and its observers/fetches) until the tab dies. Search covers the rest.
+const MAX_SHOWN = 2000;
 
 function Page() {
   const { category } = Route.useLoaderData();
@@ -85,11 +88,11 @@ function Page() {
           <IconifyGrid icons={visible} onIconClick={setActiveIcon} />
         </div>
 
-        {shown < icons.length && (
+        {shown < Math.min(icons.length, MAX_SHOWN) && (
           <div className="mt-6 text-center">
             <button
               type="button"
-              onClick={() => setShown((s) => s + PAGE_SIZE)}
+              onClick={() => setShown((s) => Math.min(s + PAGE_SIZE, MAX_SHOWN))}
               className="focus-ring rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium hover:border-primary/40"
             >
               Load more ({(icons.length - shown).toLocaleString("en-US")} remaining)

@@ -1,6 +1,12 @@
 // Batch icon-data endpoint: POST { icons: ["mdi:home", ...] } ->
 // { icons: { "mdi:home": { body, width, height, ... } } }
 //
+// Capped at 50 icons per request: each icon costs a Worker subrequest, and
+// the batch path deliberately skips the CDN mirror fan-out (each icon is
+// fetched exactly once) so one request can never burn the subrequest budget.
+// Icons that fail to resolve are simply absent from the response (partial
+// result); split larger sets across multiple requests.
+//
 // Every icon resolves from a single tiny per-icon data file served by the
 // pinned @iconify-icons/* packages on the CDN - no giant downloads, no
 // rate-limited public API. Used by external embeds and legacy clients; the
@@ -34,7 +40,9 @@ const fetchText = async (url: string, timeoutMs = 12000): Promise<string | null>
   }
 };
 
-/** Resolve one icon via its per-icon data file on the pinned CDN packages. */
+/** Resolve one icon via its per-icon data file on the pinned CDN packages.
+ *  Fetches exactly ONE URL per icon (no mirror fan-out inside the batch
+ *  path): misses are returned as null and simply omitted from the batch. */
 const resolvePerIcon = async (
   prefix: string,
   name: string,
@@ -44,23 +52,23 @@ const resolvePerIcon = async (
   if (customBody) {
     return { body: customBody, width: 24, height: 24, left: 0, top: 0 };
   }
-  for (const url of perIconDataUrls(prefix, name, ICONIFY_DATA_PKG_VERSIONS)) {
-    const js = await fetchText(url);
-    if (!js) continue;
-    try {
-      const parsed = parseIconJsData(js, prefix, name);
-      return {
-        body: parsed.body,
-        width: parsed.width ?? 24,
-        height: parsed.height ?? 24,
-        left: parsed.left ?? 0,
-        top: parsed.top ?? 0,
-      };
-    } catch {
-      // Try the next CDN.
-    }
+  const urls = perIconDataUrls(prefix, name, ICONIFY_DATA_PKG_VERSIONS);
+  const first = urls[0];
+  if (!first) return null;
+  const js = await fetchText(first);
+  if (!js) return null;
+  try {
+    const parsed = parseIconJsData(js, prefix, name);
+    return {
+      body: parsed.body,
+      width: parsed.width ?? 24,
+      height: parsed.height ?? 24,
+      left: parsed.left ?? 0,
+      top: parsed.top ?? 0,
+    };
+  } catch {
+    return null;
   }
-  return null;
 };
 
 export const Route = createFileRoute("/api/icons")({
@@ -87,7 +95,17 @@ export const Route = createFileRoute("/api/icons")({
         } catch {
           return Response.json({ error: "Invalid JSON" }, { status: 400 });
         }
-        const ids = Array.isArray(body.icons) ? body.icons.slice(0, 200) : [];
+        const requested = Array.isArray(body.icons) ? body.icons : [];
+        if (requested.length > 50) {
+          return Response.json(
+            { error: "Too many icons: 50 per request maximum. Split larger sets across multiple requests." },
+            {
+              status: 400,
+              headers: { "Access-Control-Allow-Origin": "*" },
+            },
+          );
+        }
+        const ids = requested;
         const byPrefix = new Map<string, string[]>();
         for (const id of ids) {
           if (typeof id !== "string") continue;

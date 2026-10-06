@@ -113,7 +113,10 @@ export const FavouritesProvider = ({ children }: { children: ReactNode }) => {
     [user],
   );
 
-  const isFavourite = useCallback((iconId: string) => favourites.includes(iconId), [favourites]);
+  // O(1) membership checks for grid cells; the array stays the source of
+  // truth for ordering and persistence.
+  const favSet = useMemo(() => new Set(favourites), [favourites]);
+  const isFavourite = useCallback((iconId: string) => favSet.has(iconId), [favSet]);
 
   const value = useMemo<FavouritesValue>(
     () => ({ favourites, loading, toggleFavourite, isFavourite }),

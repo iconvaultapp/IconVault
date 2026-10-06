@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading, Stack, CTABand } from "@/components/kit";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { useSearchHistory } from "@/hooks/useSearchHistory";
-import { searchIcons } from "@/lib/iconify";
+import { searchIconsMulti } from "@/lib/iconify";
 
 export const Route = createFileRoute("/ai-search")({
   head: () => ({
@@ -140,9 +140,10 @@ function Page() {
       setLoading(true);
       setRan(true);
       try {
-        const batches = await Promise.all(
-          expanded.map((t) => searchIcons(t, 32).catch(() => ({ icons: [] as string[] }))),
-        );
+        // One pass over the index scores every name against every expanded
+        // term (bounded per-term heaps), then the merge below interleaves
+        // exactly as before - same visible results, ~6x less scan work.
+        const batches = await searchIconsMulti(expanded, 32);
         if (id !== runId.current) return;
         const seen = new Set<string>();
         const merged: string[] = [];

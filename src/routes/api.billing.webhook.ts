@@ -34,16 +34,13 @@ function asPaidPlan(value: unknown): PaidPlan {
 
 async function grantPlan(userId: string, plan: PaidPlan, ref?: string) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  const { error } = await supabaseAdmin.from("user_plans").upsert(
-    {
-      user_id: userId,
-      plan,
-      purchased_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-    { onConflict: "user_id" },
-  );
-  if (error) throw new Error(`supabase upsert failed: ${error.message}`);
+  // Atomic grant via RPC: an out-of-order yearly/monthly event can never
+  // overwrite a lifetime plan (the SQL only updates non-lifetime rows).
+  const { error } = await (supabaseAdmin as any).rpc("grant_plan", {
+    p_user_id: userId,
+    p_plan: plan,
+  });
+  if (error) throw new Error(`supabase rpc failed: ${error.message}`);
   console.info("[billing] granted plan", { userId, plan, ref });
 }
 

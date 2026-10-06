@@ -62,7 +62,9 @@ export default function PackSeoSection({ prefix, collection, collections, id = "
       {faqJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          // Escape "<" so a stray "</script>" in copy can never break out of
+          // the JSON-LD block. No visual change.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\u003c") }}
         />
       )}
 

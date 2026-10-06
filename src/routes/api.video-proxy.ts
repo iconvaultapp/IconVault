@@ -43,7 +43,34 @@ export const Route = createFileRoute("/api/video-proxy")({
           if (length > MAX_BYTES) {
             return new Response("Video too large", { status: 413 });
           }
-          return new Response(upstream.body, {
+          // Enforce the cap with a running byte counter as well: a missing
+          // or lying content-length must not allow unbounded streaming.
+          const reader = upstream.body.getReader();
+          let bytes = 0;
+          const capped = new ReadableStream<Uint8Array>({
+            async pull(controller) {
+              const { done, value } = await reader.read();
+              if (done) {
+                controller.close();
+                return;
+              }
+              bytes += value.byteLength;
+              if (bytes > MAX_BYTES) {
+                try {
+                  await reader.cancel();
+                } catch {
+                  /* already closed */
+                }
+                controller.error(new Error("Video exceeds size limit"));
+                return;
+              }
+              controller.enqueue(value);
+            },
+            cancel() {
+              reader.cancel().catch(() => undefined);
+            },
+          });
+          return new Response(capped, {
             status: 200,
             headers: {
               "Content-Type": contentType,

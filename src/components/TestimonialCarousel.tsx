@@ -59,7 +59,7 @@ export function TestimonialCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="-mx-3 overflow-hidden">
+      <div className="overflow-hidden sm:-mx-3">
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${(index / items.length) * 100}%)` }}
@@ -67,7 +67,7 @@ export function TestimonialCarousel() {
           {items.map((t) => (
             <div
               key={t.id}
-              className="shrink-0 px-3"
+              className="min-w-0 shrink-0 px-3"
               style={{ width: `${100 / perView}%` }}
             >
               <figure className="surface-card flex h-full flex-col gap-4 p-6">
@@ -82,7 +82,7 @@ export function TestimonialCarousel() {
                     />
                   ))}
                 </div>
-                <blockquote className="flex-1 text-[15px] leading-relaxed text-foreground/90">
+                <blockquote className="flex-1 break-words text-[15px] leading-relaxed text-foreground/90">
                   "{t.text}"
                 </blockquote>
                 <figcaption>

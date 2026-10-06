@@ -66,23 +66,42 @@ export const BulkActionBar = ({ selected, onClear, onSelectAll }: BulkActionBarP
     try {
       const { default: JSZip } = await import("jszip");
       const zip = new JSZip();
+      // Bounded concurrency: 8 workers drain a shared queue instead of one
+      // serial fetch per icon. Results are collected by index and added to
+      // the ZIP in order, so the archive is identical to the serial version.
+      const CONCURRENCY = 8;
+      const fetched: Array<{ id: string; svg: string } | null> = new Array(ids.length).fill(null);
+      let next = 0;
+      const workers = Array.from({ length: Math.min(CONCURRENCY, ids.length) }, async () => {
+        while (next < ids.length) {
+          const i = next++;
+          const { prefix, name } = parseIconId(ids[i] as string);
+          try {
+            const svg = await fetchIconSvg(prefix, name);
+            fetched[i] = { id: ids[i] as string, svg };
+          } catch {
+            /* skip icons that fail to fetch */
+          }
+        }
+      });
+      await Promise.all(workers);
       let ok = 0;
-      for (const id of ids) {
-        const { prefix, name } = parseIconId(id);
+      for (const entry of fetched) {
+        if (!entry) continue;
+        const { prefix, name } = parseIconId(entry.id);
         try {
-          const svg = await fetchIconSvg(prefix, name);
           if (mode === "svg") {
-            zip.file(`${prefix}/${name}.svg`, svg);
+            zip.file(`${prefix}/${name}.svg`, entry.svg);
             ok++;
           } else {
-            const blob = await svgToPngBlob(svg, pngSize);
+            const blob = await svgToPngBlob(entry.svg, pngSize);
             if (blob) {
               zip.file(`${prefix}/${name}-${pngSize}.png`, blob);
               ok++;
             }
           }
         } catch {
-          /* skip icons that fail to fetch */
+          /* skip icons that fail to convert */
         }
       }
       if (ok === 0) {

@@ -78,6 +78,24 @@ const LOCAL_BODY_PREFIXES = new Set(["ivo"]);
 const mem = new Map<string, unknown>();
 const svgMem = new Map<string, Promise<string>>();
 
+/**
+ * Icon bodies are the only unbounded writers to `mem` (one entry per icon
+ * viewed in the session). Cap them LRU-style so long browsing sessions can't
+ * grow the tab without bound. Small metadata entries (paths starting with
+ * "/") stay uncapped.
+ */
+const ICON_MEM_MAX = 1500;
+
+const memSetIcon = (key: string, value: unknown): void => {
+  mem.set(key, value);
+  if (mem.size <= ICON_MEM_MAX + 64) return;
+  // Map preserves insertion order, so the first icon: keys are the oldest.
+  for (const k of mem.keys()) {
+    if (mem.size <= ICON_MEM_MAX) break;
+    if (k.startsWith("icon:")) mem.delete(k);
+  }
+};
+
 const LS_PREFIX = "iconvault:data:v1:";
 const LS_MAX_BYTES = 800 * 1024;
 
@@ -223,18 +241,44 @@ type SearchIndex = Record<string, string[]>;
 const getSearchIndex = (): Promise<SearchIndex> =>
   fetchLocalJson<SearchIndex>("/search-index.json", false);
 
+/**
+ * Session-warm search index: the raw index plus a pre-lowercased copy of
+ * every name, built ONCE per session. Scoring then avoids 421k
+ * `String.toLowerCase()` allocations on every keystroke.
+ */
+type FastIndex = Map<string, { names: string[]; lower: string[] }>;
+
+let fastIndex: FastIndex | null = null;
+
+const getFastIndex = async (): Promise<FastIndex> => {
+  if (!fastIndex) {
+    const raw = await getSearchIndex();
+    const built: FastIndex = new Map();
+    for (const p of Object.keys(raw)) {
+      const names = raw[p] ?? [];
+      built.set(p, { names, lower: names.map((n) => n.toLowerCase()) });
+    }
+    fastIndex = built;
+  }
+  return fastIndex;
+};
+
 /** Fire-and-forget: fetch the 8.2MB search index during idle so the user's
- *  first search is instant instead of paying the download then. */
+ *  first search is instant instead of paying the download then. Also warms
+ *  the pre-lowercased session index so the first search skips that work too. */
 export const preloadSearchIndex = (): void => {
   try {
-    void getSearchIndex().catch(() => undefined);
+    void getFastIndex().catch(() => undefined);
   } catch {
     /* noop */
   }
 };
 
-const scoreName = (name: string, q: string, tokens: string[]): number => {
-  const n = name.toLowerCase();
+/**
+ * Icon-name scoring. `n` MUST already be lowercased (see getFastIndex).
+ * Ranking semantics are unchanged from the original implementation.
+ */
+const scoreLowered = (n: string, q: string, tokens: string[]): number => {
   if (n === q) return 1000;
   if (n.startsWith(q)) return 500;
   const qi = n.indexOf(q);
@@ -249,36 +293,115 @@ const scoreName = (name: string, q: string, tokens: string[]): number => {
   return matched > 0 ? matched * 10 : 0;
 };
 
+interface ScoredEntry {
+  id: string;
+  score: number;
+}
+
+/**
+ * Ranking order, identical to the original `scored.sort(...)` comparator:
+ * higher score first, then shorter id, then lexicographic id.
+ */
+const scoreCmp = (a: ScoredEntry, b: ScoredEntry): number =>
+  b.score - a.score || a.id.length - b.id.length || (a.id < b.id ? -1 : 1);
+
+/**
+ * Bounded min-heap: keeps the `keep` best-ranked entries seen so far
+ * (the root is the worst of the kept set). Sorting the heap at the end
+ * yields exactly the same top-K as sorting the full list and slicing it.
+ */
+const heapPush = (heap: ScoredEntry[], entry: ScoredEntry, keep: number): void => {
+  if (keep <= 0) return;
+  if (heap.length < keep) {
+    heap.push(entry);
+    let i = heap.length - 1;
+    while (i > 0) {
+      const parent = (i - 1) >> 1;
+      if (scoreCmp(heap[i] as ScoredEntry, heap[parent] as ScoredEntry) <= 0) break;
+      const tmp = heap[i] as ScoredEntry;
+      heap[i] = heap[parent] as ScoredEntry;
+      heap[parent] = tmp;
+      i = parent;
+    }
+    return;
+  }
+  if (scoreCmp(entry, heap[0] as ScoredEntry) < 0) {
+    heap[0] = entry;
+    let i = 0;
+    for (;;) {
+      const left = i * 2 + 1;
+      const right = left + 1;
+      let worst = i;
+      if (left < heap.length && scoreCmp(heap[left] as ScoredEntry, heap[worst] as ScoredEntry) > 0) {
+        worst = left;
+      }
+      if (right < heap.length && scoreCmp(heap[right] as ScoredEntry, heap[worst] as ScoredEntry) > 0) {
+        worst = right;
+      }
+      if (worst === i) break;
+      const tmp = heap[i] as ScoredEntry;
+      heap[i] = heap[worst] as ScoredEntry;
+      heap[worst] = tmp;
+      i = worst;
+    }
+  }
+};
+
+/** Last-resort legacy search path (server route, may itself be rate limited). */
+const legacySearchIcons = async (
+  query: string,
+  limit: number,
+  start: number,
+  prefix?: string,
+): Promise<IconifySearchResult> => {
+  const params = new URLSearchParams({ query, limit: String(limit), start: String(start) });
+  if (prefix) params.set("prefix", prefix);
+  const res = await fetch(`/api/iconify/search?${params.toString()}`, {
+    headers: { Accept: "application/json" },
+  });
+  if (!res.ok) return { icons: [], total: 0, limit, start, collections: {} };
+  return (await res.json()) as IconifySearchResult;
+};
+
 export const searchIcons = async (
   query: string,
   limit = 100,
   start = 0,
   prefix?: string,
+  shouldAbort?: () => boolean,
 ): Promise<IconifySearchResult> => {
   const q = query.trim().toLowerCase();
   if (!q) return { icons: [], total: 0, limit, start, collections: {} };
 
+  const empty: IconifySearchResult = { icons: [], total: 0, limit, start, collections: {} };
+
   try {
-    const [index, collections] = await Promise.all([getSearchIndex(), fetchCollections()]);
+    const [fast, collections] = await Promise.all([getFastIndex(), fetchCollections()]);
     const tokens = q.split(/[\s\-_]+/).filter(Boolean);
-    const prefixes = prefix ? [prefix] : Object.keys(index);
-    const scored: Array<{ id: string; score: number }> = [];
+    const prefixes = prefix ? [prefix] : [...fast.keys()];
+    // A bounded heap of start+limit keeps the exact same visible slice as
+    // sorting everything, without the O(R log R) full sort or the O(R)
+    // scored array. `total` is counted separately so it stays exact.
+    const keep = start + limit;
+    const heap: ScoredEntry[] = [];
+    let total = 0;
 
     for (const p of prefixes) {
-      const names = index[p];
-      if (!names) continue;
-      for (const name of names) {
-        const score = scoreName(name, q, tokens);
-        if (score > 0) scored.push({ id: `${p}:${name}`, score });
+      if (shouldAbort?.()) return empty;
+      const entry = fast.get(p);
+      if (!entry) continue;
+      const { names, lower } = entry;
+      for (let i = 0; i < names.length; i++) {
+        const score = scoreLowered(lower[i] as string, q, tokens);
+        if (score <= 0) continue;
+        total++;
+        heapPush(heap, { id: `${p}:${names[i]}`, score }, keep);
       }
     }
 
-    scored.sort(
-      (a, b) => b.score - a.score || a.id.length - b.id.length || (a.id < b.id ? -1 : 1),
-    );
+    heap.sort(scoreCmp);
 
-    const total = scored.length;
-    const icons = scored.slice(start, start + limit).map((s) => s.id);
+    const icons = heap.slice(start, start + limit).map((s) => s.id);
     const matched: Record<string, IconifyCollection> = {};
     for (const id of icons) {
       const p = id.split(":")[0] ?? "";
@@ -286,14 +409,58 @@ export const searchIcons = async (
     }
     return { icons, total, limit, start, collections: matched };
   } catch {
-    // Last-resort legacy path.
-    const params = new URLSearchParams({ query, limit: String(limit), start: String(start) });
-    if (prefix) params.set("prefix", prefix);
-    const res = await fetch(`/api/iconify/search?${params.toString()}`, {
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) return { icons: [], total: 0, limit, start, collections: {} };
-    return (await res.json()) as IconifySearchResult;
+    try {
+      return await legacySearchIcons(query, limit, start, prefix);
+    } catch {
+      return empty;
+    }
+  }
+};
+
+/**
+ * Multi-term search in a SINGLE pass over the index: each name is scored
+ * against every term once, maintaining a per-term bounded heap. Returns
+ * per-term top-`limit` icon arrays identical to calling searchIcons per term.
+ */
+export const searchIconsMulti = async (
+  terms: string[],
+  limit = 32,
+): Promise<Array<{ icons: string[] }>> => {
+  const qs = terms.map((t) => t.trim().toLowerCase()).filter((t) => t.length > 0);
+  const emptyAll = (): Array<{ icons: string[] }> =>
+    terms.map(() => ({ icons: [] as string[] }));
+  if (qs.length === 0) return emptyAll();
+
+  try {
+    const fast = await getFastIndex();
+    const perTerm = qs.map((t) => ({
+      q: t,
+      tokens: t.split(/[\s\-_]+/).filter(Boolean),
+      heap: [] as ScoredEntry[],
+    }));
+    for (const p of fast.keys()) {
+      const entry = fast.get(p) as { names: string[]; lower: string[] };
+      const { names, lower } = entry;
+      for (let i = 0; i < names.length; i++) {
+        const n = lower[i] as string;
+        const id = `${p}:${names[i]}`;
+        for (const term of perTerm) {
+          const score = scoreLowered(n, term.q, term.tokens);
+          if (score > 0) heapPush(term.heap, { id, score }, limit);
+        }
+      }
+    }
+    return perTerm.map((t) => ({ icons: t.heap.sort(scoreCmp).map((s) => s.id) }));
+  } catch {
+    // Last-resort legacy path, per term (mirrors searchIcons).
+    const fallbacks = await Promise.all(
+      qs.map((t) =>
+        legacySearchIcons(t, limit, 0).catch(
+          (): IconifySearchResult => ({ icons: [], total: 0, limit, start: 0, collections: {} }),
+        ),
+      ),
+    );
+    return fallbacks.map((f) => ({ icons: f.icons }));
   }
 };
 
@@ -380,7 +547,7 @@ const fetchPerIconData = async (
         const body = bodies[name];
         if (!body) throw new Error(`Unknown icon: ${prefix}:${name}`);
         const icon: IconifyIconData = { body, left: 0, top: 0, width: 24, height: 24 };
-        mem.set(key, icon);
+        memSetIcon(key, icon);
         return icon;
       }
       const js = await fetchFirstOk(perIconDataUrls(prefix, name, ICONIFY_DATA_PKG_VERSIONS));
@@ -392,7 +559,7 @@ const fetchPerIconData = async (
         width: parsed.width ?? 24,
         height: parsed.height ?? 24,
       };
-      mem.set(key, icon);
+      memSetIcon(key, icon);
       return icon;
     } catch (error) {
       lastError = error;

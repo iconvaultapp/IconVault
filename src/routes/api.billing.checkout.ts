@@ -14,36 +14,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
-
-/**
- * Tiny per-IP rate limiter for the checkout endpoint (abuse protection).
- * In-memory per isolate - good enough to blunt casual flooding; Dodo and
- * Supabase provide the real backstops.
- */
-const hits = new Map<string, number[]>();
-const WINDOW_MS = 60_000;
-const MAX_HITS = 12;
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const arr = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  arr.push(now);
-  hits.set(ip, arr);
-  if (hits.size > 5000) {
-    const oldest = [...hits.keys()][0];
-    if (oldest) hits.delete(oldest);
-  }
-  return arr.length > MAX_HITS;
-}
+import { isRateLimited } from "../lib/rate-limit";
 
 export const Route = createFileRoute("/api/billing/checkout")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const ip =
-          request.headers.get("cf-connecting-ip") ??
-          request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-          "unknown";
-        if (isRateLimited(ip)) {
+        // Abuse protection (12/min/IP) via the shared limiter in
+        // src/lib/rate-limit.ts; Dodo and Supabase are the real backstops.
+        if (isRateLimited(request, "api:checkout", 12)) {
           return Response.json({ error: "Too many requests. Try again in a minute." }, { status: 429 });
         }
 

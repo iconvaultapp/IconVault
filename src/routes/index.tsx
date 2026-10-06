@@ -330,21 +330,23 @@ function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={(e) => void submit(e)} className="flex flex-col gap-2 sm:flex-row">
+    <form onSubmit={(e) => void submit(e)} className="flex w-full flex-col gap-2.5 sm:flex-row">
       <HoneypotField onFill={setTrap} />
       <input
         type="email"
         required
+        autoComplete="email"
+        inputMode="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@studio.com"
         aria-label="Email address"
-        className="focus-ring h-14 min-w-0 flex-1 rounded-full border border-border bg-surface px-6 text-base outline-none placeholder:text-muted-foreground sm:h-12 sm:px-5"
+        className="focus-ring h-14 w-full min-w-0 flex-1 rounded-full border border-border bg-surface px-6 text-base outline-none placeholder:text-muted-foreground sm:h-12 sm:px-5"
       />
       <button
         type="submit"
         disabled={loading}
-        className="focus-ring h-14 shrink-0 rounded-full bg-ink px-8 text-base font-semibold text-background transition-transform hover:scale-[1.03] disabled:opacity-50 sm:h-12 sm:px-6 sm:text-sm sm:font-medium"
+        className="focus-ring h-14 w-full shrink-0 rounded-full bg-ink px-8 text-base font-semibold text-background transition-transform hover:scale-[1.03] disabled:opacity-50 sm:h-12 sm:w-auto sm:px-6 sm:text-sm sm:font-medium"
       >
         {loading ? "Adding…" : "Join the list"}
       </button>

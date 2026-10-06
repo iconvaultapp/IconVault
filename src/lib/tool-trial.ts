@@ -2,6 +2,13 @@
 // tracked in localStorage (no account needed). The counter resets at local
 // midnight. Pro members (on a paid plan) get unlimited uses.
 //
+// NOTE (accepted risk, documented - audit M6): this limit is enforced
+// client-side ONLY, by design. Every tool runs 100% in the browser, so there
+// is no server-side execution to gate; treat the counter as an upsell nudge,
+// never as a security boundary. Server-enforced entitlements are the API
+// quota (src/lib/api-keys.server.ts -> consume_api_quota RPC) and the Pro
+// plan checks (src/hooks/usePlan.tsx + user_plans RLS).
+//
 // Tools in FREE_UNLIMITED_TOOL_IDS are completely free - no counting, no
 // account, no paywall ever. Sameer: edit that list to change which tools
 // are fully free.

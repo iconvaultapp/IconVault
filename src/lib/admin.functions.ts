@@ -76,44 +76,100 @@ interface AccountRow {
   is_banned: boolean;
 }
 
-/** Admin-only listing of every account with its roles. */
+/** Admin-only account listing. Paginated and backed by the
+ *  public.admin_list_accounts RPC (server-side join) so the admin panel
+ *  stays fast at any user count. Return shape is unchanged (plus additive
+ *  page/perPage/total); existing callers keep working. */
 export const listAccounts = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .handler(async ({ context }): Promise<{ accounts: AccountRow[] }> => {
-    const { fetchRoleStatus } = await import("@/lib/admin-roles.server");
-    const { isAdmin } = await fetchRoleStatus(context.userId);
-    if (!isAdmin) throw new Error("Forbidden");
+  .inputValidator((input: { page?: number; perPage?: number }) => ({
+    // Defaults preserve the previous behavior (first 1000 auth users); the
+    // cap keeps every query bounded no matter what the caller asks for.
+    page: Math.max(1, Math.floor(Number(input?.page) || 1)),
+    perPage: Math.min(1000, Math.max(1, Math.floor(Number(input?.perPage) || 1000))),
+  }))
+  .handler(
+    async ({
+      context,
+      data,
+    }): Promise<{ accounts: AccountRow[]; page: number; perPage: number; total: number }> => {
+      const { fetchRoleStatus } = await import("@/lib/admin-roles.server");
+      const { isAdmin } = await fetchRoleStatus(context.userId);
+      if (!isAdmin) throw new Error("Forbidden");
 
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const [{ data: list }, { data: roles }, { data: profiles }, { data: plans }] = await Promise.all([
-      supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
-      supabaseAdmin.from("user_roles").select("user_id, role, created_at").order("created_at"),
-      (supabaseAdmin as any).from("profiles").select("user_id, display_name, username, is_banned"),
-      supabaseAdmin.from("user_plans").select("user_id, plan"),
-    ]);
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const { data: rows, error } = await (supabaseAdmin as any).rpc("admin_list_accounts", {
+        p_page: data.page,
+        p_per: data.perPage,
+      });
+      if (error) throw error;
+      const rpcRows = (rows ?? []) as Array<{
+        user_id: string;
+        email: string | null;
+        display_name: string | null;
+        plan: string | null;
+        is_banned: boolean | null;
+        roles: string[] | null;
+      }>;
+      const ids = rpcRows.map((r) => r.user_id);
 
-    const ownerId = roles?.find((r) => r.role === "admin")?.user_id ?? null;
-    const planByUser = new Map<string, string>();
-    (plans ?? []).forEach((p) => planByUser.set(p.user_id, p.plan));
+      // Bounded supporting queries, all capped to the page: auth metadata,
+      // the display_name username fallback, the owner id, and total count.
+      const [authRes, profilesRes, ownerRes, countRes] = await Promise.all([
+        ids.length
+          ? supabaseAdmin.auth.admin.listUsers({ page: data.page, perPage: data.perPage })
+          : Promise.resolve({ data: { users: [] as unknown[] } }),
+        ids.length
+          ? (supabaseAdmin as any).from("profiles").select("user_id, username").in("user_id", ids)
+          : Promise.resolve({ data: [] }),
+        supabaseAdmin
+          .from("user_roles")
+          .select("user_id")
+          .eq("role", "admin")
+          .order("created_at")
+          .limit(1)
+          .maybeSingle(),
+        supabaseAdmin.from("profiles").select("id", { count: "exact", head: true }),
+      ]);
 
-    const accounts: AccountRow[] = (list?.users ?? []).map((u) => {
-      const profile = (profiles as any[] | null)?.find((p: any) => p.user_id === u.id);
+      const authById = new Map<string, { created_at: string; last_sign_in_at: string | null }>();
+      for (const u of ((authRes.data as { users?: unknown[] } | null)?.users ?? []) as Array<{
+        id: string;
+        created_at: string;
+        last_sign_in_at: string | null;
+      }>) {
+        authById.set(u.id, { created_at: u.created_at, last_sign_in_at: u.last_sign_in_at ?? null });
+      }
+      const usernameById = new Map<string, string>();
+      for (const p of (profilesRes.data ?? []) as Array<{ user_id: string; username: string | null }>) {
+        if (p.username) usernameById.set(p.user_id, p.username);
+      }
+      const ownerId = (ownerRes.data as { user_id: string } | null)?.user_id ?? null;
+
+      // The RPC already orders newest-first; keep that ordering.
+      const accounts: AccountRow[] = rpcRows.map((r) => {
+        const auth = authById.get(r.user_id);
+        return {
+          id: r.user_id,
+          email: r.email ?? null,
+          created_at: auth?.created_at ?? "",
+          last_sign_in_at: auth?.last_sign_in_at ?? null,
+          display_name: r.display_name ?? usernameById.get(r.user_id) ?? null,
+          roles: r.roles ?? [],
+          is_owner: r.user_id === ownerId,
+          plan: r.plan ?? "free",
+          is_banned: r.is_banned ?? false,
+        };
+      });
+
       return {
-        id: u.id,
-        email: u.email ?? null,
-        created_at: u.created_at,
-        last_sign_in_at: u.last_sign_in_at ?? null,
-        display_name: profile?.display_name ?? profile?.username ?? null,
-        roles: (roles ?? []).filter((r) => r.user_id === u.id).map((r) => r.role as string),
-        is_owner: u.id === ownerId,
-        plan: planByUser.get(u.id) ?? "free",
-        is_banned: profile?.is_banned ?? false,
+        accounts,
+        page: data.page,
+        perPage: data.perPage,
+        total: countRes.count ?? accounts.length,
       };
-    });
-
-    accounts.sort((a, b) => (a.created_at < b.created_at ? 1 : -1));
-    return { accounts };
-  });
+    },
+  );
 
 /** Owner-only role management. */
 export const setAccountRole = createServerFn({ method: "POST" })
@@ -229,32 +285,42 @@ export const getOperatingStats = createServerFn({ method: "POST" })
       if (!isAdmin) throw new Error("Forbidden");
 
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const [{ count: totalUsers }, { data: plans }, { data: list }] = await Promise.all([
-        supabaseAdmin.from("profiles").select("id", { count: "exact", head: true }),
-        supabaseAdmin.from("user_plans").select("user_id, plan"),
-        supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
-      ]);
+      const [{ count: totalUsers }, { data: breakdown, error: breakdownError }, { data: list }] =
+        await Promise.all([
+          supabaseAdmin.from("profiles").select("id", { count: "exact", head: true }),
+          (supabaseAdmin as any).rpc("admin_plan_breakdown"),
+          supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
+        ]);
+      if (breakdownError) throw breakdownError;
 
-      const planByUser = new Map<string, string>();
-      (plans ?? []).forEach((p) => planByUser.set(p.user_id, p.plan));
-
-      const byPlan = new Map<string, number>();
-      planByUser.forEach((plan) => byPlan.set(plan, (byPlan.get(plan) ?? 0) + 1));
-      const planBreakdown: PlanBreakdownRow[] = [...byPlan.entries()]
-        .map(([plan, count]) => ({ plan, count }))
+      const planBreakdown: PlanBreakdownRow[] = (
+        (breakdown ?? []) as Array<{ plan: string; count: number | string }>
+      )
+        .map((r) => ({ plan: r.plan, count: Number(r.count) }))
         .sort((a, b) => b.count - a.count);
 
-      const freeCount = Math.max((totalUsers ?? 0) - planByUser.size, 0);
+      const plannedCount = planBreakdown.reduce((n, r) => n + r.count, 0);
+      const freeCount = Math.max((totalUsers ?? 0) - plannedCount, 0);
 
-      const recentUsers: RecentUserRow[] = (list?.users ?? [])
+      const recent = (list?.users ?? [])
         .sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
-        .slice(0, 20)
-        .map((u) => ({
-          id: u.id,
-          email: u.email ?? null,
-          plan: planByUser.get(u.id) ?? "free",
-          created_at: u.created_at,
-        }));
+        .slice(0, 20);
+      // Per-user plans only for the 20 recent rows - never a full-table pull.
+      const recentIds = recent.map((u) => u.id);
+      const { data: recentPlans } = recentIds.length
+        ? await supabaseAdmin.from("user_plans").select("user_id, plan").in("user_id", recentIds)
+        : { data: [] as Array<{ user_id: string; plan: string }> };
+      const planByUser = new Map<string, string>();
+      ((recentPlans ?? []) as Array<{ user_id: string; plan: string }>).forEach((p) =>
+        planByUser.set(p.user_id, p.plan),
+      );
+
+      const recentUsers: RecentUserRow[] = recent.map((u) => ({
+        id: u.id,
+        email: u.email ?? null,
+        plan: planByUser.get(u.id) ?? "free",
+        created_at: u.created_at,
+      }));
 
       return { totalUsers: totalUsers ?? 0, planBreakdown, freeCount, recentUsers };
     },

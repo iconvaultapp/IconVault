@@ -33,21 +33,22 @@ export async function fetchRoleStatus(userId: string): Promise<{
 }
 
 /** Grants admin to the caller only when the site has no admin at all yet,
- *  AND the caller's email matches OWNER_EMAIL. This closes the takeover race
- *  where any early registrant could claim the owner slot before Sameer. */
+ *  AND the caller's verified email matches OWNER_EMAIL. The check + insert
+ *  run atomically inside the claim_first_admin RPC (advisory-locked), so two
+ *  simultaneous claims cannot both succeed. Fails closed: with OWNER_EMAIL
+ *  unset, nobody can claim the slot. */
 export async function claimFirstAdminFor(userId: string): Promise<boolean> {
+  const ownerEmail = getServerEnv("OWNER_EMAIL")?.trim();
+  if (!ownerEmail) return false;
+
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  const { data: admins } = await supabaseAdmin.from("user_roles").select("user_id").eq("role", "admin").limit(1);
-  if (admins && admins.length > 0) return false;
-
-  const ownerEmail = getServerEnv("OWNER_EMAIL")?.toLowerCase();
-  if (ownerEmail) {
-    const { data: caller } = await supabaseAdmin.auth.admin.getUserById(userId);
-    if (caller?.user?.email?.toLowerCase() !== ownerEmail) return false;
+  const { data, error } = await (supabaseAdmin as any).rpc("claim_first_admin", {
+    p_user_id: userId,
+    p_owner_email: ownerEmail,
+  });
+  if (error) {
+    console.error("[admin] claim_first_admin rpc failed:", error.message ?? error);
+    return false;
   }
-
-  const { error } = await supabaseAdmin
-    .from("user_roles")
-    .upsert({ user_id: userId, role: "admin" }, { onConflict: "user_id,role" });
-  return !error;
+  return data === true;
 }

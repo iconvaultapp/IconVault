@@ -12,7 +12,6 @@ import {
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { useServerFn } from "@tanstack/react-start";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { recordReferral } from "@/lib/admin.functions";
@@ -151,9 +150,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">

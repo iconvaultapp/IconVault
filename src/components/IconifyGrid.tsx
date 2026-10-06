@@ -27,11 +27,13 @@ export const IconifyGrid = ({
 
   // Warm the icon-data cache during idle time for icons just below the fold,
   // so scrolling feels instant instead of triggering a network round-trip
-  // per icon. The first 32 are already priority-loaded above.
+  // per icon. The first 32 are already priority-loaded above; the lookahead
+  // window stays small so a fast-typing search doesn't fire a fetch storm.
   useEffect(() => {
     if (typeof window === "undefined" || icons.length <= 32) return;
     const warm = () => {
-      for (const iconId of icons.slice(32, 224)) {
+      if (document.visibilityState !== "visible") return;
+      for (const iconId of icons.slice(32, 64)) {
         const { prefix, name } = parseIconId(iconId);
         if (prefix && name) {
           void loadIconData(prefix, name).catch(() => {

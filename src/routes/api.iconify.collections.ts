@@ -1,10 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { isRateLimited, rateLimitedResponse } from "../lib/rate-limit";
 
 const ICONIFY_APIS = [
   "https://api.iconify.design",
   "https://api.simplesvg.com",
   "https://api.unisvg.com",
 ] as const;
+
+// Refuse to buffer absurdly large upstream payloads into the Worker.
+const MAX_UPSTREAM_BYTES = 8 * 1024 * 1024;
 
 type CacheNamespace = { caches?: { default?: Cache } };
 
@@ -34,6 +38,9 @@ export const Route = createFileRoute("/api/iconify/collections")({
   server: {
     handlers: {
       GET: async ({ request }) => {
+        // Abuse protection: this proxies third-party CDNs, so every miss
+        // costs us an upstream fetch. Same budget as /api/iconify/search.
+        if (isRateLimited(request, "api:iconify-collections", 120)) return rateLimitedResponse();
         const edgeCache = (globalThis as CacheNamespace).caches?.default;
         const key = cacheKey(request);
         if (edgeCache) {
@@ -43,7 +50,14 @@ export const Route = createFileRoute("/api/iconify/collections")({
 
         try {
           const upstream = await fetchUpstream();
+          const declared = Number(upstream.headers.get("content-length") ?? 0);
+          if (declared > MAX_UPSTREAM_BYTES) {
+            return new Response(JSON.stringify({}), { status: 502, headers: jsonHeaders() });
+          }
           const body = await upstream.text();
+          if (body.length > MAX_UPSTREAM_BYTES) {
+            return new Response(JSON.stringify({}), { status: 502, headers: jsonHeaders() });
+          }
           const response = new Response(body, { status: 200, headers: jsonHeaders() });
           if (edgeCache) void edgeCache.put(key, response.clone());
           return response;

@@ -5,8 +5,6 @@
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { sha256Hex } from "./api-key-hash";
 
-const QUOTA_WINDOW_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
-
 export interface ApiKeyVerdict {
   /** No key was presented at all. */
   presented: boolean;
@@ -34,27 +32,27 @@ export function extractApiKey(request: Request): string | null {
 interface KeyRow {
   id: string;
   revoked: boolean;
-  monthly_quota: number;
-  used_this_month: number;
-  period_start: string;
 }
 
 /**
- * Verify a presented API key against Supabase. Resets the monthly usage
- * window when it is older than 30 days and increments usage on success.
- * Returns null when the request carries no key (caller keeps the existing
- * keyless behavior). Never logs or returns the raw key.
+ * Verify a presented API key against Supabase and atomically consume one
+ * unit of its monthly quota via the public.consume_api_quota RPC (quota
+ * check + increment in a single statement, so concurrent requests cannot
+ * race past the quota). Returns null when the request carries no key
+ * (caller keeps the existing keyless behavior). Never logs or returns the
+ * raw key.
  */
 export async function verifyApiKeyRequest(request: Request): Promise<ApiKeyVerdict | null> {
   const key = extractApiKey(request);
   if (!key) return null;
 
+  let hash: string;
   let row: KeyRow | null;
   try {
-    const hash = await sha256Hex(key);
+    hash = await sha256Hex(key);
     const { data, error } = await (supabaseAdmin as any)
       .from("api_keys")
-      .select("id, revoked, monthly_quota, used_this_month, period_start")
+      .select("id, revoked")
       .eq("key_hash", hash)
       .maybeSingle();
     if (error) throw error;
@@ -87,27 +85,36 @@ export async function verifyApiKeyRequest(request: Request): Promise<ApiKeyVerdi
     return { presented: true, ok: false, status: 401, message: "This API key has been revoked." };
   }
 
-  let used = row.used_this_month;
-  const periodStart = new Date(row.period_start).getTime();
-  const patch: Record<string, unknown> = {};
-  if (Number.isFinite(periodStart) && Date.now() - periodStart > QUOTA_WINDOW_MS) {
-    used = 0;
-    patch["period_start"] = new Date().toISOString();
-  }
-  if (used >= row.monthly_quota) {
+  // Atomic quota consumption: the RPC checks quota, resets the 30-day
+  // window when due, and increments used_this_month in ONE statement.
+  try {
+    const { data, error } = await (supabaseAdmin as any).rpc("consume_api_quota", {
+      p_key_hash: hash,
+    });
+    if (error) throw error;
+    const verdict = (Array.isArray(data) ? data[0] : data) as
+      | { ok: boolean; status: number }
+      | null
+      | undefined;
+    if (!verdict) throw new Error("consume_api_quota returned no row");
+    if (!verdict.ok) {
+      return {
+        presented: true,
+        ok: false,
+        status: verdict.status || 429,
+        message: "Monthly API quota exhausted. Usage resets 30 days after the period started.",
+      };
+    }
+  } catch (err) {
+    // Fail closed: when quota cannot be counted, the key is not honoured.
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[api-keys] quota consumption failed:", msg);
     return {
       presented: true,
       ok: false,
-      status: 429,
-      message: "Monthly API quota exhausted. Usage resets 30 days after the period started.",
+      status: 503,
+      message: "API key verification is temporarily unavailable. Try again in a minute.",
     };
-  }
-
-  patch["used_this_month"] = used + 1;
-  try {
-    await (supabaseAdmin as any).from("api_keys").update(patch).eq("id", row.id);
-  } catch {
-    // Usage counting is best-effort; the request itself was authorized.
   }
   return { presented: true, ok: true };
 }

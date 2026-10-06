@@ -64,6 +64,9 @@ const svgResponse = (svg: string) =>
       "Content-Type": "image/svg+xml; charset=utf-8",
       "Cache-Control": "public, max-age=31536000, immutable",
       "Access-Control-Allow-Origin": "*",
+      // Defense in depth: even if a future markup interpolation slips
+      // through, scripts cannot execute in SVG served from our origin.
+      "Content-Security-Policy": "script-src 'none'",
     },
   });
 
@@ -94,6 +97,12 @@ export const Route = createFileRoute("/api/icon/$prefix/$name")({
         }
         // No key presented: today's keyless behavior (IP rate limits) is unchanged.
         // A valid key is governed by its monthly quota instead of the IP limit.
+        // Edge-cache lookup runs BEFORE the rate limit so hot cached icons
+        // are served without burning the IP's quota.
+        const cacheKey = request.url;
+        const cached = edgeCache ? await edgeCache.match(cacheKey) : undefined;
+        if (cached) return cached;
+
         if (keyVerdict?.ok !== true && isRateLimited(request, "api:icon", API_LIMITS.icon)) {
           return rateLimitedResponse();
         }
@@ -112,10 +121,6 @@ export const Route = createFileRoute("/api/icon/$prefix/$name")({
         };
         const width = toSize(url.searchParams.get("width"));
         const height = toSize(url.searchParams.get("height"));
-        const cacheKey = request.url;
-
-        const cached = edgeCache ? await edgeCache.match(cacheKey) : undefined;
-        if (cached) return cached;
 
         const build = async (): Promise<Response> => {
           // 0. First-party sets (e.g. "ivo") resolve from the bundled bodies -

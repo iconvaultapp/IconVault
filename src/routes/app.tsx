@@ -132,6 +132,11 @@ function AppBrowser() {
     };
   }, [collections]);
 
+  // Monotonic id for the search effect below: a newer keystroke bumps it, so
+  // an abandoned scan can stop itself mid-flight instead of burning CPU on
+  // results that will be discarded anyway.
+  const searchRunId = useRef(0);
+
   useEffect(() => {
     let cancelled = false;
     const run = async () => {
@@ -140,9 +145,18 @@ function AppBrowser() {
         return;
       }
       setLoading(true);
+      const runId = ++searchRunId.current;
       try {
         const result = query.trim()
-          ? (await searchIcons(query.trim(), 120, 0, activePrefix ?? undefined)).icons
+          ? (
+              await searchIcons(
+                query.trim(),
+                120,
+                0,
+                activePrefix ?? undefined,
+                () => runId !== searchRunId.current,
+              )
+            ).icons
           : await fetchCollectionIcons(activePrefix as string, 120);
         if (!cancelled) {
           setIcons(result);
