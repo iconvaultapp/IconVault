@@ -11,7 +11,7 @@ import {
   searchFabricTemplates,
   type FabricTemplateMeta,
 } from "@/lib/thumbnail-fabric-library";
-import { renderTemplatePreview } from "./fabric-helpers";
+import { renderTemplatePreview, onPreviewUpdate } from "./fabric-helpers";
 
 function TemplateCard({
   meta,
@@ -31,6 +31,11 @@ function TemplateCard({
     const el = ref.current;
     if (!el) return;
     let dead = false;
+    // Re-render with real studio fonts when they arrive (first paint uses
+    // fallback fonts so the gallery never waits on the font CDN).
+    const unsub = onPreviewUpdate(meta.id, (url) => {
+      if (!dead) setSrc(url);
+    });
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
@@ -45,6 +50,7 @@ function TemplateCard({
     return () => {
       dead = true;
       io.disconnect();
+      unsub();
     };
   }, [meta.id]);
 

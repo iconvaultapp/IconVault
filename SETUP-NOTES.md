@@ -8,8 +8,8 @@
 2. **`supabase/config.toml`** — updated `project_id` to match the new project,
    so the Supabase CLI links to the right place.
 3. **Google login** (`src/routes/auth.tsx` and `src/components/SignInPrompt.tsx`)
-   — was using Lovable Cloud's private OAuth broker, which only works inside
-   Lovable's own hosting. Replaced with plain Supabase Google OAuth
+   — was using the previous platform's private OAuth broker, which only works inside
+   its own hosting. Replaced with plain Supabase Google OAuth
    (`supabase.auth.signInWithOAuth`). The button looks and behaves the same.
 4. **Homepage icon speed** (`src/routes/index.tsx`) — the 12 hero icons were
    marked `loading="lazy"` even though they're always visible immediately on
@@ -34,7 +34,7 @@
 
 ### 1. Database — run only ONE migration file
 Your `supabase/migrations` folder has 9 files, but 3 of them are full
-database snapshots (a Lovable export quirk), not incremental steps. On a
+database snapshots (an export quirk from the previous platform), not incremental steps. On a
 **fresh** Supabase project, run ONLY this one file in the SQL Editor:
 
 ```

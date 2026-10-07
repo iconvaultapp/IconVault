@@ -7,27 +7,48 @@ import { TW, TH, STUDIO_FONTS, type FabricCanvasJSON } from "@/lib/thumbnail-fab
 const FONT_CSS_URL =
   "https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;600;700;800&family=Oswald:wght@500;600;700&family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;800&display=swap";
 
-let fontsPromise: Promise<void> | null = null;
+let fontsPromise: Promise<boolean> | null = null;
 
-export function loadStudioFonts(): Promise<void> {
+/**
+ * Loads the studio's Google Fonts. Resolves `true` when the real fonts are
+ * ready, `false` on timeout/error — and NEVER takes longer than ~2.5s, so
+ * slow font CDNs can't stall the gallery or editor. Callers that want the
+ * typeface upgrade (gallery previews) should subscribe via onPreviewUpdate;
+ * the upgrade is applied automatically when the real fonts arrive.
+ */
+export function loadStudioFonts(): Promise<boolean> {
   if (fontsPromise) return fontsPromise;
-  fontsPromise = (async () => {
-    if (!document.querySelector('link[data-studio-fonts]')) {
+  const injectLink = () => {
+    if (!document.querySelector("link[data-studio-fonts]")) {
       const link = document.createElement("link");
       link.rel = "stylesheet";
       link.href = FONT_CSS_URL;
       link.setAttribute("data-studio-fonts", "1");
       document.head.appendChild(link);
     }
+  };
+  // The real load: resolves true only when every studio font is actually ready.
+  const realLoad = (async (): Promise<boolean> => {
+    injectLink();
     try {
       await Promise.all(
         STUDIO_FONTS.map((f) => document.fonts.load(`40px "${f}"`).catch(() => [])),
       );
       await document.fonts.ready;
+      return true;
     } catch {
       /* fonts are decorative - never block the editor */
+      return false;
     }
   })();
+  // When the real fonts finally arrive (even after the timeout below),
+  // upgrade any visible gallery previews to the correct typefaces.
+  void realLoad.then((ok) => {
+    if (ok) upgradePreviews();
+  });
+  // Public promise: fast resolve so nothing ever blocks on fonts.
+  const timeout = new Promise<boolean>((resolve) => setTimeout(() => resolve(false), 2500));
+  fontsPromise = Promise.race([realLoad, timeout]);
   return fontsPromise;
 }
 
@@ -124,15 +145,44 @@ export async function exportDesign(canvas: Canvas, format: StudioExportFormat, s
   }
 }
 
-// ---------- gallery preview rendering (lazy, cached) ----------
+// ---------- gallery preview rendering (lazy, cached, non-blocking) ----------
 
 const previewCache = new Map<string, string>();
+/** Template JSON kept so previews can be re-rendered once webfonts arrive. */
+const previewJson = new Map<string, FabricCanvasJSON>();
+const previewListeners = new Map<string, Set<(url: string) => void>>();
 let previewHost: HTMLDivElement | null = null;
 
-export async function renderTemplatePreview(id: string, json: FabricCanvasJSON): Promise<string> {
-  const hit = previewCache.get(id);
-  if (hit) return hit;
-  await loadStudioFonts();
+/**
+ * Subscribe to preview upgrades for a template (fires when the render is
+ * redone with the real studio fonts). Returns an unsubscribe function.
+ */
+export function onPreviewUpdate(id: string, cb: (url: string) => void): () => void {
+  let set = previewListeners.get(id);
+  if (!set) {
+    set = new Set();
+    previewListeners.set(id, set);
+  }
+  set.add(cb);
+  return () => {
+    set!.delete(cb);
+    if (set!.size === 0) previewListeners.delete(id);
+  };
+}
+
+function emitPreview(id: string, url: string): void {
+  const set = previewListeners.get(id);
+  if (!set) return;
+  set.forEach((cb) => {
+    try {
+      cb(url);
+    } catch {
+      /* listener error must not break the upgrade loop */
+    }
+  });
+}
+
+async function renderPreviewNow(id: string, json: FabricCanvasJSON): Promise<string> {
   if (!previewHost) {
     previewHost = document.createElement("div");
     previewHost.style.cssText = "position:fixed;left:-9999px;top:0;pointer-events:none;";
@@ -149,13 +199,49 @@ export async function renderTemplatePreview(id: string, json: FabricCanvasJSON):
   try {
     await canvas.loadFromJSON(json as unknown as Record<string, unknown>);
     canvas.requestRenderAll();
-    const url = canvas.toDataURL({ format: "jpeg", quality: 0.72, multiplier: 0.25 });
-    previewCache.set(id, url);
-    return url;
+    return canvas.toDataURL({ format: "jpeg", quality: 0.72, multiplier: 0.25 });
   } finally {
     canvas.dispose();
     el.remove();
   }
+}
+
+/**
+ * Re-render visible previews with the real studio fonts once they arrive.
+ * Only templates with active subscribers are redone, one at a time, so the
+ * UI never janks.
+ */
+function upgradePreviews(): void {
+  const ids = [...previewListeners.keys()].filter((id) => previewJson.has(id));
+  if (ids.length === 0) return;
+  void (async () => {
+    for (const pid of ids) {
+      const json = previewJson.get(pid);
+      if (!json) continue;
+      try {
+        const url = await renderPreviewNow(pid, json);
+        previewCache.set(pid, url);
+        emitPreview(pid, url);
+      } catch {
+        /* keep the fallback-font preview rather than dropping the image */
+      }
+      // Yield so scrolling stays smooth while upgrades stream in.
+      await new Promise((r) => setTimeout(r, 0));
+    }
+  })();
+}
+
+export async function renderTemplatePreview(id: string, json: FabricCanvasJSON): Promise<string> {
+  const hit = previewCache.get(id);
+  if (hit) return hit;
+  previewJson.set(id, json);
+  // Kick off font loading in the background, but render IMMEDIATELY with
+  // whatever fonts are available — the gallery must never wait on Google
+  // Fonts. upgradePreviews() swaps in the correct typefaces when they land.
+  void loadStudioFonts();
+  const url = await renderPreviewNow(id, json);
+  previewCache.set(id, url);
+  return url;
 }
 
 // ---------- object factories ----------
