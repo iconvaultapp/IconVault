@@ -18,7 +18,7 @@ export const LIFETIME_PRICE = 39;
 // sold (removed 2026-10-06), but existing monthly subscribers keep Pro until
 // their subscription lapses (the webhook downgrades them to free on
 // cancel/expire). Nothing in the UI offers monthly anymore.
-type Plan = "free" | "monthly" | "yearly" | "lifetime";
+type Plan = "free" | "pro" | "monthly" | "yearly" | "lifetime";
 
 interface PlanContextType {
   plan: Plan;
@@ -69,7 +69,9 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     ]);
     const rawPlan = planRow?.plan;
     setPlan(
-      rawPlan === "monthly" || rawPlan === "yearly" || rawPlan === "lifetime" ? rawPlan : "free",
+      rawPlan === "pro" || rawPlan === "monthly" || rawPlan === "yearly" || rawPlan === "lifetime"
+        ? rawPlan
+        : "free",
     );
     setBulkUsed(count ?? 0);
     setLoading(false);

@@ -720,7 +720,13 @@ function Page() {
                   </span>
                   <div>
                     <p className="font-display text-base font-semibold">
-                      Pro Yearly · ${YEARLY_PRICE}/year
+                      {plan === "lifetime"
+                        ? `Lifetime · $${LIFETIME_PRICE} one-time`
+                        : plan === "monthly"
+                          ? "Pro Monthly"
+                          : plan === "pro"
+                            ? "Pro"
+                            : `Pro Yearly · $${YEARLY_PRICE}/year`}
                     </p>
                     <p className="mt-0.5 text-sm text-muted-foreground">
                       Unlimited tool uses, exports and API access.
@@ -1094,7 +1100,7 @@ function Page() {
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
                   {isPro ? (
-                    "Your Pro Yearly plan removes all trial limits."
+                    "Your Pro plan removes all trial limits."
                   ) : trialSummary && trialSummary.tried > 0 ? (
                     <>
                       {trialSummary.usedUp} used up
