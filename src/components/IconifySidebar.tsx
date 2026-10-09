@@ -1,4 +1,4 @@
-import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Package } from "lucide-react";
 import { navSections } from "@/components/nav-data";
 import { Brand } from "@/components/SiteHeader";
@@ -12,13 +12,12 @@ interface IconifySidebarProps {
 }
 
 export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: IconifySidebarProps) => {
-  const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const sorted = Object.entries(collections).sort((a, b) => b[1].total - a[1].total);
 
   return (
-    <aside className="font-balloon sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-black/10 bg-[#D4D4D4] px-3 pb-5 text-black lg:block">
-      <div className="sticky top-0 -mx-3 border-b border-black/10 bg-[#D4D4D4]/95 px-5 py-4 backdrop-blur-xl">
+    <aside className="font-balloon sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-black/10 bg-white px-3 pb-5 text-black lg:block">
+      <div className="sticky top-0 -mx-3 border-b border-black/10 bg-white/95 px-5 py-4 backdrop-blur-xl">
         <Brand />
       </div>
       <div className="pt-5">
@@ -54,7 +53,6 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
           <button
             onClick={() => {
               onPrefixClick(null);
-              void navigate({ to: "/" });
             }}
             className={cn(
               "flex w-full min-w-0 items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm transition-colors",
@@ -70,7 +68,6 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
               key={prefix}
               onClick={() => {
                 onPrefixClick(prefix);
-                void navigate({ to: "/" });
               }}
               className={cn(
                 "flex w-full min-w-0 items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-left text-sm transition-colors",
