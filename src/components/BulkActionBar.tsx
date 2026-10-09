@@ -4,7 +4,7 @@ import { Copy, FileArchive, ImageDown, Loader2, X, Crown } from "lucide-react";
 import { toast } from "sonner";
 import { parseIconId, fetchIconSvg } from "@/lib/iconify";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
-import { usePlan, YEARLY_PRICE } from "@/hooks/usePlan";
+import { usePlan, LIFETIME_PRICE } from "@/hooks/usePlan";
 import { brandFilename } from "@/lib/logo-builder";
 
 interface BulkActionBarProps {
@@ -58,7 +58,7 @@ export const BulkActionBar = ({ selected, onClear, onSelectAll }: BulkActionBarP
     if (!requireAuth(`download ${ids.length} icons`)) return;
     if (!canBulkDownload) {
       toast.error("Free plan limit reached", {
-        description: `You've used all 7 free bulk downloads. Upgrade to Pro (from $${YEARLY_PRICE}/year) for unlimited bulk downloads.`,
+        description: `You've used all 7 free bulk downloads. Go Lifetime ($${LIFETIME_PRICE} one-time) for unlimited bulk downloads.`,
       });
       return;
     }
@@ -136,7 +136,7 @@ export const BulkActionBar = ({ selected, onClear, onSelectAll }: BulkActionBarP
               to="/pro"
               className="focus-ring ml-auto inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 font-medium text-primary-foreground"
             >
-              <Crown className="h-3.5 w-3.5" /> Upgrade - from $${YEARLY_PRICE}/yr
+              <Crown className="h-3.5 w-3.5" /> Lifetime - $${LIFETIME_PRICE} one-time
             </Link>
           </div>
         )}

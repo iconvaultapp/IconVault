@@ -620,6 +620,7 @@ import { Route as ToolsYamlFormatterRouteImport } from './routes/tools_.yaml-for
 import { Route as ToolsYamlJsonConverterRouteImport } from './routes/tools_.yaml-json-converter'
 import { Route as ToolsZipExplorerRouteImport } from './routes/tools_.zip-explorer'
 import { Route as ApiBillingCheckoutRouteImport } from './routes/api.billing.checkout'
+import { Route as ApiBillingLifetimeCountRouteImport } from './routes/api.billing.lifetime-count'
 import { Route as ApiBillingWebhookRouteImport } from './routes/api.billing.webhook'
 import { Route as ApiIconifyCollectionsRouteImport } from './routes/api.iconify.collections'
 import { Route as ApiIconifySearchRouteImport } from './routes/api.iconify.search'
@@ -3811,6 +3812,11 @@ const ApiBillingCheckoutRoute = ApiBillingCheckoutRouteImport.update({
   path: '/api/billing/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiBillingLifetimeCountRoute = ApiBillingLifetimeCountRouteImport.update({
+  id: '/api/billing/lifetime-count',
+  path: '/api/billing/lifetime-count',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiBillingWebhookRoute = ApiBillingWebhookRouteImport.update({
   id: '/api/billing/webhook',
   path: '/api/billing/webhook',
@@ -4450,6 +4456,7 @@ export interface FileRoutesByFullPath {
   '/tools/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools/zip-explorer': typeof ToolsZipExplorerRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
+  '/api/billing/lifetime-count': typeof ApiBillingLifetimeCountRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/api/iconify/collections': typeof ApiIconifyCollectionsRoute
   '/api/iconify/search': typeof ApiIconifySearchRoute
@@ -5068,6 +5075,7 @@ export interface FileRoutesByTo {
   '/tools/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools/zip-explorer': typeof ToolsZipExplorerRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
+  '/api/billing/lifetime-count': typeof ApiBillingLifetimeCountRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/api/iconify/collections': typeof ApiIconifyCollectionsRoute
   '/api/iconify/search': typeof ApiIconifySearchRoute
@@ -5687,6 +5695,7 @@ export interface FileRoutesById {
   '/tools_/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools_/zip-explorer': typeof ToolsZipExplorerRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
+  '/api/billing/lifetime-count': typeof ApiBillingLifetimeCountRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/api/iconify/collections': typeof ApiIconifyCollectionsRoute
   '/api/iconify/search': typeof ApiIconifySearchRoute
@@ -6307,6 +6316,7 @@ export interface FileRouteTypes {
     | '/tools/yaml-json-converter'
     | '/tools/zip-explorer'
     | '/api/billing/checkout'
+    | '/api/billing/lifetime-count'
     | '/api/billing/webhook'
     | '/api/iconify/collections'
     | '/api/iconify/search'
@@ -6925,6 +6935,7 @@ export interface FileRouteTypes {
     | '/tools/yaml-json-converter'
     | '/tools/zip-explorer'
     | '/api/billing/checkout'
+    | '/api/billing/lifetime-count'
     | '/api/billing/webhook'
     | '/api/iconify/collections'
     | '/api/iconify/search'
@@ -7543,6 +7554,7 @@ export interface FileRouteTypes {
     | '/tools_/yaml-json-converter'
     | '/tools_/zip-explorer'
     | '/api/billing/checkout'
+    | '/api/billing/lifetime-count'
     | '/api/billing/webhook'
     | '/api/iconify/collections'
     | '/api/iconify/search'
@@ -8161,6 +8173,7 @@ export interface RootRouteChildren {
   ToolsYamlJsonConverterRoute: typeof ToolsYamlJsonConverterRoute
   ToolsZipExplorerRoute: typeof ToolsZipExplorerRoute
   ApiBillingCheckoutRoute: typeof ApiBillingCheckoutRoute
+  ApiBillingLifetimeCountRoute: typeof ApiBillingLifetimeCountRoute
   ApiBillingWebhookRoute: typeof ApiBillingWebhookRoute
   ApiIconifyCollectionsRoute: typeof ApiIconifyCollectionsRoute
   ApiIconifySearchRoute: typeof ApiIconifySearchRoute
@@ -12447,6 +12460,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiBillingCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/billing/lifetime-count': {
+      id: '/api/billing/lifetime-count'
+      path: '/api/billing/lifetime-count'
+      fullPath: '/api/billing/lifetime-count'
+      preLoaderRoute: typeof ApiBillingLifetimeCountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/billing/webhook': {
       id: '/api/billing/webhook'
       path: '/api/billing/webhook'
@@ -13111,6 +13131,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsYamlJsonConverterRoute: ToolsYamlJsonConverterRoute,
   ToolsZipExplorerRoute: ToolsZipExplorerRoute,
   ApiBillingCheckoutRoute: ApiBillingCheckoutRoute,
+  ApiBillingLifetimeCountRoute: ApiBillingLifetimeCountRoute,
   ApiBillingWebhookRoute: ApiBillingWebhookRoute,
   ApiIconifyCollectionsRoute: ApiIconifyCollectionsRoute,
   ApiIconifySearchRoute: ApiIconifySearchRoute,

@@ -83,7 +83,7 @@ export const IconifyGrid = ({
             type="button"
             onClick={() => onIconClick?.(iconId)}
             className={cn(
-              "focus-ring group relative min-w-0 rounded-2xl border bg-surface p-3 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm",
+              "focus-ring group relative min-w-0 rounded-2xl border bg-surface p-3 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm cv-auto",
               selected ? "border-primary bg-primary-soft/30" : "border-border",
             )}
             aria-label={`Open ${iconId}`}

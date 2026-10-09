@@ -23,6 +23,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ArrowLeft, Box, Compass, Search, Shapes } from "lucide-react";
 import { usePageTracking } from "@/hooks/useAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
+import PromoPopup from "@/components/PromoPopup";
 import { FavouritesProvider } from "@/hooks/useFavourites";
 import { CollectionsProvider } from "@/hooks/useCollections";
 import { SearchHistoryProvider } from "@/hooks/useSearchHistory";
@@ -381,6 +382,7 @@ function RootComponent() {
                   </div>
                   {!bare && <MobileTabBar />}
                   <SignInPrompt />
+                  <PromoPopup />
                   <CookieConsent />
                   <Toaster position="bottom-right" />
                 </TooltipProvider>

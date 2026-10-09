@@ -490,7 +490,7 @@ export const LIVE_TOOLS: ToolDef[] = [
     id: "batch-download",
     name: "Batch download",
     tagline: "Multi-select icons anywhere and grab them as a ZIP of SVGs + PNGs.",
-    path: "/app",
+    path: "/",
     icon: "package",
     category: "dev",
   },

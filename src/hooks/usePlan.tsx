@@ -12,13 +12,13 @@ import { useAuth } from "@/hooks/useAuth";
 
 export const FREE_BULK_DOWNLOAD_LIMIT = 7;
 export const YEARLY_PRICE = 19;
-export const LIFETIME_PRICE = 39;
+export const LIFETIME_PRICE = 12;
 
 // "monthly" is kept as a readable value only: the $2/month plan is no longer
 // sold (removed 2026-10-06), but existing monthly subscribers keep Pro until
 // their subscription lapses (the webhook downgrades them to free on
 // cancel/expire). Nothing in the UI offers monthly anymore.
-type Plan = "free" | "pro" | "monthly" | "yearly" | "lifetime";
+type Plan = "free" | "monthly" | "yearly" | "lifetime";
 
 interface PlanContextType {
   plan: Plan;
@@ -69,9 +69,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     ]);
     const rawPlan = planRow?.plan;
     setPlan(
-      rawPlan === "pro" || rawPlan === "monthly" || rawPlan === "yearly" || rawPlan === "lifetime"
-        ? rawPlan
-        : "free",
+      rawPlan === "monthly" || rawPlan === "yearly" || rawPlan === "lifetime" ? rawPlan : "free",
     );
     setBulkUsed(count ?? 0);
     setLoading(false);

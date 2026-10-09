@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Check, Minus, Crown, Zap, ShieldCheck, RefreshCw, Loader2 } from "lucide-react";
 import PageShell from "@/components/PageShell";
@@ -10,13 +10,13 @@ import { usePlan, YEARLY_PRICE, LIFETIME_PRICE } from "@/hooks/usePlan";
 export const Route = createFileRoute("/pro")({
   head: () => ({
     meta: [
-      { title: "Pricing - IconVault Free & Pro Yearly plans" },
+      { title: "Pricing - IconVault Free & Lifetime plans" },
       {
         name: "description",
         content:
           "Free forever for solo work. Pro from $19/year for unlimited tools, exports and API access - yearly or lifetime.",
       },
-      { property: "og:title", content: "Pricing - IconVault Free & Pro Yearly plans" },
+      { property: "og:title", content: "Pricing - IconVault Free & Lifetime plans" },
       {
         property: "og:description",
         content: "Free forever, or Pro from $19/year for unlimited everything.",
@@ -103,48 +103,48 @@ const lifetimePlan = {
 };
 
 /** Plan names for the comparison table header. */
-const planNames = ["Free", "Pro", "Lifetime"];
+const planNames = ["Free", "Lifetime"];
 
 type Cell = boolean | string;
-// Columns: Free | Pro | Lifetime.
-const matrix: { group: string; rows: { label: string; values: [Cell, Cell, Cell] }[] }[] = [
+// Columns: Free | Lifetime.
+const matrix: { group: string; rows: { label: string; values: [Cell, Cell] }[] }[] = [
   {
     group: "Discovery",
     rows: [
-      { label: "Icon sets indexed", values: ["All 239", "All 239", "All 239"] },
-      { label: "AI natural-language search", values: [false, true, true] },
-      { label: "Search history sync", values: ["7 days", "Unlimited", "Unlimited"] },
-      { label: "Side-by-side comparison", values: [true, true, true] },
+      { label: "Icon sets indexed", values: ["All 239", "All 239"] },
+      { label: "AI natural-language search", values: [false, true] },
+      { label: "Search history sync", values: ["7 days", "Unlimited"] },
+      { label: "Side-by-side comparison", values: [true, true] },
     ],
   },
   {
     group: "Tools",
     rows: [
-      { label: "Free tool runs", values: ["5 per tool / day", "Unlimited", "Unlimited"] },
-      { label: "Image to SVG vectorizer", values: ["5 runs", "Unlimited + batch", "Unlimited + batch"] },
-      { label: "OG image generator", values: ["5 exports", "Unlimited", "Unlimited"] },
-      { label: "Website screenshots", values: ["5 captures", "Unlimited + full-page HD", "Unlimited + full-page HD"] },
-      { label: "Image compressor", values: ["5 runs", "Unlimited batch", "Unlimited batch"] },
-      { label: "Thumbnail maker", values: ["5 exports", "Unlimited", "Unlimited"] },
-      { label: "Logo builder kit export", values: [false, true, true] },
+      { label: "Free tool runs", values: ["5 per tool / day", "Unlimited"] },
+      { label: "Image to SVG vectorizer", values: ["5 runs", "Unlimited + batch"] },
+      { label: "OG image generator", values: ["5 exports", "Unlimited"] },
+      { label: "Website screenshots", values: ["5 captures", "Unlimited + full-page HD"] },
+      { label: "Image compressor", values: ["5 runs", "Unlimited batch"] },
+      { label: "Thumbnail maker", values: ["5 exports", "Unlimited"] },
+      { label: "Logo builder kit export", values: [false, true] },
     ],
   },
   {
     group: "Export",
     rows: [
-      { label: "SVG / PNG / JSX", values: [true, true, true] },
-      { label: "Bulk downloads", values: ["7 total", "Unlimited", "Unlimited"] },
-      { label: "Icon font generation", values: [false, true, true] },
-      { label: "Design tokens", values: [false, true, true] },
+      { label: "SVG / PNG / JSX", values: [true, true] },
+      { label: "Bulk downloads", values: ["7 total", "Unlimited"] },
+      { label: "Icon font generation", values: [false, true] },
+      { label: "Design tokens", values: [false, true] },
     ],
   },
   {
     group: "Platform",
     rows: [
-      { label: "REST API calls", values: ["1,000 / mo", "50,000 / mo", "50,000 / mo"] },
-      { label: "CLI, Figma, VS Code", values: ["Read only", true, true] },
-      { label: "Custom icon uploads", values: [false, "500", "500"] },
-      { label: "Cross-device sync", values: [true, true, true] },
+      { label: "REST API calls", values: ["1,000 / mo", "50,000 / mo"] },
+      { label: "CLI, Figma, VS Code", values: ["Read only", true] },
+      { label: "Custom icon uploads", values: [false, "500"] },
+      { label: "Cross-device sync", values: [true, true] },
     ],
   },
 ];
@@ -155,31 +155,74 @@ const faqs = [
     a: "No. Every icon indexed on IconVault is open source and stays under its original licence. The paid plan pays for the workflow around them - unlimited tools, bulk export, tokens and API access.",
   },
   {
-    q: "How does Pro Yearly billing work?",
-    a: "Pro Yearly costs $19 per year. Dodo Payments handles the recurring billing on a secure hosted page, and you can cancel anytime from your profile page. You keep pro access until the end of the billing period. Lifetime is a $39 one-time payment, yours forever.",
+    q: "How does Lifetime billing work?",
+    a: "Lifetime is a $12 one-time payment, yours forever - but only for the first 100 members. Dodo Payments handles the secure checkout on a hosted page. After 100 spots are gone, the price goes up.",
   },
   {
     q: "What happens when I hit the free limits?",
-    a: "Nothing breaks. Search and single-icon copy stay unlimited. Free accounts get 7 bulk downloads in total and 5 free runs per tool per day (20+ tools are free unlimited) - after that, upgrade to Pro Yearly for unlimited use.",
+    a: "Nothing breaks. Search and single-icon copy stay unlimited. Free accounts get 7 bulk downloads in total and 5 free runs per tool per day (20+ tools are free unlimited) - after that, grab Lifetime for unlimited use.",
   },
   {
-    q: "Can I cancel Pro Yearly?",
-    a: "Anytime, from your profile page. You keep pro access until the end of the billing period, then drop back to Free. No lock-in, no cancellation fees.",
+    q: "Can I get a refund on Lifetime?",
+    a: "Yes. If Lifetime doesn't save you time in the first 30 days, write to us from your profile page and we'll refund it - no questions asked.",
   },
   {
     q: "Can I get a refund?",
     a: "Yes. If the paid plan doesn't save you time in the first 30 days, write to us from your profile page and we'll refund it - no questions asked.",
   },
-  {
-    q: "Is there a discount for students or open source?",
-    a: "Pro Yearly is free for maintainers of public repositories with more than 500 stars, and 50% off with a valid student address. Request it from your profile page after signing up.",
-  },
 ];
 
+
+/**
+ * "First 100" urgency counter. Fetches the REAL lifetime buyer count from
+ * /api/billing/lifetime-count and shows "X of 100 claimed" with a progress
+ * bar. Never shows a fake number - if the count is unavailable, only the
+ * "first 100" urgency line renders.
+ */
+function FounderCounter() {
+  const [claimed, setClaimed] = useState<number | null>(null);
+  const LIMIT = 100;
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/billing/lifetime-count")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (alive && d && typeof d.claimed === "number") setClaimed(Math.min(d.claimed, LIMIT));
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, []);
+  const pct = claimed === null ? 0 : Math.round((claimed / LIMIT) * 100);
+  const left = claimed === null ? null : Math.max(LIMIT - claimed, 0);
+  return (
+    <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3">
+      <p className="text-xs font-semibold text-amber-700 dark:text-amber-400">
+        Founding members only - first {LIMIT} get lifetime for ${LIFETIME_PRICE}
+      </p>
+      {claimed !== null && (
+        <>
+          <div className="mt-2 h-2 overflow-hidden rounded-full bg-amber-500/20">
+            <div
+              className="h-full rounded-full bg-amber-500 transition-all duration-500"
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+          <p className="mt-1.5 font-mono text-[11px] text-muted-foreground">
+            {claimed} of {LIMIT} claimed{left !== null && left > 0 ? ` - ${left} spots left` : ""}
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
+/**
 /**
  * Paid plan CTA. Signed-out visitors go to /auth first (unchanged
  * behaviour); signed-in users get a Dodo checkout session created
- * server-side for the Pro Yearly ($19/year) and Lifetime ($39) plans and are
+ * server-side for the Lifetime ($12) plan and are
  * redirected to Dodo's hosted checkout. Active pro members see a
  * confirmation instead of the button.
  */
@@ -197,7 +240,7 @@ const TermsNote = () => (
   </p>
 );
 
-function CheckoutButton({ label, planType }: { label: string; planType: "yearly" | "lifetime" }) {
+function CheckoutButton({ label, planType }: { label: string; planType: "lifetime" }) {
   const { user, session } = useAuth();
   const { plan } = usePlan();
   const navigate = useNavigate();
@@ -278,12 +321,12 @@ function Page() {
     <PageShell
       wide
       eyebrow="Pricing"
-      title="Free forever, or Pro your way"
-      description="Start free and stay free for solo projects. Go Pro yearly, or once for lifetime — unlimited tools, exports and API access."
+      title="Free forever, or lifetime for $12"
+      description="Start free and stay free. Or grab lifetime for $12 - but only the first 100 members get this price."
     >
       <Stack>
         <div>
-          <div className="grid gap-5 lg:grid-cols-3 lg:px-4">
+          <div className="grid gap-5 lg:grid-cols-2 lg:px-4">
             {/* Free */}
             <Reveal delay={0}>
               <div className="surface-card relative flex h-full flex-col p-6">
@@ -309,47 +352,22 @@ function Page() {
                 </Link>
               </div>
             </Reveal>
-            {/* Pro (toggle) */}
-            <Reveal delay={60}>
-              <div className="surface-card relative flex h-full flex-col border-primary/40 p-6 shadow-ring">
-                <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-primary-foreground">
-                  Most popular
-                </span>
-                <h3 className="font-display text-lg font-semibold">Pro</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">Unlimited everything.</p>
-                <p className="mt-6 flex items-baseline gap-1.5">
-                  <span className="font-display text-4xl font-semibold tracking-tight">${YEARLY_PRICE}</span>
-                  <span className="text-sm text-muted-foreground">per year, cancel anytime</span>
-                </p>
-                <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-                  Recurring - cancel anytime
-                </p>
-                <ul className="mt-6 grid gap-2.5">
-                  {proFeatures.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <CheckoutButton label={`Go Pro - $${YEARLY_PRICE}/yr`} planType="yearly" />
-              </div>
-            </Reveal>
             {/* Lifetime */}
             <Reveal delay={120}>
               <div className="surface-card relative flex h-full flex-col p-6">
                 <span className="absolute -top-3 left-6 rounded-full bg-amber-500 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white">
-                  Best deal
+                  First 100 only
                 </span>
                 <h3 className="font-display text-lg font-semibold">Lifetime</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">Pay once, own it forever.</p>
                 <p className="mt-6 flex items-baseline gap-1.5">
                   <span className="font-display text-4xl font-semibold tracking-tight">${LIFETIME_PRICE}</span>
                   <span className="text-sm text-muted-foreground">one-time</span>
+                  <span className="ml-1 rounded-full bg-amber-500/15 px-2 py-0.5 font-mono text-[10px] text-amber-700 line-through">
+                    $39
+                  </span>
                 </p>
-                <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-                  Single payment - yours forever
-                </p>
+                <FounderCounter />
                 <ul className="mt-6 grid gap-2.5">
                   {lifetimePlan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
@@ -379,14 +397,14 @@ function Page() {
           <SectionHeading
             eyebrow="Why upgrade"
             title="The workflow around the icons"
-            description="The icons are free. Pro from $19/year is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
+            description="The icons are free. Lifetime for $12 (first 100 only) is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
           />
           <div className="mt-8">
             <FeatureGrid
               items={[
                 { icon: Zap, title: "Bulk everything", body: "Export a whole collection as an optimised sprite, ZIP or icon font in one click." },
                 { icon: Crown, title: "Tokens that fit", body: "Emit CSS variables, Tailwind theme entries or JSON tokens shaped like your design system." },
-                { icon: RefreshCw, title: "Billed once a year", body: "$19/year, or $39 once for lifetime - cancel anytime, every pro feature we ship lands in your account." },
+                { icon: RefreshCw, title: "Pay once, yours forever", body: "$12 one-time for the first 100 members - every pro feature we ship lands in your account, forever." },
                 { icon: ShieldCheck, title: "Licence clarity", body: "Every icon carries its licence through to export, so audits stop being a scavenger hunt." },
               ]}
               columns={2}
@@ -413,7 +431,7 @@ function Page() {
                   {matrix.map((group) => (
                     <Fragment key={group.group}>
                       <tr className="border-b border-border bg-surface-2/60">
-                        <td colSpan={4} className="px-5 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        <td colSpan={3} className="px-5 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                           {group.group}
                         </td>
                       </tr>
@@ -449,9 +467,9 @@ function Page() {
         </div>
 
         <CTABand
-          title="Unlock everything from $19/year"
-          body="Unlimited tool runs, exports and screenshots, billed once a year. Cancel anytime."
-          primary={{ label: "Go Pro", to: "/auth" }}
+          title="Unlock everything for $12 - first 100 only"
+          body="Unlimited tool runs, exports and screenshots. One $12 payment, yours forever - but only for the first 100 members."
+          primary={{ label: "Get lifetime - $12", to: "/auth" }}
           secondary={{ label: "Browse the vault", to: "/app" }}
         />
       </Stack>

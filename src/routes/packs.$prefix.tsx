@@ -108,7 +108,7 @@ function Page() {
         <nav className="flex items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-foreground">Home</Link>
           <ChevronRight className="h-3 w-3" />
-          <Link to="/app" className="hover:text-foreground">Icon packs</Link>
+          <Link to="/" className="hover:text-foreground">Icon packs</Link>
           <ChevronRight className="h-3 w-3" />
           <span className="text-foreground">{collection.name}</span>
         </nav>
@@ -145,7 +145,7 @@ function Page() {
 
         <p className="mt-10 text-sm text-muted-foreground">
           Browse all{" "}
-          <Link to="/app" className="text-primary hover:underline">
+          <Link to="/" className="text-primary hover:underline">
             icon packs
           </Link>{" "}
           or explore{" "}

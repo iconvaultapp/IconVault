@@ -30,10 +30,37 @@ const PRESET_COLORS = [
 const SIZES = [16, 20, 24, 32, 48, 64, 128, 256, 512, 1024];
 const PNG_SIZES = [16, 32, 64, 128, 256, 512, 1024];
 
+/**
+ * Count distinct paint colours in an SVG. Multi-colour sets (Twemoji, emoji
+ * families, etc.) carry their own palette - forcing a single recolour on them
+ * destroys the artwork, so they default to "original colours" mode.
+ */
+function countDistinctColors(svg: string): number {
+  const colors = new Set<string>();
+  const collect = (v: string) => {
+    const norm = v.trim().toLowerCase();
+    if (norm && norm !== "none" && norm !== "transparent" && norm !== "currentcolor") {
+      colors.add(norm);
+    }
+  };
+  let m: RegExpExecArray | null;
+  const attrRe = /(?:fill|stroke)="([^"]+)"/gi;
+  while ((m = attrRe.exec(svg))) {
+    if (m[1]) collect(m[1]);
+  }
+  const styleRe = /(?:fill|stroke)\s*:\s*([^;"']+)/gi;
+  while ((m = styleRe.exec(svg))) {
+    if (m[1]) collect(m[1]);
+  }
+  return colors.size;
+}
+
 export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailProps) => {
   const [copied, setCopied] = useState<string | null>(null);
   const [size, setSize] = useState(48);
   const [color, setColor] = useState("#0F766E");
+  const [useOriginal, setUseOriginal] = useState(false);
+  const [isMultiColor, setIsMultiColor] = useState(false);
   const [svgContent, setSvgContent] = useState<string | null>(null);
   const [coloredSvg, setColoredSvg] = useState<string | null>(null);
   const [tab, setTab] = useState<"copy" | "download" | "collections">("copy");
@@ -57,8 +84,18 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
   useEffect(() => {
     setSvgContent(null);
     setColoredSvg(null);
+    setUseOriginal(false);
+    setIsMultiColor(false);
     fetchIconSvg(prefix, name)
-      .then(setSvgContent)
+      .then((svg) => {
+        if (!svg) return;
+        setSvgContent(svg);
+        // Multi-colour artwork keeps its own palette by default; the user can
+        // still force a single colour from the swatches below.
+        const multi = countDistinctColors(svg) > 1;
+        setIsMultiColor(multi);
+        setUseOriginal(multi);
+      })
       .catch(() => undefined);
     onAddToRecent?.(iconId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,6 +103,10 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
 
   useEffect(() => {
     if (!svgContent) return;
+    if (useOriginal) {
+      setColoredSvg(svgContent);
+      return;
+    }
     let colored = svgContent
       .replace(/currentColor/gi, color)
       .replace(/fill="(?!none)[^"]*"/gi, `fill="${color}"`)
@@ -75,7 +116,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
       return `<svg${cleaned}>`;
     });
     setColoredSvg(colored);
-  }, [svgContent, color]);
+  }, [svgContent, color, useOriginal]);
 
   const copyText = (text: string, label: string) => {
     if (!requireAuth("copy icon code")) return;
@@ -93,24 +134,27 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
   const embedUrl = (extra: string) =>
     `${siteOrigin}${getIconSvgUrl(prefix, name)}${extra}`;
 
+  const colorAttr = (fmt: "prop" | "param") =>
+    useOriginal ? "" : fmt === "prop" ? ` color="${color}"` : `?color=${color.replace("#", "%23")}`;
+
   const snippets: { label: string; code: string }[] = [
     { label: "Icon name", code: iconId },
     { label: "Raw SVG", code: coloredSvg ?? "Loading…" },
     {
       label: "React",
-      code: `import { Icon } from '@iconify/react';\n\n<Icon icon="${iconId}" width="${size}" height="${size}" color="${color}" />`,
+      code: `import { Icon } from '@iconify/react';\n\n<Icon icon="${iconId}" width="${size}" height="${size}"${colorAttr("prop")} />`,
     },
     {
       label: "Vue",
-      code: `<template>\n  <Icon icon="${iconId}" width="${size}" height="${size}" color="${color}" />\n</template>`,
+      code: `<template>\n  <Icon icon="${iconId}" width="${size}" height="${size}"${colorAttr("prop")} />\n</template>`,
     },
     {
       label: "HTML",
-      code: `<img src="${embedUrl(`?color=${color.replace("#", "%23")}&width=${size}&height=${size}`)}" alt="${name}" />`,
+      code: `<img src="${embedUrl(`${colorAttr("param")}${useOriginal ? "?" : "&"}width=${size}&height=${size}`)}" alt="${name}" />`,
     },
     {
       label: "CSS",
-      code: `background-image: url("${embedUrl(`?color=${color.replace("#", "%23")}`)}");`,
+      code: `background-image: url("${embedUrl(colorAttr("param"))}");`,
     },
   ];
 
@@ -179,7 +223,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
               aria-label="Toggle favourite"
               className="focus-ring grid h-9 w-9 place-items-center rounded-full border border-border transition-colors hover:border-accent/50 hover:bg-accent-soft"
             >
-              <Heart className={cn("h-4 w-4", fav ? "fill-accent text-accent" : "text-muted-foreground")} />
+              <Heart className={cn("h-4 w-4", fav ? "fill-primary text-primary" : "text-muted-foreground")} />
             </button>
             <button
               onClick={copyShare}
@@ -230,15 +274,30 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
 
             <p className="eyebrow mt-5">Colour</p>
             <div className="mt-2 flex flex-wrap items-center gap-2">
+              {isMultiColor && (
+                <button
+                  onClick={() => setUseOriginal(true)}
+                  aria-label="Original colours"
+                  title="Original colours"
+                  style={{ background: "conic-gradient(#ef4444,#f59e0b,#10b981,#3b82f6,#8b5cf6,#ef4444)" }}
+                  className={cn(
+                    "h-7 w-7 rounded-full border transition-transform hover:scale-110",
+                    useOriginal ? "border-primary ring-2 ring-primary/30" : "border-border",
+                  )}
+                />
+              )}
               {PRESET_COLORS.map((c) => (
                 <button
                   key={c}
-                  onClick={() => setColor(c)}
+                  onClick={() => {
+                    setColor(c);
+                    setUseOriginal(false);
+                  }}
                   aria-label={`Use colour ${c}`}
                   style={{ backgroundColor: c }}
                   className={cn(
                     "h-7 w-7 rounded-full border transition-transform hover:scale-110",
-                    color.toLowerCase() === c.toLowerCase()
+                    !useOriginal && color.toLowerCase() === c.toLowerCase()
                       ? "border-primary ring-2 ring-primary/30"
                       : "border-border",
                   )}
@@ -247,7 +306,10 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
               <input
                 type="color"
                 value={color}
-                onChange={(e) => setColor(e.target.value)}
+                onChange={(e) => {
+                  setColor(e.target.value);
+                  setUseOriginal(false);
+                }}
                 aria-label="Custom colour"
                 className="h-7 w-9 cursor-pointer rounded-md border border-border bg-transparent"
               />

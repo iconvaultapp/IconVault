@@ -62,7 +62,7 @@ export function TestimonialCarousel() {
       <div className="overflow-hidden sm:-mx-3">
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${(index * 100) / perView}%)` }}
+          style={{ transform: `translateX(-${(index / items.length) * 100}%)` }}
         >
           {items.map((t) => (
             <div

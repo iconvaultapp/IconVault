@@ -7,7 +7,7 @@ import UserMenu from "@/components/UserMenu";
 import { cn } from "@/lib/utils";
 
 const primaryLinks = [
-  { label: "Browse icons", path: "/app" },
+  { label: "Browse icons", path: "/" },
   { label: "Collections", path: "/collections" },
   { label: "Pricing", path: "/pro" },
   { label: "Changelog", path: "/changelog" },
@@ -142,7 +142,7 @@ export const SiteHeader = () => {
 
         <div className="flex items-center gap-2">
           <Link
-            to="/app"
+            to="/"
             className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
           >
             Open the vault

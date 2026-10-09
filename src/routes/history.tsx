@@ -84,7 +84,7 @@ function Page() {
                   Open an icon in the vault and it shows up here for the next time you need it.
                 </p>
                 <Link
-                  to="/app"
+                  to="/"
                   className="focus-ring mt-6 inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
                 >
                   Browse icons

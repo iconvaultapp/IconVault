@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 const tabs = [
   { icon: Home, label: "Home", path: "/" },
-  { icon: Search, label: "Browse", path: "/app" },
+  { icon: Search, label: "Browse", path: "/" },
   { icon: Wrench, label: "Tools", path: "/tools", center: true },
   { icon: FolderOpen, label: "Saved", path: "/collections" },
   { icon: User, label: "Account", path: "/profile" },

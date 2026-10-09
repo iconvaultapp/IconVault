@@ -106,7 +106,7 @@ function Page() {
             icon categories
           </Link>{" "}
           or browse all{" "}
-          <Link to="/app" className="text-primary hover:underline">
+          <Link to="/" className="text-primary hover:underline">
             icon packs
           </Link>
           .

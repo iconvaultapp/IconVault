@@ -99,7 +99,7 @@ export default function PackSeoSection({ prefix, collection, collections, id = "
             {seo.tags.map((tag) => (
               <Link
                 key={tag}
-                to="/app"
+                to="/"
                 search={{ q: tag }}
                 className="rounded-full border border-border bg-muted/40 px-3.5 py-1.5 text-[13px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
               >

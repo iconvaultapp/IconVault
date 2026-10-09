@@ -720,13 +720,7 @@ function Page() {
                   </span>
                   <div>
                     <p className="font-display text-base font-semibold">
-                      {plan === "lifetime"
-                        ? `Lifetime · $${LIFETIME_PRICE} one-time`
-                        : plan === "monthly"
-                          ? "Pro Monthly"
-                          : plan === "pro"
-                            ? "Pro"
-                            : `Pro Yearly · $${YEARLY_PRICE}/year`}
+                      Pro Yearly · ${YEARLY_PRICE}/year
                     </p>
                     <p className="mt-0.5 text-sm text-muted-foreground">
                       Unlimited tool uses, exports and API access.
@@ -811,7 +805,7 @@ function Page() {
                   Heart any icon while browsing and it will show up here for quick access.
                 </p>
                 <Link
-                  to="/app"
+                  to="/"
                   className="focus-ring mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
                 >
                   Browse icons <ArrowRight className="h-4 w-4" />
@@ -1100,7 +1094,7 @@ function Page() {
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
                   {isPro ? (
-                    "Your Pro plan removes all trial limits."
+                    "Your Pro Yearly plan removes all trial limits."
                   ) : trialSummary && trialSummary.tried > 0 ? (
                     <>
                       {trialSummary.usedUp} used up

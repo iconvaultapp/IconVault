@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 /* Self-hosted variable fonts (were Google Fonts render-blocking). */
 @import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/fredoka";
 @import "@fontsource-variable/dm-sans";
 @import "@fontsource-variable/dm-sans/wght-italic.css";
 @import "@fontsource-variable/jetbrains-mono";
@@ -68,6 +69,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-balloon: "Fredoka Variable", "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 
@@ -298,6 +300,12 @@
     box-shadow: var(--shadow-lift-v);
     border-color: color-mix(in oklab, var(--primary) 35%, var(--border));
   }
+}
+
+/* Skip rendering off-screen cards until scrolled near - big win for long grids. */
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 120px;
 }
 
 @utility hero-glow {
