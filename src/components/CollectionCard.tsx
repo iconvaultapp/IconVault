@@ -89,7 +89,7 @@ export const CollectionCard = ({ prefix, collection, onClick }: CollectionCardPr
           }}
           className="focus-ring pointer-events-auto grid h-7 w-7 place-items-center rounded-full border border-border bg-surface/90 backdrop-blur transition-colors hover:border-primary/40"
         >
-          <Heart className={cn("h-3.5 w-3.5", faved ? "fill-primary text-primary" : "text-muted-foreground")} />
+          <Heart className={cn("h-3.5 w-3.5", faved ? "fill-accent text-accent" : "text-muted-foreground")} />
         </button>
         <span className="pointer-events-none grid h-7 w-7 place-items-center rounded-full border border-border bg-surface/90 text-primary backdrop-blur">
           <ArrowUpRight className="h-3.5 w-3.5" />

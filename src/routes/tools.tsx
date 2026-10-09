@@ -1,8 +1,7 @@
 import { memo, useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
-import { ArrowRight, Crown, SearchX, X } from "lucide-react";
+import { ArrowRight, Crown, Search, SearchX, Wrench, X } from "lucide-react";
 import PageShell from "@/components/PageShell";
-import BrowseHero from "@/components/BrowseHero";
 import { cn } from "@/lib/utils";
 import {
   LIVE_TOOLS,
@@ -188,19 +187,52 @@ function ToolsPage() {
     );
   };
 
-  const handleHeroSearch = (v: string) => {
-    setQuery(v);
-    requestAnimationFrame(() => {
-      document.getElementById("tools-grid")?.scrollIntoView({ behavior: "smooth" });
-    });
-  };
-
   return (
-    <PageShell fullWidth>
-      <BrowseHero variant="tools" onSearch={handleHeroSearch} />
-      <div id="tools-grid" className="scroll-mt-20 px-2 pb-4 pt-0 sm:px-4 sm:py-4">
-        {/* Search lives in the hero above; this status line reflects it. */}
-        <div className="mb-8 mt-2">
+    <PageShell
+      title="Tools"
+      description="579 free online tools for developers, designers and creators - no account needed."
+      fullWidth
+      compactHero
+    >
+      <div className="px-2 pb-4 pt-0 sm:px-4 sm:py-4">
+        {/* Inner header hidden on mobile: PageShell already shows title + description,
+            so the search lands directly beneath it on small screens. */}
+        <div className="hidden items-center gap-3 sm:flex">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+            <Wrench className="h-5 w-5" />
+          </span>
+          <div>
+            <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Tools</h1>
+            <p className="text-sm text-muted-foreground">
+              {LIVE_TOOLS.length} free tools, grouped by what they do - 5 free uses per tool per day, 20+ tools free unlimited, no account needed.
+            </p>
+          </div>
+        </div>
+
+        {/* Search sits directly beneath the heading + description (tight on mobile) */}
+        <div className="mb-10 mt-2 sm:mt-6">
+          <div className="relative mx-auto max-w-2xl">
+            <Search className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search 579 tools - try &quot;json&quot;, &quot;qr code&quot;, &quot;contrast&quot;..."
+              aria-label="Search tools"
+              className="h-14 w-full rounded-2xl border-2 border-border bg-card pr-12 text-base shadow-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary sm:h-16 sm:text-lg"
+              style={{ paddingLeft: "3.25rem" }}
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => setQuery("")}
+                aria-label="Clear search"
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            )}
+          </div>
           {searching && (
             <p className="mt-3 text-center text-sm text-muted-foreground" role="status">
               {results.length === 0 ? (

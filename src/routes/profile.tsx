@@ -72,7 +72,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useFavourites } from "@/hooks/useFavourites";
 import { useCollections } from "@/hooks/useCollections";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
-import { usePlan, LIFETIME_PRICE } from "@/hooks/usePlan";
+import { usePlan, YEARLY_PRICE } from "@/hooks/usePlan";
 import { getIconSvgUrl, parseIconId } from "@/lib/iconify";
 import { TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import { cn } from "@/lib/utils";
@@ -644,7 +644,7 @@ function Page() {
               label="Tools tried"
               value={trialSummary ? trialSummary.tried : 0}
               icon={Gauge}
-              iconClassName="bg-accent-soft text-primary"
+              iconClassName="bg-accent-soft text-accent"
             />
             <StatCard
               label="API calls used"
@@ -726,7 +726,7 @@ function Page() {
                           ? "Pro Monthly"
                           : plan === "pro"
                             ? "Pro"
-                            : `Lifetime · $${LIFETIME_PRICE} once`}
+                            : `Pro Yearly · $${YEARLY_PRICE}/year`}
                     </p>
                     <p className="mt-0.5 text-sm text-muted-foreground">
                       Unlimited tool uses, exports and API access.
@@ -751,7 +751,7 @@ function Page() {
                   to="/pro"
                   className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
                 >
-                  Get lifetime · ${LIFETIME_PRICE} once <ArrowRight className="h-4 w-4" />
+                  Go Pro · ${YEARLY_PRICE}/year <ArrowRight className="h-4 w-4" />
                 </Link>
               )}
             </div>
@@ -987,7 +987,7 @@ function Page() {
                   </span>
                   <div>
                     <p className="font-display text-lg font-semibold">
-                      Lifetime · ${LIFETIME_PRICE} once
+                      Pro Yearly · ${YEARLY_PRICE}/year
                     </p>
                     <p className="mt-0.5 text-sm text-muted-foreground">
                       Unlimited tool uses, exports and API access.
@@ -1078,7 +1078,7 @@ function Page() {
                     to="/pro"
                     className="focus-ring inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
                   >
-                    Get lifetime · ${LIFETIME_PRICE} once <ArrowRight className="h-4 w-4" />
+                    Go Pro · ${YEARLY_PRICE}/year <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>

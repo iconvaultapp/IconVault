@@ -1,7 +1,6 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Package } from "lucide-react";
 import { navSections } from "@/components/nav-data";
-import { Brand } from "@/components/SiteHeader";
 import type { IconifyCollection } from "@/lib/iconify";
 import { cn } from "@/lib/utils";
 
@@ -17,11 +16,7 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
   const sorted = Object.entries(collections).sort((a, b) => b[1].total - a[1].total);
 
   return (
-    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-border bg-surface-2/60 px-3 pb-5 lg:block">
-      <div className="sticky top-0 -mx-3 border-b border-border/60 bg-surface-2/90 px-5 py-4 backdrop-blur-xl">
-        <Brand />
-      </div>
-      <div className="pt-5">
+    <aside className="sticky top-[4.25rem] hidden h-[calc(100vh-4.25rem)] w-64 shrink-0 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-border bg-surface-2/60 px-3 py-5 lg:block">
       {navSections.map((section) => (
         <div key={section.label} className="mb-5">
           <p className="eyebrow px-2 pb-2">{section.label}</p>
@@ -84,7 +79,6 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
             </button>
           ))}
         </div>
-      </div>
       </div>
     </aside>
   );

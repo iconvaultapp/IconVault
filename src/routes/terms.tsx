@@ -97,7 +97,8 @@ function Page() {
               <Link to="/pro" className="text-primary underline-offset-4 hover:underline">
                 Pro page
               </Link>
-              : Lifetime ($24) is a one-time payment with no expiry and no subscription to cancel.
+              : Pro Yearly ($19/year) is a recurring subscription you can cancel
+              anytime. Lifetime ($39) is a one-time payment with no expiry.
             </p>
             <p>
               Checkout is handled by Dodo Payments on a secure hosted page. We never see

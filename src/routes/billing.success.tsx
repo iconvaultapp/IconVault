@@ -32,37 +32,37 @@ function Page() {
   const { plan, refresh } = usePlan();
   const [attempts, setAttempts] = useState(0);
 
-  const isPaid = plan === "lifetime" || plan === "yearly";
+  const isPro = plan === "yearly";
 
   // The webhook usually lands within seconds. Poll the plan a few times so
   // the user sees confirmation without a manual refresh.
   useEffect(() => {
-    if (isPaid || attempts >= 6) return;
+    if (isPro || attempts >= 6) return;
     const t = setTimeout(() => {
       void refresh().finally(() => setAttempts((n) => n + 1));
     }, 4000);
     return () => clearTimeout(t);
-  }, [isPaid, attempts, refresh]);
+  }, [isPro, attempts, refresh]);
 
   return (
     <PageShell
       eyebrow="Payment successful"
-      title={isPaid ? "Welcome to Lifetime" : "Payment received"}
+      title={isPro ? "Welcome to Pro Yearly" : "Payment received"}
       description={
-        isPaid
-          ? "Your lifetime plan is active. Unlimited tool runs, bulk downloads, design tokens and API access are all yours, forever."
+        isPro
+          ? "Your Pro plan is active. Unlimited tool runs, bulk downloads, design tokens and API access are all yours."
           : "We're confirming your payment with Dodo Payments - this usually takes a few seconds."
       }
     >
       <Stack>
         <div className="surface-card mx-auto flex max-w-md flex-col items-center p-8 text-center">
-          {isPaid ? (
+          {isPro ? (
             <CheckCircle2 className="h-12 w-12 text-primary" />
           ) : (
             <Loader2 className="h-12 w-12 animate-spin text-primary" />
           )}
           <p className="mt-4 text-sm text-muted-foreground">
-            {isPaid
+            {isPro
               ? user?.email
                 ? `Receipt sent to ${user.email}.`
                 : "Your receipt is on its way."
@@ -76,7 +76,7 @@ function Page() {
               <Sparkles className="h-4 w-4" />
               Open IconVault
             </Link>
-            {!isPaid && (
+            {!isPro && (
               <button
                 type="button"
                 onClick={() => void refresh().finally(() => setAttempts((n) => n + 1))}
@@ -86,7 +86,7 @@ function Page() {
               </button>
             )}
           </div>
-          {!isPaid && attempts >= 6 && (
+          {!isPro && attempts >= 6 && (
             <p className="mt-4 text-xs text-muted-foreground">
               Still not active? The confirmation can take a minute - try signing out and back in, or write to us
               from your profile page.

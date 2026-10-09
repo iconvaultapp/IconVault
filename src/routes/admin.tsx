@@ -852,7 +852,7 @@ function AdminPage() {
               label="Pending requests"
               value={<CountUp value={pendingRequests} />}
               icon={Lightbulb}
-              iconClassName="bg-accent-soft text-primary"
+              iconClassName="bg-accent-soft text-accent"
             />
             <StatCard
               label="Yearly revenue"

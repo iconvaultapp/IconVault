@@ -54,7 +54,7 @@ function fmtPostDate(iso: string): string {
 
 const kindMeta: Record<Kind, { label: string; icon: typeof Sparkles; className: string }> = {
   feature: { label: "New", icon: Sparkles, className: "bg-primary-soft text-primary" },
-  improvement: { label: "Improved", icon: Wrench, className: "bg-accent-soft text-primary" },
+  improvement: { label: "Improved", icon: Wrench, className: "bg-accent-soft text-accent" },
   fix: { label: "Fixed", icon: Bug, className: "bg-muted text-muted-foreground" },
 };
 
