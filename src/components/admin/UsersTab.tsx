@@ -146,7 +146,7 @@ export function UsersTab({ users, onBan, onUnban, onPlanChange }: UsersTabProps)
                   checked={allPageSelected}
                   onChange={toggleAllPage}
                   aria-label="Select all users on this page"
-                  className="h-4 w-4 accent-[#0F766E]"
+                  className="h-4 w-4 accent-[#7C3AED]"
                 />
               </th>
               <th className="px-4 py-3 font-semibold">Email</th>
@@ -173,7 +173,7 @@ export function UsersTab({ users, onBan, onUnban, onPlanChange }: UsersTabProps)
                       checked={selected.has(u.id)}
                       onChange={() => toggleOne(u.id)}
                       aria-label={`Select ${u.email ?? u.id}`}
-                      className="h-4 w-4 accent-[#0F766E]"
+                      className="h-4 w-4 accent-[#7C3AED]"
                     />
                   </td>
                   <td className="max-w-[240px] truncate px-4 py-3 font-mono text-[13px]">

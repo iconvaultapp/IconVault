@@ -585,7 +585,7 @@ function LogoBuilderPage() {
             <p className="text-xs leading-relaxed text-muted-foreground">
               {isPro
                 ? "Pro unlocked - kit includes favicons, app icons, SVG, manifest + HTML snippet."
-                : "Kit includes favicons, app icons, manifest + HTML snippet. Pro only - from $19/year."}
+                : "Kit includes favicons, app icons, manifest + HTML snippet. Lifetime only - $24 once."}
             </p>
           </Section>
         </aside>

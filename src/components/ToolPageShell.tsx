@@ -175,7 +175,7 @@ export function TrialUpsell({ toolName, left }: { toolName: string; left: number
       <Crown className="mx-auto mb-2 h-8 w-8 text-amber-500" />
       <h3 className="text-lg font-extrabold">You've used your 5 free {toolName} runs</h3>
       <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
-        Go Pro for unlimited runs, HD exports and every template - $19/year, cancel anytime.
+        Go Lifetime for unlimited runs, HD exports and every template - $24 once, yours forever.
       </p>
       <Link
         to="/pro"
