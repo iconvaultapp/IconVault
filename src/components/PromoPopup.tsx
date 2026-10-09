@@ -123,7 +123,7 @@ export default function PromoPopup() {
           <ul className="mt-5 space-y-2.5">
             {PERKS.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-3 text-sm text-foreground">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-primary">
                   <Icon className="h-4 w-4" />
                 </span>
                 <span className="font-medium">{label}</span>

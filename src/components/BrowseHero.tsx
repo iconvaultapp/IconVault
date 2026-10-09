@@ -108,7 +108,7 @@ export default function BrowseHero({ variant, onSearch }: HeroProps) {
               <Link
                 to="/ai-search"
                 className={cn(
-                  "focus-ring inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-6 py-3 text-sm font-semibold text-accent transition hover:brightness-95",
+                  "focus-ring inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-6 py-3 text-sm font-semibold text-primary transition hover:brightness-95",
                 )}
               >
                 <Sparkles className="h-4 w-4" /> Try AI search

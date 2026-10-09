@@ -644,7 +644,7 @@ function Page() {
               label="Tools tried"
               value={trialSummary ? trialSummary.tried : 0}
               icon={Gauge}
-              iconClassName="bg-accent-soft text-accent"
+              iconClassName="bg-accent-soft text-primary"
             />
             <StatCard
               label="API calls used"

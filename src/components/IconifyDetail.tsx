@@ -15,7 +15,7 @@ interface IconifyDetailProps {
 }
 
 const PRESET_COLORS = [
-  "#9F2B4B",
+  "#7C3AED",
   "#111827",
   "#FFFFFF",
   "#E4572E",
@@ -58,7 +58,7 @@ function countDistinctColors(svg: string): number {
 export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailProps) => {
   const [copied, setCopied] = useState<string | null>(null);
   const [size, setSize] = useState(48);
-  const [color, setColor] = useState("#9F2B4B");
+  const [color, setColor] = useState("#7C3AED");
   const [useOriginal, setUseOriginal] = useState(false);
   const [isMultiColor, setIsMultiColor] = useState(false);
   const [svgContent, setSvgContent] = useState<string | null>(null);
@@ -223,7 +223,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
               aria-label="Toggle favourite"
               className="focus-ring grid h-9 w-9 place-items-center rounded-full border border-border transition-colors hover:border-accent/50 hover:bg-accent-soft"
             >
-              <Heart className={cn("h-4 w-4", fav ? "fill-accent text-accent" : "text-muted-foreground")} />
+              <Heart className={cn("h-4 w-4", fav ? "fill-primary text-primary" : "text-muted-foreground")} />
             </button>
             <button
               onClick={copyShare}

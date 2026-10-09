@@ -126,7 +126,7 @@ export const IconifyGrid = ({
                   }}
                   className="pointer-events-auto grid h-6 w-6 place-items-center rounded-lg text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent"
                 >
-                  <Heart className={cn("h-3.5 w-3.5", fav && "fill-accent text-accent")} />
+                  <Heart className={cn("h-3.5 w-3.5", fav && "fill-primary text-primary")} />
                 </span>
                 <span
                   role="button"
@@ -142,7 +142,7 @@ export const IconifyGrid = ({
 
             {!bulkMode && fav && (
               <span className="absolute left-2 top-2 opacity-100 transition-opacity group-hover:opacity-0">
-                <Heart className="h-3.5 w-3.5 fill-accent text-accent" />
+                <Heart className="h-3.5 w-3.5 fill-primary text-primary" />
               </span>
             )}
           </button>
