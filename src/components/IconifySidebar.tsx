@@ -1,6 +1,7 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Package } from "lucide-react";
 import { navSections } from "@/components/nav-data";
+import { Brand } from "@/components/SiteHeader";
 import type { IconifyCollection } from "@/lib/iconify";
 import { cn } from "@/lib/utils";
 
@@ -16,10 +17,14 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
   const sorted = Object.entries(collections).sort((a, b) => b[1].total - a[1].total);
 
   return (
-    <aside className="font-balloon sticky top-[4.25rem] hidden h-[calc(100vh-4.25rem)] w-64 shrink-0 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-white/10 bg-[#111113] px-3 py-5 text-white lg:block">
+    <aside className="font-balloon sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-black/10 bg-[#D4D4D4] px-3 pb-5 text-black lg:block">
+      <div className="sticky top-0 -mx-3 border-b border-black/10 bg-[#D4D4D4]/95 px-5 py-4 backdrop-blur-xl">
+        <Brand />
+      </div>
+      <div className="pt-5">
       {navSections.map((section) => (
         <div key={section.label} className="mb-5">
-          <p className="eyebrow px-2 pb-2 text-white/50">{section.label}</p>
+          <p className="eyebrow px-2 pb-2 text-black/50">{section.label}</p>
           <div className="grid gap-0.5">
             {section.links.map((link) => {
               const active = pathname === link.path;
@@ -31,7 +36,7 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
                     "flex items-center gap-2.5 rounded-xl px-2.5 py-2 text-sm transition-all duration-200",
                     active
                       ? "bg-primary font-medium text-primary-foreground"
-                      : "text-white/65 hover:translate-x-0.5 hover:bg-white/10 hover:text-white",
+                      : "text-black/65 hover:translate-x-0.5 hover:bg-black/10 hover:text-black",
                   )}
                 >
                   <link.icon className="h-4 w-4 shrink-0" />
@@ -43,8 +48,8 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
         </div>
       ))}
 
-      <div className="border-t border-white/10 pt-4">
-        <p className="eyebrow px-2 pb-2 text-white/50">Icon sets ({sorted.length})</p>
+      <div className="border-t border-black/10 pt-4">
+        <p className="eyebrow px-2 pb-2 text-black/50">Icon sets ({sorted.length})</p>
         <div className="grid gap-0.5">
           <button
             onClick={() => {
@@ -55,7 +60,7 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
               "flex w-full min-w-0 items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm transition-colors",
               activePrefix === null && pathname === "/"
                 ? "bg-primary font-medium text-primary-foreground"
-                : "text-white/65 hover:bg-white/10 hover:text-white",
+                : "text-black/65 hover:bg-black/10 hover:text-black",
             )}
           >
             <Package className="h-4 w-4 shrink-0" /> <span className="truncate">All icon sets</span>
@@ -71,7 +76,7 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
                 "flex w-full min-w-0 items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-left text-sm transition-colors",
                 activePrefix === prefix
                   ? "bg-primary font-medium text-primary-foreground"
-                  : "text-white/65 hover:bg-white/10 hover:text-white",
+                  : "text-black/65 hover:bg-black/10 hover:text-black",
               )}
             >
               <span className="truncate">{col.name}</span>
@@ -79,6 +84,7 @@ export const IconifySidebar = ({ collections, activePrefix, onPrefixClick }: Ico
             </button>
           ))}
         </div>
+      </div>
       </div>
     </aside>
   );
