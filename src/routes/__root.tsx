@@ -16,6 +16,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { recordReferral } from "@/lib/admin.functions";
 import { PlanProvider } from "@/hooks/usePlan";
+import PromoPopup from "@/components/PromoPopup";
 import { SignInPromptProvider } from "@/hooks/useSignInPrompt";
 import { SignInPrompt } from "@/components/SignInPrompt";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -382,6 +383,7 @@ function RootComponent() {
                   {!bare && <MobileTabBar />}
                   <SignInPrompt />
                   <CookieConsent />
+                  <PromoPopup />
                   <Toaster position="bottom-right" />
                 </TooltipProvider>
               </SearchHistoryProvider>
