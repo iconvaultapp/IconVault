@@ -23,7 +23,7 @@ export default function UrgencyBanner() {
         aria-label="Get IconVault lifetime access"
         className={cn(
           "focus-ring mx-auto flex max-w-2xl items-center justify-between gap-3",
-          "rounded-2xl border border-primary/25 bg-primary/10 px-4 py-2.5",
+          "rounded-2xl border border-primary/25 bg-primary-soft px-4 py-2.5",
           "transition-colors hover:bg-primary/15",
         )}
       >
