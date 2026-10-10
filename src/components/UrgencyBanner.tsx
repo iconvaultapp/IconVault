@@ -17,7 +17,7 @@ export default function UrgencyBanner() {
   if (isPro || hidden) return null;
 
   return (
-    <div className="bg-background px-4 pt-3 sm:px-6">
+    <div className="bg-background px-4 pt-10 sm:px-6 sm:pt-12">
       <Link
         to="/pro"
         aria-label="Get IconVault lifetime access"
