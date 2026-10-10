@@ -42,21 +42,28 @@ function LifetimeOfferBanner() {
       <Link
         to="/pro"
         aria-label="Get IconVault lifetime access"
-        className="focus-ring mx-auto mb-5 flex max-w-xl items-center justify-between gap-3 rounded-2xl border border-primary/25 bg-primary-soft px-4 py-2.5 transition-colors hover:bg-primary/15"
+        className="focus-ring mx-auto mb-5 flex max-w-3xl items-center justify-between gap-4 rounded-2xl border border-primary/25 bg-primary-soft px-4 py-3 transition-colors hover:bg-primary/15 sm:px-5"
       >
-        <span className="flex min-w-0 items-center gap-2.5">
-          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
-            <Crown className="h-4 w-4" />
+        <span className="flex min-w-0 items-center gap-3">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
+            <Crown className="h-5 w-5" />
           </span>
-          <span className="truncate text-sm text-foreground">
-            <span className="font-bold">First 100 only</span>
-            <span className="hidden sm:inline"> · IconVault Lifetime</span>
-            <span className="font-bold text-primary"> ${LIFETIME_PRICE}</span>
-            <span className="text-muted-foreground"> once</span>
+          <span className="min-w-0 text-left">
+            <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-foreground">
+              <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] font-bold text-amber-700 dark:text-amber-400">
+                First 100 only
+              </span>
+              <span className="font-semibold">
+                IconVault Lifetime, <span className="font-bold text-primary">${LIFETIME_PRICE}</span> once, no subscription
+              </span>
+            </span>
+            <span className="mt-0.5 block truncate text-xs text-muted-foreground">
+              Unlimited tools & downloads · 50,000 API calls/mo · 500 custom uploads
+            </span>
           </span>
         </span>
-        <span className="flex shrink-0 items-center gap-1 rounded-xl bg-primary px-3.5 py-2 text-sm font-bold text-primary-foreground">
-          <span className="hidden sm:inline">Get Lifetime</span>
+        <span className="flex shrink-0 items-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground">
+          <span className="hidden sm:inline">Get lifetime access</span>
           <span className="sm:hidden">Get</span>
           <ArrowRight className="h-4 w-4" />
         </span>
@@ -82,7 +89,7 @@ export default function BrowseHero({ onSearch }: BrowseHeroProps) {
   return (
     <section className="hero-glow relative overflow-hidden">
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
-      <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-14 text-center sm:pt-20 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-2 text-center sm:pt-4 lg:px-8">
         {/* Lifetime offer - above the stats badge, inside the hero */}
         <LifetimeOfferBanner />
         <Reveal>
@@ -110,7 +117,7 @@ export default function BrowseHero({ onSearch }: BrowseHeroProps) {
         </Reveal>
 
         <Reveal delay={160}>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mx-auto mt-6 max-w-4xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             IconVault searches 421,020 icons from Lucide, Phosphor, Material Symbols, Tabler and
             150 other families. Preview at real size, recolour to your brand, then copy the exact
             snippet your framework wants. Need more? {TOOL_COUNT} free online tools, from
