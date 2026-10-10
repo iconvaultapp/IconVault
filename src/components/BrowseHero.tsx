@@ -27,6 +27,8 @@ const HERO_ICONS = [
 
 const ROTATING_WORDS = ["ship faster", "stay consistent", "skip the licence maze", "delete your SVG folder"];
 
+const POPULAR_CHIPS = ["arrow", "heart", "home", "user", "settings", "calendar", "search", "star"];
+
 interface BrowseHeroProps {
   onSearch: (q: string) => void;
 }
@@ -84,7 +86,8 @@ export default function BrowseHero({ onSearch }: BrowseHeroProps) {
 
         <div className="relative z-30">
           <Reveal delay={220}>
-            <div className="mx-auto mt-9 max-w-2xl">
+            {/* Desktop: full search bar */}
+            <div className="mx-auto mt-9 hidden max-w-2xl sm:block">
               <SearchBar
                 value={query}
                 onChange={setQuery}
@@ -92,6 +95,24 @@ export default function BrowseHero({ onSearch }: BrowseHeroProps) {
                 size="lg"
                 suggestions={["arrow", "heart", "home", "user", "settings", "calendar"]}
               />
+            </div>
+            {/* Mobile: tappable popular searches instead of the search bar */}
+            <div className="mx-auto mt-7 max-w-2xl sm:hidden">
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                Popular right now
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {POPULAR_CHIPS.map((chip) => (
+                  <button
+                    key={chip}
+                    type="button"
+                    onClick={() => submit(chip)}
+                    className="focus-ring rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-soft transition-all active:scale-95 hover:border-primary/50 hover:text-primary"
+                  >
+                    {chip}
+                  </button>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

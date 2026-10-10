@@ -7,7 +7,6 @@ import SiteFooter from "@/components/SiteFooter";
 import { CTABand } from "@/components/kit";
 import SearchBar from "@/components/SearchBar";
 import IconifyGrid from "@/components/IconifyGrid";
-import IconifySidebar from "@/components/IconifySidebar";
 import IconifyDetail from "@/components/IconifyDetail";
 import BrowseHero from "@/components/BrowseHero";
 import BulkActionBar from "@/components/BulkActionBar";
@@ -208,17 +207,9 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
 
   return (
     <div id="top" className="min-h-screen bg-background">
-      <div className="flex">
-        <IconifySidebar
-          collections={collections}
-          activePrefix={activePrefix}
-          onPrefixClick={openSet}
-        />
-
-        <div className="min-w-0 flex-1">
-          <SiteHeader />
-          <BrowseHero onSearch={setQuery} />
-          <div id="browse-results" className="mx-auto max-w-[100rem] scroll-mt-20">
+      <SiteHeader />
+      {!activePrefix && <BrowseHero onSearch={setQuery} />}
+      <div id="browse-results" className="mx-auto max-w-[100rem] scroll-mt-20">
           <main className="px-5 py-8 lg:px-8">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
             <div className="min-w-0 flex-1">
@@ -328,8 +319,6 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
         </main>
         <SiteFooter />
       </div>
-      </div>
-    </div>
 
       {selected && (
         <BulkActionBar

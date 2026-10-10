@@ -24,6 +24,7 @@ import { ArrowLeft, Box, Compass, Search, Shapes } from "lucide-react";
 import { usePageTracking } from "@/hooks/useAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
 import PromoPopup from "@/components/PromoPopup";
+import GlobalSidebar from "@/components/GlobalSidebar";
 import { FavouritesProvider } from "@/hooks/useFavourites";
 import { CollectionsProvider } from "@/hooks/useCollections";
 import { SearchHistoryProvider } from "@/hooks/useSearchHistory";
@@ -362,6 +363,8 @@ function RootComponent() {
   // The private admin entrance is a standalone screen: no app chrome, no tab bar.
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const bare = pathname.startsWith("/admin-login");
+  // Sidebar on all pages except tool pages (/tools, /tools/*).
+  const showSidebar = !bare && !pathname.startsWith("/tools");
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -377,8 +380,20 @@ function RootComponent() {
                   <AnalyticsTracker />
                   <ScrollToTop />
                   <div className={bare ? undefined : "pb-[4.5rem] lg:pb-0"}>
-                    {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-                    <Outlet />
+                    {showSidebar ? (
+                      <div className="flex min-h-screen">
+                        <GlobalSidebar />
+                        <div className="min-w-0 flex-1">
+                          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                          <Outlet />
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                        <Outlet />
+                      </>
+                    )}
                   </div>
                   {!bare && <MobileTabBar />}
                   <SignInPrompt />
