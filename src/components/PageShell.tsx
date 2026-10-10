@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import SiteHeader from "@/components/SiteHeader";
+import UrgencyBanner from "@/components/UrgencyBanner";
 import SiteFooter from "@/components/SiteFooter";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
@@ -32,6 +33,7 @@ export const PageShell = ({
 }: PageShellProps) => (
   <div className="flex min-h-screen flex-col bg-background">
     <SiteHeader />
+    <UrgencyBanner />
     <main className="flex-1">
       {title && (
       <section className="relative overflow-hidden border-b border-border bg-surface-2">

@@ -40,7 +40,8 @@ export const SearchBar = ({
   };
 
   useEffect(() => {
-    if (autoFocus) inputRef.current?.focus();
+    // preventScroll: focusing must not yank the page down past the hero on load.
+    if (autoFocus) inputRef.current?.focus({ preventScroll: true });
   }, [autoFocus]);
 
   useEffect(() => {
