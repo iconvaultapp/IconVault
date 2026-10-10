@@ -364,7 +364,14 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const bare = pathname.startsWith("/admin-login");
   // Sidebar on all pages except tool pages (/tools, /tools/*).
-  const showSidebar = !bare && !pathname.startsWith("/tools");
+  // The dashboard panels (/admin, /profile) have their own DashboardShell
+  // sidebar, so the global sidebar stays off there to avoid a double
+  // sidebar and the dead gap it creates next to the content.
+  const showSidebar =
+    !bare &&
+    !pathname.startsWith("/tools") &&
+    !pathname.startsWith("/admin") &&
+    !pathname.startsWith("/profile");
 
   return (
     <QueryClientProvider client={queryClient}>
