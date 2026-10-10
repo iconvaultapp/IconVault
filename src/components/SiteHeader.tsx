@@ -92,8 +92,8 @@ export const SiteHeader = () => {
                   {section.label === "Tools" ? (
                     <Link
                       to="/tools"
-                      className="focus-ring rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                      activeProps={{ className: "text-foreground bg-muted" }}
+                      className="focus-ring rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+                      activeProps={{ className: "bg-primary text-primary-foreground" }}
                     >
                       {section.label}
                     </Link>
