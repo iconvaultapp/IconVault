@@ -3,7 +3,6 @@ import { useNavigate } from "@tanstack/react-router";
 import { Loader2, Layers, CheckSquare, X, ArrowDown } from "lucide-react";
 import PackSeoSection from "@/components/PackSeoSection";
 import SiteHeader from "@/components/SiteHeader";
-import UrgencyBanner from "@/components/UrgencyBanner";
 import SiteFooter from "@/components/SiteFooter";
 import { CTABand } from "@/components/kit";
 import SearchBar from "@/components/SearchBar";
@@ -209,7 +208,6 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
   return (
     <div id="top" className="min-h-screen bg-background">
       <SiteHeader />
-      <UrgencyBanner />
       {!activePrefix && <BrowseHero onSearch={setQuery} />}
       <div id="browse-results" className="mx-auto max-w-[100rem] scroll-mt-20">
           <main className="px-5 py-8 lg:px-8">

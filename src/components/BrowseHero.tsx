@@ -4,11 +4,12 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Crown } from "lucide-react";
 import SearchBar from "@/components/SearchBar";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
 import { TOOL_COUNT } from "@/lib/tool-catalog-meta";
+import { usePlan, LIFETIME_PRICE } from "@/hooks/usePlan";
 
 const HERO_ICONS = [
   "lucide:sparkles",
@@ -32,6 +33,38 @@ interface BrowseHeroProps {
   onSearch: (q: string) => void;
 }
 
+/** Slim lifetime offer banner - sits at the top of the hero, above the stats badge. */
+function LifetimeOfferBanner() {
+  const { isPro } = usePlan();
+  if (isPro) return null;
+  return (
+    <Reveal>
+      <Link
+        to="/pro"
+        aria-label="Get IconVault lifetime access"
+        className="focus-ring mx-auto mb-5 flex max-w-xl items-center justify-between gap-3 rounded-2xl border border-primary/25 bg-primary-soft px-4 py-2.5 transition-colors hover:bg-primary/15"
+      >
+        <span className="flex min-w-0 items-center gap-2.5">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
+            <Crown className="h-4 w-4" />
+          </span>
+          <span className="truncate text-sm text-foreground">
+            <span className="font-bold">First 100 only</span>
+            <span className="hidden sm:inline"> · IconVault Lifetime</span>
+            <span className="font-bold text-primary"> ${LIFETIME_PRICE}</span>
+            <span className="text-muted-foreground"> once</span>
+          </span>
+        </span>
+        <span className="flex shrink-0 items-center gap-1 rounded-xl bg-primary px-3.5 py-2 text-sm font-bold text-primary-foreground">
+          <span className="hidden sm:inline">Get Lifetime</span>
+          <span className="sm:hidden">Get</span>
+          <ArrowRight className="h-4 w-4" />
+        </span>
+      </Link>
+    </Reveal>
+  );
+}
+
 export default function BrowseHero({ onSearch }: BrowseHeroProps) {
   const [query, setQuery] = useState("");
   const [rotating, setRotating] = useState(0);
@@ -50,6 +83,8 @@ export default function BrowseHero({ onSearch }: BrowseHeroProps) {
     <section className="hero-glow relative overflow-hidden">
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
       <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-14 text-center sm:pt-20 lg:px-8">
+        {/* Lifetime offer - above the stats badge, inside the hero */}
+        <LifetimeOfferBanner />
         <Reveal>
           <span className="inline-flex max-w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.08em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
             <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {TOOL_COUNT} free tools · one search
