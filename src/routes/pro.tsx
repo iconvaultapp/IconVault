@@ -174,46 +174,17 @@ const faqs = [
 
 
 /**
- * "First 100" urgency counter. Fetches the REAL lifetime buyer count from
- * /api/billing/lifetime-count and shows "X of 100 claimed" with a progress
- * bar. Never shows a fake number - if the count is unavailable, only the
- * "first 100" urgency line renders.
+ * "First 100" urgency badge. Shows the founding-member scarcity message.
+ * The claimed-count progress bar was intentionally removed - we show only
+ * the honest "first 100" limit, never a fabricated number.
  */
 function FounderCounter() {
-  const [claimed, setClaimed] = useState<number | null>(null);
   const LIMIT = 100;
-  useEffect(() => {
-    let alive = true;
-    fetch("/api/billing/lifetime-count")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => {
-        if (alive && d && typeof d.claimed === "number") setClaimed(Math.min(d.claimed, LIMIT));
-      })
-      .catch(() => undefined);
-    return () => {
-      alive = false;
-    };
-  }, []);
-  const pct = claimed === null ? 0 : Math.round((claimed / LIMIT) * 100);
-  const left = claimed === null ? null : Math.max(LIMIT - claimed, 0);
   return (
     <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3">
       <p className="text-xs font-semibold text-amber-700 dark:text-amber-400">
         Founding members only - first {LIMIT} get lifetime for ${LIFETIME_PRICE}
       </p>
-      {claimed !== null && (
-        <>
-          <div className="mt-2 h-2 overflow-hidden rounded-full bg-amber-500/20">
-            <div
-              className="h-full rounded-full bg-amber-500 transition-all duration-500"
-              style={{ width: `${pct}%` }}
-            />
-          </div>
-          <p className="mt-1.5 font-mono text-[11px] text-muted-foreground">
-            {claimed} of {LIMIT} claimed{left !== null && left > 0 ? ` - ${left} spots left` : ""}
-          </p>
-        </>
-      )}
     </div>
   );
 }

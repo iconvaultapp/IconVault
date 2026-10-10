@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { X, Crown, Check, Infinity as InfinityIcon, Zap, Download, Flame } from "lucide-react";
+import { X, Crown, Check, Infinity as InfinityIcon, Zap, Download, Flame, KeyRound, Upload, Layers } from "lucide-react";
 import { usePlan, LIFETIME_PRICE } from "@/hooks/usePlan";
 import { cn } from "@/lib/utils";
 
@@ -37,11 +37,13 @@ const PERKS = [
   { icon: Zap, label: "Unlimited tools & icon downloads" },
   { icon: Download, label: "Bulk export + HD downloads" },
   { icon: InfinityIcon, label: "Pay once, yours forever" },
+  { icon: KeyRound, label: "50,000 API calls every month" },
+  { icon: Upload, label: "500 custom icon uploads" },
+  { icon: Layers, label: "All 239 icon sets included" },
 ];
 
 export default function PromoPopup() {
   const [visible, setVisible] = useState(false);
-  const [claimed, setClaimed] = useState<number | null>(null);
   const { isPro } = usePlan();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const skip = pathname.startsWith("/admin") || pathname.startsWith("/api");
@@ -62,29 +64,12 @@ export default function PromoPopup() {
     return () => clearInterval(t);
   }, [skip, isPro, visible]);
 
-  // Fetch the real claimed count when the popup opens.
-  useEffect(() => {
-    if (!visible) return;
-    let alive = true;
-    fetch("/api/billing/lifetime-count")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => {
-        if (alive && d && typeof d.claimed === "number") setClaimed(Math.min(d.claimed, FOUNDER_LIMIT));
-      })
-      .catch(() => undefined);
-    return () => {
-      alive = false;
-    };
-  }, [visible]);
-
   if (!visible || skip || isPro) return null;
 
   const close = () => {
     markDismissed();
     setVisible(false);
   };
-
-  const left = claimed === null ? null : Math.max(FOUNDER_LIMIT - claimed, 0);
 
   return (
     <div
@@ -95,7 +80,7 @@ export default function PromoPopup() {
       onClick={close}
     >
       <div
-        className="animate-pop relative w-full max-w-sm overflow-hidden rounded-3xl bg-surface shadow-lift"
+        className="animate-pop relative max-h-[92vh] w-full max-w-sm overflow-y-auto rounded-3xl bg-surface shadow-lift"
         onClick={(e) => e.stopPropagation()}
       >
         {/* teal header band */}
@@ -137,11 +122,6 @@ export default function PromoPopup() {
             </span>
             <span className="pb-1.5 text-sm font-medium text-muted-foreground">one-time · lifetime</span>
           </div>
-          {claimed !== null && left !== null && left > 0 && (
-            <p className="mt-1 text-center font-mono text-[11px] font-semibold text-amber-700">
-              {claimed} of {FOUNDER_LIMIT} claimed - {left} spots left
-            </p>
-          )}
 
           <ul className="mt-5 space-y-2.5">
             {PERKS.map(({ icon: Icon, label }) => (

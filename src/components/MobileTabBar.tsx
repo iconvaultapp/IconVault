@@ -1,12 +1,12 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, Search, FolderOpen, Wrench, User } from "lucide-react";
+import { Home, FolderOpen, Wrench, Tag, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tabs = [
   { icon: Home, label: "Home", path: "/" },
-  { icon: Search, label: "Browse", path: "/" },
-  { icon: Wrench, label: "Tools", path: "/tools", center: true },
   { icon: FolderOpen, label: "Saved", path: "/collections" },
+  { icon: Wrench, label: "Tools", path: "/tools", center: true },
+  { icon: Tag, label: "Price", path: "/pro" },
   { icon: User, label: "Account", path: "/profile" },
 ] as const;
 
@@ -28,7 +28,7 @@ export const MobileTabBar = () => {
           const active = tab.path === "/" ? pathname === "/" : pathname.startsWith(tab.path);
           const isCenter = "center" in tab && tab.center;
           return (
-            <li key={tab.path} className="flex-1">
+            <li key={tab.label} className="flex-1">
               <Link
                 to={tab.path}
                 aria-current={active ? "page" : undefined}

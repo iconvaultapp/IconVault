@@ -142,21 +142,6 @@ export const SiteFooter = () => {
           </p>
           <p className="font-mono">Built for designers and engineers who move fast.</p>
           <div className="flex items-center gap-5">
-            <a
-              href="https://marketingdb.live"
-              target="_blank"
-              rel="noopener noreferrer nofollow sponsored"
-              aria-label="Launched on MarketingDB"
-              className="inline-block transition-opacity hover:opacity-80"
-            >
-              <img
-                src="https://marketingdb.live/badge.svg"
-                alt="Launched on MarketingDB"
-                width="190"
-                height="44"
-                loading="lazy"
-              />
-            </a>
             <Link to="/privacy" className="transition-colors hover:text-primary">
               Privacy Policy
             </Link>
