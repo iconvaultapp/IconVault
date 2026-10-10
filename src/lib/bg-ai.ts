@@ -18,6 +18,8 @@ export interface BgModelDef {
   short: string;
   hfId: string;
   blurb: string;
+  /** Preferred weight precision, smallest download first. */
+  dtypes: ("quantized" | "fp16" | "fp32")[];
 }
 
 export const BG_MODELS: BgModelDef[] = [
@@ -27,22 +29,29 @@ export const BG_MODELS: BgModelDef[] = [
     short: "Best overall quality",
     hfId: "onnx-community/BiRefNet_lite-ONNX",
     blurb: "BiRefNet: sharp edges on any subject - people, products, pets. ~114MB first download, cached after.",
+    dtypes: ["fp16", "fp32"],
   },
   {
     id: "portrait",
     label: "Portrait",
     short: "Best for people",
     hfId: "Xenova/modnet",
-    blurb: "MODNet: trimap-free portrait matting with hair-level edges. Smaller download, tuned for faces.",
+    blurb: "MODNet: trimap-free portrait matting with hair-level edges. Only ~7MB first download.",
+    dtypes: ["quantized", "fp16", "fp32"],
   },
   {
     id: "fast",
     label: "Fast",
-    short: "Smaller download",
+    short: "Good balance",
     hfId: "onnx-community/ormbg-ONNX",
-    blurb: "Lightweight model: quicker download and inference, slightly softer edges.",
+    blurb: "Lightweight all-rounder: people, products, pets. ~44MB first download, cached after.",
+    dtypes: ["quantized", "fp16", "fp32"],
   },
 ];
+
+/** Default model: the fast all-rounder. General is sharper but its ~114MB
+ *  first download feels broken on slow connections. */
+export const DEFAULT_BG_MODEL = "fast";
 
 export type BgDevice = "auto" | "webgpu";
 
@@ -72,8 +81,19 @@ export interface BgLoadOpts {
   onProgress?: BgProgress;
 }
 
+/** Preload only the transformers.js runtime (~450KB) without downloading any
+ *  model weights. Safe to call on page load or image upload - the weights
+ *  themselves download only when the user explicitly runs the AI. */
+export async function warmBgRuntime(): Promise<void> {
+  try {
+    await getTransformers();
+  } catch {
+    /* offline - the real attempt will surface the error */
+  }
+}
+
 /** Load (and cache) a segmentation model. Resolves null when unavailable. */
-export function loadBgAi(modelId: string = "general", opts: BgLoadOpts = {}): Promise<BgAi | null> {
+export function loadBgAi(modelId: string = DEFAULT_BG_MODEL, opts: BgLoadOpts = {}): Promise<BgAi | null> {
   const device = opts.device ?? "auto";
   const key = `${modelId}:${device}`;
   if (!aiCache.has(key)) {
@@ -83,17 +103,20 @@ export function loadBgAi(modelId: string = "general", opts: BgLoadOpts = {}): Pr
         const def = BG_MODELS.find((m) => m.id === modelId) ?? BG_MODELS[0]!;
         const { AutoModel, AutoProcessor, RawImage } = await getTransformers();
         const onProgress = opts.onProgress ?? (() => {});
-        // Attempt order: WebGPU fp16 -> WebGPU fp32 -> WASM fp16 -> WASM fp32.
-        // Each step falls through to the next on failure.
-        const attempts: { device?: string; dtype: "fp16" | "fp32" }[] = [];
-        if (device === "webgpu") {
-          attempts.push({ device: "webgpu", dtype: "fp16" }, { device: "webgpu", dtype: "fp32" });
+        // Attempt order: quantized weights first (6-44MB), then fp16, then
+        // fp32. WebGPU attempts come before WASM when requested. Each step
+        // falls through to the next on failure.
+        const attempts: { device?: string; dtype: "quantized" | "fp16" | "fp32" }[] = [];
+        for (const dtype of def.dtypes) {
+          if (device === "webgpu") attempts.push({ device: "webgpu", dtype });
         }
-        attempts.push({ dtype: "fp16" }, { dtype: "fp32" });
+        for (const dtype of def.dtypes) {
+          attempts.push({ dtype });
+        }
         let lastErr: unknown = null;
         for (const a of attempts) {
           try {
-            const label = `Downloading AI model (${def.label})`;
+            const label = `Downloading AI model - first time only (${def.label})`;
             const [model, processor] = await Promise.all([
               AutoModel.from_pretrained(def.hfId, {
                 dtype: a.dtype,
@@ -273,7 +296,7 @@ function applyAiAlpha(
 export async function removeBackgroundAi(
   imageData: ImageData,
   onProgress: BgProgress = () => {},
-  modelId: string = "general",
+  modelId: string = DEFAULT_BG_MODEL,
   device: BgDevice = "auto",
 ): Promise<number> {
   const ai = await loadBgAi(modelId, { device, onProgress });

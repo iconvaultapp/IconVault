@@ -24,7 +24,7 @@ import JSZip from "jszip";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT, getTrialUsed, recordTrialUse } from "@/lib/tool-trial";
-import { removeBackgroundAi, loadBgAi, BG_MODELS } from "@/lib/bg-ai";
+import { removeBackgroundAi, warmBgRuntime, BG_MODELS, DEFAULT_BG_MODEL } from "@/lib/bg-ai";
 import {
   classicCutout,
   decontaminate,
@@ -113,7 +113,7 @@ function BackgroundRemoverTool() {
   const [hasImage, setHasImage] = useState(false);
   const [mode, setMode] = useState<Mode>("ai");
   // AI model selection (multi-model: general / portrait / fast)
-  const [aiModel, setAiModel] = useState("general");
+  const [aiModel, setAiModel] = useState(DEFAULT_BG_MODEL);
   const [webgpu, setWebgpu] = useState(false);
   // Edge-halo cleanup (rembg-style foreground decontamination)
   const [decontam, setDecontam] = useState(true);
@@ -226,26 +226,28 @@ function BackgroundRemoverTool() {
         // NOTE: do NOT draw here - the preview canvas mounts only after
         // hasImage flips true, so drawing now hits a null ref. The effect
         // below draws on the next commit.
-        // Warm up the AI model while the user looks at the preview, so the
-        // first Remove click feels instant. The download is cached by the
-        // browser, and nothing runs until the user clicks Remove.
+        // Warm up only the AI runtime (~450KB) while the user looks at the
+        // preview. The model weights download only when the user explicitly
+        // hits Remove, with a visible progress bar - silently pulling
+        // 44-114MB in the background would saturate mobile connections.
         if (typeof window !== "undefined" && "requestIdleCallback" in window) {
           (window as any).requestIdleCallback(() => {
-            void loadBgAi(aiModel, { device: webgpu ? "webgpu" : "auto" });
+            void warmBgRuntime();
           });
         } else {
           setTimeout(() => {
-            void loadBgAi(aiModel, { device: webgpu ? "webgpu" : "auto" });
+            void warmBgRuntime();
           }, 2000);
         }
       })
       .catch(() => toast.error("Could not read that image."));
   };
 
-  // Warm the newly selected AI model in the background.
+  // Warm the AI runtime (not the weights) when the model or device changes,
+  // so the first Remove click starts faster without hidden downloads.
   useEffect(() => {
     if (mode === "ai") {
-      void loadBgAi(aiModel, { device: webgpu ? "webgpu" : "auto" }).catch(() => {});
+      void warmBgRuntime();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aiModel, webgpu]);
