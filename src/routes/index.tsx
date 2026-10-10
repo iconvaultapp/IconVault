@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iconvault.site/" },
-      { property: "og:image", content: "https://iconvault.site/og-image.png" },
+      { property: "og:image", content: "https://iconvault.site/og-image.png?v=2" },
     ],
     links: [{ rel: "canonical", href: "https://iconvault.site/" }],
   }),
