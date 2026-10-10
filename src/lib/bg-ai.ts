@@ -1,12 +1,51 @@
-// On-device AI background removal (BiRefNet_lite, MIT-licensed weights) via
-// Hugging Face transformers.js. The library and the model load from CDN at
-// runtime and are cached by the browser - nothing AI-related is bundled,
-// because the onnxruntime WASM blob (~25MB) exceeds Cloudflare's 25MB
-// per-asset limit and would break deployment.
+// On-device AI background removal via Hugging Face transformers.js.
+// Models load from CDN at runtime and are cached by the browser - nothing
+// AI-related is bundled, because the onnxruntime WASM blob (~25MB) exceeds
+// Cloudflare's 25MB per-asset limit and would break deployment.
+//
+// Model licenses (all commercial-use safe for iconvault.site):
+// - BiRefNet_lite (general): MIT
+// - MODNet (portrait): Apache-2.0
+// - ormbg (fast): Apache-2.0
+// Explicitly avoided: @imgly/background-removal (AGPL-3.0 copyleft - would
+// force open-sourcing the site), bria-rmbg weights (paid commercial license).
 
 export type BgProgress = (stage: string, frac: number) => void;
 
-const BG_MODEL_ID = "onnx-community/BiRefNet_lite-ONNX";
+export interface BgModelDef {
+  id: string;
+  label: string;
+  short: string;
+  hfId: string;
+  blurb: string;
+}
+
+export const BG_MODELS: BgModelDef[] = [
+  {
+    id: "general",
+    label: "General",
+    short: "Best overall quality",
+    hfId: "onnx-community/BiRefNet_lite-ONNX",
+    blurb: "BiRefNet: sharp edges on any subject - people, products, pets. ~114MB first download, cached after.",
+  },
+  {
+    id: "portrait",
+    label: "Portrait",
+    short: "Best for people",
+    hfId: "Xenova/modnet",
+    blurb: "MODNet: trimap-free portrait matting with hair-level edges. Smaller download, tuned for faces.",
+  },
+  {
+    id: "fast",
+    label: "Fast",
+    short: "Smaller download",
+    hfId: "onnx-community/ormbg-ONNX",
+    blurb: "Lightweight model: quicker download and inference, slightly softer edges.",
+  },
+];
+
+export type BgDevice = "auto" | "webgpu";
+
 // jsDelivr +esm serves the pinned transformers.js build as a browser ESM
 // module (its onnxruntime dependency loads its own WASM from CDN).
 const TRANSFORMERS_CDN: string = "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0/+esm";
@@ -26,76 +65,132 @@ export interface BgAi {
   RawImage: any;
 }
 
-let bgAiPromise: Promise<BgAi | null> | null = null;
+const aiCache = new Map<string, Promise<BgAi | null>>();
 
-/** Load (and cache) the segmentation model. Resolves null when unavailable. */
-export function loadBgAi(onProgress: BgProgress = () => {}): Promise<BgAi | null> {
-  if (!bgAiPromise) {
-    bgAiPromise = (async (): Promise<BgAi | null> => {
-      const { AutoModel, AutoProcessor, RawImage } = await getTransformers();
-      // fp16 is half the download (~114MB, cached by the browser afterwards);
-      // fall back to fp32 if the device cannot run it.
-      for (const dtype of ["fp16", "fp32"] as const) {
-        try {
-          const label = dtype === "fp16" ? "Downloading AI model" : "Loading full-precision model";
-          const [model, processor] = await Promise.all([
-            AutoModel.from_pretrained(BG_MODEL_ID, {
-              dtype,
-              progress_callback: (p: any) => {
-                if (typeof p?.progress === "number") onProgress(label, p.progress / 100);
-              },
-            }),
-            AutoProcessor.from_pretrained(BG_MODEL_ID),
-          ]);
-          return { model, processor, RawImage };
-        } catch (err) {
-          if (dtype === "fp32") throw err;
-        }
-      }
-      return null;
-    })().catch(() => null);
-  }
-  return bgAiPromise;
+export interface BgLoadOpts {
+  device?: BgDevice;
+  onProgress?: BgProgress;
 }
 
-/** Sigmoid over a raw model-output tensor (float32 or float16 bits). */
-function sigmoidArray(data: unknown, count: number): Float32Array | null {
+/** Load (and cache) a segmentation model. Resolves null when unavailable. */
+export function loadBgAi(modelId: string = "general", opts: BgLoadOpts = {}): Promise<BgAi | null> {
+  const device = opts.device ?? "auto";
+  const key = `${modelId}:${device}`;
+  if (!aiCache.has(key)) {
+    aiCache.set(
+      key,
+      (async (): Promise<BgAi | null> => {
+        const def = BG_MODELS.find((m) => m.id === modelId) ?? BG_MODELS[0]!;
+        const { AutoModel, AutoProcessor, RawImage } = await getTransformers();
+        const onProgress = opts.onProgress ?? (() => {});
+        // Attempt order: WebGPU fp16 -> WebGPU fp32 -> WASM fp16 -> WASM fp32.
+        // Each step falls through to the next on failure.
+        const attempts: { device?: string; dtype: "fp16" | "fp32" }[] = [];
+        if (device === "webgpu") {
+          attempts.push({ device: "webgpu", dtype: "fp16" }, { device: "webgpu", dtype: "fp32" });
+        }
+        attempts.push({ dtype: "fp16" }, { dtype: "fp32" });
+        let lastErr: unknown = null;
+        for (const a of attempts) {
+          try {
+            const label = `Downloading AI model (${def.label})`;
+            const [model, processor] = await Promise.all([
+              AutoModel.from_pretrained(def.hfId, {
+                dtype: a.dtype,
+                ...(a.device ? { device: a.device } : {}),
+                progress_callback: (p: any) => {
+                  if (typeof p?.progress === "number") onProgress(label, p.progress / 100);
+                },
+              }),
+              AutoProcessor.from_pretrained(def.hfId),
+            ]);
+            return { model, processor, RawImage };
+          } catch (err) {
+            lastErr = err;
+          }
+        }
+        throw lastErr;
+      })().catch(() => null),
+    );
+  }
+  return aiCache.get(key)!;
+}
+
+/** Convert one float16 bit pattern to float32. */
+function halfToFloat(h: number): number {
   const buf = new ArrayBuffer(4);
   const u32 = new Uint32Array(buf);
   const f32 = new Float32Array(buf);
-  const halfToFloat = (h: number): number => {
-    const s = (h & 0x8000) << 16;
-    const e = (h >> 10) & 0x1f;
-    const m = h & 0x3ff;
-    let bits: number;
-    if (e === 0) {
-      if (m === 0) {
-        bits = s;
-      } else {
-        let ee = 1;
-        let mm = m;
-        while ((mm & 0x400) === 0) { mm <<= 1; ee -= 1; }
-        mm &= 0x3ff;
-        bits = s | ((ee + 112) << 23) | (mm << 13);
-      }
-    } else if (e === 31) {
-      bits = s | 0x7f800000 | (m << 13);
+  const s = (h & 0x8000) << 16;
+  const e = (h >> 10) & 0x1f;
+  const m = h & 0x3ff;
+  let bits: number;
+  if (e === 0) {
+    if (m === 0) {
+      bits = s;
     } else {
-      bits = s | ((e + 112) << 23) | (m << 13);
+      let ee = 1;
+      let mm = m;
+      while ((mm & 0x400) === 0) {
+        mm <<= 1;
+        ee -= 1;
+      }
+      mm &= 0x3ff;
+      bits = s | ((ee + 112) << 23) | (mm << 13);
     }
-    u32[0] = bits >>> 0;
-    return f32[0]!;
-  };
-  const out = new Float32Array(count);
+  } else if (e === 31) {
+    bits = s | 0x7f800000 | (m << 13);
+  } else {
+    bits = s | ((e + 112) << 23) | (m << 13);
+  }
+  u32[0] = bits >>> 0;
+  return f32[0]!;
+}
+
+/** Sigmoid over a raw float32 array. */
+function sigmoidInto(data: Float32Array, count: number, out: Float32Array): void {
+  for (let i = 0; i < count; i++) out[i] = 1 / (1 + Math.exp(-data[i]!));
+}
+
+/**
+ * Normalize a raw model-output tensor to foreground probabilities.
+ * Logit-style outputs (values outside [0,1], e.g. BiRefNet) go through a
+ * sigmoid; already-normalized mattes (e.g. MODNet, all values in [0,1]) are
+ * used directly. This keeps the multi-model path robust without
+ * model-specific branches.
+ */
+function normalizeMask(data: unknown, count: number): Float32Array | null {
+  let get: ((i: number) => number) | null = null;
   if (data instanceof Float32Array) {
-    for (let i = 0; i < count; i++) out[i] = 1 / (1 + Math.exp(-data[i]!));
+    get = (i) => data[i]!;
+  } else if (data instanceof Uint16Array) {
+    get = (i) => halfToFloat(data[i]!);
+  } else {
+    return null;
+  }
+  let mn = Infinity;
+  let mx = -Infinity;
+  const sampleStep = Math.max(1, Math.floor(count / 4096));
+  for (let i = 0; i < count; i += sampleStep) {
+    const v = get(i);
+    if (v < mn) mn = v;
+    if (v > mx) mx = v;
+  }
+  const out = new Float32Array(count);
+  if (mn >= -0.02 && mx <= 1.02) {
+    // Already a probability/matte map - clamp and use directly.
+    for (let i = 0; i < count; i++) {
+      const v = get(i);
+      out[i] = v < 0 ? 0 : v > 1 ? 1 : v;
+    }
     return out;
   }
-  if (data instanceof Uint16Array) {
-    for (let i = 0; i < count; i++) out[i] = 1 / (1 + Math.exp(-halfToFloat(data[i]!)));
+  if (data instanceof Float32Array) {
+    sigmoidInto(data, count, out);
     return out;
   }
-  return null;
+  for (let i = 0; i < count; i++) out[i] = 1 / (1 + Math.exp(-get(i)));
+  return out;
 }
 
 /**
@@ -131,7 +226,7 @@ function pickMaskTensor(out: Record<string, unknown>): { prob: Float32Array; mw:
   while (dims.length > 2 && dims[0] === 1) dims.shift();
   const mh = dims[dims.length - 2]!;
   const mw = dims[dims.length - 1]!;
-  const prob = sigmoidArray(best.data, mh * mw);
+  const prob = normalizeMask(best.data, mh * mw);
   if (!prob) return null;
   return { prob, mw, mh };
 }
@@ -178,8 +273,10 @@ function applyAiAlpha(
 export async function removeBackgroundAi(
   imageData: ImageData,
   onProgress: BgProgress = () => {},
+  modelId: string = "general",
+  device: BgDevice = "auto",
 ): Promise<number> {
-  const ai = await loadBgAi(onProgress);
+  const ai = await loadBgAi(modelId, { device, onProgress });
   if (!ai) throw new Error("ai-unavailable");
   const blob = await new Promise<Blob | null>((resolve) => {
     const c = document.createElement("canvas");

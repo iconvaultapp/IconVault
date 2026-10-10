@@ -1,7 +1,8 @@
-// /tools/background-remover - AI subject cutout (BiRefNet, on-device) plus
-// classic solid-background removal (auto edge flood-fill or color key), then
-// touch up with a manual brush (erase / restore, adjustable size) with
-// undo + redo. 100% client-side, transparent PNG export.
+// /tools/background-remover - AI subject cutout (multi-model, on-device) plus
+// classic solid-background removal (auto edge flood-fill or color key),
+// background replacement (transparent / color / blur / image), edge-halo
+// decontamination, manual brush touch-up (erase / restore) with undo + redo,
+// batch queue with ZIP export, and PNG/JPEG/WebP output. 100% client-side.
 
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
@@ -14,11 +15,26 @@ import {
   Paintbrush,
   Undo2,
   Redo2,
+  Images,
+  FileDown,
+  X,
+  Layers,
 } from "lucide-react";
+import JSZip from "jszip";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
-import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
-import { removeBackgroundAi, loadBgAi } from "@/lib/bg-ai";
+import { useToolTrial, TOOL_TRIAL_LIMIT, getTrialUsed, recordTrialUse } from "@/lib/tool-trial";
+import { removeBackgroundAi, loadBgAi, BG_MODELS } from "@/lib/bg-ai";
+import {
+  classicCutout,
+  decontaminate,
+  compositeOver,
+  renderMask,
+  flattenOn,
+  hexToRgb,
+  rgbToHex,
+  type BgReplaceKind,
+} from "@/lib/bg-cutout";
 import toolSeo from "@/lib/tool-seo-data/background-remover";
 import toolSeoMeta from "@/lib/tool-seo-meta-data/background-remover";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
@@ -49,82 +65,27 @@ export const Route = createFileRoute("/tools_/background-remover")({
 
 type Mode = "ai" | "edges" | "color";
 type BrushKind = "erase" | "restore";
+type OutFormat = "png" | "jpeg" | "webp";
+type BatchStatus = "queued" | "working" | "done" | "error";
+
+interface BatchItem {
+  id: number;
+  file: File;
+  name: string;
+  url: string;
+  status: BatchStatus;
+  note: string;
+  src: HTMLCanvasElement | null;
+  result: HTMLCanvasElement | null;
+}
 
 const MAX_DIM = 1600;
 const HISTORY_LIMIT = 30;
+const BATCH_LIMIT = 20;
 
-/** Weighted RGB distance (green counts most, like human vision). */
-export function colorDist(
-  r1: number, g1: number, b1: number,
-  r2: number, g2: number, b2: number,
-): number {
-  const dr = r1 - r2;
-  const dg = g1 - g2;
-  const db = b1 - b2;
-  return Math.sqrt(2 * dr * dr + 4 * dg * dg + 3 * db * db);
-}
-
-export function hexToRgb(hex: string): [number, number, number] {
-  const h = hex.replace("#", "");
-  return [
-    parseInt(h.slice(0, 2), 16),
-    parseInt(h.slice(2, 4), 16),
-    parseInt(h.slice(4, 6), 16),
-  ];
-}
-
-export function rgbToHex(r: number, g: number, b: number): string {
-  const c = (v: number) => Math.round(Math.min(255, Math.max(0, v))).toString(16).padStart(2, "0");
-  return `#${c(r)}${c(g)}${c(b)}`;
-}
-
-/** Flood-fill the background mask starting from the image edges. mask=1 => background. */
-export function floodFill(
-  mask: Uint8Array,
-  w: number,
-  h: number,
-  data: Uint8ClampedArray,
-  br: number, bg: number, bb: number,
-  tol: number,
-): void {
-  const stack: number[] = [];
-  const trySeed = (x: number, y: number) => {
-    const i = y * w + x;
-    if (mask[i]) return;
-    const o = i * 4;
-    if (colorDist(data[o]!, data[o + 1]!, data[o + 2]!, br, bg, bb) < tol) {
-      mask[i] = 1;
-      stack.push(i);
-    }
-  };
-  for (let x = 0; x < w; x++) {
-    trySeed(x, 0);
-    trySeed(x, h - 1);
-  }
-  for (let y = 0; y < h; y++) {
-    trySeed(0, y);
-    trySeed(w - 1, y);
-  }
-  while (stack.length) {
-    const i = stack.pop()!;
-    const x = i % w;
-    const y = Math.floor(i / w);
-    const neighbors = [
-      x > 0 ? i - 1 : -1,
-      x < w - 1 ? i + 1 : -1,
-      y > 0 ? i - w : -1,
-      y < h - 1 ? i + w : -1,
-    ];
-    for (const n of neighbors) {
-      if (n < 0 || mask[n]) continue;
-      const o = n * 4;
-      if (colorDist(data[o]!, data[o + 1]!, data[o + 2]!, br, bg, bb) < tol) {
-        mask[n] = 1;
-        stack.push(n);
-      }
-    }
-  }
-}
+const mimeFor = (f: OutFormat): string =>
+  f === "png" ? "image/png" : f === "jpeg" ? "image/jpeg" : "image/webp";
+const extFor = (f: OutFormat): string => (f === "png" ? "png" : f === "jpeg" ? "jpg" : "webp");
 
 function BackgroundRemoverTool() {
   const { isPro } = usePlan();
@@ -142,9 +103,20 @@ function BackgroundRemoverTool() {
   const strokeRef = useRef<{ x: number; y: number } | null>(null);
   const historyRef = useRef<ImageData[]>([]);
   const histIdxRef = useRef(0);
+  /** Replacement background image (kind "image"). */
+  const bgImageRef = useRef<HTMLCanvasElement | null>(null);
+  /** Cached composited background layer (without the cutout). */
+  const bgLayerRef = useRef<{ key: string; canvas: HTMLCanvasElement } | null>(null);
+  const batchIdRef = useRef(0);
 
+  const [batchMode, setBatchMode] = useState(false);
   const [hasImage, setHasImage] = useState(false);
   const [mode, setMode] = useState<Mode>("ai");
+  // AI model selection (multi-model: general / portrait / fast)
+  const [aiModel, setAiModel] = useState("general");
+  const [webgpu, setWebgpu] = useState(false);
+  // Edge-halo cleanup (rembg-style foreground decontamination)
+  const [decontam, setDecontam] = useState(true);
   const [tolerance, setTolerance] = useState(24);
   const [feather, setFeather] = useState(2);
   const [bgHex, setBgHex] = useState("#ffffff");
@@ -157,83 +129,126 @@ function BackgroundRemoverTool() {
   const [zoom, setZoom] = useState<"actual" | "fit">("fit");
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
+  // Background replacement
+  const [bgKind, setBgKind] = useState<BgReplaceKind>("transparent");
+  const [bgColor, setBgColor] = useState("#ffffff");
+  const [bgBlur, setBgBlur] = useState(14);
+  const [hasBgImage, setHasBgImage] = useState(false);
+  // Output options
+  const [outFormat, setOutFormat] = useState<OutFormat>("png");
+  const [outQuality, setOutQuality] = useState(92);
+  const [maskOnly, setMaskOnly] = useState(false);
+  // Batch queue
+  const [batch, setBatch] = useState<BatchItem[]>([]);
+  const [batchWorking, setBatchWorking] = useState(false);
+  const [batchSel, setBatchSel] = useState<number | null>(null);
+
+  /** Decode an image file into a canvas capped at MAX_DIM. */
+  const fileToCanvas = (file: File): Promise<HTMLCanvasElement> =>
+    new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        const s = Math.min(1, MAX_DIM / Math.max(img.naturalWidth, img.naturalHeight));
+        const w = Math.round(img.naturalWidth * s);
+        const h = Math.round(img.naturalHeight * s);
+        const c = document.createElement("canvas");
+        c.width = w;
+        c.height = h;
+        const ctx = c.getContext("2d");
+        if (!ctx) {
+          URL.revokeObjectURL(url);
+          reject(new Error("ctx"));
+          return;
+        }
+        ctx.drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        resolve(c);
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error("decode"));
+      };
+      img.src = url;
+    });
 
   const loadFile = (file: File) => {
     if (!file.type.startsWith("image/")) {
       toast.error("Please choose an image file.");
       return;
     }
-    const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
-      imgRef.current = img;
-      const s = Math.min(1, MAX_DIM / Math.max(img.naturalWidth, img.naturalHeight));
-      const w = Math.round(img.naturalWidth * s);
-      const h = Math.round(img.naturalHeight * s);
-      const orig = document.createElement("canvas");
-      orig.width = w;
-      orig.height = h;
-      const octx = orig.getContext("2d", { willReadFrequently: true });
-      if (!octx) return;
-      octx.drawImage(img, 0, 0, w, h);
-      const work = document.createElement("canvas");
-      work.width = w;
-      work.height = h;
-      const wctx = work.getContext("2d", { willReadFrequently: true });
-      if (!wctx) return;
-      wctx.drawImage(orig, 0, 0);
-      origCanvasRef.current = orig;
-      workCanvasRef.current = work;
-      // History starts with the untouched original.
-      historyRef.current = [wctx.getImageData(0, 0, w, h)];
-      histIdxRef.current = 0;
-      setCanUndo(false);
-      setCanRedo(false);
-      // Auto-detect bg color from corners
-      const d = octx.getImageData(0, 0, w, h).data;
-      const corner = (x: number, y: number): [number, number, number] => {
-        let r = 0, g = 0, b = 0, n = 0;
-        for (let dy = 0; dy < 6; dy++) {
-          for (let dx = 0; dx < 6; dx++) {
-            const o = ((y + dy) * w + (x + dx)) * 4;
-            r += d[o]!; g += d[o + 1]!; b += d[o + 2]!;
-            n++;
+    void fileToCanvas(file)
+      .then((orig) => {
+        const w = orig.width;
+        const h = orig.height;
+        const work = document.createElement("canvas");
+        work.width = w;
+        work.height = h;
+        const wctx = work.getContext("2d", { willReadFrequently: true });
+        if (!wctx) return;
+        wctx.drawImage(orig, 0, 0);
+        origCanvasRef.current = orig;
+        workCanvasRef.current = work;
+        // History starts with the untouched original.
+        historyRef.current = [wctx.getImageData(0, 0, w, h)];
+        histIdxRef.current = 0;
+        setCanUndo(false);
+        setCanRedo(false);
+        // Auto-detect bg color from corners
+        const octx = orig.getContext("2d", { willReadFrequently: true });
+        const d = octx ? octx.getImageData(0, 0, w, h).data : new Uint8ClampedArray(0);
+        const corner = (x: number, y: number): [number, number, number] => {
+          let r = 0, g = 0, b = 0, n = 0;
+          for (let dy = 0; dy < 6; dy++) {
+            for (let dx = 0; dx < 6; dx++) {
+              const o = ((y + dy) * w + (x + dx)) * 4;
+              r += d[o]!; g += d[o + 1]!; b += d[o + 2]!;
+              n++;
+            }
           }
+          return [r / n, g / n, b / n];
+        };
+        if (d.length) {
+          const corners = [corner(0, 0), corner(w - 6, 0), corner(0, h - 6), corner(w - 6, h - 6)];
+          const avg: [number, number, number] = [
+            corners.reduce((a, c) => a + c[0], 0) / 4,
+            corners.reduce((a, c) => a + c[1], 0) / 4,
+            corners.reduce((a, c) => a + c[2], 0) / 4,
+          ];
+          setBgHex(rgbToHex(avg[0], avg[1], avg[2]));
         }
-        return [r / n, g / n, b / n];
-      };
-      const corners = [corner(0, 0), corner(w - 6, 0), corner(0, h - 6), corner(w - 6, h - 6)];
-      const avg: [number, number, number] = [
-        corners.reduce((a, c) => a + c[0], 0) / 4,
-        corners.reduce((a, c) => a + c[1], 0) / 4,
-        corners.reduce((a, c) => a + c[2], 0) / 4,
-      ];
-      setBgHex(rgbToHex(avg[0], avg[1], avg[2]));
-      setHasImage(true);
-      setProcessed(false);
-      setShowOriginal(false);
-      setBrush(null);
-      setPicking(false);
-      // NOTE: do NOT draw here - the preview canvas mounts only after
-      // hasImage flips true, so drawing now hits a null ref. The effect
-      // below draws on the next commit.
-      URL.revokeObjectURL(url);
-      // Warm up the AI model while the user looks at the preview, so the
-      // first Remove click feels instant. The download is cached by the
-      // browser, and nothing runs until the user clicks Remove.
-      if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-        (window as any).requestIdleCallback(() => {
-          void loadBgAi();
-        });
-      } else {
-        setTimeout(() => {
-          void loadBgAi();
-        }, 2000);
-      }
-    };
-    img.onerror = () => toast.error("Could not read that image.");
-    img.src = url;
+        setHasImage(true);
+        setProcessed(false);
+        setShowOriginal(false);
+        setBrush(null);
+        setPicking(false);
+        bgLayerRef.current = null;
+        // NOTE: do NOT draw here - the preview canvas mounts only after
+        // hasImage flips true, so drawing now hits a null ref. The effect
+        // below draws on the next commit.
+        // Warm up the AI model while the user looks at the preview, so the
+        // first Remove click feels instant. The download is cached by the
+        // browser, and nothing runs until the user clicks Remove.
+        if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+          (window as any).requestIdleCallback(() => {
+            void loadBgAi(aiModel, { device: webgpu ? "webgpu" : "auto" });
+          });
+        } else {
+          setTimeout(() => {
+            void loadBgAi(aiModel, { device: webgpu ? "webgpu" : "auto" });
+          }, 2000);
+        }
+      })
+      .catch(() => toast.error("Could not read that image."));
   };
+
+  // Warm the newly selected AI model in the background.
+  useEffect(() => {
+    if (mode === "ai") {
+      void loadBgAi(aiModel, { device: webgpu ? "webgpu" : "auto" }).catch(() => {});
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [aiModel, webgpu]);
 
   const drawToView = (canvas: HTMLCanvasElement) => {
     const view = viewRef.current;
@@ -246,10 +261,66 @@ function BackgroundRemoverTool() {
     ctx.drawImage(canvas, 0, 0);
   };
 
+  /** Cached background layer (without the cutout) for the preview. */
+  const getBgLayer = (): HTMLCanvasElement | null => {
+    const work = workCanvasRef.current;
+    if (!work || bgKind === "transparent") return null;
+    const key = `${bgKind}|${bgColor}|${bgBlur}|${hasBgImage}|${work.width}x${work.height}`;
+    if (bgLayerRef.current?.key === key) return bgLayerRef.current.canvas;
+    const c = document.createElement("canvas");
+    c.width = work.width;
+    c.height = work.height;
+    const ctx = c.getContext("2d");
+    if (!ctx) return null;
+    if (bgKind === "color") {
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, c.width, c.height);
+    } else if (bgKind === "blur" && origCanvasRef.current) {
+      // Zoom the blurred backdrop slightly so subject-colored bleed at the
+      // frame edge gets pushed outward instead of haloing the cutout.
+      const bleed = Math.ceil(bgBlur * 2);
+      ctx.filter = `blur(${bgBlur}px)`;
+      ctx.drawImage(origCanvasRef.current, -bleed, -bleed, c.width + bleed * 2, c.height + bleed * 2);
+      ctx.filter = "none";
+    } else if (bgKind === "image" && bgImageRef.current) {
+      const src = bgImageRef.current;
+      const s = Math.max(c.width / src.width, c.height / src.height);
+      const dw = src.width * s;
+      const dh = src.height * s;
+      ctx.drawImage(src, (c.width - dw) / 2, (c.height - dh) / 2, dw, dh);
+    } else {
+      return null;
+    }
+    bgLayerRef.current = { key, canvas: c };
+    return c;
+  };
+
+  /** Draw the working image (plus replacement background when active). */
+  const renderView = () => {
+    const work = workCanvasRef.current;
+    const view = viewRef.current;
+    if (!work || !view) return;
+    const layer = processed ? getBgLayer() : null;
+    view.width = work.width;
+    view.height = work.height;
+    const ctx = view.getContext("2d");
+    if (!ctx) return;
+    ctx.clearRect(0, 0, view.width, view.height);
+    if (layer) ctx.drawImage(layer, 0, 0);
+    ctx.drawImage(work, 0, 0);
+  };
+
   // The preview canvas only exists once hasImage is true - draw after it mounts.
   useEffect(() => {
-    if (hasImage && workCanvasRef.current) drawToView(workCanvasRef.current);
+    if (hasImage && workCanvasRef.current) renderView();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasImage]);
+
+  // Re-render the preview when background-replacement settings change.
+  useEffect(() => {
+    if (processed) renderView();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bgKind, bgColor, bgBlur, hasBgImage, processed]);
 
   /** Snapshot the working image for undo/redo. */
   const pushHistory = () => {
@@ -280,7 +351,7 @@ function BackgroundRemoverTool() {
     setCanRedo(idx < historyRef.current.length - 1);
     setProcessed(true);
     setShowOriginal(false);
-    drawToView(work);
+    renderView();
   };
 
   const undo = () => {
@@ -293,145 +364,90 @@ function BackgroundRemoverTool() {
     }
   };
 
+  /**
+   * Shared cutout core: runs AI (or classic) on a source canvas and returns
+   * a fresh RGBA cutout canvas. Used by both single and batch modes.
+   */
+  const cutoutFromCanvas = async (
+    src: HTMLCanvasElement,
+    onStage: (s: string) => void,
+  ): Promise<{ canvas: HTMLCanvasElement; frac: number; aiOk: boolean }> => {
+    const w = src.width;
+    const h = src.height;
+    const sctx = src.getContext("2d", { willReadFrequently: true });
+    if (!sctx) throw new Error("ctx");
+    // Always process from the immutable original, so re-runs don't stack on a prior cutout.
+    const imgData = sctx.getImageData(0, 0, w, h);
+    let frac = 0;
+    let aiOk = false;
+    if (mode === "ai") {
+      try {
+        frac = await removeBackgroundAi(
+          imgData,
+          (stage, f) => onStage(f > 0 ? `${stage} ${Math.round(f * 100)}%` : `${stage}...`),
+          aiModel,
+          webgpu ? "webgpu" : "auto",
+        );
+        aiOk = true;
+      } catch {
+        aiOk = false;
+      }
+    }
+    if (!aiOk) {
+      const [br, bg, bb] = hexToRgb(bgHex);
+      const tol = (tolerance / 100) * 160; // map slider to color distance
+      frac = classicCutout(imgData.data, w, h, mode === "color" ? "color" : "edges", br, bg, bb, tol, feather);
+    }
+    if (decontam) decontaminate(imgData.data, w, h);
+    const out = document.createElement("canvas");
+    out.width = w;
+    out.height = h;
+    const octx = out.getContext("2d");
+    if (!octx) throw new Error("ctx");
+    octx.putImageData(imgData, 0, 0);
+    return { canvas: out, frac, aiOk };
+  };
+
   const remove = () => {
     const orig = origCanvasRef.current;
     const work = workCanvasRef.current;
     if (!orig || !work || !trial.canUse || working) return;
     setWorking(true);
-    if (mode === "ai") {
-      void removeAi().finally(() => setWorking(false));
-    } else {
-      const m = mode;
-      setTimeout(() => {
-        try {
-          removeClassic(m);
-        } finally {
-          setWorking(false);
-        }
-      }, 60);
-    }
-  };
-
-  /** AI subject segmentation - runs on-device, falls back to classic on failure. */
-  const removeAi = async () => {
-    const orig = origCanvasRef.current;
-    const work = workCanvasRef.current;
-    if (!orig || !work) return;
-    const w = orig.width;
-    const h = orig.height;
-    const octx = orig.getContext("2d", { willReadFrequently: true });
-    if (!octx) {
-      toast.error("Removal failed on this image.");
-      return;
-    }
-    // Always process from the immutable original, so re-runs don't stack on a prior cutout.
-    const imgData = octx.getImageData(0, 0, w, h);
-    const toastId = "bg-ai-remove";
-    toast.loading("Starting AI background remover...", { id: toastId });
-    try {
-      const frac = await removeBackgroundAi(imgData, (stage, f) => {
-        toast.loading(f > 0 ? `${stage} ${Math.round(f * 100)}%` : `${stage}...`, { id: toastId });
-      });
-      const wctx = work.getContext("2d");
-      if (!wctx) throw new Error("ctx");
-      wctx.putImageData(imgData, 0, 0);
-      pushHistory();
-      setProcessed(true);
-      setShowOriginal(false);
-      drawToView(work);
-      trial.recordUse();
-      toast.success(`Background removed (${Math.round(frac * 100)}% cleared) - touch up with the brush if needed.`, { id: toastId });
-    } catch {
-      // AI could not run (offline, low memory) - fall back to the classic
-      // edges method so the click still does something useful.
-      toast.warning("AI model could not load - used classic removal instead.", { id: toastId });
-      setMode("edges");
-      removeClassic("edges");
-    }
-  };
-
-  /** Classic solid-background removal (edge flood-fill or color key). */
-  const removeClassic = (m: "edges" | "color") => {
-    // Always process from the immutable original, so re-runs don't stack on a prior cutout.
-    const orig = origCanvasRef.current;
-    const work = workCanvasRef.current;
-    if (!orig || !work) return;
-    try {
-        const w = orig.width;
-        const h = orig.height;
-        const octx = orig.getContext("2d", { willReadFrequently: true });
-        if (!octx) return;
-        const imgData = octx.getImageData(0, 0, w, h);
-        const data = imgData.data;
-        const [br, bg, bb] = hexToRgb(bgHex);
-        const tol = (tolerance / 100) * 160; // map slider to color distance
-
-        const mask = new Uint8Array(w * h);
-        if (m === "edges") {
-          floodFill(mask, w, h, data, br, bg, bb, tol);
-        } else {
-          for (let i = 0; i < w * h; i++) {
-            const o = i * 4;
-            if (colorDist(data[o]!, data[o + 1]!, data[o + 2]!, br, bg, bb) < tol) mask[i] = 1;
+    const toastId = "bg-remove";
+    toast.loading(mode === "ai" ? "Starting AI background remover..." : "Removing background...", {
+      id: toastId,
+    });
+    setTimeout(() => {
+      cutoutFromCanvas(orig, (s) => toast.loading(s, { id: toastId }))
+        .then(({ canvas, frac, aiOk }) => {
+          const wctx = work.getContext("2d");
+          if (!wctx) throw new Error("ctx");
+          wctx.clearRect(0, 0, work.width, work.height);
+          wctx.drawImage(canvas, 0, 0);
+          pushHistory();
+          setProcessed(true);
+          setShowOriginal(false);
+          bgLayerRef.current = null;
+          renderView();
+          trial.recordUse();
+          if (mode === "ai" && !aiOk) {
+            toast.warning("AI model could not load - used classic removal instead.", { id: toastId });
+          } else if (frac > 0.98) {
+            toast.warning("Almost the whole image was removed - press Undo and try a lower tolerance.", {
+              id: toastId,
+            });
+          } else {
+            toast.success(
+              mode === "ai"
+                ? `Background removed (${Math.round(frac * 100)}% cleared) - touch up with the brush if needed.`
+                : "Background removed - touch up with the brush if needed.",
+              { id: toastId },
+            );
           }
-        }
-
-        let removed = 0;
-        for (let i = 0; i < mask.length; i++) if (mask[i]) removed++;
-        const removedFrac = removed / mask.length;
-
-        // Build alpha: background -> transparent, with optional feather blur
-        const maskCanvas = document.createElement("canvas");
-        maskCanvas.width = w;
-        maskCanvas.height = h;
-        const mctx = maskCanvas.getContext("2d", { willReadFrequently: true });
-        if (!mctx) return;
-        const mImg = mctx.createImageData(w, h);
-        for (let i = 0; i < w * h; i++) {
-          mImg.data[i * 4 + 3] = mask[i] ? 0 : 255;
-          mImg.data[i * 4] = mImg.data[i * 4 + 1] = mImg.data[i * 4 + 2] = 255;
-        }
-        mctx.putImageData(mImg, 0, 0);
-
-        let alphaData: Uint8ClampedArray;
-        if (feather > 0) {
-          const blur = document.createElement("canvas");
-          blur.width = w;
-          blur.height = h;
-          const bctx = blur.getContext("2d", { willReadFrequently: true });
-          if (!bctx) return;
-          bctx.filter = `blur(${feather}px)`;
-          bctx.drawImage(maskCanvas, 0, 0);
-          alphaData = bctx.getImageData(0, 0, w, h).data;
-        } else {
-          alphaData = mctx.getImageData(0, 0, w, h).data;
-        }
-
-        const wctx = work.getContext("2d");
-        if (!wctx) return;
-        const outImg = wctx.createImageData(w, h);
-        for (let i = 0; i < w * h; i++) {
-          const o = i * 4;
-          outImg.data[o] = data[o]!;
-          outImg.data[o + 1] = data[o + 1]!;
-          outImg.data[o + 2] = data[o + 2]!;
-          outImg.data[o + 3] = alphaData[o + 3]!;
-        }
-        wctx.putImageData(outImg, 0, 0);
-
-        pushHistory();
-        setProcessed(true);
-        setShowOriginal(false);
-        drawToView(work);
-        trial.recordUse();
-        if (removedFrac > 0.98) {
-          toast.warning("Almost the whole image was removed - press Undo and try a lower tolerance.");
-        } else {
-          toast.success("Background removed - touch up with the brush if needed.");
-        }
-      } catch {
-        toast.error("Removal failed on this image.");
-      }
+        })
+        .catch(() => toast.error("Removal failed on this image.", { id: toastId }))
+        .finally(() => setWorking(false));
+    }, 60);
   };
 
   /** Image-space coords from a pointer event over the view canvas. */
@@ -448,8 +464,7 @@ function BackgroundRemoverTool() {
   const stamp = (x: number, y: number, kind: BrushKind, size: number) => {
     const work = workCanvasRef.current;
     const orig = origCanvasRef.current;
-    const view = viewRef.current;
-    if (!work || !orig || !view) return;
+    if (!work || !orig) return;
     const stampC = document.createElement("canvas");
     stampC.width = stampC.height = Math.max(1, Math.ceil(size));
     const sctx = stampC.getContext("2d");
@@ -461,14 +476,12 @@ function BackgroundRemoverTool() {
       g.addColorStop(1, "rgba(0,0,0,0)");
       sctx.fillStyle = g;
       sctx.fillRect(0, 0, size, size);
-      for (const c of [work, view]) {
-        const ctx = c.getContext("2d");
-        if (!ctx) continue;
-        ctx.save();
-        ctx.globalCompositeOperation = "destination-out";
-        ctx.drawImage(stampC, x - size / 2, y - size / 2);
-        ctx.restore();
-      }
+      const wctx = work.getContext("2d");
+      if (!wctx) return;
+      wctx.save();
+      wctx.globalCompositeOperation = "destination-out";
+      wctx.drawImage(stampC, x - size / 2, y - size / 2);
+      wctx.restore();
     } else {
       g.addColorStop(0, "rgba(255,255,255,1)");
       g.addColorStop(0.75, "rgba(255,255,255,0.9)");
@@ -477,15 +490,14 @@ function BackgroundRemoverTool() {
       sctx.fillRect(0, 0, size, size);
       sctx.globalCompositeOperation = "source-in";
       sctx.drawImage(orig, x - size / 2, y - size / 2, size, size, 0, 0, size, size);
-      for (const c of [work, view]) {
-        const ctx = c.getContext("2d");
-        if (!ctx) continue;
-        ctx.save();
-        ctx.globalCompositeOperation = "source-over";
-        ctx.drawImage(stampC, x - size / 2, y - size / 2);
-        ctx.restore();
-      }
+      const wctx = work.getContext("2d");
+      if (!wctx) return;
+      wctx.save();
+      wctx.globalCompositeOperation = "source-over";
+      wctx.drawImage(stampC, x - size / 2, y - size / 2);
+      wctx.restore();
     }
+    renderView();
   };
 
   const updateRing = (e: React.PointerEvent) => {
@@ -571,22 +583,56 @@ function BackgroundRemoverTool() {
     toast.success("Background color picked - hit Remove.");
   };
 
+  /** Apply output settings (background replacement, mask mode, JPEG flatten) */
+  const exportCanvas = (
+    cutout: HTMLCanvasElement,
+    original: HTMLCanvasElement | null,
+  ): HTMLCanvasElement => {
+    if (maskOnly) return renderMask(cutout);
+    let out: HTMLCanvasElement = cutout;
+    if (bgKind !== "transparent") {
+      const comp = compositeOver(cutout, {
+        kind: bgKind,
+        color: bgColor,
+        blurPx: bgBlur,
+        image: bgImageRef.current,
+        original,
+      });
+      if (comp) out = comp;
+    }
+    if (outFormat === "jpeg") out = flattenOn(out, bgKind === "color" ? bgColor : "#ffffff");
+    return out;
+  };
+
+  const downloadCanvas = (src: HTMLCanvasElement, filename: string) => {
+    const mime = mimeFor(outFormat);
+    const q = outFormat === "png" ? undefined : outQuality / 100;
+    src.toBlob(
+      (blob) => {
+        if (!blob) {
+          toast.error("Export failed.");
+          return;
+        }
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+        toast.success("Downloaded.");
+      },
+      mime,
+      q,
+    );
+  };
+
   const download = () => {
     const work = workCanvasRef.current;
-    if (!work) return;
-    work.toBlob((blob) => {
-      if (!blob) {
-        toast.error("Export failed.");
-        return;
-      }
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = brandFilename("iconvault-no-background.png");
-      a.click();
-      URL.revokeObjectURL(url);
-      toast.success("PNG downloaded.");
-    }, "image/png");
+    if (!work || !processed) return;
+    downloadCanvas(
+      exportCanvas(work, origCanvasRef.current),
+      brandFilename(`iconvault-no-background.${extFor(outFormat)}`),
+    );
   };
 
   const reset = () => {
@@ -596,6 +642,7 @@ function BackgroundRemoverTool() {
     historyRef.current = [];
     histIdxRef.current = 0;
     strokeRef.current = null;
+    bgLayerRef.current = null;
     setHasImage(false);
     setProcessed(false);
     setShowOriginal(false);
@@ -611,8 +658,178 @@ function BackgroundRemoverTool() {
     if (!processed || !orig || !work) return;
     const next = !showOriginal;
     setShowOriginal(next);
-    drawToView(next ? orig : work);
+    if (next) drawToView(orig);
+    else renderView();
   };
+
+  const loadBgImage = (file: File) => {
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please choose an image file.");
+      return;
+    }
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement("canvas");
+      c.width = img.naturalWidth;
+      c.height = img.naturalHeight;
+      const ctx = c.getContext("2d");
+      if (!ctx) {
+        URL.revokeObjectURL(url);
+        return;
+      }
+      ctx.drawImage(img, 0, 0);
+      bgImageRef.current = c;
+      bgLayerRef.current = null;
+      setHasBgImage(true);
+      URL.revokeObjectURL(url);
+      if (processed) renderView();
+      toast.success("Replacement background loaded.");
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      toast.error("Could not read that image.");
+    };
+    img.src = url;
+  };
+
+  // ---------- Batch queue ----------
+
+  const addBatchFiles = (files: FileList | File[]) => {
+    const imgs = [...files]
+      .filter((f) => f.type.startsWith("image/"))
+      .slice(0, Math.max(0, BATCH_LIMIT - batch.length));
+    if (!imgs.length) {
+      toast.error(`Choose image files (max ${BATCH_LIMIT} per batch).`);
+      return;
+    }
+    setBatch((prev) => [
+      ...prev,
+      ...imgs.map((f) => ({
+        id: ++batchIdRef.current,
+        file: f,
+        name: f.name,
+        url: URL.createObjectURL(f),
+        status: "queued" as BatchStatus,
+        note: "",
+        src: null as HTMLCanvasElement | null,
+        result: null as HTMLCanvasElement | null,
+      })),
+    ]);
+    if (batchSel == null && imgs.length) setBatchSel(batchIdRef.current - imgs.length + 1);
+  };
+
+  const removeBatchItem = (id: number) => {
+    setBatch((prev) => {
+      const item = prev.find((b) => b.id === id);
+      if (item) URL.revokeObjectURL(item.url);
+      return prev.filter((b) => b.id !== id);
+    });
+    if (batchSel === id) setBatchSel(null);
+  };
+
+  const processBatch = async () => {
+    const queued = batch.filter((b) => b.status === "queued");
+    if (!queued.length || batchWorking) return;
+    // Each image consumes one free auto-removal (Pro is unlimited).
+    const remaining = isPro ? queued.length : Math.max(0, TOOL_TRIAL_LIMIT - getTrialUsed("background-remover"));
+    const targets = queued.slice(0, remaining);
+    if (!targets.length) {
+      toast.error("Daily free limit reached - brush touch-ups are still free and unlimited.");
+      return;
+    }
+    setBatchWorking(true);
+    const toastId = "bg-batch";
+    let done = 0;
+    for (const item of targets) {
+      setBatch((prev) => prev.map((b) => (b.id === item.id ? { ...b, status: "working", note: "Working..." } : b)));
+      try {
+        const src = await fileToCanvas(item.file);
+        const { canvas, aiOk } = await cutoutFromCanvas(src, (s) =>
+          toast.loading(`[${done + 1}/${targets.length}] ${item.name}: ${s}`, { id: toastId }),
+        );
+        recordTrialUse("background-remover");
+        setBatch((prev) =>
+          prev.map((b) =>
+            b.id === item.id
+              ? {
+                  ...b,
+                  status: "done",
+                  note: aiOk || mode !== "ai" ? "Done" : "Done (classic fallback)",
+                  src,
+                  result: canvas,
+                }
+              : b,
+          ),
+        );
+        done++;
+      } catch {
+        setBatch((prev) => prev.map((b) => (b.id === item.id ? { ...b, status: "error", note: "Failed" } : b)));
+      }
+    }
+    setBatchWorking(false);
+    toast.success(`Batch done: ${done} of ${targets.length} processed.`, { id: toastId });
+  };
+
+  const downloadBatchItem = (item: BatchItem) => {
+    if (!item.result) return;
+    downloadCanvas(
+      exportCanvas(item.result, item.src),
+      brandFilename(`iconvault-no-background-${item.name.replace(/\.[^.]+$/, "")}.${extFor(outFormat)}`),
+    );
+  };
+
+  const downloadZip = async () => {
+    const doneItems = batch.filter((b) => b.status === "done" && b.result);
+    if (!doneItems.length || batchWorking) return;
+    const toastId = "bg-zip";
+    toast.loading("Building ZIP...", { id: toastId });
+    try {
+      const zip = new JSZip();
+      const mime = mimeFor(outFormat);
+      const q = outFormat === "png" ? undefined : outQuality / 100;
+      const ext = extFor(outFormat);
+      let i = 0;
+      for (const item of doneItems) {
+        const out = exportCanvas(item.result!, item.src);
+        const blob = await new Promise<Blob | null>((res) => out.toBlob(res, mime, q));
+        if (blob) {
+          i++;
+          zip.file(`no-background-${String(i).padStart(2, "0")}-${item.name.replace(/\.[^.]+$/, "")}.${ext}`, blob);
+        }
+      }
+      const zipBlob = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(zipBlob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = brandFilename("iconvault-backgrounds.zip");
+      a.click();
+      URL.revokeObjectURL(url);
+      toast.success(`ZIP downloaded (${i} images).`, { id: toastId });
+    } catch {
+      toast.error("ZIP export failed.", { id: toastId });
+    }
+  };
+
+  /** Draw the selected batch result into the preview pane. */
+  const renderBatchView = () => {
+    const view = viewRef.current;
+    if (!view) return;
+    const item = batch.find((b) => b.id === batchSel);
+    if (!item?.result) {
+      const ctx = view.getContext("2d");
+      if (ctx) ctx.clearRect(0, 0, view.width, view.height);
+      return;
+    }
+    drawToView(exportCanvas(item.result, item.src));
+  };
+
+  useEffect(() => {
+    if (batchMode) renderBatchView();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [batchMode, batchSel, batch, bgKind, bgColor, bgBlur, hasBgImage, outFormat, outQuality, maskOnly]);
+
+  const selModel = BG_MODELS.find((m) => m.id === aiModel) ?? BG_MODELS[0]!;
 
   return (
     <ToolPageShell toolId="background-remover" seo={seo} trial={trial} isPro={isPro}>
@@ -620,7 +837,131 @@ function BackgroundRemoverTool() {
 
       <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
         <div className="space-y-5 rounded-2xl border border-border bg-card p-5">
-          {!hasImage ? (
+          {/* Single / Batch switch */}
+          <div className="grid grid-cols-2 gap-2" role="group" aria-label="Processing mode">
+            {(
+              [
+                { id: false, label: "Single image", icon: ImagePlus },
+                { id: true, label: "Batch", icon: Images },
+              ] as const
+            ).map((t) => (
+              <button
+                key={String(t.id)}
+                type="button"
+                onClick={() => setBatchMode(t.id)}
+                className={cn(
+                  "flex items-center justify-center gap-1.5 rounded-xl border py-2.5 text-sm font-bold transition",
+                  batchMode === t.id
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border text-muted-foreground hover:border-primary/40",
+                )}
+              >
+                <t.icon className="h-4 w-4" />
+                {t.label}
+              </button>
+            ))}
+          </div>
+
+          {batchMode ? (
+            <>
+              <label
+                className="flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-border text-center transition-colors hover:border-primary/50"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  if (e.dataTransfer.files?.length) addBatchFiles(e.dataTransfer.files);
+                }}
+              >
+                <Images className="mb-3 h-10 w-10 text-muted-foreground/60" />
+                <p className="font-semibold">Drop up to {BATCH_LIMIT} images, or click</p>
+                <p className="mt-1 max-w-xs text-sm text-muted-foreground">
+                  Each image uses one free auto-removal. The AI model loads once and is reused.
+                </p>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="hidden"
+                  onChange={(e) => {
+                    if (e.target.files?.length) addBatchFiles(e.target.files);
+                    e.target.value = "";
+                  }}
+                />
+              </label>
+
+              {batch.length > 0 && (
+                <>
+                  <div className="flex gap-2">
+                    <ActionButton disabled={batchWorking} onClick={() => void processBatch()}>
+                      <Eraser className="h-4 w-4" /> {batchWorking ? "Processing..." : "Remove all backgrounds"}
+                    </ActionButton>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => void downloadZip()}
+                    disabled={batchWorking || !batch.some((b) => b.status === "done")}
+                    className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-border py-2 text-xs font-bold text-muted-foreground transition hover:border-primary/40 hover:text-foreground disabled:opacity-40"
+                  >
+                    <FileDown className="h-3.5 w-3.5" /> Download all as ZIP
+                  </button>
+                  <ul className="max-h-72 space-y-2 overflow-auto pr-1">
+                    {batch.map((b) => (
+                      <li
+                        key={b.id}
+                        className={cn(
+                          "flex items-center gap-2 rounded-xl border p-2",
+                          batchSel === b.id ? "border-primary/60" : "border-border",
+                        )}
+                      >
+                        <button type="button" onClick={() => setBatchSel(b.id)} className="shrink-0">
+                          <img src={b.url} alt="" className="h-11 w-11 rounded-lg object-cover" />
+                        </button>
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate text-xs font-semibold">{b.name}</p>
+                          <p
+                            className={cn(
+                              "text-[11px]",
+                              b.status === "done"
+                                ? "text-green-600 dark:text-green-400"
+                                : b.status === "error"
+                                  ? "text-red-500"
+                                  : b.status === "working"
+                                    ? "text-primary"
+                                    : "text-muted-foreground",
+                            )}
+                          >
+                            {b.status === "queued" ? "Queued" : b.note}
+                          </p>
+                        </div>
+                        {b.status === "done" && (
+                          <button
+                            type="button"
+                            onClick={() => downloadBatchItem(b)}
+                            className="rounded-lg border border-border p-1.5 text-muted-foreground transition hover:border-primary/40 hover:text-foreground"
+                            aria-label={`Download ${b.name}`}
+                          >
+                            <Download className="h-3.5 w-3.5" />
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => removeBatchItem(b.id)}
+                          disabled={batchWorking}
+                          className="rounded-lg p-1.5 text-muted-foreground transition hover:text-foreground disabled:opacity-40"
+                          aria-label={`Remove ${b.name}`}
+                        >
+                          <X className="h-3.5 w-3.5" />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-muted-foreground">
+                    Output settings (format, background) apply to every download, including the ZIP.
+                  </p>
+                </>
+              )}
+            </>
+          ) : !hasImage ? (
             <label
               className="flex min-h-[280px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-border text-center transition-colors hover:border-primary/50"
               onDragOver={(e) => e.preventDefault()}
@@ -682,6 +1023,52 @@ function BackgroundRemoverTool() {
                       : "Removes every pixel close to the chosen color, anywhere in the image."}
                 </p>
               </div>
+
+              {mode === "ai" && (
+                <div>
+                  <span className="mb-2 block text-[13px] font-medium text-foreground/80">
+                    AI model
+                  </span>
+                  <div className="grid grid-cols-3 gap-2" role="group" aria-label="AI model">
+                    {BG_MODELS.map((m) => (
+                      <button
+                        key={m.id}
+                        type="button"
+                        onClick={() => setAiModel(m.id)}
+                        title={m.blurb}
+                        className={cn(
+                          "rounded-xl border px-1 py-2 text-sm font-bold transition",
+                          aiModel === m.id
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border text-muted-foreground hover:border-primary/40",
+                        )}
+                      >
+                        {m.label}
+                        <span className="mt-0.5 block text-[10px] font-medium opacity-80">{m.short}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-1.5 text-xs text-muted-foreground">{selModel.blurb}</p>
+                  <label className="mt-2 flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+                    <input
+                      type="checkbox"
+                      checked={webgpu}
+                      onChange={(e) => setWebgpu(e.target.checked)}
+                      className="h-3.5 w-3.5 accent-primary"
+                    />
+                    Faster with GPU (WebGPU) - falls back automatically if unavailable
+                  </label>
+                  <label className="mt-1.5 flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+                    <input
+                      type="checkbox"
+                      checked={decontam}
+                      onChange={(e) => setDecontam(e.target.checked)}
+                      className="h-3.5 w-3.5 accent-primary"
+                    />
+                    Clean edge halos (removes background color spill on hair and fur)
+                  </label>
+                </div>
+              )}
 
               {mode !== "ai" && (
                 <>
@@ -754,8 +1141,97 @@ function BackgroundRemoverTool() {
               </ActionButton>
 
               <div>
+                <span className="mb-2 flex items-center gap-1.5 text-[13px] font-medium text-foreground/80">
+                  <Layers className="h-3.5 w-3.5" /> 2. Background
+                </span>
+                <div className="grid grid-cols-4 gap-2" role="group" aria-label="Replacement background">
+                  {(
+                    [
+                      { id: "transparent", label: "None" },
+                      { id: "color", label: "Color" },
+                      { id: "blur", label: "Blur" },
+                      { id: "image", label: "Image" },
+                    ] as { id: BgReplaceKind; label: string }[]
+                  ).map((b) => (
+                    <button
+                      key={b.id}
+                      type="button"
+                      onClick={() => {
+                        setBgKind(b.id);
+                        bgLayerRef.current = null;
+                        if (processed) renderView();
+                      }}
+                      className={cn(
+                        "rounded-xl border py-2 text-xs font-bold transition",
+                        bgKind === b.id
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border text-muted-foreground hover:border-primary/40",
+                      )}
+                    >
+                      {b.label}
+                    </button>
+                  ))}
+                </div>
+                {bgKind === "color" && (
+                  <div className="mt-2 flex items-center gap-2">
+                    <input
+                      type="color"
+                      value={bgColor}
+                      onChange={(e) => {
+                        setBgColor(e.target.value);
+                        bgLayerRef.current = null;
+                        if (processed) renderView();
+                      }}
+                      className="h-10 w-14 cursor-pointer rounded-lg border border-border bg-transparent"
+                      aria-label="Replacement background color"
+                    />
+                    <span className="font-mono text-xs text-muted-foreground">{bgColor}</span>
+                  </div>
+                )}
+                {bgKind === "blur" && (
+                  <div className="mt-2">
+                    <div className="mb-1 flex items-center justify-between">
+                      <span className="text-[13px] font-medium text-foreground/80">Blur amount</span>
+                      <span className="font-mono text-xs text-muted-foreground">{bgBlur}px</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={2}
+                      max={40}
+                      value={bgBlur}
+                      onChange={(e) => {
+                        setBgBlur(Number(e.target.value));
+                        bgLayerRef.current = null;
+                        if (processed) renderView();
+                      }}
+                      className="w-full accent-primary"
+                    />
+                  </div>
+                )}
+                {bgKind === "image" && (
+                  <label className="mt-2 flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-dashed border-border py-2.5 text-xs font-bold text-muted-foreground transition hover:border-primary/40 hover:text-foreground">
+                    <ImagePlus className="h-3.5 w-3.5" />
+                    {hasBgImage ? "Change background image" : "Upload background image"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) loadBgImage(f);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+                )}
+                <p className="mt-1.5 text-xs text-muted-foreground">
+                  Applies to the preview and the download - the cutout itself stays untouched.
+                </p>
+              </div>
+
+              <div>
                 <span className="mb-2 block text-[13px] font-medium text-foreground/80">
-                  2. Touch up with brush
+                  3. Touch up with brush
                 </span>
                 <div className="grid grid-cols-2 gap-2" role="group" aria-label="Brush tool">
                   {(
@@ -821,6 +1297,66 @@ function BackgroundRemoverTool() {
                 </p>
               </div>
 
+              <div>
+                <span className="mb-2 block text-[13px] font-medium text-foreground/80">
+                  4. Export
+                </span>
+                <div className="grid grid-cols-3 gap-2" role="group" aria-label="Output format">
+                  {(
+                    [
+                      { id: "png", label: "PNG" },
+                      { id: "jpeg", label: "JPG" },
+                      { id: "webp", label: "WebP" },
+                    ] as { id: OutFormat; label: string }[]
+                  ).map((f) => (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => setOutFormat(f.id)}
+                      className={cn(
+                        "rounded-xl border py-2 text-xs font-bold transition",
+                        outFormat === f.id
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border text-muted-foreground hover:border-primary/40",
+                      )}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+                {outFormat !== "png" && (
+                  <div className="mt-2">
+                    <div className="mb-1 flex items-center justify-between">
+                      <span className="text-[13px] font-medium text-foreground/80">Quality</span>
+                      <span className="font-mono text-xs text-muted-foreground">{outQuality}%</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={40}
+                      max={100}
+                      value={outQuality}
+                      onChange={(e) => setOutQuality(Number(e.target.value))}
+                      className="w-full accent-primary"
+                    />
+                  </div>
+                )}
+                <label className="mt-2 flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+                  <input
+                    type="checkbox"
+                    checked={maskOnly}
+                    onChange={(e) => setMaskOnly(e.target.checked)}
+                    className="h-3.5 w-3.5 accent-primary"
+                  />
+                  Export the mask only (black and white)
+                </label>
+                {outFormat === "jpeg" && (
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    JPG has no transparency - the cutout is flattened onto{" "}
+                    {bgKind === "color" ? "your background color" : "white"}.
+                  </p>
+                )}
+              </div>
+
               <div className="flex gap-2">
                 <button
                   type="button"
@@ -836,7 +1372,7 @@ function BackgroundRemoverTool() {
                   disabled={!processed}
                   className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-primary py-2 text-xs font-bold text-primary-foreground transition hover:opacity-90 disabled:opacity-40"
                 >
-                  <Download className="h-3.5 w-3.5" /> PNG
+                  <Download className="h-3.5 w-3.5" /> {outFormat.toUpperCase()}
                 </button>
                 <button
                   type="button"
@@ -859,7 +1395,27 @@ function BackgroundRemoverTool() {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-5">
-          {!hasImage ? (
+          {batchMode ? (
+            batchSel != null && batch.find((b) => b.id === batchSel)?.result ? (
+              <>
+                <p className="mb-2 text-xs font-semibold text-muted-foreground">
+                  Preview - {batch.find((b) => b.id === batchSel)?.name} (output settings applied)
+                </p>
+                <div className="checkerboard relative overflow-auto rounded-xl border border-border" style={{ maxHeight: "72vh" }}>
+                  <canvas ref={viewRef} className="block" style={{ width: "100%", height: "auto", maxHeight: 560 }} />
+                </div>
+              </>
+            ) : (
+              <div className="flex min-h-[380px] flex-col items-center justify-center text-center">
+                <Images className="mb-3 h-10 w-10 text-muted-foreground/50" />
+                <p className="font-semibold">Batch results appear here</p>
+                <p className="mt-1 max-w-sm text-sm text-muted-foreground">
+                  Add images on the left, hit "Remove all backgrounds", then click any finished
+                  image to preview it.
+                </p>
+              </div>
+            )
+          ) : !hasImage ? (
             <div className="flex min-h-[380px] flex-col items-center justify-center text-center">
               <Eraser className="mb-3 h-10 w-10 text-muted-foreground/50" />
               <p className="font-semibold">Your cutout appears here</p>
