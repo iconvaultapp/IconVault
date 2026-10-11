@@ -285,19 +285,35 @@ export const getOperatingStats = createServerFn({ method: "POST" })
       if (!isAdmin) throw new Error("Forbidden");
 
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const [{ count: totalUsers }, { data: breakdown, error: breakdownError }, { data: list }] =
-        await Promise.all([
-          supabaseAdmin.from("profiles").select("id", { count: "exact", head: true }),
-          (supabaseAdmin as any).rpc("admin_plan_breakdown"),
-          supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
-        ]);
-      if (breakdownError) throw breakdownError;
+      const [{ count: totalUsers }, { data: list }] = await Promise.all([
+        supabaseAdmin.from("profiles").select("id", { count: "exact", head: true }),
+        supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
+      ]);
 
-      const planBreakdown: PlanBreakdownRow[] = (
-        (breakdown ?? []) as Array<{ plan: string; count: number | string }>
-      )
-        .map((r) => ({ plan: r.plan, count: Number(r.count) }))
-        .sort((a, b) => b.count - a.count);
+      // Plan breakdown: try the RPC first, fall back to a direct query if the
+      // migration hasn't been run on the live database yet.
+      let planBreakdown: PlanBreakdownRow[] = [];
+      try {
+        const { data: breakdown, error: breakdownError } = await (supabaseAdmin as any).rpc(
+          "admin_plan_breakdown",
+        );
+        if (breakdownError) throw breakdownError;
+        planBreakdown = ((breakdown ?? []) as Array<{ plan: string; count: number | string }>)
+          .map((r) => ({ plan: r.plan, count: Number(r.count) }))
+          .sort((a, b) => b.count - a.count);
+      } catch {
+        // RPC missing or failed: direct group-by via service role (bypasses RLS).
+        const { data: plans } = await (supabaseAdmin as any)
+          .from("user_plans")
+          .select("plan");
+        const counts = new Map<string, number>();
+        for (const row of (plans ?? []) as Array<{ plan: string }>) {
+          counts.set(row.plan, (counts.get(row.plan) ?? 0) + 1);
+        }
+        planBreakdown = [...counts.entries()]
+          .map(([plan, count]) => ({ plan, count }))
+          .sort((a, b) => b.count - a.count);
+      }
 
       const plannedCount = planBreakdown.reduce((n, r) => n + r.count, 0);
       const freeCount = Math.max((totalUsers ?? 0) - plannedCount, 0);
@@ -1201,10 +1217,11 @@ export const getConversionStats = createServerFn({ method: "POST" })
   .handler(async ({ context }): Promise<ConversionStats> => {
     await requireAdmin(context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const [{ count: totalUsers }, { count: proUsers }] = await Promise.all([
+    const [{ count: totalUsers }, { data: paidPlans }] = await Promise.all([
       supabaseAdmin.from("profiles").select("id", { count: "exact", head: true }),
-      (supabaseAdmin as any).from("user_plans").select("user_id", { count: "exact", head: true }).eq("plan", "pro"),
+      (supabaseAdmin as any).from("user_plans").select("plan").in("plan", ["pro", "lifetime", "yearly", "monthly"]),
     ]);
+    const proUsers = (paidPlans ?? []).length;
 
     let activeSubs = 0;
     let cancelledSubs = 0;

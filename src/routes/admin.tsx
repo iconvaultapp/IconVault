@@ -606,7 +606,10 @@ function AdminPage() {
   }, [pageViews, signupRows]);
 
   const yearlyCount = useMemo(
-    () => planBreakdown.find((p) => p.plan === "yearly")?.count ?? 0,
+    () =>
+      planBreakdown
+        .filter((p) => ["pro", "lifetime", "yearly", "monthly"].includes(p.plan))
+        .reduce((n, p) => n + p.count, 0),
     [planBreakdown],
   );
 
