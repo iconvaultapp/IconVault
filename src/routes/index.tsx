@@ -26,7 +26,6 @@ import { toast } from "sonner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SearchBar from "@/components/SearchBar";
-import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
@@ -614,20 +613,7 @@ function Landing() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="border-y border-border bg-surface-2">
-          <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-            <Reveal className="max-w-2xl">
-              <p className="eyebrow">From the workflow</p>
-              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                Quietly saving product teams an afternoon a week
-              </h2>
-            </Reveal>
-            <Reveal className="mt-10">
-              <TestimonialCarousel />
-            </Reveal>
-          </div>
-        </section>
+        {/* Testimonials hidden on the homepage at all resolutions (Sameer 2026-10-23). */}
 
         {/* Waitlist + CTA */}
         <section className="mx-auto max-w-3xl px-5 py-20 text-center lg:px-8">
