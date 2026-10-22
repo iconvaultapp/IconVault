@@ -28,7 +28,7 @@ export const GlobalSidebar = () => {
   const sorted = Object.entries(collections).sort((a, b) => b[1].total - a[1].total);
 
   const openSet = (prefix: string | null) => {
-    void navigate({ to: "/", search: prefix ? { set: prefix } : {} });
+    void navigate({ to: "/app", search: prefix ? { set: prefix } : {} });
   };
 
   return (
@@ -70,7 +70,7 @@ export const GlobalSidebar = () => {
               onClick={() => openSet(null)}
               className={cn(
                 "flex w-full min-w-0 items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm transition-colors",
-                activePrefix === null && pathname === "/"
+                activePrefix === null && pathname === "/app"
                   ? "bg-primary font-medium text-primary-foreground"
                   : "text-black/65 hover:bg-black/10 hover:text-black",
               )}

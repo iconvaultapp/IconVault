@@ -5,13 +5,14 @@ import { navSections, type NavItem } from "@/components/nav-data";
 import { ToolIcon } from "@/components/ToolIcon";
 import { openCookieSettings } from "@/lib/cookie-consent";
 
-// TODO(Sameer): replace "#" with real social URLs
+// Real profile URLs supplied by Sameer 2026-10-22 (X, Instagram, YouTube).
+// GitHub and LinkedIn stay "#" until he shares those profiles.
 const SOCIALS = [
-  { icon: Twitter, label: "IconVault on X", href: "#" },
+  { icon: Twitter, label: "IconVault on X", href: "https://x.com/Dev_codr" },
   { icon: Github, label: "IconVault on GitHub", href: "#" },
   { icon: Linkedin, label: "IconVault on LinkedIn", href: "#" },
-  { icon: Youtube, label: "IconVault on YouTube", href: "#" },
-  { icon: Instagram, label: "IconVault on Instagram", href: "#" },
+  { icon: Youtube, label: "IconVault on YouTube", href: "https://www.youtube.com/channel/UC3RFzs_k4xFllhlHi4FJuhw" },
+  { icon: Instagram, label: "IconVault on Instagram", href: "https://www.instagram.com/iconvaultapp" },
 ];
 
 /**

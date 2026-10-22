@@ -145,7 +145,7 @@ function Page() {
 
         <p className="mt-10 text-sm text-muted-foreground">
           Browse all{" "}
-          <Link to="/" className="text-primary hover:underline">
+          <Link to="/app" className="text-primary hover:underline">
             icon packs
           </Link>{" "}
           or explore{" "}

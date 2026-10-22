@@ -7,8 +7,9 @@ import UserMenu from "@/components/UserMenu";
 import { cn } from "@/lib/utils";
 
 const primaryLinks = [
-  { label: "Browse icons", path: "/" },
+  { label: "Browse icons", path: "/app" },
   { label: "Collections", path: "/collections" },
+  { label: "Blog", path: "/blog" },
   { label: "Pricing", path: "/pro" },
   { label: "Changelog", path: "/changelog" },
 ];

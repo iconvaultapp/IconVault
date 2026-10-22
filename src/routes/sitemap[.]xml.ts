@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import collectionsData from "../../public/iconify/collections.json";
 import categoriesData from "../../public/iconify/categories.json";
+import { BLOG_POSTS } from "@/lib/blog";
 
 // Production domain - sitemap <loc> entries must be absolute URLs,
 // otherwise search engines ignore them.
@@ -13,7 +14,9 @@ interface SitemapEntry {
   priority?: string;
 }
 
-const entries: SitemapEntry[] = [
+// Built lazily inside the GET handler: evaluating this list at module scope
+// crashes SSR (circular chunk init leaves imported data undefined).
+const getEntries = (): SitemapEntry[] => [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/pro", changefreq: "monthly", priority: "0.9" },
   { path: "/tools", changefreq: "weekly", priority: "0.8" },
@@ -153,6 +156,13 @@ const entries: SitemapEntry[] = [
   ...(categoriesData as { slug: string }[]).map((c) => ({
     path: `/categories/${c.slug}`,
     changefreq: "weekly" as const,
+    priority: "0.7",
+  })),
+  // Blog index plus every published article.
+  { path: "/blog", changefreq: "weekly", priority: "0.8" },
+  ...BLOG_POSTS.map((p) => ({
+    path: `/blog/${p.slug}`,
+    changefreq: "monthly" as const,
     priority: "0.7",
   })),
   { path: "/tools/a11y-contrast-grid", changefreq: "weekly", priority: "0.7" },
@@ -631,7 +641,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const urls = entries.map((e) =>
+        const urls = getEntries().map((e) =>
           [
             `  <url>`,
             `    <loc>${BASE_URL}${e.path}</loc>`,

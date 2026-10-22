@@ -16,7 +16,6 @@ import { Route as AiSearchRouteImport } from './routes/ai-search'
 import { Route as ApiAccessRouteImport } from './routes/api-access'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as CategoriesRouteImport } from './routes/categories'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as CliRouteImport } from './routes/cli'
 import { Route as CollectionsRouteImport } from './routes/collections'
@@ -40,6 +39,9 @@ import { Route as ApiIconsRouteImport } from './routes/api.icons'
 import { Route as ApiLogErrorRouteImport } from './routes/api.log-error'
 import { Route as ApiVideoProxyRouteImport } from './routes/api.video-proxy'
 import { Route as BillingSuccessRouteImport } from './routes/billing.success'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CategoriesIndexRouteImport } from './routes/categories.index'
 import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
 import { Route as PacksPrefixRouteImport } from './routes/packs.$prefix'
 import { Route as ToolsA11yContrastGridRouteImport } from './routes/tools_.a11y-contrast-grid'
@@ -662,11 +664,6 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CategoriesRoute = CategoriesRouteImport.update({
-  id: '/categories',
-  path: '/categories',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ChangelogRoute = ChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
@@ -782,10 +779,25 @@ const BillingSuccessRoute = BillingSuccessRouteImport.update({
   path: '/billing/success',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoriesIndexRoute = CategoriesIndexRouteImport.update({
+  id: '/categories/',
+  path: '/categories/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => CategoriesRoute,
+  id: '/categories/$slug',
+  path: '/categories/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const PacksPrefixRoute = PacksPrefixRouteImport.update({
   id: '/packs/$prefix',
@@ -3852,7 +3864,6 @@ export interface FileRoutesByFullPath {
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
-  '/categories': typeof CategoriesRouteWithChildren
   '/changelog': typeof ChangelogRoute
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
@@ -3876,6 +3887,7 @@ export interface FileRoutesByFullPath {
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
   '/packs/$prefix': typeof PacksPrefixRoute
   '/tools/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
@@ -4455,6 +4467,8 @@ export interface FileRoutesByFullPath {
   '/tools/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools/zip-explorer': typeof ToolsZipExplorerRoute
+  '/blog/': typeof BlogIndexRoute
+  '/categories/': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
   '/api/billing/lifetime-count': typeof ApiBillingLifetimeCountRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
@@ -4471,7 +4485,6 @@ export interface FileRoutesByTo {
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
-  '/categories': typeof CategoriesRouteWithChildren
   '/changelog': typeof ChangelogRoute
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
@@ -4495,6 +4508,7 @@ export interface FileRoutesByTo {
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
   '/packs/$prefix': typeof PacksPrefixRoute
   '/tools/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
@@ -5074,6 +5088,8 @@ export interface FileRoutesByTo {
   '/tools/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools/zip-explorer': typeof ToolsZipExplorerRoute
+  '/blog': typeof BlogIndexRoute
+  '/categories': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
   '/api/billing/lifetime-count': typeof ApiBillingLifetimeCountRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
@@ -5091,7 +5107,6 @@ export interface FileRoutesById {
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
-  '/categories': typeof CategoriesRouteWithChildren
   '/changelog': typeof ChangelogRoute
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
@@ -5115,6 +5130,7 @@ export interface FileRoutesById {
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
   '/packs/$prefix': typeof PacksPrefixRoute
   '/tools_/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
@@ -5694,6 +5710,8 @@ export interface FileRoutesById {
   '/tools_/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools_/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools_/zip-explorer': typeof ToolsZipExplorerRoute
+  '/blog/': typeof BlogIndexRoute
+  '/categories/': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
   '/api/billing/lifetime-count': typeof ApiBillingLifetimeCountRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
@@ -5712,7 +5730,6 @@ export interface FileRouteTypes {
     | '/api-access'
     | '/app'
     | '/auth'
-    | '/categories'
     | '/changelog'
     | '/cli'
     | '/collections'
@@ -5736,6 +5753,7 @@ export interface FileRouteTypes {
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
+    | '/blog/$slug'
     | '/categories/$slug'
     | '/packs/$prefix'
     | '/tools/a11y-contrast-grid'
@@ -6315,6 +6333,8 @@ export interface FileRouteTypes {
     | '/tools/yaml-formatter'
     | '/tools/yaml-json-converter'
     | '/tools/zip-explorer'
+    | '/blog/'
+    | '/categories/'
     | '/api/billing/checkout'
     | '/api/billing/lifetime-count'
     | '/api/billing/webhook'
@@ -6331,7 +6351,6 @@ export interface FileRouteTypes {
     | '/api-access'
     | '/app'
     | '/auth'
-    | '/categories'
     | '/changelog'
     | '/cli'
     | '/collections'
@@ -6355,6 +6374,7 @@ export interface FileRouteTypes {
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
+    | '/blog/$slug'
     | '/categories/$slug'
     | '/packs/$prefix'
     | '/tools/a11y-contrast-grid'
@@ -6934,6 +6954,8 @@ export interface FileRouteTypes {
     | '/tools/yaml-formatter'
     | '/tools/yaml-json-converter'
     | '/tools/zip-explorer'
+    | '/blog'
+    | '/categories'
     | '/api/billing/checkout'
     | '/api/billing/lifetime-count'
     | '/api/billing/webhook'
@@ -6950,7 +6972,6 @@ export interface FileRouteTypes {
     | '/api-access'
     | '/app'
     | '/auth'
-    | '/categories'
     | '/changelog'
     | '/cli'
     | '/collections'
@@ -6974,6 +6995,7 @@ export interface FileRouteTypes {
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
+    | '/blog/$slug'
     | '/categories/$slug'
     | '/packs/$prefix'
     | '/tools_/a11y-contrast-grid'
@@ -7553,6 +7575,8 @@ export interface FileRouteTypes {
     | '/tools_/yaml-formatter'
     | '/tools_/yaml-json-converter'
     | '/tools_/zip-explorer'
+    | '/blog/'
+    | '/categories/'
     | '/api/billing/checkout'
     | '/api/billing/lifetime-count'
     | '/api/billing/webhook'
@@ -7570,7 +7594,6 @@ export interface RootRouteChildren {
   ApiAccessRoute: typeof ApiAccessRoute
   AppRoute: typeof AppRoute
   AuthRoute: typeof AuthRoute
-  CategoriesRoute: typeof CategoriesRouteWithChildren
   ChangelogRoute: typeof ChangelogRoute
   CliRoute: typeof CliRoute
   CollectionsRoute: typeof CollectionsRoute
@@ -7594,6 +7617,8 @@ export interface RootRouteChildren {
   ApiLogErrorRoute: typeof ApiLogErrorRoute
   ApiVideoProxyRoute: typeof ApiVideoProxyRoute
   BillingSuccessRoute: typeof BillingSuccessRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  CategoriesSlugRoute: typeof CategoriesSlugRoute
   PacksPrefixRoute: typeof PacksPrefixRoute
   ToolsA11yContrastGridRoute: typeof ToolsA11yContrastGridRoute
   ToolsA11yScannerRoute: typeof ToolsA11yScannerRoute
@@ -8172,6 +8197,8 @@ export interface RootRouteChildren {
   ToolsYamlFormatterRoute: typeof ToolsYamlFormatterRoute
   ToolsYamlJsonConverterRoute: typeof ToolsYamlJsonConverterRoute
   ToolsZipExplorerRoute: typeof ToolsZipExplorerRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  CategoriesIndexRoute: typeof CategoriesIndexRoute
   ApiBillingCheckoutRoute: typeof ApiBillingCheckoutRoute
   ApiBillingLifetimeCountRoute: typeof ApiBillingLifetimeCountRoute
   ApiBillingWebhookRoute: typeof ApiBillingWebhookRoute
@@ -8230,13 +8257,6 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/categories': {
-      id: '/categories'
-      path: '/categories'
-      fullPath: '/categories'
-      preLoaderRoute: typeof CategoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/changelog': {
@@ -8400,12 +8420,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BillingSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categories/': {
+      id: '/categories/'
+      path: '/categories'
+      fullPath: '/categories/'
+      preLoaderRoute: typeof CategoriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/categories/$slug': {
       id: '/categories/$slug'
-      path: '/$slug'
+      path: '/categories/$slug'
       fullPath: '/categories/$slug'
       preLoaderRoute: typeof CategoriesSlugRouteImport
-      parentRoute: typeof CategoriesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/packs/$prefix': {
       id: '/packs/$prefix'
@@ -12505,18 +12546,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface CategoriesRouteChildren {
-  CategoriesSlugRoute: typeof CategoriesSlugRoute
-}
-
-const CategoriesRouteChildren: CategoriesRouteChildren = {
-  CategoriesSlugRoute: CategoriesSlugRoute,
-}
-
-const CategoriesRouteWithChildren = CategoriesRoute._addFileChildren(
-  CategoriesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
@@ -12525,7 +12554,6 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAccessRoute: ApiAccessRoute,
   AppRoute: AppRoute,
   AuthRoute: AuthRoute,
-  CategoriesRoute: CategoriesRouteWithChildren,
   ChangelogRoute: ChangelogRoute,
   CliRoute: CliRoute,
   CollectionsRoute: CollectionsRoute,
@@ -12549,6 +12577,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiLogErrorRoute: ApiLogErrorRoute,
   ApiVideoProxyRoute: ApiVideoProxyRoute,
   BillingSuccessRoute: BillingSuccessRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  CategoriesSlugRoute: CategoriesSlugRoute,
   PacksPrefixRoute: PacksPrefixRoute,
   ToolsA11yContrastGridRoute: ToolsA11yContrastGridRoute,
   ToolsA11yScannerRoute: ToolsA11yScannerRoute,
@@ -13130,6 +13160,8 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsYamlFormatterRoute: ToolsYamlFormatterRoute,
   ToolsYamlJsonConverterRoute: ToolsYamlJsonConverterRoute,
   ToolsZipExplorerRoute: ToolsZipExplorerRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  CategoriesIndexRoute: CategoriesIndexRoute,
   ApiBillingCheckoutRoute: ApiBillingCheckoutRoute,
   ApiBillingLifetimeCountRoute: ApiBillingLifetimeCountRoute,
   ApiBillingWebhookRoute: ApiBillingWebhookRoute,
