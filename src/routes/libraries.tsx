@@ -137,15 +137,17 @@ function Page() {
   return (
     <PageShell fullWidth>
       <Reveal>
-        <p className="eyebrow">The vault · {all.length > 0 ? all.length : 239} libraries</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-          All icon <span className="text-gradient">libraries</span>
-        </h1>
-        <p className="mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
-          Every open-source icon set on IconVault, side by side with live samples -{" "}
-          {totalIcons > 0 ? `${totalIcons.toLocaleString("en-US")} icons` : "421,020 icons"} in
-          total. Open a set to browse, copy and download.
-        </p>
+        <div className="text-center">
+          <p className="eyebrow">The vault · {all.length > 0 ? all.length : 239} libraries</p>
+          <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            All icon <span className="text-gradient">libraries</span>
+          </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
+            Every open-source icon set on IconVault, side by side with live samples -{" "}
+            {totalIcons > 0 ? `${totalIcons.toLocaleString("en-US")} icons` : "421,020 icons"} in
+            total. Open a set to browse, copy and download.
+          </p>
+        </div>
       </Reveal>
 
       <Reveal delay={70}>
@@ -183,7 +185,7 @@ function Page() {
             ))}
           </div>
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <p className="mt-3 text-center text-sm text-muted-foreground">
           Showing {entries.length} of {all.length} libraries
         </p>
       </Reveal>

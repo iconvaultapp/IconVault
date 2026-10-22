@@ -148,14 +148,16 @@ function Page() {
   return (
     <PageShell fullWidth>
       <Reveal>
-        <p className="eyebrow">{categories.length > 0 ? categories.length : 215} categories</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-          Browse icons by <span className="text-gradient">category</span>
-        </h1>
-        <p className="mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
-          Every icon on IconVault, grouped into curated categories - from arrows and animals to
-          weather, food and social media.
-        </p>
+        <div className="text-center">
+          <p className="eyebrow">{categories.length > 0 ? categories.length : 215} categories</p>
+          <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            Browse icons by <span className="text-gradient">category</span>
+          </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
+            Every icon on IconVault, grouped into curated categories - from arrows and animals to
+            weather, food and social media.
+          </p>
+        </div>
       </Reveal>
 
       <Reveal delay={70}>
@@ -170,9 +172,15 @@ function Page() {
             aria-label="Filter categories"
           />
         </div>
-        {query && (
-          <p className="mt-3 text-sm text-muted-foreground">
-            {filtered.length} {filtered.length === 1 ? "category" : "categories"} match “{query}”
+        {categories.length > 0 && (
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            Showing {filtered.length} of {categories.length} categories
+            {query && (
+              <>
+                {" "}
+                matching “{query}”
+              </>
+            )}
           </p>
         )}
       </Reveal>

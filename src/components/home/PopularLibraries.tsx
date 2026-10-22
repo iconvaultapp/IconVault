@@ -107,11 +107,11 @@ function LibraryCard({
           names={wallNames}
           count={48}
           cols="grid-cols-6 sm:grid-cols-8"
-          size={24}
+          size={30}
           fill
         />
       ) : (
-        <Samples prefix={prefix} collection={collection} count={6} cols="grid-cols-3" size={22} />
+        <Samples prefix={prefix} collection={collection} count={6} cols="grid-cols-3" size={26} />
       )}
       <h3 className="mt-5 font-display text-[1.35rem] font-semibold tracking-tight transition-colors group-hover:text-primary">
         {collection.name}
@@ -158,16 +158,16 @@ export default function PopularLibraries() {
       <span className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-accent/10 blur-3xl" aria-hidden />
       <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-xl">
-              <p className="eyebrow">The vault · {totalLibraries > 0 ? totalLibraries : 239} libraries</p>
-              <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-                Popular <span className="text-gradient">libraries</span>
-              </h2>
-              <p className="mt-3 text-[1.05rem] leading-relaxed text-muted-foreground">
-                The same icons in every set, side by side, so you can feel the style before you commit.
-              </p>
-            </div>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">The vault · {totalLibraries > 0 ? totalLibraries : 239} libraries</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+              Popular <span className="text-gradient">libraries</span>
+            </h2>
+            <p className="mt-3 text-[1.05rem] leading-relaxed text-muted-foreground">
+              The same icons in every set, side by side, so you can feel the style before you commit.
+            </p>
+          </div>
+          <div className="mt-6 flex justify-center">
             <Link
               to="/libraries"
               className="focus-ring group inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
@@ -222,7 +222,7 @@ export default function PopularLibraries() {
                               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
                               style={{ transitionDelay: `${j * 30}ms` }}
                             >
-                              <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={20} height={20} className="opacity-70 group-hover:opacity-100" />
+                              <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={22} height={22} className="opacity-70 group-hover:opacity-100" />
                             </span>
                           );
                         })}

@@ -58,7 +58,7 @@ export default function StyleChips() {
       />
       <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
-          <div className="max-w-xl">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Collection styles</p>
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
               Pick a <span className="text-gradient">style</span>, land on the set
@@ -71,7 +71,7 @@ export default function StyleChips() {
         </Reveal>
 
         <Reveal delay={90}>
-          <div className="mt-9 flex flex-wrap gap-2.5">
+          <div className="mt-9 flex flex-wrap justify-center gap-2.5">
             {STYLES.map((style, i) => {
               const collection = collections[style.set];
               const samples = collection?.samples ?? [];

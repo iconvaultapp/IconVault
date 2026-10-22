@@ -52,18 +52,18 @@ interface TypeCard {
 }
 
 const TYPE_CARDS: TypeCard[] = [
-  { label: "Arrow icons", desc: "Right, up and curved arrows", term: "arrow", icons: ["arrow-right", "arrow-up", "corner-up-right"] },
-  { label: "Home icons", desc: "Houses, buildings and doors", term: "home", icons: ["home", "building-2", "door-open"] },
-  { label: "Search icons", desc: "Magnifiers and zoom controls", term: "search", icons: ["search", "zoom-in", "zoom-out"] },
-  { label: "Settings icons", desc: "Gears, sliders and tools", term: "settings", icons: ["settings", "sliders-horizontal", "wrench"] },
-  { label: "User icons", desc: "People, profiles and accounts", term: "user", icons: ["user", "user-plus", "users"] },
-  { label: "Menu icons", desc: "Navigation and layout menus", term: "menu", icons: ["menu", "align-justify", "layout-grid"] },
-  { label: "Heart icons", desc: "Likes, health and favourites", term: "heart", icons: ["heart", "heart-pulse", "sparkles"] },
-  { label: "Star icons", desc: "Ratings, awards and favourites", term: "star", icons: ["star", "award", "sparkles"] },
-  { label: "Download icons", desc: "Save, export and cloud downloads", term: "download", icons: ["download", "cloud-download", "arrow-down-to-line"] },
-  { label: "Checkmark icons", desc: "Ticks, done and verified states", term: "check", icons: ["check", "check-check", "badge-check"] },
-  { label: "Close icons", desc: "Dismiss, delete and clear", term: "close", icons: ["x", "delete", "eraser"] },
-  { label: "Edit icons", desc: "Pencils, pens and highlighters", term: "edit", icons: ["pencil", "pen-line", "highlighter"] },
+  { label: "Arrow icons", desc: "Right, up and curved arrows", term: "arrow", icons: ["arrow-right", "arrow-up", "corner-up-right", "arrow-down", "arrow-left", "move-diagonal"] },
+  { label: "Home icons", desc: "Houses, buildings and doors", term: "home", icons: ["home", "building-2", "door-open", "building", "landmark", "warehouse"] },
+  { label: "Search icons", desc: "Magnifiers and zoom controls", term: "search", icons: ["search", "zoom-in", "zoom-out", "search-check", "scan-search", "file-search"] },
+  { label: "Settings icons", desc: "Gears, sliders and tools", term: "settings", icons: ["settings", "sliders-horizontal", "wrench", "hammer", "cog", "settings-2"] },
+  { label: "User icons", desc: "People, profiles and accounts", term: "user", icons: ["user", "user-plus", "users", "user-check", "users-round", "circle-user-round"] },
+  { label: "Menu icons", desc: "Navigation and layout menus", term: "menu", icons: ["menu", "align-justify", "layout-grid", "layout-list", "panel-left", "grip"] },
+  { label: "Heart icons", desc: "Likes, health and favourites", term: "heart", icons: ["heart", "heart-pulse", "sparkles", "heart-handshake", "heart-crack", "hand-heart"] },
+  { label: "Star icons", desc: "Ratings, awards and favourites", term: "star", icons: ["star", "award", "sparkles", "trophy", "medal", "crown"] },
+  { label: "Download icons", desc: "Save, export and cloud downloads", term: "download", icons: ["download", "cloud-download", "arrow-down-to-line", "upload", "cloud-upload", "folder-down"] },
+  { label: "Checkmark icons", desc: "Ticks, done and verified states", term: "check", icons: ["check", "check-check", "badge-check", "circle-check", "square-check-big", "list-checks"] },
+  { label: "Close icons", desc: "Dismiss, delete and clear", term: "close", icons: ["x", "delete", "eraser", "circle-x", "trash-2", "ban"] },
+  { label: "Edit icons", desc: "Pencils, pens and highlighters", term: "edit", icons: ["pencil", "pen-line", "highlighter", "pen-tool", "paintbrush", "type"] },
 ];
 
 interface CuratedCard {
@@ -95,7 +95,7 @@ function SampleStrip({
   children: ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-3.5 rounded-xl bg-[image:var(--gradient-hero)] px-4 py-3 ring-1 ring-inset ring-border/60">
+    <div className="flex items-center gap-4 rounded-xl bg-[image:var(--gradient-hero)] px-4 py-3.5 ring-1 ring-inset ring-border/60">
       {children}
     </div>
   );
@@ -104,7 +104,7 @@ function SampleStrip({
 function CollectionSamples({
   collections,
   prefix,
-  count = 3,
+  count = 6,
 }: {
   collections: Record<string, IconifyCollection>;
   prefix: string;
@@ -121,7 +121,7 @@ function CollectionSamples({
             className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
             style={{ transitionDelay: `${i * 40}ms` }}
           >
-            <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={20} height={20} className="opacity-80 group-hover:opacity-100" />
+            <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={24} height={24} className="opacity-80 group-hover:opacity-100" />
           </span>
         );
       })}
@@ -195,16 +195,16 @@ export default function BrowseCategories() {
       <span className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" aria-hidden />
       <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-5">
-            <div className="max-w-xl">
-              <p className="eyebrow">Find your icons</p>
-              <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-                Browse <span className="text-gradient">icons</span>
-              </h2>
-              <p className="mt-3 text-[1.05rem] leading-relaxed text-muted-foreground">
-                By category, by icon type, or a curated collection - every path lands on real icons.
-              </p>
-            </div>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Find your icons</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+              Browse <span className="text-gradient">icons</span>
+            </h2>
+            <p className="mt-3 text-[1.05rem] leading-relaxed text-muted-foreground">
+              By category, by icon type, or a curated collection - every path lands on real icons.
+            </p>
+          </div>
+          <div className="mt-7 flex justify-center">
             <div className="inline-flex rounded-full bg-muted p-1 shadow-inner" role="tablist" aria-label="Browse icons by">
               {tabs.map((t) => (
                 <button
@@ -253,10 +253,12 @@ export default function BrowseCategories() {
                   );
                 })}
               </div>
-              <Link to="/categories" className="focus-ring group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                {categories.length > 0 ? `All ${categories.length} categories` : "All categories"}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              <div className="flex justify-center">
+                <Link to="/categories" className="focus-ring group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  {categories.length > 0 ? `All ${categories.length} categories` : "All categories"}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
             </>
           )}
 
@@ -277,17 +279,19 @@ export default function BrowseCategories() {
                           className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
                           style={{ transitionDelay: `${j * 40}ms` }}
                         >
-                          <ReliableIcon prefix="lucide" name={name} alt="" width={20} height={20} className="opacity-80 group-hover:opacity-100" />
+                          <ReliableIcon prefix="lucide" name={name} alt="" width={24} height={24} className="opacity-80 group-hover:opacity-100" />
                         </span>
                       ))}
                     </BrowseCard>
                   </Link>
                 ))}
               </div>
-              <Link to="/app" className="focus-ring group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                Browse all icons
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              <div className="flex justify-center">
+                <Link to="/app" className="focus-ring group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  Browse all icons
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
             </>
           )}
 
@@ -316,10 +320,12 @@ export default function BrowseCategories() {
                   );
                 })}
               </div>
-              <Link to="/collections" className="focus-ring group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                All collections
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              <div className="flex justify-center">
+                <Link to="/libraries" className="focus-ring group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  All libraries
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
             </>
           )}
         </div>
