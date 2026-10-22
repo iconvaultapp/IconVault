@@ -24,6 +24,7 @@ import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as HistoryRouteImport } from './routes/history'
+import { Route as LibrariesRouteImport } from './routes/libraries'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProRouteImport } from './routes/pro'
@@ -702,6 +703,11 @@ const EmbedRoute = EmbedRouteImport.update({
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibrariesRoute = LibrariesRouteImport.update({
+  id: '/libraries',
+  path: '/libraries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -3872,6 +3878,7 @@ export interface FileRoutesByFullPath {
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
   '/history': typeof HistoryRoute
+  '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
@@ -4493,6 +4500,7 @@ export interface FileRoutesByTo {
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
   '/history': typeof HistoryRoute
+  '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
@@ -5115,6 +5123,7 @@ export interface FileRoutesById {
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
   '/history': typeof HistoryRoute
+  '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
@@ -5738,6 +5747,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/embed'
     | '/history'
+    | '/libraries'
     | '/notifications'
     | '/privacy'
     | '/pro'
@@ -6359,6 +6369,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/embed'
     | '/history'
+    | '/libraries'
     | '/notifications'
     | '/privacy'
     | '/pro'
@@ -6980,6 +6991,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/embed'
     | '/history'
+    | '/libraries'
     | '/notifications'
     | '/privacy'
     | '/pro'
@@ -7602,6 +7614,7 @@ export interface RootRouteChildren {
   DocsRoute: typeof DocsRoute
   EmbedRoute: typeof EmbedRoute
   HistoryRoute: typeof HistoryRoute
+  LibrariesRoute: typeof LibrariesRoute
   NotificationsRoute: typeof NotificationsRoute
   PrivacyRoute: typeof PrivacyRoute
   ProRoute: typeof ProRoute
@@ -8313,6 +8326,13 @@ declare module '@tanstack/react-router' {
       path: '/history'
       fullPath: '/history'
       preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/libraries': {
+      id: '/libraries'
+      path: '/libraries'
+      fullPath: '/libraries'
+      preLoaderRoute: typeof LibrariesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -12562,6 +12582,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsRoute: DocsRoute,
   EmbedRoute: EmbedRoute,
   HistoryRoute: HistoryRoute,
+  LibrariesRoute: LibrariesRoute,
   NotificationsRoute: NotificationsRoute,
   PrivacyRoute: PrivacyRoute,
   ProRoute: ProRoute,

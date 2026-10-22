@@ -8,7 +8,12 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
-import { fetchCollections, parseIconId, type IconifyCollection } from "@/lib/iconify";
+import {
+  fetchCollectionIcons,
+  fetchCollections,
+  parseIconId,
+  type IconifyCollection,
+} from "@/lib/iconify";
 
 const DESCRIPTIONS: Record<string, string> = {
   lucide: "Clean 2px outline icons, the shadcn/ui default.",
@@ -26,26 +31,33 @@ function Samples({
   collection,
   count,
   cols,
-  size = 20,
+  size = 22,
+  names,
+  fill = false,
 }: {
   prefix: string;
   collection: IconifyCollection;
   count: number;
   cols: string;
   size?: number;
+  /** Full "prefix:name" ids; overrides the collection's short sample list. */
+  names?: string[];
+  /** Stretch the panel to fill the card and spread the rows evenly. */
+  fill?: boolean;
 }) {
-  const samples = (collection.samples ?? []).slice(0, count);
+  const source = names && names.length > 0 ? names : (collection.samples ?? []);
+  const samples = source.slice(0, count);
   if (samples.length === 0) return null;
   return (
     <div
-      className={`grid gap-2 rounded-2xl bg-[image:var(--gradient-hero)] p-4 ring-1 ring-inset ring-border/60 ${cols}`}
+      className={`grid gap-3 rounded-2xl bg-[image:var(--gradient-hero)] p-4 ring-1 ring-inset ring-border/60 ${cols} ${fill ? "flex-1 content-between" : ""}`}
     >
       {samples.map((sample, i) => {
         const parsed = sample.includes(":") ? parseIconId(sample) : { prefix, name: sample };
         return (
           <span
             key={sample}
-            className="grid place-items-center py-1 transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-125"
+            className="grid place-items-center py-1.5 transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-125"
             style={{ transitionDelay: `${i * 35}ms` }}
           >
             <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={size} height={size} className="opacity-80 transition-opacity group-hover:opacity-100" />
@@ -65,6 +77,21 @@ function LibraryCard({
   collection: IconifyCollection;
   large?: boolean;
 }) {
+  // The large card spans two rows, so fill it with a real icon wall: the
+  // collection only ships 6 curated samples, the rest come from the local
+  // per-set name index (Sameer 2026-10-23: no empty space in the big card).
+  const [wallNames, setWallNames] = useState<string[]>([]);
+  useEffect(() => {
+    if (!large) return;
+    let alive = true;
+    void fetchCollectionIcons(prefix, 48).then((names) => {
+      if (alive) setWallNames(names);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [large, prefix]);
+
   return (
     <Link
       to="/app"
@@ -73,12 +100,19 @@ function LibraryCard({
       aria-label={`Browse ${collection.name} icons`}
     >
       <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
-      <Samples
-        prefix={prefix}
-        collection={collection}
-        count={large ? 24 : 8}
-        cols={large ? "grid-cols-6 sm:grid-cols-8" : "grid-cols-4"}
-      />
+      {large ? (
+        <Samples
+          prefix={prefix}
+          collection={collection}
+          names={wallNames}
+          count={48}
+          cols="grid-cols-6 sm:grid-cols-8"
+          size={24}
+          fill
+        />
+      ) : (
+        <Samples prefix={prefix} collection={collection} count={6} cols="grid-cols-3" size={22} />
+      )}
       <h3 className="mt-5 font-display text-[1.35rem] font-semibold tracking-tight transition-colors group-hover:text-primary">
         {collection.name}
       </h3>
@@ -122,7 +156,7 @@ export default function PopularLibraries() {
     <section className="relative overflow-hidden">
       <span className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" aria-hidden />
       <span className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-accent/10 blur-3xl" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-5 py-20 lg:px-8">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl">
@@ -135,7 +169,7 @@ export default function PopularLibraries() {
               </p>
             </div>
             <Link
-              to="/collections"
+              to="/libraries"
               className="focus-ring group inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
               {totalLibraries > 0 ? `All ${totalLibraries} libraries` : "All libraries"}
@@ -179,8 +213,8 @@ export default function PopularLibraries() {
                           icons{collection.license?.title ? ` · ${collection.license.title}` : ""}
                         </span>
                       </span>
-                      <span className="hidden shrink-0 items-center gap-3 sm:flex" aria-hidden>
-                        {(collection.samples ?? []).slice(0, 8).map((sample, j) => {
+                      <span className="hidden shrink-0 items-center gap-3.5 sm:flex" aria-hidden>
+                        {(collection.samples ?? []).slice(0, 6).map((sample, j) => {
                           const parsed = sample.includes(":") ? parseIconId(sample) : { prefix, name: sample };
                           return (
                             <span
@@ -188,7 +222,7 @@ export default function PopularLibraries() {
                               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
                               style={{ transitionDelay: `${j * 30}ms` }}
                             >
-                              <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={17} height={17} className="opacity-70 group-hover:opacity-100" />
+                              <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={20} height={20} className="opacity-70 group-hover:opacity-100" />
                             </span>
                           );
                         })}

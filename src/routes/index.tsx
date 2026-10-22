@@ -34,6 +34,7 @@ import { supabase } from "@/integrations/supabase/client";
 import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
 import BrowseCategories from "@/components/home/BrowseCategories";
+import StyleChips from "@/components/home/StyleChips";
 import BlogTeaser from "@/components/home/BlogTeaser";
 
 export const Route = createFileRoute("/")({
@@ -185,7 +186,7 @@ function ToolsTeaser() {
 
   return (
     <section className="border-b border-border bg-surface-2/60">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Free online tools</p>
           <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
@@ -380,7 +381,7 @@ function Landing() {
         {/* Hero */}
         <section className="hero-glow relative overflow-hidden">
           <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
-          <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
+          <div className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
             <Reveal>
               <span className="inline-flex max-w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.08em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
                 <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {TOOL_COUNT} free tools · one search
@@ -490,6 +491,9 @@ function Landing() {
         {/* Browse icons by category / type / curated collection (added 2026-10-22) */}
         <BrowseCategories />
 
+        {/* Collection styles chip cloud (added 2026-10-23) */}
+        <StyleChips />
+
         {/* Free tools teaser */}
         <ToolsTeaser />
 
@@ -508,7 +512,7 @@ function Landing() {
         <BlogTeaser />
 
         {/* Stats */}
-        <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+        <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 70} className="surface-card lift-hover px-5 py-7 text-center">
@@ -520,7 +524,7 @@ function Landing() {
         </section>
 
         {/* Features */}
-        <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+        <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Why teams switch</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -546,7 +550,7 @@ function Landing() {
 
         {/* Code showcase */}
         <section className="border-y border-border bg-surface-2">
-          <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8">
+          <div className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)] items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8">
             <Reveal>
               <p className="eyebrow">Developer experience</p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -595,7 +599,7 @@ function Landing() {
         </section>
 
         {/* Steps */}
-        <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+        <section className="mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
           <Reveal className="text-center">
             <p className="eyebrow">How it works</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -631,7 +635,7 @@ function Landing() {
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-6xl px-5 pb-24 lg:px-8">
+        <section className="mx-auto max-w-[1440px] px-5 pb-24 lg:px-8">
           <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-ink px-6 py-16 text-center">
             <span className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
             <span className="pointer-events-none absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl" />

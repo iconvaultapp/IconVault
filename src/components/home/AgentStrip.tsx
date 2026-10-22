@@ -25,7 +25,7 @@ export default function AgentStrip() {
 
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-5 py-7 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 py-7 lg:px-8">
         <Reveal>
           <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-center">
             <div className="shrink-0 md:max-w-56">

@@ -193,7 +193,7 @@ export default function BrowseCategories() {
   return (
     <section className="relative overflow-hidden border-t border-border bg-surface-2/50">
       <span className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-5 py-20 lg:px-8">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div className="max-w-xl">

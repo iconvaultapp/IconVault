@@ -63,7 +63,7 @@ export const SiteFooter = () => {
         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
       />
 
-      <div className="mx-auto max-w-7xl px-5 pt-16 lg:px-8 lg:pt-20">
+      <div className="mx-auto max-w-[1440px] px-5 pt-16 lg:px-8 lg:pt-20">
         <div className="grid gap-12 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_0.8fr_0.8fr_0.8fr]">
           {/* Brand + socials */}
           <div className="max-w-xs">

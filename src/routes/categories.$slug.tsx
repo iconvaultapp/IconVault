@@ -63,8 +63,8 @@ function Page() {
   const visible = useMemo(() => icons.slice(0, shown), [icons, shown]);
 
   return (
-    <PageShell>
-      <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-8 sm:px-6">
+    <PageShell fullWidth>
+      <div className="w-full pb-12 pt-2">
         <nav className="flex items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-foreground">Home</Link>
           <ChevronRight className="h-3 w-3" />

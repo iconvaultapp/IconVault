@@ -41,7 +41,7 @@ export default function BlogTeaser() {
   const posts = BLOG_POSTS.slice(0, 6);
   if (posts.length === 0) return null;
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+    <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
