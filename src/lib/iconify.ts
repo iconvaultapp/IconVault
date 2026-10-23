@@ -25,6 +25,7 @@ import {
   iconDataToSvg,
   perIconDataUrls,
   parseIconJsData,
+  svgToIconData,
 } from "./icon-svg";
 
 export interface IconifyCollection {
@@ -563,6 +564,31 @@ const fetchPerIconData = async (
       return icon;
     } catch (error) {
       lastError = error;
+      // First-party fallback: our own /api/icon route serves the same icon
+      // from this origin (edge-cached) and resolves Iconify aliases, which
+      // have no per-icon file in the @iconify-icons CDN packages (~33k alias
+      // names in the index could never load from the CDN). This also rescues
+      // browsers whose network blocks or stalls the public CDNs: if the site
+      // itself loaded, this origin is reachable by definition, so every icon
+      // that exists loads one way or the other.
+      try {
+        const res = await fetch(getIconSvgUrl(prefix, name), {
+          headers: { Accept: "image/svg+xml" },
+        });
+        if (!res.ok) throw new Error(`Icon route failed: ${res.status}`);
+        const parsed = svgToIconData(await res.text(), prefix, name);
+        const icon: IconifyIconData = {
+          body: parsed.body,
+          left: parsed.left,
+          top: parsed.top,
+          width: parsed.width || 24,
+          height: parsed.height || 24,
+        };
+        memSetIcon(key, icon);
+        return icon;
+      } catch (fallbackError) {
+        lastError = fallbackError;
+      }
     }
     throw lastError instanceof Error ? lastError : new Error("Icon data unavailable");
   })();
