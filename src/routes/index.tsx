@@ -51,6 +51,7 @@ import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
 import BrowseCategories from "@/components/home/BrowseCategories";
 import StyleChips from "@/components/home/StyleChips";
+import IllustrationsHome from "@/components/home/IllustrationsHome";
 import MarqueeBand from "@/components/home/MarqueeBand";
 // Lazy: BlogTeaser pulls in every post's full text for its cards. Keeping
 // it out of the homepage's entry chunk is a major first-load saving; the
@@ -660,6 +661,9 @@ function Landing() {
 
         {/* Browse icons by category / type / curated collection (added 2026-10-22) */}
         <BrowseCategories />
+
+        {/* Free illustrations showcase (Sameer 2026-10-23) */}
+        <IllustrationsHome />
 
         {/* Collection styles chip cloud (added 2026-10-23) */}
         <StyleChips />

@@ -7,11 +7,13 @@ import { Reveal } from "@/components/Reveal";
 import IllustrationArt from "@/components/IllustrationArt";
 import {
   ILLUSTRATIONS,
-  DEFAULT_ILLUSTRATION_COLOR,
+  ILLUSTRATION_PACKS,
   loadIllustrationSvg,
+  packOf,
   recolorSvg,
   sizeSvg,
   type IllustrationEntry,
+  type IllustrationPackId,
 } from "@/lib/illustrations-data";
 import { cn } from "@/lib/utils";
 
@@ -22,12 +24,12 @@ export const Route = createFileRoute("/illustrations")({
       {
         name: "description",
         content:
-          "54 free open-source SVG illustrations for websites and apps. Recolor them to your brand, resize, and download as SVG or PNG. Light and dark variants, MIT licensed (by Flowbite).",
+          "386 free open-source SVG illustrations from 5 packs for websites and apps. Recolor them to your brand, resize, and download as SVG or PNG. MIT and CC0 licensed.",
       },
       { property: "og:title", content: "Free SVG Illustrations | IconVault" },
       {
         property: "og:description",
-        content: "Recolor, resize and download 54 free SVG illustrations - light & dark, MIT licensed.",
+        content: "Recolor, resize and download 386 free SVG illustrations from 5 open-source packs.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/illustrations" },
@@ -39,6 +41,9 @@ export const Route = createFileRoute("/illustrations")({
 });
 
 type Theme = "light" | "dark";
+type PackFilter = "all" | IllustrationPackId;
+
+const PAGE_SIZE = 48;
 
 const SWATCHES: Array<{ name: string; hex: string }> = [
   { name: "Flowbite Blue", hex: "#2563eb" },
@@ -121,6 +126,7 @@ function EditorModal({
   const [size, setSize] = useState(1024);
   const [busy, setBusy] = useState(false);
   const [copied, setCopied] = useState(false);
+  const pack = packOf(entry);
   const activeTheme = themeFor(entry, theme);
 
   useEffect(() => {
@@ -136,8 +142,8 @@ function EditorModal({
   }, [onClose]);
 
   const buildSvg = async (): Promise<string> => {
-    const raw = await loadIllustrationSvg(entry.slug, activeTheme);
-    return sizeSvg(recolorSvg(raw, color), size);
+    const raw = await loadIllustrationSvg(entry, activeTheme);
+    return sizeSvg(recolorSvg(entry, raw, color), size);
   };
 
   const downloadSvg = async () => {
@@ -205,7 +211,7 @@ function EditorModal({
           <div>
             <h2 className="font-display text-xl font-semibold tracking-tight">{entry.title}</h2>
             <p className="mt-0.5 text-sm text-muted-foreground">
-              Free SVG illustration · MIT license · by Flowbite
+              Free SVG illustration · {pack.license} license · by {pack.byline}
             </p>
           </div>
           <button
@@ -225,7 +231,7 @@ function EditorModal({
           )}
         >
           <IllustrationArt
-            slug={entry.slug}
+            entry={entry}
             theme={activeTheme}
             color={color}
             className="h-64 w-full max-w-md"
@@ -234,12 +240,18 @@ function EditorModal({
         </div>
 
         <div className="mt-5 space-y-4">
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              Color
+          {pack.ramp ? (
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                Color
+              </p>
+              <ColorControls color={color} setColor={setColor} />
+            </div>
+          ) : (
+            <p className="rounded-xl bg-muted/60 px-4 py-3 text-sm text-muted-foreground">
+              This pack ships in its original colors - download it as-is, in any size.
             </p>
-            <ColorControls color={color} setColor={setColor} />
-          </div>
+          )}
 
           <div className="flex flex-wrap items-end gap-x-8 gap-y-4">
             <div>
@@ -257,31 +269,31 @@ function EditorModal({
                 aria-label="Export size in pixels"
               />
             </div>
-            <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                Variant
-              </p>
-              <div className="flex overflow-hidden rounded-full border border-border">
-                {(["light", "dark"] as Theme[]).map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    disabled={t === "dark" && !entry.dark}
-                    onClick={() => setTheme(t)}
-                    className={cn(
-                      "flex items-center gap-1.5 px-3.5 py-1.5 text-sm capitalize transition-colors",
-                      activeTheme === t
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-muted",
-                      t === "dark" && !entry.dark && "cursor-not-allowed opacity-40",
-                    )}
-                  >
-                    {t === "light" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-                    {t}
-                  </button>
-                ))}
+            {entry.dark && (
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                  Variant
+                </p>
+                <div className="flex overflow-hidden rounded-full border border-border">
+                  {(["light", "dark"] as Theme[]).map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => setTheme(t)}
+                      className={cn(
+                        "flex items-center gap-1.5 px-3.5 py-1.5 text-sm capitalize transition-colors",
+                        activeTheme === t
+                          ? "bg-primary text-primary-foreground"
+                          : "text-muted-foreground hover:bg-muted",
+                      )}
+                    >
+                      {t === "light" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+                      {t}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           <div className="flex flex-wrap gap-2 pt-1">
@@ -319,17 +331,36 @@ function EditorModal({
 
 function Page() {
   const [query, setQuery] = useState("");
+  const [packFilter, setPackFilter] = useState<PackFilter>("all");
   const [theme, setTheme] = useState<Theme>("light");
-  const [color, setColor] = useState(DEFAULT_ILLUSTRATION_COLOR);
+  const [color, setColor] = useState("#2563eb");
   const [selected, setSelected] = useState<IllustrationEntry | null>(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [query, packFilter]);
+
+  const packCounts = useMemo(() => {
+    const counts = new Map<IllustrationPackId, number>();
+    for (const e of ILLUSTRATIONS) counts.set(e.pack, (counts.get(e.pack) ?? 0) + 1);
+    return counts;
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return ILLUSTRATIONS;
-    return ILLUSTRATIONS.filter(
-      (e) => e.title.toLowerCase().includes(q) || e.slug.includes(q),
-    );
-  }, [query]);
+    return ILLUSTRATIONS.filter((e) => {
+      if (packFilter !== "all" && e.pack !== packFilter) return false;
+      if (!q) return true;
+      return (
+        e.title.toLowerCase().includes(q) ||
+        e.slug.includes(q) ||
+        packOf(e).label.toLowerCase().includes(q)
+      );
+    });
+  }, [query, packFilter]);
+
+  const visible = filtered.slice(0, visibleCount);
 
   return (
     <PageShell fullWidth>
@@ -340,54 +371,86 @@ function Page() {
             Free SVG <span className="text-gradient">illustrations</span>
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
-            Open-source illustrations for your next project. Pick a color, choose a size,
-            download as SVG or PNG - free for personal and commercial use.
+            Five open-source packs in one gallery. Pick a color, choose a size, download as
+            SVG or PNG - free for personal and commercial use.
           </p>
         </div>
       </Reveal>
 
       <Reveal delay={70}>
-        <div className="surface-card mt-8 flex flex-col gap-4 p-4 lg:flex-row lg:items-center">
-          <div className="relative w-full lg:max-w-xs">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search illustrations…"
-              className="focus-ring w-full rounded-full border border-border bg-surface py-2.5 pl-11 pr-4 text-sm"
-              aria-label="Search illustrations"
-            />
-          </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <ColorControls color={color} setColor={setColor} />
-            <div className="flex overflow-hidden rounded-full border border-border">
-              {(["light", "dark"] as Theme[]).map((t) => (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => setTheme(t)}
-                  className={cn(
-                    "flex items-center gap-1.5 px-3.5 py-1.5 text-sm capitalize transition-colors",
-                    theme === t
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-muted",
-                  )}
-                >
-                  {t === "light" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-                  {t}
-                </button>
-              ))}
+        <div className="surface-card mt-8 flex flex-col gap-4 p-4">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+            <div className="relative w-full lg:max-w-xs">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search illustrations…"
+                className="focus-ring w-full rounded-full border border-border bg-surface py-2.5 pl-11 pr-4 text-sm"
+                aria-label="Search illustrations"
+              />
             </div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <ColorControls color={color} setColor={setColor} />
+              <div className="flex overflow-hidden rounded-full border border-border">
+                {(["light", "dark"] as Theme[]).map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => setTheme(t)}
+                    className={cn(
+                      "flex items-center gap-1.5 px-3.5 py-1.5 text-sm capitalize transition-colors",
+                      theme === t
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:bg-muted",
+                    )}
+                  >
+                    {t === "light" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 border-t border-border/70 pt-4">
+            <button
+              type="button"
+              onClick={() => setPackFilter("all")}
+              className={cn(
+                "rounded-full px-4 py-1.5 text-sm transition-colors",
+                packFilter === "all"
+                  ? "bg-primary font-medium text-primary-foreground"
+                  : "border border-border text-muted-foreground hover:bg-muted",
+              )}
+            >
+              All packs · {ILLUSTRATIONS.length}
+            </button>
+            {ILLUSTRATION_PACKS.map((p) => (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => setPackFilter(p.id)}
+                className={cn(
+                  "rounded-full px-4 py-1.5 text-sm transition-colors",
+                  packFilter === p.id
+                    ? "bg-primary font-medium text-primary-foreground"
+                    : "border border-border text-muted-foreground hover:bg-muted",
+                )}
+              >
+                {p.label} · {packCounts.get(p.id) ?? 0}
+              </button>
+            ))}
           </div>
         </div>
       </Reveal>
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {filtered.map((entry, i) => {
+        {visible.map((entry, i) => {
           const t = themeFor(entry, theme);
+          const pack = packOf(entry);
           return (
-            <Reveal key={entry.slug} delay={Math.min(i * 25, 300)} className="h-full">
+            <Reveal key={`${entry.pack}:${entry.slug}`} delay={Math.min((i % PAGE_SIZE) * 15, 300)} className="h-full">
               <button
                 type="button"
                 onClick={() => setSelected(entry)}
@@ -401,7 +464,7 @@ function Page() {
                   )}
                 >
                   <IllustrationArt
-                    slug={entry.slug}
+                    entry={entry}
                     theme={t}
                     color={color}
                     className="h-full w-full transition-transform duration-300 group-hover:scale-[1.04]"
@@ -415,6 +478,9 @@ function Page() {
                     SVG
                   </span>
                 </span>
+                <span className="mt-0.5 block text-xs text-muted-foreground">
+                  {pack.label} · {pack.license}
+                </span>
               </button>
             </Reveal>
           );
@@ -427,17 +493,34 @@ function Page() {
         </p>
       )}
 
-      <p className="mt-10 text-center text-sm text-muted-foreground">
-        Illustrations by{" "}
-        <a
-          href="https://flowbite.com/illustrations/"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-primary underline-offset-4 hover:underline"
-        >
-          Flowbite
-        </a>{" "}
-        - free and open-source under the MIT license.
+      {visibleCount < filtered.length && (
+        <div className="mt-10 text-center">
+          <button
+            type="button"
+            onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+            className="focus-ring rounded-full border border-border px-6 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+          >
+            Show more ({filtered.length - visibleCount} remaining)
+          </button>
+        </div>
+      )}
+
+      <p className="mt-10 text-center text-sm leading-relaxed text-muted-foreground">
+        Illustration packs:{" "}
+        {ILLUSTRATION_PACKS.map((p, i) => (
+          <span key={p.id}>
+            {i > 0 && " · "}
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              {p.label}
+            </a>{" "}
+            by {p.byline} ({p.license})
+          </span>
+        ))}
       </p>
 
       {selected && (

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 const primaryLinks = [
   { label: "Browse icons", path: "/app" },
+  { label: "Illustrations", path: "/illustrations" },
   { label: "Collections", path: "/collections" },
   { label: "Blog", path: "/blog" },
   { label: "Pricing", path: "/pro" },
@@ -18,7 +19,7 @@ const primaryLinks = [
 const BROWSE_SUBMENU = [
   { label: "Libraries", path: "/libraries", desc: "All 239 icon sets, side by side", icon: Layers },
   { label: "Browse by category", path: "/categories", desc: "215 curated categories", icon: LayoutGrid },
-  { label: "Illustrations", path: "/illustrations", desc: "54 free SVG illustrations, recolor & download", icon: Image },
+  { label: "Illustrations", path: "/illustrations", desc: "386 free SVG illustrations, recolor & download", icon: Image },
 ] as const;
 
 export const Brand = ({ className }: { className?: string }) => {

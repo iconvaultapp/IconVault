@@ -25,6 +25,7 @@ import { usePageTracking } from "@/hooks/useAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
 import PromoPopup from "@/components/PromoPopup";
 import IllustrationArt from "@/components/IllustrationArt";
+import { getIllustration } from "@/lib/illustrations-data";
 import GlobalSidebar from "@/components/GlobalSidebar";
 import { FavouritesProvider } from "@/hooks/useFavourites";
 import { CollectionsProvider } from "@/hooks/useCollections";
@@ -93,7 +94,7 @@ function NotFoundComponent() {
         </p>
 
         <IllustrationArt
-          slug="laptop-404-not-found-error"
+          entry={getIllustration("flowbite", "laptop-404-not-found-error")}
           color="#0d7a68"
           className="mx-auto mt-7 h-32 w-full max-w-xs sm:h-40 sm:max-w-sm"
           title="Illustration of a laptop showing a 404 error"
@@ -385,7 +386,9 @@ function RootComponent() {
     pathname !== "/" &&
     !pathname.startsWith("/tools") &&
     !pathname.startsWith("/admin") &&
-    !pathname.startsWith("/profile");
+    !pathname.startsWith("/profile") &&
+    // Illustrations is a public gallery page - no app sidebar (Sameer 2026-10-23).
+    !pathname.startsWith("/illustrations");
 
   return (
     <QueryClientProvider client={queryClient}>

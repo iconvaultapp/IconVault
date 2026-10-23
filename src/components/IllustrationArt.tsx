@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import {
   loadIllustrationSvg,
+  packOf,
   recolorSvg,
-  DEFAULT_ILLUSTRATION_COLOR,
+  type IllustrationEntry,
 } from "@/lib/illustrations-data";
 import { cn } from "@/lib/utils";
 
 interface IllustrationArtProps {
-  slug: string;
+  entry: IllustrationEntry;
   theme?: "light" | "dark";
-  /** Primary colour the Flowbite blue ramp is recoloured to. */
+  /** Target colour; defaults to the pack's own primary (no recolour). */
   color?: string;
   className?: string;
   /** Accessible label; omit for decorative use. */
@@ -17,24 +18,25 @@ interface IllustrationArtProps {
 }
 
 /**
- * One bundled Flowbite illustration, rendered inline with its brand-blue
- * ramp recoloured live. The raw SVG is fetched once per slug+theme and
+ * One bundled illustration, rendered inline with its pack's colour family
+ * recoloured live. The raw SVG is fetched once per pack+slug+theme and
  * session-cached; recolouring is a pure string swap, so colour changes
  * are instant and downloads elsewhere reuse the same helpers.
  */
 export const IllustrationArt = ({
-  slug,
+  entry,
   theme = "light",
-  color = DEFAULT_ILLUSTRATION_COLOR,
+  color,
   className,
   title,
 }: IllustrationArtProps) => {
   const [raw, setRaw] = useState<string | null>(null);
+  const activeColor = color ?? packOf(entry).primary;
 
   useEffect(() => {
     let alive = true;
     setRaw(null);
-    loadIllustrationSvg(slug, theme)
+    loadIllustrationSvg(entry, theme)
       .then((svg) => {
         if (alive) setRaw(svg);
       })
@@ -44,7 +46,7 @@ export const IllustrationArt = ({
     return () => {
       alive = false;
     };
-  }, [slug, theme]);
+  }, [entry, theme]);
 
   return (
     <span
@@ -60,7 +62,7 @@ export const IllustrationArt = ({
       {raw ? (
         <span
           className="block h-full w-full [&>svg]:h-full [&>svg]:w-full"
-          dangerouslySetInnerHTML={{ __html: recolorSvg(raw, color) }}
+          dangerouslySetInnerHTML={{ __html: recolorSvg(entry, raw, activeColor) }}
         />
       ) : null}
     </span>
