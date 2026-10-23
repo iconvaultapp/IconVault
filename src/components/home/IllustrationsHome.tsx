@@ -13,6 +13,10 @@ const SAMPLES: Array<{ slug: string; title: string }> = [
   { slug: "balloon-package-flying", title: "Balloon Package Flying" },
   { slug: "group-brainstorming", title: "Group Brainstorming" },
   { slug: "couple-dancing-music", title: "Couple Dancing Music" },
+  { slug: "woman-laptop-chatting", title: "Woman Laptop Chatting" },
+  { slug: "man-working-programs", title: "Man Working Programs" },
+  { slug: "woman-shopping-online", title: "Woman Shopping Online" },
+  { slug: "people-connecting", title: "People Connecting" },
 ];
 
 const BRAND_COLOR = "#0d7a68";
@@ -20,23 +24,22 @@ const BRAND_COLOR = "#0d7a68";
 export const IllustrationsHome = () => (
   <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
     <Reveal>
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div className="max-w-2xl">
-          <p className="eyebrow flex items-center gap-2">
-            <Image className="h-3.5 w-3.5" /> Free illustrations
-          </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Illustrations that <span className="text-gradient">match your brand</span>
-          </h2>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            {ILLUSTRATIONS.length} free SVG illustrations for websites and apps. Recolor them to
-            your brand, pick a size, and download as SVG or PNG - free for personal and
-            commercial use.
-          </p>
-        </div>
+      <div className="mx-auto max-w-2xl text-center">
+        <p className="eyebrow flex items-center justify-center gap-2">
+          <Image className="h-3.5 w-3.5" /> Free illustrations
+        </p>
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          Illustrations that <span className="text-gradient">match your brand</span>
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          {ILLUSTRATIONS.length} free SVG illustrations for websites and apps. Recolor them to
+          your brand, pick a size, and download as SVG or PNG - free for personal and
+          commercial use.
+        </p>
         <Link
           to="/illustrations"
-          className="group inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+          search={{ open: undefined }}
+          className="group mt-6 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
         >
           Browse all {ILLUSTRATIONS.length} illustrations
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -49,10 +52,11 @@ export const IllustrationsHome = () => (
         <Reveal key={s.slug} delay={Math.min(i * 60, 240)} className="h-full">
           <Link
             to="/illustrations"
+            search={{ open: `flowbite:${s.slug}` }}
             className="surface-card lift-hover group block h-full p-4"
-            aria-label={`Browse illustrations - ${s.title}`}
+            aria-label={`Open ${s.title} in the illustration editor`}
           >
-            <span className="grid h-44 place-items-center overflow-hidden rounded-xl bg-[image:var(--gradient-hero)] px-4 ring-1 ring-inset ring-border/50">
+            <span className="grid h-44 place-items-center overflow-hidden rounded-xl bg-[image:var(--gradient-hero)] p-4 ring-1 ring-inset ring-border/50">
               <IllustrationArt
                 entry={getIllustration("flowbite", s.slug)}
                 color={BRAND_COLOR}

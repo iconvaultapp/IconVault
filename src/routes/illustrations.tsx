@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Copy, Download, Moon, Search, Sun, X } from "lucide-react";
 import { toast } from "sonner";
@@ -18,6 +18,9 @@ import {
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/illustrations")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    open: typeof search["open"] === "string" ? search["open"] : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Free SVG Illustrations - Recolor, Resize & Download | IconVault" },
@@ -197,14 +200,14 @@ function EditorModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm"
+      className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm [animation-duration:150ms]"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`${entry.title} editor`}
     >
       <div
-        className="surface-card max-h-[92vh] w-full max-w-3xl overflow-y-auto p-6"
+        className="surface-card animate-pop max-h-[92vh] w-full max-w-3xl overflow-y-auto p-6 [animation-duration:200ms]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4">
@@ -336,10 +339,24 @@ function Page() {
   const [color, setColor] = useState("#2563eb");
   const [selected, setSelected] = useState<IllustrationEntry | null>(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [query, packFilter]);
+
+  // Deep link from the homepage samples (Sameer 2026-10-24):
+  // /illustrations?open=<pack>:<slug> opens that illustration's editor.
+  const { open } = Route.useSearch();
+  useEffect(() => {
+    if (!open) return;
+    const sep = open.indexOf(":");
+    if (sep < 0) return;
+    const entry = ILLUSTRATIONS.find(
+      (e) => e.pack === open.slice(0, sep) && e.slug === open.slice(sep + 1),
+    );
+    if (entry) setSelected(entry);
+  }, [open ]);
 
   const packCounts = useMemo(() => {
     const counts = new Map<IllustrationPackId, number>();
@@ -359,6 +376,23 @@ function Page() {
       );
     });
   }, [query, packFilter]);
+
+  // Infinite scroll (Sameer 2026-10-24): keep loading the next batch as
+  // the visitor scrolls, instead of a "Show more" button.
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisibleCount((c) => (c < filtered.length ? c + PAGE_SIZE : c));
+        }
+      },
+      { rootMargin: "600px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [filtered.length, visibleCount]);
 
   const visible = filtered.slice(0, visibleCount);
 
@@ -459,7 +493,7 @@ function Page() {
               >
                 <span
                   className={cn(
-                    "grid h-44 place-items-center overflow-hidden rounded-xl px-4 ring-1 ring-inset ring-border/50",
+                    "grid h-44 place-items-center overflow-hidden rounded-xl p-4 ring-1 ring-inset ring-border/50",
                     t === "dark" ? "bg-[#111928]" : "bg-[image:var(--gradient-hero)]",
                   )}
                 >
@@ -494,34 +528,10 @@ function Page() {
       )}
 
       {visibleCount < filtered.length && (
-        <div className="mt-10 text-center">
-          <button
-            type="button"
-            onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
-            className="focus-ring rounded-full border border-border px-6 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
-          >
-            Show more ({filtered.length - visibleCount} remaining)
-          </button>
+        <div ref={sentinelRef} className="mt-10 text-center" aria-hidden="true">
+          <span className="text-sm text-muted-foreground">Loading more illustrations…</span>
         </div>
       )}
-
-      <p className="mt-10 text-center text-sm leading-relaxed text-muted-foreground">
-        Illustration packs:{" "}
-        {ILLUSTRATION_PACKS.map((p, i) => (
-          <span key={p.id}>
-            {i > 0 && " · "}
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-primary underline-offset-4 hover:underline"
-            >
-              {p.label}
-            </a>{" "}
-            by {p.byline} ({p.license})
-          </span>
-        ))}
-      </p>
 
       {selected && (
         <EditorModal

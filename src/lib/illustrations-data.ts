@@ -2255,6 +2255,20 @@ export const recolorSvg = (entry: IllustrationEntry, svg: string, color: string)
   return out;
 };
 
+/** Make a bundled SVG safe to render inline at any box size. Source files
+ *  ship fixed width/height attributes (Flowbite even ships Tailwind
+ *  classes on the root), which made previews render at natural size and
+ *  get cropped by their cards (Sameer 2026-10-24). Strip them and fit the
+ *  WHOLE artwork inside its box (meet) - never cropped, never stretched. */
+export const normalizeSvg = (svg: string): string =>
+  svg.replace(/<svg([^>]*)>/i, (_m, attrs: string) => {
+    const cleaned = String(attrs)
+      .replace(/\sclass="[^"]*"/i, "")
+      .replace(/\s(width|height)="[^"]*"/gi, "")
+      .replace(/\spreserveAspectRatio="[^"]*"/i, "");
+    return `<svg${cleaned} width="100%" height="100%" preserveAspectRatio="xMidYMid meet">`;
+  });
+
 const rawCache = new Map<string, Promise<string>>();
 
 /** Fetch one illustration's raw SVG markup (session-cached). */
@@ -2262,10 +2276,12 @@ export const loadIllustrationSvg = (entry: IllustrationEntry, theme: "light" | "
   const key = `${entry.pack}:${theme}:${entry.slug}`;
   const hit = rawCache.get(key);
   if (hit) return hit;
-  const promise = fetch(illustrationUrl(entry, theme)).then((res) => {
-    if (!res.ok) throw new Error(`Illustration missing: ${key}`);
-    return res.text();
-  });
+  const promise = fetch(illustrationUrl(entry, theme))
+    .then((res) => {
+      if (!res.ok) throw new Error(`Illustration missing: ${key}`);
+      return res.text();
+    })
+    .then((text) => normalizeSvg(text));
   rawCache.set(key, promise);
   return promise;
 };
