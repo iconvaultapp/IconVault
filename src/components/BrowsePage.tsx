@@ -86,7 +86,7 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
     const warm = () => {
       if (cancelled) return;
       for (const p of prefixes) {
-        const samples = collections[p]?.samples?.slice(0, 4) ?? [];
+        const samples = collections[p]?.samples?.slice(0, 6) ?? [];
         for (const s of samples) {
           const [sp, sn] = s.includes(":") ? s.split(":") : [p, s];
           if (sp && sn) void loadIconData(sp, sn).catch(() => undefined);

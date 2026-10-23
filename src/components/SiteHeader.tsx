@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Layers, LayoutGrid, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/iconvault-logo.svg";
 import { navSections } from "@/components/nav-data";
 import UserMenu from "@/components/UserMenu";
@@ -13,6 +13,12 @@ const primaryLinks = [
   { label: "Pricing", path: "/pro" },
   { label: "Changelog", path: "/changelog" },
 ];
+
+// Hover sub-menu under "Browse icons" (Sameer 2026-10-23).
+const BROWSE_SUBMENU = [
+  { label: "Libraries", path: "/libraries", desc: "All 239 icon sets, side by side", icon: Layers },
+  { label: "Browse by category", path: "/categories", desc: "215 curated categories", icon: LayoutGrid },
+] as const;
 
 export const Brand = ({ className }: { className?: string }) => {
   // Re-mount the mark on every route change so the two-spin animation replays
@@ -70,16 +76,60 @@ export const SiteHeader = () => {
         <div className="flex min-w-0 items-center gap-8">
           <Brand />
           <nav className="hidden items-center gap-1 lg:flex">
-            {primaryLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="focus-ring rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                activeProps={{ className: "text-foreground bg-muted" }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {primaryLinks.map((link) =>
+              link.path === "/app" ? (
+                <div
+                  key={link.path}
+                  className="relative"
+                  onMouseEnter={() => setOpenMenu("Browse")}
+                  onMouseLeave={() => setOpenMenu(null)}
+                >
+                  <Link
+                    to={link.path}
+                    className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    activeProps={{ className: "text-foreground bg-muted" }}
+                  >
+                    {link.label}
+                    <ChevronDown
+                      className={cn(
+                        "h-3.5 w-3.5 transition-transform duration-300",
+                        openMenu === "Browse" && "rotate-180",
+                      )}
+                    />
+                  </Link>
+                  {openMenu === "Browse" && (
+                    <div className="animate-pop absolute left-0 top-full w-72 pt-2">
+                      <div className="grid gap-1 rounded-2xl border border-border bg-popover p-2 shadow-lift">
+                        {BROWSE_SUBMENU.map((sub) => (
+                          <Link
+                            key={sub.path}
+                            to={sub.path}
+                            className="group flex items-start gap-2.5 rounded-xl p-2.5 transition-colors hover:bg-muted"
+                          >
+                            <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform group-hover:scale-110">
+                              <sub.icon className="h-3.5 w-3.5" />
+                            </span>
+                            <span className="min-w-0">
+                              <span className="block truncate text-sm font-medium">{sub.label}</span>
+                              <span className="block truncate text-xs text-muted-foreground">{sub.desc}</span>
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="focus-ring rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  activeProps={{ className: "text-foreground bg-muted" }}
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
 
             {navSections
               .filter((s) => s.label === "Tools" || s.label === "Developers")
@@ -182,15 +232,28 @@ export const SiteHeader = () => {
         >
           <div className="grid gap-1">
             {primaryLinks.map((link, i) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={closeMobileMenu}
-                style={{ animationDelay: `${Math.min(i * 30, 120)}ms` }}
-                className="animate-fade-up rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
-              >
-                {link.label}
-              </Link>
+              <Fragment key={link.path}>
+                <Link
+                  to={link.path}
+                  onClick={closeMobileMenu}
+                  style={{ animationDelay: `${Math.min(i * 30, 120)}ms` }}
+                  className="animate-fade-up rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
+                >
+                  {link.label}
+                </Link>
+                {link.path === "/app" &&
+                  BROWSE_SUBMENU.map((sub) => (
+                    <Link
+                      key={sub.path}
+                      to={sub.path}
+                      onClick={closeMobileMenu}
+                      className="flex items-center gap-2.5 rounded-xl py-2 pl-9 pr-3 text-sm text-muted-foreground transition-colors hover:bg-muted"
+                    >
+                      <sub.icon className="h-4 w-4 text-primary" />
+                      {sub.label}
+                    </Link>
+                  ))}
+              </Fragment>
             ))}
           </div>
           {navSections.map((section, si) => (

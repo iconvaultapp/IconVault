@@ -1,20 +1,19 @@
-// Pastel panel tints for icon-set / category cards (Sameer 2026-10-23,
-// reference: style-grid cards where every set sits on its own soft colour).
-// The colour is hashed from the set's prefix (or category slug), so a set
-// keeps the same tint everywhere it appears and across visits.
+// Pastel panel tints for icon-set cards on the browse page (Sameer
+// 2026-10-23, style-grid reference): every set gets its own soft colour,
+// hashed from its prefix so the same set always wears the same tint.
 export const CARD_TINTS = [
-  "#E1E9FD", // periwinkle
-  "#ECEAFB", // lavender
-  "#FCEFD2", // cream
+  "#FDEBD7", // peach
+  "#E4E5F6", // periwinkle lavender
+  "#DFF3E4", // mint
   "#FBE3E0", // blush
-  "#DFF6E6", // mint
+  "#E9E4F8", // lilac
   "#DFF2F8", // sky
-  "#F2E7FC", // lilac
-  "#FFE9D6", // peach
-  "#D9F1EE", // teal mist
   "#FCF3D3", // butter
-  "#E3F0E1", // sage
   "#FBE7F1", // rose mist
+  "#D9F1EE", // teal mist
+  "#FCEFD2", // cream
+  "#E3F0E1", // sage
+  "#FFE9D6", // apricot
 ] as const;
 
 export function tintFor(key: string): string {

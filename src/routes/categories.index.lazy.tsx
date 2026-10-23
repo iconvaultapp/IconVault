@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search } from "lucide-react";
 import PageShell from "@/components/PageShell";
-import { IconPanel, type PanelIcon } from "@/components/IconPanel";
+import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
 import {
   fetchCategories,
@@ -45,37 +45,56 @@ function CategoryCard({ category }: { category: IconCategory }) {
     if (!inView) return;
     let alive = true;
     void fetchCategoryIcons(category.slug).then((ids) => {
-      if (alive) setIcons(ids.slice(0, 9));
+      if (alive) setIcons(ids.slice(0, 6));
     });
     return () => {
       alive = false;
     };
   }, [inView, category.slug]);
 
-  const panelIcons: PanelIcon[] = icons.map((id) => {
-    const parsed = parseIconId(id);
-    return { key: id, prefix: parsed.prefix, name: parsed.name };
-  });
-
   return (
     <div ref={ref} className="h-full">
       <Link
         to="/categories/$slug"
         params={{ slug: category.slug }}
-        className="focus-ring group block h-full"
+        className="surface-card lift-hover focus-ring group relative flex h-full flex-col overflow-hidden p-5"
         aria-label={`Browse ${category.name} icons`}
       >
-        <IconPanel tintKey={category.slug} icons={panelIcons} size={38} />
-        <span className="mt-4 flex items-start gap-2 px-1">
-          <span className="min-w-0">
-            <span className="block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
-              {category.name}
-            </span>
-            <span className="mt-0.5 block text-sm text-muted-foreground">
-              {category.count.toLocaleString("en-US")} icons
-            </span>
+        <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
+        <span className="flex items-center gap-3.5 rounded-xl bg-[image:var(--gradient-hero)] px-4 py-3 ring-1 ring-inset ring-border/60">
+          {icons.length > 0
+            ? icons.map((id, i) => {
+                const parsed = parseIconId(id);
+                return (
+                  <span
+                    key={id}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
+                    style={{ transitionDelay: `${i * 40}ms` }}
+                  >
+                    <ReliableIcon
+                      prefix={parsed.prefix}
+                      name={parsed.name}
+                      alt=""
+                      width={21}
+                      height={21}
+                      className="opacity-80 group-hover:opacity-100"
+                    />
+                  </span>
+                );
+              })
+            : [0, 1, 2, 3, 4, 5].map((i) => (
+                <span key={i} className="h-[21px] w-[21px] animate-pulse rounded-md bg-muted" />
+              ))}
+        </span>
+        <span className="mt-4 block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
+          {category.name}
+        </span>
+        <span className="mt-2 flex items-baseline gap-2">
+          <span className="font-display text-[1.45rem] font-semibold leading-none tracking-tight">
+            {category.count.toLocaleString("en-US")}
           </span>
-          <ArrowUpRight className="ml-auto mt-1 h-5 w-5 shrink-0 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+          <span className="text-sm text-muted-foreground">icons</span>
+          <ArrowUpRight className="ml-auto h-5 w-5 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
         </span>
       </Link>
     </div>
@@ -140,7 +159,7 @@ function Page() {
         )}
       </Reveal>
 
-      <div className="mt-8 grid grid-cols-1 gap-x-4 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((c, i) => (
           <Reveal key={c.slug} delay={Math.min(i * 25, 300)} className="h-full">
             <CategoryCard category={c} />

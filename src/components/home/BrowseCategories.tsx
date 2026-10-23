@@ -95,7 +95,7 @@ function SampleStrip({
   children: ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-4 rounded-xl bg-[image:var(--gradient-hero)] px-4 py-3.5 ring-1 ring-inset ring-border/60">
+    <div className="flex items-center gap-2 rounded-2xl bg-[image:var(--gradient-hero)] p-2.5 ring-1 ring-inset ring-border/60">
       {children}
     </div>
   );
@@ -118,10 +118,10 @@ function CollectionSamples({
         return (
           <span
             key={sample}
-            className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
+            className="grid h-12 flex-1 place-items-center rounded-xl bg-white/50 shadow-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-white/80"
             style={{ transitionDelay: `${i * 40}ms` }}
           >
-            <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={24} height={24} className="opacity-80 group-hover:opacity-100" />
+            <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={28} height={28} className="opacity-90 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-100" />
           </span>
         );
       })}
@@ -144,9 +144,10 @@ function BrowseCard({
 }) {
   return (
     <span
-      className="animate-fade-up flex h-full flex-col p-5"
+      className="animate-fade-up relative flex h-full flex-col p-5"
       style={{ animationDelay: `${Math.min(index, 11) * 45}ms` }}
     >
+      <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
       <SampleStrip>{children}</SampleStrip>
       <span className="mt-4 block font-display text-[1.15rem] font-semibold tracking-tight transition-colors group-hover:text-primary">
         {title}
@@ -154,7 +155,7 @@ function BrowseCard({
       <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{desc}</span>
       <span className="mt-auto flex items-center justify-between gap-3 pt-5">
         {footer}
-        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-all duration-300 group-hover:scale-110 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lift">
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </span>
       </span>
@@ -233,7 +234,7 @@ export default function BrowseCategories() {
                 {CATEGORY_CARDS.map((card, i) => {
                   const count = card.slug ? countBySlug.get(card.slug) : undefined;
                   const footer = (
-                    <span className="rounded-full bg-primary-soft px-2.5 py-1 text-xs font-semibold text-primary">
+                    <span className="rounded-full bg-[image:var(--gradient-primary)] px-3 py-1 text-xs font-semibold text-white shadow-sm">
                       {count !== undefined ? `${count.toLocaleString("en-US")} icons` : (card.fallbackNote ?? "Browse set")}
                     </span>
                   );
@@ -276,10 +277,10 @@ export default function BrowseCategories() {
                       {card.icons.map((name, j) => (
                         <span
                           key={name}
-                          className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
+                          className="grid h-12 flex-1 place-items-center rounded-xl bg-white/50 shadow-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-white/80"
                           style={{ transitionDelay: `${j * 40}ms` }}
                         >
-                          <ReliableIcon prefix="lucide" name={name} alt="" width={24} height={24} className="opacity-80 group-hover:opacity-100" />
+                          <ReliableIcon prefix="lucide" name={name} alt="" width={28} height={28} className="opacity-90 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-100" />
                         </span>
                       ))}
                     </BrowseCard>
