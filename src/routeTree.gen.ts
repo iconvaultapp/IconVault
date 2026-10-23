@@ -639,17 +639,17 @@ const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/admin.lazy').then((d) => d.Route))
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin-login',
   path: '/admin-login',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/admin-login.lazy').then((d) => d.Route))
 const AiSearchRoute = AiSearchRouteImport.update({
   id: '/ai-search',
   path: '/ai-search',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/ai-search.lazy').then((d) => d.Route))
 const ApiAccessRoute = ApiAccessRouteImport.update({
   id: '/api-access',
   path: '/api-access',
@@ -664,32 +664,32 @@ const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/auth.lazy').then((d) => d.Route))
 const ChangelogRoute = ChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/changelog.lazy').then((d) => d.Route))
 const CliRoute = CliRouteImport.update({
   id: '/cli',
   path: '/cli',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/cli.lazy').then((d) => d.Route))
 const CollectionsRoute = CollectionsRouteImport.update({
   id: '/collections',
   path: '/collections',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/collections.lazy').then((d) => d.Route))
 const CompareRoute = CompareRouteImport.update({
   id: '/compare',
   path: '/compare',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/compare.lazy').then((d) => d.Route))
 const DesignTokensRoute = DesignTokensRouteImport.update({
   id: '/design-tokens',
   path: '/design-tokens',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/design-tokens.lazy').then((d) => d.Route))
 const DocsRoute = DocsRouteImport.update({
   id: '/docs',
   path: '/docs',
@@ -704,37 +704,37 @@ const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/history.lazy').then((d) => d.Route))
 const LibrariesRoute = LibrariesRouteImport.update({
   id: '/libraries',
   path: '/libraries',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/libraries.lazy').then((d) => d.Route))
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/notifications.lazy').then((d) => d.Route))
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/privacy.lazy').then((d) => d.Route))
 const ProRoute = ProRouteImport.update({
   id: '/pro',
   path: '/pro',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/pro.lazy').then((d) => d.Route))
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/profile.lazy').then((d) => d.Route))
 const RequestRoute = RequestRouteImport.update({
   id: '/request',
   path: '/request',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/request.lazy').then((d) => d.Route))
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -749,22 +749,22 @@ const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
   path: '/tools',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/tools.lazy').then((d) => d.Route))
 const UploadRoute = UploadRouteImport.update({
   id: '/upload',
   path: '/upload',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/upload.lazy').then((d) => d.Route))
 const UsageStatsRoute = UsageStatsRouteImport.update({
   id: '/usage-stats',
   path: '/usage-stats',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/usage-stats.lazy').then((d) => d.Route))
 const ApiIconsRoute = ApiIconsRouteImport.update({
   id: '/api/icons',
   path: '/api/icons',
@@ -794,12 +794,14 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/blog.$slug.lazy').then((d) => d.Route))
 const CategoriesIndexRoute = CategoriesIndexRouteImport.update({
   id: '/categories/',
   path: '/categories/',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/categories.index.lazy').then((d) => d.Route),
+)
 const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
   id: '/categories/$slug',
   path: '/categories/$slug',
@@ -814,3017 +816,4259 @@ const ToolsA11yContrastGridRoute = ToolsA11yContrastGridRouteImport.update({
   id: '/tools_/a11y-contrast-grid',
   path: '/tools/a11y-contrast-grid',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.a11y-contrast-grid.lazy').then((d) => d.Route),
+)
 const ToolsA11yScannerRoute = ToolsA11yScannerRouteImport.update({
   id: '/tools_/a11y-scanner',
   path: '/tools/a11y-scanner',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.a11y-scanner.lazy').then((d) => d.Route),
+)
 const ToolsAbortSignalPlaygroundRoute =
   ToolsAbortSignalPlaygroundRouteImport.update({
     id: '/tools_/abort-signal-playground',
     path: '/tools/abort-signal-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.abort-signal-playground.lazy').then((d) => d.Route),
+  )
 const ToolsAddBorderRoute = ToolsAddBorderRouteImport.update({
   id: '/tools_/add-border',
   path: '/tools/add-border',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.add-border.lazy').then((d) => d.Route),
+)
 const ToolsAddWatermarkRoute = ToolsAddWatermarkRouteImport.update({
   id: '/tools_/add-watermark',
   path: '/tools/add-watermark',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.add-watermark.lazy').then((d) => d.Route),
+)
 const ToolsAesEncryptorRoute = ToolsAesEncryptorRouteImport.update({
   id: '/tools_/aes-encryptor',
   path: '/tools/aes-encryptor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.aes-encryptor.lazy').then((d) => d.Route),
+)
 const ToolsAiCostCalculatorRoute = ToolsAiCostCalculatorRouteImport.update({
   id: '/tools_/ai-cost-calculator',
   path: '/tools/ai-cost-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ai-cost-calculator.lazy').then((d) => d.Route),
+)
 const ToolsAiRoiCalcRoute = ToolsAiRoiCalcRouteImport.update({
   id: '/tools_/ai-roi-calc',
   path: '/tools/ai-roi-calc',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ai-roi-calc.lazy').then((d) => d.Route),
+)
 const ToolsAlgorithmVisualizerRoute =
   ToolsAlgorithmVisualizerRouteImport.update({
     id: '/tools_/algorithm-visualizer',
     path: '/tools/algorithm-visualizer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.algorithm-visualizer.lazy').then((d) => d.Route),
+  )
 const ToolsAltTextHelperRoute = ToolsAltTextHelperRouteImport.update({
   id: '/tools_/alt-text-helper',
   path: '/tools/alt-text-helper',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.alt-text-helper.lazy').then((d) => d.Route),
+)
 const ToolsApiMockGeneratorRoute = ToolsApiMockGeneratorRouteImport.update({
   id: '/tools_/api-mock-generator',
   path: '/tools/api-mock-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.api-mock-generator.lazy').then((d) => d.Route),
+)
 const ToolsApiRateCalcRoute = ToolsApiRateCalcRouteImport.update({
   id: '/tools_/api-rate-calc',
   path: '/tools/api-rate-calc',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.api-rate-calc.lazy').then((d) => d.Route),
+)
 const ToolsApiTesterRoute = ToolsApiTesterRouteImport.update({
   id: '/tools_/api-tester',
   path: '/tools/api-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.api-tester.lazy').then((d) => d.Route),
+)
 const ToolsAppIconGeneratorRoute = ToolsAppIconGeneratorRouteImport.update({
   id: '/tools_/app-icon-generator',
   path: '/tools/app-icon-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.app-icon-generator.lazy').then((d) => d.Route),
+)
 const ToolsAriaReferenceRoute = ToolsAriaReferenceRouteImport.update({
   id: '/tools_/aria-reference',
   path: '/tools/aria-reference',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.aria-reference.lazy').then((d) => d.Route),
+)
 const ToolsAriaRoleExplorerRoute = ToolsAriaRoleExplorerRouteImport.update({
   id: '/tools_/aria-role-explorer',
   path: '/tools/aria-role-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.aria-role-explorer.lazy').then((d) => d.Route),
+)
 const ToolsArrayMethodsVisualizerRoute =
   ToolsArrayMethodsVisualizerRouteImport.update({
     id: '/tools_/array-methods-visualizer',
     path: '/tools/array-methods-visualizer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.array-methods-visualizer.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsAsciiArtGeneratorRoute = ToolsAsciiArtGeneratorRouteImport.update({
   id: '/tools_/ascii-art-generator',
   path: '/tools/ascii-art-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ascii-art-generator.lazy').then((d) => d.Route),
+)
 const ToolsAsciiTableRoute = ToolsAsciiTableRouteImport.update({
   id: '/tools_/ascii-table',
   path: '/tools/ascii-table',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ascii-table.lazy').then((d) => d.Route),
+)
 const ToolsAspectRatioCalculatorRoute =
   ToolsAspectRatioCalculatorRouteImport.update({
     id: '/tools_/aspect-ratio-calculator',
     path: '/tools/aspect-ratio-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.aspect-ratio-calculator.lazy').then((d) => d.Route),
+  )
 const ToolsAstVisualizerRoute = ToolsAstVisualizerRouteImport.update({
   id: '/tools_/ast-visualizer',
   path: '/tools/ast-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ast-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsAudioVisualizerRoute = ToolsAudioVisualizerRouteImport.update({
   id: '/tools_/audio-visualizer',
   path: '/tools/audio-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.audio-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsAvifToJpgRoute = ToolsAvifToJpgRouteImport.update({
   id: '/tools_/avif-to-jpg',
   path: '/tools/avif-to-jpg',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.avif-to-jpg.lazy').then((d) => d.Route),
+)
 const ToolsBabyNameGeneratorRoute = ToolsBabyNameGeneratorRouteImport.update({
   id: '/tools_/baby-name-generator',
   path: '/tools/baby-name-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.baby-name-generator.lazy').then((d) => d.Route),
+)
 const ToolsBackgroundFetchPlaygroundRoute =
   ToolsBackgroundFetchPlaygroundRouteImport.update({
     id: '/tools_/background-fetch-playground',
     path: '/tools/background-fetch-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.background-fetch-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsBackgroundRemoverRoute = ToolsBackgroundRemoverRouteImport.update({
   id: '/tools_/background-remover',
   path: '/tools/background-remover',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.background-remover.lazy').then((d) => d.Route),
+)
 const ToolsBadgingPlaygroundRoute = ToolsBadgingPlaygroundRouteImport.update({
   id: '/tools_/badging-playground',
   path: '/tools/badging-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.badging-playground.lazy').then((d) => d.Route),
+)
 const ToolsBarcodeGeneratorRoute = ToolsBarcodeGeneratorRouteImport.update({
   id: '/tools_/barcode-generator',
   path: '/tools/barcode-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.barcode-generator.lazy').then((d) => d.Route),
+)
 const ToolsBase32ConverterRoute = ToolsBase32ConverterRouteImport.update({
   id: '/tools_/base32-converter',
   path: '/tools/base32-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.base32-converter.lazy').then((d) => d.Route),
+)
 const ToolsBase64Route = ToolsBase64RouteImport.update({
   id: '/tools_/base64',
   path: '/tools/base64',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/tools_.base64.lazy').then((d) => d.Route))
 const ToolsBashSimulatorRoute = ToolsBashSimulatorRouteImport.update({
   id: '/tools_/bash-simulator',
   path: '/tools/bash-simulator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bash-simulator.lazy').then((d) => d.Route),
+)
 const ToolsBasicAuthGeneratorRoute = ToolsBasicAuthGeneratorRouteImport.update({
   id: '/tools_/basic-auth-generator',
   path: '/tools/basic-auth-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.basic-auth-generator.lazy').then((d) => d.Route),
+)
 const ToolsBatteryPlaygroundRoute = ToolsBatteryPlaygroundRouteImport.update({
   id: '/tools_/battery-playground',
   path: '/tools/battery-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.battery-playground.lazy').then((d) => d.Route),
+)
 const ToolsBcryptHasherRoute = ToolsBcryptHasherRouteImport.update({
   id: '/tools_/bcrypt-hasher',
   path: '/tools/bcrypt-hasher',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bcrypt-hasher.lazy').then((d) => d.Route),
+)
 const ToolsBeatMakerRoute = ToolsBeatMakerRouteImport.update({
   id: '/tools_/beat-maker',
   path: '/tools/beat-maker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.beat-maker.lazy').then((d) => d.Route),
+)
 const ToolsBfcLayoutDebuggerRoute = ToolsBfcLayoutDebuggerRouteImport.update({
   id: '/tools_/bfc-layout-debugger',
   path: '/tools/bfc-layout-debugger',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bfc-layout-debugger.lazy').then((d) => d.Route),
+)
 const ToolsBillSplitterRoute = ToolsBillSplitterRouteImport.update({
   id: '/tools_/bill-splitter',
   path: '/tools/bill-splitter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bill-splitter.lazy').then((d) => d.Route),
+)
 const ToolsBip39GeneratorRoute = ToolsBip39GeneratorRouteImport.update({
   id: '/tools_/bip39-generator',
   path: '/tools/bip39-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bip39-generator.lazy').then((d) => d.Route),
+)
 const ToolsBitwiseCalculatorRoute = ToolsBitwiseCalculatorRouteImport.update({
   id: '/tools_/bitwise-calculator',
   path: '/tools/bitwise-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bitwise-calculator.lazy').then((d) => d.Route),
+)
 const ToolsBlurFaceRoute = ToolsBlurFaceRouteImport.update({
   id: '/tools_/blur-face',
   path: '/tools/blur-face',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.blur-face.lazy').then((d) => d.Route),
+)
 const ToolsBlurImageRoute = ToolsBlurImageRouteImport.update({
   id: '/tools_/blur-image',
   path: '/tools/blur-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.blur-image.lazy').then((d) => d.Route),
+)
 const ToolsBlurhashGeneratorRoute = ToolsBlurhashGeneratorRouteImport.update({
   id: '/tools_/blurhash-generator',
   path: '/tools/blurhash-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.blurhash-generator.lazy').then((d) => d.Route),
+)
 const ToolsBmiCalculatorRoute = ToolsBmiCalculatorRouteImport.update({
   id: '/tools_/bmi-calculator',
   path: '/tools/bmi-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bmi-calculator.lazy').then((d) => d.Route),
+)
 const ToolsBmpTiffConverterRoute = ToolsBmpTiffConverterRouteImport.update({
   id: '/tools_/bmp-tiff-converter',
   path: '/tools/bmp-tiff-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bmp-tiff-converter.lazy').then((d) => d.Route),
+)
 const ToolsBorderRadiusGeneratorRoute =
   ToolsBorderRadiusGeneratorRouteImport.update({
     id: '/tools_/border-radius-generator',
     path: '/tools/border-radius-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.border-radius-generator.lazy').then((d) => d.Route),
+  )
 const ToolsBoxModelVisualizerRoute = ToolsBoxModelVisualizerRouteImport.update({
   id: '/tools_/box-model-visualizer',
   path: '/tools/box-model-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.box-model-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsBoxShadowGeneratorRoute = ToolsBoxShadowGeneratorRouteImport.update({
   id: '/tools_/box-shadow-generator',
   path: '/tools/box-shadow-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.box-shadow-generator.lazy').then((d) => d.Route),
+)
 const ToolsBroadcastChannelPlaygroundRoute =
   ToolsBroadcastChannelPlaygroundRouteImport.update({
     id: '/tools_/broadcast-channel-playground',
     path: '/tools/broadcast-channel-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.broadcast-channel-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsBulkCropRoute = ToolsBulkCropRouteImport.update({
   id: '/tools_/bulk-crop',
   path: '/tools/bulk-crop',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bulk-crop.lazy').then((d) => d.Route),
+)
 const ToolsBulkWatermarkRoute = ToolsBulkWatermarkRouteImport.update({
   id: '/tools_/bulk-watermark',
   path: '/tools/bulk-watermark',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.bulk-watermark.lazy').then((d) => d.Route),
+)
 const ToolsCanINpmRoute = ToolsCanINpmRouteImport.update({
   id: '/tools_/can-i-npm',
   path: '/tools/can-i-npm',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.can-i-npm.lazy').then((d) => d.Route),
+)
 const ToolsCanonicalCheckerRoute = ToolsCanonicalCheckerRouteImport.update({
   id: '/tools_/canonical-checker',
   path: '/tools/canonical-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.canonical-checker.lazy').then((d) => d.Route),
+)
 const ToolsCaseConverterRoute = ToolsCaseConverterRouteImport.update({
   id: '/tools_/case-converter',
   path: '/tools/case-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.case-converter.lazy').then((d) => d.Route),
+)
 const ToolsCertificateDecoderRoute = ToolsCertificateDecoderRouteImport.update({
   id: '/tools_/certificate-decoder',
   path: '/tools/certificate-decoder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.certificate-decoder.lazy').then((d) => d.Route),
+)
 const ToolsChangelogGeneratorRoute = ToolsChangelogGeneratorRouteImport.update({
   id: '/tools_/changelog-generator',
   path: '/tools/changelog-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.changelog-generator.lazy').then((d) => d.Route),
+)
 const ToolsChannelMessagingPlaygroundRoute =
   ToolsChannelMessagingPlaygroundRouteImport.update({
     id: '/tools_/channel-messaging-playground',
     path: '/tools/channel-messaging-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.channel-messaging-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsCharacterCounterRoute = ToolsCharacterCounterRouteImport.update({
   id: '/tools_/character-counter',
   path: '/tools/character-counter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.character-counter.lazy').then((d) => d.Route),
+)
 const ToolsChartBuilderRoute = ToolsChartBuilderRouteImport.update({
   id: '/tools_/chart-builder',
   path: '/tools/chart-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.chart-builder.lazy').then((d) => d.Route),
+)
 const ToolsChineseConverterRoute = ToolsChineseConverterRouteImport.update({
   id: '/tools_/chinese-converter',
   path: '/tools/chinese-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.chinese-converter.lazy').then((d) => d.Route),
+)
 const ToolsChmodCalcRoute = ToolsChmodCalcRouteImport.update({
   id: '/tools_/chmod-calc',
   path: '/tools/chmod-calc',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.chmod-calc.lazy').then((d) => d.Route),
+)
 const ToolsCircleCropRoute = ToolsCircleCropRouteImport.update({
   id: '/tools_/circle-crop',
   path: '/tools/circle-crop',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.circle-crop.lazy').then((d) => d.Route),
+)
 const ToolsClaudeMdScannerRoute = ToolsClaudeMdScannerRouteImport.update({
   id: '/tools_/claude-md-scanner',
   path: '/tools/claude-md-scanner',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.claude-md-scanner.lazy').then((d) => d.Route),
+)
 const ToolsClaudemdBuilderRoute = ToolsClaudemdBuilderRouteImport.update({
   id: '/tools_/claudemd-builder',
   path: '/tools/claudemd-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.claudemd-builder.lazy').then((d) => d.Route),
+)
 const ToolsClipPathGeneratorRoute = ToolsClipPathGeneratorRouteImport.update({
   id: '/tools_/clip-path-generator',
   path: '/tools/clip-path-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.clip-path-generator.lazy').then((d) => d.Route),
+)
 const ToolsClipboardPlaygroundRoute =
   ToolsClipboardPlaygroundRouteImport.update({
     id: '/tools_/clipboard-playground',
     path: '/tools/clipboard-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.clipboard-playground.lazy').then((d) => d.Route),
+  )
 const ToolsCodeFormatterRoute = ToolsCodeFormatterRouteImport.update({
   id: '/tools_/code-formatter',
   path: '/tools/code-formatter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.code-formatter.lazy').then((d) => d.Route),
+)
 const ToolsCodePlaygroundRoute = ToolsCodePlaygroundRouteImport.update({
   id: '/tools_/code-playground',
   path: '/tools/code-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.code-playground.lazy').then((d) => d.Route),
+)
 const ToolsCodeSnippetManagerRoute = ToolsCodeSnippetManagerRouteImport.update({
   id: '/tools_/code-snippet-manager',
   path: '/tools/code-snippet-manager',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.code-snippet-manager.lazy').then((d) => d.Route),
+)
 const ToolsColorBlindnessSimulatorRoute =
   ToolsColorBlindnessSimulatorRouteImport.update({
     id: '/tools_/color-blindness-simulator',
     path: '/tools/color-blindness-simulator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.color-blindness-simulator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsColorConverterRoute = ToolsColorConverterRouteImport.update({
   id: '/tools_/color-converter',
   path: '/tools/color-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.color-converter.lazy').then((d) => d.Route),
+)
 const ToolsColorHarmonyRoute = ToolsColorHarmonyRouteImport.update({
   id: '/tools_/color-harmony',
   path: '/tools/color-harmony',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.color-harmony.lazy').then((d) => d.Route),
+)
 const ToolsColorMixerRoute = ToolsColorMixerRouteImport.update({
   id: '/tools_/color-mixer',
   path: '/tools/color-mixer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.color-mixer.lazy').then((d) => d.Route),
+)
 const ToolsColorNameFinderRoute = ToolsColorNameFinderRouteImport.update({
   id: '/tools_/color-name-finder',
   path: '/tools/color-name-finder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.color-name-finder.lazy').then((d) => d.Route),
+)
 const ToolsColorPaletteExtractorRoute =
   ToolsColorPaletteExtractorRouteImport.update({
     id: '/tools_/color-palette-extractor',
     path: '/tools/color-palette-extractor',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.color-palette-extractor.lazy').then((d) => d.Route),
+  )
 const ToolsColorWheelRoute = ToolsColorWheelRouteImport.update({
   id: '/tools_/color-wheel',
   path: '/tools/color-wheel',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.color-wheel.lazy').then((d) => d.Route),
+)
 const ToolsCommitGeneratorRoute = ToolsCommitGeneratorRouteImport.update({
   id: '/tools_/commit-generator',
   path: '/tools/commit-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.commit-generator.lazy').then((d) => d.Route),
+)
 const ToolsCompressGifRoute = ToolsCompressGifRouteImport.update({
   id: '/tools_/compress-gif',
   path: '/tools/compress-gif',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.compress-gif.lazy').then((d) => d.Route),
+)
 const ToolsCompressJpgRoute = ToolsCompressJpgRouteImport.update({
   id: '/tools_/compress-jpg',
   path: '/tools/compress-jpg',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.compress-jpg.lazy').then((d) => d.Route),
+)
 const ToolsCompressPngRoute = ToolsCompressPngRouteImport.update({
   id: '/tools_/compress-png',
   path: '/tools/compress-png',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.compress-png.lazy').then((d) => d.Route),
+)
 const ToolsCompressToExactKbRoute = ToolsCompressToExactKbRouteImport.update({
   id: '/tools_/compress-to-exact-kb',
   path: '/tools/compress-to-exact-kb',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.compress-to-exact-kb.lazy').then((d) => d.Route),
+)
 const ToolsCompressWebpRoute = ToolsCompressWebpRouteImport.update({
   id: '/tools_/compress-webp',
   path: '/tools/compress-webp',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.compress-webp.lazy').then((d) => d.Route),
+)
 const ToolsCompressionStreamsRoute = ToolsCompressionStreamsRouteImport.update({
   id: '/tools_/compression-streams',
   path: '/tools/compression-streams',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.compression-streams.lazy').then((d) => d.Route),
+)
 const ToolsContactPickerPlaygroundRoute =
   ToolsContactPickerPlaygroundRouteImport.update({
     id: '/tools_/contact-picker-playground',
     path: '/tools/contact-picker-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.contact-picker-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsContainerQueriesLabRoute =
   ToolsContainerQueriesLabRouteImport.update({
     id: '/tools_/container-queries-lab',
     path: '/tools/container-queries-lab',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.container-queries-lab.lazy').then((d) => d.Route),
+  )
 const ToolsContainerStyleQueriesRoute =
   ToolsContainerStyleQueriesRouteImport.update({
     id: '/tools_/container-style-queries',
     path: '/tools/container-style-queries',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.container-style-queries.lazy').then((d) => d.Route),
+  )
 const ToolsContentEditablePlaygroundRoute =
   ToolsContentEditablePlaygroundRouteImport.update({
     id: '/tools_/content-editable-playground',
     path: '/tools/content-editable-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.content-editable-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsContentIndexPlaygroundRoute =
   ToolsContentIndexPlaygroundRouteImport.update({
     id: '/tools_/content-index-playground',
     path: '/tools/content-index-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.content-index-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsContrastCheckerRoute = ToolsContrastCheckerRouteImport.update({
   id: '/tools_/contrast-checker',
   path: '/tools/contrast-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.contrast-checker.lazy').then((d) => d.Route),
+)
 const ToolsCookieInspectorRoute = ToolsCookieInspectorRouteImport.update({
   id: '/tools_/cookie-inspector',
   path: '/tools/cookie-inspector',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.cookie-inspector.lazy').then((d) => d.Route),
+)
 const ToolsCorsHeadersBuilderRoute = ToolsCorsHeadersBuilderRouteImport.update({
   id: '/tools_/cors-headers-builder',
   path: '/tools/cors-headers-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.cors-headers-builder.lazy').then((d) => d.Route),
+)
 const ToolsCorsPreflightFlowRoute = ToolsCorsPreflightFlowRouteImport.update({
   id: '/tools_/cors-preflight-flow',
   path: '/tools/cors-preflight-flow',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.cors-preflight-flow.lazy').then((d) => d.Route),
+)
 const ToolsCorsTesterRoute = ToolsCorsTesterRouteImport.update({
   id: '/tools_/cors-tester',
   path: '/tools/cors-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.cors-tester.lazy').then((d) => d.Route),
+)
 const ToolsCountdownTimerRoute = ToolsCountdownTimerRouteImport.update({
   id: '/tools_/countdown-timer',
   path: '/tools/countdown-timer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.countdown-timer.lazy').then((d) => d.Route),
+)
 const ToolsCrateSearchRoute = ToolsCrateSearchRouteImport.update({
   id: '/tools_/crate-search',
   path: '/tools/crate-search',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.crate-search.lazy').then((d) => d.Route),
+)
 const ToolsCredentialManagementPlaygroundRoute =
   ToolsCredentialManagementPlaygroundRouteImport.update({
     id: '/tools_/credential-management-playground',
     path: '/tools/credential-management-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.credential-management-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsCronBuilderRoute = ToolsCronBuilderRouteImport.update({
   id: '/tools_/cron-builder',
   path: '/tools/cron-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.cron-builder.lazy').then((d) => d.Route),
+)
 const ToolsCropImageRoute = ToolsCropImageRouteImport.update({
   id: '/tools_/crop-image',
   path: '/tools/crop-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.crop-image.lazy').then((d) => d.Route),
+)
 const ToolsCspBuilderRoute = ToolsCspBuilderRouteImport.update({
   id: '/tools_/csp-builder',
   path: '/tools/csp-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.csp-builder.lazy').then((d) => d.Route),
+)
 const ToolsCspEvaluatorRoute = ToolsCspEvaluatorRouteImport.update({
   id: '/tools_/csp-evaluator',
   path: '/tools/csp-evaluator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.csp-evaluator.lazy').then((d) => d.Route),
+)
 const ToolsCsrGeneratorRoute = ToolsCsrGeneratorRouteImport.update({
   id: '/tools_/csr-generator',
   path: '/tools/csr-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.csr-generator.lazy').then((d) => d.Route),
+)
 const ToolsCssAnchorPositioningRoute =
   ToolsCssAnchorPositioningRouteImport.update({
     id: '/tools_/css-anchor-positioning',
     path: '/tools/css-anchor-positioning',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-anchor-positioning.lazy').then((d) => d.Route),
+  )
 const ToolsCssAnimationBuilderRoute =
   ToolsCssAnimationBuilderRouteImport.update({
     id: '/tools_/css-animation-builder',
     path: '/tools/css-animation-builder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-animation-builder.lazy').then((d) => d.Route),
+  )
 const ToolsCssAttrFunctionRoute = ToolsCssAttrFunctionRouteImport.update({
   id: '/tools_/css-attr-function',
   path: '/tools/css-attr-function',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-attr-function.lazy').then((d) => d.Route),
+)
 const ToolsCssBeautifierRoute = ToolsCssBeautifierRouteImport.update({
   id: '/tools_/css-beautifier',
   path: '/tools/css-beautifier',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-beautifier.lazy').then((d) => d.Route),
+)
 const ToolsCssCascadeDebuggerRoute = ToolsCssCascadeDebuggerRouteImport.update({
   id: '/tools_/css-cascade-debugger',
   path: '/tools/css-cascade-debugger',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-cascade-debugger.lazy').then((d) => d.Route),
+)
 const ToolsCssColorLabRoute = ToolsCssColorLabRouteImport.update({
   id: '/tools_/css-color-lab',
   path: '/tools/css-color-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-color-lab.lazy').then((d) => d.Route),
+)
 const ToolsCssCursorRoute = ToolsCssCursorRouteImport.update({
   id: '/tools_/css-cursor',
   path: '/tools/css-cursor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-cursor.lazy').then((d) => d.Route),
+)
 const ToolsCssCustomHighlightsRoute =
   ToolsCssCustomHighlightsRouteImport.update({
     id: '/tools_/css-custom-highlights',
     path: '/tools/css-custom-highlights',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-custom-highlights.lazy').then((d) => d.Route),
+  )
 const ToolsCssCustomStateRoute = ToolsCssCustomStateRouteImport.update({
   id: '/tools_/css-custom-state',
   path: '/tools/css-custom-state',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-custom-state.lazy').then((d) => d.Route),
+)
 const ToolsCssFilterGeneratorRoute = ToolsCssFilterGeneratorRouteImport.update({
   id: '/tools_/css-filter-generator',
   path: '/tools/css-filter-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-filter-generator.lazy').then((d) => d.Route),
+)
 const ToolsCssFontSizeAdjustRoute = ToolsCssFontSizeAdjustRouteImport.update({
   id: '/tools_/css-font-size-adjust',
   path: '/tools/css-font-size-adjust',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-font-size-adjust.lazy').then((d) => d.Route),
+)
 const ToolsCssFunctionPlaygroundRoute =
   ToolsCssFunctionPlaygroundRouteImport.update({
     id: '/tools_/css-function-playground',
     path: '/tools/css-function-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-function-playground.lazy').then((d) => d.Route),
+  )
 const ToolsCssGridGeneratorRoute = ToolsCssGridGeneratorRouteImport.update({
   id: '/tools_/css-grid-generator',
   path: '/tools/css-grid-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-grid-generator.lazy').then((d) => d.Route),
+)
 const ToolsCssGridTrackSizingRoute = ToolsCssGridTrackSizingRouteImport.update({
   id: '/tools_/css-grid-track-sizing',
   path: '/tools/css-grid-track-sizing',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-grid-track-sizing.lazy').then((d) => d.Route),
+)
 const ToolsCssHasPlaygroundRoute = ToolsCssHasPlaygroundRouteImport.update({
   id: '/tools_/css-has-playground',
   path: '/tools/css-has-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-has-playground.lazy').then((d) => d.Route),
+)
 const ToolsCssIndividualTransformsRoute =
   ToolsCssIndividualTransformsRouteImport.update({
     id: '/tools_/css-individual-transforms',
     path: '/tools/css-individual-transforms',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-individual-transforms.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsCssInterpolateSizeRoute = ToolsCssInterpolateSizeRouteImport.update({
   id: '/tools_/css-interpolate-size',
   path: '/tools/css-interpolate-size',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-interpolate-size.lazy').then((d) => d.Route),
+)
 const ToolsCssLayersLabRoute = ToolsCssLayersLabRouteImport.update({
   id: '/tools_/css-layers-lab',
   path: '/tools/css-layers-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-layers-lab.lazy').then((d) => d.Route),
+)
 const ToolsCssLayoutPlaygroundRoute =
   ToolsCssLayoutPlaygroundRouteImport.update({
     id: '/tools_/css-layout-playground',
     path: '/tools/css-layout-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-layout-playground.lazy').then((d) => d.Route),
+  )
 const ToolsCssLogicalPropertiesRoute =
   ToolsCssLogicalPropertiesRouteImport.update({
     id: '/tools_/css-logical-properties',
     path: '/tools/css-logical-properties',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-logical-properties.lazy').then((d) => d.Route),
+  )
 const ToolsCssMathPlaygroundRoute = ToolsCssMathPlaygroundRouteImport.update({
   id: '/tools_/css-math-playground',
   path: '/tools/css-math-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-math-playground.lazy').then((d) => d.Route),
+)
 const ToolsCssMatrixCalculatorRoute =
   ToolsCssMatrixCalculatorRouteImport.update({
     id: '/tools_/css-matrix-calculator',
     path: '/tools/css-matrix-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-matrix-calculator.lazy').then((d) => d.Route),
+  )
 const ToolsCssMinifierRoute = ToolsCssMinifierRouteImport.update({
   id: '/tools_/css-minifier',
   path: '/tools/css-minifier',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-minifier.lazy').then((d) => d.Route),
+)
 const ToolsCssMixinsPlaygroundRoute =
   ToolsCssMixinsPlaygroundRouteImport.update({
     id: '/tools_/css-mixins-playground',
     path: '/tools/css-mixins-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-mixins-playground.lazy').then((d) => d.Route),
+  )
 const ToolsCssNestingLabRoute = ToolsCssNestingLabRouteImport.update({
   id: '/tools_/css-nesting-lab',
   path: '/tools/css-nesting-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-nesting-lab.lazy').then((d) => d.Route),
+)
 const ToolsCssPaintPlaygroundRoute = ToolsCssPaintPlaygroundRouteImport.update({
   id: '/tools_/css-paint-playground',
   path: '/tools/css-paint-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-paint-playground.lazy').then((d) => d.Route),
+)
 const ToolsCssPropertyPlaygroundRoute =
   ToolsCssPropertyPlaygroundRouteImport.update({
     id: '/tools_/css-property-playground',
     path: '/tools/css-property-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-property-playground.lazy').then((d) => d.Route),
+  )
 const ToolsCssReadingFlowRoute = ToolsCssReadingFlowRouteImport.update({
   id: '/tools_/css-reading-flow',
   path: '/tools/css-reading-flow',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-reading-flow.lazy').then((d) => d.Route),
+)
 const ToolsCssResetPickerRoute = ToolsCssResetPickerRouteImport.update({
   id: '/tools_/css-reset-picker',
   path: '/tools/css-reset-picker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-reset-picker.lazy').then((d) => d.Route),
+)
 const ToolsCssScrollStateRoute = ToolsCssScrollStateRouteImport.update({
   id: '/tools_/css-scroll-state',
   path: '/tools/css-scroll-state',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-scroll-state.lazy').then((d) => d.Route),
+)
 const ToolsCssSelectorTesterRoute = ToolsCssSelectorTesterRouteImport.update({
   id: '/tools_/css-selector-tester',
   path: '/tools/css-selector-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-selector-tester.lazy').then((d) => d.Route),
+)
 const ToolsCssShapeBuilderRoute = ToolsCssShapeBuilderRouteImport.update({
   id: '/tools_/css-shape-builder',
   path: '/tools/css-shape-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-shape-builder.lazy').then((d) => d.Route),
+)
 const ToolsCssSpecificityRoute = ToolsCssSpecificityRouteImport.update({
   id: '/tools_/css-specificity',
   path: '/tools/css-specificity',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-specificity.lazy').then((d) => d.Route),
+)
 const ToolsCssStackingContextRoute = ToolsCssStackingContextRouteImport.update({
   id: '/tools_/css-stacking-context',
   path: '/tools/css-stacking-context',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-stacking-context.lazy').then((d) => d.Route),
+)
 const ToolsCssStartingStyleRoute = ToolsCssStartingStyleRouteImport.update({
   id: '/tools_/css-starting-style',
   path: '/tools/css-starting-style',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-starting-style.lazy').then((d) => d.Route),
+)
 const ToolsCssSubgridRoute = ToolsCssSubgridRouteImport.update({
   id: '/tools_/css-subgrid',
   path: '/tools/css-subgrid',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-subgrid.lazy').then((d) => d.Route),
+)
 const ToolsCssTransformGeneratorRoute =
   ToolsCssTransformGeneratorRouteImport.update({
     id: '/tools_/css-transform-generator',
     path: '/tools/css-transform-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-transform-generator.lazy').then((d) => d.Route),
+  )
 const ToolsCssTransitionBehaviorRoute =
   ToolsCssTransitionBehaviorRouteImport.update({
     id: '/tools_/css-transition-behavior',
     path: '/tools/css-transition-behavior',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-transition-behavior.lazy').then((d) => d.Route),
+  )
 const ToolsCssTransitionGeneratorRoute =
   ToolsCssTransitionGeneratorRouteImport.update({
     id: '/tools_/css-transition-generator',
     path: '/tools/css-transition-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-transition-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsCssTypedOmRoute = ToolsCssTypedOmRouteImport.update({
   id: '/tools_/css-typed-om',
   path: '/tools/css-typed-om',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-typed-om.lazy').then((d) => d.Route),
+)
 const ToolsCssUnitConverterRoute = ToolsCssUnitConverterRouteImport.update({
   id: '/tools_/css-unit-converter',
   path: '/tools/css-unit-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-unit-converter.lazy').then((d) => d.Route),
+)
 const ToolsCssVariablesBuilderRoute =
   ToolsCssVariablesBuilderRouteImport.update({
     id: '/tools_/css-variables-builder',
     path: '/tools/css-variables-builder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.css-variables-builder.lazy').then((d) => d.Route),
+  )
 const ToolsCssZoomPlaygroundRoute = ToolsCssZoomPlaygroundRouteImport.update({
   id: '/tools_/css-zoom-playground',
   path: '/tools/css-zoom-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.css-zoom-playground.lazy').then((d) => d.Route),
+)
 const ToolsCsvViewerRoute = ToolsCsvViewerRouteImport.update({
   id: '/tools_/csv-viewer',
   path: '/tools/csv-viewer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.csv-viewer.lazy').then((d) => d.Route),
+)
 const ToolsCurlBuilderRoute = ToolsCurlBuilderRouteImport.update({
   id: '/tools_/curl-builder',
   path: '/tools/curl-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.curl-builder.lazy').then((d) => d.Route),
+)
 const ToolsDataSizeConverterRoute = ToolsDataSizeConverterRouteImport.update({
   id: '/tools_/data-size-converter',
   path: '/tools/data-size-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.data-size-converter.lazy').then((d) => d.Route),
+)
 const ToolsDataUriRoute = ToolsDataUriRouteImport.update({
   id: '/tools_/data-uri',
   path: '/tools/data-uri',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.data-uri.lazy').then((d) => d.Route),
+)
 const ToolsDatetimeCalculatorRoute = ToolsDatetimeCalculatorRouteImport.update({
   id: '/tools_/datetime-calculator',
   path: '/tools/datetime-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.datetime-calculator.lazy').then((d) => d.Route),
+)
 const ToolsDecoratorPatternsRoute = ToolsDecoratorPatternsRouteImport.update({
   id: '/tools_/decorator-patterns',
   path: '/tools/decorator-patterns',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.decorator-patterns.lazy').then((d) => d.Route),
+)
 const ToolsDepChangelogRoute = ToolsDepChangelogRouteImport.update({
   id: '/tools_/dep-changelog',
   path: '/tools/dep-changelog',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.dep-changelog.lazy').then((d) => d.Route),
+)
 const ToolsDependabotGeneratorRoute =
   ToolsDependabotGeneratorRouteImport.update({
     id: '/tools_/dependabot-generator',
     path: '/tools/dependabot-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.dependabot-generator.lazy').then((d) => d.Route),
+  )
 const ToolsDeviceInfoRoute = ToolsDeviceInfoRouteImport.update({
   id: '/tools_/device-info',
   path: '/tools/device-info',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.device-info.lazy').then((d) => d.Route),
+)
 const ToolsDeviceSensorsPlaygroundRoute =
   ToolsDeviceSensorsPlaygroundRouteImport.update({
     id: '/tools_/device-sensors-playground',
     path: '/tools/device-sensors-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.device-sensors-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsDevtoStatsRoute = ToolsDevtoStatsRouteImport.update({
   id: '/tools_/devto-stats',
   path: '/tools/devto-stats',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.devto-stats.lazy').then((d) => d.Route),
+)
 const ToolsDiceRollerRoute = ToolsDiceRollerRouteImport.update({
   id: '/tools_/dice-roller',
   path: '/tools/dice-roller',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.dice-roller.lazy').then((d) => d.Route),
+)
 const ToolsDiffCheckerRoute = ToolsDiffCheckerRouteImport.update({
   id: '/tools_/diff-checker',
   path: '/tools/diff-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.diff-checker.lazy').then((d) => d.Route),
+)
 const ToolsDnsLookupRoute = ToolsDnsLookupRouteImport.update({
   id: '/tools_/dns-lookup',
   path: '/tools/dns-lookup',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.dns-lookup.lazy').then((d) => d.Route),
+)
 const ToolsDnsResolutionLabRoute = ToolsDnsResolutionLabRouteImport.update({
   id: '/tools_/dns-resolution-lab',
   path: '/tools/dns-resolution-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.dns-resolution-lab.lazy').then((d) => d.Route),
+)
 const ToolsDockerComposeGeneratorRoute =
   ToolsDockerComposeGeneratorRouteImport.update({
     id: '/tools_/docker-compose-generator',
     path: '/tools/docker-compose-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.docker-compose-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsDockerRunToComposeRoute = ToolsDockerRunToComposeRouteImport.update({
   id: '/tools_/docker-run-to-compose',
   path: '/tools/docker-run-to-compose',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.docker-run-to-compose.lazy').then((d) => d.Route),
+)
 const ToolsDockerfileGeneratorRoute =
   ToolsDockerfileGeneratorRouteImport.update({
     id: '/tools_/dockerfile-generator',
     path: '/tools/dockerfile-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.dockerfile-generator.lazy').then((d) => d.Route),
+  )
 const ToolsDocumentPipPlaygroundRoute =
   ToolsDocumentPipPlaygroundRouteImport.update({
     id: '/tools_/document-pip-playground',
     path: '/tools/document-pip-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.document-pip-playground.lazy').then((d) => d.Route),
+  )
 const ToolsDotnetConfigConverterRoute =
   ToolsDotnetConfigConverterRouteImport.update({
     id: '/tools_/dotnet-config-converter',
     path: '/tools/dotnet-config-converter',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.dotnet-config-converter.lazy').then((d) => d.Route),
+  )
 const ToolsDragDropPlaygroundRoute = ToolsDragDropPlaygroundRouteImport.update({
   id: '/tools_/drag-drop-playground',
   path: '/tools/drag-drop-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.drag-drop-playground.lazy').then((d) => d.Route),
+)
 const ToolsDuplicateFileFinderRoute =
   ToolsDuplicateFileFinderRouteImport.update({
     id: '/tools_/duplicate-file-finder',
     path: '/tools/duplicate-file-finder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.duplicate-file-finder.lazy').then((d) => d.Route),
+  )
 const ToolsEasingVisualizerRoute = ToolsEasingVisualizerRouteImport.update({
   id: '/tools_/easing-visualizer',
   path: '/tools/easing-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.easing-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsEditcontextPlaygroundRoute =
   ToolsEditcontextPlaygroundRouteImport.update({
     id: '/tools_/editcontext-playground',
     path: '/tools/editcontext-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.editcontext-playground.lazy').then((d) => d.Route),
+  )
 const ToolsEditorconfigGeneratorRoute =
   ToolsEditorconfigGeneratorRouteImport.update({
     id: '/tools_/editorconfig-generator',
     path: '/tools/editorconfig-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.editorconfig-generator.lazy').then((d) => d.Route),
+  )
 const ToolsEmailNormalizerRoute = ToolsEmailNormalizerRouteImport.update({
   id: '/tools_/email-normalizer',
   path: '/tools/email-normalizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.email-normalizer.lazy').then((d) => d.Route),
+)
 const ToolsEmailSignatureGeneratorRoute =
   ToolsEmailSignatureGeneratorRouteImport.update({
     id: '/tools_/email-signature-generator',
     path: '/tools/email-signature-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.email-signature-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsEmojiPickerRoute = ToolsEmojiPickerRouteImport.update({
   id: '/tools_/emoji-picker',
   path: '/tools/emoji-picker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.emoji-picker.lazy').then((d) => d.Route),
+)
 const ToolsEncodingApiPlaygroundRoute =
   ToolsEncodingApiPlaygroundRouteImport.update({
     id: '/tools_/encoding-api-playground',
     path: '/tools/encoding-api-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.encoding-api-playground.lazy').then((d) => d.Route),
+  )
 const ToolsEnvGeneratorRoute = ToolsEnvGeneratorRouteImport.update({
   id: '/tools_/env-generator',
   path: '/tools/env-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.env-generator.lazy').then((d) => d.Route),
+)
 const ToolsEnvValidatorRoute = ToolsEnvValidatorRouteImport.update({
   id: '/tools_/env-validator',
   path: '/tools/env-validator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.env-validator.lazy').then((d) => d.Route),
+)
 const ToolsEnvVarsReferenceRoute = ToolsEnvVarsReferenceRouteImport.update({
   id: '/tools_/env-vars-reference',
   path: '/tools/env-vars-reference',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.env-vars-reference.lazy').then((d) => d.Route),
+)
 const ToolsErrorTypesExplorerRoute = ToolsErrorTypesExplorerRouteImport.update({
   id: '/tools_/error-types-explorer',
   path: '/tools/error-types-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.error-types-explorer.lazy').then((d) => d.Route),
+)
 const ToolsEscapeUnescapeRoute = ToolsEscapeUnescapeRouteImport.update({
   id: '/tools_/escape-unescape',
   path: '/tools/escape-unescape',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.escape-unescape.lazy').then((d) => d.Route),
+)
 const ToolsEslintConfigGeneratorRoute =
   ToolsEslintConfigGeneratorRouteImport.update({
     id: '/tools_/eslint-config-generator',
     path: '/tools/eslint-config-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.eslint-config-generator.lazy').then((d) => d.Route),
+  )
 const ToolsEtaCalculatorRoute = ToolsEtaCalculatorRouteImport.update({
   id: '/tools_/eta-calculator',
   path: '/tools/eta-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.eta-calculator.lazy').then((d) => d.Route),
+)
 const ToolsEventPropagationRoute = ToolsEventPropagationRouteImport.update({
   id: '/tools_/event-propagation',
   path: '/tools/event-propagation',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.event-propagation.lazy').then((d) => d.Route),
+)
 const ToolsEventTargetPatternsRoute =
   ToolsEventTargetPatternsRouteImport.update({
     id: '/tools_/event-target-patterns',
     path: '/tools/event-target-patterns',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.event-target-patterns.lazy').then((d) => d.Route),
+  )
 const ToolsExamPhotoResizerRoute = ToolsExamPhotoResizerRouteImport.update({
   id: '/tools_/exam-photo-resizer',
   path: '/tools/exam-photo-resizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.exam-photo-resizer.lazy').then((d) => d.Route),
+)
 const ToolsExamPortalPresetsRoute = ToolsExamPortalPresetsRouteImport.update({
   id: '/tools_/exam-portal-presets',
   path: '/tools/exam-portal-presets',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.exam-portal-presets.lazy').then((d) => d.Route),
+)
 const ToolsExifViewerRoute = ToolsExifViewerRouteImport.update({
   id: '/tools_/exif-viewer',
   path: '/tools/exif-viewer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.exif-viewer.lazy').then((d) => d.Route),
+)
 const ToolsEyedropperPlaygroundRoute =
   ToolsEyedropperPlaygroundRouteImport.update({
     id: '/tools_/eyedropper-playground',
     path: '/tools/eyedropper-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.eyedropper-playground.lazy').then((d) => d.Route),
+  )
 const ToolsFaviconGeneratorRoute = ToolsFaviconGeneratorRouteImport.update({
   id: '/tools_/favicon-generator',
   path: '/tools/favicon-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.favicon-generator.lazy').then((d) => d.Route),
+)
 const ToolsFetchPlaygroundRoute = ToolsFetchPlaygroundRouteImport.update({
   id: '/tools_/fetch-playground',
   path: '/tools/fetch-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.fetch-playground.lazy').then((d) => d.Route),
+)
 const ToolsFieldSizingPlaygroundRoute =
   ToolsFieldSizingPlaygroundRouteImport.update({
     id: '/tools_/field-sizing-playground',
     path: '/tools/field-sizing-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.field-sizing-playground.lazy').then((d) => d.Route),
+  )
 const ToolsFileHandlingPlaygroundRoute =
   ToolsFileHandlingPlaygroundRouteImport.update({
     id: '/tools_/file-handling-playground',
     path: '/tools/file-handling-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.file-handling-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsFileSplitterRoute = ToolsFileSplitterRouteImport.update({
   id: '/tools_/file-splitter',
   path: '/tools/file-splitter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.file-splitter.lazy').then((d) => d.Route),
+)
 const ToolsFileSystemPlaygroundRoute =
   ToolsFileSystemPlaygroundRouteImport.update({
     id: '/tools_/file-system-playground',
     path: '/tools/file-system-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.file-system-playground.lazy').then((d) => d.Route),
+  )
 const ToolsFlexboxGeneratorRoute = ToolsFlexboxGeneratorRouteImport.update({
   id: '/tools_/flexbox-generator',
   path: '/tools/flexbox-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.flexbox-generator.lazy').then((d) => d.Route),
+)
 const ToolsFlexboxPatternsRoute = ToolsFlexboxPatternsRouteImport.update({
   id: '/tools_/flexbox-patterns',
   path: '/tools/flexbox-patterns',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.flexbox-patterns.lazy').then((d) => d.Route),
+)
 const ToolsFluidTypographyRoute = ToolsFluidTypographyRouteImport.update({
   id: '/tools_/fluid-typography',
   path: '/tools/fluid-typography',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.fluid-typography.lazy').then((d) => d.Route),
+)
 const ToolsFontFinderRoute = ToolsFontFinderRouteImport.update({
   id: '/tools_/font-finder',
   path: '/tools/font-finder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.font-finder.lazy').then((d) => d.Route),
+)
 const ToolsFontPairingRoute = ToolsFontPairingRouteImport.update({
   id: '/tools_/font-pairing',
   path: '/tools/font-pairing',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.font-pairing.lazy').then((d) => d.Route),
+)
 const ToolsFontPreviewRoute = ToolsFontPreviewRouteImport.update({
   id: '/tools_/font-preview',
   path: '/tools/font-preview',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.font-preview.lazy').then((d) => d.Route),
+)
 const ToolsFormBuilderRoute = ToolsFormBuilderRouteImport.update({
   id: '/tools_/form-builder',
   path: '/tools/form-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.form-builder.lazy').then((d) => d.Route),
+)
 const ToolsFormdataInspectorRoute = ToolsFormdataInspectorRouteImport.update({
   id: '/tools_/formdata-inspector',
   path: '/tools/formdata-inspector',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.formdata-inspector.lazy').then((d) => d.Route),
+)
 const ToolsFreezeTimeGuideRoute = ToolsFreezeTimeGuideRouteImport.update({
   id: '/tools_/freeze-time-guide',
   path: '/tools/freeze-time-guide',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.freeze-time-guide.lazy').then((d) => d.Route),
+)
 const ToolsFrequencyCalcRoute = ToolsFrequencyCalcRouteImport.update({
   id: '/tools_/frequency-calc',
   path: '/tools/frequency-calc',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.frequency-calc.lazy').then((d) => d.Route),
+)
 const ToolsFullscreenPlaygroundRoute =
   ToolsFullscreenPlaygroundRouteImport.update({
     id: '/tools_/fullscreen-playground',
     path: '/tools/fullscreen-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.fullscreen-playground.lazy').then((d) => d.Route),
+  )
 const ToolsFunctionGrapherRoute = ToolsFunctionGrapherRouteImport.update({
   id: '/tools_/function-grapher',
   path: '/tools/function-grapher',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.function-grapher.lazy').then((d) => d.Route),
+)
 const ToolsGamepadPlaygroundRoute = ToolsGamepadPlaygroundRouteImport.update({
   id: '/tools_/gamepad-playground',
   path: '/tools/gamepad-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gamepad-playground.lazy').then((d) => d.Route),
+)
 const ToolsGeolocationPlaygroundRoute =
   ToolsGeolocationPlaygroundRouteImport.update({
     id: '/tools_/geolocation-playground',
     path: '/tools/geolocation-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.geolocation-playground.lazy').then((d) => d.Route),
+  )
 const ToolsGhCardRoute = ToolsGhCardRouteImport.update({
   id: '/tools_/gh-card',
   path: '/tools/gh-card',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gh-card.lazy').then((d) => d.Route),
+)
 const ToolsGhReleasesRoute = ToolsGhReleasesRouteImport.update({
   id: '/tools_/gh-releases',
   path: '/tools/gh-releases',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gh-releases.lazy').then((d) => d.Route),
+)
 const ToolsGifMakerRoute = ToolsGifMakerRouteImport.update({
   id: '/tools_/gif-maker',
   path: '/tools/gif-maker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gif-maker.lazy').then((d) => d.Route),
+)
 const ToolsGifToFramesRoute = ToolsGifToFramesRouteImport.update({
   id: '/tools_/gif-to-frames',
   path: '/tools/gif-to-frames',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gif-to-frames.lazy').then((d) => d.Route),
+)
 const ToolsGifToMp4Route = ToolsGifToMp4RouteImport.update({
   id: '/tools_/gif-to-mp4',
   path: '/tools/gif-to-mp4',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gif-to-mp4.lazy').then((d) => d.Route),
+)
 const ToolsGitCheatsheetRoute = ToolsGitCheatsheetRouteImport.update({
   id: '/tools_/git-cheatsheet',
   path: '/tools/git-cheatsheet',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.git-cheatsheet.lazy').then((d) => d.Route),
+)
 const ToolsGitCommandExplainerRoute =
   ToolsGitCommandExplainerRouteImport.update({
     id: '/tools_/git-command-explainer',
     path: '/tools/git-command-explainer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.git-command-explainer.lazy').then((d) => d.Route),
+  )
 const ToolsGithubActionsGeneratorRoute =
   ToolsGithubActionsGeneratorRouteImport.update({
     id: '/tools_/github-actions-generator',
     path: '/tools/github-actions-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.github-actions-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsGithubProfileGeneratorRoute =
   ToolsGithubProfileGeneratorRouteImport.update({
     id: '/tools_/github-profile-generator',
     path: '/tools/github-profile-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.github-profile-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsGithubProfileStatsRoute = ToolsGithubProfileStatsRouteImport.update({
   id: '/tools_/github-profile-stats',
   path: '/tools/github-profile-stats',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.github-profile-stats.lazy').then((d) => d.Route),
+)
 const ToolsGithubRepoCompareRoute = ToolsGithubRepoCompareRouteImport.update({
   id: '/tools_/github-repo-compare',
   path: '/tools/github-repo-compare',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.github-repo-compare.lazy').then((d) => d.Route),
+)
 const ToolsGithubTokenValidatorRoute =
   ToolsGithubTokenValidatorRouteImport.update({
     id: '/tools_/github-token-validator',
     path: '/tools/github-token-validator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.github-token-validator.lazy').then((d) => d.Route),
+  )
 const ToolsGitignoreGeneratorRoute = ToolsGitignoreGeneratorRouteImport.update({
   id: '/tools_/gitignore-generator',
   path: '/tools/gitignore-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gitignore-generator.lazy').then((d) => d.Route),
+)
 const ToolsGlassmorphismGeneratorRoute =
   ToolsGlassmorphismGeneratorRouteImport.update({
     id: '/tools_/glassmorphism-generator',
     path: '/tools/glassmorphism-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.glassmorphism-generator.lazy').then((d) => d.Route),
+  )
 const ToolsGradeCalculatorRoute = ToolsGradeCalculatorRouteImport.update({
   id: '/tools_/grade-calculator',
   path: '/tools/grade-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.grade-calculator.lazy').then((d) => d.Route),
+)
 const ToolsGradientGeneratorRoute = ToolsGradientGeneratorRouteImport.update({
   id: '/tools_/gradient-generator',
   path: '/tools/gradient-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gradient-generator.lazy').then((d) => d.Route),
+)
 const ToolsGradientTextRoute = ToolsGradientTextRouteImport.update({
   id: '/tools_/gradient-text',
   path: '/tools/gradient-text',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gradient-text.lazy').then((d) => d.Route),
+)
 const ToolsGrafanaDashboardGeneratorRoute =
   ToolsGrafanaDashboardGeneratorRouteImport.update({
     id: '/tools_/grafana-dashboard-generator',
     path: '/tools/grafana-dashboard-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.grafana-dashboard-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsGraphqlStudioRoute = ToolsGraphqlStudioRouteImport.update({
   id: '/tools_/graphql-studio',
   path: '/tools/graphql-studio',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.graphql-studio.lazy').then((d) => d.Route),
+)
 const ToolsGrassSeedCalculatorRoute =
   ToolsGrassSeedCalculatorRouteImport.update({
     id: '/tools_/grass-seed-calculator',
     path: '/tools/grass-seed-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.grass-seed-calculator.lazy').then((d) => d.Route),
+  )
 const ToolsGridAreaPainterRoute = ToolsGridAreaPainterRouteImport.update({
   id: '/tools_/grid-area-painter',
   path: '/tools/grid-area-painter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.grid-area-painter.lazy').then((d) => d.Route),
+)
 const ToolsGridCalculatorRoute = ToolsGridCalculatorRouteImport.update({
   id: '/tools_/grid-calculator',
   path: '/tools/grid-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.grid-calculator.lazy').then((d) => d.Route),
+)
 const ToolsGzipToolRoute = ToolsGzipToolRouteImport.update({
   id: '/tools_/gzip-tool',
   path: '/tools/gzip-tool',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.gzip-tool.lazy').then((d) => d.Route),
+)
 const ToolsHashGeneratorRoute = ToolsHashGeneratorRouteImport.update({
   id: '/tools_/hash-generator',
   path: '/tools/hash-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.hash-generator.lazy').then((d) => d.Route),
+)
 const ToolsHeadingVisualizerRoute = ToolsHeadingVisualizerRouteImport.update({
   id: '/tools_/heading-visualizer',
   path: '/tools/heading-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.heading-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsHeicToJpgRoute = ToolsHeicToJpgRouteImport.update({
   id: '/tools_/heic-to-jpg',
   path: '/tools/heic-to-jpg',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.heic-to-jpg.lazy').then((d) => d.Route),
+)
 const ToolsHeicToPngRoute = ToolsHeicToPngRouteImport.update({
   id: '/tools_/heic-to-png',
   path: '/tools/heic-to-png',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.heic-to-png.lazy').then((d) => d.Route),
+)
 const ToolsHexConverterRoute = ToolsHexConverterRouteImport.update({
   id: '/tools_/hex-converter',
   path: '/tools/hex-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.hex-converter.lazy').then((d) => d.Route),
+)
 const ToolsHmacGeneratorRoute = ToolsHmacGeneratorRouteImport.update({
   id: '/tools_/hmac-generator',
   path: '/tools/hmac-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.hmac-generator.lazy').then((d) => d.Route),
+)
 const ToolsHreflangGeneratorRoute = ToolsHreflangGeneratorRouteImport.update({
   id: '/tools_/hreflang-generator',
   path: '/tools/hreflang-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.hreflang-generator.lazy').then((d) => d.Route),
+)
 const ToolsHtaccessGeneratorRoute = ToolsHtaccessGeneratorRouteImport.update({
   id: '/tools_/htaccess-generator',
   path: '/tools/htaccess-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.htaccess-generator.lazy').then((d) => d.Route),
+)
 const ToolsHtmlEditorRoute = ToolsHtmlEditorRouteImport.update({
   id: '/tools_/html-editor',
   path: '/tools/html-editor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.html-editor.lazy').then((d) => d.Route),
+)
 const ToolsHtmlEntityConverterRoute =
   ToolsHtmlEntityConverterRouteImport.update({
     id: '/tools_/html-entity-converter',
     path: '/tools/html-entity-converter',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.html-entity-converter.lazy').then((d) => d.Route),
+  )
 const ToolsHtmlMinifierRoute = ToolsHtmlMinifierRouteImport.update({
   id: '/tools_/html-minifier',
   path: '/tools/html-minifier',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.html-minifier.lazy').then((d) => d.Route),
+)
 const ToolsHtmlToJsxConverterRoute = ToolsHtmlToJsxConverterRouteImport.update({
   id: '/tools_/html-to-jsx-converter',
   path: '/tools/html-to-jsx-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.html-to-jsx-converter.lazy').then((d) => d.Route),
+)
 const ToolsHtmlToMarkdownRoute = ToolsHtmlToMarkdownRouteImport.update({
   id: '/tools_/html-to-markdown',
   path: '/tools/html-to-markdown',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.html-to-markdown.lazy').then((d) => d.Route),
+)
 const ToolsHttpCacheLabRoute = ToolsHttpCacheLabRouteImport.update({
   id: '/tools_/http-cache-lab',
   path: '/tools/http-cache-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.http-cache-lab.lazy').then((d) => d.Route),
+)
 const ToolsHttpHeaderAnalyzerRoute = ToolsHttpHeaderAnalyzerRouteImport.update({
   id: '/tools_/http-header-analyzer',
   path: '/tools/http-header-analyzer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.http-header-analyzer.lazy').then((d) => d.Route),
+)
 const ToolsHttpHeaderBuilderRoute = ToolsHttpHeaderBuilderRouteImport.update({
   id: '/tools_/http-header-builder',
   path: '/tools/http-header-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.http-header-builder.lazy').then((d) => d.Route),
+)
 const ToolsHttpMethodReferenceRoute =
   ToolsHttpMethodReferenceRouteImport.update({
     id: '/tools_/http-method-reference',
     path: '/tools/http-method-reference',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.http-method-reference.lazy').then((d) => d.Route),
+  )
 const ToolsHttpStatusRoute = ToolsHttpStatusRouteImport.update({
   id: '/tools_/http-status',
   path: '/tools/http-status',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.http-status.lazy').then((d) => d.Route),
+)
 const ToolsHttp2LabRoute = ToolsHttp2LabRouteImport.update({
   id: '/tools_/http2-lab',
   path: '/tools/http2-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.http2-lab.lazy').then((d) => d.Route),
+)
 const ToolsHttp3QuicVisualizerRoute =
   ToolsHttp3QuicVisualizerRouteImport.update({
     id: '/tools_/http3-quic-visualizer',
     path: '/tools/http3-quic-visualizer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.http3-quic-visualizer.lazy').then((d) => d.Route),
+  )
 const ToolsIbanValidatorRoute = ToolsIbanValidatorRouteImport.update({
   id: '/tools_/iban-validator',
   path: '/tools/iban-validator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.iban-validator.lazy').then((d) => d.Route),
+)
 const ToolsIdleDetectionPlaygroundRoute =
   ToolsIdleDetectionPlaygroundRouteImport.update({
     id: '/tools_/idle-detection-playground',
     path: '/tools/idle-detection-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.idle-detection-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsImageColorPickerRoute = ToolsImageColorPickerRouteImport.update({
   id: '/tools_/image-color-picker',
   path: '/tools/image-color-picker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-color-picker.lazy').then((d) => d.Route),
+)
 const ToolsImageCompareRoute = ToolsImageCompareRouteImport.update({
   id: '/tools_/image-compare',
   path: '/tools/image-compare',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-compare.lazy').then((d) => d.Route),
+)
 const ToolsImageCompressorRoute = ToolsImageCompressorRouteImport.update({
   id: '/tools_/image-compressor',
   path: '/tools/image-compressor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-compressor.lazy').then((d) => d.Route),
+)
 const ToolsImageDitheringRoute = ToolsImageDitheringRouteImport.update({
   id: '/tools_/image-dithering',
   path: '/tools/image-dithering',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-dithering.lazy').then((d) => d.Route),
+)
 const ToolsImageNoiseRoute = ToolsImageNoiseRouteImport.update({
   id: '/tools_/image-noise',
   path: '/tools/image-noise',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-noise.lazy').then((d) => d.Route),
+)
 const ToolsImageResizerRoute = ToolsImageResizerRouteImport.update({
   id: '/tools_/image-resizer',
   path: '/tools/image-resizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-resizer.lazy').then((d) => d.Route),
+)
 const ToolsImageSizeCheckerRoute = ToolsImageSizeCheckerRouteImport.update({
   id: '/tools_/image-size-checker',
   path: '/tools/image-size-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-size-checker.lazy').then((d) => d.Route),
+)
 const ToolsImageSplitterRoute = ToolsImageSplitterRouteImport.update({
   id: '/tools_/image-splitter',
   path: '/tools/image-splitter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-splitter.lazy').then((d) => d.Route),
+)
 const ToolsImageStitcherRoute = ToolsImageStitcherRouteImport.update({
   id: '/tools_/image-stitcher',
   path: '/tools/image-stitcher',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-stitcher.lazy').then((d) => d.Route),
+)
 const ToolsImageToAvifRoute = ToolsImageToAvifRouteImport.update({
   id: '/tools_/image-to-avif',
   path: '/tools/image-to-avif',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-to-avif.lazy').then((d) => d.Route),
+)
 const ToolsImageToBase64Route = ToolsImageToBase64RouteImport.update({
   id: '/tools_/image-to-base64',
   path: '/tools/image-to-base64',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-to-base64.lazy').then((d) => d.Route),
+)
 const ToolsImageToPdfRoute = ToolsImageToPdfRouteImport.update({
   id: '/tools_/image-to-pdf',
   path: '/tools/image-to-pdf',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-to-pdf.lazy').then((d) => d.Route),
+)
 const ToolsImageToSvgRoute = ToolsImageToSvgRouteImport.update({
   id: '/tools_/image-to-svg',
   path: '/tools/image-to-svg',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-to-svg.lazy').then((d) => d.Route),
+)
 const ToolsImageToWebpRoute = ToolsImageToWebpRouteImport.update({
   id: '/tools_/image-to-webp',
   path: '/tools/image-to-webp',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.image-to-webp.lazy').then((d) => d.Route),
+)
 const ToolsImportMapsPlaygroundRoute =
   ToolsImportMapsPlaygroundRouteImport.update({
     id: '/tools_/import-maps-playground',
     path: '/tools/import-maps-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.import-maps-playground.lazy').then((d) => d.Route),
+  )
 const ToolsIndexeddbExplorerRoute = ToolsIndexeddbExplorerRouteImport.update({
   id: '/tools_/indexeddb-explorer',
   path: '/tools/indexeddb-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.indexeddb-explorer.lazy').then((d) => d.Route),
+)
 const ToolsIntersectionObserverPlaygroundRoute =
   ToolsIntersectionObserverPlaygroundRouteImport.update({
     id: '/tools_/intersection-observer-playground',
     path: '/tools/intersection-observer-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.intersection-observer-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsInvokerCommandsRoute = ToolsInvokerCommandsRouteImport.update({
   id: '/tools_/invoker-commands',
   path: '/tools/invoker-commands',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.invoker-commands.lazy').then((d) => d.Route),
+)
 const ToolsIpv4ConverterRoute = ToolsIpv4ConverterRouteImport.update({
   id: '/tools_/ipv4-converter',
   path: '/tools/ipv4-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ipv4-converter.lazy').then((d) => d.Route),
+)
 const ToolsIpv6UlaGeneratorRoute = ToolsIpv6UlaGeneratorRouteImport.update({
   id: '/tools_/ipv6-ula-generator',
   path: '/tools/ipv6-ula-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ipv6-ula-generator.lazy').then((d) => d.Route),
+)
 const ToolsJpgToPngRoute = ToolsJpgToPngRouteImport.update({
   id: '/tools_/jpg-to-png',
   path: '/tools/jpg-to-png',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.jpg-to-png.lazy').then((d) => d.Route),
+)
 const ToolsJsAsyncVisualizerRoute = ToolsJsAsyncVisualizerRouteImport.update({
   id: '/tools_/js-async-visualizer',
   path: '/tools/js-async-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-async-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsJsBeautifierRoute = ToolsJsBeautifierRouteImport.update({
   id: '/tools_/js-beautifier',
   path: '/tools/js-beautifier',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-beautifier.lazy').then((d) => d.Route),
+)
 const ToolsJsBenchmarkRoute = ToolsJsBenchmarkRouteImport.update({
   id: '/tools_/js-benchmark',
   path: '/tools/js-benchmark',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-benchmark.lazy').then((d) => d.Route),
+)
 const ToolsJsClassFeaturesRoute = ToolsJsClassFeaturesRouteImport.update({
   id: '/tools_/js-class-features',
   path: '/tools/js-class-features',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-class-features.lazy').then((d) => d.Route),
+)
 const ToolsJsEnginePipelineRoute = ToolsJsEnginePipelineRouteImport.update({
   id: '/tools_/js-engine-pipeline',
   path: '/tools/js-engine-pipeline',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-engine-pipeline.lazy').then((d) => d.Route),
+)
 const ToolsJsErrorTraceRoute = ToolsJsErrorTraceRouteImport.update({
   id: '/tools_/js-error-trace',
   path: '/tools/js-error-trace',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-error-trace.lazy').then((d) => d.Route),
+)
 const ToolsJsEventLoopRoute = ToolsJsEventLoopRouteImport.update({
   id: '/tools_/js-event-loop',
   path: '/tools/js-event-loop',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-event-loop.lazy').then((d) => d.Route),
+)
 const ToolsJsExecutionContextRoute = ToolsJsExecutionContextRouteImport.update({
   id: '/tools_/js-execution-context',
   path: '/tools/js-execution-context',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-execution-context.lazy').then((d) => d.Route),
+)
 const ToolsJsFloatVisualizerRoute = ToolsJsFloatVisualizerRouteImport.update({
   id: '/tools_/js-float-visualizer',
   path: '/tools/js-float-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-float-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsJsGcVisualizerRoute = ToolsJsGcVisualizerRouteImport.update({
   id: '/tools_/js-gc-visualizer',
   path: '/tools/js-gc-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-gc-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsJsHiddenClassesRoute = ToolsJsHiddenClassesRouteImport.update({
   id: '/tools_/js-hidden-classes',
   path: '/tools/js-hidden-classes',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-hidden-classes.lazy').then((d) => d.Route),
+)
 const ToolsJsIteratorsPlaygroundRoute =
   ToolsJsIteratorsPlaygroundRouteImport.update({
     id: '/tools_/js-iterators-playground',
     path: '/tools/js-iterators-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.js-iterators-playground.lazy').then((d) => d.Route),
+  )
 const ToolsJsMemoryLeaksRoute = ToolsJsMemoryLeaksRouteImport.update({
   id: '/tools_/js-memory-leaks',
   path: '/tools/js-memory-leaks',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-memory-leaks.lazy').then((d) => d.Route),
+)
 const ToolsJsMinifierRoute = ToolsJsMinifierRouteImport.update({
   id: '/tools_/js-minifier',
   path: '/tools/js-minifier',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-minifier.lazy').then((d) => d.Route),
+)
 const ToolsJsModuleResolutionRoute = ToolsJsModuleResolutionRouteImport.update({
   id: '/tools_/js-module-resolution',
   path: '/tools/js-module-resolution',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-module-resolution.lazy').then((d) => d.Route),
+)
 const ToolsJsPromiseVisualizerRoute =
   ToolsJsPromiseVisualizerRouteImport.update({
     id: '/tools_/js-promise-visualizer',
     path: '/tools/js-promise-visualizer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.js-promise-visualizer.lazy').then((d) => d.Route),
+  )
 const ToolsJsPropertyDescriptorsRoute =
   ToolsJsPropertyDescriptorsRouteImport.update({
     id: '/tools_/js-property-descriptors',
     path: '/tools/js-property-descriptors',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.js-property-descriptors.lazy').then((d) => d.Route),
+  )
 const ToolsJsPrototypeChainRoute = ToolsJsPrototypeChainRouteImport.update({
   id: '/tools_/js-prototype-chain',
   path: '/tools/js-prototype-chain',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-prototype-chain.lazy').then((d) => d.Route),
+)
 const ToolsJsScopeVisualizerRoute = ToolsJsScopeVisualizerRouteImport.update({
   id: '/tools_/js-scope-visualizer',
   path: '/tools/js-scope-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-scope-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsJsSetMapLabRoute = ToolsJsSetMapLabRouteImport.update({
   id: '/tools_/js-set-map-lab',
   path: '/tools/js-set-map-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-set-map-lab.lazy').then((d) => d.Route),
+)
 const ToolsJsSharedMemoryRoute = ToolsJsSharedMemoryRouteImport.update({
   id: '/tools_/js-shared-memory',
   path: '/tools/js-shared-memory',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-shared-memory.lazy').then((d) => d.Route),
+)
 const ToolsJsSymbolExplorerRoute = ToolsJsSymbolExplorerRouteImport.update({
   id: '/tools_/js-symbol-explorer',
   path: '/tools/js-symbol-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-symbol-explorer.lazy').then((d) => d.Route),
+)
 const ToolsJsTaskSchedulingRoute = ToolsJsTaskSchedulingRouteImport.update({
   id: '/tools_/js-task-scheduling',
   path: '/tools/js-task-scheduling',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-task-scheduling.lazy').then((d) => d.Route),
+)
 const ToolsJsTypeCoercionRoute = ToolsJsTypeCoercionRouteImport.update({
   id: '/tools_/js-type-coercion',
   path: '/tools/js-type-coercion',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.js-type-coercion.lazy').then((d) => d.Route),
+)
 const ToolsJsonCsvConverterRoute = ToolsJsonCsvConverterRouteImport.update({
   id: '/tools_/json-csv-converter',
   path: '/tools/json-csv-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-csv-converter.lazy').then((d) => d.Route),
+)
 const ToolsJsonDiffRoute = ToolsJsonDiffRouteImport.update({
   id: '/tools_/json-diff',
   path: '/tools/json-diff',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-diff.lazy').then((d) => d.Route),
+)
 const ToolsJsonExcelConverterRoute = ToolsJsonExcelConverterRouteImport.update({
   id: '/tools_/json-excel-converter',
   path: '/tools/json-excel-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-excel-converter.lazy').then((d) => d.Route),
+)
 const ToolsJsonFormatterRoute = ToolsJsonFormatterRouteImport.update({
   id: '/tools_/json-formatter',
   path: '/tools/json-formatter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-formatter.lazy').then((d) => d.Route),
+)
 const ToolsJsonPathTesterRoute = ToolsJsonPathTesterRouteImport.update({
   id: '/tools_/json-path-tester',
   path: '/tools/json-path-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-path-tester.lazy').then((d) => d.Route),
+)
 const ToolsJsonSchemaValidatorRoute =
   ToolsJsonSchemaValidatorRouteImport.update({
     id: '/tools_/json-schema-validator',
     path: '/tools/json-schema-validator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.json-schema-validator.lazy').then((d) => d.Route),
+  )
 const ToolsJsonStringConverterRoute =
   ToolsJsonStringConverterRouteImport.update({
     id: '/tools_/json-string-converter',
     path: '/tools/json-string-converter',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.json-string-converter.lazy').then((d) => d.Route),
+  )
 const ToolsJsonToCsharpRoute = ToolsJsonToCsharpRouteImport.update({
   id: '/tools_/json-to-csharp',
   path: '/tools/json-to-csharp',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-to-csharp.lazy').then((d) => d.Route),
+)
 const ToolsJsonToTypesRoute = ToolsJsonToTypesRouteImport.update({
   id: '/tools_/json-to-types',
   path: '/tools/json-to-types',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-to-types.lazy').then((d) => d.Route),
+)
 const ToolsJsonViewerRoute = ToolsJsonViewerRouteImport.update({
   id: '/tools_/json-viewer',
   path: '/tools/json-viewer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-viewer.lazy').then((d) => d.Route),
+)
 const ToolsJsonXmlConverterRoute = ToolsJsonXmlConverterRouteImport.update({
   id: '/tools_/json-xml-converter',
   path: '/tools/json-xml-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.json-xml-converter.lazy').then((d) => d.Route),
+)
 const ToolsJwtBuilderRoute = ToolsJwtBuilderRouteImport.update({
   id: '/tools_/jwt-builder',
   path: '/tools/jwt-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.jwt-builder.lazy').then((d) => d.Route),
+)
 const ToolsJwtDecoderRoute = ToolsJwtDecoderRouteImport.update({
   id: '/tools_/jwt-decoder',
   path: '/tools/jwt-decoder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.jwt-decoder.lazy').then((d) => d.Route),
+)
 const ToolsKeyboardPlaygroundRoute = ToolsKeyboardPlaygroundRouteImport.update({
   id: '/tools_/keyboard-playground',
   path: '/tools/keyboard-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.keyboard-playground.lazy').then((d) => d.Route),
+)
 const ToolsKeycodeTesterRoute = ToolsKeycodeTesterRouteImport.update({
   id: '/tools_/keycode-tester',
   path: '/tools/keycode-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.keycode-tester.lazy').then((d) => d.Route),
+)
 const ToolsKeywordDensityRoute = ToolsKeywordDensityRouteImport.update({
   id: '/tools_/keyword-density',
   path: '/tools/keyword-density',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.keyword-density.lazy').then((d) => d.Route),
+)
 const ToolsKubernetesGeneratorRoute =
   ToolsKubernetesGeneratorRouteImport.update({
     id: '/tools_/kubernetes-generator',
     path: '/tools/kubernetes-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.kubernetes-generator.lazy').then((d) => d.Route),
+  )
 const ToolsLaunchHandlerPlaygroundRoute =
   ToolsLaunchHandlerPlaygroundRouteImport.update({
     id: '/tools_/launch-handler-playground',
     path: '/tools/launch-handler-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.launch-handler-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsLicenseAuditRoute = ToolsLicenseAuditRouteImport.update({
   id: '/tools_/license-audit',
   path: '/tools/license-audit',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.license-audit.lazy').then((d) => d.Route),
+)
 const ToolsLicenseChooserRoute = ToolsLicenseChooserRouteImport.update({
   id: '/tools_/license-chooser',
   path: '/tools/license-chooser',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.license-chooser.lazy').then((d) => d.Route),
+)
 const ToolsLightDarkPlaygroundRoute =
   ToolsLightDarkPlaygroundRouteImport.update({
     id: '/tools_/light-dark-playground',
     path: '/tools/light-dark-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.light-dark-playground.lazy').then((d) => d.Route),
+  )
 const ToolsListComparerRoute = ToolsListComparerRouteImport.update({
   id: '/tools_/list-comparer',
   path: '/tools/list-comparer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.list-comparer.lazy').then((d) => d.Route),
+)
 const ToolsListConverterRoute = ToolsListConverterRouteImport.update({
   id: '/tools_/list-converter',
   path: '/tools/list-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.list-converter.lazy').then((d) => d.Route),
+)
 const ToolsLlmPriceRoute = ToolsLlmPriceRouteImport.update({
   id: '/tools_/llm-price',
   path: '/tools/llm-price',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.llm-price.lazy').then((d) => d.Route),
+)
 const ToolsLocaleFormatExplorerRoute =
   ToolsLocaleFormatExplorerRouteImport.update({
     id: '/tools_/locale-format-explorer',
     path: '/tools/locale-format-explorer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.locale-format-explorer.lazy').then((d) => d.Route),
+  )
 const ToolsLocalstorageExplorerRoute =
   ToolsLocalstorageExplorerRouteImport.update({
     id: '/tools_/localstorage-explorer',
     path: '/tools/localstorage-explorer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.localstorage-explorer.lazy').then((d) => d.Route),
+  )
 const ToolsLogParserRoute = ToolsLogParserRouteImport.update({
   id: '/tools_/log-parser',
   path: '/tools/log-parser',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.log-parser.lazy').then((d) => d.Route),
+)
 const ToolsLogoBuilderRoute = ToolsLogoBuilderRouteImport.update({
   id: '/tools_/logo-builder',
   path: '/tools/logo-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.logo-builder.lazy').then((d) => d.Route),
+)
 const ToolsLongAnimationFramesRoute =
   ToolsLongAnimationFramesRouteImport.update({
     id: '/tools_/long-animation-frames',
     path: '/tools/long-animation-frames',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.long-animation-frames.lazy').then((d) => d.Route),
+  )
 const ToolsLoremIpsumRoute = ToolsLoremIpsumRouteImport.update({
   id: '/tools_/lorem-ipsum',
   path: '/tools/lorem-ipsum',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.lorem-ipsum.lazy').then((d) => d.Route),
+)
 const ToolsMacGeneratorRoute = ToolsMacGeneratorRouteImport.update({
   id: '/tools_/mac-generator',
   path: '/tools/mac-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.mac-generator.lazy').then((d) => d.Route),
+)
 const ToolsMakefileGeneratorRoute = ToolsMakefileGeneratorRouteImport.update({
   id: '/tools_/makefile-generator',
   path: '/tools/makefile-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.makefile-generator.lazy').then((d) => d.Route),
+)
 const ToolsManifestGeneratorRoute = ToolsManifestGeneratorRouteImport.update({
   id: '/tools_/manifest-generator',
   path: '/tools/manifest-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.manifest-generator.lazy').then((d) => d.Route),
+)
 const ToolsMarkdownEditorRoute = ToolsMarkdownEditorRouteImport.update({
   id: '/tools_/markdown-editor',
   path: '/tools/markdown-editor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.markdown-editor.lazy').then((d) => d.Route),
+)
 const ToolsMarkdownFormatterRoute = ToolsMarkdownFormatterRouteImport.update({
   id: '/tools_/markdown-formatter',
   path: '/tools/markdown-formatter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.markdown-formatter.lazy').then((d) => d.Route),
+)
 const ToolsMarkdownPreviewRoute = ToolsMarkdownPreviewRouteImport.update({
   id: '/tools_/markdown-preview',
   path: '/tools/markdown-preview',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.markdown-preview.lazy').then((d) => d.Route),
+)
 const ToolsMarkdownTableBuilderRoute =
   ToolsMarkdownTableBuilderRouteImport.update({
     id: '/tools_/markdown-table-builder',
     path: '/tools/markdown-table-builder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.markdown-table-builder.lazy').then((d) => d.Route),
+  )
 const ToolsMathEvaluatorRoute = ToolsMathEvaluatorRouteImport.update({
   id: '/tools_/math-evaluator',
   path: '/tools/math-evaluator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.math-evaluator.lazy').then((d) => d.Route),
+)
 const ToolsMatrixCalculatorRoute = ToolsMatrixCalculatorRouteImport.update({
   id: '/tools_/matrix-calculator',
   path: '/tools/matrix-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.matrix-calculator.lazy').then((d) => d.Route),
+)
 const ToolsMealGeneratorRoute = ToolsMealGeneratorRouteImport.update({
   id: '/tools_/meal-generator',
   path: '/tools/meal-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.meal-generator.lazy').then((d) => d.Route),
+)
 const ToolsMediaQueryBuilderRoute = ToolsMediaQueryBuilderRouteImport.update({
   id: '/tools_/media-query-builder',
   path: '/tools/media-query-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.media-query-builder.lazy').then((d) => d.Route),
+)
 const ToolsMediaRecorderStudioRoute =
   ToolsMediaRecorderStudioRouteImport.update({
     id: '/tools_/media-recorder-studio',
     path: '/tools/media-recorder-studio',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.media-recorder-studio.lazy').then((d) => d.Route),
+  )
 const ToolsMediaSessionPlaygroundRoute =
   ToolsMediaSessionPlaygroundRouteImport.update({
     id: '/tools_/media-session-playground',
     path: '/tools/media-session-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.media-session-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsMemeGeneratorRoute = ToolsMemeGeneratorRouteImport.update({
   id: '/tools_/meme-generator',
   path: '/tools/meme-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.meme-generator.lazy').then((d) => d.Route),
+)
 const ToolsMermaidEditorRoute = ToolsMermaidEditorRouteImport.update({
   id: '/tools_/mermaid-editor',
   path: '/tools/mermaid-editor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.mermaid-editor.lazy').then((d) => d.Route),
+)
 const ToolsMeshGradientRoute = ToolsMeshGradientRouteImport.update({
   id: '/tools_/mesh-gradient',
   path: '/tools/mesh-gradient',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.mesh-gradient.lazy').then((d) => d.Route),
+)
 const ToolsMetaGeneratorRoute = ToolsMetaGeneratorRouteImport.update({
   id: '/tools_/meta-generator',
   path: '/tools/meta-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.meta-generator.lazy').then((d) => d.Route),
+)
 const ToolsMetronomeRoute = ToolsMetronomeRouteImport.update({
   id: '/tools_/metronome',
   path: '/tools/metronome',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.metronome.lazy').then((d) => d.Route),
+)
 const ToolsMimeTypesRoute = ToolsMimeTypesRouteImport.update({
   id: '/tools_/mime-types',
   path: '/tools/mime-types',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.mime-types.lazy').then((d) => d.Route),
+)
 const ToolsMockDataGeneratorRoute = ToolsMockDataGeneratorRouteImport.update({
   id: '/tools_/mock-data-generator',
   path: '/tools/mock-data-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.mock-data-generator.lazy').then((d) => d.Route),
+)
 const ToolsModelPickerRoute = ToolsModelPickerRouteImport.update({
   id: '/tools_/model-picker',
   path: '/tools/model-picker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.model-picker.lazy').then((d) => d.Route),
+)
 const ToolsModuleImportPatternsRoute =
   ToolsModuleImportPatternsRouteImport.update({
     id: '/tools_/module-import-patterns',
     path: '/tools/module-import-patterns',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.module-import-patterns.lazy').then((d) => d.Route),
+  )
 const ToolsMolarMassRoute = ToolsMolarMassRouteImport.update({
   id: '/tools_/molar-mass',
   path: '/tools/molar-mass',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.molar-mass.lazy').then((d) => d.Route),
+)
 const ToolsMorseCodeRoute = ToolsMorseCodeRouteImport.update({
   id: '/tools_/morse-code',
   path: '/tools/morse-code',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.morse-code.lazy').then((d) => d.Route),
+)
 const ToolsMortgageCalculatorRoute = ToolsMortgageCalculatorRouteImport.update({
   id: '/tools_/mortgage-calculator',
   path: '/tools/mortgage-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.mortgage-calculator.lazy').then((d) => d.Route),
+)
 const ToolsMutationObserverPlaygroundRoute =
   ToolsMutationObserverPlaygroundRouteImport.update({
     id: '/tools_/mutation-observer-playground',
     path: '/tools/mutation-observer-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.mutation-observer-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsNatoPhoneticRoute = ToolsNatoPhoneticRouteImport.update({
   id: '/tools_/nato-phonetic',
   path: '/tools/nato-phonetic',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.nato-phonetic.lazy').then((d) => d.Route),
+)
 const ToolsNavigationApiPlaygroundRoute =
   ToolsNavigationApiPlaygroundRouteImport.update({
     id: '/tools_/navigation-api-playground',
     path: '/tools/navigation-api-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.navigation-api-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsNetworkInfoPlaygroundRoute =
   ToolsNetworkInfoPlaygroundRouteImport.update({
     id: '/tools_/network-info-playground',
     path: '/tools/network-info-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.network-info-playground.lazy').then((d) => d.Route),
+  )
 const ToolsNeumorphismGeneratorRoute =
   ToolsNeumorphismGeneratorRouteImport.update({
     id: '/tools_/neumorphism-generator',
     path: '/tools/neumorphism-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.neumorphism-generator.lazy').then((d) => d.Route),
+  )
 const ToolsNginxGeneratorRoute = ToolsNginxGeneratorRouteImport.update({
   id: '/tools_/nginx-generator',
   path: '/tools/nginx-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.nginx-generator.lazy').then((d) => d.Route),
+)
 const ToolsNoiseGeneratorRoute = ToolsNoiseGeneratorRouteImport.update({
   id: '/tools_/noise-generator',
   path: '/tools/noise-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.noise-generator.lazy').then((d) => d.Route),
+)
 const ToolsNotificationBuilderRoute =
   ToolsNotificationBuilderRouteImport.update({
     id: '/tools_/notification-builder',
     path: '/tools/notification-builder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.notification-builder.lazy').then((d) => d.Route),
+  )
 const ToolsNpmAltRoute = ToolsNpmAltRouteImport.update({
   id: '/tools_/npm-alt',
   path: '/tools/npm-alt',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-alt.lazy').then((d) => d.Route),
+)
 const ToolsNpmCompareRoute = ToolsNpmCompareRouteImport.update({
   id: '/tools_/npm-compare',
   path: '/tools/npm-compare',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-compare.lazy').then((d) => d.Route),
+)
 const ToolsNpmDepGraphRoute = ToolsNpmDepGraphRouteImport.update({
   id: '/tools_/npm-dep-graph',
   path: '/tools/npm-dep-graph',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-dep-graph.lazy').then((d) => d.Route),
+)
 const ToolsNpmHealthRoute = ToolsNpmHealthRouteImport.update({
   id: '/tools_/npm-health',
   path: '/tools/npm-health',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-health.lazy').then((d) => d.Route),
+)
 const ToolsNpmNameCheckerRoute = ToolsNpmNameCheckerRouteImport.update({
   id: '/tools_/npm-name-checker',
   path: '/tools/npm-name-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-name-checker.lazy').then((d) => d.Route),
+)
 const ToolsNpmPackageCheckerRoute = ToolsNpmPackageCheckerRouteImport.update({
   id: '/tools_/npm-package-checker',
   path: '/tools/npm-package-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-package-checker.lazy').then((d) => d.Route),
+)
 const ToolsNpmTrendsRoute = ToolsNpmTrendsRouteImport.update({
   id: '/tools_/npm-trends',
   path: '/tools/npm-trends',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.npm-trends.lazy').then((d) => d.Route),
+)
 const ToolsNumberBaseConverterRoute =
   ToolsNumberBaseConverterRouteImport.update({
     id: '/tools_/number-base-converter',
     path: '/tools/number-base-converter',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.number-base-converter.lazy').then((d) => d.Route),
+  )
 const ToolsNumeronymGeneratorRoute = ToolsNumeronymGeneratorRouteImport.update({
   id: '/tools_/numeronym-generator',
   path: '/tools/numeronym-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.numeronym-generator.lazy').then((d) => d.Route),
+)
 const ToolsOcrExtractorRoute = ToolsOcrExtractorRouteImport.update({
   id: '/tools_/ocr-extractor',
   path: '/tools/ocr-extractor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ocr-extractor.lazy').then((d) => d.Route),
+)
 const ToolsOffscreenCanvasPlaygroundRoute =
   ToolsOffscreenCanvasPlaygroundRouteImport.update({
     id: '/tools_/offscreen-canvas-playground',
     path: '/tools/offscreen-canvas-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.offscreen-canvas-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsOgImageGeneratorRoute = ToolsOgImageGeneratorRouteImport.update({
   id: '/tools_/og-image-generator',
   path: '/tools/og-image-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.og-image-generator.lazy').then((d) => d.Route),
+)
 const ToolsOgPreviewRoute = ToolsOgPreviewRouteImport.update({
   id: '/tools_/og-preview',
   path: '/tools/og-preview',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.og-preview.lazy').then((d) => d.Route),
+)
 const ToolsOpenGraphCheckerRoute = ToolsOpenGraphCheckerRouteImport.update({
   id: '/tools_/open-graph-checker',
   path: '/tools/open-graph-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.open-graph-checker.lazy').then((d) => d.Route),
+)
 const ToolsOpenGraphGeneratorRoute = ToolsOpenGraphGeneratorRouteImport.update({
   id: '/tools_/open-graph-generator',
   path: '/tools/open-graph-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.open-graph-generator.lazy').then((d) => d.Route),
+)
 const ToolsOpenapiViewerRoute = ToolsOpenapiViewerRouteImport.update({
   id: '/tools_/openapi-viewer',
   path: '/tools/openapi-viewer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.openapi-viewer.lazy').then((d) => d.Route),
+)
 const ToolsPackageJsonGeneratorRoute =
   ToolsPackageJsonGeneratorRouteImport.update({
     id: '/tools_/package-json-generator',
     path: '/tools/package-json-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.package-json-generator.lazy').then((d) => d.Route),
+  )
 const ToolsPageLifecyclePlaygroundRoute =
   ToolsPageLifecyclePlaygroundRouteImport.update({
     id: '/tools_/page-lifecycle-playground',
     path: '/tools/page-lifecycle-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.page-lifecycle-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsPaintCalculatorRoute = ToolsPaintCalculatorRouteImport.update({
   id: '/tools_/paint-calculator',
   path: '/tools/paint-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.paint-calculator.lazy').then((d) => d.Route),
+)
 const ToolsPassportPhotoMakerRoute = ToolsPassportPhotoMakerRouteImport.update({
   id: '/tools_/passport-photo-maker',
   path: '/tools/passport-photo-maker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.passport-photo-maker.lazy').then((d) => d.Route),
+)
 const ToolsPassportPhotoSheetRoute = ToolsPassportPhotoSheetRouteImport.update({
   id: '/tools_/passport-photo-sheet',
   path: '/tools/passport-photo-sheet',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.passport-photo-sheet.lazy').then((d) => d.Route),
+)
 const ToolsPasswordBreachCheckRoute =
   ToolsPasswordBreachCheckRouteImport.update({
     id: '/tools_/password-breach-check',
     path: '/tools/password-breach-check',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.password-breach-check.lazy').then((d) => d.Route),
+  )
 const ToolsPasswordGeneratorRoute = ToolsPasswordGeneratorRouteImport.update({
   id: '/tools_/password-generator',
   path: '/tools/password-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.password-generator.lazy').then((d) => d.Route),
+)
 const ToolsPasswordStrengthRoute = ToolsPasswordStrengthRouteImport.update({
   id: '/tools_/password-strength',
   path: '/tools/password-strength',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.password-strength.lazy').then((d) => d.Route),
+)
 const ToolsPasteImageToFileRoute = ToolsPasteImageToFileRouteImport.update({
   id: '/tools_/paste-image-to-file',
   path: '/tools/paste-image-to-file',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.paste-image-to-file.lazy').then((d) => d.Route),
+)
 const ToolsPaymentHandlerPlaygroundRoute =
   ToolsPaymentHandlerPlaygroundRouteImport.update({
     id: '/tools_/payment-handler-playground',
     path: '/tools/payment-handler-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.payment-handler-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsPdfSignatureRoute = ToolsPdfSignatureRouteImport.update({
   id: '/tools_/pdf-signature',
   path: '/tools/pdf-signature',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pdf-signature.lazy').then((d) => d.Route),
+)
 const ToolsPdfToImageRoute = ToolsPdfToImageRouteImport.update({
   id: '/tools_/pdf-to-image',
   path: '/tools/pdf-to-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pdf-to-image.lazy').then((d) => d.Route),
+)
 const ToolsPdfToolkitRoute = ToolsPdfToolkitRouteImport.update({
   id: '/tools_/pdf-toolkit',
   path: '/tools/pdf-toolkit',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pdf-toolkit.lazy').then((d) => d.Route),
+)
 const ToolsPercentageCalculatorRoute =
   ToolsPercentageCalculatorRouteImport.update({
     id: '/tools_/percentage-calculator',
     path: '/tools/percentage-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.percentage-calculator.lazy').then((d) => d.Route),
+  )
 const ToolsPerformanceApiLabRoute = ToolsPerformanceApiLabRouteImport.update({
   id: '/tools_/performance-api-lab',
   path: '/tools/performance-api-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.performance-api-lab.lazy').then((d) => d.Route),
+)
 const ToolsPerformanceBudgetRoute = ToolsPerformanceBudgetRouteImport.update({
   id: '/tools_/performance-budget',
   path: '/tools/performance-budget',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.performance-budget.lazy').then((d) => d.Route),
+)
 const ToolsPeriodicSyncPlaygroundRoute =
   ToolsPeriodicSyncPlaygroundRouteImport.update({
     id: '/tools_/periodic-sync-playground',
     path: '/tools/periodic-sync-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.periodic-sync-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsPeriodicTableRoute = ToolsPeriodicTableRouteImport.update({
   id: '/tools_/periodic-table',
   path: '/tools/periodic-table',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.periodic-table.lazy').then((d) => d.Route),
+)
 const ToolsPermissionsDashboardRoute =
   ToolsPermissionsDashboardRouteImport.update({
     id: '/tools_/permissions-dashboard',
     path: '/tools/permissions-dashboard',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.permissions-dashboard.lazy').then((d) => d.Route),
+  )
 const ToolsPhoneParserRoute = ToolsPhoneParserRouteImport.update({
   id: '/tools_/phone-parser',
   path: '/tools/phone-parser',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.phone-parser.lazy').then((d) => d.Route),
+)
 const ToolsPhotoCollageRoute = ToolsPhotoCollageRouteImport.update({
   id: '/tools_/photo-collage',
   path: '/tools/photo-collage',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.photo-collage.lazy').then((d) => d.Route),
+)
 const ToolsPhotoFiltersRoute = ToolsPhotoFiltersRouteImport.update({
   id: '/tools_/photo-filters',
   path: '/tools/photo-filters',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.photo-filters.lazy').then((d) => d.Route),
+)
 const ToolsPhotoGpsExtractorRoute = ToolsPhotoGpsExtractorRouteImport.update({
   id: '/tools_/photo-gps-extractor',
   path: '/tools/photo-gps-extractor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.photo-gps-extractor.lazy').then((d) => d.Route),
+)
 const ToolsPhotoSignatureJoinerRoute =
   ToolsPhotoSignatureJoinerRouteImport.update({
     id: '/tools_/photo-signature-joiner',
     path: '/tools/photo-signature-joiner',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.photo-signature-joiner.lazy').then((d) => d.Route),
+  )
 const ToolsPianoKeyboardRoute = ToolsPianoKeyboardRouteImport.update({
   id: '/tools_/piano-keyboard',
   path: '/tools/piano-keyboard',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.piano-keyboard.lazy').then((d) => d.Route),
+)
 const ToolsPinyinConverterRoute = ToolsPinyinConverterRouteImport.update({
   id: '/tools_/pinyin-converter',
   path: '/tools/pinyin-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pinyin-converter.lazy').then((d) => d.Route),
+)
 const ToolsPipPlaygroundRoute = ToolsPipPlaygroundRouteImport.update({
   id: '/tools_/pip-playground',
   path: '/tools/pip-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pip-playground.lazy').then((d) => d.Route),
+)
 const ToolsPixelArtMakerRoute = ToolsPixelArtMakerRouteImport.update({
   id: '/tools_/pixel-art-maker',
   path: '/tools/pixel-art-maker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pixel-art-maker.lazy').then((d) => d.Route),
+)
 const ToolsPixelRulerRoute = ToolsPixelRulerRouteImport.update({
   id: '/tools_/pixel-ruler',
   path: '/tools/pixel-ruler',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pixel-ruler.lazy').then((d) => d.Route),
+)
 const ToolsPkgLintRoute = ToolsPkgLintRouteImport.update({
   id: '/tools_/pkg-lint',
   path: '/tools/pkg-lint',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pkg-lint.lazy').then((d) => d.Route),
+)
 const ToolsPlaceholderImageRoute = ToolsPlaceholderImageRouteImport.update({
   id: '/tools_/placeholder-image',
   path: '/tools/placeholder-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.placeholder-image.lazy').then((d) => d.Route),
+)
 const ToolsPngToIcoRoute = ToolsPngToIcoRouteImport.update({
   id: '/tools_/png-to-ico',
   path: '/tools/png-to-ico',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.png-to-ico.lazy').then((d) => d.Route),
+)
 const ToolsPngToJpgRoute = ToolsPngToJpgRouteImport.update({
   id: '/tools_/png-to-jpg',
   path: '/tools/png-to-jpg',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.png-to-jpg.lazy').then((d) => d.Route),
+)
 const ToolsPointerEventsPlaygroundRoute =
   ToolsPointerEventsPlaygroundRouteImport.update({
     id: '/tools_/pointer-events-playground',
     path: '/tools/pointer-events-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.pointer-events-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsPomodoroTimerRoute = ToolsPomodoroTimerRouteImport.update({
   id: '/tools_/pomodoro-timer',
   path: '/tools/pomodoro-timer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pomodoro-timer.lazy').then((d) => d.Route),
+)
 const ToolsPopoverPlaygroundRoute = ToolsPopoverPlaygroundRouteImport.update({
   id: '/tools_/popover-playground',
   path: '/tools/popover-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.popover-playground.lazy').then((d) => d.Route),
+)
 const ToolsPortReferenceRoute = ToolsPortReferenceRouteImport.update({
   id: '/tools_/port-reference',
   path: '/tools/port-reference',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.port-reference.lazy').then((d) => d.Route),
+)
 const ToolsPrettierConfigGeneratorRoute =
   ToolsPrettierConfigGeneratorRouteImport.update({
     id: '/tools_/prettier-config-generator',
     path: '/tools/prettier-config-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.prettier-config-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsPrivacyPolicyGeneratorRoute =
   ToolsPrivacyPolicyGeneratorRouteImport.update({
     id: '/tools_/privacy-policy-generator',
     path: '/tools/privacy-policy-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.privacy-policy-generator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsProbabilityLabRoute = ToolsProbabilityLabRouteImport.update({
   id: '/tools_/probability-lab',
   path: '/tools/probability-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.probability-lab.lazy').then((d) => d.Route),
+)
 const ToolsProjectileLabRoute = ToolsProjectileLabRouteImport.update({
   id: '/tools_/projectile-lab',
   path: '/tools/projectile-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.projectile-lab.lazy').then((d) => d.Route),
+)
 const ToolsPromptPriceRoute = ToolsPromptPriceRouteImport.update({
   id: '/tools_/prompt-price',
   path: '/tools/prompt-price',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.prompt-price.lazy').then((d) => d.Route),
+)
 const ToolsProxyReflectPlaygroundRoute =
   ToolsProxyReflectPlaygroundRouteImport.update({
     id: '/tools_/proxy-reflect-playground',
     path: '/tools/proxy-reflect-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.proxy-reflect-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsPunnettSquareRoute = ToolsPunnettSquareRouteImport.update({
   id: '/tools_/punnett-square',
   path: '/tools/punnett-square',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.punnett-square.lazy').then((d) => d.Route),
+)
 const ToolsPypiSearchRoute = ToolsPypiSearchRouteImport.update({
   id: '/tools_/pypi-search',
   path: '/tools/pypi-search',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.pypi-search.lazy').then((d) => d.Route),
+)
 const ToolsQrCodeScannerRoute = ToolsQrCodeScannerRouteImport.update({
   id: '/tools_/qr-code-scanner',
   path: '/tools/qr-code-scanner',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.qr-code-scanner.lazy').then((d) => d.Route),
+)
 const ToolsQrGeneratorRoute = ToolsQrGeneratorRouteImport.update({
   id: '/tools_/qr-generator',
   path: '/tools/qr-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.qr-generator.lazy').then((d) => d.Route),
+)
 const ToolsQueryStringBuilderRoute = ToolsQueryStringBuilderRouteImport.update({
   id: '/tools_/query-string-builder',
   path: '/tools/query-string-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.query-string-builder.lazy').then((d) => d.Route),
+)
 const ToolsRandomPortRoute = ToolsRandomPortRouteImport.update({
   id: '/tools_/random-port',
   path: '/tools/random-port',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.random-port.lazy').then((d) => d.Route),
+)
 const ToolsReadingTimeRoute = ToolsReadingTimeRouteImport.update({
   id: '/tools_/reading-time',
   path: '/tools/reading-time',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.reading-time.lazy').then((d) => d.Route),
+)
 const ToolsReadmeGeneratorRoute = ToolsReadmeGeneratorRouteImport.update({
   id: '/tools_/readme-generator',
   path: '/tools/readme-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.readme-generator.lazy').then((d) => d.Route),
+)
 const ToolsReadmeScoreRoute = ToolsReadmeScoreRouteImport.update({
   id: '/tools_/readme-score',
   path: '/tools/readme-score',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.readme-score.lazy').then((d) => d.Route),
+)
 const ToolsRedactImageRoute = ToolsRedactImageRouteImport.update({
   id: '/tools_/redact-image',
   path: '/tools/redact-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.redact-image.lazy').then((d) => d.Route),
+)
 const ToolsRegexCheatsheetRoute = ToolsRegexCheatsheetRouteImport.update({
   id: '/tools_/regex-cheatsheet',
   path: '/tools/regex-cheatsheet',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.regex-cheatsheet.lazy').then((d) => d.Route),
+)
 const ToolsRegexEngineVisualizerRoute =
   ToolsRegexEngineVisualizerRouteImport.update({
     id: '/tools_/regex-engine-visualizer',
     path: '/tools/regex-engine-visualizer',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.regex-engine-visualizer.lazy').then((d) => d.Route),
+  )
 const ToolsRegexReplaceRoute = ToolsRegexReplaceRouteImport.update({
   id: '/tools_/regex-replace',
   path: '/tools/regex-replace',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.regex-replace.lazy').then((d) => d.Route),
+)
 const ToolsRegexTesterRoute = ToolsRegexTesterRouteImport.update({
   id: '/tools_/regex-tester',
   path: '/tools/regex-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.regex-tester.lazy').then((d) => d.Route),
+)
 const ToolsRegexVisualizerRoute = ToolsRegexVisualizerRouteImport.update({
   id: '/tools_/regex-visualizer',
   path: '/tools/regex-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.regex-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsRemoveDuplicateLinesRoute =
   ToolsRemoveDuplicateLinesRouteImport.update({
     id: '/tools_/remove-duplicate-lines',
     path: '/tools/remove-duplicate-lines',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.remove-duplicate-lines.lazy').then((d) => d.Route),
+  )
 const ToolsRemoveExtraSpacesRoute = ToolsRemoveExtraSpacesRouteImport.update({
   id: '/tools_/remove-extra-spaces',
   path: '/tools/remove-extra-spaces',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.remove-extra-spaces.lazy').then((d) => d.Route),
+)
 const ToolsRemoveMetadataRoute = ToolsRemoveMetadataRouteImport.update({
   id: '/tools_/remove-metadata',
   path: '/tools/remove-metadata',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.remove-metadata.lazy').then((d) => d.Route),
+)
 const ToolsRenderingPipelineRoute = ToolsRenderingPipelineRouteImport.update({
   id: '/tools_/rendering-pipeline',
   path: '/tools/rendering-pipeline',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.rendering-pipeline.lazy').then((d) => d.Route),
+)
 const ToolsRentVsBuyRoute = ToolsRentVsBuyRouteImport.update({
   id: '/tools_/rent-vs-buy',
   path: '/tools/rent-vs-buy',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.rent-vs-buy.lazy').then((d) => d.Route),
+)
 const ToolsReportingPlaygroundRoute =
   ToolsReportingPlaygroundRouteImport.update({
     id: '/tools_/reporting-playground',
     path: '/tools/reporting-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.reporting-playground.lazy').then((d) => d.Route),
+  )
 const ToolsRequestidlecallbackPlaygroundRoute =
   ToolsRequestidlecallbackPlaygroundRouteImport.update({
     id: '/tools_/requestidlecallback-playground',
     path: '/tools/requestidlecallback-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.requestidlecallback-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsResizeGifRoute = ToolsResizeGifRouteImport.update({
   id: '/tools_/resize-gif',
   path: '/tools/resize-gif',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.resize-gif.lazy').then((d) => d.Route),
+)
 const ToolsResizeObserverPlaygroundRoute =
   ToolsResizeObserverPlaygroundRouteImport.update({
     id: '/tools_/resize-observer-playground',
     path: '/tools/resize-observer-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.resize-observer-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsResizeToCmMmRoute = ToolsResizeToCmMmRouteImport.update({
   id: '/tools_/resize-to-cm-mm',
   path: '/tools/resize-to-cm-mm',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.resize-to-cm-mm.lazy').then((d) => d.Route),
+)
 const ToolsResponsiveTesterRoute = ToolsResponsiveTesterRouteImport.update({
   id: '/tools_/responsive-tester',
   path: '/tools/responsive-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.responsive-tester.lazy').then((d) => d.Route),
+)
 const ToolsResumeBuilderRoute = ToolsResumeBuilderRouteImport.update({
   id: '/tools_/resume-builder',
   path: '/tools/resume-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.resume-builder.lazy').then((d) => d.Route),
+)
 const ToolsRobotsTxtRoute = ToolsRobotsTxtRouteImport.update({
   id: '/tools_/robots-txt',
   path: '/tools/robots-txt',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.robots-txt.lazy').then((d) => d.Route),
+)
 const ToolsRomanNumeralsRoute = ToolsRomanNumeralsRouteImport.update({
   id: '/tools_/roman-numerals',
   path: '/tools/roman-numerals',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.roman-numerals.lazy').then((d) => d.Route),
+)
 const ToolsRot13CipherRoute = ToolsRot13CipherRouteImport.update({
   id: '/tools_/rot13-cipher',
   path: '/tools/rot13-cipher',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.rot13-cipher.lazy').then((d) => d.Route),
+)
 const ToolsRotateFlipImageRoute = ToolsRotateFlipImageRouteImport.update({
   id: '/tools_/rotate-flip-image',
   path: '/tools/rotate-flip-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.rotate-flip-image.lazy').then((d) => d.Route),
+)
 const ToolsRsaKeyGeneratorRoute = ToolsRsaKeyGeneratorRouteImport.update({
   id: '/tools_/rsa-key-generator',
   path: '/tools/rsa-key-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.rsa-key-generator.lazy').then((d) => d.Route),
+)
 const ToolsSafelinkDecoderRoute = ToolsSafelinkDecoderRouteImport.update({
   id: '/tools_/safelink-decoder',
   path: '/tools/safelink-decoder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.safelink-decoder.lazy').then((d) => d.Route),
+)
 const ToolsSalaryCalculatorRoute = ToolsSalaryCalculatorRouteImport.update({
   id: '/tools_/salary-calculator',
   path: '/tools/salary-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.salary-calculator.lazy').then((d) => d.Route),
+)
 const ToolsSanitizerApiPlaygroundRoute =
   ToolsSanitizerApiPlaygroundRouteImport.update({
     id: '/tools_/sanitizer-api-playground',
     path: '/tools/sanitizer-api-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.sanitizer-api-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsScaleOfUniverseRoute = ToolsScaleOfUniverseRouteImport.update({
   id: '/tools_/scale-of-universe',
   path: '/tools/scale-of-universe',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.scale-of-universe.lazy').then((d) => d.Route),
+)
 const ToolsSchemaGeneratorRoute = ToolsSchemaGeneratorRouteImport.update({
   id: '/tools_/schema-generator',
   path: '/tools/schema-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.schema-generator.lazy').then((d) => d.Route),
+)
 const ToolsScientificCalculatorRoute =
   ToolsScientificCalculatorRouteImport.update({
     id: '/tools_/scientific-calculator',
     path: '/tools/scientific-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.scientific-calculator.lazy').then((d) => d.Route),
+  )
 const ToolsScreenCapturePlaygroundRoute =
   ToolsScreenCapturePlaygroundRouteImport.update({
     id: '/tools_/screen-capture-playground',
     path: '/tools/screen-capture-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.screen-capture-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsScreenOrientationPlaygroundRoute =
   ToolsScreenOrientationPlaygroundRouteImport.update({
     id: '/tools_/screen-orientation-playground',
     path: '/tools/screen-orientation-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.screen-orientation-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsScreenshotBeautifierRoute =
   ToolsScreenshotBeautifierRouteImport.update({
     id: '/tools_/screenshot-beautifier',
     path: '/tools/screenshot-beautifier',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.screenshot-beautifier.lazy').then((d) => d.Route),
+  )
 const ToolsScrollAnimationsRoute = ToolsScrollAnimationsRouteImport.update({
   id: '/tools_/scroll-animations',
   path: '/tools/scroll-animations',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.scroll-animations.lazy').then((d) => d.Route),
+)
 const ToolsScrollSnapBuilderRoute = ToolsScrollSnapBuilderRouteImport.update({
   id: '/tools_/scroll-snap-builder',
   path: '/tools/scroll-snap-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.scroll-snap-builder.lazy').then((d) => d.Route),
+)
 const ToolsSecurityHeadersRoute = ToolsSecurityHeadersRouteImport.update({
   id: '/tools_/security-headers',
   path: '/tools/security-headers',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.security-headers.lazy').then((d) => d.Route),
+)
 const ToolsSelectionRangePlaygroundRoute =
   ToolsSelectionRangePlaygroundRouteImport.update({
     id: '/tools_/selection-range-playground',
     path: '/tools/selection-range-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.selection-range-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsSemverCalculatorRoute = ToolsSemverCalculatorRouteImport.update({
   id: '/tools_/semver-calculator',
   path: '/tools/semver-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.semver-calculator.lazy').then((d) => d.Route),
+)
 const ToolsSerpPreviewRoute = ToolsSerpPreviewRouteImport.update({
   id: '/tools_/serp-preview',
   path: '/tools/serp-preview',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.serp-preview.lazy').then((d) => d.Route),
+)
 const ToolsServiceWorkerRecipesRoute =
   ToolsServiceWorkerRecipesRouteImport.update({
     id: '/tools_/service-worker-recipes',
     path: '/tools/service-worker-recipes',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.service-worker-recipes.lazy').then((d) => d.Route),
+  )
 const ToolsShadowDomExplorerRoute = ToolsShadowDomExplorerRouteImport.update({
   id: '/tools_/shadow-dom-explorer',
   path: '/tools/shadow-dom-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.shadow-dom-explorer.lazy').then((d) => d.Route),
+)
 const ToolsSignatureResizerRoute = ToolsSignatureResizerRouteImport.update({
   id: '/tools_/signature-resizer',
   path: '/tools/signature-resizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.signature-resizer.lazy').then((d) => d.Route),
+)
 const ToolsSitemapGeneratorRoute = ToolsSitemapGeneratorRouteImport.update({
   id: '/tools_/sitemap-generator',
   path: '/tools/sitemap-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sitemap-generator.lazy').then((d) => d.Route),
+)
 const ToolsSlugGeneratorRoute = ToolsSlugGeneratorRouteImport.update({
   id: '/tools_/slug-generator',
   path: '/tools/slug-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.slug-generator.lazy').then((d) => d.Route),
+)
 const ToolsSmartPasteRoute = ToolsSmartPasteRouteImport.update({
   id: '/tools_/smart-paste',
   path: '/tools/smart-paste',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.smart-paste.lazy').then((d) => d.Route),
+)
 const ToolsSmoothieMacrosRoute = ToolsSmoothieMacrosRouteImport.update({
   id: '/tools_/smoothie-macros',
   path: '/tools/smoothie-macros',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.smoothie-macros.lazy').then((d) => d.Route),
+)
 const ToolsSocialMediaResizerRoute = ToolsSocialMediaResizerRouteImport.update({
   id: '/tools_/social-media-resizer',
   path: '/tools/social-media-resizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.social-media-resizer.lazy').then((d) => d.Route),
+)
 const ToolsSolarSystemRoute = ToolsSolarSystemRouteImport.update({
   id: '/tools_/solar-system',
   path: '/tools/solar-system',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.solar-system.lazy').then((d) => d.Route),
+)
 const ToolsSourceMapExplorerRoute = ToolsSourceMapExplorerRouteImport.update({
   id: '/tools_/source-map-explorer',
   path: '/tools/source-map-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.source-map-explorer.lazy').then((d) => d.Route),
+)
 const ToolsSpacingScaleRoute = ToolsSpacingScaleRouteImport.update({
   id: '/tools_/spacing-scale',
   path: '/tools/spacing-scale',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.spacing-scale.lazy').then((d) => d.Route),
+)
 const ToolsSpeculationRulesBuilderRoute =
   ToolsSpeculationRulesBuilderRouteImport.update({
     id: '/tools_/speculation-rules-builder',
     path: '/tools/speculation-rules-builder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.speculation-rules-builder.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsSpeechPlaygroundRoute = ToolsSpeechPlaygroundRouteImport.update({
   id: '/tools_/speech-playground',
   path: '/tools/speech-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.speech-playground.lazy').then((d) => d.Route),
+)
 const ToolsSpriteSheetGeneratorRoute =
   ToolsSpriteSheetGeneratorRouteImport.update({
     id: '/tools_/sprite-sheet-generator',
     path: '/tools/sprite-sheet-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.sprite-sheet-generator.lazy').then((d) => d.Route),
+  )
 const ToolsSqlFormatterRoute = ToolsSqlFormatterRouteImport.update({
   id: '/tools_/sql-formatter',
   path: '/tools/sql-formatter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sql-formatter.lazy').then((d) => d.Route),
+)
 const ToolsSqlParameterizerRoute = ToolsSqlParameterizerRouteImport.update({
   id: '/tools_/sql-parameterizer',
   path: '/tools/sql-parameterizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sql-parameterizer.lazy').then((d) => d.Route),
+)
 const ToolsSqlQueryBuilderRoute = ToolsSqlQueryBuilderRouteImport.update({
   id: '/tools_/sql-query-builder',
   path: '/tools/sql-query-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sql-query-builder.lazy').then((d) => d.Route),
+)
 const ToolsSqlToJsonRoute = ToolsSqlToJsonRouteImport.update({
   id: '/tools_/sql-to-json',
   path: '/tools/sql-to-json',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sql-to-json.lazy').then((d) => d.Route),
+)
 const ToolsSqlToMongodbRoute = ToolsSqlToMongodbRouteImport.update({
   id: '/tools_/sql-to-mongodb',
   path: '/tools/sql-to-mongodb',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sql-to-mongodb.lazy').then((d) => d.Route),
+)
 const ToolsSqliteBrowserRoute = ToolsSqliteBrowserRouteImport.update({
   id: '/tools_/sqlite-browser',
   path: '/tools/sqlite-browser',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sqlite-browser.lazy').then((d) => d.Route),
+)
 const ToolsSriGeneratorRoute = ToolsSriGeneratorRouteImport.update({
   id: '/tools_/sri-generator',
   path: '/tools/sri-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.sri-generator.lazy').then((d) => d.Route),
+)
 const ToolsSshConfigGeneratorRoute = ToolsSshConfigGeneratorRouteImport.update({
   id: '/tools_/ssh-config-generator',
   path: '/tools/ssh-config-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ssh-config-generator.lazy').then((d) => d.Route),
+)
 const ToolsStatisticsCalculatorRoute =
   ToolsStatisticsCalculatorRouteImport.update({
     id: '/tools_/statistics-calculator',
     path: '/tools/statistics-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.statistics-calculator.lazy').then((d) => d.Route),
+  )
 const ToolsStopwatchRoute = ToolsStopwatchRouteImport.update({
   id: '/tools_/stopwatch',
   path: '/tools/stopwatch',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.stopwatch.lazy').then((d) => d.Route),
+)
 const ToolsStorageAccessPlaygroundRoute =
   ToolsStorageAccessPlaygroundRouteImport.update({
     id: '/tools_/storage-access-playground',
     path: '/tools/storage-access-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.storage-access-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsStreamsApiPlaygroundRoute =
   ToolsStreamsApiPlaygroundRouteImport.update({
     id: '/tools_/streams-api-playground',
     path: '/tools/streams-api-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.streams-api-playground.lazy').then((d) => d.Route),
+  )
 const ToolsStringEscaperRoute = ToolsStringEscaperRouteImport.update({
   id: '/tools_/string-escaper',
   path: '/tools/string-escaper',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.string-escaper.lazy').then((d) => d.Route),
+)
 const ToolsStringObfuscatorRoute = ToolsStringObfuscatorRouteImport.update({
   id: '/tools_/string-obfuscator',
   path: '/tools/string-obfuscator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.string-obfuscator.lazy').then((d) => d.Route),
+)
 const ToolsStructuredCloneTesterRoute =
   ToolsStructuredCloneTesterRouteImport.update({
     id: '/tools_/structured-clone-tester',
     path: '/tools/structured-clone-tester',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.structured-clone-tester.lazy').then((d) => d.Route),
+  )
 const ToolsSubnetCalculatorRoute = ToolsSubnetCalculatorRouteImport.update({
   id: '/tools_/subnet-calculator',
   path: '/tools/subnet-calculator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.subnet-calculator.lazy').then((d) => d.Route),
+)
 const ToolsSvgOptimizerRoute = ToolsSvgOptimizerRouteImport.update({
   id: '/tools_/svg-optimizer',
   path: '/tools/svg-optimizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-optimizer.lazy').then((d) => d.Route),
+)
 const ToolsSvgPathEditorRoute = ToolsSvgPathEditorRouteImport.update({
   id: '/tools_/svg-path-editor',
   path: '/tools/svg-path-editor',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-path-editor.lazy').then((d) => d.Route),
+)
 const ToolsSvgPreviewerRoute = ToolsSvgPreviewerRouteImport.update({
   id: '/tools_/svg-previewer',
   path: '/tools/svg-previewer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-previewer.lazy').then((d) => d.Route),
+)
 const ToolsSvgSpriteGeneratorRoute = ToolsSvgSpriteGeneratorRouteImport.update({
   id: '/tools_/svg-sprite-generator',
   path: '/tools/svg-sprite-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-sprite-generator.lazy').then((d) => d.Route),
+)
 const ToolsSvgToDataUriRoute = ToolsSvgToDataUriRouteImport.update({
   id: '/tools_/svg-to-data-uri',
   path: '/tools/svg-to-data-uri',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-to-data-uri.lazy').then((d) => d.Route),
+)
 const ToolsSvgToJsxRoute = ToolsSvgToJsxRouteImport.update({
   id: '/tools_/svg-to-jsx',
   path: '/tools/svg-to-jsx',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-to-jsx.lazy').then((d) => d.Route),
+)
 const ToolsSvgToPngRoute = ToolsSvgToPngRouteImport.update({
   id: '/tools_/svg-to-png',
   path: '/tools/svg-to-png',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.svg-to-png.lazy').then((d) => d.Route),
+)
 const ToolsSwLifecyclePlaygroundRoute =
   ToolsSwLifecyclePlaygroundRouteImport.update({
     id: '/tools_/sw-lifecycle-playground',
     path: '/tools/sw-lifecycle-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.sw-lifecycle-playground.lazy').then((d) => d.Route),
+  )
 const ToolsSystemdGeneratorRoute = ToolsSystemdGeneratorRouteImport.update({
   id: '/tools_/systemd-generator',
   path: '/tools/systemd-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.systemd-generator.lazy').then((d) => d.Route),
+)
 const ToolsTableGeneratorRoute = ToolsTableGeneratorRouteImport.update({
   id: '/tools_/table-generator',
   path: '/tools/table-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.table-generator.lazy').then((d) => d.Route),
+)
 const ToolsTailwindColorFinderRoute =
   ToolsTailwindColorFinderRouteImport.update({
     id: '/tools_/tailwind-color-finder',
     path: '/tools/tailwind-color-finder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.tailwind-color-finder.lazy').then((d) => d.Route),
+  )
 const ToolsTailwindConverterRoute = ToolsTailwindConverterRouteImport.update({
   id: '/tools_/tailwind-converter',
   path: '/tools/tailwind-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.tailwind-converter.lazy').then((d) => d.Route),
+)
 const ToolsTcpStateLabRoute = ToolsTcpStateLabRouteImport.update({
   id: '/tools_/tcp-state-lab',
   path: '/tools/tcp-state-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.tcp-state-lab.lazy').then((d) => d.Route),
+)
 const ToolsTeamRandomizerRoute = ToolsTeamRandomizerRouteImport.update({
   id: '/tools_/team-randomizer',
   path: '/tools/team-randomizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.team-randomizer.lazy').then((d) => d.Route),
+)
 const ToolsTemporalApiPlaygroundRoute =
   ToolsTemporalApiPlaygroundRouteImport.update({
     id: '/tools_/temporal-api-playground',
     path: '/tools/temporal-api-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.temporal-api-playground.lazy').then((d) => d.Route),
+  )
 const ToolsTerraformGeneratorRoute = ToolsTerraformGeneratorRouteImport.update({
   id: '/tools_/terraform-generator',
   path: '/tools/terraform-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.terraform-generator.lazy').then((d) => d.Route),
+)
 const ToolsTextBinaryConverterRoute =
   ToolsTextBinaryConverterRouteImport.update({
     id: '/tools_/text-binary-converter',
     path: '/tools/text-binary-converter',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.text-binary-converter.lazy').then((d) => d.Route),
+  )
 const ToolsTextFragmentBuilderRoute =
   ToolsTextFragmentBuilderRouteImport.update({
     id: '/tools_/text-fragment-builder',
     path: '/tools/text-fragment-builder',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.text-fragment-builder.lazy').then((d) => d.Route),
+  )
 const ToolsTextOnImageRoute = ToolsTextOnImageRouteImport.update({
   id: '/tools_/text-on-image',
   path: '/tools/text-on-image',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.text-on-image.lazy').then((d) => d.Route),
+)
 const ToolsTextShadowGeneratorRoute =
   ToolsTextShadowGeneratorRouteImport.update({
     id: '/tools_/text-shadow-generator',
     path: '/tools/text-shadow-generator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.text-shadow-generator.lazy').then((d) => d.Route),
+  )
 const ToolsTextToSpeechRoute = ToolsTextToSpeechRouteImport.update({
   id: '/tools_/text-to-speech',
   path: '/tools/text-to-speech',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.text-to-speech.lazy').then((d) => d.Route),
+)
 const ToolsTextWrapPlaygroundRoute = ToolsTextWrapPlaygroundRouteImport.update({
   id: '/tools_/text-wrap-playground',
   path: '/tools/text-wrap-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.text-wrap-playground.lazy').then((d) => d.Route),
+)
 const ToolsTfidfAnalyzerRoute = ToolsTfidfAnalyzerRouteImport.update({
   id: '/tools_/tfidf-analyzer',
   path: '/tools/tfidf-analyzer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.tfidf-analyzer.lazy').then((d) => d.Route),
+)
 const ToolsThumbnailMakerRoute = ToolsThumbnailMakerRouteImport.update({
   id: '/tools_/thumbnail-maker',
   path: '/tools/thumbnail-maker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.thumbnail-maker.lazy').then((d) => d.Route),
+)
 const ToolsTimeDurationCalculatorRoute =
   ToolsTimeDurationCalculatorRouteImport.update({
     id: '/tools_/time-duration-calculator',
     path: '/tools/time-duration-calculator',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.time-duration-calculator.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsTimestampConverterRoute = ToolsTimestampConverterRouteImport.update({
   id: '/tools_/timestamp-converter',
   path: '/tools/timestamp-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.timestamp-converter.lazy').then((d) => d.Route),
+)
 const ToolsTimezoneConverterRoute = ToolsTimezoneConverterRouteImport.update({
   id: '/tools_/timezone-converter',
   path: '/tools/timezone-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.timezone-converter.lazy').then((d) => d.Route),
+)
 const ToolsTitleAnalyzerRoute = ToolsTitleAnalyzerRouteImport.update({
   id: '/tools_/title-analyzer',
   path: '/tools/title-analyzer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.title-analyzer.lazy').then((d) => d.Route),
+)
 const ToolsTitleScoreRoute = ToolsTitleScoreRouteImport.update({
   id: '/tools_/title-score',
   path: '/tools/title-score',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.title-score.lazy').then((d) => d.Route),
+)
 const ToolsTlsHandshakeLabRoute = ToolsTlsHandshakeLabRouteImport.update({
   id: '/tools_/tls-handshake-lab',
   path: '/tools/tls-handshake-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.tls-handshake-lab.lazy').then((d) => d.Route),
+)
 const ToolsTomlJsonConverterRoute = ToolsTomlJsonConverterRouteImport.update({
   id: '/tools_/toml-json-converter',
   path: '/tools/toml-json-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.toml-json-converter.lazy').then((d) => d.Route),
+)
 const ToolsToneGeneratorRoute = ToolsToneGeneratorRouteImport.update({
   id: '/tools_/tone-generator',
   path: '/tools/tone-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.tone-generator.lazy').then((d) => d.Route),
+)
 const ToolsTotpGeneratorRoute = ToolsTotpGeneratorRouteImport.update({
   id: '/tools_/totp-generator',
   path: '/tools/totp-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.totp-generator.lazy').then((d) => d.Route),
+)
 const ToolsTrimTransparentEdgesRoute =
   ToolsTrimTransparentEdgesRouteImport.update({
     id: '/tools_/trim-transparent-edges',
     path: '/tools/trim-transparent-edges',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.trim-transparent-edges.lazy').then((d) => d.Route),
+  )
 const ToolsTrustedTypesPlaygroundRoute =
   ToolsTrustedTypesPlaygroundRouteImport.update({
     id: '/tools_/trusted-types-playground',
     path: '/tools/trusted-types-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.trusted-types-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsTsErrorDecoderRoute = ToolsTsErrorDecoderRouteImport.update({
   id: '/tools_/ts-error-decoder',
   path: '/tools/ts-error-decoder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.ts-error-decoder.lazy').then((d) => d.Route),
+)
 const ToolsTsconfigGeneratorRoute = ToolsTsconfigGeneratorRouteImport.update({
   id: '/tools_/tsconfig-generator',
   path: '/tools/tsconfig-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.tsconfig-generator.lazy').then((d) => d.Route),
+)
 const ToolsTuringMachineRoute = ToolsTuringMachineRouteImport.update({
   id: '/tools_/turing-machine',
   path: '/tools/turing-machine',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.turing-machine.lazy').then((d) => d.Route),
+)
 const ToolsTwitterCardPreviewRoute = ToolsTwitterCardPreviewRouteImport.update({
   id: '/tools_/twitter-card-preview',
   path: '/tools/twitter-card-preview',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.twitter-card-preview.lazy').then((d) => d.Route),
+)
 const ToolsTypingTestRoute = ToolsTypingTestRouteImport.update({
   id: '/tools_/typing-test',
   path: '/tools/typing-test',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.typing-test.lazy').then((d) => d.Route),
+)
 const ToolsTypographyScaleRoute = ToolsTypographyScaleRouteImport.update({
   id: '/tools_/typography-scale',
   path: '/tools/typography-scale',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.typography-scale.lazy').then((d) => d.Route),
+)
 const ToolsUnicodeEscapesRoute = ToolsUnicodeEscapesRouteImport.update({
   id: '/tools_/unicode-escapes',
   path: '/tools/unicode-escapes',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.unicode-escapes.lazy').then((d) => d.Route),
+)
 const ToolsUnicodeInspectorRoute = ToolsUnicodeInspectorRouteImport.update({
   id: '/tools_/unicode-inspector',
   path: '/tools/unicode-inspector',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.unicode-inspector.lazy').then((d) => d.Route),
+)
 const ToolsUnitCircleRoute = ToolsUnitCircleRouteImport.update({
   id: '/tools_/unit-circle',
   path: '/tools/unit-circle',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.unit-circle.lazy').then((d) => d.Route),
+)
 const ToolsUnitConverterRoute = ToolsUnitConverterRouteImport.update({
   id: '/tools_/unit-converter',
   path: '/tools/unit-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.unit-converter.lazy').then((d) => d.Route),
+)
 const ToolsUrlEncoderRoute = ToolsUrlEncoderRouteImport.update({
   id: '/tools_/url-encoder',
   path: '/tools/url-encoder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.url-encoder.lazy').then((d) => d.Route),
+)
 const ToolsUrlParserRoute = ToolsUrlParserRouteImport.update({
   id: '/tools_/url-parser',
   path: '/tools/url-parser',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.url-parser.lazy').then((d) => d.Route),
+)
 const ToolsUrlPatternPlaygroundRoute =
   ToolsUrlPatternPlaygroundRouteImport.update({
     id: '/tools_/url-pattern-playground',
     path: '/tools/url-pattern-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.url-pattern-playground.lazy').then((d) => d.Route),
+  )
 const ToolsUserAgentParserRoute = ToolsUserAgentParserRouteImport.update({
   id: '/tools_/user-agent-parser',
   path: '/tools/user-agent-parser',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.user-agent-parser.lazy').then((d) => d.Route),
+)
 const ToolsUuidGeneratorRoute = ToolsUuidGeneratorRouteImport.update({
   id: '/tools_/uuid-generator',
   path: '/tools/uuid-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.uuid-generator.lazy').then((d) => d.Route),
+)
 const ToolsVideoToGifRoute = ToolsVideoToGifRouteImport.update({
   id: '/tools_/video-to-gif',
   path: '/tools/video-to-gif',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.video-to-gif.lazy').then((d) => d.Route),
+)
 const ToolsViewTransitionsPlaygroundRoute =
   ToolsViewTransitionsPlaygroundRouteImport.update({
     id: '/tools_/view-transitions-playground',
     path: '/tools/view-transitions-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.view-transitions-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsWaapiBuilderRoute = ToolsWaapiBuilderRouteImport.update({
   id: '/tools_/waapi-builder',
   path: '/tools/waapi-builder',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.waapi-builder.lazy').then((d) => d.Route),
+)
 const ToolsWakeLockPlaygroundRoute = ToolsWakeLockPlaygroundRouteImport.update({
   id: '/tools_/wake-lock-playground',
   path: '/tools/wake-lock-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.wake-lock-playground.lazy').then((d) => d.Route),
+)
 const ToolsWasmInspectorRoute = ToolsWasmInspectorRouteImport.update({
   id: '/tools_/wasm-inspector',
   path: '/tools/wasm-inspector',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.wasm-inspector.lazy').then((d) => d.Route),
+)
 const ToolsWeakrefVisualizerRoute = ToolsWeakrefVisualizerRouteImport.update({
   id: '/tools_/weakref-visualizer',
   path: '/tools/weakref-visualizer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.weakref-visualizer.lazy').then((d) => d.Route),
+)
 const ToolsWebCryptoLabRoute = ToolsWebCryptoLabRouteImport.update({
   id: '/tools_/web-crypto-lab',
   path: '/tools/web-crypto-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-crypto-lab.lazy').then((d) => d.Route),
+)
 const ToolsWebFontAnalyzerRoute = ToolsWebFontAnalyzerRouteImport.update({
   id: '/tools_/web-font-analyzer',
   path: '/tools/web-font-analyzer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-font-analyzer.lazy').then((d) => d.Route),
+)
 const ToolsWebLocksPlaygroundRoute = ToolsWebLocksPlaygroundRouteImport.update({
   id: '/tools_/web-locks-playground',
   path: '/tools/web-locks-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-locks-playground.lazy').then((d) => d.Route),
+)
 const ToolsWebOtpPlaygroundRoute = ToolsWebOtpPlaygroundRouteImport.update({
   id: '/tools_/web-otp-playground',
   path: '/tools/web-otp-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-otp-playground.lazy').then((d) => d.Route),
+)
 const ToolsWebSharePlaygroundRoute = ToolsWebSharePlaygroundRouteImport.update({
   id: '/tools_/web-share-playground',
   path: '/tools/web-share-playground',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-share-playground.lazy').then((d) => d.Route),
+)
 const ToolsWebStorageQuotaRoute = ToolsWebStorageQuotaRouteImport.update({
   id: '/tools_/web-storage-quota',
   path: '/tools/web-storage-quota',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-storage-quota.lazy').then((d) => d.Route),
+)
 const ToolsWebTransportPlaygroundRoute =
   ToolsWebTransportPlaygroundRouteImport.update({
     id: '/tools_/web-transport-playground',
     path: '/tools/web-transport-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.web-transport-playground.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsWebVitalsBudgetRoute = ToolsWebVitalsBudgetRouteImport.update({
   id: '/tools_/web-vitals-budget',
   path: '/tools/web-vitals-budget',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-vitals-budget.lazy').then((d) => d.Route),
+)
 const ToolsWebVitalsCheckerRoute = ToolsWebVitalsCheckerRouteImport.update({
   id: '/tools_/web-vitals-checker',
   path: '/tools/web-vitals-checker',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.web-vitals-checker.lazy').then((d) => d.Route),
+)
 const ToolsWebcodecsPlaygroundRoute =
   ToolsWebcodecsPlaygroundRouteImport.update({
     id: '/tools_/webcodecs-playground',
     path: '/tools/webcodecs-playground',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.webcodecs-playground.lazy').then((d) => d.Route),
+  )
 const ToolsWebpToJpgRoute = ToolsWebpToJpgRouteImport.update({
   id: '/tools_/webp-to-jpg',
   path: '/tools/webp-to-jpg',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.webp-to-jpg.lazy').then((d) => d.Route),
+)
 const ToolsWebrtcLabRoute = ToolsWebrtcLabRouteImport.update({
   id: '/tools_/webrtc-lab',
   path: '/tools/webrtc-lab',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.webrtc-lab.lazy').then((d) => d.Route),
+)
 const ToolsWebsiteScreenshotRoute = ToolsWebsiteScreenshotRouteImport.update({
   id: '/tools_/website-screenshot',
   path: '/tools/website-screenshot',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.website-screenshot.lazy').then((d) => d.Route),
+)
 const ToolsWebsocketFrameInspectorRoute =
   ToolsWebsocketFrameInspectorRouteImport.update({
     id: '/tools_/websocket-frame-inspector',
     path: '/tools/websocket-frame-inspector',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.websocket-frame-inspector.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const ToolsWebsocketSandboxRoute = ToolsWebsocketSandboxRouteImport.update({
   id: '/tools_/websocket-sandbox',
   path: '/tools/websocket-sandbox',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.websocket-sandbox.lazy').then((d) => d.Route),
+)
 const ToolsWindowControlsOverlayRoute =
   ToolsWindowControlsOverlayRouteImport.update({
     id: '/tools_/window-controls-overlay',
     path: '/tools/window-controls-overlay',
     getParentRoute: () => rootRouteImport,
-  } as any)
+  } as any).lazy(() =>
+    import('./routes/tools_.window-controls-overlay.lazy').then((d) => d.Route),
+  )
 const ToolsWordCounterRoute = ToolsWordCounterRouteImport.update({
   id: '/tools_/word-counter',
   path: '/tools/word-counter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.word-counter.lazy').then((d) => d.Route),
+)
 const ToolsWordFilterRoute = ToolsWordFilterRouteImport.update({
   id: '/tools_/word-filter',
   path: '/tools/word-filter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.word-filter.lazy').then((d) => d.Route),
+)
 const ToolsWordSearchGameRoute = ToolsWordSearchGameRouteImport.update({
   id: '/tools_/word-search-game',
   path: '/tools/word-search-game',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.word-search-game.lazy').then((d) => d.Route),
+)
 const ToolsWorldClockRoute = ToolsWorldClockRouteImport.update({
   id: '/tools_/world-clock',
   path: '/tools/world-clock',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.world-clock.lazy').then((d) => d.Route),
+)
 const ToolsXmlFormatterRoute = ToolsXmlFormatterRouteImport.update({
   id: '/tools_/xml-formatter',
   path: '/tools/xml-formatter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.xml-formatter.lazy').then((d) => d.Route),
+)
 const ToolsXpathTesterRoute = ToolsXpathTesterRouteImport.update({
   id: '/tools_/xpath-tester',
   path: '/tools/xpath-tester',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.xpath-tester.lazy').then((d) => d.Route),
+)
 const ToolsXsdGeneratorRoute = ToolsXsdGeneratorRouteImport.update({
   id: '/tools_/xsd-generator',
   path: '/tools/xsd-generator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.xsd-generator.lazy').then((d) => d.Route),
+)
 const ToolsXsdValidatorRoute = ToolsXsdValidatorRouteImport.update({
   id: '/tools_/xsd-validator',
   path: '/tools/xsd-validator',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.xsd-validator.lazy').then((d) => d.Route),
+)
 const ToolsYamlFormatterRoute = ToolsYamlFormatterRouteImport.update({
   id: '/tools_/yaml-formatter',
   path: '/tools/yaml-formatter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.yaml-formatter.lazy').then((d) => d.Route),
+)
 const ToolsYamlJsonConverterRoute = ToolsYamlJsonConverterRouteImport.update({
   id: '/tools_/yaml-json-converter',
   path: '/tools/yaml-json-converter',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.yaml-json-converter.lazy').then((d) => d.Route),
+)
 const ToolsZipExplorerRoute = ToolsZipExplorerRouteImport.update({
   id: '/tools_/zip-explorer',
   path: '/tools/zip-explorer',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/tools_.zip-explorer.lazy').then((d) => d.Route),
+)
 const ApiBillingCheckoutRoute = ApiBillingCheckoutRouteImport.update({
   id: '/api/billing/checkout',
   path: '/api/billing/checkout',

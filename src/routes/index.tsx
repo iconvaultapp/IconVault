@@ -5,11 +5,11 @@ import {
   Braces,
   Check,
   Code2,
+  Copy,
   Download,
   Eraser,
   Fingerprint,
   Heart,
-  Layers,
   Lock,
   Minimize2,
   Package,
@@ -18,7 +18,6 @@ import {
   Search,
   Shield,
   Sparkles,
-  Terminal,
   Type,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -35,6 +34,7 @@ import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
 import BrowseCategories from "@/components/home/BrowseCategories";
 import StyleChips from "@/components/home/StyleChips";
+import MarqueeBand from "@/components/home/MarqueeBand";
 import BlogTeaser from "@/components/home/BlogTeaser";
 
 export const Route = createFileRoute("/")({
@@ -84,21 +84,6 @@ const HERO_ICONS = [
   "ph:paint-brush-duotone",
   "tabler:command",
   "solar:bolt-bold-duotone",
-];
-
-const MARQUEE_SETS = [
-  "Lucide",
-  "Material Symbols",
-  "Phosphor",
-  "Tabler",
-  "Remix Icon",
-  "Solar",
-  "Heroicons",
-  "Carbon",
-  "Bootstrap",
-  "Feather",
-  "Iconoir",
-  "Simple Icons",
 ];
 
 const FEATURES = [
@@ -294,6 +279,77 @@ export function CheckoutButton() {
     </button>
   );
 }`;
+
+/** Premium code window for the developer-experience section: gradient
+    hairline, glow, floating emoji chips and a working copy button
+    (Sameer 2026-10-23). */
+function CodeShowcaseCard() {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(CODE_SAMPLE);
+      setCopied(true);
+      toast.success("Snippet copied");
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      toast.error("Copy failed - select the code manually");
+    }
+  };
+
+  return (
+    <div className="relative">
+      <span
+        className="pointer-events-none absolute -inset-5 rounded-[2rem] bg-[image:var(--gradient-hero)] opacity-70 blur-2xl"
+        aria-hidden
+      />
+      <span
+        className="animate-float absolute -left-3 -top-4 z-10 grid h-11 w-11 place-items-center rounded-2xl border border-border bg-surface text-lg shadow-soft sm:-left-5"
+        aria-hidden
+      >
+        ✨
+      </span>
+      <span
+        className="animate-float absolute -bottom-4 -right-3 z-10 grid h-11 w-11 place-items-center rounded-2xl border border-border bg-surface text-lg shadow-soft [animation-delay:900ms] sm:-right-5"
+        aria-hidden
+      >
+        🚀
+      </span>
+      <div className="surface-card relative overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)]" aria-hidden />
+        <div className="flex items-center gap-1.5 border-b border-border bg-muted/50 px-4 py-3">
+          <span className="h-2.5 w-2.5 rounded-full bg-destructive/50" />
+          <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
+          <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
+          <span className="ml-2 font-mono text-[11px] text-muted-foreground">
+            <span aria-hidden>📄 </span>CheckoutButton.tsx
+          </span>
+          <span className="ml-auto flex items-center gap-2">
+            <span className="rounded-full bg-primary-soft px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
+              TSX
+            </span>
+            <button
+              type="button"
+              onClick={copy}
+              className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-[11px] font-medium transition-colors hover:border-primary/40 hover:text-primary"
+              aria-label="Copy code snippet"
+            >
+              {copied ? <Check className="h-3 w-3 text-primary" /> : <Copy className="h-3 w-3" />}
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </span>
+        </div>
+        <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-relaxed text-muted-foreground">
+          {CODE_SAMPLE}
+        </pre>
+        <div className="flex items-center gap-2 border-t border-border bg-muted/40 px-4 py-2.5 text-xs text-muted-foreground">
+          <span aria-hidden>✅</span> Size, colour &amp; import path baked in - paste it and it
+          just works.
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function WaitlistForm() {
   const [email, setEmail] = useState("");
@@ -497,16 +553,8 @@ function Landing() {
         {/* Free tools teaser */}
         <ToolsTeaser />
 
-        {/* Marquee */}
-        <section className="overflow-hidden border-y border-border bg-surface-2 py-5">
-          <div className="flex w-max animate-marquee gap-10 pr-10">
-            {[...MARQUEE_SETS, ...MARQUEE_SETS].map((s, i) => (
-              <span key={`${s}-${i}`} className="whitespace-nowrap font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                {s}
-              </span>
-            ))}
-          </div>
-        </section>
+        {/* Marquee - premium pill band with real set icons (2026-10-23) */}
+        <MarqueeBand />
 
         {/* From the blog (added 2026-10-22) */}
         <BlogTeaser />
@@ -554,23 +602,34 @@ function Landing() {
             <Reveal>
               <p className="eyebrow">Developer experience</p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                The snippet is already correct when you paste it
+                The snippet is already <span className="text-gradient">correct</span> when you paste
+                it
               </h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 Size, colour and import path are baked into whatever you copy. Pull icons from the CLI,
                 the VS Code extension, or the REST API when you'd rather not leave your editor at all.
               </p>
-              <ul className="mt-6 grid gap-3">
+              <ul className="mt-7 grid gap-3">
                 {[
-                  { icon: Terminal, text: "CLI: iconvault add lucide:rocket" },
-                  { icon: Code2, text: "REST API with per-project keys" },
-                  { icon: Layers, text: "Figma plugin drops icons into frames" },
+                  { emoji: "💻", title: "CLI", sub: "iconvault add lucide:rocket", mono: true },
+                  { emoji: "🔌", title: "REST API", sub: "with per-project keys", mono: false },
+                  { emoji: "🎨", title: "Figma plugin", sub: "drops icons straight into frames", mono: false },
                 ].map((row) => (
-                  <li key={row.text} className="flex items-center gap-3 text-sm">
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary">
-                      <row.icon className="h-4 w-4" />
+                  <li key={row.title} className="surface-card lift-hover flex items-center gap-3.5 p-3.5">
+                    <span
+                      className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-xl ring-1 ring-inset ring-border/60"
+                      aria-hidden
+                    >
+                      {row.emoji}
                     </span>
-                    <span className="font-mono text-muted-foreground">{row.text}</span>
+                    <span className="min-w-0">
+                      <span className="block font-display text-[15px] font-semibold">{row.title}</span>
+                      <span
+                        className={`block truncate text-[13px] text-muted-foreground ${row.mono ? "font-mono" : ""}`}
+                      >
+                        {row.sub}
+                      </span>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -578,22 +637,12 @@ function Landing() {
                 to="/api-access"
                 className="focus-ring mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-accent"
               >
-                Read the API docs <ArrowRight className="h-4 w-4" />
+                <span aria-hidden>📚</span> Read the API docs <ArrowRight className="h-4 w-4" />
               </Link>
             </Reveal>
 
             <Reveal delay={120}>
-              <div className="surface-card overflow-hidden">
-                <div className="flex items-center gap-1.5 border-b border-border bg-muted/50 px-4 py-3">
-                  <span className="h-2.5 w-2.5 rounded-full bg-destructive/50" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
-                  <span className="ml-2 font-mono text-[11px] text-muted-foreground">CheckoutButton.tsx</span>
-                </div>
-                <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-relaxed text-muted-foreground">
-                  {CODE_SAMPLE}
-                </pre>
-              </div>
+              <CodeShowcaseCard />
             </Reveal>
           </div>
         </section>

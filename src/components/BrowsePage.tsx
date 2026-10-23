@@ -8,7 +8,6 @@ import { CTABand } from "@/components/kit";
 import SearchBar from "@/components/SearchBar";
 import IconifyGrid from "@/components/IconifyGrid";
 import IconifyDetail from "@/components/IconifyDetail";
-import BrowseHero from "@/components/BrowseHero";
 import BulkActionBar from "@/components/BulkActionBar";
 import CollectionCard from "@/components/CollectionCard";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
@@ -208,7 +207,9 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
   return (
     <div id="top" className="min-h-screen bg-background">
       <SiteHeader />
-      {!activePrefix && <BrowseHero onSearch={setQuery} />}
+      {/* Hero removed (Sameer 2026-10-23): the browse page opens straight on
+          the search + results - faster and less clutter. The toolbar
+          SearchBar below carries the query on its own. */}
       <div id="browse-results" className="mx-auto max-w-[100rem] scroll-mt-20">
           <main className="px-5 py-8 lg:px-8">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
