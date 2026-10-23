@@ -135,7 +135,17 @@ export const SiteFooter = () => {
 
         <div className="flex flex-col gap-4 border-t border-border py-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} IconVault. Icons remain under their original licences.{" "}
+            © {new Date().getFullYear()} IconVault. Icons remain under their original licences.
+            Illustrations by{" "}
+            <a
+              href="https://flowbite.com/illustrations/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-2 transition-colors hover:text-primary"
+            >
+              Flowbite
+            </a>{" "}
+            (MIT).{" "}
             <button
               type="button"
               onClick={openCookieSettings}

@@ -24,6 +24,7 @@ import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as HistoryRouteImport } from './routes/history'
+import { Route as IllustrationsRouteImport } from './routes/illustrations'
 import { Route as LibrariesRouteImport } from './routes/libraries'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -706,6 +707,11 @@ const HistoryRoute = HistoryRouteImport.update({
   path: '/history',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/history.lazy').then((d) => d.Route))
+const IllustrationsRoute = IllustrationsRouteImport.update({
+  id: '/illustrations',
+  path: '/illustrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LibrariesRoute = LibrariesRouteImport.update({
   id: '/libraries',
   path: '/libraries',
@@ -5128,6 +5134,7 @@ export interface FileRoutesByFullPath {
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
   '/history': typeof HistoryRoute
+  '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
   '/pricing': typeof PricingRoute
@@ -5751,6 +5758,7 @@ export interface FileRoutesByTo {
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
   '/history': typeof HistoryRoute
+  '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
   '/pricing': typeof PricingRoute
@@ -6375,6 +6383,7 @@ export interface FileRoutesById {
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
   '/history': typeof HistoryRoute
+  '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
   '/pricing': typeof PricingRoute
@@ -7000,6 +7009,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/embed'
     | '/history'
+    | '/illustrations'
     | '/libraries'
     | '/notifications'
     | '/pricing'
@@ -7623,6 +7633,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/embed'
     | '/history'
+    | '/illustrations'
     | '/libraries'
     | '/notifications'
     | '/pricing'
@@ -8246,6 +8257,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/embed'
     | '/history'
+    | '/illustrations'
     | '/libraries'
     | '/notifications'
     | '/pricing'
@@ -8870,6 +8882,7 @@ export interface RootRouteChildren {
   DocsRoute: typeof DocsRoute
   EmbedRoute: typeof EmbedRoute
   HistoryRoute: typeof HistoryRoute
+  IllustrationsRoute: typeof IllustrationsRoute
   LibrariesRoute: typeof LibrariesRoute
   NotificationsRoute: typeof NotificationsRoute
   PricingRoute: typeof PricingRoute
@@ -9583,6 +9596,13 @@ declare module '@tanstack/react-router' {
       path: '/history'
       fullPath: '/history'
       preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/illustrations': {
+      id: '/illustrations'
+      path: '/illustrations'
+      fullPath: '/illustrations'
+      preLoaderRoute: typeof IllustrationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/libraries': {
@@ -13846,6 +13866,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsRoute: DocsRoute,
   EmbedRoute: EmbedRoute,
   HistoryRoute: HistoryRoute,
+  IllustrationsRoute: IllustrationsRoute,
   LibrariesRoute: LibrariesRoute,
   NotificationsRoute: NotificationsRoute,
   PricingRoute: PricingRoute,

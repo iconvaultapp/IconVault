@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Layers, LayoutGrid, Menu, X } from "lucide-react";
+import { ChevronDown, Image, Layers, LayoutGrid, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/iconvault-logo.svg";
 import { navSections } from "@/components/nav-data";
 import UserMenu from "@/components/UserMenu";
@@ -18,6 +18,7 @@ const primaryLinks = [
 const BROWSE_SUBMENU = [
   { label: "Libraries", path: "/libraries", desc: "All 239 icon sets, side by side", icon: Layers },
   { label: "Browse by category", path: "/categories", desc: "215 curated categories", icon: LayoutGrid },
+  { label: "Illustrations", path: "/illustrations", desc: "54 free SVG illustrations, recolor & download", icon: Image },
 ] as const;
 
 export const Brand = ({ className }: { className?: string }) => {

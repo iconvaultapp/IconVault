@@ -5,6 +5,7 @@ import { loadIconData, parseIconId } from "@/lib/iconify";
 import { useFavourites } from "@/hooks/useFavourites";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
 import ReliableIcon from "@/components/ReliableIcon";
+import IllustrationArt from "@/components/IllustrationArt";
 import { cn } from "@/lib/utils";
 
 interface IconifyGridProps {
@@ -62,6 +63,7 @@ export const IconifyGrid = ({
   if (icons.length === 0) {
     return (
       <div className="surface-card flex flex-col items-center justify-center px-6 py-20 text-center">
+        <IllustrationArt slug="man-question-marks" color="#0d7a68" className="mb-5 h-32 w-56" />
         <p className="font-display text-base font-semibold">Nothing here yet</p>
         <p className="mt-1 max-w-sm text-sm text-muted-foreground">{emptyMessage}</p>
       </div>

@@ -55,6 +55,7 @@ export const navSections: NavSection[] = [
       { icon: FolderOpen, label: "My Collections", path: "/collections", desc: "Organise icons into sets" },
       { icon: Upload, label: "Upload Custom Icons", path: "/upload", desc: "Bring your own SVGs" },
       { icon: Code2, label: "Export Design Tokens", path: "/design-tokens", desc: "CSS, JSON, Tailwind" },
+      { icon: ImageIcon, label: "Illustrations", path: "/illustrations", desc: "54 free SVG illustrations" },
     ],
   },
   {

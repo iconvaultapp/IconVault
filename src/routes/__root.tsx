@@ -24,6 +24,7 @@ import { ArrowLeft, Box, Compass, Search, Shapes } from "lucide-react";
 import { usePageTracking } from "@/hooks/useAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
 import PromoPopup from "@/components/PromoPopup";
+import IllustrationArt from "@/components/IllustrationArt";
 import GlobalSidebar from "@/components/GlobalSidebar";
 import { FavouritesProvider } from "@/hooks/useFavourites";
 import { CollectionsProvider } from "@/hooks/useCollections";
@@ -90,6 +91,13 @@ function NotFoundComponent() {
           This page wandered off, moved, or never existed. Search the tools or hop to a popular
           spot below.
         </p>
+
+        <IllustrationArt
+          slug="laptop-404-not-found-error"
+          color="#0d7a68"
+          className="mx-auto mt-7 h-32 w-full max-w-xs sm:h-40 sm:max-w-sm"
+          title="Illustration of a laptop showing a 404 error"
+        />
 
         <form
           className="mx-auto mt-8 flex max-w-md items-center gap-2"
