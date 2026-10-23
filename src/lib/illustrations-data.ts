@@ -2262,10 +2262,22 @@ export const recolorSvg = (entry: IllustrationEntry, svg: string, color: string)
  *  WHOLE artwork inside its box (meet) - never cropped, never stretched. */
 export const normalizeSvg = (svg: string): string =>
   svg.replace(/<svg([^>]*)>/i, (_m, attrs: string) => {
-    const cleaned = String(attrs)
+    let cleaned = String(attrs)
       .replace(/\sclass="[^"]*"/i, "")
       .replace(/\s(width|height)="[^"]*"/gi, "")
       .replace(/\spreserveAspectRatio="[^"]*"/i, "");
+    // Inline style, not just attributes: a CSS height chain through wrapper
+    // spans silently collapsed on the live site (v20) and previews rendered
+    // at aspect-ratio height, cropped by their cards. Inline 100%x100% on
+    // the <svg> itself cannot be overridden by that chain.
+    if (/\sstyle="[^"]*"/i.test(cleaned)) {
+      cleaned = cleaned.replace(
+        /\sstyle="([^"]*)"/i,
+        (_s, body: string) => ` style="width:100%;height:100%;${body}"`,
+      );
+    } else {
+      cleaned += ` style="width:100%;height:100%"`;
+    }
     return `<svg${cleaned} width="100%" height="100%" preserveAspectRatio="xMidYMid meet">`;
   });
 

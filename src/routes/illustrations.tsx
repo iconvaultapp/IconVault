@@ -493,7 +493,7 @@ function Page() {
               >
                 <span
                   className={cn(
-                    "grid h-44 place-items-center overflow-hidden rounded-xl p-4 ring-1 ring-inset ring-border/50",
+                    "relative block h-44 overflow-hidden rounded-xl ring-1 ring-inset ring-border/50",
                     t === "dark" ? "bg-[#111928]" : "bg-[image:var(--gradient-hero)]",
                   )}
                 >
@@ -501,7 +501,7 @@ function Page() {
                     entry={entry}
                     theme={t}
                     color={color}
-                    className="h-full w-full transition-transform duration-300 group-hover:scale-[1.04]"
+                    className="absolute inset-0 p-4 transition-transform duration-300 group-hover:scale-[1.04]"
                   />
                 </span>
                 <span className="mt-3 flex items-center justify-between gap-2">

@@ -56,11 +56,11 @@ export const IllustrationsHome = () => (
             className="surface-card lift-hover group block h-full p-4"
             aria-label={`Open ${s.title} in the illustration editor`}
           >
-            <span className="grid h-44 place-items-center overflow-hidden rounded-xl bg-[image:var(--gradient-hero)] p-4 ring-1 ring-inset ring-border/50">
+            <span className="relative block h-44 overflow-hidden rounded-xl bg-[image:var(--gradient-hero)] ring-1 ring-inset ring-border/50">
               <IllustrationArt
                 entry={getIllustration("flowbite", s.slug)}
                 color={BRAND_COLOR}
-                className="h-full w-full transition-transform duration-300 group-hover:scale-[1.04]"
+                className="absolute inset-0 p-4 transition-transform duration-300 group-hover:scale-[1.04]"
               />
             </span>
             <span className="mt-3 flex items-center justify-between gap-2">
