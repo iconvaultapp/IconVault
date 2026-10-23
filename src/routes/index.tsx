@@ -3,22 +3,39 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
   Braces,
+  Calculator,
   Check,
+  ClipboardList,
   Code2,
   Copy,
   Download,
   Eraser,
+  EyeOff,
+  Film,
   Fingerprint,
+  Gamepad2,
+  Globe,
+  GraduationCap,
   Heart,
+  Image as ImageIcon,
+  Layers,
+  LayoutGrid,
   Lock,
+  Mail,
   Minimize2,
+  MousePointerClick,
   Package,
+  Palette,
+  PenTool,
   Pipette,
   QrCode,
   Search,
+  Shapes,
   Shield,
   Sparkles,
+  TrendingUp,
   Type,
+  Wrench,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { toast } from "sonner";
@@ -122,30 +139,53 @@ const FEATURES = [
 const STEPS = [
   {
     step: "01",
+    icon: Search,
     title: "Search or describe",
     desc: "Type a name, or let AI search interpret 'something that means secure checkout'.",
   },
   {
     step: "02",
+    icon: Palette,
     title: "Tune size and colour",
     desc: "Preview at 16 to 64px against light or dark, and dial in your exact brand hex.",
   },
   {
     step: "03",
+    icon: Download,
     title: "Copy or export",
     desc: "Grab a framework snippet, download SVG/PNG, or push the set to your design tokens.",
   },
 ];
 
 const STATS = [
-  { value: "421,020", label: "Icons indexed" },
-  { value: "239", label: "Icon sets" },
-  { value: "579", label: "Free online tools" },
-  { value: "17", label: "Tool categories" },
+  { value: "421,020", label: "Icons indexed", icon: Shapes },
+  { value: "239", label: "Icon sets", icon: Layers },
+  { value: "579", label: "Free online tools", icon: Wrench },
+  { value: "17", label: "Tool categories", icon: LayoutGrid },
 ];
 
 /** Homepage tool discovery: chips, featured cards, trial line. */
 /* FEATURED_TOOLS comes from the lightweight tool-catalog-meta (not the full catalog). */
+
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
+  image: ImageIcon,
+  svg: Shapes,
+  brand: QrCode,
+  style: Palette,
+  seo: TrendingUp,
+  text: Type,
+  dev: Code2,
+  gif: Film,
+  privacy: EyeOff,
+  exam: ClipboardList,
+  security: Lock,
+  calculators: Calculator,
+  learn: GraduationCap,
+  generators: Sparkles,
+  design: PenTool,
+  network: Globe,
+  fun: Gamepad2,
+};
 
 const FEATURED_ICONS: Record<string, LucideIcon> = {
   qr: QrCode,
@@ -173,7 +213,7 @@ function ToolsTeaser() {
     <section className="border-b border-border bg-surface-2/60">
       <div className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Free online tools</p>
+          <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Wrench className="h-3.5 w-3.5 text-primary" /> Free online tools</span></p>
           <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
             Icons are only half the story
           </h2>
@@ -208,19 +248,23 @@ function ToolsTeaser() {
         <Reveal delay={140}>
           <div className="mt-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
             {TOOL_CATEGORY_META.filter(({ count }) => count > 0)
-              .map(({ id, label, count }, vi) => (
+              .map(({ id, label, count }, vi) => {
+                const CatIcon = CATEGORY_ICONS[id] ?? Wrench;
+                return (
                 <Link
                   key={id}
                   to="/tools"
                   search={{ category: id }}
-                  className={`focus-ring flex items-center justify-center rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4 ${vi >= 8 ? "hidden sm:flex" : ""}`}
+                  className={`focus-ring flex items-center justify-center gap-1.5 rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4 ${vi >= 8 ? "hidden sm:flex" : ""}`}
                 >
+                  <CatIcon className="h-3.5 w-3.5 shrink-0 text-primary/70" />
                   {label}
                   <span className="ml-1.5 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
                     {count}
                   </span>
                 </Link>
-              ))}
+                );
+              })}
           </div>
         </Reveal>
 
@@ -564,7 +608,10 @@ function Landing() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 70} className="surface-card lift-hover px-5 py-7 text-center">
-                <p className="font-display text-3xl font-semibold text-primary sm:text-4xl">{s.value}</p>
+                <span className="mx-auto grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-primary ring-1 ring-inset ring-border/60">
+                  <s.icon className="h-5 w-5" />
+                </span>
+                <p className="mt-3.5 font-display text-3xl font-semibold text-primary sm:text-4xl">{s.value}</p>
                 <p className="mt-1.5 text-xs text-muted-foreground sm:text-sm">{s.label}</p>
               </Reveal>
             ))}
@@ -574,7 +621,7 @@ function Landing() {
         {/* Features */}
         <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow">Why teams switch</p>
+            <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-primary" /> Why teams switch</span></p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Built for the ten seconds between "we need an icon" and "it's in the PR"
             </h2>
@@ -586,7 +633,7 @@ function Landing() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f, i) => (
               <Reveal key={f.title} delay={i * 60} className="surface-card lift-hover group p-6">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-primary ring-1 ring-inset ring-border/60 transition-transform duration-300 group-hover:scale-110">
                   <f.icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 font-display text-lg font-semibold">{f.title}</h3>
@@ -600,7 +647,7 @@ function Landing() {
         <section className="border-y border-border bg-surface-2">
           <div className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)] items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8">
             <Reveal>
-              <p className="eyebrow">Developer experience</p>
+              <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5 text-primary" /> Developer experience</span></p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
                 The snippet is already <span className="text-gradient">correct</span> when you paste
                 it
@@ -650,15 +697,20 @@ function Landing() {
         {/* Steps */}
         <section className="mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
           <Reveal className="text-center">
-            <p className="eyebrow">How it works</p>
+            <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><MousePointerClick className="h-3.5 w-3.5 text-primary" /> How it works</span></p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Idea to icon in three moves
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {STEPS.map((s, i) => (
-              <Reveal key={s.step} delay={i * 90} className="surface-card lift-hover relative overflow-hidden p-7">
-                <span className="font-display text-5xl font-semibold text-primary/15">{s.step}</span>
+              <Reveal key={s.step} delay={i * 90} className="surface-card lift-hover group relative overflow-hidden p-7">
+                <span className="flex items-start justify-between">
+                  <span className="font-display text-5xl font-semibold text-primary/15">{s.step}</span>
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-primary ring-1 ring-inset ring-border/60 transition-transform duration-300 group-hover:scale-110">
+                    <s.icon className="h-5 w-5" />
+                  </span>
+                </span>
                 <h3 className="mt-3 font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
               </Reveal>
@@ -671,6 +723,9 @@ function Landing() {
         {/* Waitlist + CTA */}
         <section className="mx-auto max-w-3xl px-5 py-20 text-center lg:px-8">
           <Reveal>
+            <span className="mx-auto mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-[image:var(--gradient-hero)] text-primary shadow-soft ring-1 ring-inset ring-border/60">
+              <Mail className="h-5 w-5" />
+            </span>
             <p className="eyebrow">Stay in the loop</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               New sets, new tooling, once a month
@@ -688,6 +743,30 @@ function Landing() {
           <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-ink px-6 py-16 text-center">
             <span className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
             <span className="pointer-events-none absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl" />
+            {[
+              { id: "lucide:rocket", cls: "left-[7%] top-10", delay: "0ms" },
+              { id: "lucide:palette", cls: "right-[8%] top-12", delay: "500ms" },
+              { id: "lucide:heart", cls: "bottom-10 left-[11%]", delay: "1000ms" },
+              { id: "lucide:zap", cls: "bottom-12 right-[12%]", delay: "1500ms" },
+            ].map((t) => {
+              const [prefix, name] = t.id.split(":");
+              return (
+                <span
+                  key={t.id}
+                  style={{ animationDelay: t.delay }}
+                  className={`animate-float pointer-events-none absolute ${t.cls} hidden h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm md:grid`}
+                  aria-hidden
+                >
+                  <img
+                    src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 22, height: 22, color: "#FFFFFF" })}
+                    alt=""
+                    className="h-[22px] w-[22px] opacity-90"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              );
+            })}
             <h2 className="relative font-display text-3xl font-semibold tracking-tight text-background sm:text-4xl">
               Icons and tools, ready when you are
             </h2>

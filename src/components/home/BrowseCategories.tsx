@@ -6,7 +6,7 @@
 // theme, more premium feel.
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LayoutGrid } from "lucide-react";
 import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -196,7 +196,7 @@ export default function BrowseCategories() {
       <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Find your icons</p>
+            <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><LayoutGrid className="h-3.5 w-3.5 text-primary" /> Find your icons</span></p>
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
               Browse <span className="text-gradient">icons</span>
             </h2>

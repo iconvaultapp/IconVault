@@ -5,7 +5,7 @@
 // icon animation on hover, card-style rows - same theme, more premium feel.
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Layers } from "lucide-react";
 import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -159,7 +159,7 @@ export default function PopularLibraries() {
       <div className="relative mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">The vault · {totalLibraries > 0 ? totalLibraries : 239} libraries</p>
+            <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Layers className="h-3.5 w-3.5 text-primary" /> The vault · {totalLibraries > 0 ? totalLibraries : 239} libraries</span></p>
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
               Popular <span className="text-gradient">libraries</span>
             </h2>
