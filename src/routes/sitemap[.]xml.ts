@@ -10,6 +10,7 @@ const BASE_URL = "https://iconvault.site";
 
 interface SitemapEntry {
   path: string;
+  lastmod?: string;
   changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority?: string;
 }
@@ -165,6 +166,7 @@ const getEntries = (): SitemapEntry[] => [
     path: `/blog/${p.slug}`,
     changefreq: "monthly" as const,
     priority: "0.7",
+    lastmod: p.updated ?? p.date,
   })),
   { path: "/tools/a11y-contrast-grid", changefreq: "weekly", priority: "0.7" },
   { path: "/tools/a11y-scanner", changefreq: "weekly", priority: "0.7" },
@@ -646,6 +648,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           [
             `  <url>`,
             `    <loc>${BASE_URL}${e.path}</loc>`,
+            e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,

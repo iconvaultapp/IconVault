@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import PageShell from "@/components/PageShell";
 import { BlogCard } from "@/components/home/BlogTeaser";
-import { BLOG_CATEGORIES, BLOG_POSTS } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/blog/")({
@@ -26,23 +26,31 @@ export const Route = createFileRoute("/blog/")({
     ],
     links: [{ rel: "canonical", href: "https://iconvault.site/blog" }],
   }),
+  // Dynamic import + meta-only payload: the articles' full text stays out
+  // of the entry chunk and out of this page's serialized loader data.
+  loader: async () => {
+    const { BLOG_POSTS, BLOG_CATEGORIES } = await import("@/lib/blog");
+    const posts = BLOG_POSTS.map(({ content: _content, ...meta }) => meta);
+    return { posts, categories: BLOG_CATEGORIES };
+  },
   component: BlogIndex,
 });
 
 function BlogIndex() {
+  const { posts: allPosts, categories } = Route.useLoaderData();
   const [category, setCategory] = useState<string>("All");
-  const posts = category === "All" ? BLOG_POSTS : BLOG_POSTS.filter((p) => p.category === category);
+  const posts = category === "All" ? allPosts : allPosts.filter((p) => p.category === category);
 
   return (
     <PageShell
-      eyebrow={`${BLOG_POSTS.length} articles`}
+      eyebrow={`${allPosts.length} articles`}
       title="The IconVault blog"
       description="Guides, comparisons and best practices for SVG icons: choosing a library, shipping icons in React, Vue, Astro and Next.js, and keeping them fast and accessible."
       wide
     >
       <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-10 sm:px-6">
         <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter blog posts by category">
-          {["All", ...BLOG_CATEGORIES].map((c) => (
+          {["All", ...categories].map((c) => (
             <button
               key={c}
               role="tab"

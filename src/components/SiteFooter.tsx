@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Twitter, Github, Linkedin, Youtube, Instagram } from "lucide-react";
+import { ArrowUp, Twitter, Github, Linkedin, Youtube, Instagram } from "lucide-react";
 import { Brand } from "@/components/SiteHeader";
 import { navSections, type NavItem } from "@/components/nav-data";
 import { ToolIcon } from "@/components/ToolIcon";
@@ -36,13 +36,15 @@ function LinkColumn({ label, links }: { label: string; links: NavItem[] }) {
   return (
     <div>
       <p className="eyebrow">{label}</p>
-      <ul className="mt-5 space-y-1">
+      <span className="mt-2.5 block h-0.5 w-6 rounded-full bg-[image:var(--gradient-primary)]" aria-hidden />
+      <ul className="mt-4 space-y-1">
         {links.map((link) => (
           <li key={link.path}>
             <Link
               to={link.path}
-              className="inline-block py-1 text-sm text-muted-foreground transition-all duration-200 hover:translate-x-0.5 hover:text-primary"
+              className="group inline-flex items-center gap-2 py-1 text-sm text-muted-foreground transition-all duration-200 hover:translate-x-0.5 hover:text-primary"
             >
+              <link.icon className="h-3.5 w-3.5 text-primary/50 transition-all duration-200 group-hover:scale-125 group-hover:text-primary" />
               {link.label}
             </Link>
           </li>
@@ -78,7 +80,7 @@ export const SiteFooter = () => {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-lift"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>
@@ -92,7 +94,8 @@ export const SiteFooter = () => {
           {/* Tools column: All Tools + the 9 most popular tools. */}
           <nav aria-label="Popular tools">
             <p className="eyebrow">Tools</p>
-            <ul className="mt-5 space-y-1">
+            <span className="mt-2.5 block h-0.5 w-6 rounded-full bg-[image:var(--gradient-primary)]" aria-hidden />
+            <ul className="mt-4 space-y-1">
               <li>
                 <Link
                   to="/tools"
@@ -109,7 +112,7 @@ export const SiteFooter = () => {
                   >
                     <ToolIcon
                       iconKey={t.icon}
-                      className="h-3.5 w-3.5 text-primary/50 transition-colors group-hover:text-primary"
+                      className="h-3.5 w-3.5 text-primary/50 transition-all duration-200 group-hover:scale-125 group-hover:text-primary"
                     />
                     {t.name}
                   </Link>
@@ -125,7 +128,7 @@ export const SiteFooter = () => {
 
         {/* Giant brand wordmark: oversized, low-opacity, gradient-faded. */}
         <div aria-hidden="true" className="pointer-events-none mt-20 mb-10 select-none overflow-hidden sm:mt-28 sm:mb-14">
-          <p className="bg-gradient-to-b from-primary/20 via-primary/[0.07] to-transparent bg-clip-text text-center font-display text-[19vw] font-extrabold leading-[0.8] tracking-tighter text-transparent lg:text-[12rem]">
+          <p className="wordmark-animated text-center font-display text-[19vw] font-extrabold leading-[0.8] tracking-tighter lg:text-[12rem]">
             IconVault
           </p>
         </div>
@@ -149,6 +152,14 @@ export const SiteFooter = () => {
             <Link to="/terms" className="transition-colors hover:text-primary">
               Terms &amp; Conditions
             </Link>
+            <button
+              type="button"
+              aria-label="Back to top"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="focus-ring grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-lift"
+            >
+              <ArrowUp className="h-4 w-4" />
+            </button>
           </div>
         </div>
       </div>

@@ -80,8 +80,11 @@
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade-in: fade-in 0.5s ease-out both;
   --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-gradient-pan: gradient-pan 7s linear infinite;
   --animate-marquee: marquee 40s linear infinite;
   --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-sheen-slow: shimmer 7s linear infinite;
   --animate-pop: pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-slide-down: slide-down 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-menu-close: menu-close 0.18s ease-in both;
@@ -202,6 +205,14 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+@keyframes gradient-pan {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 200% center;
   }
 }
 @keyframes shimmer {
@@ -327,6 +338,60 @@
   color: transparent;
 }
 
+@utility text-gradient-animated {
+  background-image: var(--gradient-primary);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-gradient-pan);
+}
+
+@utility wordmark-animated {
+  background-image:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--primary) 22%, transparent),
+      color-mix(in oklab, var(--primary) 7%, transparent) 55%,
+      transparent
+    ),
+    linear-gradient(
+      105deg,
+      transparent 35%,
+      color-mix(in oklab, var(--primary) 20%, transparent) 50%,
+      transparent 65%
+    );
+  background-size:
+    100% 100%,
+    220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-sheen-slow);
+}
+
+@utility btn-sheen {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgb(255 255 255 / 0.28) 50%,
+      transparent 60%
+    );
+    transform: translateX(-130%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+  }
+  &:hover::after {
+    transform: translateX(130%);
+  }
+}
+
 @utility eyebrow {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
@@ -338,12 +403,15 @@
 @utility reveal {
   opacity: 0;
   transform: translateY(22px);
+  filter: blur(5px);
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   &[data-visible="true"] {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 

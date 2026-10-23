@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
-import { Loader2, Layers, CheckSquare, X, ArrowDown } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { Loader2, Layers, LayoutGrid, Shapes, CheckSquare, X, ArrowDown } from "lucide-react";
 import PackSeoSection from "@/components/PackSeoSection";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -212,6 +212,28 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
           SearchBar below carries the query on its own. */}
       <div id="browse-results" className="mx-auto max-w-[100rem] scroll-mt-20">
           <main className="px-5 py-8 lg:px-8">
+          {/* Sub-menu: sibling browse sections (Sameer 2026-10-23) */}
+          <nav aria-label="Browse sections" className="mb-5 flex flex-wrap items-center gap-2">
+            <span
+              aria-current="page"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-background"
+            >
+              <LayoutGrid className="h-4 w-4" /> Browse icons
+            </span>
+            <Link
+              to="/libraries"
+              className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <Layers className="h-4 w-4" /> Libraries
+            </Link>
+            <Link
+              to="/categories"
+              className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <Shapes className="h-4 w-4" /> Browse by category
+            </Link>
+          </nav>
+
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
             <div className="min-w-0 flex-1">
               <SearchBar value={query} onChange={setQuery} loading={loading} autoFocus />

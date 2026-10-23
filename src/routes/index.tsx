@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -29,6 +29,7 @@ import {
   PenTool,
   Pipette,
   QrCode,
+  Rocket,
   Search,
   Shapes,
   Shield,
@@ -46,13 +47,15 @@ import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
 import { TOOL_COUNT, TOOL_CATEGORY_META, FEATURED_TOOLS, type FeaturedToolMeta } from "@/lib/tool-catalog-meta";
-import { supabase } from "@/integrations/supabase/client";
 import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
 import BrowseCategories from "@/components/home/BrowseCategories";
 import StyleChips from "@/components/home/StyleChips";
 import MarqueeBand from "@/components/home/MarqueeBand";
-import BlogTeaser from "@/components/home/BlogTeaser";
+// Lazy: BlogTeaser pulls in every post's full text for its cards. Keeping
+// it out of the homepage's entry chunk is a major first-load saving; the
+// section sits deep below the fold, so it streams in right after paint.
+const BlogTeaser = lazy(() => import("@/components/home/BlogTeaser"));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -140,28 +143,31 @@ const STEPS = [
   {
     step: "01",
     icon: Search,
+    kind: "icons" as const,
     title: "Search or describe",
     desc: "Type a name, or let AI search interpret 'something that means secure checkout'.",
   },
   {
     step: "02",
     icon: Palette,
+    kind: "colors" as const,
     title: "Tune size and colour",
     desc: "Preview at 16 to 64px against light or dark, and dial in your exact brand hex.",
   },
   {
     step: "03",
     icon: Download,
+    kind: "formats" as const,
     title: "Copy or export",
     desc: "Grab a framework snippet, download SVG/PNG, or push the set to your design tokens.",
   },
 ];
 
 const STATS = [
-  { value: "421,020", label: "Icons indexed", icon: Shapes },
-  { value: "239", label: "Icon sets", icon: Layers },
-  { value: "579", label: "Free online tools", icon: Wrench },
-  { value: "17", label: "Tool categories", icon: LayoutGrid },
+  { value: "421,020", label: "Icons indexed", sub: "every style, one search", icon: Shapes },
+  { value: "239", label: "Icon sets", sub: "all open-source, licence-clear", icon: Layers },
+  { value: "579", label: "Free online tools", sub: "5 free uses a day, no account", icon: Wrench },
+  { value: "17", label: "Tool categories", sub: "dev, design, SEO, fun & more", icon: LayoutGrid },
 ];
 
 /** Homepage tool discovery: chips, featured cards, trial line. */
@@ -412,6 +418,7 @@ function WaitlistForm() {
     }
     if (!email.trim()) return;
     setLoading(true);
+    const { supabase } = await import("@/integrations/supabase/client");
     const { error } = await supabase.from("waitlist").insert({ email: email.trim() });
     setLoading(false);
     if (error) {
@@ -458,8 +465,70 @@ function WaitlistForm() {
   );
 }
 
+/** Mini visual strip at the bottom of each "How it works" step card:
+    real icons for search, brand colours for tuning, format pills for export. */
+function StepVisual({ kind }: { kind: "icons" | "colors" | "formats" }) {
+  if (kind === "icons") {
+    return (
+      <span className="mt-5 flex items-center gap-2">
+        {["lucide:home", "lucide:heart", "lucide:user", "lucide:settings"].map((id) => {
+          const [prefix, name] = id.split(":");
+          return (
+            <span key={id} className="grid h-9 w-9 place-items-center rounded-lg bg-surface-2 ring-1 ring-inset ring-border/60">
+              <img
+                src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 18, height: 18, color: "#0F766E" })}
+                alt=""
+                className="h-[18px] w-[18px]"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+          );
+        })}
+        <span className="rounded-full bg-primary-soft px-2.5 py-1 font-mono text-[11px] font-semibold text-primary">
+          421k+ results
+        </span>
+      </span>
+    );
+  }
+  if (kind === "colors") {
+    return (
+      <span className="mt-5 flex items-center gap-2">
+        {["#0F766E", "#F97316", "#2563EB", "#DB2777", "#111827"].map((c) => (
+          <span
+            key={c}
+            style={{ backgroundColor: c }}
+            className="h-6 w-6 rounded-full ring-2 ring-surface ring-offset-1 ring-offset-border/40 transition-transform duration-300 hover:scale-125"
+          />
+        ))}
+        <span className="ml-1 rounded-full bg-primary-soft px-2.5 py-1 font-mono text-[11px] font-semibold text-primary">
+          16-64px
+        </span>
+      </span>
+    );
+  }
+  return (
+    <span className="mt-5 flex flex-wrap items-center gap-1.5">
+      {["SVG", "PNG", "JSX", "Vue", "CSS"].map((f) => (
+        <span key={f} className="rounded-full border border-border bg-surface px-2.5 py-1 font-mono text-[11px] font-semibold text-muted-foreground">
+          {f}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function Landing() {
   const navigate = useNavigate();
+  const heroRef = useRef<HTMLElement | null>(null);
+  const glowRef = useRef<HTMLSpanElement | null>(null);
+  const onHeroMove = (e: React.MouseEvent) => {
+    const glow = glowRef.current;
+    const hero = heroRef.current;
+    if (!glow || !hero) return;
+    const r = hero.getBoundingClientRect();
+    glow.style.background = `radial-gradient(560px circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, color-mix(in oklab, var(--primary) 10%, transparent), transparent 70%)`;
+  };
   const [query, setQuery] = useState("");
   const [rotating, setRotating] = useState(0);
   const words = ["ship faster", "stay consistent", "skip the licence maze", "delete your SVG folder"];
@@ -479,8 +548,9 @@ function Landing() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="hero-glow relative overflow-hidden">
+        <section ref={heroRef} onMouseMove={onHeroMove} className="hero-glow relative overflow-hidden">
           <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
+          <span ref={glowRef} className="pointer-events-none absolute inset-0" aria-hidden />
           <div className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
             <Reveal>
               <span className="inline-flex max-w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.08em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
@@ -533,7 +603,7 @@ function Landing() {
               <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
                 <Link
                   to="/tools"
-                  className="focus-ring group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:w-auto"
+                  className="btn-sheen focus-ring group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:w-auto"
                 >
                   Explore free tools
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -563,7 +633,7 @@ function Landing() {
                     <span
                       key={id}
                       style={{ animationDelay: `${i * 220}ms` }}
-                      className="animate-float grid aspect-square place-items-center rounded-2xl border border-border bg-surface shadow-soft transition-transform duration-300 hover:-translate-y-1.5 hover:border-primary/40"
+                      className="animate-float grid aspect-square place-items-center rounded-2xl border border-border bg-surface shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:rotate-6 hover:scale-105 hover:border-primary/40 hover:shadow-lift"
                     >
                       <img
                         src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 20, height: 20, color: "#0F766E" })}
@@ -578,6 +648,57 @@ function Landing() {
                   );
                 })}
               </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Big number banner: the vault's scale, unmissable (Sameer 2026-10-23) */}
+        <section className="relative overflow-hidden border-b border-border bg-surface-2/60">
+          <span
+            className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-[36rem] max-w-none -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-3xl"
+            aria-hidden
+          />
+          <div className="relative mx-auto max-w-[1440px] px-5 py-14 text-center sm:py-16 lg:px-8">
+            {[
+              { id: "lucide:rocket", cls: "left-[10%] top-6", delay: "0ms" },
+              { id: "lucide:heart", cls: "left-[19%] bottom-6", delay: "700ms" },
+              { id: "lucide:star", cls: "right-[10%] top-8", delay: "1400ms" },
+              { id: "lucide:palette", cls: "right-[19%] bottom-7", delay: "2100ms" },
+              { id: "lucide:zap", cls: "left-[4%] top-1/2 hidden lg:grid", delay: "1000ms" },
+              { id: "lucide:shapes", cls: "right-[4%] top-1/2 hidden lg:grid", delay: "1700ms" },
+            ].map((t) => {
+              const [prefix, name] = t.id.split(":");
+              return (
+                <span
+                  key={t.id}
+                  style={{ animationDelay: t.delay }}
+                  className={`animate-float pointer-events-none absolute ${t.cls} hidden h-11 w-11 place-items-center rounded-2xl border border-border bg-surface shadow-soft sm:grid`}
+                  aria-hidden
+                >
+                  <img
+                    src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 20, height: 20, color: "#0F766E" })}
+                    alt=""
+                    className="h-5 w-5"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              );
+            })}
+            <Reveal>
+              <p className="eyebrow">
+                <span className="inline-flex items-center gap-1.5">
+                  <Shapes className="h-3.5 w-3.5 text-primary" /> The vault in one number
+                </span>
+              </p>
+              <p className="mt-3 font-display text-7xl font-semibold leading-none tracking-tight sm:text-8xl lg:text-9xl">
+                <span className="text-gradient-animated">421,020</span>
+              </p>
+              <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
+                open-source icons from <span className="font-semibold text-foreground">239 libraries</span>,
+                every one free to search, recolour, copy and ship. No account needed, no
+                paywall on the basics.
+              </p>
             </Reveal>
           </div>
         </section>
@@ -600,19 +721,18 @@ function Landing() {
         {/* Marquee - premium pill band with real set icons (2026-10-23) */}
         <MarqueeBand />
 
-        {/* From the blog (added 2026-10-22) */}
-        <BlogTeaser />
-
         {/* Stats */}
         <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {STATS.map((s, i) => (
-              <Reveal key={s.label} delay={i * 70} className="surface-card lift-hover px-5 py-7 text-center">
-                <span className="mx-auto grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-primary ring-1 ring-inset ring-border/60">
-                  <s.icon className="h-5 w-5" />
+              <Reveal key={s.label} delay={i * 70} className="surface-card lift-hover group relative overflow-hidden px-5 py-9 text-center">
+                <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-60" aria-hidden />
+                <span className="mx-auto grid h-16 w-16 place-items-center rounded-[1.15rem] bg-[image:var(--gradient-primary)] text-white shadow-lg shadow-primary/30 ring-1 ring-inset ring-white/25 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                  <s.icon className="h-8 w-8" />
                 </span>
-                <p className="mt-3.5 font-display text-3xl font-semibold text-primary sm:text-4xl">{s.value}</p>
-                <p className="mt-1.5 text-xs text-muted-foreground sm:text-sm">{s.label}</p>
+                <p className="mt-4 font-display text-4xl font-semibold text-primary sm:text-5xl">{s.value}</p>
+                <p className="mt-2 text-sm font-medium text-foreground/80">{s.label}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{s.sub}</p>
               </Reveal>
             ))}
           </div>
@@ -695,36 +815,82 @@ function Landing() {
         </section>
 
         {/* Steps */}
-        <section className="mx-auto max-w-[1440px] px-5 py-20 lg:px-8">
+        <section className="relative mx-auto max-w-[1440px] overflow-hidden px-5 py-20 lg:px-8">
+          <Shapes
+            className="animate-float-slow pointer-events-none absolute -right-4 top-8 hidden h-36 w-36 rotate-12 text-primary/[0.05] lg:block"
+            aria-hidden
+          />
+          <Rocket
+            className="animate-float-slow pointer-events-none absolute -left-3 bottom-8 hidden h-28 w-28 -rotate-12 text-primary/[0.04] [animation-delay:1400ms] lg:block"
+            aria-hidden
+          />
           <Reveal className="text-center">
             <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><MousePointerClick className="h-3.5 w-3.5 text-primary" /> How it works</span></p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Idea to icon in three moves
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.step} delay={i * 90} className="surface-card lift-hover group relative overflow-hidden p-7">
-                <span className="flex items-start justify-between">
-                  <span className="font-display text-5xl font-semibold text-primary/15">{s.step}</span>
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-primary ring-1 ring-inset ring-border/60 transition-transform duration-300 group-hover:scale-110">
-                    <s.icon className="h-5 w-5" />
+          <div className="relative mt-12">
+            <div className="grid gap-4 md:grid-cols-3">
+              {STEPS.map((s, i) => (
+                <Reveal key={s.step} delay={i * 90} className="surface-card lift-hover group relative overflow-hidden p-7">
+                  <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+                  <span className="flex items-start justify-between">
+                    <span className="font-display text-5xl font-semibold text-primary/15 transition-colors duration-300 group-hover:text-primary/30">{s.step}</span>
+                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[image:var(--gradient-primary)] text-white shadow-lg shadow-primary/30 ring-1 ring-inset ring-white/25 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                      <s.icon className="h-7 w-7" />
+                    </span>
                   </span>
-                </span>
-                <h3 className="mt-3 font-display text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              </Reveal>
+                  <h3 className="mt-4 font-display text-lg font-semibold">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                  <StepVisual kind={s.kind} />
+                </Reveal>
+              ))}
+            </div>
+            {[0, 1].map((n) => (
+              <span
+                key={n}
+                style={{ left: n === 0 ? "33.333%" : "66.666%", animationDelay: `${n * 900}ms` }}
+                className="animate-float pointer-events-none absolute top-1/2 z-10 hidden h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink text-background shadow-lift md:grid"
+                aria-hidden
+              >
+                <ArrowRight className="h-4 w-4" />
+              </span>
             ))}
           </div>
         </section>
+
+        {/* From the blog - moved below "Idea to icon in three moves" (Sameer 2026-10-23) */}
+        <Suspense
+          fallback={
+            <div className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8" aria-hidden>
+              <div className="h-44 animate-pulse rounded-3xl bg-muted/50" />
+            </div>
+          }
+        >
+          <BlogTeaser />
+        </Suspense>
 
         {/* Testimonials hidden on the homepage at all resolutions (Sameer 2026-10-23). */}
 
         {/* Waitlist + CTA */}
         <section className="mx-auto max-w-3xl px-5 py-20 text-center lg:px-8">
-          <Reveal>
-            <span className="mx-auto mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-[image:var(--gradient-hero)] text-primary shadow-soft ring-1 ring-inset ring-border/60">
-              <Mail className="h-5 w-5" />
+          <Reveal className="surface-card relative overflow-hidden px-6 py-12 sm:px-12">
+            <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-60" aria-hidden />
+            <span
+              className="animate-float pointer-events-none absolute left-6 top-6 hidden h-10 w-10 place-items-center rounded-xl bg-surface-2 ring-1 ring-inset ring-border/60 sm:grid"
+              aria-hidden
+            >
+              <img src={getIconSvgUrl("lucide", "bell", { width: 18, height: 18, color: "#0F766E" })} alt="" className="h-[18px] w-[18px]" loading="lazy" decoding="async" />
+            </span>
+            <span
+              className="animate-float pointer-events-none absolute bottom-6 right-6 hidden h-10 w-10 place-items-center rounded-xl bg-surface-2 ring-1 ring-inset ring-border/60 [animation-delay:1100ms] sm:grid"
+              aria-hidden
+            >
+              <img src={getIconSvgUrl("lucide", "sparkles", { width: 18, height: 18, color: "#0F766E" })} alt="" className="h-[18px] w-[18px]" loading="lazy" decoding="async" />
+            </span>
+            <span className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-[image:var(--gradient-primary)] text-white shadow-lg shadow-primary/30 ring-1 ring-inset ring-white/25">
+              <Mail className="h-7 w-7" />
             </span>
             <p className="eyebrow">Stay in the loop</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -733,7 +899,7 @@ function Landing() {
             <p className="mt-4 text-muted-foreground">
               No noise - just newly indexed icon families and the occasional workflow trick.
             </p>
-            <div className="mx-auto mt-7 max-w-md">
+            <div className="relative mx-auto mt-7 max-w-md">
               <WaitlistForm />
             </div>
           </Reveal>
@@ -741,34 +907,45 @@ function Landing() {
 
         <section className="mx-auto max-w-[1440px] px-5 pb-24 lg:px-8">
           <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-ink px-6 py-16 text-center">
-            <span className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
-            <span className="pointer-events-none absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl" />
+            <span className="animate-float-slow pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
+            <span className="animate-float-slow pointer-events-none absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl [animation-delay:1600ms]" />
             {[
               { id: "lucide:rocket", cls: "left-[7%] top-10", delay: "0ms" },
               { id: "lucide:palette", cls: "right-[8%] top-12", delay: "500ms" },
               { id: "lucide:heart", cls: "bottom-10 left-[11%]", delay: "1000ms" },
               { id: "lucide:zap", cls: "bottom-12 right-[12%]", delay: "1500ms" },
+              { id: "lucide:star", cls: "left-[16%] top-14", delay: "800ms" },
+              { id: "lucide:shapes", cls: "right-[17%] bottom-14", delay: "2000ms" },
             ].map((t) => {
               const [prefix, name] = t.id.split(":");
               return (
                 <span
                   key={t.id}
                   style={{ animationDelay: t.delay }}
-                  className={`animate-float pointer-events-none absolute ${t.cls} hidden h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm md:grid`}
+                  className={`animate-float pointer-events-none absolute ${t.cls} hidden h-14 w-14 place-items-center rounded-2xl border border-white/20 bg-white/10 shadow-lift backdrop-blur-sm md:grid`}
                   aria-hidden
                 >
                   <img
-                    src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 22, height: 22, color: "#FFFFFF" })}
+                    src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 24, height: 24, color: "#FFFFFF" })}
                     alt=""
-                    className="h-[22px] w-[22px] opacity-90"
+                    className="h-6 w-6 opacity-90"
                     loading="lazy"
                     decoding="async"
                   />
                 </span>
               );
             })}
+            <span className="relative mx-auto mb-6 grid h-14 w-14 place-items-center rounded-2xl border border-white/20 bg-white/10 shadow-lift backdrop-blur-sm">
+              <img
+                src={getIconSvgUrl("lucide", "rocket", { width: 26, height: 26, color: "#FFFFFF" })}
+                alt=""
+                className="h-[26px] w-[26px]"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
             <h2 className="relative font-display text-3xl font-semibold tracking-tight text-background sm:text-4xl">
-              Icons and tools, ready when you are
+              Icons and tools, <span className="text-gradient-animated">ready when you are</span>
             </h2>
             <p className="relative mx-auto mt-4 max-w-md text-sm text-background/70">
               Free to search, free to export, {TOOL_COUNT} free tools with 5 uses each. Sign
@@ -776,7 +953,7 @@ function Landing() {
             </p>
             <Link
               to="/tools"
-              className="focus-ring relative mt-8 inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-foreground transition-transform hover:scale-[1.03]"
+              className="btn-sheen focus-ring relative mt-8 inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-foreground transition-transform hover:scale-[1.03]"
             >
               Explore free tools <ArrowRight className="h-4 w-4" />
             </Link>

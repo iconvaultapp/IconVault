@@ -2,13 +2,13 @@
 // searchable, sortable grid with live sample icons - the page behind the
 // homepage "All 239 libraries" button (which previously landed on the
 // personal My Collections page).
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search } from "lucide-react";
 import PageShell from "@/components/PageShell";
-import ReliableIcon from "@/components/ReliableIcon";
+import { IconPanel, type PanelIcon } from "@/components/IconPanel";
 import { Reveal } from "@/components/Reveal";
-import { fetchCollections, parseIconId, type IconifyCollection } from "@/lib/iconify";
+import { fetchCollectionIcons, fetchCollections, parseIconId, type IconifyCollection } from "@/lib/iconify";
 import { cn } from "@/lib/utils";
 
 export const Route = createLazyFileRoute("/libraries")({
@@ -23,6 +23,28 @@ const SORTS: { id: SortId; label: string }[] = [
   { id: "za", label: "Name Z–A" },
 ];
 
+/** Fires once when the element gets near the viewport (lazy panel icons). */
+function useInView<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "260px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return { ref, inView };
+}
+
 function LibraryCard({
   prefix,
   collection,
@@ -30,54 +52,49 @@ function LibraryCard({
   prefix: string;
   collection: IconifyCollection;
 }) {
-  const samples = (collection.samples ?? []).slice(0, 6);
+  const { ref, inView } = useInView<HTMLDivElement>();
+  const [names, setNames] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!inView) return;
+    let alive = true;
+    void fetchCollectionIcons(prefix, 12).then((ids) => {
+      if (alive) setNames(ids);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [inView, prefix]);
+
+  const ids = (names.length > 0 ? names : (collection.samples ?? [])).slice(0, 9);
+  const icons: PanelIcon[] = ids.map((id) => {
+    const parsed = id.includes(":") ? parseIconId(id) : { prefix, name: id };
+    return { key: id, prefix: parsed.prefix, name: parsed.name };
+  });
+
   return (
-    <Link
-      to="/app"
-      search={{ set: prefix }}
-      className="surface-card lift-hover focus-ring group relative flex h-full flex-col overflow-hidden p-5"
-      aria-label={`Browse ${collection.name} icons`}
-    >
-      <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
-      {samples.length > 0 && (
-        <span className="flex items-center gap-3.5 rounded-xl bg-[image:var(--gradient-hero)] px-4 py-3 ring-1 ring-inset ring-border/60">
-          {samples.map((sample, i) => {
-            const parsed = sample.includes(":") ? parseIconId(sample) : { prefix, name: sample };
-            return (
-              <span
-                key={sample}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
-                style={{ transitionDelay: `${i * 40}ms` }}
-              >
-                <ReliableIcon
-                  prefix={parsed.prefix}
-                  name={parsed.name}
-                  alt=""
-                  width={21}
-                  height={21}
-                  className="opacity-80 group-hover:opacity-100"
-                />
-              </span>
-            );
-          })}
-        </span>
-      )}
-      <span className="mt-4 block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
-        {collection.name}
-      </span>
-      <span className="mt-2 flex items-baseline gap-2">
-        <span className="font-display text-[1.45rem] font-semibold leading-none tracking-tight">
-          {collection.total.toLocaleString("en-US")}
-        </span>
-        <span className="text-sm text-muted-foreground">icons</span>
-        {collection.license?.title && (
-          <span className="ml-1 rounded-full bg-primary-soft px-2 py-0.5 font-mono text-[11px] font-medium text-primary">
-            {collection.license.title}
+    <div ref={ref} className="h-full">
+      <Link
+        to="/app"
+        search={{ set: prefix }}
+        className="focus-ring group block h-full"
+        aria-label={`Browse ${collection.name} icons`}
+      >
+        <IconPanel tintKey={prefix} icons={icons} size={38} />
+        <span className="mt-4 flex items-start gap-2 px-1">
+          <span className="min-w-0">
+            <span className="block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
+              {collection.name}
+            </span>
+            <span className="mt-0.5 block text-sm text-muted-foreground">
+              {collection.total.toLocaleString("en-US")} icons
+              {collection.license?.title ? ` · ${collection.license.title}` : ""}
+            </span>
           </span>
-        )}
-        <ArrowUpRight className="ml-auto h-5 w-5 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
-      </span>
-    </Link>
+          <ArrowUpRight className="ml-auto mt-1 h-5 w-5 shrink-0 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+        </span>
+      </Link>
+    </div>
   );
 }
 
@@ -172,13 +189,13 @@ function Page() {
       </Reveal>
 
       {all.length === 0 ? (
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-hidden>
+        <div className="mt-8 grid gap-x-4 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-hidden>
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <div key={i} className="h-44 animate-pulse rounded-3xl border border-border bg-surface-2" />
+            <div key={i} className="h-72 animate-pulse rounded-[1.5rem] bg-surface-2" />
           ))}
         </div>
       ) : (
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {entries.map(([prefix, collection], i) => (
             <Reveal key={prefix} delay={Math.min(i * 20, 300)} className="h-full">
               <LibraryCard prefix={prefix} collection={collection} />

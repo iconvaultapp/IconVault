@@ -3,9 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
-import { BLOG_POSTS, formatBlogDate } from "@/lib/blog";
+import { BLOG_POSTS, formatBlogDate, type BlogPost } from "@/lib/blog";
 
-export function BlogCard({ post, index = 0 }: { post: (typeof BLOG_POSTS)[number]; index?: number }) {
+export function BlogCard({ post, index = 0 }: { post: Omit<BlogPost, "content">; index?: number }) {
   return (
     <Reveal delay={index * 60} className="h-full">
       <Link
