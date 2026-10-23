@@ -74,6 +74,13 @@ const resolvePerIcon = async (
 export const Route = createFileRoute("/api/icons")({
   server: {
     handlers: {
+      // Batch resolution is POST-only; answer GET with a clean 405 instead
+      // of the framework's generic 500 so API clients get a usable error.
+      GET: async () =>
+        Response.json(
+          { error: "Method not allowed. Use POST with { icons: [\"prefix:name\", ...] }." },
+          { status: 405, headers: { "Access-Control-Allow-Origin": "*", Allow: "POST" } },
+        ),
       POST: async ({ request }) => {
         const { verifyApiKeyRequest } = await import("../lib/api-keys.server");
         const keyVerdict = await verifyApiKeyRequest(request);

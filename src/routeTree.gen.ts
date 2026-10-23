@@ -26,6 +26,7 @@ import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as LibrariesRouteImport } from './routes/libraries'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -715,6 +716,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/notifications.lazy').then((d) => d.Route))
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -5124,6 +5130,7 @@ export interface FileRoutesByFullPath {
   '/history': typeof HistoryRoute
   '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
@@ -5746,6 +5753,7 @@ export interface FileRoutesByTo {
   '/history': typeof HistoryRoute
   '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
@@ -6369,6 +6377,7 @@ export interface FileRoutesById {
   '/history': typeof HistoryRoute
   '/libraries': typeof LibrariesRoute
   '/notifications': typeof NotificationsRoute
+  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
@@ -6993,6 +7002,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/libraries'
     | '/notifications'
+    | '/pricing'
     | '/privacy'
     | '/pro'
     | '/profile'
@@ -7615,6 +7625,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/libraries'
     | '/notifications'
+    | '/pricing'
     | '/privacy'
     | '/pro'
     | '/profile'
@@ -8237,6 +8248,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/libraries'
     | '/notifications'
+    | '/pricing'
     | '/privacy'
     | '/pro'
     | '/profile'
@@ -8860,6 +8872,7 @@ export interface RootRouteChildren {
   HistoryRoute: typeof HistoryRoute
   LibrariesRoute: typeof LibrariesRoute
   NotificationsRoute: typeof NotificationsRoute
+  PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProRoute: typeof ProRoute
   ProfileRoute: typeof ProfileRoute
@@ -9584,6 +9597,13 @@ declare module '@tanstack/react-router' {
       path: '/notifications'
       fullPath: '/notifications'
       preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -13828,6 +13848,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoryRoute: HistoryRoute,
   LibrariesRoute: LibrariesRoute,
   NotificationsRoute: NotificationsRoute,
+  PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProRoute: ProRoute,
   ProfileRoute: ProfileRoute,
