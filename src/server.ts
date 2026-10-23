@@ -72,6 +72,42 @@ function hardenResponse(response: Response, request: Request): Response {
   // domain itself must be added to the HSTS preload list separately if wanted.
   if (!headers.has("strict-transport-security"))
     headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  // Cross-Origin-Opener-Policy: isolates our browsing context from cross-
+  // origin popups while still allowing the OAuth popups/redirects we use.
+  if (!headers.has("cross-origin-opener-policy"))
+    headers.set("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  // Content-Security-Policy, audited against what the app actually loads
+  // (2026-10-23): self-hosted fonts and bundles; scripts and styles can
+  // only come from this origin ('unsafe-inline' is required by the
+  // framework's SSR hydration and inline style attributes) - that is the
+  // core XSS barrier, and no external script origin is allowed at all.
+  // connect-src stays open (https:/http:/ws:/wss:) on purpose: several
+  // tools exist to call arbitrary user-entered APIs (API tester, header
+  // analyzer, WebSocket sandbox, npm/GitHub/PyPI lookups), and CORS still
+  // governs what those calls can read. Tool playgrounds iframe user
+  // content (frame-src https:). Routes that set their own stricter CSP
+  // (e.g. /api/icon serves SVGs with script-src 'none') keep theirs -
+  // this only fills the gap.
+  if (!headers.has("content-security-policy")) {
+    headers.set(
+      "Content-Security-Policy",
+      [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline'",
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self' data: blob: https:",
+        "font-src 'self' data:",
+        "connect-src 'self' https: http: wss: ws:",
+        "media-src 'self' data: blob: https:",
+        "worker-src 'self' blob:",
+        "frame-src 'self' https: data: blob:",
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self'",
+        "frame-ancestors 'self'",
+      ].join("; "),
+    );
+  }
 
   const { pathname } = new URL(request.url);
   const isStaticData =
