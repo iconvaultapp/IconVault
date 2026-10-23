@@ -2,13 +2,13 @@
 // searchable, sortable grid with live sample icons - the page behind the
 // homepage "All 239 libraries" button (which previously landed on the
 // personal My Collections page).
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import { IconPanel, type PanelIcon } from "@/components/IconPanel";
 import { Reveal } from "@/components/Reveal";
-import { fetchCollectionIcons, fetchCollections, parseIconId, type IconifyCollection } from "@/lib/iconify";
+import { fetchCollections, parseIconId, type IconifyCollection } from "@/lib/iconify";
 import { cn } from "@/lib/utils";
 
 export const Route = createLazyFileRoute("/libraries")({
@@ -23,28 +23,6 @@ const SORTS: { id: SortId; label: string }[] = [
   { id: "za", label: "Name Z–A" },
 ];
 
-/** Fires once when the element gets near the viewport (lazy panel icons). */
-function useInView<T extends HTMLElement>() {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          setInView(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "260px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return { ref, inView };
-}
-
 function LibraryCard({
   prefix,
   collection,
@@ -52,49 +30,34 @@ function LibraryCard({
   prefix: string;
   collection: IconifyCollection;
 }) {
-  const { ref, inView } = useInView<HTMLDivElement>();
-  const [names, setNames] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (!inView) return;
-    let alive = true;
-    void fetchCollectionIcons(prefix, 12).then((ids) => {
-      if (alive) setNames(ids);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [inView, prefix]);
-
-  const ids = (names.length > 0 ? names : (collection.samples ?? [])).slice(0, 9);
-  const icons: PanelIcon[] = ids.map((id) => {
-    const parsed = id.includes(":") ? parseIconId(id) : { prefix, name: id };
-    return { key: id, prefix: parsed.prefix, name: parsed.name };
+  // Curated samples only (Sameer 2026-10-23): the per-set name index is
+  // alphabetical, which filled panels with repeated number icons (10K x6).
+  const icons: PanelIcon[] = (collection.samples ?? []).slice(0, 6).map((sample) => {
+    const parsed = sample.includes(":") ? parseIconId(sample) : { prefix, name: sample };
+    return { key: sample, prefix: parsed.prefix, name: parsed.name };
   });
 
   return (
-    <div ref={ref} className="h-full">
-      <Link
-        to="/app"
-        search={{ set: prefix }}
-        className="focus-ring group block h-full"
-        aria-label={`Browse ${collection.name} icons`}
-      >
-        <IconPanel tintKey={prefix} icons={icons} size={38} />
-        <span className="mt-4 flex items-start gap-2 px-1">
-          <span className="min-w-0">
-            <span className="block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
-              {collection.name}
-            </span>
-            <span className="mt-0.5 block text-sm text-muted-foreground">
-              {collection.total.toLocaleString("en-US")} icons
-              {collection.license?.title ? ` · ${collection.license.title}` : ""}
-            </span>
+    <Link
+      to="/app"
+      search={{ set: prefix }}
+      className="focus-ring group block h-full"
+      aria-label={`Browse ${collection.name} icons`}
+    >
+      <IconPanel tintKey={prefix} icons={icons} size={38} placeholders={6} />
+      <span className="mt-4 flex items-start gap-2 px-1">
+        <span className="min-w-0">
+          <span className="block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
+            {collection.name}
           </span>
-          <ArrowUpRight className="ml-auto mt-1 h-5 w-5 shrink-0 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+          <span className="mt-0.5 block text-sm text-muted-foreground">
+            {collection.total.toLocaleString("en-US")} icons
+            {collection.license?.title ? ` · ${collection.license.title}` : ""}
+          </span>
         </span>
-      </Link>
-    </div>
+        <ArrowUpRight className="ml-auto mt-1 h-5 w-5 shrink-0 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+      </span>
+    </Link>
   );
 }
 

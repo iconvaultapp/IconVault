@@ -1,12 +1,12 @@
-// Homepage "Popular libraries" section: the biggest icon sets on IconVault.
-// v3 (Sameer 2026-10-23, style-grid reference): every set is a pastel panel
-// filled with 9 large real icons, each set on its own stable tint colour;
-// the set name and its real icon count sit below the panel. All names and
-// counts come from the real collection index.
+// Homepage "Popular libraries" section: the biggest icon sets on IconVault,
+// shown with live sample icons so visitors can compare styles side by side.
+// All names, counts and licences come from the real collection index.
+// v2 (Sameer 2026-10-23): richer cards, gradient headline word, staggered
+// icon animation on hover, card-style rows - same theme, more premium feel.
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Layers } from "lucide-react";
-import { IconPanel, type PanelIcon } from "@/components/IconPanel";
+import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
 import {
   fetchCollectionIcons,
@@ -15,58 +15,122 @@ import {
   type IconifyCollection,
 } from "@/lib/iconify";
 
+const DESCRIPTIONS: Record<string, string> = {
+  lucide: "Clean 2px outline icons, the shadcn/ui default.",
+  tabler: "Consistent 24px outline set, huge range.",
+  mdi: "Google style icons, community extended.",
+  "material-symbols": "Google Material: outline, rounded and sharp.",
+  heroicons: "Made by the Tailwind CSS team.",
+};
+
 const FEATURED = ["lucide", "tabler", "mdi", "material-symbols", "heroicons"];
 const ROWS = ["ph", "fluent-emoji-flat", "bi", "carbon", "solar", "twemoji"];
-const ALL_SETS = [...FEATURED, ...ROWS];
 
-function toPanelIcons(ids: string[], prefix: string): PanelIcon[] {
-  return ids.map((id) => {
-    const parsed = id.includes(":") ? parseIconId(id) : { prefix, name: id };
-    return { key: id, prefix: parsed.prefix, name: parsed.name };
-  });
-}
-
-function SetCard({
+function Samples({
   prefix,
   collection,
+  count,
+  cols,
+  size = 22,
+  names,
+  fill = false,
 }: {
   prefix: string;
   collection: IconifyCollection;
+  count: number;
+  cols: string;
+  size?: number;
+  /** Full "prefix:name" ids; overrides the collection's short sample list. */
+  names?: string[];
+  /** Stretch the panel to fill the card and spread the rows evenly. */
+  fill?: boolean;
 }) {
-  // 9 real icons per panel: the collection ships only 6 curated samples,
-  // the rest come from the local per-set name index.
-  const [names, setNames] = useState<string[]>([]);
+  const source = names && names.length > 0 ? names : (collection.samples ?? []);
+  const samples = source.slice(0, count);
+  if (samples.length === 0) return null;
+  return (
+    <div
+      className={`grid gap-3 rounded-2xl bg-[image:var(--gradient-hero)] p-4 ring-1 ring-inset ring-border/60 ${cols} ${fill ? "flex-1 content-between" : ""}`}
+    >
+      {samples.map((sample, i) => {
+        const parsed = sample.includes(":") ? parseIconId(sample) : { prefix, name: sample };
+        return (
+          <span
+            key={sample}
+            className="grid place-items-center py-1.5 transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-125"
+            style={{ transitionDelay: `${i * 35}ms` }}
+          >
+            <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={size} height={size} className="opacity-80 transition-opacity group-hover:opacity-100" />
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+function LibraryCard({
+  prefix,
+  collection,
+  large = false,
+}: {
+  prefix: string;
+  collection: IconifyCollection;
+  large?: boolean;
+}) {
+  // The large card spans two rows, so fill it with a real icon wall: the
+  // collection only ships 6 curated samples, the rest come from the local
+  // per-set name index (Sameer 2026-10-23: no empty space in the big card).
+  const [wallNames, setWallNames] = useState<string[]>([]);
   useEffect(() => {
+    if (!large) return;
     let alive = true;
-    void fetchCollectionIcons(prefix, 12).then((ids) => {
-      if (alive) setNames(ids);
+    void fetchCollectionIcons(prefix, 48).then((names) => {
+      if (alive) setWallNames(names);
     });
     return () => {
       alive = false;
     };
-  }, [prefix]);
-
-  const ids = (names.length > 0 ? names : (collection.samples ?? [])).slice(0, 9);
+  }, [large, prefix]);
 
   return (
     <Link
       to="/app"
       search={{ set: prefix }}
-      className="focus-ring group block"
+      className="surface-card lift-hover focus-ring group relative flex h-full flex-col overflow-hidden p-5"
       aria-label={`Browse ${collection.name} icons`}
     >
-      <IconPanel tintKey={prefix} icons={toPanelIcons(ids, prefix)} size={44} />
-      <span className="mt-4 flex items-start gap-2 px-1">
-        <span className="min-w-0">
-          <span className="block truncate font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
-            {collection.name}
-          </span>
-          <span className="mt-0.5 block text-sm text-muted-foreground">
-            {collection.total.toLocaleString("en-US")} icons
-          </span>
+      <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
+      {large ? (
+        <Samples
+          prefix={prefix}
+          collection={collection}
+          names={wallNames}
+          count={48}
+          cols="grid-cols-6 sm:grid-cols-8"
+          size={30}
+          fill
+        />
+      ) : (
+        <Samples prefix={prefix} collection={collection} count={6} cols="grid-cols-3" size={26} />
+      )}
+      <h3 className="mt-5 font-display text-[1.35rem] font-semibold tracking-tight transition-colors group-hover:text-primary">
+        {collection.name}
+      </h3>
+      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+        {DESCRIPTIONS[prefix] ?? `${collection.name} icon set, ready to search and export.`}
+      </p>
+      <p className="mt-4 flex items-baseline gap-2">
+        <span className="font-display text-[1.7rem] font-semibold leading-none tracking-tight">
+          {collection.total.toLocaleString("en-US")}
         </span>
-        <ArrowUpRight className="ml-auto mt-1 h-5 w-5 shrink-0 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
-      </span>
+        <span className="text-sm text-muted-foreground">icons</span>
+        {collection.license?.title && (
+          <span className="ml-1 rounded-full bg-primary-soft px-2 py-0.5 font-mono text-[11px] font-medium text-primary">
+            {collection.license.title}
+          </span>
+        )}
+        <ArrowUpRight className="ml-auto h-5 w-5 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+      </p>
     </Link>
   );
 }
@@ -85,7 +149,8 @@ export default function PopularLibraries() {
   }, []);
 
   const totalLibraries = Object.keys(collections).length;
-  const sets = ALL_SETS.filter((p) => collections[p]);
+  const featured = FEATURED.filter((p) => collections[p]);
+  const rows = ROWS.filter((p) => collections[p]);
 
   return (
     <section className="relative overflow-hidden">
@@ -113,20 +178,61 @@ export default function PopularLibraries() {
           </div>
         </Reveal>
 
-        {sets.length === 0 ? (
-          <div className="mt-10 grid gap-x-4 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-hidden>
-            {[0, 1, 2, 3].map((i) => (
-              <div key={i} className="h-72 animate-pulse rounded-[1.5rem] bg-surface-2" />
+        {featured.length === 0 ? (
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-hidden>
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-56 animate-pulse rounded-3xl border border-border bg-surface-2" />
             ))}
           </div>
         ) : (
-          <div className="mt-10 grid gap-x-4 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {sets.map((prefix, i) => (
-              <Reveal key={prefix} delay={(i % 4) * 60}>
-                <SetCard prefix={prefix} collection={collections[prefix]!} />
-              </Reveal>
-            ))}
-          </div>
+          <>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {featured.map((prefix, i) => (
+                <Reveal key={prefix} delay={i * 70} className={i === 0 ? "sm:col-span-2 lg:col-span-1 lg:row-span-2" : ""}>
+                  <LibraryCard prefix={prefix} collection={collections[prefix]!} large={i === 0} />
+                </Reveal>
+              ))}
+            </div>
+
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {rows.map((prefix, i) => {
+                const collection = collections[prefix]!;
+                return (
+                  <Reveal key={prefix} delay={i * 50}>
+                    <Link
+                      to="/app"
+                      search={{ set: prefix }}
+                      className="surface-card lift-hover focus-ring group flex items-center justify-between gap-4 px-5 py-4"
+                    >
+                      <span className="min-w-0">
+                        <span className="block truncate font-display text-[1.05rem] font-semibold tracking-tight transition-colors group-hover:text-primary">
+                          {collection.name}
+                        </span>
+                        <span className="mt-0.5 block text-[13px] text-muted-foreground">
+                          <span className="font-semibold text-foreground">{collection.total.toLocaleString("en-US")}</span>{" "}
+                          icons{collection.license?.title ? ` · ${collection.license.title}` : ""}
+                        </span>
+                      </span>
+                      <span className="hidden shrink-0 items-center gap-3.5 sm:flex" aria-hidden>
+                        {(collection.samples ?? []).slice(0, 6).map((sample, j) => {
+                          const parsed = sample.includes(":") ? parseIconId(sample) : { prefix, name: sample };
+                          return (
+                            <span
+                              key={sample}
+                              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125"
+                              style={{ transitionDelay: `${j * 30}ms` }}
+                            >
+                              <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={22} height={22} className="opacity-70 group-hover:opacity-100" />
+                            </span>
+                          );
+                        })}
+                      </span>
+                    </Link>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </>
         )}
       </div>
     </section>

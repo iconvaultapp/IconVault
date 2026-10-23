@@ -652,57 +652,6 @@ function Landing() {
           </div>
         </section>
 
-        {/* Big number banner: the vault's scale, unmissable (Sameer 2026-10-23) */}
-        <section className="relative overflow-hidden border-b border-border bg-surface-2/60">
-          <span
-            className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-[36rem] max-w-none -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-3xl"
-            aria-hidden
-          />
-          <div className="relative mx-auto max-w-[1440px] px-5 py-14 text-center sm:py-16 lg:px-8">
-            {[
-              { id: "lucide:rocket", cls: "left-[10%] top-6", delay: "0ms" },
-              { id: "lucide:heart", cls: "left-[19%] bottom-6", delay: "700ms" },
-              { id: "lucide:star", cls: "right-[10%] top-8", delay: "1400ms" },
-              { id: "lucide:palette", cls: "right-[19%] bottom-7", delay: "2100ms" },
-              { id: "lucide:zap", cls: "left-[4%] top-1/2 hidden lg:grid", delay: "1000ms" },
-              { id: "lucide:shapes", cls: "right-[4%] top-1/2 hidden lg:grid", delay: "1700ms" },
-            ].map((t) => {
-              const [prefix, name] = t.id.split(":");
-              return (
-                <span
-                  key={t.id}
-                  style={{ animationDelay: t.delay }}
-                  className={`animate-float pointer-events-none absolute ${t.cls} hidden h-11 w-11 place-items-center rounded-2xl border border-border bg-surface shadow-soft sm:grid`}
-                  aria-hidden
-                >
-                  <img
-                    src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 20, height: 20, color: "#0F766E" })}
-                    alt=""
-                    className="h-5 w-5"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-              );
-            })}
-            <Reveal>
-              <p className="eyebrow">
-                <span className="inline-flex items-center gap-1.5">
-                  <Shapes className="h-3.5 w-3.5 text-primary" /> The vault in one number
-                </span>
-              </p>
-              <p className="mt-3 font-display text-7xl font-semibold leading-none tracking-tight sm:text-8xl lg:text-9xl">
-                <span className="text-gradient-animated">421,020</span>
-              </p>
-              <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
-                open-source icons from <span className="font-semibold text-foreground">239 libraries</span>,
-                every one free to search, recolour, copy and ship. No account needed, no
-                paywall on the basics.
-              </p>
-            </Reveal>
-          </div>
-        </section>
-
         {/* Agent / CLI strip (added 2026-10-22) */}
         <AgentStrip />
 
@@ -752,12 +701,17 @@ function Landing() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f, i) => (
-              <Reveal key={f.title} delay={i * 60} className="surface-card lift-hover group p-6">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-hero)] text-primary ring-1 ring-inset ring-border/60 transition-transform duration-300 group-hover:scale-110">
-                  <f.icon className="h-5 w-5" />
+              <Reveal key={f.title} delay={i * 60} className="surface-card lift-hover group relative overflow-hidden p-6">
+                <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-50 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+                <f.icon
+                  className="pointer-events-none absolute -bottom-7 -right-7 h-28 w-28 rotate-12 text-primary/[0.05] transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:text-primary/[0.09]"
+                  aria-hidden
+                />
+                <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-[image:var(--gradient-primary)] text-white shadow-lg shadow-primary/30 ring-1 ring-inset ring-white/25 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                  <f.icon className="h-7 w-7" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                <h3 className="relative mt-5 font-display text-lg font-semibold transition-colors group-hover:text-primary">{f.title}</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -874,7 +828,7 @@ function Landing() {
         {/* Testimonials hidden on the homepage at all resolutions (Sameer 2026-10-23). */}
 
         {/* Waitlist + CTA */}
-        <section className="mx-auto max-w-3xl px-5 py-20 text-center lg:px-8">
+        <section className="mx-auto max-w-[1440px] px-5 py-20 text-center lg:px-8">
           <Reveal className="surface-card relative overflow-hidden px-6 py-12 sm:px-12">
             <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-60" aria-hidden />
             <span
@@ -896,10 +850,10 @@ function Landing() {
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               New sets, new tooling, once a month
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
               No noise - just newly indexed icon families and the occasional workflow trick.
             </p>
-            <div className="relative mx-auto mt-7 max-w-md">
+            <div className="relative mx-auto mt-7 max-w-xl">
               <WaitlistForm />
             </div>
           </Reveal>
