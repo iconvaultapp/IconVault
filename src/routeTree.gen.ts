@@ -23,6 +23,7 @@ import { Route as CompareRouteImport } from './routes/compare'
 import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as EmbedRouteImport } from './routes/embed'
+import { Route as FreeSvgIconsRouteImport } from './routes/free-svg-icons'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as IllustrationsRouteImport } from './routes/illustrations'
 import { Route as LibrariesRouteImport } from './routes/libraries'
@@ -31,6 +32,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ReactIconsRouteImport } from './routes/react-icons'
 import { Route as RequestRouteImport } from './routes/request'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TeamRouteImport } from './routes/team'
@@ -702,6 +704,11 @@ const EmbedRoute = EmbedRouteImport.update({
   path: '/embed',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FreeSvgIconsRoute = FreeSvgIconsRouteImport.update({
+  id: '/free-svg-icons',
+  path: '/free-svg-icons',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
@@ -742,6 +749,11 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/profile.lazy').then((d) => d.Route))
+const ReactIconsRoute = ReactIconsRouteImport.update({
+  id: '/react-icons',
+  path: '/react-icons',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RequestRoute = RequestRouteImport.update({
   id: '/request',
   path: '/request',
@@ -5133,6 +5145,7 @@ export interface FileRoutesByFullPath {
   '/design-tokens': typeof DesignTokensRoute
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
+  '/free-svg-icons': typeof FreeSvgIconsRoute
   '/history': typeof HistoryRoute
   '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
@@ -5141,6 +5154,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
+  '/react-icons': typeof ReactIconsRoute
   '/request': typeof RequestRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
@@ -5757,6 +5771,7 @@ export interface FileRoutesByTo {
   '/design-tokens': typeof DesignTokensRoute
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
+  '/free-svg-icons': typeof FreeSvgIconsRoute
   '/history': typeof HistoryRoute
   '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
@@ -5765,6 +5780,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
+  '/react-icons': typeof ReactIconsRoute
   '/request': typeof RequestRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
@@ -6382,6 +6398,7 @@ export interface FileRoutesById {
   '/design-tokens': typeof DesignTokensRoute
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
+  '/free-svg-icons': typeof FreeSvgIconsRoute
   '/history': typeof HistoryRoute
   '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
@@ -6390,6 +6407,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
+  '/react-icons': typeof ReactIconsRoute
   '/request': typeof RequestRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
@@ -7008,6 +7026,7 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/docs'
     | '/embed'
+    | '/free-svg-icons'
     | '/history'
     | '/illustrations'
     | '/libraries'
@@ -7016,6 +7035,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/pro'
     | '/profile'
+    | '/react-icons'
     | '/request'
     | '/sitemap.xml'
     | '/team'
@@ -7632,6 +7652,7 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/docs'
     | '/embed'
+    | '/free-svg-icons'
     | '/history'
     | '/illustrations'
     | '/libraries'
@@ -7640,6 +7661,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/pro'
     | '/profile'
+    | '/react-icons'
     | '/request'
     | '/sitemap.xml'
     | '/team'
@@ -8256,6 +8278,7 @@ export interface FileRouteTypes {
     | '/design-tokens'
     | '/docs'
     | '/embed'
+    | '/free-svg-icons'
     | '/history'
     | '/illustrations'
     | '/libraries'
@@ -8264,6 +8287,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/pro'
     | '/profile'
+    | '/react-icons'
     | '/request'
     | '/sitemap.xml'
     | '/team'
@@ -8881,6 +8905,7 @@ export interface RootRouteChildren {
   DesignTokensRoute: typeof DesignTokensRoute
   DocsRoute: typeof DocsRoute
   EmbedRoute: typeof EmbedRoute
+  FreeSvgIconsRoute: typeof FreeSvgIconsRoute
   HistoryRoute: typeof HistoryRoute
   IllustrationsRoute: typeof IllustrationsRoute
   LibrariesRoute: typeof LibrariesRoute
@@ -8889,6 +8914,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ProRoute: typeof ProRoute
   ProfileRoute: typeof ProfileRoute
+  ReactIconsRoute: typeof ReactIconsRoute
   RequestRoute: typeof RequestRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
@@ -9591,6 +9617,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmbedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/free-svg-icons': {
+      id: '/free-svg-icons'
+      path: '/free-svg-icons'
+      fullPath: '/free-svg-icons'
+      preLoaderRoute: typeof FreeSvgIconsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/history': {
       id: '/history'
       path: '/history'
@@ -9645,6 +9678,13 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/react-icons': {
+      id: '/react-icons'
+      path: '/react-icons'
+      fullPath: '/react-icons'
+      preLoaderRoute: typeof ReactIconsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/request': {
@@ -13865,6 +13905,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignTokensRoute: DesignTokensRoute,
   DocsRoute: DocsRoute,
   EmbedRoute: EmbedRoute,
+  FreeSvgIconsRoute: FreeSvgIconsRoute,
   HistoryRoute: HistoryRoute,
   IllustrationsRoute: IllustrationsRoute,
   LibrariesRoute: LibrariesRoute,
@@ -13873,6 +13914,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ProRoute: ProRoute,
   ProfileRoute: ProfileRoute,
+  ReactIconsRoute: ReactIconsRoute,
   RequestRoute: RequestRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,

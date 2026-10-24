@@ -5,6 +5,7 @@
 import { POSTS_A } from "./blog-posts-a";
 import { POSTS_B } from "./blog-posts-b";
 import { POSTS_C } from "./blog-posts-c";
+import { POSTS_D } from "./blog-posts-d";
 
 export type BlogBlock =
   | { type: "p"; text: string }
@@ -32,7 +33,7 @@ export interface BlogPost {
 
 export const BLOG_AUTHOR = "IconVault Team";
 
-export const BLOG_POSTS: BlogPost[] = [...POSTS_A, ...POSTS_B, ...POSTS_C].sort((a, b) =>
+export const BLOG_POSTS: BlogPost[] = [...POSTS_A, ...POSTS_B, ...POSTS_C, ...POSTS_D].sort((a, b) =>
   b.date.localeCompare(a.date),
 );
 

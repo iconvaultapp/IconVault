@@ -4,6 +4,16 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+# AI search crawlers (GEO, Sameer 2026-10-24): OAI-SearchBot powers
+# ChatGPT Search citations, ChatGPT-User fetches pages users link to.
+# The wildcard rule below already allowed them; these explicit rules make
+# the permission unambiguous for AI crawlers and their dashboards.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: Twitterbot
 Allow: /
 
