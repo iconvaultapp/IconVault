@@ -92,11 +92,11 @@ function Page() {
         Free React Icons, Ready as Components
       </h1>
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-        React has no built-in icon story, so teams usually pick one of three paths: install a package
-        for one set, use a multi-set wrapper, or paste inline SVG components. IconVault supports all
+        <strong>React</strong> has no built-in <strong>icon</strong> story, so teams usually pick one of three paths: install a package
+        for one set, use a multi-set wrapper, or paste inline SVG <strong>components</strong>. <strong>IconVault</strong> supports all
         three. Search <strong className="text-foreground">421,020 icons</strong> from 239 sets, then
         copy any icon as a React component, or convert your own SVG with the{" "}
-        <Link to="/tools/svg-to-jsx" className="font-medium text-primary underline-offset-4 hover:underline">SVG to JSX converter</Link>.
+        <Link to="/tools/svg-to-jsx" className="font-medium text-primary underline-offset-4 hover:underline">SVG to <strong>JSX</strong> converter</Link>.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -114,7 +114,7 @@ function Page() {
         ))}
       </div>
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-        Start with one package and one set. Mixing Lucide outlines with filled Material icons in the
+        Start with one package and one set. Mixing Lucide outlines with filled Material <strong>icons</strong> in the
         same toolbar is the fastest way to make an interface look assembled instead of designed.
       </p>
 
@@ -123,14 +123,14 @@ function Page() {
       </h2>
       <ol className="mt-4 max-w-3xl list-decimal space-y-2 pl-6 leading-relaxed text-muted-foreground">
         <li>
-          Search the icon in the <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>,
+          Search the <strong>icon</strong> in the <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>,
           for example search, settings or download.
         </li>
-        <li>Open the icon page and set a colour if you need one.</li>
+        <li>Open the <strong>icon</strong> page and set a colour if you need one.</li>
         <li>Choose copy as component, paste it into your project, and use it like any other component.</li>
         <li>
           Already have an SVG file? Paste it into the{" "}
-          <Link to="/tools/svg-to-jsx" className="font-medium text-primary underline-offset-4 hover:underline">SVG to JSX converter</Link>{" "}
+          <Link to="/tools/svg-to-jsx" className="font-medium text-primary underline-offset-4 hover:underline">SVG to <strong>JSX</strong> converter</Link>{" "}
           to get a clean component with props for size and colour.
         </li>
       </ol>
@@ -140,24 +140,24 @@ function Page() {
       </h2>
       <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-6 leading-relaxed text-muted-foreground">
         <li>
-          <strong className="text-foreground">Props:</strong> library components take size and colour
-          props. Prefer currentColor so icons follow text colour automatically, including in dark mode.
+          <strong className="text-foreground">Props:</strong> library <strong>components</strong> take size and colour
+          props. Prefer currentColor so <strong>icons</strong> follow text colour automatically, including in dark mode.
         </li>
         <li>
-          <strong className="text-foreground">Consistency:</strong> wrap library icons in one small
+          <strong className="text-foreground">Consistency:</strong> wrap library <strong>icons</strong> in one small
           internal component that fixes the default size and stroke. When the design system changes,
           one file absorbs it.
         </li>
         <li>
-          <strong className="text-foreground">Bundle size:</strong> import named icons only. Never
+          <strong className="text-foreground">Bundle size:</strong> import named <strong>icons</strong> only. Never
           import a whole set for a handful of icons; that is the one mistake that bloats a bundle.
         </li>
         <li>
-          <strong className="text-foreground">Accessibility:</strong> decorative icons get aria-hidden.
+          <strong className="text-foreground">Accessibility:</strong> decorative <strong>icons</strong> get aria-hidden.
           Meaningful icons get an accessible label, the same rule as any other UI element.
         </li>
         <li>
-          <strong className="text-foreground">Small sizes:</strong> test icons at 16 pixels, not just
+          <strong className="text-foreground">Small sizes:</strong> test <strong>icons</strong> at 16 pixels, not just
           24. Fine details turn to grey mush when shrunk, which is why sets drawn on a strict grid win.
         </li>
       </ul>
@@ -176,14 +176,14 @@ function Page() {
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         The wrapper path trades consistency for convenience. One API over many sets means any glyph is
-        available, but the interface can drift when icons come from different families. Teams that need
+        available, but the interface can drift when <strong>icons</strong> come from different families. Teams that need
         the best free React icons library for a product with a strict design system usually avoid
         wrappers for core UI, and keep them for one-off screens. React icons pulled from several sets
         in one toolbar look assembled rather than designed, and the fix is a rule, not a refactor.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Inline SVG components are the control path. They suit custom glyphs, animated icons, and sets
-        without a React package, because the component holds the exact paths and props. The best free
+        Inline SVG <strong>components</strong> are the control path. They suit custom glyphs, animated <strong>icons</strong>, and sets
+        without a <strong>React</strong> package, because the component holds the exact paths and props. The best free
         React icons library for a team that draws custom icons is often no library at all, just a folder
         of components with a shared wrapper. React icons written this way cost more upkeep, but they
         answer every edge case a package cannot. That trade-off is why the best free React icons library
@@ -203,7 +203,7 @@ function Page() {
         from Tabler cover the long tail of actions that smaller sets miss.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Phosphor ships as @phosphor-icons/react with 9,198 MIT icons in six weights plus duotone, and
+        Phosphor ships as @phosphor-<strong>icons</strong>/<strong>react</strong> with 9,198 MIT icons in six weights plus duotone, and
         it wins when states matter: thin for inactive, bold for active, fill for selected. Heroicons
         ships a smaller MIT set of 1,297 icons from the Tailwind team, and it wins on Tailwind projects
         where outline, solid, and mini variants match the stack. The best free React icons library for a
@@ -218,7 +218,7 @@ function Page() {
         library for a prototype is the wrapper, and the best choice for a shipped product is usually one
         set. React icons standardised early save redesign work later, and the standard should be written
         down, not assumed. That distinction keeps the best free React icons library honest, since
-        prototype icons and product icons answer different questions.
+        prototype <strong>icons</strong> and product icons answer different questions.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -238,13 +238,13 @@ function Page() {
         size and colour, and the result should be cleaned: remove editor metadata, set currentColor, and
         accept className. The best free React icons library for a team with a large SVG archive is the
         one whose converter output needs the least cleanup, because conversion happens dozens of times.
-        React icons converted cleanly behave like packaged icons, and nobody reading the code can tell
+        React icons converted cleanly behave like packaged <strong>icons</strong>, and nobody reading the code can tell
         which path produced them. That cleanliness is part of the best free React icons library test, and
         React icons that convert cleanly save an hour a week on a busy team.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         Versioning differs between the paths. Packages update through the package manager, while copied
-        components update only when someone re-copies them, so copied icons can drift behind their
+        <strong>components</strong> update only when someone re-copies them, so copied <strong>icons</strong> can drift behind their
         source set. Note the source and licence beside copied components, and review them when the
         design system changes. The best free React icons library for long-lived products is the one
         whose update story the team actually follows, not the one with the prettiest gallery. React icons
@@ -267,14 +267,14 @@ function Page() {
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         Size deserves a rule, not a guess. Pick two or three sizes for the whole product, such as 16
-        for inline text, 20 for buttons, and 24 for feature cards, and forbid the rest. Icons at 16
+        for inline text, 20 for buttons, and 24 for feature cards, and forbid the rest. <strong>Icons</strong> at 16
         pixels need simple shapes, so test finalists at that size before committing. The best free
         React icons library for dense interfaces is the one that stays legible at 16 pixels, since dense
         interfaces are where icons earn their keep. React icons sized by rule look intentional, while
         icons sized by habit look random.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Colour should follow text, not fight it. Prefer currentColor so icons match headings, buttons,
+        Colour should follow text, not fight it. Prefer currentColor so <strong>icons</strong> match headings, buttons,
         and links automatically, including in dark mode. Hard-coded colours belong in illustrations and
         brand art, not in interface icons, because every hard-coded colour is a future override. The
         best free React icons library for a themed product is the one whose icons default to currentColor,
@@ -302,8 +302,8 @@ function Page() {
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         Audit on a schedule. Bundle size creeps through added screens, not through one bad import, so a
-        monthly check catches drift while it is still cheap to fix. Record the icon count per route if
-        the product is large, and question any route that ships icons it never renders. The best free
+        monthly check catches drift while it is still cheap to fix. Record the <strong>icon</strong> count per route if
+        the product is large, and question any route that ships <strong>icons</strong> it never renders. The best free
         React icons library for a growing product is the one whose usage stays visible, and visibility
         comes from audits, not from intentions. React icons audited regularly stay fast, because nobody
         ships what nobody measures. That habit completes the best free React icons library story, and
@@ -324,7 +324,7 @@ function Page() {
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         CSS variables add a second layer. A wrapper component can read variables for size, stroke, and
-        colour, so a theme change updates every icon from one stylesheet. Duotone icons need two
+        colour, so a theme change updates every <strong>icon</strong> from one stylesheet. Duotone <strong>icons</strong> need two
         variables, one per tone, and the mapping should be documented beside the wrapper. The best free
         React icons library for a multi-brand product is the one whose tones map cleanly to variables,
         because multi-brand theming is variable theming. React icons mapped to variables rebrand in
@@ -335,8 +335,8 @@ function Page() {
         Test themes at small sizes too, because a thin stroke that reads well on a light background can
         vanish on a dark one. Stroke width, not colour, is usually the culprit, and the fix is a slightly
         bolder weight for dark surfaces. The best free React icons library for dark interfaces is the
-        one with weights to choose from, which is why multi-weight sets suit themed products. React
-        icons chosen with dark mode in mind look deliberate in both themes, and deliberateness is the
+        one with weights to choose from, which is why multi-weight sets suit themed products. <strong>React</strong>
+        <strong>icons</strong> chosen with dark mode in mind look deliberate in both themes, and deliberateness is the
         difference users feel.
       </p>
 
@@ -355,7 +355,7 @@ function Page() {
         them.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Icon-only buttons are the highest-risk case. A button containing only a trash glyph means
+        <strong>Icon</strong>-only buttons are the highest-risk case. A button containing only a trash glyph means
         nothing to a screen reader without a label, and means little to a new user without a tooltip.
         Give every icon-only button a label and a title, and test the flow with a keyboard, since icon
         buttons are often the first thing keyboard users meet. The best free React icons library for
@@ -364,7 +364,7 @@ function Page() {
         matters.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Colour alone must never carry meaning. An error icon in red and a success icon in green look
+        Colour alone must never carry meaning. An error <strong>icon</strong> in red and a success icon in green look
         identical to a user who cannot distinguish those colours, so pair colour with shape and text.
         Check icon contrast against its background in both themes, because a grey icon on a grey surface
         fails quietly. The best free React icons library for inclusive design is the one whose shapes
@@ -385,9 +385,9 @@ function Page() {
         built into the drawings.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Duplicating inline SVGs across files is the mistake developers notice later. Ten copies of the
-        same path drift apart over months, and fixing a glyph means finding every copy. Put shared icons
-        in one folder behind the wrapper, and import them like any other component. The best free React
+        Duplicating inline SVGs across files is the mistake <strong>developers</strong> notice later. Ten copies of the
+        same path drift apart over months, and fixing a glyph means finding every copy. Put shared <strong>icons</strong>
+        in one folder behind the wrapper, and import them like any other component. The best free <strong>React</strong>
         icons library for a maintainable codebase is the one whose icons live in one place, whether that
         place is a package or a folder. React icons centralised this way update once and everywhere.
         That centralisation is the practical side of the best free React icons library, and React icons
@@ -399,7 +399,7 @@ function Page() {
         applies to colours: currentColor in the wrapper beats a hex value in every call site. The best
         free React icons library for a product that will redesign is the one behind a wrapper, because
         redesigns are certain and wrappers absorb them. React icons behind a wrapper survive redesigns,
-        and survival is the real test of icon code.
+        and survival is the real test of <strong>icon</strong> code.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -413,9 +413,9 @@ function Page() {
         at once. The shortlist then gets installed, and the rest never touch the codebase.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Conversion tools close the loop. An icon found in the index becomes a component through a
+        Conversion tools close the loop. An <strong>icon</strong> found in the index becomes a component through a
         converter, with props for size and colour, and the result drops into the wrapper folder beside
-        packaged icons. Teams that treat the best free React icons library as a one-time install miss
+        packaged <strong>icons</strong>. Teams that treat the best free React icons library as a one-time install miss
         this workflow, which is where most icon decisions actually happen, one screen at a time. An index
         plus a converter covers both the packaged path and the custom path without leaving the site.
       </p>
@@ -427,9 +427,9 @@ function Page() {
         in an index and days after launch, which is why the index belongs in the workflow from the first
         search. That is the full case for the best free React icons library being found through an index
         first and installed second. Start in the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>,
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>,
         and convert with the{" "}
-        <Link to="/tools/svg-to-jsx" className="font-medium text-primary underline-offset-4 hover:underline">SVG to JSX converter</Link>.
+        <Link to="/tools/svg-to-jsx" className="font-medium text-primary underline-offset-4 hover:underline">SVG to <strong>JSX</strong> converter</Link>.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -447,10 +447,10 @@ function Page() {
       <p className="mt-12 max-w-3xl leading-relaxed text-muted-foreground">
         Want the full React guide, including the wrapper-component pattern? Read{" "}
         <Link to="/blog/$slug" params={{ slug: "react-svg-icons" }} className="font-medium text-primary underline-offset-4 hover:underline">
-          React SVG Icons
+          <strong>React</strong> SVG <strong>Icons</strong>
         </Link>
         , or browse every set in the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>.
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>.
       </p>
     </PageShell>
   );

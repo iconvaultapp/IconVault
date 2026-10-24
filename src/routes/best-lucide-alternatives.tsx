@@ -94,11 +94,11 @@ function Page() {
         Best Lucide Alternatives, Honestly Compared
       </h1>
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-        Lucide is a fine default: 2,144 clean outline icons under ISC, and the default set in
+        <strong>Lucide</strong> is a fine default: 2,144 clean outline <strong>icons</strong> under ISC, and the default set in
         shadcn/ui. Teams usually look for an alternative for one of three reasons: they need more
         icons, they need a different style than neutral outlines, or they need weights Lucide does
         not ship, such as filled or duotone. This page compares the serious alternatives on the
-        things that actually decide a switch, with live counts from the IconVault index.
+        things that actually decide a switch, with live counts from the <strong>IconVault</strong> index.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -126,16 +126,16 @@ function Page() {
       </h2>
       <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-6 leading-relaxed text-muted-foreground">
         <li>
-          <strong className="text-foreground">You want the same feel, more icons:</strong> Tabler.
-          Same calm outline discipline, 6,462 icons instead of 2,144.
+          <strong className="text-foreground">You want the same feel, more icons:</strong> <strong>Tabler</strong>.
+          Same calm outline discipline, 6,462 <strong>icons</strong> instead of 2,144.
         </li>
         <li>
-          <strong className="text-foreground">You need states and emphasis:</strong> Phosphor. Thin,
+          <strong className="text-foreground">You need states and emphasis:</strong> <strong>Phosphor</strong>. Thin,
           regular, bold, fill and duotone let an active tab differ from an inactive one without
           changing shape.
         </li>
         <li>
-          <strong className="text-foreground">You build with Tailwind:</strong> Heroicons. Outline,
+          <strong className="text-foreground">You build with Tailwind:</strong> <strong>Heroicons</strong>. Outline,
           solid and mini variants pair naturally with Tailwind CSS.
         </li>
         <li>
@@ -156,10 +156,10 @@ function Page() {
         edit, delete, download, upload, share, filter, calendar, chevrons, check, close, warning,
         error, info, plus, minus, menu, heart, star, cart, wallet and chart. Search each one in
         every finalist in the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>,
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>,
         where all sets sit behind one search box. The set with the fewest compromises on your real
-        list is the right alternative, whatever the headline count says. And if Lucide still wins
-        your list, that is also an answer: keep Lucide and let IconVault cover the gaps.
+        list is the right alternative, whatever the headline count says. And if <strong>Lucide</strong> still wins
+        your list, that is also an answer: keep Lucide and let <strong>IconVault</strong> cover the gaps.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -175,22 +175,22 @@ function Page() {
         cover those gaps without changing the visual language win the comparison.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The second reason is weights. Lucide is outline-only by design, so active states, emphasis, and
+        The second reason is weights. <strong>Lucide</strong> is outline-only by design, so active states, emphasis, and
         selection must be shown through colour or size rather than through a bolder or filled variant.
-        Phosphor answers this with six weights plus duotone, and Solar answers it with bold and
+        <strong>Phosphor</strong> answers this with six weights plus duotone, and Solar answers it with bold and
         duotone styles. The best Lucide alternatives for React for a product with rich states are the
         ones that give designers a filled variant for selected items. Lucide alternatives with weights
         let an interface show state through shape, which survives colour-blindness and grey printing.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The third reason is style. Lucide is deliberately neutral, which suits SaaS dashboards and
+        The third reason is style. <strong>Lucide</strong> is deliberately neutral, which suits SaaS dashboards and
         developer tools, but a consumer product or a brand-heavy site may want a warmer or bolder voice.
-        Material Symbols bring a system look, Heroicons bring a crafted minimalism, and Solar brings a
+        Material Symbols bring a system look, <strong>Heroicons</strong> bring a crafted minimalism, and Solar brings a
         current boldness. The best Lucide alternatives for React for a brand-led product are the ones
-        whose voice matches the brand, since icons are part of the brand. Lucide alternatives chosen for
+        whose voice matches the brand, since <strong>icons</strong> are part of the brand. Lucide alternatives chosen for
         style should still pass the coverage test, because a beautiful set with gaps creates the same
         problem it was hired to solve. That double test is what makes the best Lucide alternatives for
-        React worth the search, and Lucide alternatives that pass both tests rarely disappoint.
+        <strong>React</strong> worth the search, and Lucide alternatives that pass both tests rarely disappoint.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -206,15 +206,15 @@ function Page() {
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         The practical difference is the long tail. Niche actions, file types, chart variants, and device
-        glyphs exist in Tabler where Lucide stays silent, and each missing glyph in Lucide is either a
+        glyphs exist in <strong>Tabler</strong> where <strong>Lucide</strong> stays silent, and each missing glyph in Lucide is either a
         custom drawing or a borrowed style. The best Lucide alternatives for React for a data-heavy
         product are the ones that answer the long tail, since data products live in the long tail. Lucide
         alternatives with deep coverage reduce custom drawing, and custom drawing is the most expensive
-        icon a team can own. That depth is the core argument for the best Lucide alternatives for React
+        <strong>icon</strong> a team can own. That depth is the core argument for the best Lucide alternatives for React
         in data products, and Lucide alternatives with depth age better than sets chosen for one screen.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Migration from Lucide to Tabler is mostly a rename exercise, since the naming overlaps heavily
+        Migration from <strong>Lucide</strong> to <strong>Tabler</strong> is mostly a rename exercise, since the naming overlaps heavily
         and the visual language matches. Keep the wrapper component, swap the underlying imports, and
         review screens where a glyph changed meaning. The best Lucide alternatives for React for a
         low-risk migration are the ones that look like the set they replace, and Tabler looks like Lucide
@@ -236,15 +236,15 @@ function Page() {
         keep interfaces honest.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Duotone deserves its own test. Two-tone icons carry a primary tone and a secondary tone, and
-        Phosphor exposes both, so a brand can map them to its palette. Test duotone at small sizes
+        Duotone deserves its own test. Two-tone <strong>icons</strong> carry a primary tone and a secondary tone, and
+        <strong>Phosphor</strong> exposes both, so a brand can map them to its palette. Test duotone at small sizes
         before committing, since the secondary tone can vanish at 16 pixels on dense screens. The best
-        Lucide alternatives for React for a polished product are the ones whose duotone survives small
+        Lucide alternatives for <strong>React</strong> for a polished product are the ones whose duotone survives small
         sizes, because polish fails first where pixels are fewest. Lucide alternatives with duotone
         should be judged at the smallest size they will ship, not at gallery size.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The cost of Phosphor is choice. Six weights per icon mean six decisions, and teams without a
+        The cost of <strong>Phosphor</strong> is choice. Six weights per <strong>icon</strong> mean six decisions, and teams without a
         weight rule drift into mixing weights for decoration rather than meaning. Write the rule down:
         thin for inactive, regular for default, bold for active, fill for selected, and duotone for
         feature art. The best Lucide alternatives for React for a disciplined team are the ones whose
@@ -265,21 +265,21 @@ function Page() {
         was drawn for the stack it serves.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Material Symbols is the system choice: 24,569 Apache-2.0 icons from Google in outline, rounded,
+        Material Symbols is the system choice: 24,569 Apache-2.0 <strong>icons</strong> from Google in outline, rounded,
         and sharp styles, with variable weight and fill. Products that follow Material design, or that
-        serve Android users alongside the web, gain a consistent voice across platforms. The best Lucide
-        alternatives for React for a Material product are the ones that speak Material natively, since a
+        serve Android users alongside the web, gain a consistent voice across platforms. The best <strong>Lucide</strong>
+        alternatives for <strong>React</strong> for a Material product are the ones that speak Material natively, since a
         system voice beats a translated one. Lucide alternatives at system scale also cover the long
         tail, so the choice is rarely a compromise.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The trade-off for all three is scope. Heroicons is small, so niche products outgrow it. Bootstrap
-        Icons is general, so distinctive products find it plain. Material Symbols is vast, so picking a
+        The trade-off for all three is scope. <strong>Heroicons</strong> is small, so niche products outgrow it. Bootstrap
+        <strong>Icons</strong> is general, so distinctive products find it plain. Material Symbols is vast, so picking a
         style and sticking to it takes discipline. The best Lucide alternatives for React for a long-lived
         product are the ones whose trade-off the team accepts consciously, not the ones with the biggest
         headline count. Lucide alternatives chosen with eyes open about their limits last longer than
-        sets chosen for a single strength. That conscious choice is the final test for the best Lucide
-        alternatives for React, and Lucide alternatives picked this way rarely need replacing.
+        sets chosen for a single strength. That conscious choice is the final test for the best <strong>Lucide</strong>
+        alternatives for <strong>React</strong>, and Lucide alternatives picked this way rarely need replacing.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -300,7 +300,7 @@ function Page() {
         credit, placed where the licence text allows, such as an acknowledgements page or product
         documentation. Confirm the placement with the client before shipping, because adding a credit
         after launch is awkward, and removing Solar after launch is worse. The best Lucide alternatives
-        for React for client work are the ones whose licence terms were agreed before the first screen
+        for <strong>React</strong> for client work are the ones whose licence terms were agreed before the first screen
         shipped. Lucide alternatives under CC BY are a fine choice when the credit is planned, and a
         headache when it is discovered late.
       </p>
@@ -334,9 +334,9 @@ function Page() {
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         Finally, test the licence and the workflow together. Confirm the licence allows your use, confirm
-        the package exists for your stack, and confirm the icons convert cleanly to components. A set
-        that passes coverage and size but lacks a React package still costs conversion effort on every
-        icon. The best Lucide alternatives for React for a shipping team are the ones that pass all four
+        the package exists for your stack, and confirm the <strong>icons</strong> convert cleanly to components. A set
+        that passes coverage and size but lacks a <strong>React</strong> package still costs conversion effort on every
+        <strong>icon</strong>. The best Lucide alternatives for React for a shipping team are the ones that pass all four
         tests: coverage, size, licence, and workflow. Lucide alternatives that pass all four are rare,
         and rarity is why the test matters. That four-test frame is the honest way to rank the best
         Lucide alternatives for React, and Lucide alternatives ranked this way defend themselves in
@@ -362,12 +362,12 @@ function Page() {
         something different, while a big-bang rollout hides them. The best Lucide alternatives for React
         for a careful team are the ones that allow staging, and every set allows staging when a wrapper
         exists. Lucide alternatives migrated in stages keep users calm, because nothing changes
-        everywhere at once. That staging discipline is the unglamorous secret of the best Lucide
-        alternatives for React migrations, and Lucide alternatives rolled out this way rarely cause a
+        everywhere at once. That staging discipline is the unglamorous secret of the best <strong>Lucide</strong>
+        alternatives for <strong>React</strong> migrations, and Lucide alternatives rolled out this way rarely cause a
         rollback.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Keep Lucide for the screens that do not need the new set. A full replacement is only worth it
+        Keep <strong>Lucide</strong> for the screens that do not need the new set. A full replacement is only worth it
         when the new set covers the whole core list, and a partial migration is a legitimate end state,
         not a failure. Document which screens use which set, and why, so the next designer does not
         re-litigate the choice. The best Lucide alternatives for React for a pragmatic team are the ones
@@ -391,7 +391,7 @@ function Page() {
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         The risk is drift. A guest set that starts with one screen grows to five, and suddenly two
         voices share the toolbar. Review guest usage quarterly, and promote the guest to core only through
-        a deliberate decision, with the thirty-icon test rerun. The best Lucide alternatives for React
+        a deliberate decision, with the thirty-<strong>icon</strong> test rerun. The best Lucide alternatives for React
         for a growing product are the ones whose guest usage stays visible, because invisible guests
         become second voices. Lucide alternatives kept visible stay guests, and guests that stay guests
         never break consistency.
@@ -400,7 +400,7 @@ function Page() {
         Document the exception. A one-line note naming the guest set, the screens it covers, and the
         reason it exists stops the next designer from extending it casually. Exceptions without notes
         become defaults, and defaults without decisions become redesigns. The best Lucide alternatives
-        for React for a documented system are the ones whose exceptions are written down, since writing
+        for <strong>React</strong> for a documented system are the ones whose exceptions are written down, since writing
         is what separates a system from a pile of choices. Lucide alternatives with documented exceptions
         are a system, not a compromise.
       </p>
@@ -421,7 +421,7 @@ function Page() {
         while CC BY sets need a visible one, and seeing that beside the artwork keeps the legal check
         inside the design step. Teams that pick the best Lucide alternatives for React through an index
         check the licence during selection, not during an audit, and that timing saves weeks. An index
-        also shows counts honestly, so a set with 2,144 icons and a set with 24,569 icons are compared on
+        also shows counts honestly, so a set with <strong>2,144 icons</strong> and a set with 24,569 <strong>icons</strong> are compared on
         coverage, not on marketing.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
@@ -431,7 +431,7 @@ function Page() {
         shipped component is short, and that path is what an index should optimise. That is why the best
         Lucide alternatives for React are worth finding in an index first and installing second, starting
         from the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>,
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>,
         where all sets sit behind one search box.
       </p>
 
@@ -450,10 +450,10 @@ function Page() {
       <p className="mt-12 max-w-3xl leading-relaxed text-muted-foreground">
         Want the full reasoning, including how Lucide and an index work together? Read{" "}
         <Link to="/blog/$slug" params={{ slug: "iconvault-vs-lucide" }} className="font-medium text-primary underline-offset-4 hover:underline">
-          IconVault vs Lucide
+          <strong>IconVault</strong> vs <strong>Lucide</strong>
         </Link>
         , or compare every set in the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>.
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>.
       </p>
     </PageShell>
   );

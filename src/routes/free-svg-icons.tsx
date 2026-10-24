@@ -95,10 +95,10 @@ function Page() {
         Free SVG Icons for Websites, Apps and UI Design
       </h1>
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-        IconVault indexes <strong className="text-foreground">421,020 free SVG icons</strong> from{" "}
+        <strong>IconVault</strong> indexes <strong className="text-foreground">421,020 free SVG icons</strong> from{" "}
         <strong className="text-foreground">239 open-source sets</strong>. Search them all from one
-        box, customize colour and size, and download the SVG in one click. No account is needed for
-        the basics, and the icons are free for personal and commercial use under their own licences.
+        box, customize colour and size, and <strong>download</strong> the SVG in one click. No account is needed for
+        the basics, and the <strong>icons</strong> are free for personal and commercial use under their own licences.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -106,11 +106,11 @@ function Page() {
       </h2>
       <ol className="mt-4 max-w-3xl list-decimal space-y-2 pl-6 leading-relaxed text-muted-foreground">
         <li>
-          Open the <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link> and
-          search by name, for example home, settings, download or cart.
+          Open the <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link> and
+          search by name, for example home, settings, <strong>download</strong> or cart.
         </li>
         <li>Pick a set from the results, or filter by one library if your design system already uses it.</li>
-        <li>Set a colour on the icon page, then download the SVG, copy it as a component, or export it as PNG.</li>
+        <li>Set a colour on the <strong>icon</strong> page, then <strong>download</strong> the SVG, copy it as a component, or export it as PNG.</li>
         <li>
           For bulk work, save favourites and use bulk export, or build a sprite sheet with the{" "}
           <Link to="/tools/svg-sprite-generator" className="font-medium text-primary underline-offset-4 hover:underline">SVG sprite generator</Link>.
@@ -121,7 +121,7 @@ function Page() {
         Popular free icon sets, with real counts and licences
       </h2>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Counts are the live IconVault index figures. Licence is what decides whether you must add a
+        Counts are the live <strong>IconVault</strong> index figures. <strong>Licence</strong> is what decides whether you must add a
         credit: MIT, ISC and Apache-2.0 sets need none, CC BY sets do.
       </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -145,18 +145,18 @@ function Page() {
         Free does not mean licence-free
       </h2>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Every set on IconVault keeps its own licence, shown on its library page. Permissive licences
-        (MIT, ISC, Apache-2.0) let you ship icons in paid products without royalties or attribution.
+        Every set on <strong>IconVault</strong> keeps its own <strong>licence</strong>, shown on its library page. Permissive licences
+        (MIT, ISC, Apache-2.0) let you ship <strong>icons</strong> in paid products without royalties or attribution.
         Creative Commons sets, such as Solar under CC BY 4.0, require a visible credit. If you plan to
         redistribute the icons themselves, for example inside a template you sell, read the licence
-        text first rather than assuming the download button settles it.
+        text first rather than assuming the <strong>download</strong> button settles it.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
         Customize before you download
       </h2>
       <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-6 leading-relaxed text-muted-foreground">
-        <li>Recolour any icon to your brand colour on its page before downloading.</li>
+        <li>Recolour any <strong>icon</strong> to your brand colour on its page before downloading.</li>
         <li>
           Export as PNG at the size you need with the{" "}
           <Link to="/tools/svg-to-png" className="font-medium text-primary underline-offset-4 hover:underline">SVG to PNG tool</Link>,
@@ -191,18 +191,18 @@ function Page() {
         mixed styles creep in.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Coverage matters more than most beginners expect. A set with 2,144 icons sounds large until a
+        Coverage matters more than most beginners expect. A set with 2,144 <strong>icons</strong> sounds large until a
         dashboard needs a specific glyph for a niche action, and a set with 6,462 or 9,198 icons
         answers far more of those requests. That is why comparing the best free SVG icons for
-        websites means searching your own list of needed icons in each finalist, not counting
+        <strong>websites</strong> means searching your own list of needed icons in each finalist, not counting
         headlines. Free SVG icons from a large set reduce the chance that a designer must draw a
         custom glyph or borrow from a second set, and both of those workarounds cost more time than
         the original search. Keep a list of the icons your product actually uses, and let that list
         vote.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Licence is the third test, and it is the one people skip. The best free SVG icons for
-        websites for a commercial project are usually the ones under MIT, ISC, or Apache-2.0, because
+        <strong>Licence</strong> is the third test, and it is the one people skip. The best free SVG icons for
+        <strong>websites</strong> for a commercial project are usually the ones under MIT, ISC, or Apache-2.0, because
         those licences allow paid products without royalties or attribution. Sets under CC BY 4.0 are
         also free, but they require a visible credit, which is a design and legal decision, not a
         footnote. Free SVG icons are only truly free for your purpose when the licence matches that
@@ -223,7 +223,7 @@ function Page() {
         most of your real list, and treat every additional set as a cost, not a bonus.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Test the set at the sizes you actually ship. Icons drawn on a strict grid stay legible at 16
+        Test the set at the sizes you actually ship. <strong>Icons</strong> drawn on a strict grid stay legible at 16
         pixels, while detailed drawings turn to grey mush when shrunk, so preview finalists at small
         sizes before committing. The best free SVG icons for websites survive at 16 and 20 pixels
         because their shapes are simple and their strokes are even. Free SVG icons that look great at
@@ -233,10 +233,10 @@ function Page() {
         than for a single screen.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Write the choice down. A one-line rule in the design notes, naming the set and its licence,
+        Write the choice down. A one-line rule in the design notes, naming the set and its <strong>licence</strong>,
         stops the next designer from adding a second set for one screen. The best free SVG icons for
-        websites are the ones a whole team can keep using without drifting, and drift is what breaks
-        icon consistency over months. Free SVG icons are easy to download and easy to misuse, so the
+        <strong>websites</strong> are the ones a whole team can keep using without drifting, and drift is what breaks
+        <strong>icon</strong> consistency over months. Free SVG icons are easy to <strong>download</strong> and easy to misuse, so the
         rule matters more than the download button. That discipline is what separates teams that find
         the best free SVG icons for websites once from teams that keep re-deciding, and it costs
         nothing to adopt.
@@ -254,17 +254,17 @@ function Page() {
         feedback in one style save more time than any single striking glyph.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Dashboards add a second list: chart, table, download, upload, calendar, settings,
+        Dashboards add a second list: chart, table, <strong>download</strong>, upload, calendar, settings,
         notifications, and edit. Admin screens add a third: users, roles, logs, search filters, and
         bulk actions. The best free SVG icons for websites for a dashboard are the ones that cover all
         three lists without gaps, because a gap forces a custom drawing or a borrowed style. Free SVG
-        icons from a deep set answer those lists, and depth is why larger sets win product work even
+        <strong>icons</strong> from a deep set answer those lists, and depth is why larger sets win product work even
         when smaller sets look prettier. Free SVG icons that pass all three lists are the ones worth
         standardising on.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
         Marketing pages are the easiest case, and the most misleading one. A landing page needs a
-        handful of feature icons, and almost any set supplies them, so a set that shines on a landing
+        handful of feature <strong>icons</strong>, and almost any set supplies them, so a set that shines on a landing
         page may still fail a full product. The best free SVG icons for websites prove themselves
         across navigation, product, forms, and dashboards together, not on one page. Free SVG icons
         picked for a whole product keep working as the product grows, while icons picked for one page
@@ -284,21 +284,21 @@ function Page() {
         their source, but using them in a product does not require displaying it.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        CC BY 4.0 is different, and the difference is simple: the icons are free, but credit is
+        CC BY 4.0 is different, and the difference is simple: the <strong>icons</strong> are free, but credit is
         required. A visible credit can sit on an acknowledgements page, in a footer note, or in the
-        product documentation, depending on what the licence text allows. Teams that choose the best
-        free SVG icons for websites for a client project should confirm the credit placement with the
+        product documentation, depending on what the <strong>licence</strong> text allows. Teams that choose the best
+        free SVG icons for <strong>websites</strong> for a client project should confirm the credit placement with the
         client before shipping, because adding a credit after launch is awkward. Free SVG icons under
         CC BY are a fine choice when the credit is planned, and a headache when it is discovered late.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Redistribution is a separate question from use. Shipping icons inside your own product is use.
-        Selling a template that contains the icons, or offering the icons themselves for download, can
+        Redistribution is a separate question from use. Shipping <strong>icons</strong> inside your own product is use.
+        Selling a template that contains the icons, or offering the icons themselves for <strong>download</strong>, can
         be redistribution, and some licences treat it differently. The best free SVG icons for websites
-        for template sellers are the ones whose licence text explicitly allows redistribution, so read
+        for template sellers are the ones whose <strong>licence</strong> text explicitly allows redistribution, so read
         that text rather than trusting a download button. Free SVG icons are a gift from their authors,
         and honouring the licence is how the gift keeps coming. When in doubt, the safest of the best
-        free SVG icons for websites are the permissive ones, and free SVG icons under MIT or ISC rarely
+        free SVG icons for <strong>websites</strong> are the permissive ones, and free SVG icons under MIT or ISC rarely
         create a second conversation.
       </p>
 
@@ -331,7 +331,7 @@ function Page() {
         raster images, and exporting at exactly the needed size beats letting a browser scale a large
         file down. The best free SVG icons for websites are still SVG first, with PNG as an export
         format for the places that cannot take vectors. Free SVG icons exported as PNG at two or three
-        sizes cover most raster needs without keeping a second icon library around.
+        sizes cover most raster needs without keeping a second <strong>icon</strong> library around.
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
@@ -348,7 +348,7 @@ function Page() {
         sets in design systems.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Multi-colour icons need a different check. Duotone and filled styles carry their own fills, so
+        Multi-colour <strong>icons</strong> need a different check. Duotone and filled styles carry their own fills, so
         recolouring means setting two tones, not one, and some sets expose both tones as variables
         while others hard-code them. The best free SVG icons for websites for a brand-heavy product are
         the ones whose duotone tones can be mapped to brand colours without editing paths. Free SVG
@@ -356,9 +356,9 @@ function Page() {
         interfaces.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Set the colour before download when the tool allows it, so the file that enters the codebase
+        Set the colour before <strong>download</strong> when the tool allows it, so the file that enters the codebase
         already matches the palette. Recolouring after download works too, but it adds a step for every
-        icon and every future update. The best free SVG icons for websites are the ones a team can
+        <strong>icon</strong> and every future update. The best free SVG icons for websites are the ones a team can
         theme once and forget, and that property comes from the drawing method, not from the gallery.
         Free SVG icons chosen with theming in mind keep a product looking intentional as themes
         multiply.
@@ -376,20 +376,20 @@ function Page() {
         because the family resemblance is built into the drawings.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The second mistake is importing a whole set for a handful of icons. Bundlers can remove unused
+        The second mistake is importing a whole set for a handful of <strong>icons</strong>. Bundlers can remove unused
         exports when imports are named, but importing everything defeats that, and the bundle grows for
-        no benefit. The best free SVG icons for websites are used through named imports, one icon at a
+        no benefit. The best free SVG icons for websites are used through named imports, one <strong>icon</strong> at a
         time, so the shipped code contains only what the interface shows. Free SVG icons are small
         individually, but a whole set is not small, and the difference shows in load time. That
         discipline is what keeps the best free SVG icons for websites fast, and free SVG icons imported
         by name are the habit that makes it automatic.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The third mistake is skipping labels. Decorative icons need no text, but an icon that carries
+        The third mistake is skipping labels. Decorative <strong>icons</strong> need no text, but an <strong>icon</strong> that carries
         meaning, such as a warning or a delete action, needs an accessible label for screen readers and
         for users who do not recognise the glyph. The best free SVG icons for websites are accessible
         by default only when the team adds the label, since no icon file can know its own meaning. Free
-        SVG icons used without labels exclude people, and that failure is on the implementation, not on
+        <strong>SVG icons</strong> used without labels exclude people, and that failure is on the implementation, not on
         the artwork.
       </p>
 
@@ -407,10 +407,10 @@ function Page() {
         in isolation.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        Next, download the shortlist in one style, recolour to the brand palette, and optimise every
-        file before it enters the codebase. Keep the downloaded files in one folder with the licence
+        Next, <strong>download</strong> the shortlist in one style, recolour to the brand palette, and optimise every
+        file before it enters the codebase. Keep the downloaded files in one folder with the <strong>licence</strong>
         noted beside them, so a future audit takes minutes instead of days. The best free SVG icons for
-        websites are the ones whose licence note is already written when the audit arrives, and that note
+        <strong>websites</strong> are the ones whose licence note is already written when the audit arrives, and that note
         costs seconds at download time. Free SVG icons handled this way stay legal, consistent, and fast
         without extra meetings.
       </p>
@@ -436,11 +436,11 @@ function Page() {
         whichever set was tried first.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-        The same index keeps paying off after the choice. New screens need new icons, and searching the
+        The same index keeps paying off after the choice. New screens need new <strong>icons</strong>, and searching the
         chosen set first, then the whole index when the set has a gap, keeps the product consistent
         while filling real gaps. Teams that treat the best free SVG icons for websites as a one-time
-        search miss this second use, which is where most icon decisions actually happen. An index also
-        shows the licence beside every set, so the legal check happens during the search instead of
+        search miss this second use, which is where most <strong>icon</strong> decisions actually happen. An index also
+        shows the <strong>licence</strong> beside every set, so the legal check happens during the search instead of
         after the launch.
       </p>
       <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
@@ -451,7 +451,7 @@ function Page() {
         shipped page is short, and that path is the product an index should optimise. That end-to-end
         path is why the best free SVG icons for websites are worth finding in an index rather than by
         opening six library sites in six tabs. Start the search in the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>,
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>,
         where all 239 sets sit behind one search box.
       </p>
 
@@ -470,10 +470,10 @@ function Page() {
       <p className="mt-12 max-w-3xl leading-relaxed text-muted-foreground">
         Still deciding between sets? Read the full comparison in{" "}
         <Link to="/blog/$slug" params={{ slug: "best-free-svg-icon-libraries-2026" }} className="font-medium text-primary underline-offset-4 hover:underline">
-          Best Free SVG Icon Libraries in 2026
+          Best Free SVG <strong>Icon</strong> Libraries in 2026
         </Link>
         , or start searching now in the{" "}
-        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>.
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline"><strong>IconVault</strong> app</Link>.
       </p>
     </PageShell>
   );
