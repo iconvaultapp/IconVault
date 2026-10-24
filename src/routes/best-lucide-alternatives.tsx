@@ -163,6 +163,279 @@ function Page() {
       </p>
 
       <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Why teams look beyond Lucide
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Teams leave Lucide for coverage, weights, or style, rarely for quality.</strong>{" "}
+        Lucide is a fine default: 2,144 clean outline icons under ISC, and the default set in
+        shadcn/ui. The first reason teams search for alternatives is coverage: a dashboard or admin
+        product eventually needs a glyph Lucide does not ship, and the search for that glyph starts the
+        comparison. Developers comparing the best Lucide alternatives for React usually arrive with a
+        short list of missing icons, not with a complaint about Lucide itself. Lucide alternatives that
+        cover those gaps without changing the visual language win the comparison.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The second reason is weights. Lucide is outline-only by design, so active states, emphasis, and
+        selection must be shown through colour or size rather than through a bolder or filled variant.
+        Phosphor answers this with six weights plus duotone, and Solar answers it with bold and
+        duotone styles. The best Lucide alternatives for React for a product with rich states are the
+        ones that give designers a filled variant for selected items. Lucide alternatives with weights
+        let an interface show state through shape, which survives colour-blindness and grey printing.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The third reason is style. Lucide is deliberately neutral, which suits SaaS dashboards and
+        developer tools, but a consumer product or a brand-heavy site may want a warmer or bolder voice.
+        Material Symbols bring a system look, Heroicons bring a crafted minimalism, and Solar brings a
+        current boldness. The best Lucide alternatives for React for a brand-led product are the ones
+        whose voice matches the brand, since icons are part of the brand. Lucide alternatives chosen for
+        style should still pass the coverage test, because a beautiful set with gaps creates the same
+        problem it was hired to solve. That double test is what makes the best Lucide alternatives for
+        React worth the search, and Lucide alternatives that pass both tests rarely disappoint.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Tabler against Lucide in detail
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Tabler is the closest switch, because it keeps the calm outline discipline and triples the coverage.</strong>{" "}
+        Tabler ships 6,462 MIT icons against Lucide 2,144 ISC icons, and both draw on a 24px grid with
+        a 2px stroke, so a mixed toolbar still looks coherent during migration. Teams that evaluate the
+        best Lucide alternatives for React for a dashboard usually shortlist Tabler first, because
+        dashboards punish gaps more than any other surface. Lucide alternatives do not get closer than
+        Tabler in spirit, and that closeness is why migration feels safe.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The practical difference is the long tail. Niche actions, file types, chart variants, and device
+        glyphs exist in Tabler where Lucide stays silent, and each missing glyph in Lucide is either a
+        custom drawing or a borrowed style. The best Lucide alternatives for React for a data-heavy
+        product are the ones that answer the long tail, since data products live in the long tail. Lucide
+        alternatives with deep coverage reduce custom drawing, and custom drawing is the most expensive
+        icon a team can own. That depth is the core argument for the best Lucide alternatives for React
+        in data products, and Lucide alternatives with depth age better than sets chosen for one screen.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Migration from Lucide to Tabler is mostly a rename exercise, since the naming overlaps heavily
+        and the visual language matches. Keep the wrapper component, swap the underlying imports, and
+        review screens where a glyph changed meaning. The best Lucide alternatives for React for a
+        low-risk migration are the ones that look like the set they replace, and Tabler looks like Lucide
+        with more answers. Lucide alternatives chosen for migration safety should still be tested at 16
+        pixels, because small-size legibility is where lookalike sets diverge.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Phosphor against Lucide in detail
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Phosphor wins when one icon must say several things through weight alone.</strong>{" "}
+        Phosphor ships 9,198 MIT icons in thin, light, regular, bold, fill, and duotone weights, so an
+        inactive tab can be thin, an active tab bold, and a selected item filled, all without changing
+        shape. Products that compare the best Lucide alternatives for React for state-rich interfaces
+        usually land on Phosphor, because states are the interface. Lucide alternatives with weights turn
+        state into a design tool instead of a colour hack. That state story is why the best Lucide
+        alternatives for React so often include Phosphor, and Lucide alternatives that handle states well
+        keep interfaces honest.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Duotone deserves its own test. Two-tone icons carry a primary tone and a secondary tone, and
+        Phosphor exposes both, so a brand can map them to its palette. Test duotone at small sizes
+        before committing, since the secondary tone can vanish at 16 pixels on dense screens. The best
+        Lucide alternatives for React for a polished product are the ones whose duotone survives small
+        sizes, because polish fails first where pixels are fewest. Lucide alternatives with duotone
+        should be judged at the smallest size they will ship, not at gallery size.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The cost of Phosphor is choice. Six weights per icon mean six decisions, and teams without a
+        weight rule drift into mixing weights for decoration rather than meaning. Write the rule down:
+        thin for inactive, regular for default, bold for active, fill for selected, and duotone for
+        feature art. The best Lucide alternatives for React for a disciplined team are the ones whose
+        options come with rules, and Phosphor rewards discipline more than any rival. Lucide alternatives
+        with many weights need a rulebook, and the rulebook is one page.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Heroicons, Bootstrap Icons, and Material Symbols
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Smaller or system sets win when the stack, not the catalogue, decides.</strong>{" "}
+        Heroicons ships 1,297 MIT icons from the Tailwind team in outline, solid, and mini variants, and
+        it feels native in Tailwind projects. Bootstrap Icons ships 2,090 MIT icons for Bootstrap-based
+        interfaces, where its general-purpose coverage matches the framework. Teams weighing the best
+        Lucide alternatives for React for a framework-led product often pick the set made by the
+        framework authors. Lucide alternatives tied to a framework need fewer overrides, because the set
+        was drawn for the stack it serves.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Material Symbols is the system choice: 24,569 Apache-2.0 icons from Google in outline, rounded,
+        and sharp styles, with variable weight and fill. Products that follow Material design, or that
+        serve Android users alongside the web, gain a consistent voice across platforms. The best Lucide
+        alternatives for React for a Material product are the ones that speak Material natively, since a
+        system voice beats a translated one. Lucide alternatives at system scale also cover the long
+        tail, so the choice is rarely a compromise.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The trade-off for all three is scope. Heroicons is small, so niche products outgrow it. Bootstrap
+        Icons is general, so distinctive products find it plain. Material Symbols is vast, so picking a
+        style and sticking to it takes discipline. The best Lucide alternatives for React for a long-lived
+        product are the ones whose trade-off the team accepts consciously, not the ones with the biggest
+        headline count. Lucide alternatives chosen with eyes open about their limits last longer than
+        sets chosen for a single strength. That conscious choice is the final test for the best Lucide
+        alternatives for React, and Lucide alternatives picked this way rarely need replacing.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Solar and the attribution question
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Solar is the bold choice, and boldness comes with a credit line.</strong>{" "}
+        Solar ships 8,682 icons under CC BY 4.0 in bold and duotone styles that suit modern dashboards
+        and consumer products. The style is current and confident, and it stands out where neutral
+        outlines blend in. Teams that shortlist the best Lucide alternatives for React for a consumer
+        product often include Solar, because consumer products reward distinctiveness. Lucide
+        alternatives with a bold voice help a product look designed rather than assembled. That
+        combination explains why the best Lucide alternatives for React lists always mention Solar, and
+        Lucide alternatives that demand a credit deserve a licence check before any design check.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The licence is the whole conversation. CC BY 4.0 allows commercial use, but it requires a visible
+        credit, placed where the licence text allows, such as an acknowledgements page or product
+        documentation. Confirm the placement with the client before shipping, because adding a credit
+        after launch is awkward, and removing Solar after launch is worse. The best Lucide alternatives
+        for React for client work are the ones whose licence terms were agreed before the first screen
+        shipped. Lucide alternatives under CC BY are a fine choice when the credit is planned, and a
+        headache when it is discovered late.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Weigh style against process. If the credit is easy to place and the client agrees, Solar boldness
+        is worth it. If the product cannot carry a credit, or the client refuses one, the MIT sets answer
+        the same brief without the conversation. The best Lucide alternatives for React for a credit-free
+        product are the MIT sets, and there is no shame in that choice, since the MIT sets are excellent.
+        Lucide alternatives should be judged on the whole deal, style plus licence, not on style alone.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        How to test finalists against your real icon list
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">The thirty-icon test beats every gallery browse.</strong>{" "}
+        List the icons your product uses most: home, search, settings, user, notifications, edit, delete,
+        download, upload, share, filter, calendar, chevrons, check, close, warning, error, info, plus,
+        minus, menu, heart, star, cart, wallet, and chart. Search each name in every finalist, and score
+        coverage honestly. Teams running the best Lucide alternatives for React comparison this way get
+        a decision in an afternoon, because the list is the product. Lucide alternatives that cover the
+        list win, whatever their headline count says.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Then test the survivors where they will actually live. Preview at 16 pixels for toolbars, at 20
+        for buttons, and at 24 for feature cards, and in both light and dark themes. A set that shines
+        at gallery size and fails at 16 pixels fails the product, since toolbars are where users live.
+        The best Lucide alternatives for React for dense interfaces are the ones that stay legible at 16
+        pixels, and legibility at that size comes from simple shapes and even strokes. Lucide alternatives
+        tested only at large sizes hide their weaknesses until launch.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Finally, test the licence and the workflow together. Confirm the licence allows your use, confirm
+        the package exists for your stack, and confirm the icons convert cleanly to components. A set
+        that passes coverage and size but lacks a React package still costs conversion effort on every
+        icon. The best Lucide alternatives for React for a shipping team are the ones that pass all four
+        tests: coverage, size, licence, and workflow. Lucide alternatives that pass all four are rare,
+        and rarity is why the test matters. That four-test frame is the honest way to rank the best
+        Lucide alternatives for React, and Lucide alternatives ranked this way defend themselves in
+        review.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Migrating from Lucide without breaking the interface
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Migrate behind a wrapper, and the interface never notices.</strong>{" "}
+        A wrapper component that renders the library icon means the product imports the wrapper, not the
+        library, so swapping the library touches one file per icon at most, and often just the wrapper
+        itself. Map each Lucide name to its replacement, keep names stable where the new set overlaps,
+        and rename deliberately where it does not. Teams planning the best Lucide alternatives for React
+        migration usually start with the wrapper, because the wrapper is what makes migration safe. Lucide
+        alternatives adopted through a wrapper can be reversed, and reversibility is safety.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Roll out in stages, not in one release. Migrate one surface at a time, such as settings first,
+        then navigation, then dashboards, and review each surface at small sizes before moving on. A
+        staged rollout catches meaning changes, where a replacement glyph looks similar but means
+        something different, while a big-bang rollout hides them. The best Lucide alternatives for React
+        for a careful team are the ones that allow staging, and every set allows staging when a wrapper
+        exists. Lucide alternatives migrated in stages keep users calm, because nothing changes
+        everywhere at once. That staging discipline is the unglamorous secret of the best Lucide
+        alternatives for React migrations, and Lucide alternatives rolled out this way rarely cause a
+        rollback.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Keep Lucide for the screens that do not need the new set. A full replacement is only worth it
+        when the new set covers the whole core list, and a partial migration is a legitimate end state,
+        not a failure. Document which screens use which set, and why, so the next designer does not
+        re-litigate the choice. The best Lucide alternatives for React for a pragmatic team are the ones
+        that coexist with Lucide where coexistence serves the product. Lucide alternatives that coexist
+        peacefully beat forced replacements that break screens.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        Mixing Lucide with one alternative
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">Mixing is fine when one set fills gaps and the other stays the voice.</strong>{" "}
+        Keep Lucide for core UI, and let an alternative cover brand glyphs, a specific screen, or a state
+        Lucide cannot express. The rule that keeps mixing honest is simple: the core set owns navigation,
+        actions, and feedback, while the guest set owns its named exception. Teams that consider the best
+        Lucide alternatives for React as gap-fillers rather than replacements often keep Lucide longer,
+        and that is a good outcome. Lucide alternatives used as guests extend a product without
+        rebranding it. That guest rule is the practical heart of the best Lucide alternatives for React
+        story, and Lucide alternatives that stay guests keep Lucide products coherent.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The risk is drift. A guest set that starts with one screen grows to five, and suddenly two
+        voices share the toolbar. Review guest usage quarterly, and promote the guest to core only through
+        a deliberate decision, with the thirty-icon test rerun. The best Lucide alternatives for React
+        for a growing product are the ones whose guest usage stays visible, because invisible guests
+        become second voices. Lucide alternatives kept visible stay guests, and guests that stay guests
+        never break consistency.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        Document the exception. A one-line note naming the guest set, the screens it covers, and the
+        reason it exists stops the next designer from extending it casually. Exceptions without notes
+        become defaults, and defaults without decisions become redesigns. The best Lucide alternatives
+        for React for a documented system are the ones whose exceptions are written down, since writing
+        is what separates a system from a pile of choices. Lucide alternatives with documented exceptions
+        are a system, not a compromise.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
+        The index way to choose
+      </h2>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">An index tests every finalist against one list in one search.</strong>{" "}
+        Opening six library sites in six tabs to compare one icon wastes the afternoon, while one search
+        across all sets shows the same idea in every style at once. When a team hunts for the best
+        Lucide alternatives for React, an index turns the comparison into evidence, because coverage,
+        style, and licence appear side by side. The decision that follows is defensible in review, since
+        it rests on the list, not on taste.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        The licence column matters as much as the gallery. MIT, ISC, and Apache-2.0 sets need no credit,
+        while CC BY sets need a visible one, and seeing that beside the artwork keeps the legal check
+        inside the design step. Teams that pick the best Lucide alternatives for React through an index
+        check the licence during selection, not during an audit, and that timing saves weeks. An index
+        also shows counts honestly, so a set with 2,144 icons and a set with 24,569 icons are compared on
+        coverage, not on marketing.
+      </p>
+      <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+        After the choice, the index keeps serving the product. New screens need new icons, and searching
+        the chosen set first, then the whole index for gaps, keeps the voice consistent while filling
+        real needs. The best Lucide alternatives for React are only useful when the path from search to
+        shipped component is short, and that path is what an index should optimise. That is why the best
+        Lucide alternatives for React are worth finding in an index first and installing second, starting
+        from the{" "}
+        <Link to="/app" className="font-medium text-primary underline-offset-4 hover:underline">IconVault app</Link>,
+        where all sets sit behind one search box.
+      </p>
+
+      <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight">
         Frequently asked questions
       </h2>
       <div className="mt-6 max-w-3xl space-y-6">

@@ -12,7 +12,7 @@ export const POSTS_A: BlogPost[] = [
     keyword: "free SVG icon libraries",
     date: "2026-10-21",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 27,
     icon: "library",
     tint: "#0F766E",
     content: [
@@ -143,6 +143,91 @@ export const POSTS_A: BlogPost[] = [
         type: "p",
         text: "The last underrated difference between libraries is how it feels to find an icon at 4pm on a deadline. Good discovery means synonyms work, so searching trash, delete and remove all reach the same glyph; it means the preview shows the icon at realistic sizes against light and dark backgrounds; and it means copying the result takes one click in the format your project needs, whether that is a component import, a raw SVG file or a PNG for a presentation. Weak discovery quietly taxes every task and pushes developers to reuse the wrong icon because the right one was hard to find. When you evaluate finalists, time the search for five real concepts and count the compromises. Then build the habit in your team: search before drawing, prefer the canonical name, and save team favourites where everyone can find them. Discovery is where a library stops being a catalogue and becomes part of how fast your product ships.",
       },
+      { type: "h2", text: "Auditing free SVG icon libraries against your real product" },
+      {
+        type: "p",
+        text: "**The fastest way to choose between free SVG icon libraries is to test them against your own screens, not their landing pages.** When you compare the best free SVG icon libraries for websites, start by exporting the list of icons your product already uses, including the ones in settings screens, empty states, and error dialogs that nobody remembers. Then search each candidate among the free SVG icon libraries for those exact concepts, and score how many map directly, how many need an approximate substitute, and how many are missing entirely. The best free SVG icon libraries for websites will cover your core list with direct matches, while weaker free SVG icon libraries will force compromises on the very icons your users see every day.",
+      },
+      {
+        type: "p",
+        text: "Size changes everything in an audit, so render every candidate icon at 16 and 20 pixels inside a real sidebar, a dense table, and a mobile navigation bar before you score it. Many of the best free SVG icon libraries for websites look flawless at 48 pixels on a marketing page and turn muddy at 16 pixels in a real interface, and the free SVG icon libraries that survive small sizes are the ones drawn with honest shapes and slightly heavier strokes. Repeat the test in dark mode, because stroke based free SVG icon libraries can thin out visually on dark backgrounds, and the best free SVG icon libraries for websites are the ones that stay legible when the theme flips.",
+      },
+      {
+        type: "p",
+        text: "A catalogue of 24,569 icons means little if your product's most used category is thin, so break your audit into navigation, actions, status, files, media, and your product's special domain, and score each category separately. The best free SVG icon libraries for websites tend to be strong across the boring categories, while narrow free SVG icon libraries shine in one category and disappear in the next. When two of the best free SVG icon libraries for websites tie on coverage, prefer the one whose naming matches your team's vocabulary, because free SVG icon libraries with guessable names save search time on every future screen.",
+      },
+      {
+        type: "p",
+        text: "Write the audit down in a short document that lists the finalists, the test screens, the scores, and the reasons for the winner, and store it beside your design system documentation. Future teams comparing free SVG icon libraries will otherwise repeat the same evaluation from scratch, and the best free SVG icon libraries for websites change over time as maintainers redraw icons and add categories. A written audit also protects you when a stakeholder asks why the team did not pick a more famous option: among free SVG icon libraries, fame is a weak signal, and your own test results are the strongest evidence you can show.",
+      },
+      { type: "h2", text: "Free SVG icon libraries for websites at different team sizes" },
+      {
+        type: "p",
+        text: "**The right choice among free SVG icon libraries depends on who is using them, because a solo builder and an enterprise team feel different costs.** A solo builder should judge the best free SVG icon libraries for websites by how fast they can find, copy, and ship an icon without reading documentation, and free SVG icon libraries with a single consistent style and a searchable index win that test. The best free SVG icon libraries for websites for solo work are the ones that need no build step, no framework package, and no licence meeting, so the builder can paste an SVG and move on to the feature itself.",
+      },
+      {
+        type: "p",
+        text: "A startup team needs the best free SVG icon libraries for websites to support a growing design system, which means the set must offer a component package for the framework, a stable naming scheme, and regular releases that do not redraw icons without warning. Free SVG icon libraries that publish a changelog and version their releases let a startup pin a version and upgrade on purpose, while free SVG icon libraries that change silently create surprise redesigns. The best free SVG icon libraries for websites for startups are therefore the ones with an owner, a public issue tracker, and a release history the team can read before adopting.",
+      },
+      {
+        type: "p",
+        text: "An agency shipping many client sites a year gets the most value from the best free SVG icon libraries for websites that cover many visual languages at once, because each client wants a different feel while the agency wants one workflow. Free SVG icon libraries with several weights or styles let one team serve a playful consumer brand and a sober enterprise client from the same source, and the best free SVG icon libraries for websites for agencies are the ones whose licences allow client work without extra paperwork. Keep a house shortlist of three free SVG icon libraries, and let each project pick from that shortlist instead of starting the search from zero every time.",
+      },
+      {
+        type: "p",
+        text: "An enterprise team should treat the best free SVG icon libraries for websites as infrastructure and evaluate them the way it evaluates any dependency: licence review, security review, accessibility review, and a plan for long term maintenance. Free SVG icon libraries under MIT, ISC, or Apache-2.0 usually pass legal review quickly, while free SVG icon libraries under attribution licences need a documented credit placement before approval. The best free SVG icon libraries for websites for enterprise use are the ones that survive that review without exceptions, because an exception granted today becomes a migration project in two years.",
+      },
+      { type: "h2", text: "Licence and attribution checklist for free SVG icon libraries" },
+      {
+        type: "p",
+        text: "**Before you adopt any set, write down its licence, its version, and exactly where attribution must appear, because those three facts answer every future legal question.** The best free SVG icon libraries for websites make this easy by publishing a licence file in the repository, and free SVG icon libraries under MIT, ISC, and Apache-2.0 generally allow commercial use without a visible credit. The best free SVG icon libraries for websites under Creative Commons, such as Solar under CC BY 4.0, require a credit that your team should place deliberately, and free SVG icon libraries with unclear licence files should be rejected no matter how beautiful their drawings are.",
+      },
+      {
+        type: "p",
+        text: "Using icons in a product and redistributing icons as a product are different acts, and the best free SVG icon libraries for websites draw that line in their licence text. Free SVG icon libraries permit you to ship icons inside your application, but they do not permit you to repackage the set and sell it as your own icon library, and the best free SVG icon libraries for websites state this plainly. If your product lets users download, export, or theme icons, read the licence for that specific case, because free SVG icon libraries that are safe inside an app can still restrict standalone redistribution.",
+      },
+      {
+        type: "p",
+        text: "Brand and logo glyphs inside the best free SVG icon libraries for websites are usually covered by the set's licence for the drawing, while the trademark itself still belongs to the brand owner, which means you may use the glyph but not imply endorsement. Free SVG icon libraries that include brand marks should be checked brand by brand against your product's actual list of payment providers, login providers, and social platforms. The best free SVG icon libraries for websites for brand heavy products are the ones whose brand coverage you verified against that list, not the ones whose marketing page claims the most logos.",
+      },
+      {
+        type: "p",
+        text: "Store the licence text, the version number, and the download date in the same folder as the icons, and repeat that record in your project's credits file, so a future audit finds the answer in minutes. The best free SVG icon libraries for websites will still be free in five years, but the version you shipped and the terms you shipped under are facts worth preserving, and free SVG icon libraries sometimes change maintainers, which makes your local record the reliable source. Review the record once a year alongside the design system review, and update it whenever you upgrade the set.",
+      },
+      { type: "h2", text: "Keeping free SVG icon libraries updated in production" },
+      {
+        type: "p",
+        text: "**Pin the version, read the changelog, and review redrawn icons with screenshots, because silent icon updates are unplanned redesigns.** The best free SVG icon libraries for websites ship regular releases, and free SVG icon libraries that improve their drawings over time will eventually change an icon your users recognise. The best free SVG icon libraries for websites publish release notes that name renamed and redrawn icons, so your team can review the visual diff before upgrading, while free SVG icon libraries without release notes force you to discover changes in production.",
+      },
+      {
+        type: "p",
+        text: "Create one page in your storybook or documentation site that renders every approved icon at every supported size and state, and screenshot it before and after every icon upgrade. The best free SVG icon libraries for websites make this page easy to build, because their icons share one component API, and free SVG icon libraries with inconsistent props make the gallery harder to maintain. When the screenshots differ, the team reviews the diff like any other visual change, and the best free SVG icon libraries for websites earn their place by producing diffs that are improvements, not surprises.",
+      },
+      {
+        type: "p",
+        text: "Upgrade on a schedule your team controls, such as once a quarter, rather than on every release, because the best free SVG icon libraries for websites release more often than a product team should change its interface. Free SVG icon libraries are infrastructure, and infrastructure rewards stability, so batch icon upgrades with other design system work and announce them in release notes. If two of the best free SVG icon libraries for websites both serve your product, keep one as the primary and treat the other as a documented exception, because upgrading two sets doubles the review work for no user benefit.",
+      },
+      {
+        type: "p",
+        text: "When a maintainer renames or removes an icon, map the old name to the new one in your wrapper component instead of editing every screen, and log the mapping so the next developer understands the history. The best free SVG icon libraries for websites deprecate names gradually and document replacements, while free SVG icon libraries that delete names without warning punish teams that did not pin a version. A wrapper with a small alias table turns a breaking change into a fifteen minute fix, and it is one more reason to keep icons behind a single component.",
+      },
+      { type: "h2", text: "Free SVG icon libraries for websites: picking by surface" },
+      {
+        type: "p",
+        text: "**Different surfaces of the same product deserve different tests, because a marketing page, a dashboard, and a mobile web app stress icons in different ways.** Marketing pages can use the best free SVG icon libraries for websites with expressive styles, because large icons beside headlines can carry personality, while free SVG icon libraries for dashboards must stay quiet under dense data. The best free SVG icon libraries for websites for marketing are the ones with duotone or filled variants for feature sections, and free SVG icon libraries for product surfaces are the ones whose outline style survives 16 pixel rendering.",
+      },
+      {
+        type: "p",
+        text: "Dashboards need the best free SVG icon libraries for websites with deep coverage of charts, filters, tables, and status glyphs, because a dashboard invents new screens every sprint and each one needs icons the marketing site never will. Free SVG icon libraries with 6,000 or more icons, such as Tabler with 6,462 icons, suit dashboards better than small curated sets, and the best free SVG icon libraries for websites for dashboards are the ones whose long tail you tested against your densest real screen. Judge dashboard icons inside a full table with real data, not in an empty state, because density is where weak icons disappear.",
+      },
+      {
+        type: "p",
+        text: "Mobile web apps need the best free SVG icon libraries for websites whose icons read at small sizes on small screens in bright light, which usually means filled or bold variants for tab bars and a restrained outline style elsewhere. Free SVG icon libraries that offer both outline and filled variants in one family let the same product use filled icons for active tabs and outline icons for the rest, and the best free SVG icon libraries for websites for mobile are the ones you tested on a real phone, not in a desktop browser's device preview. Touch targets matter as much as drawings: an icon that is legible but too small to tap reliably is still a failure.",
+      },
+      {
+        type: "p",
+        text: "Documentation sites and blogs need the best free SVG icon libraries for websites that render well in articles, callouts, and diagrams, where icons explain concepts rather than operate controls. Free SVG icon libraries with a friendly, slightly larger drawing style suit documentation, and the best free SVG icon libraries for websites for docs are the ones whose icons stay clear when exported as PNG for slides and PDFs. Keep one primary set across all surfaces where possible, and let surface specific needs justify documented exceptions, because users moving from your docs to your product should meet one visual language, not two. You can compare the candidates for every surface from the [IconVault app](/app), and organise the winners in [your collections](/collections).",
+      },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "What is the best free SVG icon library overall?" },
       {
@@ -181,7 +266,7 @@ export const POSTS_A: BlogPost[] = [
     keyword: "React icon libraries",
     date: "2026-10-18",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 26,
     icon: "atom",
     tint: "#0284C7",
     content: [
@@ -305,6 +390,91 @@ export const POSTS_A: BlogPost[] = [
         type: "p",
         text: "A closing thought on upgrades: pin your icon library, read its changelog at each minor release, and treat redrawn or renamed icons as visual changes that deserve a screenshot review. Libraries improve their drawings over time, and that is welcome, but an improvement nobody reviewed is just an unplanned redesign arriving by dependency update. With a pin, a wrapper and a one page gallery of your approved icons, upgrades become a fifteen minute check instead of a surprise, and your product keeps the consistency that made the library worth choosing. That gallery doubles as onboarding material: a new developer can see the entire approved vocabulary, at every supported size and state, before writing their first component.",
       },
+      { type: "h2", text: "Choosing the best React icon libraries for developers on a new project" },
+      {
+        type: "p",
+        text: "**Start a new React project by choosing the icon library before the first screen is built, because retrofitting icons later costs far more than choosing well on day one.** The best React icon libraries for developers share one trait: they make the first ten icons effortless and the next hundred predictable, and React icon libraries that force a different import pattern per icon will slow every feature after the first. When you compare the best React icon libraries for developers, check that every icon accepts size, colour, and className through the same props, because React icon libraries with inconsistent props turn a simple button into a special case.",
+      },
+      {
+        type: "p",
+        text: "Judge the candidates by building one real screen with each, not by reading their documentation, because documentation shows the happy path while a real screen shows the edge cases. The best React icon libraries for developers survive a dense toolbar, a settings form, and an empty state without missing glyphs, and React icon libraries that look complete on a landing page often lack the boring icons a real product needs. Repeat the test with the best React icon libraries for developers in both light and dark themes, since React icon libraries that rely on a single colour assumption can break when the theme flips.",
+      },
+      {
+        type: "p",
+        text: "Coverage of your domain matters more than total catalogue size, so list the icons your product's roadmap will need in the next year, including file types, payment states, and integration logos, and check them against each finalist. The best React icon libraries for developers for data heavy products are the ones with deep system and chart coverage, while React icon libraries for marketing sites can be smaller and more opinionated. If two of the best React icon libraries for developers tie on coverage, pick the one your team already knows, because React icon libraries your developers have used before need no onboarding and produce fewer surprises in review.",
+      },
+      {
+        type: "p",
+        text: "Write the decision down in a short document that names the chosen library, the version pinned, and the rules for exceptions, and store it with the design system notes. The best React icon libraries for developers change over time, so a written decision lets a future team re-evaluate with evidence instead of habit. React icon libraries adopted without a written rule tend to multiply, as each developer adds the set they personally prefer, while React icon libraries governed by one document stay singular and consistent.",
+      },
+      { type: "h2", text: "Best React icon libraries for developers: TypeScript, testing, and developer experience" },
+      {
+        type: "p",
+        text: "**TypeScript support is not a bonus feature in a React icon library, it is the difference between imports that fail at compile time and icons that fail silently at runtime.** The best React icon libraries for developers ship complete types for every icon, so an editor can autocomplete icon names and flag a typo before the code runs, and React icon libraries without types force developers to guess names from documentation. When you evaluate the best React icon libraries for developers, open the package in your editor and check that icon props, including size, stroke width, and accessibility attributes, are typed, because React icon libraries with weak types push errors into production.",
+      },
+      {
+        type: "p",
+        text: "Testing icon usage deserves the same discipline as testing business logic, because a renamed icon that still compiles can ship a blank space where a critical action lived. The best React icon libraries for developers make this test easy by keeping icon names stable across minor versions and documenting renames in changelogs, while React icon libraries that rename freely punish teams that upgrade casually. Build a gallery page that renders your approved icons, and run visual regression against it whenever the best React icon libraries for developers release an update, so React icon libraries in your product are verified by screenshots, not by hope.",
+      },
+      {
+        type: "p",
+        text: "Developer experience also shows up in small details: how fast the package installs, whether the documentation shows copy ready code, and whether the icons work in both client and server components without extra configuration. The best React icon libraries for developers answer all three without friction, and teams that compare the best React icon libraries for developers should time a new hire's first icon task, because React icon libraries that need a tutorial for the first icon will cost time on every hire after that.",
+      },
+      {
+        type: "p",
+        text: "Finally, check how the library behaves in your editor and your bundler, not just in the browser, because a library that slows type checking or defeats tree-shaking taxes the whole team daily. The best React icon libraries for developers ship small modules that bundlers can shake down to the icons you import, and React icon libraries shipped as a single bundle undo that benefit. React icon libraries that respect your toolchain disappear into the workflow, which is exactly what infrastructure should do.",
+      },
+      { type: "h2", text: "Migrating between React icon libraries without breaking the UI" },
+      {
+        type: "p",
+        text: "**Migrate between React icon libraries surface by surface, never in one giant commit, because a staged migration can be reviewed, reverted, and shipped without a visual regression crisis.** The best React icon libraries for developers support migration by sharing a similar component API, so a wrapper can swap the underlying set while the screens stay untouched, and React icon libraries with wildly different prop shapes make that wrapper harder to write. Start with the app shell and navigation when you move between the best React icon libraries for developers, because React icon libraries in the shell appear on every route and deliver the most visible progress first.",
+      },
+      {
+        type: "p",
+        text: "Build the inventory before you touch a single import, by searching the codebase for every icon component in use and recording the screen, the size, and the state for each one. The best React icon libraries for developers for a migration are the ones that cover that inventory with direct matches, while React icon libraries that cover only half the inventory will force redraws mid migration. Map each icon to direct, approximate, or missing, and let a designer review every approximate match, because the best React icon libraries for developers still differ in metaphor, and React icon libraries that look equivalent at large sizes can disagree at 16 pixels.",
+      },
+      {
+        type: "p",
+        text: "Keep both libraries installed during the migration, but forbid new usage of the old one from the first day, so the codebase moves in one direction and the old set shrinks with every merged pull request. The best React icon libraries for developers coexist peacefully for a few weeks, and the best React icon libraries for developers for migration are the ones whose licences allow that overlap without extra cost. Delete the old dependency only when the last import disappears, and add a lint rule that blocks its return, because React icon libraries have a habit of creeping back through copied code.",
+      },
+      {
+        type: "p",
+        text: "Communicate the migration in release notes, because users notice icon changes even when they cannot name them, and a short note that icons were refreshed prevents support tickets about a changed interface. The best React icon libraries for developers make this communication easy, since their changelogs describe what changed and why. React icon libraries swapped silently can feel like an unannounced redesign, while React icon libraries migrated in the open feel like maintenance, which is what they are.",
+      },
+      { type: "h2", text: "React icon libraries in design systems: tokens, theming, and dark mode" },
+      {
+        type: "p",
+        text: "**In a design system, the icon library is a token source, not a decoration shelf, so its sizes, strokes, and colours must be governed by the same tokens as the rest of the system.** The best React icon libraries for developers for design systems expose size and colour through props that accept tokens, and React icon libraries that hardcode colours or sizes fight the token system on every screen. When you choose between the best React icon libraries for developers, check that the icons inherit currentColor and accept your size scale, because React icon libraries that ignore the system will be overridden inconsistently by every team.",
+      },
+      {
+        type: "p",
+        text: "Theming is where weak icon setups fail first, because an icon that looks right in light mode can vanish in dark mode or clash with a brand theme. The best React icon libraries for developers handle theming by inheriting text colour, so icons follow hover, disabled, and dark mode states automatically, and React icon libraries that bake in fixed fills need manual overrides for every theme. Test the best React icon libraries for developers in every theme your product ships, including high contrast modes, because React icon libraries that pass only the default theme will fail the users who need themes most.",
+      },
+      {
+        type: "p",
+        text: "State variants belong in the design system specification, not in individual screens, so define exactly how selection, activity, and emphasis are shown, ideally through a weight or fill change plus colour, never colour alone. The best React icon libraries for developers for state heavy interfaces offer multiple weights in one family, and the best React icon libraries for developers for design systems document which weight means what. Write those rules into the icon component's documentation, because React icon libraries used without written state rules drift into random variant usage within months.",
+      },
+      {
+        type: "p",
+        text: "Ownership completes the system: one person or team approves new icons, reviews additions at production size, and runs a yearly audit of every shipped icon. The best React icon libraries for developers reward ownership by making the approved list easy to render on one page, and React icon libraries without an owner accumulate duplicates and orphans silently. Publish the approved list where every developer can find it, and the best React icon libraries for developers become a shared vocabulary instead of a private preference, while React icon libraries left unowned become a source of design debt.",
+      },
+      { type: "h2", text: "React icon libraries for performance-critical applications" },
+      {
+        type: "p",
+        text: "**For performance critical applications, the icon library must prove its footprint with bundle analysis, not with marketing claims about being lightweight.** The best React icon libraries for developers for performance ship each icon as its own module, so importing twelve icons adds twelve icons to the bundle, and React icon libraries shipped as one file or through a barrel that re-exports everything defeat that optimisation. Measure the best React icon libraries for developers with your own bundler analyser before adopting, because React icon libraries that look small in documentation can still pull in shared helpers you did not expect.",
+      },
+      {
+        type: "p",
+        text: "Route level code splitting interacts with icon choice, because a shared icon barrel imported by every route lands in the shared bundle and grows with every screen. The best React icon libraries for developers avoid this trap when you import icons where they are used, and React icon libraries used through a central map of every icon will defeat splitting no matter how well the package is built. Keep dynamic icon maps small and explicit, listing only the icons a feature can actually choose, and the best React icon libraries for developers will reward that discipline with lean route bundles, while React icon libraries abused through giant maps will punish it.",
+      },
+      {
+        type: "p",
+        text: "For landing pages and embedded widgets, consider skipping the package entirely and copying the exact icons you need as local components, because zero dependencies beats a small dependency when the page must load fast. The best React icon libraries for developers for tiny surfaces are often the same libraries you would install for the app, used as a source of drawings rather than a runtime dependency, and React icon libraries copied this way need the same wrapper discipline as installed ones. Clean copied markup with the [SVG optimizer](/tools/svg-optimizer), and the best React icon libraries for developers become a catalogue you draw from, while React icon libraries installed everywhere become a tax on every page.",
+      },
+      {
+        type: "p",
+        text: "Whatever the surface, audit the shipped bundle after adding any icon dependency, and treat a footprint above a few kilobytes for a handful of icons as a bug to investigate. The best React icon libraries for developers stay small when used correctly, and React icon libraries that bloat a bundle usually reveal a bad import pattern in your code, not a bad package. Fix the pattern, keep the library, and the performance story takes care of itself.",
+      },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "What is the best React icon library in 2026?" },
       {
@@ -343,7 +513,7 @@ export const POSTS_A: BlogPost[] = [
     keyword: "Font Awesome alternatives",
     date: "2026-10-15",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 26,
     icon: "replace",
     tint: "#B45309",
     content: [
@@ -462,6 +632,91 @@ export const POSTS_A: BlogPost[] = [
         type: "p",
         text: "One more situation deserves a direct answer: the solo builder or tiny team with no designer and no appetite for a design system project. For you, the migration advice compresses to an afternoon. Pick Lucide, install it or copy from it, swap your navigation, buttons and status icons first because those are the ones users see constantly, set one size for inline icons and one for buttons, and write the two rules, one library and labelled icon buttons, at the top of your project notes. That minimal system captures most of the benefit described in this article, and it can grow into the full process later if the product does. What matters is not the size of the process; it is that the decision is made once, in the open, instead of being remade accidentally on every screen by whoever touches it next. Every month you do not spend arguing about icons, renewing a licence for glyphs you barely use, or fixing a font that failed to load is a month spent on the product itself.",
       },
+      { type: "h2", text: "The best free Font Awesome alternatives for different team types" },
+      {
+        type: "p",
+        text: "**The best free Font Awesome alternatives are not one set, they are a shortlist matched to your team's shape, because a solo builder and an enterprise team leave Font Awesome for different reasons.** A solo builder should judge the best free Font Awesome alternatives by how fast they can replace the handful of icons their site uses, and Font Awesome alternatives with a searchable index and copy ready SVG win that test. For solo work, Font Awesome alternatives that need no build step and no licence paperwork beat heavier options every time.",
+      },
+      {
+        type: "p",
+        text: "A startup team should look for the best free Font Awesome alternatives that support a growing product, which means component packages, stable names, and releases that do not redraw icons without warning. Font Awesome alternatives that publish changelogs let a startup pin a version and upgrade deliberately, while Font Awesome alternatives that change silently create surprise redesigns. The best free Font Awesome alternatives for startups also cover the boring categories, navigation, status, and files, because those are the icons a growing product adds every sprint.",
+      },
+      {
+        type: "p",
+        text: "An agency delivering many client sites a year gets the most from the best free Font Awesome alternatives that cover several visual languages, because each client wants a different feel while the agency wants one workflow. Font Awesome alternatives with multiple weights let one team serve a playful brand and a sober enterprise client from the same source, and the best free Font Awesome alternatives for agencies are the ones whose licences allow client work without extra fees. Keep a house shortlist of three Font Awesome alternatives, and let each project pick from it instead of restarting the search every time.",
+      },
+      {
+        type: "p",
+        text: "An enterprise team should evaluate the best free Font Awesome alternatives the way it evaluates any dependency, with licence review, accessibility review, and a maintenance plan. Font Awesome alternatives under MIT, ISC, or Apache-2.0 usually pass legal review quickly, while Font Awesome alternatives under attribution licences need a documented credit before approval. The safest enterprise choice is usually the set that survives review without exceptions, because an exception granted today becomes a migration project later.",
+      },
+      { type: "h2", text: "Font Awesome alternatives: a licence and attribution checklist" },
+      {
+        type: "p",
+        text: "**Before you adopt any replacement, write down its licence, its version, and where attribution must appear, because those three facts answer every future legal question.** The best free Font Awesome alternatives publish a licence file in the repository, and Font Awesome alternatives under MIT, ISC, and Apache-2.0 generally allow commercial use without a visible credit. The best free Font Awesome alternatives under Creative Commons, such as Solar under CC BY 4.0, require a credit placed deliberately, and Font Awesome alternatives with unclear licence files should be rejected no matter how good they look.",
+      },
+      {
+        type: "p",
+        text: "Check redistribution separately from usage, because using icons inside a product and redistributing icons as a product are different acts. The best free Font Awesome alternatives permit shipping icons inside an application, but they do not permit repackaging the set and selling it as your own library, and Font Awesome alternatives that state this plainly in their licence are easier to approve. If your product lets users export or theme icons, read the licence for that case, because the best free Font Awesome alternatives for internal use can still restrict standalone redistribution. Font Awesome alternatives with vague terms should be escalated to legal before adoption.",
+      },
+      {
+        type: "p",
+        text: "Brand icons need their own check, because the drawing licence and the trademark are separate rights. The best free Font Awesome alternatives for brand heavy products are the ones whose brand coverage you verified against your actual list of payment and social providers, while Font Awesome alternatives that claim broad brand coverage on a landing page may still miss the one provider you need. Test the brands your product displays, including login providers, because a missing sign in glyph is a launch blocker, and Font Awesome alternatives that pass that test earn their place.",
+      },
+      {
+        type: "p",
+        text: "Store the licence text, version, and download date beside the icons in your repository, and repeat the record in your credits file, so a future audit finds the answer in minutes. The best free Font Awesome alternatives will still be free in five years, but the version you shipped and the terms you shipped under are facts worth preserving. Font Awesome alternatives sometimes change maintainers, which makes your local record the reliable source, so review it once a year and update it whenever you upgrade.",
+      },
+      { type: "h2", text: "Font Awesome alternatives for specific stacks: WordPress, React, Vue, and plain HTML" },
+      {
+        type: "p",
+        text: "**The best stack specific choice is the one that drops into your stack without a build tool fight, because the wrong delivery method costs more than the wrong drawing style.** For WordPress, the best free Font Awesome alternatives are the ones you can enqueue as a stylesheet or paste as inline SVG into a theme, and Font Awesome alternatives that require a JavaScript bundler will fight a PHP workflow. For plain HTML sites, the best free Font Awesome alternatives are the ones available as copy ready SVG or a sprite, because they add no dependency and no font download.",
+      },
+      {
+        type: "p",
+        text: "For React, the best free Font Awesome alternatives ship component packages with typed props, tree-shaking, and currentColor inheritance, and Font Awesome alternatives that only offer a font file will feel foreign in a component codebase. Lucide, Heroicons, Phosphor, and Tabler all offer React packages, and the best free Font Awesome alternatives for React are the ones whose component API matches your wrapper's expectations. Test one screen with each finalist before committing, because Font Awesome alternatives that look good in documentation can still surprise you in a dense toolbar.",
+      },
+      {
+        type: "p",
+        text: "For Vue, the same logic applies: the best free Font Awesome alternatives for Vue offer first party Vue components or clean SVG you can wrap in a component, and Font Awesome alternatives without a Vue story will still work as raw SVG, just with more glue code. The best free Font Awesome alternatives for Vue teams are the ones your developers can import, size, and colour through props, because Font Awesome alternatives that need manual SVG handling on every screen slow down feature work. If your monorepo serves both React and Vue, pick a set with good packages for both, so the two apps share one visual language.",
+      },
+      {
+        type: "p",
+        text: "For static sites and email templates, where JavaScript may be absent, the best free Font Awesome alternatives are the ones that work as pure inline SVG with no runtime at all. Font Awesome alternatives delivered as a sprite suit this case well, because one cached file serves every icon, and Font Awesome alternatives that depend on a font file will flash or fail in email clients. Whatever the stack, keep the delivery consistent across the product, so a visitor moving from marketing pages to the app meets one icon language.",
+      },
+      { type: "h2", text: "Font Awesome alternatives: what to check before you commit" },
+      {
+        type: "p",
+        text: "**Commit only after testing your real icon list at real sizes in real screens, because every other test is a proxy that can mislead you.** The best free Font Awesome alternatives pass the thirty icon test, covering your navigation, actions, and status icons with direct matches, and Font Awesome alternatives that fail the core list will fail your product no matter how large their catalogue. Run the test at 16 and 20 pixels, because the best free Font Awesome alternatives for production are the ones that stay legible at the sizes you actually ship, while Font Awesome alternatives that only shine at large sizes will disappoint in sidebars.",
+      },
+      {
+        type: "p",
+        text: "Check the maintainer's recent activity, because icons are infrastructure and dead infrastructure becomes your problem. The best free Font Awesome alternatives show recent releases, answered issues, and a public roadmap, while Font Awesome alternatives with no release in two years should be treated as frozen, however complete they look. A frozen set is not automatically disqualified, but the best free Font Awesome alternatives for a growing product are the ones still evolving with it, and Font Awesome alternatives that stopped evolving will miss the new payment methods and platforms your roadmap will need.",
+      },
+      {
+        type: "p",
+        text: "Check accessibility behaviour before you commit, because an icon set that cannot be hidden when decorative or labelled when meaningful will create work for every screen. The best free Font Awesome alternatives for accessible products work as SVG components that accept aria attributes and inherit colour, while Font Awesome alternatives tied to font ligatures make proper labelling harder. Test one icon only button with a keyboard and a screen reader, because the best free Font Awesome alternatives for teams that care about accessibility pass that test without custom hacks.",
+      },
+      {
+        type: "p",
+        text: "Finally, check the total cost of switching, including design time for redraws, engineering time for the migration, and documentation time for the new rules. The best free Font Awesome alternatives minimise that cost by covering your inventory with direct matches, and Font Awesome alternatives that require redrawing a quarter of your icons may cost more than the subscription you are leaving. If the audit shows a close call, stay with the incumbent for one more cycle and revisit with a longer icon list, because Font Awesome alternatives will still be free when you are ready.",
+      },
+      { type: "h2", text: "Font Awesome alternatives for brand icons and social logos" },
+      {
+        type: "p",
+        text: "**Treat brand icons as a separate system from UI icons, because brand marks follow their owners' guidelines, not your design system's rules.** The best free Font Awesome alternatives for brand coverage are the ones you verified against your product's actual provider list, and Font Awesome alternatives that bundle a few famous logos may still miss the payment or login provider your launch depends on. Simple Icons specialises in brand marks, and the best free Font Awesome alternatives for brand heavy products pair a UI set with a dedicated brand source, while Font Awesome alternatives used alone for brands will leave gaps.",
+      },
+      {
+        type: "p",
+        text: "Keep brand icons visually separate from functional icons, because a brand mark is a logo, not an action, and mixing them in one toolbar confuses users about what is clickable. The best free Font Awesome alternatives for mixed surfaces let you import brand marks from a separate package, so the UI set stays pure, and Font Awesome alternatives that merge brands into the UI catalogue make that separation harder. Document which source owns brands in your design system, because Font Awesome alternatives with a clear brand story save every future argument about where a logo belongs, and the best free Font Awesome alternatives for teams with many integrations are the ones whose brand set updates when providers rebrand.",
+      },
+      {
+        type: "p",
+        text: "Watch for trademark traps: using a brand glyph does not grant endorsement, and some providers restrict how their mark may be coloured, sized, or combined with other elements. The best free Font Awesome alternatives for compliant products link to each brand's guidelines or at least name the source of the mark, while Font Awesome alternatives that strip brand context leave your team guessing. When a provider rebrands, update the mark promptly, because the best free Font Awesome alternatives for long lived products are the ones whose brand sets track those changes, and Font Awesome alternatives with stale brand marks make your product look neglected.",
+      },
+      {
+        type: "p",
+        text: "If your product needs only a handful of brand marks, copying those few SVGs into a local brand folder is cleaner than installing a whole brand library, and it keeps trademark updates visible in code review. The best free Font Awesome alternatives for minimal brand needs are the ones that let you copy individual marks without adopting the whole set, and Font Awesome alternatives that force an all or nothing install add weight for logos you never render. Whatever the approach, keep the brand list beside the UI inventory, so the next audit covers both systems in one pass, and the best free Font Awesome alternatives for your product are the ones that passed both audits together.",
+      },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "What is the closest free alternative to Font Awesome?" },
       {
@@ -500,7 +755,7 @@ export const POSTS_A: BlogPost[] = [
     keyword: "SVG icon packs for product UI",
     date: "2026-10-12",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 26,
     icon: "palette",
     tint: "#7C3AED",
     content: [
@@ -618,6 +873,91 @@ export const POSTS_A: BlogPost[] = [
       {
         type: "p",
         text: "It is worth saying plainly what this guide is not claiming. No pack on this list will rescue an unclear interface, because most icon confusion is really information architecture confusion: too many actions, ambiguous sections, labels that do not match the user's task. Icons amplify a clear structure and expose a muddled one. So run the pack evaluation and the structure review together: if testers cannot predict what a section contains, rename the section before you redraw its icon, and if two actions keep being confused, consider merging them before you commission a more distinct glyph. The best product teams treat icons as the last five percent of clarity work, applied after naming, grouping and hierarchy are already honest. Choose a strong pack, govern it lightly and well, and spend the attention you saved on the words and structures your users actually navigate by. When the structure is honest and the pack is consistent, icons stop being a design topic at all, which is the surest sign the system is working. Your users will never praise the icons directly; they will simply move through the product faster, with fewer hesitations, fewer support questions and fewer moments of doubt.",
+      },
+      { type: "h2", text: "The best free SVG icon packs for product UI by product type" },
+      {
+        type: "p",
+        text: "**The best free SVG icon packs for product UI are not universal, because a dashboard, a consumer app, and a developer tool stress icons differently, and the pack that wins one category can lose another.** For SaaS dashboards, the best free SVG icon packs for product UI are the ones with deep chart, filter, and status coverage, while SVG icon packs for consumer apps can trade some coverage for warmth and filled variants. Judge the best free SVG icon packs for product UI inside your densest real screen, not your prettiest one, because SVG icon packs that look good in an empty state can vanish in a full table.",
+      },
+      {
+        type: "p",
+        text: "For consumer apps, the best free SVG icon packs for product UI are the ones with friendly corner radii and filled tab bar variants, because touch targets and glare punish fine outline work. SVG icon packs for mobile first products should be tested on a real phone outdoors, and the best free SVG icon packs for product UI for consumer use are the ones that survive that test without losing legibility. SVG icon packs that only perform on a studio monitor will leave your users squinting, so test where your users actually are.",
+      },
+      {
+        type: "p",
+        text: "For developer tools, the best free SVG icon packs for product UI are the ones with a strong terminal, git, and deployment vocabulary, because developer products live in file trees and sidebars where those glyphs repeat constantly. SVG icon packs for technical products must also survive monochrome rendering, since dark themes and syntax coloured environments strip away duotone help, and the best free SVG icon packs for product UI for developer tools are the ones whose shapes stay recognisable in a single colour. Test the pack in a file tree at 16 pixels before committing.",
+      },
+      {
+        type: "p",
+        text: "For trust products like fintech and health, the best free SVG icon packs for product UI are the ones whose metaphors feel calm and definite, because a playful icon on a payment confirmation undermines confidence. SVG icon packs for trust surfaces should be reviewed in legal and compliance passes like any other claim, and the best free SVG icon packs for product UI for regulated products are the ones that pass that review without playful exceptions. Never let an icon alone carry a consequential action in these products; pair it with a text label, whatever the pack.",
+      },
+      { type: "h2", text: "SVG icon packs: building a governance process that survives team growth" },
+      {
+        type: "p",
+        text: "**Governance is what keeps SVG icon packs consistent after the tenth designer and the hundredth screen, because without rules, every team invents its own icon habits.** The best free SVG icon packs for product UI reward governance by making the approved list easy to render on one page, while SVG icon packs without an owner accumulate duplicates and orphans silently. Appoint an owner, publish the approved list, and the best free SVG icon packs for product UI become a shared vocabulary, while SVG icon packs left unowned become design debt.",
+      },
+      {
+        type: "p",
+        text: "Write the rules where the icons live, in the component documentation, not in a slide deck nobody opens. The best free SVG icon packs for product UI for governed teams come with a size scale, a stroke rule, and a state rule written down, and SVG icon packs used without those rules drift within months. Define sizes as tokens, for example 16 for dense use, 20 for standard controls, and 24 for feature icons, and the best free SVG icon packs for product UI will reward that discipline by aligning cleanly at every token size.",
+      },
+      {
+        type: "p",
+        text: "Review icon usage like code, by requiring pull requests that add an icon to show it at production size beside its neighbours. The best free SVG icon packs for product UI make review easy, because their icons share one grid and one stroke logic, while SVG icon packs mixed from several sources make review a debate about taste instead of a check against rules. Ask three questions in every review: right pack, right metaphor, right state, and the best free SVG icon packs for product UI will pass that review quietly, while SVG icon packs added ad hoc will keep failing it.",
+      },
+      {
+        type: "p",
+        text: "Run a short quarterly tidy that searches for stray SVG files, one off imports from a second pack, and icons pasted from design tools with baked in colours, and fold them back into the system while the list is short. The best free SVG icon packs for product UI stay clean under this habit, and SVG icon packs that skip the tidy slowly rot into three half adopted systems. An hour a quarter is the whole cost, and it is the difference between a design system and a collection of files.",
+      },
+      { type: "h2", text: "SVG icon packs for product UI: dark mode and accessibility deep dive" },
+      {
+        type: "p",
+        text: "**Dark mode and accessibility are not edge cases for SVG icon packs, they are the environments where weak icons fail first and where your most loyal users live.** The best free SVG icon packs for product UI for dark themes offer a filled variant or a modest stroke increase through tokens, because stroke icons thin out visually on dark backgrounds, while SVG icon packs without a dark strategy force per screen heroics. Test the best free SVG icon packs for product UI in both themes with real content, and SVG icon packs that survive the flip are the ones to adopt.",
+      },
+      {
+        type: "p",
+        text: "State must never rely on colour alone, because colour only states fail users with colour vision deficiency and fail again in forced contrast modes. The best free SVG icon packs for product UI for accessible products pair a weight or fill change with colour, so selection is readable in two channels at once, and SVG icon packs that offer only colour changes will need a custom workaround. Define the state rule in the design system, and the best free SVG icon packs for product UI will make it easy to follow, while SVG icon packs without variant support will make it impossible.",
+      },
+      {
+        type: "p",
+        text: "Icon only controls need accessible names, focus states, and touch targets that work without a mouse, and the best free SVG icon packs for product UI for accessible teams ship components that accept those attributes naturally. SVG icon packs delivered as raw files can still be accessible, but the wrapper must enforce the label rule, because SVG icon packs used without a wrapper leave accessibility to each developer's memory. Build the requirement into the component, and the best free SVG icon packs for product UI will support keyboard and screen reader users without extra effort.",
+      },
+      {
+        type: "p",
+        text: "Test with forced colours and high contrast themes, because those modes strip away subtle tones and reveal whether your icons rely on delicate detail. The best free SVG icon packs for product UI survive forced colours with honest shapes, and SVG icon packs that depend on a second tone for recognition will collapse there. Add the forced colour test to your pack evaluation, alongside dark mode and density, and the SVG icon packs for your product are the ones that pass all three.",
+      },
+      { type: "h2", text: "SVG icon packs: from Figma to production handoff" },
+      {
+        type: "p",
+        text: "**The Figma to production handoff is where SVG icon packs either stay consistent or quietly fork, because design files and code drift apart unless one source governs both.** The best free SVG icon packs for product UI for teams with designers offer a Figma library that matches the code package name for name, so a designer and a developer mean the same icon when they say its name, while SVG icon packs without a matching Figma library force manual translation on every screen. Name icons identically in both places, and the best free SVG icon packs for product UI will keep design and code in sync without meetings.",
+      },
+      {
+        type: "p",
+        text: "Export from Figma with the same rules as code: remove fixed fills, keep the viewBox, and let colour come from currentColor, because icons pasted with baked in colours break theming. The best free SVG icon packs for product UI for handoff workflows document their export settings, and SVG icon packs exported carelessly arrive with editor metadata and unnecessary groups that bloat the product. Clean every export with the [SVG optimizer](/tools/svg-optimizer), and the best free SVG icon packs for product UI will stay lean from design file to shipped bundle.",
+      },
+      {
+        type: "p",
+        text: "When a designer needs an icon that does not exist, the workflow matters as much as the glyph: request it, review candidates at production size next to their new neighbours, and add it to the approved set with a name the whole team would search for. The best free SVG icon packs for product UI for growing teams make this loop fast, because their naming is guessable, while SVG icon packs with cryptic names slow the loop and push designers toward pasting random SVGs. Skipping the loop is how design systems rot, so protect it, and the best free SVG icon packs for product UI will grow with your product instead of against it.",
+      },
+      {
+        type: "p",
+        text: "Keep a single source of truth for the approved set, whether that is a Figma library, a code package, or a collection in the [IconVault app](/app), and generate production assets from it in one pass. The best free SVG icon packs for product UI support this by offering consistent downloads in every format, and SVG icon packs scattered across folders and downloads will drift no matter how good their drawings are. A single source turns icon updates into a routine, and the best free SVG icon packs for product UI reward that routine with a coherent product.",
+      },
+      { type: "h2", text: "SVG icon packs for product UI: auditing and replacing a pack" },
+      {
+        type: "p",
+        text: "**Audit the pack you ship at least once a year, because products accumulate icons the way code accumulates dependencies, silently and then all at once.** The best free SVG icon packs for product UI for audited teams render every shipped icon on one page at shipped sizes in both themes, and SVG icon packs audited this way reveal duplicates, drifted metaphors, and near identical pairs that crept in through different features. The best free SVG icon packs for product UI survive the audit with few surprises, while SVG icon packs never audited will embarrass the team that finally looks.",
+      },
+      {
+        type: "p",
+        text: "Score the audit, do not just eyeball it: count how many icons are actually used, how many are duplicates, and how many violate the size or state rules, and track those numbers over time. The best free SVG icon packs for product UI for mature teams show a shrinking violation count year over year, and SVG icon packs with a rising count signal a governance failure, not a pack failure. Publish the audit beside the design system metrics, because the best free SVG icon packs for product UI deserve the same visibility as performance budgets.",
+      },
+      {
+        type: "p",
+        text: "When the audit says the pack no longer fits, replace it deliberately: inventory the shipped icons, map each to the new pack, review approximate matches with a designer, and migrate surface by surface, never in one commit. The best free SVG icon packs for product UI for migration are the ones that cover your inventory with direct matches, while SVG icon packs that cover only half will force redraws mid migration. Keep the old pack installed but frozen during the move, and the best free SVG icon packs for product UI will make the migration boring, which is the highest praise a migration can earn.",
+      },
+      {
+        type: "p",
+        text: "After the replacement, delete the old pack, its files, and its imports, and add a review rule that blocks its return, because a migration is only finished when returning is impossible. The best free SVG icon packs for product UI for your product are the ones that passed the audit, the governance review, and the migration test together, and SVG icon packs that passed only one of those tests will fail the next cycle. Choose once, govern lightly, audit yearly, and the pack stops being a topic, which is the surest sign the system works.",
       },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "What is the best free icon pack for SaaS product UI?" },

@@ -12,7 +12,7 @@ export const POSTS_B: BlogPost[] = [
     keyword: "shadcn/ui icons",
     date: "2026-10-20",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 33,
     icon: "component",
     tint: "#111827",
     content: [
@@ -215,6 +215,132 @@ export const POSTS_B: BlogPost[] = [
           "Bundle checked after any icon package change, and component re-adds followed by a re-application of known icon swaps.",
         ],
       },
+      { type: "h2", text: "Choosing a set before the first component lands" },
+      {
+        type: "p",
+        text: "**Decide the family before you copy components.** The cheapest moment to choose shadcn icons is before the first Button lands in the codebase, because every copied primitive after that point hard-codes the decision in its imports. When teams evaluate the best shadcn ui icons for Next.js, they often start from screenshots, but the durable test is a coverage check: list the fifty glyphs your product will actually use and confirm the set draws all of them well. A set that covers navigation, forms, feedback and commerce without gaps will serve shadcn icons in production far better than a prettier set that forces one-off substitutions. The best shadcn ui icons for Next.js are therefore the ones that survive your real list, not the ones that win a beauty contest on a landing page.",
+      },
+      {
+        type: "p",
+        text: "**Judge stroke, grid and licence together.** A coherent system for shadcn icons shares one stroke weight and one grid, so compare candidates at 16px, the size where most interface shadcn icons actually render, rather than at poster size. Lucide draws at a 2px stroke on a 24px grid, Tabler matches that weight with wider coverage, and Heroicons draws lighter at 1.5px, which changes how dense toolbars feel. Licence matters just as much: the best shadcn ui icons for Next.js carry permissive terms such as ISC or MIT, so commercial shipping needs no legal review, while a CC BY set adds an attribution chore to every deployment. Pick the family that passes all three tests at once, and shadcn icons stop being a recurring debate and become a settled default.",
+      },
+      { type: "h2", text: "Icon tokens with Tailwind and CSS variables" },
+      {
+        type: "p",
+        text: "**Turn sizes into tokens, not scattered classes.** As shadcn icons spread across an app, ad-hoc h-4 w-4 and h-5 w-5 classes drift until the same action looks different on two screens. A token layer fixes this: define icon sizes such as sm, md and lg once, map them to Tailwind utilities in your wrapper, and let every feature import the token instead of a raw class. Teams choosing the best shadcn ui icons for Next.js benefit most from this discipline, because Next.js apps tend to grow both a marketing site and a dashboard in one repository, and tokens are what keep shadcn icons consistent across both surfaces. The best shadcn ui icons for Next.js feel invisible precisely when a token system removes the need to think about each instance.",
+      },
+      {
+        type: "p",
+        text: "**Let colour tokens do the theming work.** Because shadcn icons inherit currentColor, a token such as text-muted-foreground or text-destructive colours every glyph without icon-specific CSS, and dark mode follows automatically when the theme variables flip. The failure mode to avoid is a hard-coded hex inside a custom SVG, which ignores tokens and glows wrong in dark mode; the audit for this is a simple grep for fill and stroke hex values across components/icons. When shadcn icons are token-driven, a rebrand becomes a variable change rather than a file-by-file hunt, and that is the real payoff of treating shadcn icons as a system instead of a pile of imports.",
+      },
+      { type: "h2", text: "Dense interfaces: tables, sidebars and toolbars" },
+      {
+        type: "p",
+        text: "**Alignment is the whole job in dense UI.** In a data table or a sidebar, shadcn icons sit next to small text at 13 or 14px, and a single misaligned glyph makes the row feel broken. The reliable pattern is a fixed 16px box for every row icon, vertical centring through flex alignment, and identical left padding across rows, so the eye reads a straight column of glyphs rather than a jitter. When developers compare the best shadcn ui icons for Next.js dashboards, they should preview candidates inside a real table row, not on a showcase page, because optical weight at small sizes decides whether shadcn icons read as calm or noisy. The best shadcn ui icons for Next.js dashboards are the ones that stay quiet at 16px and never compete with the data beside them.",
+      },
+      {
+        type: "p",
+        text: "**Reserve space for icons that appear conditionally.** Sorting indicators, row actions and status glyphs that pop in on hover cause layout shift when their slot has no reserved width, and users perceive that shift as instability even when the data is correct. Give sortable headers a permanent icon slot, render action buttons with opacity transitions instead of mounting and unmounting them, and keep status icons in a fixed-width cell. These habits cost nothing at build time and protect the polish that shadcn icons are supposed to deliver. In toolbars, the same rule applies to icon-only buttons: a consistent 32 or 36px hit area, identical across the bar, makes shadcn icons feel like a designed control set rather than a loose collection of glyphs.",
+      },
+      { type: "h2", text: "Marketing pages inside the same app" },
+      {
+        type: "p",
+        text: "**Display icons play by different rules.** A Next.js repository often serves a marketing site and an application from the same codebase, and shadcn icons on a landing page are display graphics at 32 or 48px, not controls at 16px. At display size, a 2px stroke looks thin, so marketing sections usually want a heavier stroke or a filled variant for the same glyph, and that is acceptable as long as the change is deliberate and documented. Teams picking the best shadcn ui icons for Next.js should therefore test their shortlist at both sizes: the set that wins at 16px may look anemic at 48px, and shadcn icons need a documented display treatment rather than an accidental one. The best shadcn ui icons for Next.js handle both scales when the team defines a display style up front instead of improvising per section.",
+      },
+      {
+        type: "p",
+        text: "**Keep marketing and product icons recognisably related.** The safest bridge between a landing page and an app is to keep the same family and vary only weight or size, so a visitor who signs up meets glyphs they already recognise from the homepage. If marketing demands a second, more expressive family for illustrations and feature graphics, confine it to hero and feature sections and never let it leak into the application chrome. Document the boundary in the same place you document shadcn icons for product UI, because the next designer will otherwise blend the two systems gradually. Consistency across the funnel is a conversion asset: users trust a product whose shadcn icons look like the marketing that sold it to them.",
+      },
+      { type: "h2", text: "Motion: spinners, transitions and micro-interactions" },
+      {
+        type: "p",
+        text: "**Animate state, not decoration.** The most useful motion for shadcn icons is state feedback: a spinner that replaces a button label while a form submits, a check that draws in when an action succeeds, a chevron that rotates when an accordion opens. These animations are small, fast and meaningful, and they work because the icon itself communicates the state change rather than decorating it. Developers evaluating the best shadcn ui icons for Next.js should check that their set's spinner glyph is a clean circular arc, since a decorative loader built from a generic icon looks cheap; shadcn icons in loading states deserve a purpose-drawn glyph. The best shadcn ui icons for Next.js pair with Tailwind's animate-spin and transition-transform utilities without custom CSS, which keeps motion consistent with the rest of the system.",
+      },
+      {
+        type: "p",
+        text: "**Respect reduced motion everywhere icons move.** Some users experience motion as discomfort, and the correct response is to honour prefers-reduced-motion for every icon animation, not just the large ones. Tailwind's motion-safe and motion-reduce variants make this a one-line habit: animate-spin becomes motion-safe:animate-spin, and a rotating chevron gets motion-reduce:rotate-0 so it simply appears in its final state. Audit shadcn icons in loading, accordion and drawer components for this treatment, because those are the places motion concentrates. A system that moves thoughtfully and stops when asked is what separates polished shadcn icons from merely animated ones.",
+      },
+      { type: "h2", text: "Auditing icons every quarter" },
+      {
+        type: "p",
+        text: "**Schedule an icon audit like a dependency audit.** Icon sets drift silently: a new screen imports a second family for one glyph, a designer exports a custom mark that duplicates a library icon, a deprecated glyph lingers after a refactor. A quarterly audit catches all three before they compound, and it takes under an hour: grep the codebase for icon imports, list every family in use, and compare the list against the documented system. When teams maintain the best shadcn ui icons for Next.js over a year, this audit is the habit that preserves the original decision, because shadcn icons only stay coherent while someone checks. The best shadcn ui icons for Next.js are rarely the newest set; they are the set a team actually kept consistent through four quarters of feature work.",
+      },
+      {
+        type: "p",
+        text: "**Measure the audit in bundle bytes, not opinions.** After listing imports, run the bundle analyser and record the icon packages' contribution, then remove unused glyphs, delete the second family if one crept in, and replace custom duplicates with library equivalents where the meaning matches. Report the before-and-after numbers in the pull request, because a 40KB saving is a more persuasive argument for discipline than any style debate. Keep the audit output in the repository, next to the mapping table from the original migration, so the next audit starts from evidence instead of memory. Over time, this ritual turns shadcn icons from a one-time setup into a maintained asset, which is exactly how mature design systems treat every other shared dependency.",
+      },
+      { type: "h2", text: "Designer handoff and Figma parity" },
+      {
+        type: "p",
+        text: "**Name parity between Figma and code prevents silent drift.** The most common designer-developer icon bug is not a missing glyph but a renamed one: Figma calls it arrow-right while the code imports ArrowRight, and a search for either name misses the other half of the system. Agree on one naming convention, usually the library's component name, and use it in Figma layer names, in the icon inventory document, and in code. When the team reviews the best shadcn ui icons for Next.js, they should confirm the set's Figma library exists and matches the package version, because shadcn icons drawn from a stale Figma file arrive in code already wrong. The best shadcn ui icons for Next.js are the ones whose design file and package stay in lockstep through upgrades.",
+      },
+      {
+        type: "p",
+        text: "**Treat exports as a pipeline, not a handoff event.** Designer-exported SVGs arrive with editor metadata, artboard-sized viewBoxes and hard-coded fills, all of which fight the component conventions this guide sets out, so every export should pass through the optimiser and the JSX converter before it reaches components/icons. Record the source file and the export settings alongside the component, so a future redraw can be re-exported identically instead of re-cleaned by hand. Review custom glyphs at 16px in the actual product UI, not at 200% in Figma, because stroke and spacing decisions that look generous on a canvas look cramped in a toolbar. A disciplined export pipeline is what lets shadcn icons from designers sit invisibly next to library glyphs.",
+      },
+      { type: "h2", text: "Multi-brand and white-label theming" },
+      {
+        type: "p",
+        text: "**Tokens make white-label icons possible.** When one codebase serves several brands, shadcn icons must adapt per tenant without per-tenant code branches, and the token layer is what makes that feasible. Brand colour arrives as CSS variables per tenant, icons inherit currentColor, and the only per-brand assets are logos, which live outside the icon system by design. Teams building the best shadcn ui icons for Next.js white-label products should verify early that no icon hard-codes a brand colour, because a single hex value in a shared component breaks every tenant theme at once. With shadcn icons fully token-driven, onboarding a new brand becomes a theme file, not a code change, and that is the difference between a white-label product and a fork.",
+      },
+      {
+        type: "p",
+        text: "**Guard the exceptions explicitly.** White-label apps still need a few brand-specific glyphs, such as a tenant's product mark or a partner logo, and those belong in a clearly separated folder with a naming rule that marks them as tenant assets, never in the shared icon directory. A component that renders a tenant mark should accept the tenant as a prop and fall back to a neutral glyph when no mark exists, so a missing asset degrades to a clean default instead of an empty box. Document which shadcn icons are shared and which are tenant-scoped, because the next engineer will otherwise copy a tenant glyph into shared UI and ship one customer's brand to everyone. Boundaries written down are boundaries kept.",
+      },
+      { type: "h2", text: "Documenting the system for the next developer" },
+      {
+        type: "p",
+        text: "**Write the icon readme before you need it.** Every icon system eventually meets a developer who was not present at its creation, and that developer's first question is always which set, which sizes and where custom glyphs live. A short readme answering those three questions, with the mapping table and the wrapper location, saves a week of archaeology over the life of a project. Teams that maintain the best shadcn ui icons for Next.js treat this document as part of the system, updated in the same pull request as any icon change, so shadcn icons never become tribal knowledge. The best shadcn ui icons for Next.js are documented ones, because an undocumented system is one resignation away from becoming two systems.",
+      },
+      {
+        type: "p",
+        text: "**Show, do not just tell, in Storybook.** A Storybook page that renders every approved icon at its approved sizes, with its name and import path beside it, turns the readme into a tool developers actually open. Add a story for the wrapper defaults, one for icon-only buttons with their accessible labels, and one for the dark theme, so visual regressions surface in the same review loop as component changes. When a new glyph is proposed, its story entry forces the conversation this guide wants: does it belong to the family, does it duplicate an existing glyph, and does it pass the 16px test. That review habit is how shadcn icons stay a system as the team grows beyond its founders.",
+      },
+      { type: "h2", text: "Icon states: hover, active, disabled and loading" },
+      {
+        type: "p",
+        text: "**Give every interactive icon four visible states.** For shadcn icons, consistency across hover, active, disabled and loading states matters more than any single glyph choice, and shadcn icons that share one treatment for these states feel like a designed system rather than a loose collection. Teams choosing the best shadcn ui icons for Next.js should verify that their set draws a clean spinner, because shadcn icons in loading states are the ones users stare at longest. The best shadcn ui icons for Next.js also keep disabled glyphs legible at reduced opacity, so shadcn icons never disappear entirely when an action is unavailable.",
+      },
+      {
+        type: "p",
+        text: "**Disabled icons must stay recognisable, not vanish.** For shadcn icons, the standard treatment is the same glyph at reduced opacity with the pointer events removed, and shadcn icons handled this way still communicate what the action would be. Teams evaluating the best shadcn ui icons for Next.js should test disabled states in both themes, because shadcn icons that pass in light mode often fail contrast in dark mode. The best shadcn ui icons for Next.js pair this with a consistent hover treatment, so shadcn icons always signal interactivity the same way across the whole application.",
+      },
+      { type: "h2", text: "Responsive behaviour for icons on small screens" },
+      {
+        type: "p",
+        text: "**Shrink the chrome, not the meaning.** For shadcn icons, small screens force a choice between keeping every toolbar glyph and keeping the layout usable, and shadcn icons in a collapsing toolbar should hide low-priority actions behind a menu rather than shrinking below 16px. Teams building the best shadcn ui icons for Next.js mobile layouts should define which icons survive at each breakpoint, because shadcn icons that crowd a 360px viewport make the product feel broken. The best shadcn ui icons for Next.js handle this through a documented responsive plan, so shadcn icons degrade gracefully instead of overflowing.",
+      },
+      {
+        type: "p",
+        text: "**Touch targets matter more than pixel sizes.** For shadcn icons, a 16px glyph inside a 44px touch target is correct on mobile, and shadcn icons that sit in smaller targets cause mis-taps that users blame on the product. Teams designing the best shadcn ui icons for Next.js responsive screens should audit every icon-only button's hit area at the smallest breakpoint, because shadcn icons in cramped headers are the usual offenders. The best shadcn ui icons for Next.js keep the same glyph across breakpoints and change only the surrounding chrome, so shadcn icons stay familiar while the layout adapts around them.",
+      },
+      { type: "h2", text: "Directional icons and right-to-left layouts" },
+      {
+        type: "p",
+        text: "**Arrows must flip when the layout flips.** For shadcn icons, directional glyphs such as back, forward and chevrons need mirroring in right-to-left layouts, and shadcn icons that ignore direction make navigation feel wrong for a large audience. Teams shipping the best shadcn ui icons for Next.js internationally should use logical utilities that flip automatically, because shadcn icons handled with explicit per-language overrides rot quickly. The best shadcn ui icons for Next.js document which glyphs are directional and which are not, so shadcn icons like search or settings stay put while arrows mirror correctly.",
+      },
+      {
+        type: "p",
+        text: "**Test direction with real content, not screenshots.** For shadcn icons, the reliable check is running the application in an RTL locale and tabbing through navigation, dialogs and pagination, and shadcn icons that fail this test usually fail because a transform was applied to the wrong element. Teams maintaining the best shadcn ui icons for Next.js across locales should add one RTL screenshot to their visual regression set, because shadcn icons in mirrored layouts are easy to verify and embarrassing to miss. The best shadcn ui icons for Next.js treat direction as a first-class requirement, so shadcn icons never become an afterthought for international users.",
+      },
+      { type: "h2", text: "A process for requesting new icons" },
+      {
+        type: "p",
+        text: "**New glyphs should arrive through a request, not a shortcut.** For shadcn icons, the healthiest process is a short request template asking for the meaning, the screen and the closest existing glyph, and shadcn icons added through this process rarely duplicate something the set already covers. Teams running the best shadcn ui icons for Next.js at scale should review requests weekly, because shadcn icons requested ad hoc during feature work are how second families sneak into a codebase. The best shadcn ui icons for Next.js stay coherent when every addition is judged against the existing inventory, so shadcn icons grow deliberately instead of accidentally.",
+      },
+      {
+        type: "p",
+        text: "**Reject requests that the set already answers.** For shadcn icons, most requests turn out to be a naming problem rather than a coverage gap, and shadcn icons already in the set can usually serve once the requester sees them at production size. Teams stewarding the best shadcn ui icons for Next.js should answer requests with a screenshot of the closest existing glyph first, because shadcn icons multiply fastest when nobody checks. The best shadcn ui icons for Next.js grow slowly by design, so shadcn icons added this year still belong to the same visual family next year.",
+      },
+      { type: "h2", text: "Onboarding new developers onto the icon system" },
+      {
+        type: "p",
+        text: "**A thirty-minute onboarding saves weeks of drift.** For shadcn icons, new developers should be shown the wrapper, the inventory document and the mapping table on their first day, and shadcn icons explained this way become a system they respect rather than a folder they improvise in. Teams hiring around the best shadcn ui icons for Next.js should include the icon conventions in their onboarding checklist, because shadcn icons are usually the first thing a newcomer touches and the easiest place to introduce inconsistency. The best shadcn ui icons for Next.js are taught, not assumed, so shadcn icons stay consistent even as the team turns over.",
+      },
+      {
+        type: "p",
+        text: "**Pair the first icon task with a review.** For shadcn icons, the most effective onboarding step is a small first task that adds or swaps a glyph, reviewed against the checklist in this guide, and shadcn icons handled in a reviewed first task teach the conventions better than any document alone. Teams scaling the best shadcn ui icons for Next.js should treat that review as a teaching moment, because shadcn icons reviewed early prevent the habits that audits later punish. The best shadcn ui icons for Next.js survive team growth when every developer's first icon change is reviewed, so shadcn icons remain a shared standard rather than personal preference.",
+      },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "Can I use icons other than Lucide in shadcn/ui?" },
       {
@@ -253,7 +379,7 @@ export const POSTS_B: BlogPost[] = [
     keyword: "SVG icons in Vue 3",
     date: "2026-10-16",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 34,
     icon: "layers",
     tint: "#059669",
     content: [
@@ -435,6 +561,132 @@ export const POSTS_B: BlogPost[] = [
         type: "p",
         text: "One Vue-specific papercut deserves a mention: scoped styles in single-file components do not automatically reach into child components, and icon components are children. A rule like .toolbar svg in a scoped block will not recolour an icon rendered by a child component, which surprises developers who expect global CSS behaviour. The clean solutions are to pass colour as a class or style on the icon component itself, since attribute fallthrough puts your class on the rendered svg, or to use a :deep() selector deliberately for the rare container-level override. Passing presentation at the call site is the better habit, because it keeps the wrapper pattern intact and survives refactors that swap the underlying icon source.",
       },
+      { type: "h2", text: "Choosing an approach for your app size" },
+      {
+        type: "p",
+        text: "**Match the approach to the app, not to the trend.** A landing page with twenty glyphs and a dashboard with two hundred have different needs, and Vue SVG icons should be chosen against the app in front of you rather than the approach that is fashionable this month. Small apps are best served by local components or lucide-vue-next, because both keep the dependency surface tiny and the behaviour obvious. When developers ask how to use SVG icons in Vue 3 for a large product, the answer shifts toward unplugin-icons or @nuxt/icon, where build-time resolution and server rendering justify the extra configuration. Vue SVG icons chosen this way stay cheap at every scale, because the approach grows with the app instead of fighting it.",
+      },
+      {
+        type: "p",
+        text: "**Count sets before you count icons.** The decision that matters most for Vue SVG icons is how many families the product genuinely needs, since one family with any integration beats three families with the best integration. If the answer is one, lucide-vue-next is almost always the right call, and the remaining work is wrapper discipline rather than tooling. If the answer is genuinely two or three, for example interface glyphs plus brand marks, then the question of how to use SVG icons in Vue 3 becomes a question of boundaries: which set owns which territory, documented where the wrapper lives. Vue SVG icons with documented territories survive redesigns, while undocumented mixes quietly become the visual debt the next team inherits.",
+      },
+      { type: "h2", text: "Naming conventions in Vue templates" },
+      {
+        type: "p",
+        text: "**One naming rule prevents a hundred template bugs.** Vue templates resolve components by name, so Vue SVG icons need a naming convention that survives auto-import, manual import and code review alike. The reliable habit is to use the library's PascalCase component name in script setup and the same name in the template, and to give local glyphs the same treatment with an Icon suffix, so SearchIcon reads as a component everywhere it appears. When teams document how to use SVG icons in Vue 3, the naming rule deserves its own paragraph, because inconsistent names are the most common reason a template renders nothing while the build stays green. Vue SVG icons with consistent names are greppable, reviewable and refactorable, which is everything a growing codebase needs from them.",
+      },
+      {
+        type: "p",
+        text: "**Keep user-facing names separate from component names.** Settings screens and category managers often let users pick an icon, and the stored key should be a stable slug such as home or alerts, translated to a component in exactly one map, rather than a component name persisted in a database. This separation means Vue SVG icons can be renamed, swapped or restyled without migrating stored data, and it keeps user input out of the component resolution path entirely. The guide to how to use SVG icons in Vue 3 in admin tools should therefore start with the allow-list map pattern, since it is both the secure and the maintainable choice. Vue SVG icons behind a map also make testing trivial: render the map, assert every entry resolves, and no picker can ever reference a glyph that does not exist.",
+      },
+      { type: "h2", text: "Icons in navigation, layouts and routing" },
+      {
+        type: "p",
+        text: "**Navigation icons carry the product's wayfinding.** In a Vue Router layout, Vue SVG icons in the sidebar and top bar are the first thing users learn and the last thing they forgive when it changes, so navigation glyphs should be chosen from the core of the set and frozen early. Active states deserve a deliberate treatment: a filled variant, a colour change, or a weight shift, applied consistently across every nav item, rather than a different trick per section. When teams plan how to use SVG icons in Vue 3 navigation, they should prototype the full sidebar with real labels and real active states, because Vue SVG icons that look fine in isolation often crowd each other at 20px beside 14px text. Navigation is where icon discipline pays off most visibly, since users see it on every single screen.",
+      },
+      {
+        type: "p",
+        text: "**Reserve slots for badges and indicators.** Notification dots, counts and status pips sit on top of navigation Vue SVG icons, and they need reserved space and a positioning contract, or they will shift layout when they appear. The robust pattern is a relatively positioned wrapper with an absolutely positioned badge, sized in the same token scale as the icon, so the badge never moves the glyph beneath it. Document the badge sizes alongside the icon sizes in the wrapper, because a badge drawn at an ad-hoc size is the classic detail that makes an otherwise careful layout feel unfinished. For teams learning how to use SVG icons in Vue 3 at product scale, the badge contract is a small rule with an outsized effect on perceived polish, and Vue SVG icons with stable badges read as a finished system.",
+      },
+      { type: "h2", text: "Dark mode and theming in Vue apps" },
+      {
+        type: "p",
+        text: "**Theme through CSS, never through icon props.** Because every Vue SVG icons approach ultimately renders SVG with currentColor, theming is a CSS concern: set colour on the element or an ancestor and the glyph follows, including through Tailwind's dark variant. The failure to avoid is passing hard-coded colours as props to individual icons, which creates a second theming system that dark mode cannot reach. When documenting how to use SVG icons in Vue 3 with dark mode, the rule to state plainly is that no icon component accepts a colour prop at all; colour arrives from context, period. Vue SVG icons themed this way survive every future theme change, because there is exactly one place where colour is decided.",
+      },
+      {
+        type: "p",
+        text: "**Semantic colours need tokens, not hex values.** Success, warning and error glyphs should draw their colours from design tokens, so a rebrand or an accessibility-driven contrast fix propagates to every status icon at once. In Vue, the natural home for these tokens is the same CSS variable layer that drives the rest of the theme, consumed through Tailwind utilities or plain classes on the icon component. Teams that treat how to use SVG icons in Vue 3 as a token problem rather than a per-icon problem find that contrast audits become mechanical: change the token, screenshot the states, done. Vue SVG icons in status roles are also the ones most likely to be the sole carrier of meaning, so pair every status colour with a label or a shape difference, never colour alone.",
+      },
+      { type: "h2", text: "Icons in tables, forms and dashboards" },
+      {
+        type: "p",
+        text: "**Dense Vue screens reward restraint.** Dashboards pack Vue SVG icons into tables, filters, cards and charts, and the discipline that keeps them readable is a strict size scale: 16px for row actions, 20px for toolbar actions, 24px only for section headers. Anything larger in a dense screen competes with the data, and anything smaller than 16px turns to mush on standard displays. When planning how to use SVG icons in Vue 3 dashboards, prototype with real data density, because Vue SVG icons that look balanced in an empty Figma frame often feel noisy beside ten columns of numbers. The dashboard test is simple: if removing an icon makes the row clearer, the icon was decoration, and decoration has no place in dense UI.",
+      },
+      {
+        type: "p",
+        text: "**Form icons should hint, never replace labels.** A search glyph inside a filter input or a calendar glyph beside a date field helps users scan, but Vue SVG icons in forms must never carry meaning that the label does not, since screen readers and autofill users may never encounter the glyph. The accessible pattern is a visible label plus a decorative icon marked aria-hidden, with status icons in validation messages treated as reinforcements of text that already exists. For teams writing guidance on how to use SVG icons in Vue 3 forms, this distinction is the whole accessibility story: decorative glyphs are hidden, meaningful glyphs are labelled, and no glyph is the only signal. Vue SVG icons used this way make forms faster to scan for everyone without excluding anyone.",
+      },
+      { type: "h2", text: "Animating Vue icons with transitions" },
+      {
+        type: "p",
+        text: "**Vue transitions make icon motion trivial to add and easy to overdo.** The built-in Transition component can rotate a chevron, fade a spinner or morph a menu glyph with a few lines, and Vue SVG icons respond to these transitions naturally because they are ordinary components. The discipline is to animate state changes only: an accordion chevron rotating on open, a refresh glyph spinning during a fetch, a check drawing in on success. When teams explore how to use SVG icons in Vue 3 with motion, they should budget motion the way they budget colour, as a small set of approved transitions documented beside the icon wrapper. Vue SVG icons with approved motion feel alive; Vue SVG icons with improvised motion feel distracting, and the difference is entirely the documentation.",
+      },
+      {
+        type: "p",
+        text: "**Always provide a reduced-motion path.** Vue's transition system pairs naturally with the prefers-reduced-motion media query, and every icon animation should have a static equivalent that appears instantly when the user asks for less motion. The practical habit is to wrap motion classes in a media query or a Tailwind motion-safe variant, and to test the reduced-motion rendering of every animated icon, not just the page-level transitions. For developers documenting how to use SVG icons in Vue 3 accessibly, reduced motion belongs in the same checklist as aria labels, because motion sensitivity is as real as any other accessibility need. Vue SVG icons that respect the user's motion preference are a quiet signal that the product was built with care.",
+      },
+      { type: "h2", text: "Testing icons with Vitest and visual regression" },
+      {
+        type: "p",
+        text: "**Icon failures are silent, so test for them explicitly.** A renamed glyph, a missing Iconify registration or a broken auto-import renders as an empty box with no console error, which means Vue SVG icons need tests that a type checker cannot provide. The highest-value test is a visual regression pass over the screens densest with iconography: navigation, toolbars, empty states and dashboards. When teams decide how to use SVG icons in Vue 3 in a tested codebase, they should add a smoke test that server-renders a representative page and asserts svg elements exist in the HTML, catching registration and hydration bugs before users do. Vue SVG icons covered this way fail loudly in CI instead of silently in production.",
+      },
+      {
+        type: "p",
+        text: "**Unit-test the wrapper, screenshot the rest.** The AppIcon wrapper deserves unit tests: every supported name resolves, every size token maps to a real dimension, and icon-only buttons expose an accessible name. Beyond the wrapper, screenshot tests carry the weight, because icon bugs are visual by nature and a pixel diff catches what assertions cannot. Keep the screenshot set small and stable, a dozen screens at most, so the suite stays fast enough to run on every pull request. For guidance on how to use SVG icons in Vue 3 at team scale, the testing paragraph matters more than it seems: it is what lets a team change icon libraries later with confidence, since the screenshots prove the new set renders everywhere the old one did.",
+      },
+      { type: "h2", text: "Sharing icons across a monorepo" },
+      {
+        type: "p",
+        text: "**A shared icon package is a design system decision.** In a monorepo with a Nuxt app, a Storybook and a component library, Vue SVG icons should live in exactly one shared package, versioned and documented, rather than duplicated per app. The shared package exports the wrapper, the allow-list map and the local glyphs, and each app consumes it as a dependency, so an icon change ships everywhere at once. When architects plan how to use SVG icons in Vue 3 across workspaces, the versioning rule matters most: pin the icon package at the workspace root and upgrade it in one dedicated change, because drifting versions produce the maddening bug where a glyph renders in one app and not another. Vue SVG icons shared this way stay boring, and boring is the goal.",
+      },
+      {
+        type: "p",
+        text: "**Peer dependencies keep consumers free.** If the shared package bundles a specific icon library, consumers inherit that choice and can end up with two copies of the set when they use the same library at a different version. The friendlier pattern is to accept icons as slots or component props in shared components, so applications render library chrome around their own icon system, or to declare the icon package as a peer dependency with a stated range. Document the choice in the package readme, because bundle duplication is the kind of bloat consumers notice and blame on the library. For teams scaling how to use SVG icons in Vue 3 beyond one app, the slot pattern is what keeps the icon decision at the application layer, where the one-set rule can actually be enforced.",
+      },
+      { type: "h2", text: "Accessibility deep-dive for icon buttons" },
+      {
+        type: "p",
+        text: "**An icon-only button is a button with a hidden label requirement.** Every Vue SVG icons button without visible text needs an accessible name, delivered through an aria-label, an sr-only span, or a title that assistive technology actually exposes, and the label should name the action, not the glyph: Search products rather than Magnifying glass. The wrapper is the right place to enforce this, by requiring a label prop whenever no visible text is passed, so the rule cannot be forgotten at individual call sites. When writing standards for how to use SVG icons in Vue 3 accessibly, this requirement should be stated as a hard rule with examples, because icon-only buttons are the single most common accessibility failure in Vue applications. Vue SVG icons without labels are decoration; with labels, they are controls.",
+      },
+      {
+        type: "p",
+        text: "**Focus visibility is part of the icon contract.** An icon button that shows no focus ring is unusable by keyboard, no matter how perfect its label, so the wrapper or the button component must guarantee a visible focus state that survives theming. Test focus order and visibility with a keyboard alone, tabbing through navigation, toolbars and dialogs, and confirm that every Vue SVG icons control announces itself and shows where focus sits. For teams finalising how to use SVG icons in Vue 3, a keyboard pass over icon-heavy screens is a fifteen-minute check that catches the failures automated tools miss. Vue SVG icons that are labellable, focusable and motion-respectful are not a nice-to-have; they are the baseline for shipping to real users.",
+      },
+      { type: "h2", text: "Icons in lists and transitions" },
+      {
+        type: "p",
+        text: "**TransitionGroup reveals icon mistakes instantly.** For Vue SVG icons, list animations expose misaligned glyphs because moving rows draw the eye to every icon, and Vue SVG icons that share one size and stroke survive the motion while mixed sets look chaotic. Teams learning how to use SVG icons in Vue 3 lists should keep icon rendering inside the transitioning item component, because Vue SVG icons rendered outside it lag behind the animation. The guidance on how to use SVG icons in Vue 3 with transitions is simple: stable sizes, stable slots, and Vue SVG icons that never change identity mid-animation.",
+      },
+      {
+        type: "p",
+        text: "**Keep list icons out of the transition payload.** For Vue SVG icons, the animation should move the row while the icon rides along unchanged, and Vue SVG icons that re-render or swap during a transition cause flicker that users read as a bug. Teams practising how to use SVG icons in Vue 3 with TransitionGroup should key list items stably and avoid conditional icon swaps inside animated rows, because Vue SVG icons with unstable keys remount instead of moving. The rule for how to use SVG icons in Vue 3 in animated lists is that icons are passengers, never drivers, and Vue SVG icons treated as passengers animate flawlessly.",
+      },
+      { type: "h2", text: "Responsive sizing for Vue icons" },
+      {
+        type: "p",
+        text: "**Breakpoints should change chrome, not glyphs.** For Vue SVG icons, the glyph itself should stay the same across breakpoints while the surrounding layout adapts, and Vue SVG icons that change size per breakpoint create a product that feels different on every device. Teams planning how to use SVG icons in Vue 3 responsively should define size tokens per role rather than per screen, because Vue SVG icons sized by role stay consistent from phone to desktop. The advice on how to use SVG icons in Vue 3 at responsive scale is to audit the smallest viewport first, since Vue SVG icons that work at 360px work everywhere.",
+      },
+      {
+        type: "p",
+        text: "**Hide actions behind menus instead of shrinking icons.** For Vue SVG icons, a toolbar that shrinks glyphs below 16px on small screens sacrifices legibility for completeness, and Vue SVG icons hidden behind an overflow menu preserve both. Teams designing how to use SVG icons in Vue 3 for mobile should decide per toolbar which actions survive at each breakpoint, because Vue SVG icons without a responsive plan overflow or crowd. The practice for how to use SVG icons in Vue 3 on small screens is a documented collapse order, so Vue SVG icons degrade predictably instead of breaking the layout.",
+      },
+      { type: "h2", text: "Directional icons and RTL in Vue" },
+      {
+        type: "p",
+        text: "**Mirror arrows, never logos, in RTL layouts.** For Vue SVG icons, directional glyphs such as back and forward must flip when the document direction changes, and Vue SVG icons that ignore direction confuse users who read right to left. Teams implementing how to use SVG icons in Vue 3 for international products should rely on logical CSS properties that flip automatically, because Vue SVG icons handled with manual overrides rot with every redesign. The standard for how to use SVG icons in Vue 3 internationally is a documented list of directional glyphs, so Vue SVG icons mirror exactly where they should and nowhere else.",
+      },
+      {
+        type: "p",
+        text: "**Verify RTL with a real locale run.** For Vue SVG icons, screenshots in English cannot prove RTL correctness, and Vue SVG icons in a mirrored layout must be checked by running the app in an RTL locale and navigating through it. Teams testing how to use SVG icons in Vue 3 across locales should add one RTL screen to their visual regression suite, because Vue SVG icons that fail there are cheap to fix and costly to ship. The discipline for how to use SVG icons in Vue 3 at global scale is a locale pass before every release, so Vue SVG icons never become an afterthought for half the world's readers.",
+      },
+      { type: "h2", text: "A request process for new Vue icons" },
+      {
+        type: "p",
+        text: "**Route new glyphs through a request template.** For Vue SVG icons, a short template asking for the meaning, the screen and the nearest existing glyph prevents most duplicates, and Vue SVG icons added through requests stay inside the documented family. Teams formalising how to use SVG icons in Vue 3 at scale should review requests in the same meeting as design-system changes, because Vue SVG icons requested during feature work are how second families enter a codebase. The habit for how to use SVG icons in Vue 3 in growing teams is weekly request review, so Vue SVG icons grow deliberately rather than accidentally.",
+      },
+      {
+        type: "p",
+        text: "**Answer requests with the existing set first.** For Vue SVG icons, the most common outcome of a request is discovering the set already covers it, and Vue SVG icons found this way cost nothing and keep the system intact. Teams stewarding how to use SVG icons in Vue 3 should reply to each request with a screenshot of the closest existing glyph at production size, because Vue SVG icons judged at poster size mislead requesters. The principle for how to use SVG icons in Vue 3 over years is slow, deliberate growth, so Vue SVG icons added today still belong to the same family tomorrow.",
+      },
+      { type: "h2", text: "Onboarding developers onto the Vue icon system" },
+      {
+        type: "p",
+        text: "**Teach the wrapper on day one.** For Vue SVG icons, a new developer's first lesson should be the AppIcon wrapper, the size tokens and the allow-list map, and Vue SVG icons explained through the wrapper become a system rather than a pile of imports. Teams onboarding around how to use SVG icons in Vue 3 should put icon conventions in the onboarding checklist, because Vue SVG icons are often the first code a newcomer touches. The guidance for how to use SVG icons in Vue 3 in hiring teams is that conventions taught early are conventions kept, so Vue SVG icons stay consistent through turnover.",
+      },
+      {
+        type: "p",
+        text: "**Review the first icon change carefully.** For Vue SVG icons, a newcomer's first glyph addition or swap, reviewed against the checklist, teaches more than any document, and Vue SVG icons handled in a reviewed first task set the standard for everything after. Teams practising how to use SVG icons in Vue 3 with new hires should treat that review as teaching, because Vue SVG icons reviewed early prevent habits that audits later punish. The rule for how to use SVG icons in Vue 3 at team scale is that every developer's first icon change is reviewed, so Vue SVG icons remain a shared standard.",
+      },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "Which Vue icon approach is best for Nuxt?" },
       {
@@ -473,7 +725,7 @@ export const POSTS_B: BlogPost[] = [
     keyword: "SVG icons in Astro",
     date: "2026-10-14",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 32,
     icon: "rocket",
     tint: "#D97706",
     content: [
@@ -640,6 +892,132 @@ export const POSTS_B: BlogPost[] = [
           "Designer exports are optimised before they enter the repo, and favicons ship as SVG with generated fallbacks.",
         ],
       },
+      { type: "h2", text: "Choosing a pattern per page type" },
+      {
+        type: "p",
+        text: "**Let the page type choose the pattern.** A marketing homepage, a documentation site and a blog have different icon needs, and Astro SVG icons should follow the page rather than a single house rule. Marketing pages want a handful of large, expressive glyphs that can be inlined once and reused; documentation sites want hundreds of small, consistent interface glyphs best served by a local data package; blogs usually need almost nothing beyond social and share marks. When teams plan how to use SVG icons in Astro, mapping patterns to page types first prevents the common mistake of installing a heavy icon system for a site that needed twelve glyphs. Astro SVG icons chosen per page stay proportional to the site they serve.",
+      },
+      {
+        type: "p",
+        text: "**Count glyphs before choosing machinery.** The most reliable scoping question for Astro SVG icons is simply how many distinct icons the finished site will contain, because that number decides everything downstream. Under thirty, inline components in a shared folder are unbeatable: zero dependencies, zero build plugins, full control. Between thirty and a few hundred, a local data package with an Icon component earns its place by removing duplication. Above that, or across many sets, a sprite or a build-time import system starts to pay off. Guidance on how to use SVG icons in Astro should therefore open with a count, not a package recommendation, since Astro SVG icons at the wrong scale cost either maintenance or bytes for no benefit.",
+      },
+      { type: "h2", text: "Icons in layouts and components" },
+      {
+        type: "p",
+        text: "**Props make icons reusable without islands.** In Astro components, Astro SVG icons work best as props: a Card component accepts an icon name and renders it from the shared Icon component, so content authors never touch SVG markup. The prop contract should be small, name plus size plus an optional class, and the component should resolve the name against a curated map rather than accepting arbitrary identifiers, which keeps the rendered set predictable. When documenting how to use SVG icons in Astro layouts, the prop pattern deserves emphasis, because it is what lets a layout stay zero-JavaScript while still varying its iconography per page. Astro SVG icons passed as props are data, not code, and data is easier to audit.",
+      },
+      {
+        type: "p",
+        text: "**Slots handle the cases props cannot.** Sometimes an icon needs custom positioning, a wrapper element or a companion label that a name prop cannot express, and Astro slots solve this cleanly: the caller passes full markup into a named slot and the layout places it. The rule of thumb is props for standard glyphs and slots for exceptional compositions, with the exceptional cases kept rare enough to review individually. Teams standardising how to use SVG icons in Astro should write this rule down, because without it every caller invents a slightly different composition and the layout's visual rhythm erodes. Astro SVG icons through slots stay flexible without surrendering consistency, as long as the slot contract is documented beside the layout.",
+      },
+      { type: "h2", text: "Icons in content collections and MDX" },
+      {
+        type: "p",
+        text: "**Frontmatter can carry icon names safely.** Content collections let authors declare an icon per entry, such as a feature or a team member, and Astro SVG icons render from that frontmatter through the same curated map used by layouts. The schema should validate the icon field against the allowed list at build time, so a typo fails the build with a clear message instead of rendering an empty box in production. When explaining how to use SVG icons in Astro content, the schema validation step is the part most guides skip and most sites need, because content authors are not developers and should never debug a silent icon failure. Astro SVG icons from validated frontmatter are content, and content with a schema is content that scales.",
+      },
+      {
+        type: "p",
+        text: "**MDX components beat raw SVG in prose.** Inside MDX articles, authors should invoke an Icon component by name rather than pasting SVG markup, because pasted markup drifts, bloats the article and breaks when the design system changes. Register the Icon component for MDX once, document the allowed names beside the authoring guide, and let writers focus on words while the component guarantees size, colour and accessibility defaults. For teams publishing how to use SVG icons in Astro for documentation sites, the MDX pattern is the difference between a docs site that stays consistent for years and one that accumulates a different icon style per article. Astro SVG icons in prose should be as boring and reliable as the headings around them.",
+      },
+      { type: "h2", text: "Dark mode and theming for static icons" },
+      {
+        type: "p",
+        text: "**Static sites theme icons with CSS, not JavaScript.** Astro SVG icons inherit currentColor, so a site that toggles dark mode through a class on the document element needs no icon-specific JavaScript at all: the same CSS variables that recolour text recolour glyphs. The trap is a hard-coded fill inside an exported SVG, which ignores the theme and glows wrong in dark mode, so every icon source should be audited for fixed colours before it enters the shared folder. When writing about how to use SVG icons in Astro with theming, the audit step belongs in the guide, because static sites have no runtime to paper over a bad fill. Astro SVG icons themed through variables are free; themed through per-icon overrides, they are a maintenance burden.",
+      },
+      {
+        type: "p",
+        text: "**Semantic colours deserve tokens in static sites too.** Success, warning and error states on a static site still need consistent hues, and those hues should come from design tokens rather than from an author's memory of a hex value. Define the tokens once in the global stylesheet, consume them through utility classes on the icon component, and verify contrast in both themes with a screenshot pass. Teams that treat how to use SVG icons in Astro as a token problem find that a rebrand touches one file instead of every page, which is precisely the leverage static sites are supposed to provide. Astro SVG icons in semantic roles should also never rely on colour alone: pair the hue with a distinct shape or a text label, so the meaning survives monochrome printing and colour vision differences.",
+      },
+      { type: "h2", text: "Icons with Tailwind in Astro" },
+      {
+        type: "p",
+        text: "**Tailwind utilities are the natural sizing language.** In an Astro plus Tailwind project, Astro SVG icons take their size from utility classes such as h-4 w-4 applied to the icon component, and the component must forward class to the rendered svg for this to work. The convention to document is a size scale mapped to roles: 16px for inline text icons, 20px for navigation, 24px for section headers, with larger display sizes reserved for feature graphics. When guides cover how to use SVG icons in Astro with Tailwind, they should stress class forwarding, because a component that swallows class is the most common reason utilities appear to fail. Astro SVG icons sized by utilities stay consistent with the spacing and typography scales around them, which is the whole point of a utility system.",
+      },
+      {
+        type: "p",
+        text: "**Dark variants compose without extra work.** Tailwind's dark variant recolours text and therefore recolours Astro SVG icons automatically when they use currentColor, so a dark-mode icon strategy in Astro is usually just the existing text colour strategy applied consistently. The exceptions to check are icons inside components with their own background, such as cards or callouts, where the icon should inherit the card's foreground token rather than the page's. For teams documenting how to use SVG icons in Astro with Tailwind, a short section on these nested contexts prevents the most common dark-mode icon bug, which is a glyph that is technically themed but practically invisible against its container. Astro SVG icons in Tailwind projects reward the same discipline as every other utility: consistent tokens, no one-off values.",
+      },
+      { type: "h2", text: "Optimising icon SVG at build time" },
+      {
+        type: "p",
+        text: "**Optimise at build time, not by hand.** Designer exports and library SVGs arrive with metadata, decimal-heavy paths and redundant groups, and Astro SVG icons should be cleaned by a build step rather than by developers editing path data. An SVGO pass in the build, or a pre-commit optimisation of the shared icon folder, typically shrinks glyphs substantially and removes the fixed width and height attributes that fight utility sizing. When explaining how to use SVG icons in Astro efficiently, the optimisation step should be presented as infrastructure, configured once and forgotten, rather than as a chore repeated per icon. Astro SVG icons optimised at build time stay small without anyone remembering to optimise them.",
+      },
+      {
+        type: "p",
+        text: "**Measure the icon payload per page.** Astro's zero-JavaScript promise concerns scripts, but icon markup still travels in HTML, and a page that inlines the same large glyph twenty times pays for it in bytes. The check is simple: build the site, inspect the largest pages, and count icon markup repetition; where one glyph repeats heavily, a sprite or a shared symbol definition earns its place. Teams that take how to use SVG icons in Astro seriously should add this check to their performance routine, because icon bytes are invisible in a Lighthouse JavaScript audit and easy to miss. Astro SVG icons measured per page stay honest about their cost, and honest costs are what keep static sites fast.",
+      },
+      { type: "h2", text: "Icons inside framework islands" },
+      {
+        type: "p",
+        text: "**Islands should reuse the static icon contract.** When an Astro page hydrates a React, Vue or Svelte island, Astro SVG icons inside that island come from the island's own icon package, and the risk is a second visual system appearing inside an otherwise consistent page. The fix is a shared decision: either the island renders icons from the same family and size scale as the static shell, or the island accepts icons as props from the Astro parent, which renders them statically and passes them in. When documenting how to use SVG icons in Astro with islands, the prop-passing pattern deserves a worked example, because it is the only approach that keeps the island's iconography identical to the shell's without duplicating the set. Astro SVG icons that cross the island boundary through props are the most reliable kind.",
+      },
+      {
+        type: "p",
+        text: "**Keep island icon JavaScript minimal.** An island that imports a full icon library for two glyphs defeats Astro's partial hydration story, so island components should import icons by name from a tree-shakeable package, exactly as a standalone app would. Audit island bundles with the same discipline as page scripts, and prefer passing static SVG from the Astro parent whenever the glyph never changes after hydration. For teams scaling how to use SVG icons in Astro with many islands, this audit is what prevents the slow creep of duplicated icon code into every hydrated component. Astro SVG icons in islands should cost the same as Astro SVG icons anywhere else: exactly the glyphs used, nothing more.",
+      },
+      { type: "h2", text: "Accessibility for static iconography" },
+      {
+        type: "p",
+        text: "**Static does not mean automatically accessible.** Astro SVG icons that are purely decorative must carry aria-hidden, and icon-only links and buttons need accessible names, just as in any framework; the static nature of the site changes nothing about these requirements. The advantage Astro offers is that these attributes can be baked into the shared Icon component once, so every usage inherits correct behaviour without author intervention. When guides describe how to use SVG icons in Astro accessibly, the shared component is the hero of the story, because it turns accessibility from a per-usage reminder into a default. Astro SVG icons through a component with aria-hidden by default and a label prop for meaningful cases are accessible by construction.",
+      },
+      {
+        type: "p",
+        text: "**Test the rendered HTML, not the source.** Because Astro renders at build time, the accessibility check that matters is the built HTML: view source on a representative page and confirm decorative glyphs are hidden and icon-only controls are labelled. Add this check to the build review for icon-heavy templates, and consider an automated HTML audit that flags svg elements without aria-hidden or a title where a label is expected. For teams finalising how to use SVG icons in Astro, a built-HTML check catches the failures that source review misses, such as a component that renders correctly in isolation but loses its label when composed inside a link. Astro SVG icons verified in output HTML are verified where users actually meet them.",
+      },
+      { type: "h2", text: "Growing the icon system as the site grows" },
+      {
+        type: "p",
+        text: "**Start small and let the system earn complexity.** The healthiest Astro SVG icons trajectory starts with inline components, graduates to a data package when the count justifies it, and adopts sprites or build-time imports only when repetition is measured. Each graduation should be a deliberate pull request with a reason, not a fashion-driven rewrite, because every layer of machinery is a layer someone must maintain. When advising how to use SVG icons in Astro for a growing site, the graduation ladder is more useful than any single recommendation, since it tells a team not just what to use now but when to change. Astro SVG icons that grow by measured steps never carry machinery the site has not yet earned.",
+      },
+      {
+        type: "p",
+        text: "**Document the current rung of the ladder.** Wherever the system sits today, a short document stating the approach, the allowed sets, the size scale and the migration path to the next rung saves every future contributor from guessing. Update that document in the same pull request as any icon change, and review it when the glyph count crosses a threshold, such as fifty or two hundred, since thresholds are the honest trigger for graduation. Teams that maintain how to use SVG icons in Astro as living documentation find that onboarding a new contributor takes minutes rather than days. Astro SVG icons with a written system outlast the people who built them, which is the truest test of any engineering choice.",
+      },
+      { type: "h2", text: "Responsive sizing for static icons" },
+      {
+        type: "p",
+        text: "**Static pages still need a responsive icon plan.** For Astro SVG icons, the glyph should stay constant while the layout adapts around it, and Astro SVG icons that change size per breakpoint make a site feel different on every device. Teams planning how to use SVG icons in Astro responsively should size icons by role rather than by screen, because Astro SVG icons sized by role stay consistent from phone to desktop. The advice on how to use SVG icons in Astro at responsive scale is to check the smallest viewport first, since Astro SVG icons that work at 360px work everywhere else.",
+      },
+      {
+        type: "p",
+        text: "**Collapse toolbars instead of shrinking glyphs.** For Astro SVG icons, shrinking below 16px on small screens trades legibility for completeness, and Astro SVG icons hidden behind a menu preserve both. Teams designing how to use SVG icons in Astro for mobile should define a collapse order per toolbar, because Astro SVG icons without a plan overflow or crowd. The practice for how to use SVG icons in Astro on small screens is a documented order, so Astro SVG icons degrade predictably instead of breaking the layout.",
+      },
+      { type: "h2", text: "Directional icons and RTL for static sites" },
+      {
+        type: "p",
+        text: "**Mirror arrows when the page direction flips.** For Astro SVG icons, directional glyphs such as back, forward and chevrons must mirror in right-to-left layouts, and Astro SVG icons that ignore direction confuse readers who scan right to left. Teams implementing how to use SVG icons in Astro internationally should use logical CSS properties that flip automatically, because Astro SVG icons handled with manual overrides rot with every redesign. The standard for how to use SVG icons in Astro across locales is a documented list of directional glyphs, so Astro SVG icons mirror exactly where they should.",
+      },
+      {
+        type: "p",
+        text: "**Check RTL in the built HTML.** For Astro SVG icons, the verification that matters is the built page in an RTL locale, navigated end to end, and Astro SVG icons that fail there are cheap to fix before release. Teams testing how to use SVG icons in Astro globally should add one RTL page to their visual checks, because Astro SVG icons in mirrored layouts are easy to verify and embarrassing to miss. The discipline for how to use SVG icons in Astro at global scale is a locale pass before launch, so Astro SVG icons never become an afterthought.",
+      },
+      { type: "h2", text: "Icons in Starlight and documentation themes" },
+      {
+        type: "p",
+        text: "**Docs themes bring their own icon conventions.** For Astro SVG icons, a Starlight-based documentation site already ships its own iconography for callouts, navigation and search, and Astro SVG icons added by authors should match that existing language rather than introducing a second family. Teams learning how to use SVG icons in Astro for documentation should first inventory what the theme already provides, because Astro SVG icons that duplicate theme glyphs create visual noise. The guidance on how to use SVG icons in Astro docs is to extend the theme's set sparingly, so Astro SVG icons feel native to the docs rather than pasted on.",
+      },
+      {
+        type: "p",
+        text: "**Custom docs glyphs belong in one override file.** For Astro SVG icons, any glyph beyond the theme's set should live in a single documented override location, and Astro SVG icons added anywhere else scatter across the docs and drift. Teams managing how to use SVG icons in Astro documentation should review custom glyphs with the same care as content changes, because Astro SVG icons in docs are seen by every reader. The rule for how to use SVG icons in Astro docs sites is one override file and one reviewer, so Astro SVG icons stay as consistent as the prose around them.",
+      },
+      { type: "h2", text: "A request process for new static-site icons" },
+      {
+        type: "p",
+        text: "**Route new glyphs through a short request.** For Astro SVG icons, a template asking for the meaning, the page and the nearest existing glyph prevents most duplicates, and Astro SVG icons added through requests stay inside the documented family. Teams formalising how to use SVG icons in Astro at scale should review requests alongside content changes, because Astro SVG icons requested during a campaign are how second families enter a site. The habit for how to use SVG icons in Astro in growing teams is periodic request review, so Astro SVG icons grow deliberately rather than accidentally.",
+      },
+      {
+        type: "p",
+        text: "**Answer requests with the existing set first.** For Astro SVG icons, the most common outcome is discovering the set already covers the need, and Astro SVG icons found this way cost nothing and keep the system intact. Teams stewarding how to use SVG icons in Astro should reply with a screenshot of the closest existing glyph at production size, because Astro SVG icons judged at poster size mislead requesters. The principle for how to use SVG icons in Astro over years is slow, deliberate growth, so Astro SVG icons added today still belong to the same family tomorrow.",
+      },
+      { type: "h2", text: "Onboarding contributors onto the icon system" },
+      {
+        type: "p",
+        text: "**Teach the shared component before the first page.** For Astro SVG icons, a new contributor's first lesson should be the Icon component, the size scale and the curated name map, and Astro SVG icons explained through the component become a system rather than scattered markup. Teams onboarding around how to use SVG icons in Astro should put icon conventions in the contributor guide, because Astro SVG icons are often the first thing a new author touches. The guidance for how to use SVG icons in Astro in contributor teams is that conventions taught early are conventions kept, so Astro SVG icons stay consistent through turnover.",
+      },
+      {
+        type: "p",
+        text: "**Review the first icon change as teaching.** For Astro SVG icons, a contributor's first glyph addition, reviewed against the checklist, teaches more than any document, and Astro SVG icons handled in a reviewed first change set the standard for everything after. Teams practising how to use SVG icons in Astro with new contributors should treat that review as teaching, because Astro SVG icons reviewed early prevent habits that audits later punish. The rule for how to use SVG icons in Astro at community scale is that every contributor's first icon change is reviewed, so Astro SVG icons remain a shared standard.",
+      },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "Does astro-icon add any JavaScript to the page?" },
       {
@@ -678,7 +1056,7 @@ export const POSTS_B: BlogPost[] = [
     keyword: "SVG icons in Next.js",
     date: "2026-10-10",
     updated: "2026-10-23",
-    readingMinutes: 16,
+    readingMinutes: 33,
     icon: "triangle",
     tint: "#111827",
     content: [
@@ -851,6 +1229,132 @@ export const POSTS_B: BlogPost[] = [
       {
         type: "p",
         text: "A related habit is to record your icon decisions where future maintainers will find them. A short section in the project readme naming the chosen family, the size scale, the custom icons folder and the brand exception saves every new hire the same archaeology, and it turns design reviews from taste debates into consistency checks. The system documented in this guide is deliberately unremarkable: one family, named imports, server-first rendering, curated dynamics. Its value is not novelty; it is that every developer on the project can predict where an icon comes from and what it costs, on every route, without opening a bundle report in anger.",
+      },
+      { type: "h2", text: "Choosing a pack for App Router versus Pages Router" },
+      {
+        type: "p",
+        text: "**The router changes less than you fear.** Whether a project uses the App Router or the Pages Router, Next.js SVG icons render the same way: as components imported by name and rendered as SVG. The real difference is where the boundary falls: App Router projects can render icons in Server Components for free, while Pages Router projects render everything on the client by default, so the bundle conversation differs even though the icons do not. When teams evaluate how to use SVG icons in Next.js for a new project, the router question should therefore be settled on data-fetching and routing grounds, not icon grounds, and Next.js SVG icons should be chosen on coverage, stroke and licence. A pack that is right for the App Router is right for the Pages Router too, because icons are presentation, not routing.",
+      },
+      {
+        type: "p",
+        text: "**Migration between routers keeps icons intact.** Projects moving from Pages to App Router often fear a rewrite of their icon layer, but Next.js SVG icons survive the migration untouched when they are plain components: the same imports render in Server Components, and only the components around them change. The work that does arise is organisational, such as moving shared chrome into Server Components so icons render without client JavaScript, which is a performance win rather than a cost. Guidance on how to use SVG icons in Next.js during a migration should say this plainly, because teams delay valuable router upgrades over an icon rewrite that never needed to happen. Next.js SVG icons are among the most portable assets in a Next.js codebase, and that portability is worth protecting with clean component boundaries.",
+      },
+      { type: "h2", text: "Design tokens for icons in Next.js and Tailwind" },
+      {
+        type: "p",
+        text: "**Tokens turn icon choices into system choices.** In a Next.js plus Tailwind project, Next.js SVG icons should draw size and colour from tokens: a size scale for roles, a colour scale for states, and a stroke convention for the family. The token layer lives in the wrapper component or in CSS variables, and feature code consumes tokens rather than raw classes, so a redesign touches one file instead of every screen. When teams document how to use SVG icons in Next.js at scale, the token section is what separates a style guide from a wish list, because tokens are enforceable while advice is not. Next.js SVG icons behind tokens stay consistent through redesigns, rebrands and team growth, which is the entire purpose of a token system.",
+      },
+      {
+        type: "p",
+        text: "**Keep tokens framework-agnostic where possible.** A token defined as a CSS variable survives a move from Tailwind utilities to another styling approach, while a token baked into a Tailwind-only class does not, so the durable habit is variables for colour and a small component API for size. This matters for Next.js SVG icons because Next.js projects live for years and styling fashions change faster than icon needs do. For developers planning how to use SVG icons in Next.js for the long term, a variable-first token layer is cheap insurance: it costs nothing today and saves a migration tomorrow. Next.js SVG icons themed through variables also compose cleanly with dark mode, since the theme flip changes variables and every glyph follows without code changes.",
+      },
+      { type: "h2", text: "Icons in navigation, sidebars and breadcrumbs" },
+      {
+        type: "p",
+        text: "**Navigation glyphs are the product's signature.** Users learn a product's navigation icons before they learn its features, so Next.js SVG icons in sidebars and top bars should be chosen from the core of the set, frozen early, and changed only with a migration plan. Active states deserve one consistent treatment across every nav item, whether that is a filled variant, a colour shift or a background change, because mixed active treatments read as bugs. When teams prototype how to use SVG icons in Next.js navigation, they should build the full sidebar with real labels and real data, since Next.js SVG icons that look balanced in isolation often crowd each other beside 14px text. Navigation is the most-seen surface in any app, and icon discipline there pays off on every screen.",
+      },
+      {
+        type: "p",
+        text: "**Breadcrumbs and wayfinding need restraint.** Breadcrumb separators, back chevrons and home glyphs are small but high-frequency Next.js SVG icons, and their job is to be forgettable: consistent, quiet and identical on every page. The pattern that works is a single separator component, a single back-button treatment, and a rule that breadcrumbs never introduce a second icon family for decoration. For teams writing standards on how to use SVG icons in Next.js, the breadcrumb rule sounds trivial until the first marketing page adds a decorative arrow that leaks into the app. Next.js SVG icons in wayfinding roles should be boring by design, because wayfinding that draws attention to itself has failed at its job.",
+      },
+      { type: "h2", text: "Icons in forms, tables and dashboards" },
+      {
+        type: "p",
+        text: "**Dense screens punish decorative icons.** Dashboards pack Next.js SVG icons into tables, filters and cards, and the rule that keeps them readable is a strict size scale with decoration removed: 16px for row actions, 20px for toolbar actions, larger sizes only for section headers. A glyph that does not help the user act or understand should not be in a dense screen at all, because every decorative icon competes with data the user actually needs. When planning how to use SVG icons in Next.js dashboards, prototype with real data density, since Next.js SVG icons that look calm in an empty frame often feel noisy beside ten columns of numbers. The dashboard test is unforgiving and correct: remove the icon, and if the row gets clearer, the icon never belonged there.",
+      },
+      {
+        type: "p",
+        text: "**Form icons hint, labels decide.** A search glyph in a filter input or a calendar glyph beside a date field helps scanning, but Next.js SVG icons in forms must never carry meaning the label does not, since screen readers and keyboard users may never encounter the glyph. The accessible pattern is a visible label plus a decorative icon marked aria-hidden, with status icons in validation messages reinforcing text that already exists. For teams documenting how to use SVG icons in Next.js forms, this distinction is the whole accessibility story in one paragraph: decorative glyphs hidden, meaningful glyphs labelled, no glyph as the sole signal. Next.js SVG icons used this way make forms faster for everyone without excluding anyone.",
+      },
+      { type: "h2", text: "Server and Client Component icon patterns in depth" },
+      {
+        type: "p",
+        text: "**Server Components are the free lunch for icons.** Because icon components are stateless SVG, Next.js SVG icons render inside React Server Components with no client boundary, no hydration cost and no JavaScript shipped for the glyph itself. The practical consequence is that shared chrome such as headers, sidebars and footers should stay Server Components wherever possible, importing icons directly and streaming them with the page. When developers learn how to use SVG icons in Next.js, the Server Component pattern should be taught first, because it reframes icons from a bundle cost into a markup cost, which is nearly always cheaper. Next.js SVG icons in Server Components are the closest thing to free iconography the framework offers.",
+      },
+      {
+        type: "p",
+        text: "**Client Components need the same discipline, not different icons.** When a component must be a client component, for interactivity or state, its Next.js SVG icons follow the same rules: import by name, never through a namespace, and keep the icon list explicit so tree-shaking can do its job. The mistake to avoid is a client-side icon picker that imports the whole set for one feature; the allow-list map pattern from this guide's dynamic section exists precisely for that case. For teams finalising how to use SVG icons in Next.js, the rule to write down is that the client boundary changes where code runs, not how icons are chosen. Next.js SVG icons chosen well render identically on both sides of the boundary, and users should never be able to tell which side rendered the glyph they see.",
+      },
+      { type: "h2", text: "Marketing pages and app UI in one repository" },
+      {
+        type: "p",
+        text: "**One repository, two icon registers.** Most Next.js repositories serve a marketing site and an application from the same codebase, and Next.js SVG icons on a landing page are display graphics at 32 or 48px while app icons are controls at 16px. The healthy arrangement is one family with two documented treatments: a control treatment for the app and a display treatment for marketing, differing only in size and possibly stroke. When teams plan how to use SVG icons in Next.js across both surfaces, they should define the display treatment explicitly, because an undocumented display style drifts into the app within months. Next.js SVG icons with two documented registers stay coherent across the funnel, so a visitor who signs up meets glyphs they already recognise.",
+      },
+      {
+        type: "p",
+        text: "**Guard the boundary between registers.** If marketing demands a second, more expressive family for hero graphics, confine it to marketing sections and forbid it in application chrome, with the boundary written in the icon readme rather than enforced by hope. Review marketing pull requests for icon leakage the way app pull requests are reviewed for it, because the leak direction is almost always marketing into product. For developers maintaining how to use SVG icons in Next.js in a growing company, this boundary is what prevents the slow accumulation of a second system inside the product. Next.js SVG icons that respect the boundary keep the product feeling like one designed object, even as the marketing site experiments freely.",
+      },
+      { type: "h2", text: "Performance budgets for icons" },
+      {
+        type: "p",
+        text: "**Give icons a budget line.** A performance budget that names an icon allowance, for example a maximum number of distinct glyphs per route or a byte ceiling for icon packages, turns icon discipline from advice into a number CI can check. The measurement is straightforward: run the bundle analyser per route, record the icon contribution, and fail the build when a route exceeds its allowance without justification. When teams adopt how to use SVG icons in Next.js with budgets, they discover that most violations come from a single careless import or a picker that slipped past review, both fixable in minutes. Next.js SVG icons with a budget stay small because the budget makes growth visible before it becomes a problem.",
+      },
+      {
+        type: "p",
+        text: "**Audit routes, not just the app total.** An app-level icon total hides the route that imports three families for one screen, so the audit should be per route, using Next.js build output and the analyser's per-page breakdown. The routes to watch are dashboards and settings screens, where feature teams add icons without coordinating, and the fix is usually a mapping exercise rather than a rewrite. For teams practising how to use SVG icons in Next.js responsibly, a quarterly per-route audit is a one-hour habit with a measurable payoff in load time. Next.js SVG icons audited per route are icons under control, and control is what lets a team keep adding features without the bundle quietly doubling.",
+      },
+      { type: "h2", text: "Accessibility: icon buttons, focus and reduced motion" },
+      {
+        type: "p",
+        text: "**Icon-only buttons need names, not tooltips alone.** A tooltip that appears on hover helps mouse users and nobody else, so Next.js SVG icons in icon-only buttons need an accessible name through aria-label or sr-only text, naming the action rather than the glyph. The wrapper is the enforcement point: require a label prop whenever no visible text accompanies the icon, so the rule cannot be forgotten at individual call sites. When writing standards for how to use SVG icons in Next.js accessibly, this requirement should be a hard rule with examples, because icon-only buttons are the most common accessibility failure in Next.js applications. Next.js SVG icons without labels are decoration; with labels, they are controls, and the difference is the whole product for some users.",
+      },
+      {
+        type: "p",
+        text: "**Focus rings and reduced motion complete the contract.** A keyboard user must see where focus sits on every icon button, so the button component must guarantee a visible focus ring that survives theming, and a motion-sensitive user must be able to disable icon animations through prefers-reduced-motion. Test both with a keyboard and with reduced motion enabled, tabbing through navigation, toolbars and dialogs, since these are the surfaces where Next.js SVG icons concentrate. For teams finalising how to use SVG icons in Next.js, a fifteen-minute keyboard and motion pass catches the failures automated tools miss. Next.js SVG icons that are labelled, focusable and motion-respectful meet the baseline for shipping to real users, not an optional extra.",
+      },
+      { type: "h2", text: "Upgrading and documenting the icon system" },
+      {
+        type: "p",
+        text: "**Upgrade icon packages in dedicated pull requests.** Icon sets occasionally rename glyphs between releases, and a rename that arrives bundled with a feature release becomes a confusing scavenger hunt, while the same rename in its own pull request is a five-minute fix. Pin Next.js SVG icons packages to tested versions, read the release notes for renames before upgrading, and grep the codebase for affected names as part of the upgrade. When teams plan how to use SVG icons in Next.js over years, this boring discipline is what keeps the system boring, and boring is the goal. Next.js SVG icons upgraded deliberately never surprise a release, because the surprise was already handled in its own reviewable change.",
+      },
+      {
+        type: "p",
+        text: "**The icon readme is part of the system.** A short document stating the chosen family, the size scale, the wrapper location, the mapping table and the upgrade procedure saves every future contributor from archaeology, and it should be updated in the same pull request as any icon change. Add a visual catalogue, whether in Storybook or a simple page, rendering every approved glyph at its approved sizes with its import path, so proposals for new glyphs can be judged against the existing set. For developers handing over how to use SVG icons in Next.js to a growing team, the readme and catalogue are what turn a personal preference into a team standard. Next.js SVG icons with documentation outlast the people who chose them, which is the truest test of any engineering decision.",
+      },
+      { type: "h2", text: "Responsive sizing in Next.js apps" },
+      {
+        type: "p",
+        text: "**Breakpoints change chrome, not glyphs.** For Next.js SVG icons, the glyph should stay constant while the layout adapts, and Next.js SVG icons that change size per breakpoint make an app feel different on every device. Teams planning how to use SVG icons in Next.js responsively should size icons by role rather than by screen, because Next.js SVG icons sized by role stay consistent from phone to desktop. The advice on how to use SVG icons in Next.js at responsive scale is to audit the smallest viewport first, since Next.js SVG icons that work at 360px work everywhere else.",
+      },
+      {
+        type: "p",
+        text: "**Collapse toolbars instead of shrinking glyphs.** For Next.js SVG icons, shrinking below 16px on small screens trades legibility for completeness, and Next.js SVG icons hidden behind an overflow menu preserve both. Teams designing how to use SVG icons in Next.js for mobile should define a collapse order per toolbar, because Next.js SVG icons without a plan overflow or crowd. The practice for how to use SVG icons in Next.js on small screens is a documented order, so Next.js SVG icons degrade predictably instead of breaking the layout.",
+      },
+      { type: "h2", text: "Directional icons and RTL in Next.js" },
+      {
+        type: "p",
+        text: "**Mirror arrows when direction flips.** For Next.js SVG icons, directional glyphs such as back, forward and chevrons must mirror in right-to-left layouts, and Next.js SVG icons that ignore direction confuse users who read right to left. Teams implementing how to use SVG icons in Next.js internationally should use logical utilities that flip automatically, because Next.js SVG icons handled with manual overrides rot with every redesign. The standard for how to use SVG icons in Next.js across locales is a documented list of directional glyphs, so Next.js SVG icons mirror exactly where they should.",
+      },
+      {
+        type: "p",
+        text: "**Verify RTL with a real locale run.** For Next.js SVG icons, English screenshots cannot prove RTL correctness, and Next.js SVG icons in a mirrored layout must be checked by running the app in an RTL locale and navigating through it. Teams testing how to use SVG icons in Next.js globally should add one RTL screen to their visual regression suite, because Next.js SVG icons that fail there are cheap to fix and costly to ship. The discipline for how to use SVG icons in Next.js at global scale is a locale pass before every release, so Next.js SVG icons never become an afterthought.",
+      },
+      { type: "h2", text: "Icons in loading and error states" },
+      {
+        type: "p",
+        text: "**Loading states deserve purpose-drawn glyphs.** For Next.js SVG icons, a loading spinner built from a generic icon looks cheap, and Next.js SVG icons in loading.tsx deserve a clean circular arc that reads at small sizes. Teams designing how to use SVG icons in Next.js loading states should keep the spinner consistent across routes, because Next.js SVG icons that change per route make waiting feel longer. The guidance on how to use SVG icons in Next.js for loading is one spinner, one size scale, and Next.js SVG icons that never distract from the content that is coming.",
+      },
+      {
+        type: "p",
+        text: "**Error pages need calm, recognisable iconography.** For Next.js SVG icons, an error.tsx page should use a single restrained glyph plus clear text, and Next.js SVG icons that shout on an error page add stress to an already bad moment. Teams planning how to use SVG icons in Next.js error states should pair the glyph with a recovery action, because Next.js SVG icons beside a retry button guide users forward. The rule for how to use SVG icons in Next.js error handling is restraint: one glyph, one message, one action, so Next.js SVG icons help users recover instead of decorating their frustration.",
+      },
+      { type: "h2", text: "A request process for new Next.js icons" },
+      {
+        type: "p",
+        text: "**Route new glyphs through a request template.** For Next.js SVG icons, a short template asking for the meaning, the screen and the nearest existing glyph prevents most duplicates, and Next.js SVG icons added through requests stay inside the documented family. Teams formalising how to use SVG icons in Next.js at scale should review requests weekly, because Next.js SVG icons requested during feature work are how second families enter a codebase. The habit for how to use SVG icons in Next.js in growing teams is weekly request review, so Next.js SVG icons grow deliberately rather than accidentally.",
+      },
+      {
+        type: "p",
+        text: "**Answer requests with the existing set first.** For Next.js SVG icons, the most common outcome is discovering the set already covers the need, and Next.js SVG icons found this way cost nothing and keep the system intact. Teams stewarding how to use SVG icons in Next.js should reply with a screenshot of the closest existing glyph at production size, because Next.js SVG icons judged at poster size mislead requesters. The principle for how to use SVG icons in Next.js over years is slow, deliberate growth, so Next.js SVG icons added today still belong to the same family tomorrow.",
+      },
+      { type: "h2", text: "Onboarding developers onto the Next.js icon system" },
+      {
+        type: "p",
+        text: "**Teach the wrapper and the budget on day one.** For Next.js SVG icons, a new developer's first lesson should be the wrapper, the size tokens and the per-route budget, and Next.js SVG icons explained through those three things become a system rather than a folder of imports. Teams onboarding around how to use SVG icons in Next.js should put icon conventions in the onboarding checklist, because Next.js SVG icons are often the first code a newcomer touches. The guidance for how to use SVG icons in Next.js in hiring teams is that conventions taught early are conventions kept, so Next.js SVG icons stay consistent through turnover.",
+      },
+      {
+        type: "p",
+        text: "**Review the first icon change as teaching.** For Next.js SVG icons, a newcomer's first glyph addition or swap, reviewed against the checklist, teaches more than any document, and Next.js SVG icons handled in a reviewed first task set the standard for everything after. Teams practising how to use SVG icons in Next.js with new hires should treat that review as teaching, because Next.js SVG icons reviewed early prevent habits that audits later punish. The rule for how to use SVG icons in Next.js at team scale is that every developer's first icon change is reviewed, so Next.js SVG icons remain a shared standard.",
       },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h3", text: "Do lucide-react icons work in Server Components?" },
