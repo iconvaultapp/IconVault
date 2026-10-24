@@ -1,0 +1,50 @@
+# IconVault
+
+> IconVault is a free search index of open-source SVG icons, plus free online tools for developers and designers. Search 421,020 icons from 239 open-source sets in one place, customize them, and download as SVG or PNG. No account is needed for the basics.
+
+## Key facts
+
+- 421,020 free SVG icons, including 33,016 alias names
+- 239 icon collections (libraries), 215 categories
+- 579 free online tools
+- 386 free SVG illustrations, recolourable to any brand colour
+- Icons are free for personal and commercial use under their own licences (MIT, ISC, Apache-2.0 are permissive; CC BY sets require attribution)
+- One-click SVG and PNG downloads, copy as React/Vue/HTML component, bulk export, SVG sprite generation
+- Free on the basics, forever; a paid tier exists for heavier use
+
+## Important pages
+
+- [Home](https://iconvault.site/): one search box for every icon set and tool
+- [Browse icons](https://iconvault.site/app): search and filter all 421,020 icons
+- [Free SVG icons](https://iconvault.site/free-svg-icons): free SVG icons guide with popular sets, counts and licences
+- [React icons](https://iconvault.site/react-icons): free React icons guide, packages and copy-as-component
+- [Best Lucide alternatives](https://iconvault.site/best-lucide-alternatives): alternatives to Lucide compared
+- [Illustrations](https://iconvault.site/illustrations): 386 free SVG illustrations, recolour and download
+- [Categories](https://iconvault.site/categories): 215 icon categories
+- [Libraries](https://iconvault.site/libraries): all 239 icon collections
+- [Tools](https://iconvault.site/tools): 579 free online tools
+- [Blog](https://iconvault.site/blog): guides and comparisons about SVG icons
+
+## Popular icon sets indexed
+
+- [Lucide icons](https://iconvault.site/app?set=lucide): 2,144 icons, ISC licence
+- [Tabler Icons](https://iconvault.site/app?set=tabler): 6,462 icons, MIT licence
+- [Phosphor](https://iconvault.site/app?set=ph): 9,198 icons, MIT licence
+- [Heroicons](https://iconvault.site/app?set=heroicons): 1,297 icons, MIT licence
+- [Material Symbols](https://iconvault.site/app?set=material-symbols): 24,569 icons, Apache-2.0 licence
+- [Bootstrap Icons](https://iconvault.site/app?set=bi): 2,090 icons, MIT licence
+
+## Popular free tools
+
+- [SVG to JSX converter](https://iconvault.site/tools/svg-to-jsx): convert SVG markup into a clean React component
+- [SVG optimizer](https://iconvault.site/tools/svg-optimizer): shrink SVGs by 40-80% before shipping
+- [SVG to PNG](https://iconvault.site/tools/svg-to-png): export SVG as high-resolution PNG with transparency
+- [SVG sprite generator](https://iconvault.site/tools/svg-sprite-generator): combine SVGs into one symbol sprite sheet
+- [SVG to Data URI](https://iconvault.site/tools/svg-to-data-uri): SVGs as CSS-ready data URIs
+
+## Optional
+
+- [Sitemap](https://iconvault.site/sitemap.xml)
+- [IconVault vs Lucide](https://iconvault.site/blog/iconvault-vs-lucide): why an index and a library answer different questions
+- [SVG icon licences explained](https://iconvault.site/blog/svg-icon-licences-explained): MIT, ISC, Apache-2.0 and CC BY in plain language
+- [Best free SVG icon libraries in 2026](https://iconvault.site/blog/best-free-svg-icon-libraries-2026): Lucide, Tabler, Phosphor and more compared

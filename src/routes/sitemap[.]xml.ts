@@ -134,6 +134,7 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/illustrations", changefreq: "weekly", priority: "0.8" },
   { path: "/free-svg-icons", changefreq: "weekly", priority: "0.9" },
   { path: "/react-icons", changefreq: "weekly", priority: "0.9" },
+  { path: "/best-lucide-alternatives", changefreq: "weekly", priority: "0.9" },
   { path: "/ai-search", changefreq: "weekly", priority: "0.7" },
   { path: "/categories", changefreq: "weekly", priority: "0.8" },
   { path: "/compare", changefreq: "monthly", priority: "0.6" },

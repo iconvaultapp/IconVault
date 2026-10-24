@@ -16,6 +16,7 @@ import { Route as AiSearchRouteImport } from './routes/ai-search'
 import { Route as ApiAccessRouteImport } from './routes/api-access'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BestLucideAlternativesRouteImport } from './routes/best-lucide-alternatives'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as CliRouteImport } from './routes/cli'
 import { Route as CollectionsRouteImport } from './routes/collections'
@@ -669,6 +670,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/auth.lazy').then((d) => d.Route))
+const BestLucideAlternativesRoute = BestLucideAlternativesRouteImport.update({
+  id: '/best-lucide-alternatives',
+  path: '/best-lucide-alternatives',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChangelogRoute = ChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
@@ -5138,6 +5144,7 @@ export interface FileRoutesByFullPath {
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
+  '/best-lucide-alternatives': typeof BestLucideAlternativesRoute
   '/changelog': typeof ChangelogRoute
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
@@ -5764,6 +5771,7 @@ export interface FileRoutesByTo {
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
+  '/best-lucide-alternatives': typeof BestLucideAlternativesRoute
   '/changelog': typeof ChangelogRoute
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
@@ -6391,6 +6399,7 @@ export interface FileRoutesById {
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
+  '/best-lucide-alternatives': typeof BestLucideAlternativesRoute
   '/changelog': typeof ChangelogRoute
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
@@ -7019,6 +7028,7 @@ export interface FileRouteTypes {
     | '/api-access'
     | '/app'
     | '/auth'
+    | '/best-lucide-alternatives'
     | '/changelog'
     | '/cli'
     | '/collections'
@@ -7645,6 +7655,7 @@ export interface FileRouteTypes {
     | '/api-access'
     | '/app'
     | '/auth'
+    | '/best-lucide-alternatives'
     | '/changelog'
     | '/cli'
     | '/collections'
@@ -8271,6 +8282,7 @@ export interface FileRouteTypes {
     | '/api-access'
     | '/app'
     | '/auth'
+    | '/best-lucide-alternatives'
     | '/changelog'
     | '/cli'
     | '/collections'
@@ -8898,6 +8910,7 @@ export interface RootRouteChildren {
   ApiAccessRoute: typeof ApiAccessRoute
   AppRoute: typeof AppRoute
   AuthRoute: typeof AuthRoute
+  BestLucideAlternativesRoute: typeof BestLucideAlternativesRoute
   ChangelogRoute: typeof ChangelogRoute
   CliRoute: typeof CliRoute
   CollectionsRoute: typeof CollectionsRoute
@@ -9566,6 +9579,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-lucide-alternatives': {
+      id: '/best-lucide-alternatives'
+      path: '/best-lucide-alternatives'
+      fullPath: '/best-lucide-alternatives'
+      preLoaderRoute: typeof BestLucideAlternativesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/changelog': {
@@ -13898,6 +13918,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAccessRoute: ApiAccessRoute,
   AppRoute: AppRoute,
   AuthRoute: AuthRoute,
+  BestLucideAlternativesRoute: BestLucideAlternativesRoute,
   ChangelogRoute: ChangelogRoute,
   CliRoute: CliRoute,
   CollectionsRoute: CollectionsRoute,

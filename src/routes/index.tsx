@@ -65,7 +65,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Search, recolour and export icons from 150+ open-source sets, plus 579 free online tools for devs and designers. Copy React, Vue, HTML or SVG in one click, build collections and ship faster.",
+          "Search, recolour and export icons from 239 open-source sets, plus 579 free online tools for devs and designers. Copy React, Vue, HTML or SVG in one click, build collections and ship faster.",
       },
       { property: "og:title", content: "IconVault - 421,020 icons and 579 free tools, one search box" },
       {
@@ -88,6 +88,30 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://iconvault.site/og-image.png?v=2" },
     ],
     links: [{ rel: "canonical", href: "https://iconvault.site/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "IconVault",
+          url: "https://iconvault.site/",
+          logo: "https://iconvault.site/og-image.png?v=2",
+          description:
+            "IconVault is a free search index of 421,020 open-source SVG icons from 239 sets, plus 579 free online tools for developers and designers.",
+          sameAs: ["https://github.com/iconvaultapp/IconVault"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "IconVault",
+          url: "https://iconvault.site/",
+        }),
+      },
+    ],
   }),
   component: Landing,
 });
