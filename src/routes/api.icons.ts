@@ -17,7 +17,7 @@ import type {} from "@tanstack/react-start";
 import { ICONIFY_DATA_PKG_VERSIONS } from "../lib/iconify-data-meta";
 import { perIconDataUrls, parseIconJsData } from "../lib/icon-svg";
 import { getCustomIconBody } from "../lib/custom-icons.server";
-import { isRateLimited, rateLimitedResponse, API_LIMITS } from "../lib/rate-limit";
+import { isRateLimitedKV, rateLimitedResponse, API_LIMITS } from "../lib/rate-limit";
 
 const isSafeSegment = (s: string) =>
   s.length > 0 && s.length <= 220 && /^[a-z0-9][a-z0-9._-]*$/i.test(s);
@@ -93,7 +93,7 @@ export const Route = createFileRoute("/api/icons")({
             },
           );
         }
-        if (keyVerdict?.ok !== true && isRateLimited(request, "api:batch", API_LIMITS.batch)) {
+        if (keyVerdict?.ok !== true && (await isRateLimitedKV(request, "api:batch", API_LIMITS.batch))) {
           return rateLimitedResponse();
         }
         let body: { icons?: string[] };

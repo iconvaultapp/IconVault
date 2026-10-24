@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { isRateLimited, rateLimitedResponse, API_LIMITS } from "../lib/rate-limit";
+import { isRateLimitedKV, rateLimitedResponse, API_LIMITS } from "../lib/rate-limit";
 
 const ICONIFY_APIS = [
   "https://api.iconify.design",
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/api/iconify/search")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        if (isRateLimited(request, "api:search", API_LIMITS.search)) return rateLimitedResponse();
+        if (await isRateLimitedKV(request, "api:search", API_LIMITS.search)) return rateLimitedResponse();
         const url = new URL(request.url);
         const query = (url.searchParams.get("query") ?? "").trim().slice(0, 120);
         if (!query) {

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { isRateLimited, rateLimitedResponse } from "../lib/rate-limit";
+import { isRateLimitedKV, rateLimitedResponse } from "../lib/rate-limit";
 import { ICONIFY_DATA_PKG_VERSIONS } from "../lib/iconify-data-meta";
 import { isCustomIconPrefix } from "../lib/custom-icons.server";
 
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/api/iconify/collection/$prefix")({
   server: {
     handlers: {
       GET: async ({ request, params }) => {
-        if (isRateLimited(request, "api:iconify-collection", 120)) return rateLimitedResponse();
+        if (await isRateLimitedKV(request, "api:iconify-collection", 120)) return rateLimitedResponse();
         const prefix = params.prefix;
         if (!prefix || !isSafePrefix(prefix)) {
           return new Response(JSON.stringify({ icons: [] }), { status: 400, headers: responseHeaders() });

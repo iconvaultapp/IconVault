@@ -18,7 +18,7 @@ import { getCustomIconBody } from "../lib/custom-icons.server";
 // popular icon hits the CDN exactly once per edge region.
 
 const LEGACY_API = "https://api.iconify.design";
-import { isRateLimited, rateLimitedResponse, API_LIMITS } from "../lib/rate-limit";
+import { isRateLimitedKV, rateLimitedResponse, API_LIMITS } from "../lib/rate-limit";
 
 const isSafeSegment = (s: string) => /^[a-z0-9][a-z0-9._-]*$/i.test(s);
 
@@ -106,7 +106,7 @@ export const Route = createFileRoute("/api/icon/$prefix/$name")({
         const cached = edgeCache ? await edgeCache.match(cacheKey) : undefined;
         if (cached) return cached;
 
-        if (keyVerdict?.ok !== true && isRateLimited(request, "api:icon", API_LIMITS.icon)) {
+        if (keyVerdict?.ok !== true && (await isRateLimitedKV(request, "api:icon", API_LIMITS.icon))) {
           return rateLimitedResponse();
         }
         const { prefix, name: rawName } = params;

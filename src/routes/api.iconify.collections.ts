@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { isRateLimited, rateLimitedResponse } from "../lib/rate-limit";
+import { isRateLimitedKV, rateLimitedResponse } from "../lib/rate-limit";
 
 const ICONIFY_APIS = [
   "https://api.iconify.design",
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/api/iconify/collections")({
       GET: async ({ request }) => {
         // Abuse protection: this proxies third-party CDNs, so every miss
         // costs us an upstream fetch. Same budget as /api/iconify/search.
-        if (isRateLimited(request, "api:iconify-collections", 120)) return rateLimitedResponse();
+        if (await isRateLimitedKV(request, "api:iconify-collections", 120)) return rateLimitedResponse();
         const edgeCache = (globalThis as CacheNamespace).caches?.default;
         const key = cacheKey(request);
         if (edgeCache) {

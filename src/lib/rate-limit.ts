@@ -40,3 +40,83 @@ export const API_LIMITS = {
   icon: 240,
   batch: 120,
 } as const;
+
+/**
+ * KV-backed GLOBAL rate limiter (SEC-L3, v27).
+ *
+ * The in-memory limiter above is per Worker isolate: Cloudflare runs many
+ * isolates, so one IP could burn its quota on isolate A and keep going on
+ * isolate B. KV is shared across all of them, so this version enforces the
+ * same 60s window everywhere.
+ *
+ * Binding: the dashboard KV namespace `iconvault-ratelimit` is bound as
+ * `RATE_LIMIT_KV` (Worker Settings -> Bindings). Nitro's cloudflare preset
+ * stashes bindings on `globalThis.__env__` per request (see
+ * server-env.server.ts) - that is how this reads the binding without any
+ * env plumbing in the route handlers.
+ *
+ * Fallback contract (never break a request over the limiter itself):
+ * - No binding (local dev, a deploy where the binding was dropped) -> the
+ *   in-memory limiter above.
+ * - KV read/write failure -> the in-memory limiter above.
+ * - Corrupt stored value -> treated as an empty window.
+ *
+ * Accepted imprecision: two concurrent requests from one IP can read the
+ * same array and lose one increment on write (KV has no atomic increment).
+ * For a blunt abuse limiter that is fine - the window still fills within
+ * a request or two of the limit. Keys expire after 60s, so no cleanup job.
+ */
+interface KVNamespaceLike {
+  get(key: string): Promise<string | null>;
+  put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
+}
+
+const getRateLimitKV = (): KVNamespaceLike | null => {
+  try {
+    const workerEnv = (globalThis as unknown as Record<string, unknown>)["__env__"] as
+      | Record<string, unknown>
+      | undefined;
+    const kv = workerEnv?.["RATE_LIMIT_KV"];
+    if (
+      kv &&
+      typeof (kv as KVNamespaceLike).get === "function" &&
+      typeof (kv as KVNamespaceLike).put === "function"
+    ) {
+      return kv as KVNamespaceLike;
+    }
+  } catch {
+    /* ignore - fall back to in-memory */
+  }
+  return null;
+};
+
+export async function isRateLimitedKV(
+  request: Request,
+  key: string,
+  maxHits: number,
+): Promise<boolean> {
+  const kv = getRateLimitKV();
+  if (!kv) return isRateLimited(request, key, maxHits);
+
+  const kvKey = `rl:${key}:${getIp(request)}`;
+  try {
+    const now = Date.now();
+    let hits: number[] = [];
+    const raw = await kv.get(kvKey);
+    if (raw) {
+      try {
+        const parsed: unknown = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          hits = parsed.filter((t) => typeof t === "number" && now - t < 60_000);
+        }
+      } catch {
+        hits = [];
+      }
+    }
+    hits.push(now);
+    await kv.put(kvKey, JSON.stringify(hits), { expirationTtl: 60 });
+    return hits.length > maxHits;
+  } catch {
+    return isRateLimited(request, key, maxHits);
+  }
+}
