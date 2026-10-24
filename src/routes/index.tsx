@@ -426,7 +426,7 @@ function Landing() {
 
         {/* Features */}
         <section className="cv-auto mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
-          <Reveal className="max-w-2xl">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-primary" /> Why teams switch</span></p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Built for the ten seconds between "we need an icon" and "it's in the PR"

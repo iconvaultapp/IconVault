@@ -76,7 +76,7 @@ export const SiteHeader = () => {
       <div className="flex items-center gap-4 rounded-full bg-white/90 px-5 py-2.5 shadow-[0_10px_40px_rgb(0_0_0/0.08)] ring-1 ring-black/[0.04] backdrop-blur-xl">
           <Brand />
           <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex">
-            {primaryLinks.map((link) =>
+            {primaryLinks.slice(0, 2).map((link) =>
               link.path === "/app" ? (
                 <div
                   key={link.path}
@@ -131,63 +131,95 @@ export const SiteHeader = () => {
               ),
             )}
 
-            {navSections
-              .filter((s) => s.label === "Tools" || s.label === "Developers")
-              .map((section) => (
-                <div
-                  key={section.label}
-                  className="relative"
-                  onMouseEnter={() => setOpenMenu(section.label)}
-                  onMouseLeave={() => setOpenMenu(null)}
-                >
-                  {section.label === "Tools" ? (
-                    <Link
-                      to="/tools"
-                      className="focus-ring rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-                      activeProps={{ className: "bg-primary text-primary-foreground" }}
-                    >
-                      {section.label}
-                    </Link>
-                  ) : (
-                    <button className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
-                      {section.label}
-                    </button>
+            {/* Tools sits after Illustrations (Sameer 2026-10-24) and looks
+                like every other menu item now: plain text + chevron, no teal
+                pill. Its mega-menu dropdown is unchanged. */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenMenu("Tools")}
+              onMouseLeave={() => setOpenMenu(null)}
+            >
+              <Link
+                to="/tools"
+                className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                activeProps={{ className: "text-foreground bg-muted" }}
+              >
+                Tools
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform duration-300",
+                    openMenu === "Tools" && "rotate-180",
                   )}
-                  {openMenu === section.label && (
-                    <div
-                      className={cn(
-                        "animate-pop absolute top-full pt-2",
-                        section.label === "Tools"
-                          ? "left-1/2 w-[36rem] [translate:-50%_0]"
-                          : "left-0 w-[26rem]",
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          "grid max-h-[70vh] gap-1 overflow-y-auto rounded-2xl border border-border bg-popover p-2 shadow-lift",
-                          section.label === "Tools" ? "grid-cols-3" : "grid-cols-2",
-                        )}
-                      >
-                        {section.links.map((link) => (
-                          <Link
-                            key={link.path}
-                            to={link.path}
-                            className="group flex items-start gap-2.5 rounded-xl p-2.5 transition-colors hover:bg-muted"
-                          >
-                            <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform group-hover:scale-110">
-                              <link.icon className="h-3.5 w-3.5" />
-                            </span>
-                            <span className="min-w-0">
-                              <span className="block truncate text-sm font-medium">{link.label}</span>
-                              <span className="block truncate text-xs text-muted-foreground">{link.desc}</span>
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                />
+              </Link>
+              {openMenu === "Tools" && (
+                <div className="animate-pop absolute left-1/2 top-full w-[36rem] [translate:-50%_0] pt-2">
+                  <div className="grid max-h-[70vh] grid-cols-3 gap-1 overflow-y-auto rounded-2xl border border-border bg-popover p-2 shadow-lift">
+                    {navSections
+                      .find((s) => s.label === "Tools")
+                      ?.links.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="group flex items-start gap-2.5 rounded-xl p-2.5 transition-colors hover:bg-muted"
+                        >
+                          <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform group-hover:scale-110">
+                            <link.icon className="h-3.5 w-3.5" />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block truncate text-sm font-medium">{link.label}</span>
+                            <span className="block truncate text-xs text-muted-foreground">{link.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                  </div>
                 </div>
-              ))}
+              )}
+            </div>
+
+            {primaryLinks.slice(2).map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                activeProps={{ className: "text-foreground bg-muted" }}
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenMenu("Developers")}
+              onMouseLeave={() => setOpenMenu(null)}
+            >
+              <button className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+                Developers
+              </button>
+              {openMenu === "Developers" && (
+                <div className="animate-pop absolute left-0 top-full w-[26rem] pt-2">
+                  <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-2xl border border-border bg-popover p-2 shadow-lift">
+                    {navSections
+                      .find((s) => s.label === "Developers")
+                      ?.links.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="group flex items-start gap-2.5 rounded-xl p-2.5 transition-colors hover:bg-muted"
+                        >
+                          <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform group-hover:scale-110">
+                            <link.icon className="h-3.5 w-3.5" />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block truncate text-sm font-medium">{link.label}</span>
+                            <span className="block truncate text-xs text-muted-foreground">{link.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
         <div className="flex items-center gap-2">
