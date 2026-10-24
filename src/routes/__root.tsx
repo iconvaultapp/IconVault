@@ -248,6 +248,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "dns-prefetch", href: "https://unpkg.com" },
       { rel: "preconnect", href: "https://jlmipgmpaxrzqgkldxsz.supabase.co" },
       { rel: "dns-prefetch", href: "https://jlmipgmpaxrzqgkldxsz.supabase.co" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com" },
+      { rel: "dns-prefetch", href: "https://www.googletagmanager.com" },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "64x64" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
@@ -270,6 +272,8 @@ function RootShell({ children }: { children: ReactNode }) {
         <link rel="dns-prefetch" href="https://unpkg.com" />
         <link rel="preconnect" href="https://jlmipgmpaxrzqgkldxsz.supabase.co" />
         <link rel="dns-prefetch" href="https://jlmipgmpaxrzqgkldxsz.supabase.co" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <HeadContent />
       </head>
       <body>

@@ -93,7 +93,10 @@ function hardenResponse(response: Response, request: Request): Response {
       "Content-Security-Policy",
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline'",
+        // googletagmanager.com: GA4's gtag.js, injected only after cookie
+        // consent (see src/lib/ga.ts). Without this the script is blocked
+        // and GA silently records nothing.
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: blob: https:",
         "font-src 'self' data:",

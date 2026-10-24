@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { CONSENT_ACCEPTED_EVENT, hasAnalyticsConsent } from "@/lib/cookie-consent";
+import { trackGaPageView } from "@/lib/ga";
 
 const getSessionId = () => {
   let sid = sessionStorage.getItem("analytics_session");
@@ -27,6 +28,9 @@ export const usePageTracking = () => {
       // Privacy-first: never send page-views until the visitor accepts cookies.
       if (!hasAnalyticsConsent()) return;
       lastPage.current = page;
+
+      // GA4 mirrors the same consent gate (no-op until an ID is configured).
+      trackGaPageView(page);
 
       void (async () => {
         try {
