@@ -4,8 +4,7 @@
 // every pill opens that set in the vault.
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import ReliableIcon from "@/components/ReliableIcon";
-import { fetchCollections, parseIconId, type IconifyCollection } from "@/lib/iconify";
+import { fetchCollections, getIconSvgUrl, parseIconId, type IconifyCollection } from "@/lib/iconify";
 
 const SETS: { name: string; prefix: string }[] = [
   { name: "Lucide", prefix: "lucide" },
@@ -67,7 +66,17 @@ export default function MarqueeBand() {
             >
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--gradient-hero)] ring-1 ring-inset ring-border/60 transition-transform duration-300 group-hover/pill:scale-110">
                 {parsed ? (
-                  <ReliableIcon prefix={parsed.prefix} name={parsed.name} alt="" width={20} height={20} />
+                  // PERF-L1: plain lazy <img> instead of ReliableIcon. The
+                  // band used to mount 24 observer-gated fetch components;
+                  // the browser now lazy-loads the pill art itself.
+                  <img
+                    src={getIconSvgUrl(parsed.prefix, parsed.name, { width: 20, height: 20 })}
+                    alt=""
+                    aria-hidden
+                    className="h-5 w-5"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   <span className="h-5 w-5 animate-pulse rounded bg-muted" />
                 )}

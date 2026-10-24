@@ -22,7 +22,7 @@ export const Route = createFileRoute("/tools")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iconvault.site/tools" },
-      { property: "og:image", content: "https://iconvault.site/og-image.png" },
+      { property: "og:image", content: "https://iconvault.site/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Free Design & Developer Tools - IconVault" },
     ],

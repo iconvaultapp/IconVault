@@ -29,14 +29,19 @@ export const SearchBar = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const [focused, setFocused] = useState(false);
   const indexWarmed = useRef(false);
-  const handleFocus = () => {
-    setFocused(true);
-    // Fetch the 8.2MB search index only when the user actually reaches for
-    // search - not on page load. One fetch, then it is cached.
+  // PERF-H2: warm the 8.2MB search index on the first keystroke, not on
+  // focus. /app autofocuses this field, so "on focus" meant "on page
+  // load" - every /app visit paid 8.2MB before the user typed anything.
+  // Typing triggers the load; the first search simply awaits it (the
+  // search button already shows a spinner meanwhile).
+  const warmIndex = () => {
     if (!indexWarmed.current) {
       indexWarmed.current = true;
       preloadSearchIndex();
     }
+  };
+  const handleFocus = () => {
+    setFocused(true);
   };
 
   useEffect(() => {
@@ -93,7 +98,10 @@ export const SearchBar = ({
         <input
           ref={inputRef}
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => {
+            warmIndex();
+            onChange(e.target.value);
+          }}
           onFocus={handleFocus}
           onBlur={() => setTimeout(() => setFocused(false), 120)}
           placeholder={placeholder}
@@ -126,6 +134,7 @@ export const SearchBar = ({
               key={s}
               type="button"
               onMouseDown={() => {
+                warmIndex();
                 onChange(s);
                 onSubmit?.(s);
               }}

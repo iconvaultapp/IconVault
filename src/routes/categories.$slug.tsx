@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import IconifyGrid from "@/components/IconifyGrid";
+import { GridPagination } from "@/components/GridPagination";
 import IconifyDetail from "@/components/IconifyDetail";
 import { SectionHeading } from "@/components/kit";
 import categoriesData from "../../public/iconify/categories.json";
@@ -39,19 +40,19 @@ export const Route = createFileRoute("/categories/$slug")({
 });
 
 const PAGE_SIZE = 96;
-// Rendering cap: "Load more" stops here so huge categories can't grow the
-// DOM (and its observers/fetches) until the tab dies. Search covers the rest.
-const MAX_SHOWN = 2000;
 
 function Page() {
   const { category } = Route.useLoaderData();
   const [icons, setIcons] = useState<string[]>([]);
-  const [shown, setShown] = useState(PAGE_SIZE);
+  // PERF-H3: real pagination, not "Load more". One page is 96 cards; the
+  // old accumulator grew the DOM to 2,000 cards and never shrank it.
+  const [page, setPage] = useState(0);
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let alive = true;
-    setShown(PAGE_SIZE);
+    setPage(0);
     void fetchCategoryIcons(category.slug).then((ids) => {
       if (alive) setIcons(ids);
     });
@@ -60,7 +61,16 @@ function Page() {
     };
   }, [category.slug]);
 
-  const visible = useMemo(() => icons.slice(0, shown), [icons, shown]);
+  const totalPages = Math.max(1, Math.ceil(icons.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages - 1);
+  const visible = useMemo(
+    () => icons.slice(safePage * PAGE_SIZE, safePage * PAGE_SIZE + PAGE_SIZE),
+    [icons, safePage],
+  );
+  const gotoPage = (p: number) => {
+    setPage(p);
+    gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <PageShell fullWidth>
@@ -84,21 +94,17 @@ function Page() {
           </p>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6" ref={gridRef}>
           <IconifyGrid icons={visible} onIconClick={setActiveIcon} />
         </div>
 
-        {shown < Math.min(icons.length, MAX_SHOWN) && (
-          <div className="mt-6 text-center">
-            <button
-              type="button"
-              onClick={() => setShown((s) => Math.min(s + PAGE_SIZE, MAX_SHOWN))}
-              className="focus-ring rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium hover:border-primary/40"
-            >
-              Load more ({(icons.length - shown).toLocaleString("en-US")} remaining)
-            </button>
-          </div>
-        )}
+        <GridPagination
+          page={safePage}
+          totalPages={totalPages}
+          total={icons.length}
+          pageSize={PAGE_SIZE}
+          onPage={gotoPage}
+        />
 
         <p className="mt-10 text-sm text-muted-foreground">
           Explore more{" "}

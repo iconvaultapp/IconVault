@@ -23,7 +23,18 @@ export interface SearchHistoryEntry {
 const readLocal = (): SearchHistoryEntry[] => {
   if (typeof window === "undefined") return [];
   try {
-    return JSON.parse(localStorage.getItem(KEY) || "[]") as SearchHistoryEntry[];
+    const parsed: unknown = JSON.parse(localStorage.getItem(KEY) || "[]");
+    // ROB-M3: shape-validate. A tampered value used to flow into dedupe()
+    // (e.query.toLowerCase() on a non-object) and crash /app's root until
+    // the user cleared storage by hand.
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (e): e is SearchHistoryEntry =>
+        !!e &&
+        typeof e === "object" &&
+        typeof (e as SearchHistoryEntry).query === "string" &&
+        typeof (e as SearchHistoryEntry).at === "number",
+    );
   } catch {
     return [];
   }

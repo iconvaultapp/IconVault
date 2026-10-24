@@ -2,61 +2,47 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
-  Braces,
-  Calculator,
-  Check,
-  ClipboardList,
   Code2,
   Copy,
   Download,
-  Eraser,
-  EyeOff,
-  Film,
-  Fingerprint,
-  Gamepad2,
-  Globe,
-  GraduationCap,
   Heart,
-  Image as ImageIcon,
   Layers,
   LayoutGrid,
-  Lock,
   Mail,
-  Minimize2,
   MousePointerClick,
   Package,
   Palette,
-  PenTool,
-  Pipette,
-  QrCode,
   Rocket,
   Search,
   Shapes,
   Shield,
   Sparkles,
-  TrendingUp,
-  Type,
   Wrench,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SearchBar from "@/components/SearchBar";
-import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
-import { TOOL_COUNT, TOOL_CATEGORY_META, FEATURED_TOOLS, type FeaturedToolMeta } from "@/lib/tool-catalog-meta";
+import { TOOL_COUNT } from "@/lib/tool-catalog-meta";
 import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
 import BrowseCategories from "@/components/home/BrowseCategories";
-import StyleChips from "@/components/home/StyleChips";
 import IllustrationsHome from "@/components/home/IllustrationsHome";
-import MarqueeBand from "@/components/home/MarqueeBand";
 // Lazy: BlogTeaser pulls in every post's full text for its cards. Keeping
 // it out of the homepage's entry chunk is a major first-load saving; the
 // section sits deep below the fold, so it streams in right after paint.
 const BlogTeaser = lazy(() => import("@/components/home/BlogTeaser"));
+// PERF-M3: every section below IllustrationsHome is lazy too - they used
+// to ship in the homepage entry chunk even though nobody sees them before
+// scrolling. (ToolsTeaser / CodeShowcaseCard / WaitlistForm were extracted
+// from this file into components/home/ for the same reason.)
+const StyleChips = lazy(() => import("@/components/home/StyleChips"));
+const ToolsTeaser = lazy(() => import("@/components/home/ToolsTeaser"));
+const MarqueeBand = lazy(() => import("@/components/home/MarqueeBand"));
+const CodeShowcaseCard = lazy(() => import("@/components/home/CodeShowcaseCard"));
+const WaitlistForm = lazy(() => import("@/components/home/WaitlistForm"));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,7 +61,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iconvault.site/" },
-      { property: "og:image", content: "https://iconvault.site/og-image.png?v=2" },
+      { property: "og:image", content: "https://iconvault.site/og-image.jpg?v=3" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -85,7 +71,7 @@ export const Route = createFileRoute("/")({
         content:
           "One search box for every open-source icon set and hundreds of free online tools. Preview, recolour and export in the format your codebase already speaks.",
       },
-      { name: "twitter:image", content: "https://iconvault.site/og-image.png?v=2" },
+      { name: "twitter:image", content: "https://iconvault.site/og-image.jpg?v=3" },
     ],
     links: [{ rel: "canonical", href: "https://iconvault.site/" }],
     scripts: [
@@ -96,7 +82,7 @@ export const Route = createFileRoute("/")({
           "@type": "Organization",
           name: "IconVault",
           url: "https://iconvault.site/",
-          logo: "https://iconvault.site/og-image.png?v=2",
+          logo: "https://iconvault.site/og-image.jpg?v=3",
           description:
             "IconVault is a free search index of 421,020 open-source SVG icons from 239 sets, plus 579 free online tools for developers and designers.",
           sameAs: ["https://github.com/iconvaultapp/IconVault"],
@@ -194,301 +180,6 @@ const STATS = [
   { value: "579", label: "Free online tools", sub: "5 free uses a day, no account", icon: Wrench },
   { value: "17", label: "Tool categories", sub: "dev, design, SEO, fun & more", icon: LayoutGrid },
 ];
-
-/** Homepage tool discovery: chips, featured cards, trial line. */
-/* FEATURED_TOOLS comes from the lightweight tool-catalog-meta (not the full catalog). */
-
-const CATEGORY_ICONS: Record<string, LucideIcon> = {
-  image: ImageIcon,
-  svg: Shapes,
-  brand: QrCode,
-  style: Palette,
-  seo: TrendingUp,
-  text: Type,
-  dev: Code2,
-  gif: Film,
-  privacy: EyeOff,
-  exam: ClipboardList,
-  security: Lock,
-  calculators: Calculator,
-  learn: GraduationCap,
-  generators: Sparkles,
-  design: PenTool,
-  network: Globe,
-  fun: Gamepad2,
-};
-
-const FEATURED_ICONS: Record<string, LucideIcon> = {
-  qr: QrCode,
-  minimize: Minimize2,
-  lock: Lock,
-  braces: Braces,
-  eraser: Eraser,
-  text: Type,
-  pipette: Pipette,
-  fingerprint: Fingerprint,
-};
-
-function ToolsTeaser() {
-  const navigate = useNavigate();
-  const [toolQuery, setToolQuery] = useState("");
-
-  const goToolsSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    void navigate({ to: "/tools", search: { q: toolQuery.trim() } });
-  };
-
-  const featured: FeaturedToolMeta[] = FEATURED_TOOLS;
-
-  return (
-    <section className="border-b border-border bg-surface-2/60">
-      <div className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Wrench className="h-3.5 w-3.5 text-primary" /> Free online tools</span></p>
-          <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
-            Icons are only half the story
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            {TOOL_COUNT} free tools for developers, designers and creators. 5 free uses each per day,
-            no account needed.
-          </p>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <form
-            onSubmit={goToolsSearch}
-            className="mx-auto mt-7 flex h-16 max-w-xl items-center gap-2 rounded-2xl bg-surface p-2 pl-6 shadow-soft ring-1 ring-ink/10"
-          >
-            <Search className="h-5 w-5 shrink-0 text-muted-foreground" aria-hidden />
-            <input
-              value={toolQuery}
-              onChange={(e) => setToolQuery(e.target.value)}
-              placeholder="Search tools: qr, compress, json, password…"
-              aria-label="Search free tools"
-              className="min-w-0 flex-1 bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
-            />
-            <button
-              type="submit"
-              className="focus-ring shrink-0 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:px-6"
-            >
-              Search tools
-            </button>
-          </form>
-        </Reveal>
-
-        <Reveal delay={140}>
-          <div className="mt-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
-            {TOOL_CATEGORY_META.filter(({ count }) => count > 0)
-              .map(({ id, label, count }, vi) => {
-                const CatIcon = CATEGORY_ICONS[id] ?? Wrench;
-                return (
-                <Link
-                  key={id}
-                  to="/tools"
-                  search={{ category: id }}
-                  className={`focus-ring flex items-center justify-center gap-1.5 rounded-full border border-border bg-surface px-2 py-2 text-center text-xs font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-soft sm:px-4 ${vi >= 8 ? "hidden sm:flex" : ""}`}
-                >
-                  <CatIcon className="h-3.5 w-3.5 shrink-0 text-primary/70" />
-                  {label}
-                  <span className="ml-1.5 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
-                    {count}
-                  </span>
-                </Link>
-                );
-              })}
-          </div>
-        </Reveal>
-
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((t, i) => {
-            const Icon = FEATURED_ICONS[t.icon] ?? Sparkles;
-            return (
-              <Reveal key={t.id} delay={i * 60}>
-                <Link
-                  to={t.path ?? "/tools"}
-                  className="surface-card lift-hover focus-ring group flex h-full items-start gap-3.5 p-5"
-                >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="flex items-center gap-1.5 font-display text-[15px] font-semibold">
-                      {t.name}
-                      <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
-                    </span>
-                    <span className="mt-1 block text-[13px] leading-snug text-muted-foreground">
-                      {t.tagline}
-                    </span>
-                  </span>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-
-        <Reveal delay={120} className="mt-8 text-center">
-          <Link
-            to="/tools"
-            className="focus-ring group inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
-          >
-            Explore free tools
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <p className="mt-4 text-xs text-muted-foreground">
-            {TOOL_COUNT} free tools, 5 free uses each per day, no account needed
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-const CODE_SAMPLE = `import { Icon } from '@iconify/react';
-
-export function CheckoutButton() {
-  return (
-    <button className="btn-primary">
-      <Icon icon="solar:cart-large-2-bold-duotone"
-            width="20" color="#0F766E" />
-      Secure checkout
-    </button>
-  );
-}`;
-
-/** Premium code window for the developer-experience section: gradient
-    hairline, glow, floating emoji chips and a working copy button
-    (Sameer 2026-10-23). */
-function CodeShowcaseCard() {
-  const [copied, setCopied] = useState(false);
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(CODE_SAMPLE);
-      setCopied(true);
-      toast.success("Snippet copied");
-      setTimeout(() => setCopied(false), 1600);
-    } catch {
-      toast.error("Copy failed - select the code manually");
-    }
-  };
-
-  return (
-    <div className="relative">
-      <span
-        className="pointer-events-none absolute -inset-5 rounded-[2rem] bg-[image:var(--gradient-hero)] opacity-70 blur-2xl"
-        aria-hidden
-      />
-      <span
-        className="animate-float absolute -left-3 -top-4 z-10 grid h-11 w-11 place-items-center rounded-2xl border border-border bg-surface text-lg shadow-soft sm:-left-5"
-        aria-hidden
-      >
-        ✨
-      </span>
-      <span
-        className="animate-float absolute -bottom-4 -right-3 z-10 grid h-11 w-11 place-items-center rounded-2xl border border-border bg-surface text-lg shadow-soft [animation-delay:900ms] sm:-right-5"
-        aria-hidden
-      >
-        🚀
-      </span>
-      <div className="surface-card relative overflow-hidden">
-        <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)]" aria-hidden />
-        <div className="flex items-center gap-1.5 border-b border-border bg-muted/50 px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-destructive/50" />
-          <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
-          <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
-          <span className="ml-2 font-mono text-[11px] text-muted-foreground">
-            <span aria-hidden>📄 </span>CheckoutButton.tsx
-          </span>
-          <span className="ml-auto flex items-center gap-2">
-            <span className="rounded-full bg-primary-soft px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
-              TSX
-            </span>
-            <button
-              type="button"
-              onClick={copy}
-              className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-[11px] font-medium transition-colors hover:border-primary/40 hover:text-primary"
-              aria-label="Copy code snippet"
-            >
-              {copied ? <Check className="h-3 w-3 text-primary" /> : <Copy className="h-3 w-3" />}
-              {copied ? "Copied" : "Copy"}
-            </button>
-          </span>
-        </div>
-        <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-relaxed text-muted-foreground">
-          {CODE_SAMPLE}
-        </pre>
-        <div className="flex items-center gap-2 border-t border-border bg-muted/40 px-4 py-2.5 text-xs text-muted-foreground">
-          <span aria-hidden>✅</span> Size, colour &amp; import path baked in - paste it and it
-          just works.
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function WaitlistForm() {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [done, setDone] = useState(false);
-  const [trap, setTrap] = useState("");
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isBotSubmission(trap)) {
-      // Bot filled the honeypot: silently discard, pretend success.
-      setDone(true);
-      setEmail("");
-      toast.success("You're on the list");
-      return;
-    }
-    if (!email.trim()) return;
-    setLoading(true);
-    const { supabase } = await import("@/integrations/supabase/client");
-    const { error } = await supabase.from("waitlist").insert({ email: email.trim() });
-    setLoading(false);
-    if (error) {
-      toast.error(
-        error.code === "23505" ? "You're already on the list" : "Something went wrong, try again",
-      );
-      return;
-    }
-    setDone(true);
-    setEmail("");
-    toast.success("You're on the list");
-  };
-
-  if (done) {
-    return (
-      <div className="surface-card flex items-center justify-center gap-2 px-6 py-5 text-sm text-primary">
-        <Check className="h-4 w-4" /> You're on the list - we'll be in touch.
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={(e) => void submit(e)} className="flex w-full flex-col gap-2.5 sm:flex-row">
-      <HoneypotField onFill={setTrap} />
-      <input
-        type="email"
-        required
-        autoComplete="email"
-        inputMode="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@studio.com"
-        aria-label="Email address"
-        className="focus-ring h-14 w-full min-w-0 flex-1 rounded-full border border-border bg-surface px-6 text-base outline-none placeholder:text-muted-foreground sm:h-12 sm:px-5"
-      />
-      <button
-        type="submit"
-        disabled={loading}
-        className="focus-ring h-14 w-full shrink-0 rounded-full bg-ink px-8 text-base font-semibold text-background transition-transform hover:scale-[1.03] disabled:opacity-50 sm:h-12 sm:w-auto sm:px-6 sm:text-sm sm:font-medium"
-      >
-        {loading ? "Adding…" : "Join the list"}
-      </button>
-    </form>
-  );
-}
 
 /** Mini visual strip at the bottom of each "How it works" step card:
     real icons for search, brand colours for tuning, format pills for export. */
@@ -690,13 +381,19 @@ function Landing() {
         <IllustrationsHome />
 
         {/* Collection styles chip cloud (added 2026-10-23) */}
-        <StyleChips />
+        <Suspense fallback={null}>
+          <StyleChips />
+        </Suspense>
 
         {/* Free tools teaser */}
-        <ToolsTeaser />
+        <Suspense fallback={null}>
+          <ToolsTeaser />
+        </Suspense>
 
         {/* Marquee - premium pill band with real set icons (2026-10-23) */}
-        <MarqueeBand />
+        <Suspense fallback={null}>
+          <MarqueeBand />
+        </Suspense>
 
         {/* Stats */}
         <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
@@ -791,7 +488,9 @@ function Landing() {
             </Reveal>
 
             <Reveal delay={120}>
-              <CodeShowcaseCard />
+              <Suspense fallback={null}>
+                <CodeShowcaseCard />
+              </Suspense>
             </Reveal>
           </div>
         </section>
@@ -882,7 +581,9 @@ function Landing() {
               No noise - just newly indexed icon families and the occasional workflow trick.
             </p>
             <div className="relative mx-auto mt-7 max-w-xl">
-              <WaitlistForm />
+              <Suspense fallback={null}>
+                <WaitlistForm />
+              </Suspense>
             </div>
           </Reveal>
         </section>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import PageShell from "@/components/PageShell";
 import { BlogCard } from "@/components/home/BlogTeaser";
-import type { BlogPost } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/blog/")({
@@ -21,17 +20,16 @@ export const Route = createFileRoute("/blog/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iconvault.site/blog" },
-      { property: "og:image", content: "https://iconvault.site/og-image.png?v=2" },
+      { property: "og:image", content: "https://iconvault.site/og-image.jpg?v=3" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://iconvault.site/blog" }],
   }),
-  // Dynamic import + meta-only payload: the articles' full text stays out
-  // of the entry chunk and out of this page's serialized loader data.
+  // Meta-only payload (PERF-H1): the blog-meta module carries no article
+  // text, so even a client-side navigation to /blog never downloads it.
   loader: async () => {
-    const { BLOG_POSTS, BLOG_CATEGORIES } = await import("@/lib/blog");
-    const posts = BLOG_POSTS.map(({ content: _content, ...meta }) => meta);
-    return { posts, categories: BLOG_CATEGORIES };
+    const { BLOG_META, BLOG_CATEGORIES } = await import("@/lib/blog-meta");
+    return { posts: BLOG_META, categories: BLOG_CATEGORIES };
   },
   component: BlogIndex,
 });

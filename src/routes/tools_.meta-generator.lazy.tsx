@@ -186,7 +186,7 @@ function MetaGeneratorTool() {
               </div>
               <div>
                 <label className={labelCls} htmlFor="mg-ogi">og:image URL</label>
-                <input id="mg-ogi" className={inputCls} value={ogImage} onChange={(e) => setOgImage(e.target.value)} placeholder="https://example.com/og-image.png" inputMode="url" />
+                <input id="mg-ogi" className={inputCls} value={ogImage} onChange={(e) => setOgImage(e.target.value)} placeholder="https://example.com/og-image.jpg" inputMode="url" />
               </div>
               <div>
                 <label className={labelCls} htmlFor="mg-ogu">og:url (falls back to canonical)</label>

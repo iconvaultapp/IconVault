@@ -57,7 +57,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:description", content: post.description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: "https://iconvault.site/og-image.png?v=2" },
+        { property: "og:image", content: "https://iconvault.site/og-image.jpg?v=3" },
         { property: "article:published_time", content: post.date },
         { property: "article:modified_time", content: post.updated ?? post.date },
         { name: "twitter:card", content: "summary_large_image" },

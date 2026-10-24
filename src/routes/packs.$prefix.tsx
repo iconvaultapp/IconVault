@@ -1,8 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
+import RouteError from "@/components/RouteError";
 import IconifyGrid from "@/components/IconifyGrid";
+import { GridPagination } from "@/components/GridPagination";
 import IconifyDetail from "@/components/IconifyDetail";
 import PackHeader from "@/components/PackHeader";
 import PackSeoSection from "@/components/PackSeoSection";
@@ -43,19 +45,19 @@ export const Route = createFileRoute("/packs/$prefix")({
     };
   },
   component: Page,
+  errorComponent: RouteError,
 });
 
 const PAGE_SIZE = 96;
-// Rendering cap: "Load more" stops here so huge packs can't grow the DOM
-// (and its observers/fetches) until the tab dies. Search covers the rest.
-const MAX_SHOWN = 2000;
 
 function Page() {
   const { prefix, collection } = Route.useLoaderData();
   const [seo, setSeo] = useState<PackSeo | null>(null);
   const [names, setNames] = useState<string[]>([]);
-  const [shown, setShown] = useState(PAGE_SIZE);
+  // PERF-H3: real pagination, not "Load more" (see categories page).
+  const [page, setPage] = useState(0);
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   // Opening a set must start at the top of the page - never leave the user
   // staring at the footer because the scroll position carried over.
@@ -71,7 +73,7 @@ function Page() {
     void fetchAllCollectionIconNames(prefix).then((n) => {
       if (alive) {
         setNames(n);
-        setShown(PAGE_SIZE);
+        setPage(0);
       }
     });
     return () => {
@@ -79,10 +81,19 @@ function Page() {
     };
   }, [prefix]);
 
+  const totalPages = Math.max(1, Math.ceil(names.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages - 1);
   const icons = useMemo(
-    () => names.slice(0, shown).map((n) => `${prefix}:${n}`),
-    [names, shown, prefix],
+    () =>
+      names
+        .slice(safePage * PAGE_SIZE, safePage * PAGE_SIZE + PAGE_SIZE)
+        .map((n) => `${prefix}:${n}`),
+    [names, safePage, prefix],
   );
+  const gotoPage = (p: number) => {
+    setPage(p);
+    gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const faqJsonLd = useMemo(() => {
     if (!seo || seo.faqs.length === 0) return null;
@@ -124,20 +135,16 @@ function Page() {
             eyebrow={`${names.length.toLocaleString("en-US")} icons`}
             title={`Browse ${collection.name}`}
           />
-          <div className="mt-4">
+          <div className="mt-4" ref={gridRef}>
             <IconifyGrid icons={icons} onIconClick={setActiveIcon} />
           </div>
-          {shown < Math.min(names.length, MAX_SHOWN) && (
-            <div className="mt-6 text-center">
-              <button
-                type="button"
-                onClick={() => setShown((s) => Math.min(s + PAGE_SIZE, MAX_SHOWN))}
-                className="focus-ring rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium hover:border-primary/40"
-              >
-                Load more ({(names.length - shown).toLocaleString("en-US")} remaining)
-              </button>
-            </div>
-          )}
+          <GridPagination
+            page={safePage}
+            totalPages={totalPages}
+            total={names.length}
+            pageSize={PAGE_SIZE}
+            onPage={gotoPage}
+          />
         </div>
 
         {/* About / FAQ / Tags / Related */}

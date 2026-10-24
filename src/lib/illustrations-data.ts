@@ -2214,8 +2214,12 @@ export const ILLUSTRATIONS: IllustrationEntry[] = [
  }
 ];
 
-export const getIllustration = (pack: IllustrationPackId, slug: string): IllustrationEntry =>
-  ILLUSTRATIONS.find((e) => e.pack === pack && e.slug === slug) as IllustrationEntry;
+/**
+ * Null-safe (ROB-M5): a bad slug returns undefined instead of a casted
+ * undefined that crashed the whole page. Callers render a fallback box.
+ */
+export const getIllustration = (pack: IllustrationPackId, slug: string): IllustrationEntry | undefined =>
+  ILLUSTRATIONS.find((e) => e.pack === pack && e.slug === slug);
 
 export const illustrationUrl = (entry: IllustrationEntry, theme: "light" | "dark"): string =>
   entry.pack === "flowbite"
@@ -2250,7 +2254,10 @@ export const recolorSvg = (entry: IllustrationEntry, svg: string, color: string)
       : stop.black !== undefined
         ? mixBlack(target, stop.black)
         : target;
-    out = out.replace(new RegExp(stop.hex, "gi"), to);
+    // Escape the hex before building the RegExp (ROB-L5): a hex is safe
+    // today, but an unescaped pattern is one bad data row from breaking.
+    const escaped = stop.hex.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    out = out.replace(new RegExp(escaped, "gi"), to);
   }
   return out;
 };
@@ -2293,8 +2300,19 @@ export const loadIllustrationSvg = (entry: IllustrationEntry, theme: "light" | "
       if (!res.ok) throw new Error(`Illustration missing: ${key}`);
       return res.text();
     })
-    .then((text) => normalizeSvg(text));
+    .then((text) => {
+      // Reject non-SVG payloads (ROB-L6): an error page or HTML must never
+      // be injected as "art" or offered as a download.
+      if (!text.includes("<svg")) throw new Error(`Illustration is not SVG: ${key}`);
+      return normalizeSvg(text);
+    });
   rawCache.set(key, promise);
+  // A failed fetch must NOT stay cached forever (ROB-H1): drop the entry
+  // on rejection so the next render retries instead of showing a dead box
+  // and a broken download for the whole session.
+  promise.catch(() => {
+    if (rawCache.get(key) === promise) rawCache.delete(key);
+  });
   return promise;
 };
 

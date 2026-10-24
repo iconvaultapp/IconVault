@@ -4,6 +4,7 @@ import { Check, Copy, Download, Moon, Search, Sun, X } from "lucide-react";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
+import RouteError from "@/components/RouteError";
 import IllustrationArt from "@/components/IllustrationArt";
 import {
   ILLUSTRATIONS,
@@ -41,6 +42,7 @@ export const Route = createFileRoute("/illustrations")({
     links: [{ rel: "canonical", href: "https://iconvault.site/illustrations" }],
   }),
   component: Page,
+  errorComponent: RouteError,
 });
 
 type Theme = "light" | "dark";
@@ -67,7 +69,9 @@ const downloadBlob = (name: string, blob: Blob) => {
   a.href = url;
   a.download = name;
   a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  // 60s, not 4s (ROB-L7): revoking too early can abort a slow download
+  // before the browser has picked the blob up.
+  setTimeout(() => URL.revokeObjectURL(url), 60_000);
 };
 
 function ColorControls({
@@ -155,6 +159,9 @@ function EditorModal({
       const svg = await buildSvg();
       downloadBlob(`${entry.slug}.svg`, new Blob([svg], { type: "image/svg+xml" }));
       toast.success("SVG downloaded");
+    } catch {
+      // ROB-M2: a failed load used to leave the button spinning forever.
+      toast.error("SVG download failed - try again");
     } finally {
       setBusy(false);
     }
@@ -162,14 +169,15 @@ function EditorModal({
 
   const downloadPng = async () => {
     setBusy(true);
+    let url: string | null = null;
     try {
       const svg = await buildSvg();
-      const url = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" }));
+      url = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" }));
       const img = new Image();
       await new Promise<void>((resolve, reject) => {
         img.onload = () => resolve();
         img.onerror = () => reject(new Error("render failed"));
-        img.src = url;
+        img.src = url as string;
       });
       const canvas = document.createElement("canvas");
       canvas.width = size;
@@ -177,7 +185,6 @@ function EditorModal({
       const ctx = canvas.getContext("2d");
       if (!ctx) throw new Error("canvas unavailable");
       ctx.drawImage(img, 0, 0, size, size);
-      URL.revokeObjectURL(url);
       const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
       if (blob) {
         downloadBlob(`${entry.slug}.png`, blob);
@@ -186,13 +193,38 @@ function EditorModal({
     } catch {
       toast.error("PNG export failed - try the SVG instead");
     } finally {
+      // ROB-L2: revoke on every path, not just success - a failed export
+      // used to leak the blob URL.
+      if (url) URL.revokeObjectURL(url);
       setBusy(false);
     }
   };
 
   const copySvg = async () => {
-    const svg = await buildSvg();
-    await navigator.clipboard.writeText(svg);
+    let svg: string;
+    try {
+      svg = await buildSvg();
+    } catch {
+      toast.error("Could not load the illustration - try again");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(svg);
+    } catch {
+      // ROB-M1: clipboard API can be denied (permissions, insecure
+      // context). Fall back to the textarea trick instead of crashing.
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = svg;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      } catch {
+        toast.error("Copy failed - select the code manually");
+        return;
+      }
+    }
     setCopied(true);
     toast.success("SVG code copied");
     setTimeout(() => setCopied(false), 1600);

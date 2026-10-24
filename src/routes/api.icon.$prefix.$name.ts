@@ -45,16 +45,19 @@ const fetchText = async (url: string): Promise<string | null> => {
 };
 
 const iconDataFromCdn = async (prefix: string, name: string) => {
-  for (const url of perIconDataUrls(prefix, name, ICONIFY_DATA_PKG_VERSIONS)) {
+  // PERF-M1: race the mirrors instead of trying them one by one. The
+  // client fetchFirstOk already races; the server used to pay the full
+  // 12s timeout of a dead mirror before trying the next one.
+  const attempts = perIconDataUrls(prefix, name, ICONIFY_DATA_PKG_VERSIONS).map(async (url) => {
     const text = await fetchText(url);
-    if (text === null) continue;
-    try {
-      return parseIconJsData(text, prefix, name);
-    } catch {
-      // Corrupt payload - try the next mirror.
-    }
+    if (text === null) throw new Error(`Mirror failed: ${url}`);
+    return parseIconJsData(text, prefix, name);
+  });
+  try {
+    return await Promise.any(attempts);
+  } catch {
+    return null;
   }
-  return null;
 };
 
 const svgResponse = (svg: string) =>
@@ -117,7 +120,9 @@ export const Route = createFileRoute("/api/icon/$prefix/$name")({
         const toSize = (v: string | null): number | undefined => {
           if (v === null || v === "") return undefined;
           const n = Number(v);
-          return Number.isFinite(n) && n > 0 ? n : undefined;
+          // ROB-L1: clamp. An uncapped ?width= let one request ask for a
+          // gigapixel render.
+          return Number.isFinite(n) && n > 0 ? Math.min(Math.floor(n), 4096) : undefined;
         };
         const width = toSize(url.searchParams.get("width"));
         const height = toSize(url.searchParams.get("height"));

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { loadIconData, type IconifyIconData } from "@/lib/iconify";
 import { iconDataToSvg } from "@/lib/icon-svg";
+import { sanitizeSvg } from "@/lib/sanitize-svg";
 import { cn } from "@/lib/utils";
 
 /**
@@ -124,11 +125,18 @@ export const ReliableIcon = ({
         try {
           // The generated SVG path is the most reliable representation because
           // Iconify applies all icon-set geometry and transformations for us.
-          setSvg(iconDataToSvg(icon, { width, height, ...(color ? { color } : {}) }));
+          // Sanitized before injection: a compromised pinned package must not
+          // be able to run scripts in the site origin (SEC-M2).
+          setSvg(await sanitizeSvg(iconDataToSvg(icon, { width, height, ...(color ? { color } : {}) })));
         } catch {
           // Raw JSON body as the second-level fallback (offsets/transforms
-          // applied from the icon metadata).
-          setData(icon);
+          // applied from the icon metadata) - sanitized the same way.
+          try {
+            setData({ ...icon, body: await sanitizeSvg(icon.body) });
+          } catch {
+            // Fail closed: never inject an unsanitized body (SEC-M2).
+            setFailed(true);
+          }
         }
       } catch {
         if (alive) setFailed(true);

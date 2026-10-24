@@ -371,6 +371,10 @@ export const searchIcons = async (
   prefix?: string,
   shouldAbort?: () => boolean,
 ): Promise<IconifySearchResult> => {
+  // ROB-L4: clamp paging inputs. An unbounded start/limit used to size
+  // the heap (keep = start + limit) and the visible slice without limit.
+  limit = Math.min(Math.max(Math.floor(limit) || 100, 1), 500);
+  start = Math.min(Math.max(Math.floor(start) || 0, 0), 1_000_000);
   const q = query.trim().toLowerCase();
   if (!q) return { icons: [], total: 0, limit, start, collections: {} };
 
@@ -393,6 +397,9 @@ export const searchIcons = async (
       if (!entry) continue;
       const { names, lower } = entry;
       for (let i = 0; i < names.length; i++) {
+        // ROB-M4: also check inside the per-name loop. A stale search used
+        // to run the full 421k-name scan before the per-prefix check fired.
+        if (shouldAbort?.()) return empty;
         const score = scoreLowered(lower[i] as string, q, tokens);
         if (score <= 0) continue;
         total++;

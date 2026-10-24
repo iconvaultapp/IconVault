@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Search, X } from "lucide-react";
 import { searchIcons, loadIconData } from "@/lib/iconify";
 import { iconDataToSvg } from "@/lib/icon-svg";
+import { sanitizeSvg } from "@/lib/sanitize-svg";
 
 export interface PickedIcon {
   id: string;
@@ -54,7 +55,8 @@ export default function IconStickerPicker({
           const [prefix, ...rest] = id.split(":");
           try {
             const data = await loadIconData(prefix ?? "", rest.join(":"));
-            next[id] = iconDataToSvg(data, { color: "currentColor" });
+            // Sanitized before injection (SEC-M2, same as ReliableIcon).
+            next[id] = await sanitizeSvg(iconDataToSvg(data, { color: "currentColor" }));
           } catch {
             /* skip */
           }

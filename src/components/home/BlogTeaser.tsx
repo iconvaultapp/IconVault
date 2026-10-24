@@ -3,9 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import ReliableIcon from "@/components/ReliableIcon";
 import { Reveal } from "@/components/Reveal";
-import { BLOG_POSTS, formatBlogDate, type BlogPost } from "@/lib/blog";
+// Meta-only import (PERF-H1): importing from @/lib/blog pulled every
+// post's full text into the homepage chunk. BlogMeta has no content field.
+import { BLOG_META, formatBlogDate, type BlogMeta } from "@/lib/blog-meta";
 
-export function BlogCard({ post, index = 0 }: { post: Omit<BlogPost, "content">; index?: number }) {
+export function BlogCard({ post, index = 0 }: { post: BlogMeta; index?: number }) {
   return (
     <Reveal delay={index * 60} className="h-full">
       <Link
@@ -38,7 +40,7 @@ export function BlogCard({ post, index = 0 }: { post: Omit<BlogPost, "content">;
 }
 
 export default function BlogTeaser() {
-  const posts = BLOG_POSTS.slice(0, 6);
+  const posts = BLOG_META.slice(0, 6);
   if (posts.length === 0) return null;
   return (
     <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">

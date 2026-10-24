@@ -29,7 +29,12 @@ import type {} from "@tanstack/react-start";
 type PaidPlan = "monthly" | "yearly" | "lifetime";
 
 function asPaidPlan(value: unknown): PaidPlan {
-  return value === "monthly" || value === "lifetime" ? value : "yearly";
+  // SEC-L6 (fail closed): an unknown plan used to silently default to
+  // "yearly" and grant a year of Pro. Both callers catch and return 500,
+  // so Dodo retries and the bad metadata shows up in logs for manual
+  // reconciliation instead of granting the wrong plan.
+  if (value === "monthly" || value === "yearly" || value === "lifetime") return value;
+  throw new Error(`Unknown plan in billing metadata: ${String(value)}`);
 }
 
 async function grantPlan(userId: string, plan: PaidPlan, ref?: string) {

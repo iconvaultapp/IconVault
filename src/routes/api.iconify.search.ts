@@ -18,23 +18,28 @@ const responseHeaders = () => ({
 });
 
 const fetchSearch = async (url: URL) => {
-  let lastError: unknown;
-  for (const base of ICONIFY_APIS) {
-    try {
-      const upstream = new URL(`${base}/search`);
-      upstream.searchParams.set("query", url.searchParams.get("query") ?? "");
-      upstream.searchParams.set("limit", String(clamp(Number(url.searchParams.get("limit") ?? "120"), 1, 999)));
-      upstream.searchParams.set("start", String(clamp(Number(url.searchParams.get("start") ?? "0"), 0, 1000000)));
-      const prefix = url.searchParams.get("prefix");
-      if (prefix && safePrefix(prefix)) upstream.searchParams.set("prefix", prefix);
-      const res = await fetch(upstream.toString(), { headers: { Accept: "application/json" } });
-      if (res.ok) return res;
-      lastError = new Error(`Iconify search failed: ${res.status}`);
-    } catch (error) {
-      lastError = error;
-    }
+  // PERF-M2: race the upstreams with a 5s timeout each instead of trying
+  // them one by one with no timeout at all (a hung upstream used to hang
+  // the whole request indefinitely).
+  const attempts = ICONIFY_APIS.map(async (base) => {
+    const upstream = new URL(`${base}/search`);
+    upstream.searchParams.set("query", url.searchParams.get("query") ?? "");
+    upstream.searchParams.set("limit", String(clamp(Number(url.searchParams.get("limit") ?? "120"), 1, 999)));
+    upstream.searchParams.set("start", String(clamp(Number(url.searchParams.get("start") ?? "0"), 0, 1000000)));
+    const prefix = url.searchParams.get("prefix");
+    if (prefix && safePrefix(prefix)) upstream.searchParams.set("prefix", prefix);
+    const res = await fetch(upstream.toString(), {
+      headers: { Accept: "application/json" },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) throw new Error(`Iconify search failed: ${res.status}`);
+    return res;
+  });
+  try {
+    return await Promise.any(attempts);
+  } catch {
+    throw new Error("Iconify search unavailable");
   }
-  throw lastError instanceof Error ? lastError : new Error("Iconify search unavailable");
 };
 
 export const Route = createFileRoute("/api/iconify/search")({

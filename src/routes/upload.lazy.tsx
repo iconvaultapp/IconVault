@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading, Stack, CheckList, FaqList, CTABand } from "@/components/kit";
 import { cn } from "@/lib/utils";
 import { brandFilename } from "@/lib/logo-builder";
+import { sanitizeSvg } from "@/lib/sanitize-svg";
 
 export const Route = createLazyFileRoute("/upload")({
   component: Page,
@@ -21,12 +22,14 @@ interface CustomIcon {
   size: number;
 }
 
-/** Strips scripts, comments and fixed fills so the icon inherits currentColor. */
-const cleanSvg = (raw: string) =>
-  raw
-    .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/\son\w+="[^"]*"/gi, "")
+/**
+ * Forces fixed fills/strokes to currentColor so the icon inherits its
+ * context colour. This is NOT the sanitizer: ingest() runs DOMPurify
+ * (see sanitize-svg.ts) first, which strips scripts, handlers,
+ * foreignObject and javascript: URLs that regexes miss (SEC-M1).
+ */
+const inheritColor = (svg: string) =>
+  svg
     .replace(/fill="(?!none)[^"]*"/gi, 'fill="currentColor"')
     .replace(/stroke="(?!none)[^"]*"/gi, 'stroke="currentColor"')
     .trim();
@@ -38,7 +41,22 @@ function Page() {
 
   useEffect(() => {
     try {
-      setIcons(JSON.parse(localStorage.getItem(STORE_KEY) || "[]") as CustomIcon[]);
+      const parsed: unknown = JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
+      if (!Array.isArray(parsed)) {
+        setIcons([]);
+        return;
+      }
+      setIcons(
+        parsed.filter(
+          (e): e is CustomIcon =>
+            !!e &&
+            typeof e === "object" &&
+            typeof (e as CustomIcon).id === "string" &&
+            typeof (e as CustomIcon).name === "string" &&
+            typeof (e as CustomIcon).svg === "string" &&
+            typeof (e as CustomIcon).size === "number",
+        ),
+      );
     } catch {
       setIcons([]);
     }
@@ -64,10 +82,11 @@ function Page() {
       for (const file of list) {
         const text = await file.text();
         if (!text.includes("<svg")) continue;
+        // DOMPurify first (real sanitizer), then force currentColor fills.
         parsed.push({
           id: `${file.name}-${Date.now()}-${parsed.length}`,
           name: file.name.replace(/\.svg$/i, ""),
-          svg: cleanSvg(text),
+          svg: inheritColor(await sanitizeSvg(text)),
           size: file.size,
         });
       }
@@ -160,7 +179,7 @@ function Page() {
                     <div className="surface-card lift-hover p-4">
                       <div
                         className="grid h-20 place-items-center rounded-xl bg-surface-2 text-foreground [&_svg]:h-7 [&_svg]:w-7"
-                        // Sanitised above: scripts, event handlers and comments removed.
+                        // Sanitised with DOMPurify on ingest (see sanitize-svg.ts).
                         dangerouslySetInnerHTML={{ __html: icon.svg }}
                       />
                       <p className="mt-3 truncate font-display text-sm font-semibold" title={icon.name}>
