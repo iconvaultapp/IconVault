@@ -264,10 +264,14 @@ function Landing() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section ref={heroRef} onMouseMove={onHeroMove} className="hero-glow relative overflow-hidden">
+        {/* Hero pulled up under the floating pill (Sameer 2026-10-24): the
+            -mt-24 lifts the hero background to the very top of the screen so
+            no page-background strip shows behind the pill; the matching
+            pt-24 keeps every hero element exactly where it was. */}
+        <section ref={heroRef} onMouseMove={onHeroMove} className="hero-glow relative -mt-24 overflow-hidden">
           <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
           <span ref={glowRef} className="pointer-events-none absolute inset-0" aria-hidden />
-          <div className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-20 text-center sm:pt-28 lg:px-8">
+          <div className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-44 text-center sm:pt-52 lg:px-8">
             <Reveal>
               <span className="inline-flex max-w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-primary/25 bg-primary-soft px-3 py-1 font-mono text-[9px] uppercase tracking-[0.08em] text-primary sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-widest">
                 <Sparkles className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" /> 421,020 icons · {TOOL_COUNT} free tools · one search

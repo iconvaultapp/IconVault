@@ -1,6 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Github, Layers, LayoutGrid, Menu, Star, X } from "lucide-react";
+import { ChevronDown, Layers, LayoutGrid, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/iconvault-logo.svg";
 import { navSections } from "@/components/nav-data";
 import UserMenu from "@/components/UserMenu";
@@ -46,32 +46,10 @@ export const Brand = ({ className }: { className?: string }) => {
   );
 };
 
-/** Live GitHub star count for the repo pill. Never a hardcoded number: the
- *  pill renders icon-only until the public API answers, and stays icon-only
- *  if the request fails (rate limit, offline, blocked). */
-const formatStars = (n: number) =>
-  n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k` : `${n}`;
-
 export const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [stars, setStars] = useState<number | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch("https://api.github.com/repos/iconvaultapp/IconVault")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => {
-        if (!cancelled && d && typeof d.stargazers_count === "number") {
-          setStars(d.stargazers_count);
-        }
-      })
-      .catch(() => {});
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const toggleMobileMenu = () => {
     if (mobileOpen) {
@@ -108,7 +86,7 @@ export const SiteHeader = () => {
                 >
                   <Link
                     to={link.path}
-                    className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     activeProps={{ className: "text-foreground bg-muted" }}
                   >
                     {link.label}
@@ -145,7 +123,7 @@ export const SiteHeader = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="focus-ring rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   activeProps={{ className: "text-foreground bg-muted" }}
                 >
                   {link.label}
@@ -171,7 +149,7 @@ export const SiteHeader = () => {
                       {section.label}
                     </Link>
                   ) : (
-                    <button className="focus-ring rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+                    <button className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
                       {section.label}
                     </button>
                   )}
@@ -213,21 +191,6 @@ export const SiteHeader = () => {
           </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="https://github.com/iconvaultapp/IconVault"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="IconVault on GitHub"
-            className="focus-ring hidden items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
-          >
-            <Github className="h-4 w-4" />
-            {stars !== null && (
-              <span className="inline-flex items-center gap-1">
-                {formatStars(stars)}
-                <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-              </span>
-            )}
-          </a>
           <Link
             to="/app"
             className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
