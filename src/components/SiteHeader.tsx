@@ -1,6 +1,6 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Layers, LayoutGrid, Menu, X } from "lucide-react";
+import { ChevronDown, Github, Layers, LayoutGrid, Menu, Star, X } from "lucide-react";
 import logoUrl from "@/assets/iconvault-logo.svg";
 import { navSections } from "@/components/nav-data";
 import UserMenu from "@/components/UserMenu";
@@ -46,10 +46,32 @@ export const Brand = ({ className }: { className?: string }) => {
   );
 };
 
+/** Live GitHub star count for the repo pill. Never a hardcoded number: the
+ *  pill renders icon-only until the public API answers, and stays icon-only
+ *  if the request fails (rate limit, offline, blocked). */
+const formatStars = (n: number) =>
+  n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k` : `${n}`;
+
 export const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [stars, setStars] = useState<number | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("https://api.github.com/repos/iconvaultapp/IconVault")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!cancelled && d && typeof d.stargazers_count === "number") {
+          setStars(d.stargazers_count);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const toggleMobileMenu = () => {
     if (mobileOpen) {
@@ -72,11 +94,10 @@ export const SiteHeader = () => {
   };
 
   return (
-    <header className="sticky top-0 z-[100] border-b border-border/70 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 lg:px-8">
-        <div className="flex min-w-0 items-center gap-8">
+    <header className="sticky top-3 z-[100] mx-auto mt-4 w-full max-w-[1440px] px-4 sm:px-6">
+      <div className="flex items-center gap-4 rounded-full bg-white/90 px-5 py-2.5 shadow-[0_10px_40px_rgb(0_0_0/0.08)] ring-1 ring-black/[0.04] backdrop-blur-xl">
           <Brand />
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex">
             {primaryLinks.map((link) =>
               link.path === "/app" ? (
                 <div
@@ -190,19 +211,33 @@ export const SiteHeader = () => {
                 </div>
               ))}
           </nav>
-        </div>
 
         <div className="flex items-center gap-2">
+          <a
+            href="https://github.com/iconvaultapp/IconVault"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="IconVault on GitHub"
+            className="focus-ring hidden items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
+          >
+            <Github className="h-4 w-4" />
+            {stars !== null && (
+              <span className="inline-flex items-center gap-1">
+                {formatStars(stars)}
+                <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+              </span>
+            )}
+          </a>
           <Link
-            to="/"
+            to="/app"
             className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
           >
-            Open the vault
+            Open App
           </Link>
           <UserMenu />
           <button
             onClick={toggleMobileMenu}
-            className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-border transition-transform duration-200 active:scale-95 lg:hidden"
+            className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-border transition-transform duration-200 active:scale-95 xl:hidden"
             aria-label="Toggle navigation"
             aria-expanded={mobileOpen}
           >
@@ -227,7 +262,7 @@ export const SiteHeader = () => {
       {mobileOpen && (
         <div
           className={cn(
-            "max-h-[70vh] overflow-y-auto overscroll-contain border-t border-border bg-background px-5 pb-6 pt-3 [-webkit-overflow-scrolling:touch] lg:hidden",
+            "mt-2 max-h-[70vh] overflow-y-auto overscroll-contain rounded-[1.5rem] border border-border/70 bg-white/95 px-3 py-3 shadow-[0_16px_40px_rgb(0_0_0/0.10)] backdrop-blur-xl [-webkit-overflow-scrolling:touch] xl:hidden",
             menuClosing ? "animate-menu-close" : "animate-slide-down",
           )}
         >

@@ -514,3 +514,13 @@
   height: 1px;
   opacity: 0;
 }
+
+/* PERF (2026-10-24): below-fold homepage sections skip layout/paint until
+   the browser scrolls near them. Content stays in SSR HTML (SEO unaffected)
+   and `auto` keeps each section's last rendered size, so repeat visits and
+   back-scrolls don't jump. Applied only below the fold, never to the hero
+   or the icon/category showcases. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}

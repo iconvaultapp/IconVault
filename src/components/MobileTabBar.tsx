@@ -1,10 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, FolderOpen, Wrench, Tag, User } from "lucide-react";
+import { Home, Search, Wrench, Tag, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tabs = [
   { icon: Home, label: "Home", path: "/" },
-  { icon: FolderOpen, label: "Saved", path: "/collections" },
+  // Saved (collections) moved out of the tab bar on Sameer's call 2026-10-24:
+  // the core action is browsing, and /collections stays reachable from the
+  // hamburger menu. /app is the browse page ("Browse icons" in the header).
+  { icon: Search, label: "Browse", path: "/app" },
   { icon: Wrench, label: "Tools", path: "/tools", center: true },
   { icon: Tag, label: "Price", path: "/pro" },
   { icon: User, label: "Account", path: "/profile" },

@@ -382,21 +382,27 @@ function Landing() {
 
         {/* Collection styles chip cloud (added 2026-10-23) */}
         <Suspense fallback={null}>
-          <StyleChips />
+          <div className="cv-auto">
+            <StyleChips />
+          </div>
         </Suspense>
 
         {/* Free tools teaser */}
         <Suspense fallback={null}>
-          <ToolsTeaser />
+          <div className="cv-auto">
+            <ToolsTeaser />
+          </div>
         </Suspense>
 
         {/* Marquee - premium pill band with real set icons (2026-10-23) */}
         <Suspense fallback={null}>
-          <MarqueeBand />
+          <div className="cv-auto">
+            <MarqueeBand />
+          </div>
         </Suspense>
 
         {/* Stats */}
-        <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
+        <section className="cv-auto mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 70} className="surface-card lift-hover group relative overflow-hidden px-5 py-9 text-center">
@@ -413,7 +419,7 @@ function Landing() {
         </section>
 
         {/* Features */}
-        <section className="mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
+        <section className="cv-auto mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
           <Reveal className="max-w-2xl">
             <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-primary" /> Why teams switch</span></p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -443,7 +449,7 @@ function Landing() {
         </section>
 
         {/* Code showcase */}
-        <section className="border-y border-border bg-surface-2">
+        <section className="cv-auto border-y border-border bg-surface-2">
           <div className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)] items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8">
             <Reveal>
               <p className="eyebrow"><span className="inline-flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5 text-primary" /> Developer experience</span></p>
@@ -496,7 +502,7 @@ function Landing() {
         </section>
 
         {/* Steps */}
-        <section className="relative mx-auto max-w-[1440px] overflow-hidden px-5 py-20 lg:px-8">
+        <section className="cv-auto relative mx-auto max-w-[1440px] overflow-hidden px-5 py-20 lg:px-8">
           <Shapes
             className="animate-float-slow pointer-events-none absolute -right-4 top-8 hidden h-36 w-36 rotate-12 text-primary/[0.05] lg:block"
             aria-hidden
@@ -549,13 +555,15 @@ function Landing() {
             </div>
           }
         >
-          <BlogTeaser />
+          <div className="cv-auto">
+            <BlogTeaser />
+          </div>
         </Suspense>
 
         {/* Testimonials hidden on the homepage at all resolutions (Sameer 2026-10-23). */}
 
         {/* Waitlist + CTA */}
-        <section className="mx-auto max-w-[1440px] px-5 py-20 text-center lg:px-8">
+        <section className="cv-auto mx-auto max-w-[1440px] px-5 py-20 text-center lg:px-8">
           <Reveal className="surface-card relative overflow-hidden px-6 py-12 sm:px-12">
             <span className="absolute inset-x-0 top-0 h-1 bg-[image:var(--gradient-primary)] opacity-60" aria-hidden />
             <span
@@ -588,7 +596,7 @@ function Landing() {
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-[1440px] px-5 pb-24 lg:px-8">
+        <section className="cv-auto mx-auto max-w-[1440px] px-5 pb-24 lg:px-8">
           <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-ink px-6 py-16 text-center">
             <span className="animate-float-slow pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
             <span className="animate-float-slow pointer-events-none absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl [animation-delay:1600ms]" />
