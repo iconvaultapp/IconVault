@@ -1219,6 +1219,15 @@ export const LIVE_TOOLS: ToolDef[] = [
   },
   // ---- design ----
   {
+    id: "mockup-studio",
+    name: "Mockup Studio",
+    tagline: "Turn any screenshot into a device mockup - 27 iPhone, Android, iPad, MacBook, watch & browser frames, custom backgrounds, 2x PNG export.",
+    path: "/tools/mockup-studio",
+    icon: "frame",
+    badge: "New",
+    category: "design",
+  },
+  {
     id: "font-pairing",
     name: "Font Pairing",
     tagline: "Curated heading and body font pairs with live preview",

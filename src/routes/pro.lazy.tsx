@@ -12,7 +12,7 @@ export const Route = createLazyFileRoute("/pro")({
 });
 
 const proFeatures = [
-  "Unlimited tool runs (all 579 tools)",
+  "Unlimited tool runs (all 580 tools)",
   "Unlimited SVG and PNG downloads",
   "Unlimited bulk downloads",
   "Full-page & HD website screenshots",

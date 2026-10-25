@@ -114,7 +114,7 @@ function NotFoundComponent() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 579 free tools..."
+              placeholder="Search 580 free tools..."
               aria-label="Search tools"
               className="focus-ring h-12 w-full rounded-full border border-border bg-card pl-11 pr-4 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
             />

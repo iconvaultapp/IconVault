@@ -395,6 +395,7 @@ import { Route as ToolsMetaGeneratorRouteImport } from './routes/tools_.meta-gen
 import { Route as ToolsMetronomeRouteImport } from './routes/tools_.metronome'
 import { Route as ToolsMimeTypesRouteImport } from './routes/tools_.mime-types'
 import { Route as ToolsMockDataGeneratorRouteImport } from './routes/tools_.mock-data-generator'
+import { Route as ToolsMockupStudioRouteImport } from './routes/tools_.mockup-studio'
 import { Route as ToolsModelPickerRouteImport } from './routes/tools_.model-picker'
 import { Route as ToolsModuleImportPatternsRouteImport } from './routes/tools_.module-import-patterns'
 import { Route as ToolsMolarMassRouteImport } from './routes/tools_.molar-mass'
@@ -3376,6 +3377,13 @@ const ToolsMockDataGeneratorRoute = ToolsMockDataGeneratorRouteImport.update({
 } as any).lazy(() =>
   import('./routes/tools_.mock-data-generator.lazy').then((d) => d.Route),
 )
+const ToolsMockupStudioRoute = ToolsMockupStudioRouteImport.update({
+  id: '/tools_/mockup-studio',
+  path: '/tools/mockup-studio',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/tools_.mockup-studio.lazy').then((d) => d.Route),
+)
 const ToolsModelPickerRoute = ToolsModelPickerRouteImport.update({
   id: '/tools_/model-picker',
   path: '/tools/model-picker',
@@ -5521,6 +5529,7 @@ export interface FileRoutesByFullPath {
   '/tools/metronome': typeof ToolsMetronomeRoute
   '/tools/mime-types': typeof ToolsMimeTypesRoute
   '/tools/mock-data-generator': typeof ToolsMockDataGeneratorRoute
+  '/tools/mockup-studio': typeof ToolsMockupStudioRoute
   '/tools/model-picker': typeof ToolsModelPickerRoute
   '/tools/module-import-patterns': typeof ToolsModuleImportPatternsRoute
   '/tools/molar-mass': typeof ToolsMolarMassRoute
@@ -6148,6 +6157,7 @@ export interface FileRoutesByTo {
   '/tools/metronome': typeof ToolsMetronomeRoute
   '/tools/mime-types': typeof ToolsMimeTypesRoute
   '/tools/mock-data-generator': typeof ToolsMockDataGeneratorRoute
+  '/tools/mockup-studio': typeof ToolsMockupStudioRoute
   '/tools/model-picker': typeof ToolsModelPickerRoute
   '/tools/module-import-patterns': typeof ToolsModuleImportPatternsRoute
   '/tools/molar-mass': typeof ToolsMolarMassRoute
@@ -6776,6 +6786,7 @@ export interface FileRoutesById {
   '/tools_/metronome': typeof ToolsMetronomeRoute
   '/tools_/mime-types': typeof ToolsMimeTypesRoute
   '/tools_/mock-data-generator': typeof ToolsMockDataGeneratorRoute
+  '/tools_/mockup-studio': typeof ToolsMockupStudioRoute
   '/tools_/model-picker': typeof ToolsModelPickerRoute
   '/tools_/module-import-patterns': typeof ToolsModuleImportPatternsRoute
   '/tools_/molar-mass': typeof ToolsMolarMassRoute
@@ -7405,6 +7416,7 @@ export interface FileRouteTypes {
     | '/tools/metronome'
     | '/tools/mime-types'
     | '/tools/mock-data-generator'
+    | '/tools/mockup-studio'
     | '/tools/model-picker'
     | '/tools/module-import-patterns'
     | '/tools/molar-mass'
@@ -8032,6 +8044,7 @@ export interface FileRouteTypes {
     | '/tools/metronome'
     | '/tools/mime-types'
     | '/tools/mock-data-generator'
+    | '/tools/mockup-studio'
     | '/tools/model-picker'
     | '/tools/module-import-patterns'
     | '/tools/molar-mass'
@@ -8659,6 +8672,7 @@ export interface FileRouteTypes {
     | '/tools_/metronome'
     | '/tools_/mime-types'
     | '/tools_/mock-data-generator'
+    | '/tools_/mockup-studio'
     | '/tools_/model-picker'
     | '/tools_/module-import-patterns'
     | '/tools_/molar-mass'
@@ -9287,6 +9301,7 @@ export interface RootRouteChildren {
   ToolsMetronomeRoute: typeof ToolsMetronomeRoute
   ToolsMimeTypesRoute: typeof ToolsMimeTypesRoute
   ToolsMockDataGeneratorRoute: typeof ToolsMockDataGeneratorRoute
+  ToolsMockupStudioRoute: typeof ToolsMockupStudioRoute
   ToolsModelPickerRoute: typeof ToolsModelPickerRoute
   ToolsModuleImportPatternsRoute: typeof ToolsModuleImportPatternsRoute
   ToolsMolarMassRoute: typeof ToolsMolarMassRoute
@@ -12234,6 +12249,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsMockDataGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools_/mockup-studio': {
+      id: '/tools_/mockup-studio'
+      path: '/tools/mockup-studio'
+      fullPath: '/tools/mockup-studio'
+      preLoaderRoute: typeof ToolsMockupStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools_/model-picker': {
       id: '/tools_/model-picker'
       path: '/tools/model-picker'
@@ -14297,6 +14319,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsMetronomeRoute: ToolsMetronomeRoute,
   ToolsMimeTypesRoute: ToolsMimeTypesRoute,
   ToolsMockDataGeneratorRoute: ToolsMockDataGeneratorRoute,
+  ToolsMockupStudioRoute: ToolsMockupStudioRoute,
   ToolsModelPickerRoute: ToolsModelPickerRoute,
   ToolsModuleImportPatternsRoute: ToolsModuleImportPatternsRoute,
   ToolsMolarMassRoute: ToolsMolarMassRoute,

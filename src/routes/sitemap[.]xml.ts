@@ -22,6 +22,7 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/pro", changefreq: "monthly", priority: "0.9" },
   { path: "/tools", changefreq: "weekly", priority: "0.8" },
   { path: "/tools/logo-builder", changefreq: "weekly", priority: "0.8" },
+  { path: "/tools/mockup-studio", changefreq: "weekly", priority: "0.9" },
   { path: "/tools/image-to-svg", changefreq: "weekly", priority: "0.9" },
   { path: "/tools/og-image-generator", changefreq: "weekly", priority: "0.9" },
   { path: "/tools/website-screenshot", changefreq: "weekly", priority: "0.9" },

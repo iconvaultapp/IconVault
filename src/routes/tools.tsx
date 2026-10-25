@@ -12,13 +12,13 @@ export const Route = createFileRoute("/tools")({
       {
         name: "description",
         content:
-          "579 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools, interactive web API playgrounds, text tools and more.",
+          "580 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools, interactive web API playgrounds, text tools and more.",
       },
       { property: "og:title", content: "Free Design & Developer Tools - IconVault" },
       {
         property: "og:description",
         content:
-          "579 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools and more. No account needed.",
+          "580 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools and more. No account needed.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iconvault.site/tools" },

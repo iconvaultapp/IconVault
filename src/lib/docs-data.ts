@@ -343,13 +343,13 @@ export const DOC_SECTIONS: DocSection[] = [
     blocks: [
       {
         type: "p",
-        text: "The Tools hub is home to 579 free online tools across 17 categories: image tools, developer utilities, text tools, converters, generators and more. Every tool runs in your browser, so your files never leave your device.",
+        text: "The Tools hub is home to 580 free online tools across 17 categories: image tools, developer utilities, text tools, converters, generators and more. Every tool runs in your browser, so your files never leave your device.",
       },
       { type: "h", text: "Finding a tool" },
       {
         type: "list",
         items: [
-          "Use the big search bar at the top of the Tools page - it filters all 579 tools as you type.",
+          "Use the big search bar at the top of the Tools page - it filters all 580 tools as you type.",
           "Browse by category: click any of the 17 category chips, or open a category page to see every tool inside it.",
           "Deep links work too: a search like /tools?q=qr jumps straight to matching tools.",
         ],
@@ -624,7 +624,7 @@ export const DOC_SECTIONS: DocSection[] = [
       {
         type: "list",
         items: [
-          "Unlimited runs of all 579 tools (free visitors get 5 uses per tool).",
+          "Unlimited runs of all 580 tools (free visitors get 5 uses per tool).",
           "Unlimited bulk ZIP downloads.",
           "Full Logo Builder kit export (favicons, app icons, manifest).",
           "API key with 1,000 calls/month and no per-minute limits.",

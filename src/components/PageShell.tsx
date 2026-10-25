@@ -15,7 +15,7 @@ interface PageShellProps {
   /** Wide content for /tools pages: capped at 1440px, comfortable side gaps. */
   fullWidth?: boolean;
   /** Compact hero on mobile only (tighter spacing, slightly smaller title).
-      Used by ToolPageShell so all 579 tool pages share one mobile hero. */
+      Used by ToolPageShell so all 580 tool pages share one mobile hero. */
   compactHero?: boolean;
 }
 

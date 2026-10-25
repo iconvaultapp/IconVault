@@ -100,7 +100,7 @@ function ToolsPage() {
 
   // Progressive rendering: each category section initially shows the first
   // PAGE_SIZE tools; "Show all" expands it client-side. This keeps the SSR
-  // HTML (and hydration cost) small - the page used to ship all 579 cards
+  // HTML (and hydration cost) small - the page used to ship all 580 cards
   // at once (~870KB HTML). Search still scans the full catalog.
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
   const expandCat = (catId: string) =>
@@ -168,7 +168,7 @@ function ToolsPage() {
   return (
     <PageShell
       title="Tools"
-      description="579 free online tools for developers, designers and creators - no account needed."
+      description="580 free online tools for developers, designers and creators - no account needed."
       fullWidth
       compactHero
     >
@@ -195,7 +195,7 @@ function ToolsPage() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 579 tools - try &quot;json&quot;, &quot;qr code&quot;, &quot;contrast&quot;..."
+              placeholder="Search 580 tools - try &quot;json&quot;, &quot;qr code&quot;, &quot;contrast&quot;..."
               aria-label="Search tools"
               className="h-14 w-full rounded-2xl border-2 border-border bg-card pr-12 text-base shadow-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary sm:h-16 sm:text-lg"
               style={{ paddingLeft: "3.25rem" }}
