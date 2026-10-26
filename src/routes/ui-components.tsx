@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, Copy, Download, Search, X } from "lucide-react";
+import { ArrowRight, Check, Copy, Download, Search, X } from "lucide-react";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -364,7 +364,7 @@ function Page() {
             <button
               type="button"
               onClick={() => setSelected(entry)}
-              className="surface-card lift-hover focus-ring group block h-full w-full p-4 text-left"
+              className="surface-card lift-hover focus-ring group block h-full w-full p-4 text-left transition-transform active:scale-[0.98]"
               aria-label={`View ${entry.title} code`}
             >
               <span className="block overflow-hidden rounded-xl ring-1 ring-inset ring-border/50">
@@ -380,6 +380,9 @@ function Page() {
               </span>
               <span className="mt-0.5 block text-xs text-muted-foreground">
                 {catLabelById.get(entry.category)} · by {entry.author} · MIT
+              </span>
+              <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground transition-transform group-hover:translate-x-0.5">
+                Click Here <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </button>
           </Reveal>

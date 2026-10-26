@@ -77,7 +77,7 @@ export const SiteHeader = () => {
       <div className="flex items-center gap-4 rounded-full bg-white/90 px-5 py-2.5 shadow-[0_10px_40px_rgb(0_0_0/0.08)] ring-1 ring-black/[0.04] backdrop-blur-xl">
           <Brand />
           <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex">
-            {primaryLinks.slice(0, 2).map((link) =>
+            {primaryLinks.slice(0, 3).map((link) =>
               link.path === "/app" ? (
                 <div
                   key={link.path}
@@ -178,7 +178,7 @@ export const SiteHeader = () => {
               )}
             </div>
 
-            {primaryLinks.slice(2).map((link) => (
+            {primaryLinks.slice(3).map((link) => (
               <Link
                 key={link.path}
                 to={link.path}

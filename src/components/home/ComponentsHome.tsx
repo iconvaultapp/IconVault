@@ -55,7 +55,7 @@ export const ComponentsHome = () => (
           <Link
             to="/ui-components"
             search={{ open: `${entry.category}:${entry.slug}` }}
-            className="surface-card lift-hover group block h-full p-4"
+            className="surface-card lift-hover group block h-full p-4 transition-transform active:scale-[0.98]"
             aria-label={`Open ${entry.title} in the UI components gallery`}
           >
             <span className="block overflow-hidden rounded-xl ring-1 ring-inset ring-border/50">
@@ -71,6 +71,9 @@ export const ComponentsHome = () => (
             </span>
             <span className="mt-0.5 block text-xs text-muted-foreground">
               {CAT_LABEL[entry.category] ?? entry.category} · by {entry.author} · MIT
+            </span>
+            <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground transition-transform group-hover:translate-x-0.5">
+              Click Here <ArrowRight className="h-3.5 w-3.5" />
             </span>
           </Link>
         </Reveal>
