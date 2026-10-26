@@ -212,8 +212,11 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
           SearchBar below carries the query on its own. */}
       <div id="browse-results" className="mx-auto max-w-[100rem] scroll-mt-20">
           <main className="px-5 py-8 lg:px-8">
-          {/* Sub-menu: sibling browse sections (Sameer 2026-10-23) */}
-          <nav aria-label="Browse sections" className="mb-5 flex flex-wrap items-center gap-2">
+          {/* Sub-menu: sibling browse sections (Sameer 2026-10-23).
+              Sticky below the main header (Sameer 2026-10-26): it used to
+              slide under the sticky header pill on scroll and look half-cut.
+              top-20 clears the stuck header (top-3 + ~60px pill height). */}
+          <nav aria-label="Browse sections" className="sticky top-20 z-40 -mx-1 mb-5 flex flex-wrap items-center gap-2 bg-background px-1 py-2">
             <span
               aria-current="page"
               className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-background"

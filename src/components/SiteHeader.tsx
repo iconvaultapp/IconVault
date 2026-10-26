@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Layers, LayoutGrid, Menu, X } from "lucide-react";
+import { BookOpen, ChevronDown, History, Layers, LayoutGrid, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/iconvault-logo.svg";
 import { navSections } from "@/components/nav-data";
 import UserMenu from "@/components/UserMenu";
@@ -11,10 +11,15 @@ const primaryLinks = [
   { label: "Illustrations", path: "/illustrations" },
   { label: "UI Components", path: "/ui-components" },
   { label: "Collections", path: "/collections" },
-  { label: "Blog", path: "/blog" },
   { label: "Pricing", path: "/pro" },
-  { label: "Changelog", path: "/changelog" },
 ];
+// Blog + Changelog as Developers-tab submenu items (Sameer 2026-10-26),
+// not top-level tabs. Kept local to the header so the sidebar,
+// footer and user menu are untouched.
+const DEVELOPER_TAB_LINKS = [
+  { icon: BookOpen, label: "Blog", path: "/blog", desc: "News & updates" },
+  { icon: History, label: "Changelog", path: "/changelog", desc: "Latest releases" },
+] as const;
 
 // Hover sub-menu under "Browse icons" (Sameer 2026-10-23).
 const BROWSE_SUBMENU = [
@@ -200,9 +205,10 @@ export const SiteHeader = () => {
               {openMenu === "Developers" && (
                 <div className="animate-pop absolute left-0 top-full w-[26rem] pt-2">
                   <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-2xl border border-border bg-popover p-2 shadow-lift">
-                    {navSections
-                      .find((s) => s.label === "Developers")
-                      ?.links.map((link) => (
+                    {[
+                      ...DEVELOPER_TAB_LINKS,
+                      ...(navSections.find((s) => s.label === "Developers")?.links ?? []),
+                    ].map((link) => (
                         <Link
                           key={link.path}
                           to={link.path}
@@ -308,6 +314,18 @@ export const SiteHeader = () => {
                     {link.label}
                   </Link>
                 ))}
+                {section.label === "Developers" &&
+                  DEVELOPER_TAB_LINKS.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={closeMobileMenu}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm transition-colors hover:bg-muted"
+                    >
+                      <link.icon className="h-4 w-4 text-muted-foreground" />
+                      {link.label}
+                    </Link>
+                  ))}
               </div>
             </div>
           ))}

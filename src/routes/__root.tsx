@@ -394,7 +394,18 @@ function RootComponent() {
     // Illustrations is a public gallery page - no app sidebar (Sameer 2026-10-23).
     !pathname.startsWith("/illustrations") &&
     // UI Components is a public gallery page too - no app sidebar (Sameer 2026-10-26).
-    !pathname.startsWith("/ui-components");
+    !pathname.startsWith("/ui-components") &&
+    // Public/info pages - no app sidebar (Sameer 2026-10-26): Collections,
+    // Blog (incl. articles), Pricing, Changelog and the Developers pages
+    // (API Access, CLI Tool, Embed Widget) all go full-width.
+    // NOTE: /pro is an exact match - startsWith("/pro") would also catch /profile.
+    pathname !== "/collections" &&
+    pathname !== "/pro" &&
+    pathname !== "/changelog" &&
+    pathname !== "/api-access" &&
+    pathname !== "/cli" &&
+    pathname !== "/embed" &&
+    !pathname.startsWith("/blog");
 
   return (
     <QueryClientProvider client={queryClient}>
