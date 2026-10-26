@@ -4733,7 +4733,10 @@ export const LIVE_TOOLS: ToolDef[] = [
 ];
 
 /** The wider roadmap - the daily-use tools Sameer picked for phase B/C. */
-export const SOON_TOOLS: ToolDef[] = [  { id: "cli", name: "CLI", tagline: "npx iconvault - pull icon sets straight into your repo.", icon: "terminal", soon: true },
+export const SOON_TOOLS: ToolDef[] = [
+  // CLI was here with soon: true, but it is LIVE (@iconvault/cli 0.1.0 on
+  // npm + the /cli page) - removed 2026-10-26 so the hub stops calling it
+  // "coming soon". The live CLI lives under Developers, not Tools.
   { id: "figma-plugin", name: "Figma plugin", tagline: "Search and drop the whole library without leaving Figma.", icon: "figma", soon: true },
   { id: "vscode-extension", name: "VS Code extension", tagline: "Insert icons as you code, with inline previews.", icon: "blocks", soon: true },
   { id: "chrome-extension", name: "Chrome extension", tagline: "Find, customize and copy icons from the toolbar.", icon: "chrome", soon: true },

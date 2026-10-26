@@ -206,7 +206,7 @@ function FaviconTool() {
   const downloadKit = async () => {
     if (!renders.length) return;
     if (!isPro) {
-      toast.error("The full favicon kit is a Pro feature - $11/mo or $29 once.");
+      toast.error("The full favicon kit is a Pro feature - $19 lifetime, one-time.");
       return;
     }
     setBusyKit(true);
@@ -436,7 +436,7 @@ function FaviconTool() {
           <p className="text-xs text-muted-foreground">
             {isPro
               ? "Pro unlocked - kit includes all PNGs + site.webmanifest."
-              : "All individual PNGs are free. The full kit (all PNGs + site.webmanifest) is Pro - $11/mo or $29 once."}
+              : "All individual PNGs are free. The full kit (all PNGs + site.webmanifest) is Pro - $19 lifetime, one-time."}
           </p>
           {!isPro && (
             <p className="text-xs text-muted-foreground">

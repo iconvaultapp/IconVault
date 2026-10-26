@@ -5,6 +5,8 @@ import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import RouteError from "@/components/RouteError";
+import { GallerySeoSections } from "@/components/GallerySeoSections";
+import { ILLUSTRATIONS_SEO } from "@/lib/gallery-seo";
 import IllustrationArt from "@/components/IllustrationArt";
 import {
   ILLUSTRATIONS,
@@ -575,6 +577,8 @@ function Page() {
           onClose={() => setSelected(null)}
         />
       )}
+
+      <GallerySeoSections seo={ILLUSTRATIONS_SEO} />
     </PageShell>
   );
 }

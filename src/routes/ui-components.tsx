@@ -5,6 +5,8 @@ import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
 import RouteError from "@/components/RouteError";
+import { GallerySeoSections } from "@/components/GallerySeoSections";
+import { UI_COMPONENTS_SEO } from "@/lib/gallery-seo";
 import {
   UI_COMPONENTS,
   UI_COMPONENT_CATEGORIES,
@@ -407,6 +409,8 @@ function Page() {
         All components are MIT licensed, by their Uiverse community authors. Copy, tweak and
         use them in personal and commercial projects.
       </p>
+
+      <GallerySeoSections seo={UI_COMPONENTS_SEO} />
 
       {selected && <DetailModal entry={selected} onClose={() => setSelected(null)} />}
     </PageShell>

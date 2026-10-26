@@ -352,7 +352,7 @@ function QrTool() {
   const pickDesign = (d: QrDesign) => {
     if (d.pro && !isPro) {
       if (!requireAuth("unlock the pro QR styles")) return;
-      toast.error("That style is Pro - $11/mo or $29 once, yours forever.");
+      toast.error("That style is Pro - $19 lifetime, one-time, yours forever.");
       return;
     }
     setDesignId(d.id);

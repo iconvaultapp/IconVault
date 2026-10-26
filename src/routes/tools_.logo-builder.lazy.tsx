@@ -262,7 +262,7 @@ function LogoBuilderPage() {
     if (!guardIcon() || !icon) return;
     if (!requireAuth("download the full logo kit")) return;
     if (!isPro) {
-      toast.error("The full logo kit is a Pro feature - $11/mo or $29 once, yours forever.");
+      toast.error("The full logo kit is a Pro feature - $19 lifetime, one-time, yours forever.");
       return;
     }
     setBusy("zip");

@@ -199,8 +199,14 @@ export const SiteHeader = () => {
               onMouseEnter={() => setOpenMenu("Developers")}
               onMouseLeave={() => setOpenMenu(null)}
             >
-              <button className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+              <button className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
                 Developers
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform duration-300",
+                    openMenu === "Developers" && "rotate-180",
+                  )}
+                />
               </button>
               {openMenu === "Developers" && (
                 <div className="animate-pop absolute left-0 top-full w-[26rem] pt-2">
