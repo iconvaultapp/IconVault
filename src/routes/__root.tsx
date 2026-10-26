@@ -400,6 +400,8 @@ function RootComponent() {
     // (API Access, CLI Tool, Embed Widget) all go full-width.
     // NOTE: /pro is an exact match - startsWith("/pro") would also catch /profile.
     pathname !== "/collections" &&
+    // Login/signup page - no app sidebar (Sameer 2026-10-26).
+    pathname !== "/auth" &&
     pathname !== "/pro" &&
     pathname !== "/changelog" &&
     pathname !== "/api-access" &&

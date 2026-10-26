@@ -45,6 +45,9 @@ const DISPOSABLE_EMAIL_DOMAINS = new Set([
   "10minutemail.de",
   "20minutemail.com",
   "temp-mail.org",
+  // temp-mail.org rotating domain - proven 2026-10-26: it generated a
+  // gecof52338@goldvester.com inbox that received IconVault confirmations.
+  "goldvester.com",
   "temp-mail.io",
   "temp-mail.com",
   "temp-mail.de",
