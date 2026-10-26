@@ -7,7 +7,7 @@ const seo: ToolSeo = {
     about: [
       "The **Code** **Playground** is a **live** web **editor**: **write** **HTML**, **CSS** and JavaScript in three panes and watch your page compile and run **live** in an isolated **preview** as you type. Perfect for testing snippets, prototyping layouts and learning front-end **code** without setting up a project.",
       "Your **code** runs inside a sandboxed iframe with scripts allowed but no access to the **IconVault** page - so experiments can never break anything. Hit **Copy** to grab the current pane, or **Download** .**html** to save everything as one standalone file you can open in any browser or send to anyone.",
-      "Everything runs 100% in your browser - your **code** never leaves your device. Coding and the **live** **preview** are **free** and unlimited; copying or downloading counts as a use - 5 **free** per visitor, with **IconVault** Pro ($12/year) unlocking unlimited uses and every other tool.",
+      "Everything runs 100% in your browser - your **code** never leaves your device. Coding and the **live** **preview** are **free** and unlimited; copying or downloading counts as a use - 5 **free** per visitor, with **IconVault** Pro ($19/year) unlocking unlimited uses and every other tool.",
     ],
     faqs: [
       {
@@ -32,7 +32,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free uses do I get?",
-        a: "Coding and the live preview are free and unlimited. Copying a pane or downloading the page counts as a use - 5 free per visitor, no account needed. IconVault Pro ($12/year) unlocks unlimited uses.",
+        a: "Coding and the live preview are free and unlimited. Copying a pane or downloading the page counts as a use - 5 free per visitor, no account needed. IconVault Pro ($19/year) unlocks unlimited uses.",
       },
     ],
     tags: [

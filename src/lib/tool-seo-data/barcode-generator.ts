@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free barcodes can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19/year) unlocks unlimited generations.",
       },
     ],
     tags: [

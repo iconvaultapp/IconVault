@@ -7,7 +7,7 @@ const seo: ToolSeo = {
     about: [
       "The **Markdown Preview** tool is a **live** two-pane **editor**: **write** **Markdown** on the left and watch it render as styled **HTML** on the right, instantly. It handles headings, bold and italic, lists, links, images, blockquotes, code blocks, tables and horizontal rules - everything you need for READMEs, blog posts and documentation.",
       "Code blocks get automatic **syntax** **highlighting**, tables render as clean bordered grids, and the **preview** pane scrolls independently so long documents stay easy to review. Paste an existing **README**.**md** or draft from scratch - the **editor** never uploads your **text** anywhere.",
-      "Hit **Copy** **HTML** to grab clean, embed-ready markup - script tags and inline event handlers are stripped automatically so the output is safe to paste into your site. The **preview** is unlimited and **free** forever; copying **HTML** counts as a use - 5 **free** per visitor, with **IconVault** Pro ($12/year) unlocking unlimited copies and every other tool.",
+      "Hit **Copy** **HTML** to grab clean, embed-ready markup - script tags and inline event handlers are stripped automatically so the output is safe to paste into your site. The **preview** is unlimited and **free** forever; copying **HTML** counts as a use - 5 **free** per visitor, with **IconVault** Pro ($19/year) unlocking unlimited copies and every other tool.",
     ],
     faqs: [
       {
@@ -32,7 +32,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free copies do I get?",
-        a: "Live previewing is unlimited and free. Copying the HTML counts as a use - 5 free per visitor, no account needed. IconVault Pro ($12/year) unlocks unlimited copies plus all 10+ tools.",
+        a: "Live previewing is unlimited and free. Copying the HTML counts as a use - 5 free per visitor, no account needed. IconVault Pro ($19/year) unlocks unlimited copies plus all 10+ tools.",
       },
     ],
     tags: [

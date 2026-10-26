@@ -563,7 +563,7 @@ export const DOC_SECTIONS: DocSection[] = [
     blocks: [
       {
         type: "p",
-        text: "IconVault Pro starts at $19/year ($19/year, or $39 lifetime): plans that unlock unlimited runs of every tool, unlimited bulk ZIP downloads, the full Logo Builder kit, and a 1,000-call monthly API quota with no per-minute cap.",
+        text: "IconVault Pro starts at $19/year ($19/year, or $19 lifetime): plans that unlock unlimited runs of every tool, unlimited bulk ZIP downloads, the full Logo Builder kit, and a 1,000-call monthly API quota with no per-minute cap.",
       },
       {
         type: "list",

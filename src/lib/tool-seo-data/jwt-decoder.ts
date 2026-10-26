@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Decode any JWT token instantly in your browser - now with optional HMAC (HS256/384/512) signature verification. View header, payload, expiry and claims as readable JSON - 100% private, no signup.",
     about: [
       "**IconVault**'s **JWT Decoder** turns a compact **token** string into readable JSON in one click. Paste the **token** and the header (algorithm, **token** type), the **payload** (claims like sub, name, iat and exp) and the raw signature appear in separate panels, so you can inspect exactly what an auth **token** carries - essential when debugging login flows, expired sessions or role-based access bugs.",
-      "Everything happens in your browser: the **token** is decoded locally and never uploaded to any server, so it's safe to paste staging or production **tokens**. Expiry is calculated automatically and shown as a green “expires in…” or red “expired…” badge. A built-in security panel warns about unsigned **tokens** (alg:none), missing or expired exp claims, and sensitive data like passwords or secrets hiding in the **payload**. Every visitor gets 5 **free** decodes - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
+      "Everything happens in your browser: the **token** is decoded locally and never uploaded to any server, so it's safe to paste staging or production **tokens**. Expiry is calculated automatically and shown as a green “expires in…” or red “expired…” badge. A built-in security panel warns about unsigned **tokens** (alg:none), missing or expired exp claims, and sensitive data like passwords or secrets hiding in the **payload**. Every visitor gets 5 **free** decodes - **IconVault** Pro ($19/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free decodes do I get?",
-        a: "Every visitor gets 5 free JWT decodes with no account needed. IconVault Pro ($12/year) gives unlimited decodes plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free JWT decodes with no account needed. IconVault Pro ($19/year) gives unlimited decodes plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [

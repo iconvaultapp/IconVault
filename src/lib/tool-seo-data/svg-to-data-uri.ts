@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Turn any SVG into a CSS-ready data URI or HTML embed snippet. URL-encoded, copy-paste ready. Free, private, runs in your browser.",
     about: [
       "**IconVault**'s **SVG to Data URI** **generator** encodes your **SVG** into a **data**:**image**/**svg**+xml **URI** you can paste straight into **CSS** as a **background**-**image** or into **HTML** as an <img> src. The output is URL-encoded with encodeURIComponent, so characters like # in fill colors are correctly escaped to %23 - the most common reason hand-made **SVG** **data** URIs fail in Firefox and other browsers.",
-      "**Data** URIs are perfect for small decorative icons, patterns and textures: they eliminate an HTTP request and keep the graphic **inline** with your stylesheet. You get both the **CSS** **background**-**image** rule and the **HTML** **embed** snippet, each with a one-click copy button New: decode mode recovers the original **SVG** from any **data** **URI** (**base64** or URL-encoded), plus extra output formats - raw **URI**, **CSS** **background**, <img> tag and **CSS** mask., plus the exact byte length of the **URI**. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** generations per tool; **IconVault** Pro ($12/year) unlocks unlimited runs across all tools.",
+      "**Data** URIs are perfect for small decorative icons, patterns and textures: they eliminate an HTTP request and keep the graphic **inline** with your stylesheet. You get both the **CSS** **background**-**image** rule and the **HTML** **embed** snippet, each with a one-click copy button New: decode mode recovers the original **SVG** from any **data** **URI** (**base64** or URL-encoded), plus extra output formats - raw **URI**, **CSS** **background**, <img> tag and **CSS** mask., plus the exact byte length of the **URI**. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** generations per tool; **IconVault** Pro ($19/year) unlocks unlimited runs across all tools.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations per tool, no account needed. IconVault Pro ($12/year) unlocks unlimited generations and every other Pro feature.",
+        a: "Every visitor gets 5 free generations per tool, no account needed. IconVault Pro ($19/year) unlocks unlimited generations and every other Pro feature.",
       },
     ],
     tags: [

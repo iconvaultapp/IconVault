@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate best practice Dockerfiles for 10 languages. Multi-stage builds, ports, workdir and env vars with live preview. Free, no signup, in browser.",
     about: [
       "**IconVault**'s **Dockerfile Generator** writes a correct, **best-practice Dockerfile** for your stack in seconds. Pick from **10 languages** (including Node.js, Python and Go), toggle **multi-stage builds** for smaller images, then set the **port**, **workdir** and **environment variables**. The Dockerfile renders in a **live preview** as you change options, and you can copy or download it with one click.",
-      "Everything runs **100% in your browser**: no installs, no account, nothing uploaded. The output is a solid production-style starting point using slim base images and layer-friendly instruction order, though you should still review it for your specific app before shipping. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
+      "Everything runs **100% in your browser**: no installs, no account, nothing uploaded. The output is a solid production-style starting point using slim base images and layer-friendly instruction order, though you should still review it for your specific app before shipping. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($19/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free Dockerfile generations with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free Dockerfile generations with no account needed. IconVault Pro ($19/year) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

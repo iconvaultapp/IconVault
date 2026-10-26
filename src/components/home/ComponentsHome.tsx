@@ -69,11 +69,13 @@ export const ComponentsHome = () => (
                 {entry.css ? "HTML + CSS" : "Tailwind"}
               </span>
             </span>
-            <span className="mt-0.5 block text-xs text-muted-foreground">
-              {CAT_LABEL[entry.category] ?? entry.category} · by {entry.author} · MIT
-            </span>
-            <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground transition-transform group-hover:translate-x-0.5">
-              Click Here <ArrowRight className="h-3.5 w-3.5" />
+            <span className="mt-0.5 flex items-center justify-between gap-2">
+              <span className="truncate text-xs text-muted-foreground">
+                {CAT_LABEL[entry.category] ?? entry.category} · by {entry.author} · MIT
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground transition-transform group-hover:translate-x-0.5">
+                Click Here <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </span>
           </Link>
         </Reveal>

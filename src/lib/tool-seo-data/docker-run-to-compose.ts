@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert docker run commands to docker-compose.yml instantly. Paste your command, get clean compose YAML to copy or download. Free, in your browser.",
     about: [
       "**IconVault**'s **Docker to Compose** turns a long **docker run** command into a clean **docker-compose.yml** service. Paste the command and it parses **ports** (-p), **volumes** (-v), **environment variables** (-e), **container name**, **network**, **restart policy** and more, then emits ready-to-run Compose YAML you can copy or download.",
-      "The conversion happens **100% client side** in your browser: your commands are never uploaded or logged, which keeps private registry URLs and secrets safe. It is the fastest way to migrate one-off containers into a maintainable **compose stack**. Note that very long or exotic flag combinations may need a quick manual review. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
+      "The conversion happens **100% client side** in your browser: your commands are never uploaded or logged, which keeps private registry URLs and secrets safe. It is the fastest way to migrate one-off containers into a maintainable **compose stack**. Note that very long or exotic flag combinations may need a quick manual review. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($19/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($12/year) gives unlimited conversions plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($19/year) gives unlimited conversions plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

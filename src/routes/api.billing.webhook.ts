@@ -24,7 +24,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-/** Paid plans: yearly ($19/yr), lifetime ($39 one-time). "monthly" is only
+/** Paid plans: yearly ($19/yr), lifetime ($19 one-time). "monthly" is only
  *  recognised for grandfathered subscribers from before the plan was removed. */
 type PaidPlan = "monthly" | "yearly" | "lifetime";
 

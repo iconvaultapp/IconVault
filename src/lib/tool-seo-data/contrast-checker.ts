@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Check text-to-background contrast ratios against WCAG 2.1. Live preview, AA/AAA pass-fail badges, one-click color swap and an auto-suggest fix for failing pairs - free in your browser.",
     about: [
       "**IconVault**'s **Contrast Checker** computes the **WCAG** 2.1 **contrast** **ratio** between any **text** and background **color** - the number that decides whether your **text** is readable for everyone, including the 1 in 12 men with **color**-vision deficiency. It renders a live preview of your exact pairing and scores it against all four bars: AA normal, AA large, **AAA** normal and **AAA** large. Ratios recalculate live as you type, a swap button flips foreground/background, and “Suggest AA fix” auto-nudges your **text** **color** to the nearest passing shade.",
-      "Everything runs in your browser with zero uploads. Every visitor gets 5 free checks - Pro members ($12/year) get unlimited checks plus unlimited use of the **Color** Converter, Box Shadow Generator and every other **IconVault** **tool**.",
+      "Everything runs in your browser with zero uploads. Every visitor gets 5 free checks - Pro members ($19/year) get unlimited checks plus unlimited use of the **Color** Converter, Box Shadow Generator and every other **IconVault** **tool**.",
     ],
     faqs: [
       {
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free checks do I get?",
-        a: "Every visitor gets 5 free contrast checks, no account needed. IconVault Pro ($12/year) unlocks unlimited checks and every other tool.",
+        a: "Every visitor gets 5 free contrast checks, no account needed. IconVault Pro ($19/year) unlocks unlimited checks and every other tool.",
       },
       {
         q: "Is the preview accurate?",

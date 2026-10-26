@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate lorem ipsum paragraphs, sentences or words instantly. Free placeholder text generator for mockups - no signup needed.",
     about: [
       "The **Lorem Ipsum Generator** produces classic **placeholder** **text** for mockups, wireframes, font previews and layout drafts - starting with the authentic \"**Lorem ipsum** **dolor** sit **amet**…\" passage. Choose **paragraphs**, sentences or words and dial in any count from 1 to 50 for pixel-perfect control over your **dummy** **copy** - then export as plain **text**, HTML **paragraphs**, or an HTML bullet list.",
-      "**Placeholder** **text** lets you design around realistic **text** shapes without real **copy** distracting reviewers. Everything runs in your browser with one click to **copy**. You get 5 **free** generations with no account - **IconVault** Pro ($12/year) unlocks unlimited generations and every other tool on the platform.",
+      "**Placeholder** **text** lets you design around realistic **text** shapes without real **copy** distracting reviewers. Everything runs in your browser with one click to **copy**. You get 5 **free** generations with no account - **IconVault** Pro ($19/year) unlocks unlimited generations and every other tool on the platform.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($12/year) unlocks unlimited lorem ipsum plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19/year) unlocks unlimited lorem ipsum plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [

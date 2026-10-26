@@ -75,6 +75,12 @@ export const SearchBar = ({
     return () => window.removeEventListener("scroll", onScroll);
   }, [focused]);
 
+  // Tells PromoPopup the user has searched (its first appearance waits
+  // for this - the offer must never cover the page before search is used).
+  const notifyFirstSearch = () => {
+    window.dispatchEvent(new CustomEvent("iv:first-search"));
+  };
+
   const visibleSuggestions = focused && value.length === 0 ? suggestions.slice(0, 6) : [];
 
   return (
@@ -82,6 +88,7 @@ export const SearchBar = ({
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          notifyFirstSearch();
           onSubmit?.(value);
         }}
         className={cn(
@@ -136,6 +143,7 @@ export const SearchBar = ({
               onMouseDown={() => {
                 warmIndex();
                 onChange(s);
+                notifyFirstSearch();
                 onSubmit?.(s);
               }}
               className="flex w-full items-center gap-2 rounded-xl px-2 py-2 text-left text-sm transition-colors hover:bg-muted"

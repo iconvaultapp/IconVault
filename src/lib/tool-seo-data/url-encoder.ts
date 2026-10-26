@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Encode and decode URLs online. encodeURIComponent, encodeURI and smart decode modes - 100% in your browser, free, no signup.",
     about: [
       "**IconVault**'s **URL Encoder** / **Decoder** handles **percent**-**encoding** the way browsers do. Choose **encodeURIComponent** for a single query parameter or form value (encodes everything unsafe), **encodeURI** for a full **URL** (keeps : / ? & = # intact), or **Decode** to turn %XX sequences back into readable characters - with a smart fallback that handles full-**URL** encodings too.",
-      "Everything runs in your browser: nothing is uploaded, logged or stored, so it's safe for **URLs** containing tokens or PII. Input/output character counts show exactly how much the string grew, and one click moves the output back into the input for round-trip checks. Every visitor gets 5 **free** encodes - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
+      "Everything runs in your browser: nothing is uploaded, logged or stored, so it's safe for **URLs** containing tokens or PII. Input/output character counts show exactly how much the string grew, and one click moves the output back into the input for round-trip checks. Every visitor gets 5 **free** encodes - **IconVault** Pro ($19/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free encodes do I get?",
-        a: "Every visitor gets 5 free URL encodes/decodes with no account needed. IconVault Pro ($12/year) gives unlimited use plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free URL encodes/decodes with no account needed. IconVault Pro ($19/year) gives unlimited use plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [

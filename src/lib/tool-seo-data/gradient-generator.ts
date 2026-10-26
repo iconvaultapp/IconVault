@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Design beautiful CSS gradients online free. Angle control, unlimited color stops, linear & radial, 12 one-click presets - live preview, copy-ready CSS.",
     about: [
       "**IconVault**'s **Gradient Generator** is a visual playground for **CSS** gradients: drag an angle slider, stack as many **color** stops as you like with per-stop position control, switch between **linear** and **radial** - now with a 12-preset gallery, Tailwind **CSS** class output, PNG export and shareable **gradient** links fades, and jump-start from 12 curated presets like Sunset, Ocean and Neon while a live preview updates in real time. Every tweak outputs clean, copy-ready **CSS** you can paste straight into a stylesheet or Tailwind arbitrary value.",
-      "It runs entirely in your browser with no account and no limits on experimentation. Every visitor gets 5 **free** **CSS** copies; **IconVault** Pro ($12/year) unlocks unlimited copies along with unlimited runs of every other design **tool**.",
+      "It runs entirely in your browser with no account and no limits on experimentation. Every visitor gets 5 **free** **CSS** copies; **IconVault** Pro ($19/year) unlocks unlimited copies along with unlimited runs of every other design **tool**.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free gradients do I get?",
-        a: "Every visitor gets 5 free CSS copies, no account needed. IconVault Pro ($12/year) unlocks unlimited copies and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free CSS copies, no account needed. IconVault Pro ($19/year) unlocks unlimited copies and unlimited uses of all tools.",
       },
     ],
     tags: [

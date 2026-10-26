@@ -1,7 +1,9 @@
-// Lifetime-deal promo popup - $12 founding-member offer, first 100 only.
-// Shows a few seconds after load, dismissible (X, backdrop, "Later"),
-// and reappears after 30 minutes ("keeps coming") - never for pro users
-// or admin pages. Uses the site's teal theme tokens.
+// Lifetime-deal promo popup - $19 founding-member offer, first 100 only.
+// First appearance waits for the user's first search (Sam Vale's point,
+// 2026-10-26: the offer must never cover the page before the search box
+// can be used). Dismissible (X, backdrop, "Later"), and reappears after
+// 30 minutes ("keeps coming") - never for pro users or admin pages.
+// Uses the site's teal theme tokens.
 
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
@@ -10,8 +12,9 @@ import { usePlan, LIFETIME_PRICE } from "@/hooks/usePlan";
 import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "iv_promo_popup_v2";
-const SHOW_DELAY_MS = 6000;
 const REAPPEAR_AFTER_MS = 30 * 60 * 1000; // 30 minutes
+// Dispatched by SearchBar on every search submit; the popup listens once.
+const FIRST_SEARCH_EVENT = "iv:first-search";
 const FOUNDER_LIMIT = 100;
 
 function shouldShow(): boolean {
@@ -48,11 +51,15 @@ export default function PromoPopup() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const skip = pathname.startsWith("/admin") || pathname.startsWith("/api");
 
+  // First show only AFTER the user's first search - never on a timer.
+  // (SearchBar dispatches FIRST_SEARCH_EVENT on submit, on every page
+  // that has a search box: homepage, /app, browse hero.)
   useEffect(() => {
     if (skip || isPro) return;
     if (!shouldShow()) return;
-    const t = setTimeout(() => setVisible(true), SHOW_DELAY_MS);
-    return () => clearTimeout(t);
+    const show = () => setVisible(true);
+    window.addEventListener(FIRST_SEARCH_EVENT, show, { once: true });
+    return () => window.removeEventListener(FIRST_SEARCH_EVENT, show);
   }, [skip, isPro]);
 
   // Re-check periodically so the popup "keeps coming" during long sessions.

@@ -362,7 +362,7 @@ function Page() {
   const { recent, clearRecent } = useRecentlyViewed();
   const { plan, isPro, loading: planLoading } = usePlan();
   // Display label for the user's current paid plan. Yearly/Monthly are
-  // grandfathered (no longer sold); new sales are Lifetime $12 one-time.
+  // grandfathered (no longer sold); new sales are Lifetime $19 one-time.
   const planLabel =
     plan === "lifetime"
       ? `Lifetime · $${LIFETIME_PRICE} one-time`

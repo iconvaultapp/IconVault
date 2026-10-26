@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate 1–100 secure UUID v4s instantly with crypto.randomUUID. One-click copy per UUID or copy all - free, in your browser, no signup.",
     about: [
       "**IconVault**'s **UUID Generator** creates cryptographically secure **version** 4 UUIDs using the browser's built-in crypto.randomUUID() - the same API Node.js and Deno use. **Generate** 1, 10, 50 or 100 at a time in v4 or time-ordered v7 (RFC 9562) - the modern default for database keys - with uppercase and no-dashes format options. Copy any single **UUID** with one click, or copy the whole batch as newline-separated text for seeding databases, configs and fixtures.",
-      "Because generation happens locally with the platform's secure **random** source, UUIDs are never sent over the network or stored anywhere - safe for API keys, session identifiers and test data. Every visitor gets 5 **free** generations - **IconVault** Pro ($12/year) unlocks unlimited use of every developer tool.",
+      "Because generation happens locally with the platform's secure **random** source, UUIDs are never sent over the network or stored anywhere - safe for API keys, session identifiers and test data. Every visitor gets 5 **free** generations - **IconVault** Pro ($19/year) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free UUID generations with no account needed. IconVault Pro ($12/year) gives unlimited generations plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free UUID generations with no account needed. IconVault Pro ($19/year) gives unlimited generations plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [

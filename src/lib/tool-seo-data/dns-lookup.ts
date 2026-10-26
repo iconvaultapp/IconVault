@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Check DNS records for any domain instantly. A, AAAA, MX, TXT, CNAME, NS and SOA lookups over encrypted DNS. Free, no signup, runs in your browser.",
     about: [
       "**IconVault**'s **DNS Lookup** checks **DNS records** for any domain right in your browser. Query **A**, **AAAA**, **MX**, **TXT**, **CNAME**, **NS** and **SOA** records and see the **TTL**, record type and value for every answer. It is perfect for verifying **mail server records**, **SPF** and **DMARC** entries, nameserver changes and website migrations.",
-      "Queries go straight from your browser to **Cloudflare's encrypted DNS-over-HTTPS** endpoint, so lookups are fast, private and tamper-proof, with no backend server in the middle and nothing logged. The tool is **100% free**, works without an account and runs entirely on your device. Visitors get 5 **free** lookups with no signup; **IconVault** Pro ($12/year) unlocks unlimited use of every tool.",
+      "Queries go straight from your browser to **Cloudflare's encrypted DNS-over-HTTPS** endpoint, so lookups are fast, private and tamper-proof, with no backend server in the middle and nothing logged. The tool is **100% free**, works without an account and runs entirely on your device. Visitors get 5 **free** lookups with no signup; **IconVault** Pro ($19/year) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free DNS lookups do I get?",
-        a: "Every visitor gets 5 free lookups with no account needed. IconVault Pro ($12/year) gives unlimited lookups plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free lookups with no account needed. IconVault Pro ($19/year) gives unlimited lookups plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

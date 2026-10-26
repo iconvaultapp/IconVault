@@ -132,7 +132,7 @@ export const SiteHeader = () => {
               ),
             )}
 
-            {/* Tools sits after Illustrations (Sameer 2026-10-24) and looks
+            {/* Tools sits after UI Components (Sameer 2026-10-26) and looks
                 like every other menu item now: plain text + chevron, no teal
                 pill. Its mega-menu dropdown is unchanged. */}
             <div

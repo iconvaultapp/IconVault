@@ -101,7 +101,7 @@ const faqs = [
   },
   {
     q: "How does Lifetime billing work?",
-    a: "Lifetime is a $12 one-time payment, yours forever - but only for the first 100 members. Dodo Payments handles the secure checkout on a hosted page. After 100 spots are gone, the price goes up.",
+    a: "Lifetime is a $19 one-time payment, yours forever - but only for the first 100 members. Dodo Payments handles the secure checkout on a hosted page. After 100 spots are gone, the price goes up.",
   },
   {
     q: "What happens when I hit the free limits?",
@@ -138,7 +138,7 @@ function FounderCounter() {
 /**
  * Paid plan CTA. Signed-out visitors go to /auth first (unchanged
  * behaviour); signed-in users get a Dodo checkout session created
- * server-side for the Lifetime ($12) plan and are
+ * server-side for the Lifetime ($19) plan and are
  * redirected to Dodo's hosted checkout. Active pro members see a
  * confirmation instead of the button.
  */
@@ -237,8 +237,8 @@ function Page() {
     <PageShell
       wide
       eyebrow="Pricing"
-      title="Free forever, or lifetime for $12"
-      description="Start free and stay free. Or grab lifetime for $12 - but only the first 100 members get this price."
+      title="Free forever, or lifetime for $19"
+      description="Start free and stay free. Or grab lifetime for $19 - but only the first 100 members get this price."
     >
       <Stack>
         <div>
@@ -279,9 +279,6 @@ function Page() {
                 <p className="mt-6 flex items-baseline gap-1.5">
                   <span className="font-display text-4xl font-semibold tracking-tight">${LIFETIME_PRICE}</span>
                   <span className="text-sm text-muted-foreground">one-time</span>
-                  <span className="ml-1 rounded-full bg-amber-500/15 px-2 py-0.5 font-mono text-[10px] text-amber-700 line-through">
-                    $39
-                  </span>
                 </p>
                 <FounderCounter />
                 <ul className="mt-6 grid gap-2.5">
@@ -313,14 +310,14 @@ function Page() {
           <SectionHeading
             eyebrow="Why upgrade"
             title="The workflow around the icons"
-            description="The icons are free. Lifetime for $12 (first 100 only) is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
+            description="The icons are free. Lifetime for $19 (first 100 only) is never having to hand-clean an SVG, rename an export or rebuild a sprite by hand again."
           />
           <div className="mt-8">
             <FeatureGrid
               items={[
                 { icon: Zap, title: "Bulk everything", body: "Export a whole collection as an optimised sprite, ZIP or icon font in one click." },
                 { icon: Crown, title: "Tokens that fit", body: "Emit CSS variables, Tailwind theme entries or JSON tokens shaped like your design system." },
-                { icon: RefreshCw, title: "Pay once, yours forever", body: "$12 one-time for the first 100 members - every pro feature we ship lands in your account, forever." },
+                { icon: RefreshCw, title: "Pay once, yours forever", body: "$19 one-time for the first 100 members - every pro feature we ship lands in your account, forever." },
                 { icon: ShieldCheck, title: "Licence clarity", body: "Every icon carries its licence through to export, so audits stop being a scavenger hunt." },
               ]}
               columns={2}
@@ -383,9 +380,9 @@ function Page() {
         </div>
 
         <CTABand
-          title="Unlock everything for $12 - first 100 only"
-          body="Unlimited tool runs, exports and screenshots. One $12 payment, yours forever - but only for the first 100 members."
-          primary={{ label: "Get lifetime - $12", to: "/auth" }}
+          title="Unlock everything for $19 - first 100 only"
+          body="Unlimited tool runs, exports and screenshots. One $19 payment, yours forever - but only for the first 100 members."
+          primary={{ label: `Get lifetime - $${LIFETIME_PRICE}`, to: "/auth" }}
           secondary={{ label: "Browse the vault", to: "/app" }}
         />
       </Stack>

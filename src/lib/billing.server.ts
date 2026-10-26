@@ -53,12 +53,12 @@ export interface CheckoutInput {
   origin: string;
 }
 
-/** Paid plans: Pro Yearly ($19/yr), Lifetime ($39 one-time). The $2/month plan was removed 2026-10-06. */
+/** Paid plans: Pro Yearly ($19/yr), Lifetime ($19 one-time). The $2/month plan was removed 2026-10-06. */
 export type PaidPlan = "yearly" | "lifetime";
 
 const PLAN_PRODUCTS = {
   yearly: { env: "DODO_PAYMENTS_PRODUCT_ID_YEARLY", label: "$19/year" },
-  lifetime: { env: "DODO_PAYMENTS_PRODUCT_ID_LIFETIME", label: "$39 lifetime" },
+  lifetime: { env: "DODO_PAYMENTS_PRODUCT_ID_LIFETIME", label: "$19 lifetime" },
 } as const;
 
 /**

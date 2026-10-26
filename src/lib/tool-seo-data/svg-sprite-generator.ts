@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Combine multiple SVGs into one sprite.svg with <symbol> entries. Download the sprite + copy the <use> snippet. Free, in-browser.",
     about: [
       "**IconVault**'s **SVG Sprite Generator** merges any number of **SVGs** into a single **sprite**.**svg** file, where each **icon** becomes a <**symbol**> with its own id and viewBox. Add as many **SVGs** as you like - name each **one**, and the tool extracts the inner artwork, preserves the viewBox, and assembles a clean, hidden **sprite** ready to reference anywhere with <**svg**><use href=\"**sprite**.**svg**#**icon**-name\"></use></**svg**>.",
-      "Sprites are the classic performance pattern for **icon** systems: **one** cached HTTP request serves your whole **icon** set, and each **symbol** stays styleable with CSS (fill: currentColor works beautifully). You get the downloadable **sprite**.**svg** plus a copy-ready usage snippet for every **icon**, and a currentColor toggle that makes the whole **sprite** recolorable via CSS. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** sprites per tool; **IconVault** Pro ($12/year) unlocks unlimited runs, HD exports and every template.",
+      "Sprites are the classic performance pattern for **icon** systems: **one** cached HTTP request serves your whole **icon** set, and each **symbol** stays styleable with CSS (fill: currentColor works beautifully). You get the downloadable **sprite**.**svg** plus a copy-ready usage snippet for every **icon**, and a currentColor toggle that makes the whole **sprite** recolorable via CSS. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** sprites per tool; **IconVault** Pro ($19/year) unlocks unlimited runs, HD exports and every template.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free sprites do I get?",
-        a: "Every visitor gets 5 free sprite generations, no account needed. IconVault Pro ($12/year) unlocks unlimited generations across all tools.",
+        a: "Every visitor gets 5 free sprite generations, no account needed. IconVault Pro ($19/year) unlocks unlimited generations across all tools.",
       },
     ],
     tags: [

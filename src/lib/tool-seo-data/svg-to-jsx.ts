@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert SVG to JSX, TSX, Vue or Svelte components instantly. Auto-maps attributes, self-closes tags. Free, runs entirely in your browser.",
     about: [
       "**IconVault**'s **SVG to JSX converter** turns raw **SVG** markup into framework-ready components in one click. Paste any **SVG** and get clean **JSX** with kebab-case attributes mapped to camelCase (stroke-width → strokeWidth, fill-rule → fillRule, class → className) and every tag properly self-closed New: **TypeScript** toggle with typed props, Icon mode (1em sizing for icon components), an editable **component** name, and optional {...props} spread. - the two things that break SVGs pasted straight into **React**. Switch tabs to get a typed **TSX** **component**, a **Vue** single-file **component**, or a **Svelte** **component** instead.",
-      "The **TSX** output includes a proper SVGProps type signature and spreads props onto the root element, so your icon accepts className, onClick and every standard **SVG** prop. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** conversions per tool with no account needed. **IconVault** Pro ($12/year) unlocks unlimited conversions, HD exports and every template.",
+      "The **TSX** output includes a proper SVGProps type signature and spreads props onto the root element, so your icon accepts className, onClick and every standard **SVG** prop. Everything runs in your browser - nothing is uploaded. Every visitor gets 5 **free** conversions per tool with no account needed. **IconVault** Pro ($19/year) unlocks unlimited conversions, HD exports and every template.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($12/year) unlocks unlimited conversions across all tools.",
+        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($19/year) unlocks unlimited conversions across all tools.",
       },
     ],
     tags: [

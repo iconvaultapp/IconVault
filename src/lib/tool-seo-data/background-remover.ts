@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free removals do I get?",
-        a: "Every visitor gets 5 free background removals, no account needed. IconVault Pro ($12/year) unlocks unlimited removals.",
+        a: "Every visitor gets 5 free background removals, no account needed. IconVault Pro ($19/year) unlocks unlimited removals.",
       },
     ],
     tags: [
