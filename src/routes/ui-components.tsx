@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Copy, Download, Search, X } from "lucide-react";
 import { toast } from "sonner";
@@ -12,6 +12,11 @@ import {
   type UiComponentEntry,
 } from "@/lib/ui-components-data";
 import { cn } from "@/lib/utils";
+import {
+  ComponentPreview,
+  LazyPreview,
+  standaloneDoc,
+} from "@/components/UiComponentPreview";
 
 export const Route = createFileRoute("/ui-components")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -45,18 +50,6 @@ type CategoryFilter = "all" | UiComponentCategory;
 type CodeTab = "html" | "jsx" | "css";
 
 const PAGE_SIZE = 24;
-
-/** Base page style shared by iframe previews and standalone downloads. */
-const BASE_STYLE =
-  "html,body{margin:0;min-height:100%;display:grid;place-items:center;padding:8px;box-sizing:border-box}body{font-family:system-ui,sans-serif}";
-
-/** Full standalone document for a component: iframe previews + .html downloads. */
-function standaloneDoc(entry: UiComponentEntry): string {
-  const style = entry.css
-    ? `<style>\n${entry.css}\n</style>`
-    : `<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>\n<!-- This component uses Tailwind CSS classes: paste it into a Tailwind project, or open this file with internet access for the CDN build. -->`;
-  return `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<title>${entry.title}</title>\n<style>${BASE_STYLE}</style>\n${style}\n</head>\n<body>\n${entry.html}\n</body>\n</html>`;
-}
 
 const VOID_TAGS = [
   "area",
@@ -115,212 +108,6 @@ async function copyText(text: string, okMsg: string) {
   return true;
 }
 
-/**
- * Live preview. CSS components render in a sandboxed iframe so their
- * generic class names (.card, .cta, ...) can never leak into the page.
- * Pure-Tailwind components have no custom CSS, so they render inline with
- * the site's own Tailwind build.
- *
- * Fit fix (Sameer 2026-10-26): Uiverse components often have large fixed
- * sizes, so a raw preview overflows its card and shows scrollbars with
- * clipped content. Every preview now measures its content after render and
- * zooms it down to fit the stage (never up), and hides all overflow, so
- * the whole component is always visible inside its card.
- */
-/** Fluid preview bounds (Sameer 2026-10-26): the preview area grows to the
- * component's own height instead of clipping it into a fixed box, so the
- * whole component is always visible. Taller than this, it scales down. */
-const FLUID_MAX = 480;
-const FLUID_MIN = 96;
-
-function IframePreview({
-  entry,
-  className,
-  lazy,
-  fluid,
-}: {
-  entry: UiComponentEntry;
-  className?: string | undefined;
-  lazy?: boolean | undefined;
-  fluid?: boolean | undefined;
-}) {
-  const frameRef = useRef<HTMLIFrameElement>(null);
-  const [fluidHeight, setFluidHeight] = useState(176);
-
-  const fit = useCallback(() => {
-    const frame = frameRef.current;
-    const doc = frame?.contentDocument;
-    if (!frame || !doc || !doc.body) return;
-    // Reset first: a previous zoom would corrupt the measurement.
-    doc.body.style.setProperty("zoom", "1");
-    const stageW = frame.clientWidth;
-    const contentW = Math.max(doc.body.scrollWidth, doc.documentElement.scrollWidth);
-    const contentH = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
-    if (!stageW || !contentW || !contentH) return;
-    if (fluid) {
-      // Fit the width, grow the height to the component (capped).
-      const scale = Math.min(1, stageW / contentW, FLUID_MAX / contentH);
-      if (Number.isFinite(scale) && scale > 0) {
-        doc.body.style.setProperty("zoom", String(scale));
-        setFluidHeight(
-          Math.min(FLUID_MAX + 2, Math.max(FLUID_MIN, Math.ceil(contentH * scale) + 2)),
-        );
-      }
-    } else {
-      const stageH = frame.clientHeight;
-      if (!stageH) return;
-      const scale = Math.min(1, stageW / contentW, stageH / contentH);
-      if (Number.isFinite(scale) && scale > 0) {
-        doc.body.style.setProperty("zoom", String(scale));
-      }
-    }
-    doc.documentElement.style.setProperty("overflow", "hidden");
-    doc.body.style.setProperty("overflow", "hidden");
-  }, [fluid]);
-
-  useEffect(() => {
-    window.addEventListener("resize", fit);
-    return () => window.removeEventListener("resize", fit);
-  }, [fit]);
-
-  return (
-    <iframe
-      ref={frameRef}
-      title={`${entry.title} preview`}
-      sandbox="allow-scripts"
-      scrolling="no"
-      loading={lazy ? "lazy" : undefined}
-      onLoad={fit}
-      srcDoc={standaloneDoc(entry)}
-      style={fluid ? { height: fluidHeight } : undefined}
-      className={cn("w-full overflow-hidden border-0 bg-white", className)}
-    />
-  );
-}
-
-function InlinePreview({
-  entry,
-  className,
-  fluid,
-}: {
-  entry: UiComponentEntry;
-  className?: string | undefined;
-  fluid?: boolean | undefined;
-}) {
-  const stageRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-  const [fluidHeight, setFluidHeight] = useState(176);
-
-  const fit = useCallback(() => {
-    const stage = stageRef.current;
-    const content = contentRef.current;
-    if (!stage || !content) return;
-    // Reset first: a previous zoom would corrupt the measurement.
-    content.style.setProperty("zoom", "1");
-    void content.offsetWidth;
-    const stageW = stage.clientWidth;
-    const contentW = content.scrollWidth;
-    const contentH = content.scrollHeight;
-    if (!stageW || !contentW || !contentH) return;
-    if (fluid) {
-      const next = Math.min(1, stageW / contentW, FLUID_MAX / contentH);
-      if (Number.isFinite(next) && next > 0) {
-        setScale(next);
-        setFluidHeight(
-          Math.min(FLUID_MAX + 2, Math.max(FLUID_MIN, Math.ceil(contentH * next) + 2)),
-        );
-      }
-    } else {
-      const stageH = stage.clientHeight;
-      if (!stageH) return;
-      const next = Math.min(1, stageW / contentW, stageH / contentH);
-      if (Number.isFinite(next) && next > 0) setScale(next);
-    }
-  }, [fluid]);
-
-  useEffect(() => {
-    fit();
-    const timer = setTimeout(fit, 100);
-    window.addEventListener("resize", fit);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", fit);
-    };
-  }, [fit, entry]);
-
-  return (
-    <div
-      ref={stageRef}
-      style={fluid ? { height: fluidHeight } : undefined}
-      className={cn("grid place-items-center overflow-hidden bg-white", className)}
-    >
-      <div
-        ref={contentRef}
-        style={{ zoom: scale }}
-        // Curated static strings from the bundled data file, never user input.
-        dangerouslySetInnerHTML={{ __html: entry.html }}
-      />
-    </div>
-  );
-}
-
-function ComponentPreview({
-  entry,
-  className,
-  lazy,
-  fluid,
-}: {
-  entry: UiComponentEntry;
-  className?: string;
-  lazy?: boolean;
-  fluid?: boolean;
-}) {
-  if (!entry.css) return <InlinePreview entry={entry} className={className} fluid={fluid} />;
-  return <IframePreview entry={entry} className={className} lazy={lazy} fluid={fluid} />;
-}
-
-/**
- * Speed (Sameer 2026-10-26): grid previews mount only when their card is
- * near the viewport. 24 simultaneous iframes, each parsing its own CSS and
- * running animations, were this page's real cost; below-fold cards now stay
- * a plain placeholder until scrolled near. The modal preview stays eager.
- */
-function LazyPreview({ entry }: { entry: UiComponentEntry }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setMounted(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setMounted(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "200px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} className="w-full">
-      {mounted ? (
-        <ComponentPreview entry={entry} lazy fluid />
-      ) : (
-        <div className="h-44 w-full bg-white" aria-hidden="true" />
-      )}
-    </div>
-  );
-}
-
 function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () => void }) {
   const [tab, setTab] = useState<CodeTab>("html");
   const [copied, setCopied] = useState(false);
@@ -357,7 +144,7 @@ function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () 
 
   return (
     <div
-      className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm [animation-duration:150ms]"
+      className="animate-fade-in fixed inset-0 z-[110] flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm [animation-duration:150ms]"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -384,8 +171,8 @@ function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () 
           </button>
         </div>
 
-        <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-inset ring-border/60">
-          <ComponentPreview entry={entry} className="min-h-64 p-6" />
+        <div className="mt-5 overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-inset ring-border/60">
+          <ComponentPreview entry={entry} fluidCap={560} />
         </div>
 
         <div className="mt-5">
@@ -509,9 +296,10 @@ function Page() {
     <PageShell fullWidth>
       <Reveal>
         <div className="text-center">
-          <p className="eyebrow">{UI_COMPONENTS.length} free UI components</p>
+          <p className="eyebrow">Open-source · MIT licensed</p>
           <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Free UI <span className="text-gradient">components</span>
+            <span className="text-gradient">{UI_COMPONENTS.length}</span> Free UI{" "}
+            <span className="text-gradient">components</span>
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
             Copy-paste buttons, cards, loaders, toggles, inputs and more from the open-source

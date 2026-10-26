@@ -30,6 +30,10 @@ import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
 import BrowseCategories from "@/components/home/BrowseCategories";
 import IllustrationsHome from "@/components/home/IllustrationsHome";
+// Eager like IllustrationsHome (not lazy): it sits right below it, uses a
+// small 37 KB sample file instead of the full gallery data, and its
+// previews mount lazily on scroll, so it costs the homepage almost nothing.
+import ComponentsHome from "@/components/home/ComponentsHome";
 // Lazy: BlogTeaser pulls in every post's full text for its cards. Keeping
 // it out of the homepage's entry chunk is a major first-load saving; the
 // section sits deep below the fold, so it streams in right after paint.
@@ -385,6 +389,9 @@ function Landing() {
 
         {/* Free illustrations showcase (Sameer 2026-10-23) */}
         <IllustrationsHome />
+
+        {/* Free UI components showcase, like Illustrations above (Sameer 2026-10-26) */}
+        <ComponentsHome />
 
         {/* Collection styles chip cloud (added 2026-10-23) */}
         <Suspense fallback={null}>
