@@ -23,13 +23,13 @@ export const Route = createFileRoute("/ui-components")({
       {
         name: "description",
         content:
-          "120 free open-source UI components for developers: buttons, cards, loaders, toggles, inputs, checkboxes and more. Preview, copy the HTML, JSX or CSS, and paste into any project. MIT licensed.",
+          "1000 free open-source UI components for developers: buttons, cards, loaders, toggles, inputs, checkboxes and more. Preview, copy the HTML, JSX or CSS, and paste into any project. MIT licensed.",
       },
       { property: "og:title", content: "Free UI Components | IconVault" },
       {
         property: "og:description",
         content:
-          "120 free MIT-licensed UI components with live previews. Copy the HTML, JSX or CSS and ship faster.",
+          "1000 free MIT-licensed UI components with live previews. Copy the HTML, JSX or CSS and ship faster.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/ui-components" },
@@ -127,16 +127,25 @@ async function copyText(text: string, okMsg: string) {
  * zooms it down to fit the stage (never up), and hides all overflow, so
  * the whole component is always visible inside its card.
  */
+/** Fluid preview bounds (Sameer 2026-10-26): the preview area grows to the
+ * component's own height instead of clipping it into a fixed box, so the
+ * whole component is always visible. Taller than this, it scales down. */
+const FLUID_MAX = 480;
+const FLUID_MIN = 96;
+
 function IframePreview({
   entry,
   className,
   lazy,
+  fluid,
 }: {
   entry: UiComponentEntry;
   className?: string | undefined;
   lazy?: boolean | undefined;
+  fluid?: boolean | undefined;
 }) {
   const frameRef = useRef<HTMLIFrameElement>(null);
+  const [fluidHeight, setFluidHeight] = useState(176);
 
   const fit = useCallback(() => {
     const frame = frameRef.current;
@@ -145,17 +154,29 @@ function IframePreview({
     // Reset first: a previous zoom would corrupt the measurement.
     doc.body.style.setProperty("zoom", "1");
     const stageW = frame.clientWidth;
-    const stageH = frame.clientHeight;
     const contentW = Math.max(doc.body.scrollWidth, doc.documentElement.scrollWidth);
     const contentH = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
-    if (!stageW || !stageH || !contentW || !contentH) return;
-    const scale = Math.min(1, stageW / contentW, stageH / contentH);
-    if (Number.isFinite(scale) && scale > 0) {
-      doc.body.style.setProperty("zoom", String(scale));
+    if (!stageW || !contentW || !contentH) return;
+    if (fluid) {
+      // Fit the width, grow the height to the component (capped).
+      const scale = Math.min(1, stageW / contentW, FLUID_MAX / contentH);
+      if (Number.isFinite(scale) && scale > 0) {
+        doc.body.style.setProperty("zoom", String(scale));
+        setFluidHeight(
+          Math.min(FLUID_MAX + 2, Math.max(FLUID_MIN, Math.ceil(contentH * scale) + 2)),
+        );
+      }
+    } else {
+      const stageH = frame.clientHeight;
+      if (!stageH) return;
+      const scale = Math.min(1, stageW / contentW, stageH / contentH);
+      if (Number.isFinite(scale) && scale > 0) {
+        doc.body.style.setProperty("zoom", String(scale));
+      }
     }
     doc.documentElement.style.setProperty("overflow", "hidden");
     doc.body.style.setProperty("overflow", "hidden");
-  }, []);
+  }, [fluid]);
 
   useEffect(() => {
     window.addEventListener("resize", fit);
@@ -171,6 +192,7 @@ function IframePreview({
       loading={lazy ? "lazy" : undefined}
       onLoad={fit}
       srcDoc={standaloneDoc(entry)}
+      style={fluid ? { height: fluidHeight } : undefined}
       className={cn("w-full overflow-hidden border-0 bg-white", className)}
     />
   );
@@ -179,13 +201,16 @@ function IframePreview({
 function InlinePreview({
   entry,
   className,
+  fluid,
 }: {
   entry: UiComponentEntry;
   className?: string | undefined;
+  fluid?: boolean | undefined;
 }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [fluidHeight, setFluidHeight] = useState(176);
 
   const fit = useCallback(() => {
     const stage = stageRef.current;
@@ -195,13 +220,24 @@ function InlinePreview({
     content.style.setProperty("zoom", "1");
     void content.offsetWidth;
     const stageW = stage.clientWidth;
-    const stageH = stage.clientHeight;
     const contentW = content.scrollWidth;
     const contentH = content.scrollHeight;
-    if (!stageW || !stageH || !contentW || !contentH) return;
-    const next = Math.min(1, stageW / contentW, stageH / contentH);
-    if (Number.isFinite(next) && next > 0) setScale(next);
-  }, []);
+    if (!stageW || !contentW || !contentH) return;
+    if (fluid) {
+      const next = Math.min(1, stageW / contentW, FLUID_MAX / contentH);
+      if (Number.isFinite(next) && next > 0) {
+        setScale(next);
+        setFluidHeight(
+          Math.min(FLUID_MAX + 2, Math.max(FLUID_MIN, Math.ceil(contentH * next) + 2)),
+        );
+      }
+    } else {
+      const stageH = stage.clientHeight;
+      if (!stageH) return;
+      const next = Math.min(1, stageW / contentW, stageH / contentH);
+      if (Number.isFinite(next) && next > 0) setScale(next);
+    }
+  }, [fluid]);
 
   useEffect(() => {
     fit();
@@ -216,6 +252,7 @@ function InlinePreview({
   return (
     <div
       ref={stageRef}
+      style={fluid ? { height: fluidHeight } : undefined}
       className={cn("grid place-items-center overflow-hidden bg-white", className)}
     >
       <div
@@ -232,13 +269,15 @@ function ComponentPreview({
   entry,
   className,
   lazy,
+  fluid,
 }: {
   entry: UiComponentEntry;
   className?: string;
   lazy?: boolean;
+  fluid?: boolean;
 }) {
-  if (!entry.css) return <InlinePreview entry={entry} className={className} />;
-  return <IframePreview entry={entry} className={className} lazy={lazy} />;
+  if (!entry.css) return <InlinePreview entry={entry} className={className} fluid={fluid} />;
+  return <IframePreview entry={entry} className={className} lazy={lazy} fluid={fluid} />;
 }
 
 /**
@@ -247,13 +286,7 @@ function ComponentPreview({
  * running animations, were this page's real cost; below-fold cards now stay
  * a plain placeholder until scrolled near. The modal preview stays eager.
  */
-function LazyPreview({
-  entry,
-  className,
-}: {
-  entry: UiComponentEntry;
-  className?: string | undefined;
-}) {
+function LazyPreview({ entry }: { entry: UiComponentEntry }) {
   const ref = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -278,11 +311,11 @@ function LazyPreview({
   }, []);
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className="w-full">
       {mounted ? (
-        <ComponentPreview entry={entry} className="h-full" lazy />
+        <ComponentPreview entry={entry} lazy fluid />
       ) : (
-        <div className="h-full w-full bg-white" aria-hidden="true" />
+        <div className="h-44 w-full bg-white" aria-hidden="true" />
       )}
     </div>
   );
@@ -533,7 +566,7 @@ function Page() {
         </div>
       </Reveal>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-6 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {visible.map((entry, i) => (
           <Reveal
             key={`${entry.category}:${entry.slug}`}
@@ -547,7 +580,7 @@ function Page() {
               aria-label={`View ${entry.title} code`}
             >
               <span className="block overflow-hidden rounded-xl ring-1 ring-inset ring-border/50">
-                <LazyPreview entry={entry} className="h-44" />
+                <LazyPreview entry={entry} />
               </span>
               <span className="mt-3 flex items-center justify-between gap-2">
                 <span className="truncate font-display text-[0.95rem] font-semibold tracking-tight">
