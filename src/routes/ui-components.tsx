@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Copy, Download, Search, X } from "lucide-react";
 import { toast } from "sonner";
@@ -48,7 +48,7 @@ const PAGE_SIZE = 24;
 
 /** Base page style shared by iframe previews and standalone downloads. */
 const BASE_STYLE =
-  "html,body{margin:0;min-height:100%;display:grid;place-items:center;padding:24px;box-sizing:border-box}body{font-family:system-ui,sans-serif}";
+  "html,body{margin:0;min-height:100%;display:grid;place-items:center;padding:8px;box-sizing:border-box}body{font-family:system-ui,sans-serif}";
 
 /** Full standalone document for a component: iframe previews + .html downloads. */
 function standaloneDoc(entry: UiComponentEntry): string {
@@ -120,7 +120,114 @@ async function copyText(text: string, okMsg: string) {
  * generic class names (.card, .cta, ...) can never leak into the page.
  * Pure-Tailwind components have no custom CSS, so they render inline with
  * the site's own Tailwind build.
+ *
+ * Fit fix (Sameer 2026-10-26): Uiverse components often have large fixed
+ * sizes, so a raw preview overflows its card and shows scrollbars with
+ * clipped content. Every preview now measures its content after render and
+ * zooms it down to fit the stage (never up), and hides all overflow, so
+ * the whole component is always visible inside its card.
  */
+function IframePreview({
+  entry,
+  className,
+  lazy,
+}: {
+  entry: UiComponentEntry;
+  className?: string | undefined;
+  lazy?: boolean | undefined;
+}) {
+  const frameRef = useRef<HTMLIFrameElement>(null);
+
+  const fit = useCallback(() => {
+    const frame = frameRef.current;
+    const doc = frame?.contentDocument;
+    if (!frame || !doc || !doc.body) return;
+    // Reset first: a previous zoom would corrupt the measurement.
+    doc.body.style.setProperty("zoom", "1");
+    const stageW = frame.clientWidth;
+    const stageH = frame.clientHeight;
+    const contentW = Math.max(doc.body.scrollWidth, doc.documentElement.scrollWidth);
+    const contentH = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+    if (!stageW || !stageH || !contentW || !contentH) return;
+    const scale = Math.min(1, stageW / contentW, stageH / contentH);
+    if (Number.isFinite(scale) && scale > 0) {
+      doc.body.style.setProperty("zoom", String(scale));
+    }
+    doc.documentElement.style.setProperty("overflow", "hidden");
+    doc.body.style.setProperty("overflow", "hidden");
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, [fit]);
+
+  return (
+    <iframe
+      ref={frameRef}
+      title={`${entry.title} preview`}
+      sandbox="allow-scripts"
+      scrolling="no"
+      loading={lazy ? "lazy" : undefined}
+      onLoad={fit}
+      srcDoc={standaloneDoc(entry)}
+      className={cn("w-full overflow-hidden border-0 bg-white", className)}
+    />
+  );
+}
+
+function InlinePreview({
+  entry,
+  className,
+}: {
+  entry: UiComponentEntry;
+  className?: string | undefined;
+}) {
+  const stageRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  const fit = useCallback(() => {
+    const stage = stageRef.current;
+    const content = contentRef.current;
+    if (!stage || !content) return;
+    // Reset first: a previous zoom would corrupt the measurement.
+    content.style.setProperty("zoom", "1");
+    void content.offsetWidth;
+    const stageW = stage.clientWidth;
+    const stageH = stage.clientHeight;
+    const contentW = content.scrollWidth;
+    const contentH = content.scrollHeight;
+    if (!stageW || !stageH || !contentW || !contentH) return;
+    const next = Math.min(1, stageW / contentW, stageH / contentH);
+    if (Number.isFinite(next) && next > 0) setScale(next);
+  }, []);
+
+  useEffect(() => {
+    fit();
+    const timer = setTimeout(fit, 100);
+    window.addEventListener("resize", fit);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", fit);
+    };
+  }, [fit, entry]);
+
+  return (
+    <div
+      ref={stageRef}
+      className={cn("grid place-items-center overflow-hidden bg-white", className)}
+    >
+      <div
+        ref={contentRef}
+        style={{ zoom: scale }}
+        // Curated static strings from the bundled data file, never user input.
+        dangerouslySetInnerHTML={{ __html: entry.html }}
+      />
+    </div>
+  );
+}
+
 function ComponentPreview({
   entry,
   className,
@@ -130,23 +237,54 @@ function ComponentPreview({
   className?: string;
   lazy?: boolean;
 }) {
-  if (!entry.css) {
-    return (
-      <div
-        className={cn("grid place-items-center overflow-hidden bg-white p-4", className)}
-        // Curated static strings from the bundled data file, never user input.
-        dangerouslySetInnerHTML={{ __html: entry.html }}
-      />
+  if (!entry.css) return <InlinePreview entry={entry} className={className} />;
+  return <IframePreview entry={entry} className={className} lazy={lazy} />;
+}
+
+/**
+ * Speed (Sameer 2026-10-26): grid previews mount only when their card is
+ * near the viewport. 24 simultaneous iframes, each parsing its own CSS and
+ * running animations, were this page's real cost; below-fold cards now stay
+ * a plain placeholder until scrolled near. The modal preview stays eager.
+ */
+function LazyPreview({
+  entry,
+  className,
+}: {
+  entry: UiComponentEntry;
+  className?: string | undefined;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setMounted(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setMounted(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
     );
-  }
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <iframe
-      title={`${entry.title} preview`}
-      sandbox="allow-scripts"
-      loading={lazy ? "lazy" : undefined}
-      srcDoc={standaloneDoc(entry)}
-      className={cn("w-full border-0 bg-white", className)}
-    />
+    <div ref={ref} className={className}>
+      {mounted ? (
+        <ComponentPreview entry={entry} className="h-full" lazy />
+      ) : (
+        <div className="h-full w-full bg-white" aria-hidden="true" />
+      )}
+    </div>
   );
 }
 
@@ -409,7 +547,7 @@ function Page() {
               aria-label={`View ${entry.title} code`}
             >
               <span className="block overflow-hidden rounded-xl ring-1 ring-inset ring-border/50">
-                <ComponentPreview entry={entry} className="h-44" lazy />
+                <LazyPreview entry={entry} className="h-44" />
               </span>
               <span className="mt-3 flex items-center justify-between gap-2">
                 <span className="truncate font-display text-[0.95rem] font-semibold tracking-tight">
