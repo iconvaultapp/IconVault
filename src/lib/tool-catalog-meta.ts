@@ -1,7 +1,7 @@
 // AUTO-GENERATED from tool-catalog.ts - do not edit by hand.
 // Lightweight metadata for the homepage so it never bundles the full
 // 130KB tool catalog (counts + featured tools only).
-export const TOOL_COUNT = 580;
+export const TOOL_COUNT = 578;
 export interface ToolCategoryMeta { id: string; label: string; count: number }
 export const TOOL_CATEGORY_META: ToolCategoryMeta[] = [{"id":"image","label":"Image tools","count":52},{"id":"svg","label":"SVG tools","count":5},{"id":"brand","label":"Logo & codes","count":3},{"id":"style","label":"Color & style","count":4},{"id":"seo","label":"SEO tools","count":16},{"id":"text","label":"Text tools","count":20},{"id":"dev","label":"Developer tools","count":187},{"id":"gif","label":"GIF & video","count":6},{"id":"privacy","label":"Privacy & watermark","count":7},{"id":"exam","label":"Exam forms","count":5},{"id":"security","label":"Security","count":20},{"id":"calculators","label":"Calculators","count":31},{"id":"learn","label":"Learn & playgrounds","count":154},{"id":"generators","label":"Generators","count":12},{"id":"design","label":"Design","count":31},{"id":"network","label":"Network","count":7},{"id":"fun","label":"Fun","count":19}];
 export interface FeaturedToolMeta { id: string; name: string; tagline: string; path: string; icon: string }

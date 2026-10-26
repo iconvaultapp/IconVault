@@ -217,35 +217,6 @@ export const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
-    id: "og-image-generator",
-    title: "OG Image Generator",
-    blocks: [
-      {
-        type: "p",
-        text: "Design the social preview cards shown when your links are shared on X, LinkedIn, Facebook, Slack and Discord. Presets: 1200×630 Open Graph, 1200×600 X card, 1200×627 LinkedIn, 1080×1080 square, 1080×1350 portrait, 1080×1920 story.",
-      },
-      { type: "h", text: "Workflow" },
-      {
-        type: "list",
-        items: [
-          "Type your headline and subheadline - text auto-shrinks and wraps to fit.",
-          "Pick a Google Font, a gradient/solid/photo background, and an optional pattern overlay.",
-          "Add a badge pill, upload your logo, and drop any of 421,020 icons onto the card.",
-          "Export crisp PNG or JPG at 1x or retina 2x - or copy the image to your clipboard.",
-        ],
-      },
-      {
-        type: "tip",
-        text: "Upload the PNG to your site and reference it with og:image + twitter:card meta tags. A sharp card can double click-through from shares.",
-      },
-      { type: "h", text: "Limits" },
-      {
-        type: "p",
-        text: "5 free PNG exports per visitor. Pro unlocks unlimited exports and every template.",
-      },
-    ],
-  },
-  {
     id: "website-screenshot",
     title: "Website Screenshot",
     blocks: [
@@ -311,45 +282,18 @@ export const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
-    id: "thumbnail-maker",
-    title: "Thumbnail Maker",
-    blocks: [
-      {
-        type: "p",
-        text: "Design 1280×720 YouTube thumbnails that get clicked: bold stroked headline text, a badge pill, high-contrast gradient or photo backgrounds, and stickers from the full icon library.",
-      },
-      {
-        type: "list",
-        items: [
-          "Keep headlines to 3–5 words - text auto-sizes and wraps to 3 lines max.",
-          "Drop any of 421,020 icons onto the canvas as a sticker, left or right.",
-          "Tune text and stroke colors, then export a crisp PNG ready for YouTube Studio.",
-        ],
-      },
-      {
-        type: "tip",
-        text: "The same 1280×720 canvas works for course covers, Twitch panels and podcast artwork.",
-      },
-      { type: "h", text: "Limits" },
-      {
-        type: "p",
-        text: "5 free thumbnail exports per visitor. Pro unlocks unlimited exports and every template.",
-      },
-    ],
-  },
-  {
     id: "tools-hub",
     title: "Tools hub",
     blocks: [
       {
         type: "p",
-        text: "The Tools hub is home to 580 free online tools across 17 categories: image tools, developer utilities, text tools, converters, generators and more. Every tool runs in your browser, so your files never leave your device.",
+        text: "The Tools hub is home to 578 free online tools across 17 categories: image tools, developer utilities, text tools, converters, generators and more. Every tool runs in your browser, so your files never leave your device.",
       },
       { type: "h", text: "Finding a tool" },
       {
         type: "list",
         items: [
-          "Use the big search bar at the top of the Tools page - it filters all 580 tools as you type.",
+          "Use the big search bar at the top of the Tools page - it filters all 578 tools as you type.",
           "Browse by category: click any of the 17 category chips, or open a category page to see every tool inside it.",
           "Deep links work too: a search like /tools?q=qr jumps straight to matching tools.",
         ],
@@ -624,7 +568,7 @@ export const DOC_SECTIONS: DocSection[] = [
       {
         type: "list",
         items: [
-          "Unlimited runs of all 580 tools (free visitors get 5 uses per tool).",
+          "Unlimited runs of all 578 tools (free visitors get 5 uses per tool).",
           "Unlimited bulk ZIP downloads.",
           "Full Logo Builder kit export (favicons, app icons, manifest).",
           "API key with 1,000 calls/month and no per-minute limits.",

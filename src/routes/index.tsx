@@ -47,13 +47,13 @@ const WaitlistForm = lazy(() => import("@/components/home/WaitlistForm"));
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "IconVault - 421,020 open-source icons + 580 free online tools" },
+      { title: "IconVault - 421,020 open-source icons + 578 free online tools" },
       {
         name: "description",
         content:
-          "Search, recolour and export icons from 239 open-source sets, plus 580 free online tools for devs and designers. Copy React, Vue, HTML or SVG in one click, build collections and ship faster.",
+          "Search, recolour and export icons from 239 open-source sets, plus 578 free online tools for devs and designers. Copy React, Vue, HTML or SVG in one click, build collections and ship faster.",
       },
-      { property: "og:title", content: "IconVault - 421,020 icons and 580 free tools, one search box" },
+      { property: "og:title", content: "IconVault - 421,020 icons and 578 free tools, one search box" },
       {
         property: "og:description",
         content:
@@ -65,7 +65,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "IconVault - 421,020 icons and 580 free tools, one search box" },
+      { name: "twitter:title", content: "IconVault - 421,020 icons and 578 free tools, one search box" },
       {
         name: "twitter:description",
         content:
@@ -84,7 +84,7 @@ export const Route = createFileRoute("/")({
           url: "https://iconvault.site/",
           logo: "https://iconvault.site/og-image.jpg?v=3",
           description:
-            "IconVault is a free search index of 421,020 open-source SVG icons from 239 sets, plus 580 free online tools for developers and designers.",
+            "IconVault is a free search index of 421,020 open-source SVG icons from 239 sets, plus 578 free online tools for developers and designers.",
           sameAs: ["https://github.com/iconvaultapp/IconVault"],
         }),
       },
@@ -177,7 +177,7 @@ const STEPS = [
 const STATS = [
   { value: "421,020", label: "Icons indexed", sub: "every style, one search", icon: Shapes },
   { value: "239", label: "Icon sets", sub: "all open-source, licence-clear", icon: Layers },
-  { value: "580", label: "Free online tools", sub: "5 free uses a day, no account", icon: Wrench },
+  { value: "578", label: "Free online tools", sub: "5 free uses a day, no account", icon: Wrench },
   { value: "17", label: "Tool categories", sub: "dev, design, SEO, fun & more", icon: LayoutGrid },
 ];
 

@@ -39,6 +39,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ToolsRouteImport } from './routes/tools'
+import { Route as UiComponentsRouteImport } from './routes/ui-components'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as UsageStatsRouteImport } from './routes/usage-stats'
 import { Route as ApiIconsRouteImport } from './routes/api.icons'
@@ -420,7 +421,6 @@ import { Route as ToolsNumberBaseConverterRouteImport } from './routes/tools_.nu
 import { Route as ToolsNumeronymGeneratorRouteImport } from './routes/tools_.numeronym-generator'
 import { Route as ToolsOcrExtractorRouteImport } from './routes/tools_.ocr-extractor'
 import { Route as ToolsOffscreenCanvasPlaygroundRouteImport } from './routes/tools_.offscreen-canvas-playground'
-import { Route as ToolsOgImageGeneratorRouteImport } from './routes/tools_.og-image-generator'
 import { Route as ToolsOgPreviewRouteImport } from './routes/tools_.og-preview'
 import { Route as ToolsOpenGraphCheckerRouteImport } from './routes/tools_.open-graph-checker'
 import { Route as ToolsOpenGraphGeneratorRouteImport } from './routes/tools_.open-graph-generator'
@@ -568,7 +568,6 @@ import { Route as ToolsTextShadowGeneratorRouteImport } from './routes/tools_.te
 import { Route as ToolsTextToSpeechRouteImport } from './routes/tools_.text-to-speech'
 import { Route as ToolsTextWrapPlaygroundRouteImport } from './routes/tools_.text-wrap-playground'
 import { Route as ToolsTfidfAnalyzerRouteImport } from './routes/tools_.tfidf-analyzer'
-import { Route as ToolsThumbnailMakerRouteImport } from './routes/tools_.thumbnail-maker'
 import { Route as ToolsTimeDurationCalculatorRouteImport } from './routes/tools_.time-duration-calculator'
 import { Route as ToolsTimestampConverterRouteImport } from './routes/tools_.timestamp-converter'
 import { Route as ToolsTimezoneConverterRouteImport } from './routes/tools_.timezone-converter'
@@ -786,6 +785,11 @@ const ToolsRoute = ToolsRouteImport.update({
   path: '/tools',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/tools.lazy').then((d) => d.Route))
+const UiComponentsRoute = UiComponentsRouteImport.update({
+  id: '/ui-components',
+  path: '/ui-components',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UploadRoute = UploadRouteImport.update({
   id: '/upload',
   path: '/upload',
@@ -3566,13 +3570,6 @@ const ToolsOffscreenCanvasPlaygroundRoute =
       (d) => d.Route,
     ),
   )
-const ToolsOgImageGeneratorRoute = ToolsOgImageGeneratorRouteImport.update({
-  id: '/tools_/og-image-generator',
-  path: '/tools/og-image-generator',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/tools_.og-image-generator.lazy').then((d) => d.Route),
-)
 const ToolsOgPreviewRoute = ToolsOgPreviewRouteImport.update({
   id: '/tools_/og-preview',
   path: '/tools/og-preview',
@@ -4668,13 +4665,6 @@ const ToolsTfidfAnalyzerRoute = ToolsTfidfAnalyzerRouteImport.update({
 } as any).lazy(() =>
   import('./routes/tools_.tfidf-analyzer.lazy').then((d) => d.Route),
 )
-const ToolsThumbnailMakerRoute = ToolsThumbnailMakerRouteImport.update({
-  id: '/tools_/thumbnail-maker',
-  path: '/tools/thumbnail-maker',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/tools_.thumbnail-maker.lazy').then((d) => d.Route),
-)
 const ToolsTimeDurationCalculatorRoute =
   ToolsTimeDurationCalculatorRouteImport.update({
     id: '/tools_/time-duration-calculator',
@@ -5175,6 +5165,7 @@ export interface FileRoutesByFullPath {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
+  '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
   '/api/icons': typeof ApiIconsRoute
@@ -5554,7 +5545,6 @@ export interface FileRoutesByFullPath {
   '/tools/numeronym-generator': typeof ToolsNumeronymGeneratorRoute
   '/tools/ocr-extractor': typeof ToolsOcrExtractorRoute
   '/tools/offscreen-canvas-playground': typeof ToolsOffscreenCanvasPlaygroundRoute
-  '/tools/og-image-generator': typeof ToolsOgImageGeneratorRoute
   '/tools/og-preview': typeof ToolsOgPreviewRoute
   '/tools/open-graph-checker': typeof ToolsOpenGraphCheckerRoute
   '/tools/open-graph-generator': typeof ToolsOpenGraphGeneratorRoute
@@ -5702,7 +5692,6 @@ export interface FileRoutesByFullPath {
   '/tools/text-to-speech': typeof ToolsTextToSpeechRoute
   '/tools/text-wrap-playground': typeof ToolsTextWrapPlaygroundRoute
   '/tools/tfidf-analyzer': typeof ToolsTfidfAnalyzerRoute
-  '/tools/thumbnail-maker': typeof ToolsThumbnailMakerRoute
   '/tools/time-duration-calculator': typeof ToolsTimeDurationCalculatorRoute
   '/tools/timestamp-converter': typeof ToolsTimestampConverterRoute
   '/tools/timezone-converter': typeof ToolsTimezoneConverterRoute
@@ -5803,6 +5792,7 @@ export interface FileRoutesByTo {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
+  '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
   '/api/icons': typeof ApiIconsRoute
@@ -6182,7 +6172,6 @@ export interface FileRoutesByTo {
   '/tools/numeronym-generator': typeof ToolsNumeronymGeneratorRoute
   '/tools/ocr-extractor': typeof ToolsOcrExtractorRoute
   '/tools/offscreen-canvas-playground': typeof ToolsOffscreenCanvasPlaygroundRoute
-  '/tools/og-image-generator': typeof ToolsOgImageGeneratorRoute
   '/tools/og-preview': typeof ToolsOgPreviewRoute
   '/tools/open-graph-checker': typeof ToolsOpenGraphCheckerRoute
   '/tools/open-graph-generator': typeof ToolsOpenGraphGeneratorRoute
@@ -6330,7 +6319,6 @@ export interface FileRoutesByTo {
   '/tools/text-to-speech': typeof ToolsTextToSpeechRoute
   '/tools/text-wrap-playground': typeof ToolsTextWrapPlaygroundRoute
   '/tools/tfidf-analyzer': typeof ToolsTfidfAnalyzerRoute
-  '/tools/thumbnail-maker': typeof ToolsThumbnailMakerRoute
   '/tools/time-duration-calculator': typeof ToolsTimeDurationCalculatorRoute
   '/tools/timestamp-converter': typeof ToolsTimestampConverterRoute
   '/tools/timezone-converter': typeof ToolsTimezoneConverterRoute
@@ -6432,6 +6420,7 @@ export interface FileRoutesById {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
+  '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
   '/api/icons': typeof ApiIconsRoute
@@ -6811,7 +6800,6 @@ export interface FileRoutesById {
   '/tools_/numeronym-generator': typeof ToolsNumeronymGeneratorRoute
   '/tools_/ocr-extractor': typeof ToolsOcrExtractorRoute
   '/tools_/offscreen-canvas-playground': typeof ToolsOffscreenCanvasPlaygroundRoute
-  '/tools_/og-image-generator': typeof ToolsOgImageGeneratorRoute
   '/tools_/og-preview': typeof ToolsOgPreviewRoute
   '/tools_/open-graph-checker': typeof ToolsOpenGraphCheckerRoute
   '/tools_/open-graph-generator': typeof ToolsOpenGraphGeneratorRoute
@@ -6959,7 +6947,6 @@ export interface FileRoutesById {
   '/tools_/text-to-speech': typeof ToolsTextToSpeechRoute
   '/tools_/text-wrap-playground': typeof ToolsTextWrapPlaygroundRoute
   '/tools_/tfidf-analyzer': typeof ToolsTfidfAnalyzerRoute
-  '/tools_/thumbnail-maker': typeof ToolsThumbnailMakerRoute
   '/tools_/time-duration-calculator': typeof ToolsTimeDurationCalculatorRoute
   '/tools_/timestamp-converter': typeof ToolsTimestampConverterRoute
   '/tools_/timezone-converter': typeof ToolsTimezoneConverterRoute
@@ -7062,6 +7049,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/tools'
+    | '/ui-components'
     | '/upload'
     | '/usage-stats'
     | '/api/icons'
@@ -7441,7 +7429,6 @@ export interface FileRouteTypes {
     | '/tools/numeronym-generator'
     | '/tools/ocr-extractor'
     | '/tools/offscreen-canvas-playground'
-    | '/tools/og-image-generator'
     | '/tools/og-preview'
     | '/tools/open-graph-checker'
     | '/tools/open-graph-generator'
@@ -7589,7 +7576,6 @@ export interface FileRouteTypes {
     | '/tools/text-to-speech'
     | '/tools/text-wrap-playground'
     | '/tools/tfidf-analyzer'
-    | '/tools/thumbnail-maker'
     | '/tools/time-duration-calculator'
     | '/tools/timestamp-converter'
     | '/tools/timezone-converter'
@@ -7690,6 +7676,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/tools'
+    | '/ui-components'
     | '/upload'
     | '/usage-stats'
     | '/api/icons'
@@ -8069,7 +8056,6 @@ export interface FileRouteTypes {
     | '/tools/numeronym-generator'
     | '/tools/ocr-extractor'
     | '/tools/offscreen-canvas-playground'
-    | '/tools/og-image-generator'
     | '/tools/og-preview'
     | '/tools/open-graph-checker'
     | '/tools/open-graph-generator'
@@ -8217,7 +8203,6 @@ export interface FileRouteTypes {
     | '/tools/text-to-speech'
     | '/tools/text-wrap-playground'
     | '/tools/tfidf-analyzer'
-    | '/tools/thumbnail-maker'
     | '/tools/time-duration-calculator'
     | '/tools/timestamp-converter'
     | '/tools/timezone-converter'
@@ -8318,6 +8303,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/tools'
+    | '/ui-components'
     | '/upload'
     | '/usage-stats'
     | '/api/icons'
@@ -8697,7 +8683,6 @@ export interface FileRouteTypes {
     | '/tools_/numeronym-generator'
     | '/tools_/ocr-extractor'
     | '/tools_/offscreen-canvas-playground'
-    | '/tools_/og-image-generator'
     | '/tools_/og-preview'
     | '/tools_/open-graph-checker'
     | '/tools_/open-graph-generator'
@@ -8845,7 +8830,6 @@ export interface FileRouteTypes {
     | '/tools_/text-to-speech'
     | '/tools_/text-wrap-playground'
     | '/tools_/tfidf-analyzer'
-    | '/tools_/thumbnail-maker'
     | '/tools_/time-duration-calculator'
     | '/tools_/timestamp-converter'
     | '/tools_/timezone-converter'
@@ -8947,6 +8931,7 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRoute
+  UiComponentsRoute: typeof UiComponentsRoute
   UploadRoute: typeof UploadRoute
   UsageStatsRoute: typeof UsageStatsRoute
   ApiIconsRoute: typeof ApiIconsRoute
@@ -9326,7 +9311,6 @@ export interface RootRouteChildren {
   ToolsNumeronymGeneratorRoute: typeof ToolsNumeronymGeneratorRoute
   ToolsOcrExtractorRoute: typeof ToolsOcrExtractorRoute
   ToolsOffscreenCanvasPlaygroundRoute: typeof ToolsOffscreenCanvasPlaygroundRoute
-  ToolsOgImageGeneratorRoute: typeof ToolsOgImageGeneratorRoute
   ToolsOgPreviewRoute: typeof ToolsOgPreviewRoute
   ToolsOpenGraphCheckerRoute: typeof ToolsOpenGraphCheckerRoute
   ToolsOpenGraphGeneratorRoute: typeof ToolsOpenGraphGeneratorRoute
@@ -9474,7 +9458,6 @@ export interface RootRouteChildren {
   ToolsTextToSpeechRoute: typeof ToolsTextToSpeechRoute
   ToolsTextWrapPlaygroundRoute: typeof ToolsTextWrapPlaygroundRoute
   ToolsTfidfAnalyzerRoute: typeof ToolsTfidfAnalyzerRoute
-  ToolsThumbnailMakerRoute: typeof ToolsThumbnailMakerRoute
   ToolsTimeDurationCalculatorRoute: typeof ToolsTimeDurationCalculatorRoute
   ToolsTimestampConverterRoute: typeof ToolsTimestampConverterRoute
   ToolsTimezoneConverterRoute: typeof ToolsTimezoneConverterRoute
@@ -9755,6 +9738,13 @@ declare module '@tanstack/react-router' {
       path: '/tools'
       fullPath: '/tools'
       preLoaderRoute: typeof ToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ui-components': {
+      id: '/ui-components'
+      path: '/ui-components'
+      fullPath: '/ui-components'
+      preLoaderRoute: typeof UiComponentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/upload': {
@@ -12424,13 +12414,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsOffscreenCanvasPlaygroundRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tools_/og-image-generator': {
-      id: '/tools_/og-image-generator'
-      path: '/tools/og-image-generator'
-      fullPath: '/tools/og-image-generator'
-      preLoaderRoute: typeof ToolsOgImageGeneratorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/tools_/og-preview': {
       id: '/tools_/og-preview'
       path: '/tools/og-preview'
@@ -13460,13 +13443,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsTfidfAnalyzerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tools_/thumbnail-maker': {
-      id: '/tools_/thumbnail-maker'
-      path: '/tools/thumbnail-maker'
-      fullPath: '/tools/thumbnail-maker'
-      preLoaderRoute: typeof ToolsThumbnailMakerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/tools_/time-duration-calculator': {
       id: '/tools_/time-duration-calculator'
       path: '/tools/time-duration-calculator'
@@ -13963,6 +13939,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRoute,
+  UiComponentsRoute: UiComponentsRoute,
   UploadRoute: UploadRoute,
   UsageStatsRoute: UsageStatsRoute,
   ApiIconsRoute: ApiIconsRoute,
@@ -14344,7 +14321,6 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsNumeronymGeneratorRoute: ToolsNumeronymGeneratorRoute,
   ToolsOcrExtractorRoute: ToolsOcrExtractorRoute,
   ToolsOffscreenCanvasPlaygroundRoute: ToolsOffscreenCanvasPlaygroundRoute,
-  ToolsOgImageGeneratorRoute: ToolsOgImageGeneratorRoute,
   ToolsOgPreviewRoute: ToolsOgPreviewRoute,
   ToolsOpenGraphCheckerRoute: ToolsOpenGraphCheckerRoute,
   ToolsOpenGraphGeneratorRoute: ToolsOpenGraphGeneratorRoute,
@@ -14493,7 +14469,6 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsTextToSpeechRoute: ToolsTextToSpeechRoute,
   ToolsTextWrapPlaygroundRoute: ToolsTextWrapPlaygroundRoute,
   ToolsTfidfAnalyzerRoute: ToolsTfidfAnalyzerRoute,
-  ToolsThumbnailMakerRoute: ToolsThumbnailMakerRoute,
   ToolsTimeDurationCalculatorRoute: ToolsTimeDurationCalculatorRoute,
   ToolsTimestampConverterRoute: ToolsTimestampConverterRoute,
   ToolsTimezoneConverterRoute: ToolsTimezoneConverterRoute,

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const primaryLinks = [
   { label: "Browse icons", path: "/app" },
   { label: "Illustrations", path: "/illustrations" },
+  { label: "UI Components", path: "/ui-components" },
   { label: "Collections", path: "/collections" },
   { label: "Blog", path: "/blog" },
   { label: "Pricing", path: "/pro" },

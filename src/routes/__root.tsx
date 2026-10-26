@@ -114,7 +114,7 @@ function NotFoundComponent() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 580 free tools..."
+              placeholder="Search 578 free tools..."
               aria-label="Search tools"
               className="focus-ring h-12 w-full rounded-full border border-border bg-card pl-11 pr-4 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
             />
@@ -392,7 +392,9 @@ function RootComponent() {
     !pathname.startsWith("/admin") &&
     !pathname.startsWith("/profile") &&
     // Illustrations is a public gallery page - no app sidebar (Sameer 2026-10-23).
-    !pathname.startsWith("/illustrations");
+    !pathname.startsWith("/illustrations") &&
+    // UI Components is a public gallery page too - no app sidebar (Sameer 2026-10-26).
+    !pathname.startsWith("/ui-components");
 
   return (
     <QueryClientProvider client={queryClient}>

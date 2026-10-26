@@ -5,11 +5,11 @@ import PageShell from "@/components/PageShell";
 import { cn } from "@/lib/utils";
 import { ToolIcon } from "@/components/ToolIcon";
 import { isToolFreeUnlimited } from "@/lib/tool-trial";
+import { supabase } from "@/integrations/supabase/client";
 import {
   LIVE_TOOLS,
   SOON_TOOLS,
   TOOL_CATEGORIES,
-  toolsByCategory,
   type ToolDef,
 } from "@/lib/tool-catalog";
 
@@ -100,7 +100,7 @@ function ToolsPage() {
 
   // Progressive rendering: each category section initially shows the first
   // PAGE_SIZE tools; "Show all" expands it client-side. This keeps the SSR
-  // HTML (and hydration cost) small - the page used to ship all 580 cards
+  // HTML (and hydration cost) small - the page used to ship all 578 cards
   // at once (~870KB HTML). Search still scans the full catalog.
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
   const expandCat = (catId: string) =>
@@ -111,6 +111,31 @@ function ToolsPage() {
     });
   const visibleTools = (catId: string, tools: ToolDef[]) =>
     expanded.has(catId) ? tools : tools.slice(0, PAGE_SIZE);
+
+  // Admin kill switches (Sameer 2026-10-26): a tool disabled in /admin must
+  // not appear on the hub for any visitor. The tool page itself already
+  // blocks disabled tools (ToolPageShell); the hub used to list them anyway.
+  // null = unknown yet: fail open and show everything until the fetch resolves.
+  const [disabledIds, setDisabledIds] = useState<Set<string> | null>(null);
+  useEffect(() => {
+    let active = true;
+    supabase
+      .from("tool_settings")
+      .select("tool_id")
+      .eq("enabled", false)
+      .then(({ data, error }) => {
+        if (!active || error) return;
+        setDisabledIds(new Set((data ?? []).map((r) => String(r.tool_id))));
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+  const enabledTools = useMemo(
+    () => (disabledIds ? LIVE_TOOLS.filter((t) => !disabledIds.has(t.id)) : LIVE_TOOLS),
+    [disabledIds],
+  );
+  const toolsInCategory = (catId: string) => enabledTools.filter((t) => t.category === catId);
 
   // Keep the filters in sync when navigating between /tools URLs client-side
   // (e.g. picking another category from the header menu) without a remount.
@@ -127,12 +152,12 @@ function ToolsPage() {
     const q = query.trim().toLowerCase();
     if (!q) return null;
     const words = q.split(/\s+/);
-    return LIVE_TOOLS.filter((t) => {
+    return enabledTools.filter((t) => {
       const catLabel = t.category ? (catLabelById.get(t.category) ?? "") : "";
       const hay = `${t.name} ${t.tagline} ${t.id.replace(/-/g, " ")} ${catLabel}`.toLowerCase();
       return words.every((w) => hay.includes(w));
     });
-  }, [query, catLabelById]);
+  }, [query, catLabelById, enabledTools]);
 
   const searching = results !== null;
   // Search scans everything but only renders the first 60 matches to keep
@@ -168,7 +193,7 @@ function ToolsPage() {
   return (
     <PageShell
       title="Tools"
-      description="580 free online tools for developers, designers and creators - no account needed."
+      description={`${enabledTools.length} free online tools for developers, designers and creators - no account needed.`}
       fullWidth
       compactHero
     >
@@ -182,7 +207,7 @@ function ToolsPage() {
           <div>
             <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Tools</h1>
             <p className="text-sm text-muted-foreground">
-              {LIVE_TOOLS.length} free tools, grouped by what they do - 5 free uses per tool per day, 20+ tools free unlimited, no account needed.
+              {enabledTools.length} free tools, grouped by what they do - 5 free uses per tool per day, 20+ tools free unlimited, no account needed.
             </p>
           </div>
         </div>
@@ -195,7 +220,7 @@ function ToolsPage() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 580 tools - try &quot;json&quot;, &quot;qr code&quot;, &quot;contrast&quot;..."
+              placeholder={`Search ${enabledTools.length} tools - try "json", "qr code", "contrast"...`}
               aria-label="Search tools"
               className="h-14 w-full rounded-2xl border-2 border-border bg-card pr-12 text-base shadow-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary sm:h-16 sm:text-lg"
               style={{ paddingLeft: "3.25rem" }}
@@ -271,13 +296,13 @@ function ToolsPage() {
               </button>
             </div>
             <div className="mb-12">
-              {renderCategoryGrid(activeCat.id, toolsByCategory(activeCat.id))}
+              {renderCategoryGrid(activeCat.id, toolsInCategory(activeCat.id))}
             </div>
           </section>
         ) : (
           <>
             {TOOL_CATEGORIES.map((cat) => {
-              const tools = toolsByCategory(cat.id);
+              const tools = toolsInCategory(cat.id);
               if (tools.length === 0) return null;
               return (
                 <section key={cat.id} className="mb-12" aria-label={cat.label}>
