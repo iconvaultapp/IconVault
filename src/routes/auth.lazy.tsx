@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
 import { HoneypotField, isBotSubmission } from "@/components/HoneypotField";
 import { resolveLoginEmail } from "@/lib/owner";
+import { isDisposableEmail, DISPOSABLE_EMAIL_MESSAGE } from "@/lib/disposable-email";
 
 export const Route = createLazyFileRoute("/auth")({
   component: Page,
@@ -58,6 +59,16 @@ function Page() {
         toast.success("Welcome back.");
         void navigate({ to: "/profile" });
       }
+      return;
+    }
+    // Temporary-mail guard: runs before Supabase is touched, on BOTH
+    // sign-up and sign-in, so throwaway inboxes cannot create an account
+    // and accounts made before this check cannot log in with one either.
+    // Sign-in resolves the owner username to its real email first, so the
+    // owner login is unaffected; a bare username (no @) is not disposable.
+    const authEmail = mode === "signin" ? resolveLoginEmail(email) : email;
+    if (isDisposableEmail(authEmail)) {
+      toast.error(DISPOSABLE_EMAIL_MESSAGE);
       return;
     }
     setBusy(true);
