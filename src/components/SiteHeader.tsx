@@ -57,6 +57,15 @@ export const SiteHeader = () => {
   const [menuClosing, setMenuClosing] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
+  // "Open App" button is hidden on the three browse pages (Sameer 2026-10-27):
+  // Browse icons (/app), Libraries (/libraries) and Browse by category
+  // (/categories) — the user is already inside the app experience there.
+  // It stays visible on every other page. Trailing slash tolerated.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const basePath = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  const hideOpenApp =
+    basePath === "/app" || basePath === "/libraries" || basePath === "/categories";
+
   const toggleMobileMenu = () => {
     if (mobileOpen) {
       // Play the close animation before unmounting the panel.
@@ -236,12 +245,14 @@ export const SiteHeader = () => {
           </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/app"
-            className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
-          >
-            Open App
-          </Link>
+          {!hideOpenApp && (
+            <Link
+              to="/app"
+              className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
+            >
+              Open App
+            </Link>
+          )}
           <UserMenu />
           <button
             onClick={toggleMobileMenu}
