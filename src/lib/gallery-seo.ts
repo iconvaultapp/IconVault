@@ -101,14 +101,14 @@ export const ILLUSTRATIONS_SEO: GallerySeo = {
 
 export const UI_COMPONENTS_SEO: GallerySeo = {
   about: [
-    "IconVault's UI components library holds 1000 free, copy-paste components from the open-source Uiverse community: buttons, cards, loaders, toggle switches, inputs, checkboxes, forms, radio buttons, tooltips and notifications. Every component is MIT licensed and made by a named community author, credited on its card.",
+    "IconVault's UI components library holds 3359 free, copy-paste components from the open-source Uiverse community, HyperUI and Flowbite: buttons, cards, loaders, toggle switches, inputs, checkboxes, forms, radio buttons, tooltips, notifications, navigation, sections, overlays, data display and more. Every component is MIT licensed and made by a named author, credited on its card.",
     "Click any card to open the detail popup with three tabs: HTML, JSX and CSS. Copy the code straight into your project, or download the component as a standalone .html file that runs on its own. Components tagged HTML + CSS are self-contained snippets; components tagged Tailwind use utility classes and need Tailwind in your project.",
     "Every preview on the page is live, so what you see is exactly what you get. Search by keyword or filter by category when you need one specific thing, like an animated button, a pricing card or a loading spinner, and the whole library stays free for personal and commercial use.",
   ],
   faqs: [
     {
       q: "Are these UI components really free?",
-      a: "Yes. All 1000 components are MIT licensed, by their Uiverse community authors. You can use them in personal and commercial projects, including client work.",
+      a: "Yes. All 3359 components are MIT licensed, by their original authors at Uiverse, HyperUI and Flowbite. You can use them in personal and commercial projects, including client work.",
     },
     {
       q: "How do I use a component in my project?",
@@ -128,7 +128,7 @@ export const UI_COMPONENTS_SEO: GallerySeo = {
     },
     {
       q: "Who made these components?",
-      a: "Independent authors from the Uiverse open-source community. Every card credits its author, so you can find more of their work.",
+      a: "Independent authors from the Uiverse, HyperUI and Flowbite open-source communities. Every card credits its author, so you can find more of their work.",
     },
     {
       q: "How do I find a specific component?",

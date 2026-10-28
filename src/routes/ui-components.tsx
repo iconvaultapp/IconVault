@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Copy, Download, Search, X } from "lucide-react";
 import { toast } from "sonner";
@@ -8,10 +8,15 @@ import RouteError from "@/components/RouteError";
 import { GallerySeoSections } from "@/components/GallerySeoSections";
 import { UI_COMPONENTS_SEO } from "@/lib/gallery-seo";
 import {
-  UI_COMPONENTS,
   UI_COMPONENT_CATEGORIES,
+  UI_COMPONENT_COUNTS,
+  UI_COMPONENT_LOADERS,
+  UI_COMPONENT_SOURCES,
+  UI_COMPONENTS_TOTAL,
+  loadComponentIndex,
   type UiComponentCategory,
   type UiComponentEntry,
+  type UiComponentMeta,
 } from "@/lib/ui-components-data";
 import { cn } from "@/lib/utils";
 import {
@@ -26,17 +31,17 @@ export const Route = createFileRoute("/ui-components")({
   }),
   head: () => ({
     meta: [
-      { title: "Free UI Components - Copy-Paste Buttons, Cards, Loaders & More | IconVault" },
+      { title: "3359 Free UI Components - Buttons, Cards, Loaders, Navigation, Sections & More | IconVault" },
       {
         name: "description",
         content:
-          "1000 free open-source UI components for developers: buttons, cards, loaders, toggles, inputs, checkboxes and more. Preview, copy the HTML, JSX or CSS, and paste into any project. MIT licensed.",
+          "3359 free open-source UI components from Uiverse, HyperUI and Flowbite: buttons, cards, loaders, navigation, sections, toggles, inputs and more. Preview, copy the HTML, JSX or CSS, and paste into any project. MIT licensed.",
       },
       { property: "og:title", content: "Free UI Components | IconVault" },
       {
         property: "og:description",
         content:
-          "1000 free MIT-licensed UI components with live previews. Copy the HTML, JSX or CSS and ship faster.",
+          "3359 free MIT-licensed UI components with live previews. Copy the HTML, JSX or CSS and ship faster.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/ui-components" },
@@ -52,6 +57,12 @@ type CategoryFilter = "all" | UiComponentCategory;
 type CodeTab = "html" | "jsx" | "css";
 
 const PAGE_SIZE = 24;
+
+const CATEGORY_ORDER = UI_COMPONENT_CATEGORIES.map((c) => c.id);
+
+const SOURCE_LABEL = new Map(
+  UI_COMPONENT_SOURCES.map((s) => [s.id, s.label] as const),
+);
 
 const VOID_TAGS = [
   "area",
@@ -123,7 +134,7 @@ function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-    };
+    }
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
@@ -160,7 +171,8 @@ function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () 
           <div>
             <h2 className="font-display text-xl font-semibold tracking-tight">{entry.title}</h2>
             <p className="mt-0.5 text-sm text-muted-foreground">
-              Free UI component · MIT license · by {entry.author}
+              Free UI component · MIT license · by {entry.author} · via{" "}
+              {SOURCE_LABEL.get(entry.source) ?? entry.source}
             </p>
           </div>
           <button
@@ -225,6 +237,19 @@ function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () 
               This component uses Tailwind CSS classes: paste it into a Tailwind project.
             </p>
           )}
+          {entry.needsJs && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              This component&apos;s interactive parts need{" "}
+              {SOURCE_LABEL.get(entry.source) ?? entry.source}&apos;s JavaScript — the
+              preview shows its static state.
+            </p>
+          )}
+          {entry.source === "flowbite" && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Uses Flowbite theme classes (bg-brand, text-heading…) — include Flowbite&apos;s
+              default theme in your Tailwind project for exact colors.
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -236,63 +261,161 @@ function Page() {
   const [catFilter, setCatFilter] = useState<CategoryFilter>("all");
   const [selected, setSelected] = useState<UiComponentEntry | null>(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  // On-demand data: the metadata index loads first (no html/css), then
+  // each category's code chunk loads only when it is actually shown.
+  // This keeps the first visit fast no matter how many components exist.
+  const [index, setIndex] = useState<UiComponentMeta[] | null>(null);
+  const [chunks, setChunks] = useState<
+    Partial<Record<UiComponentCategory, UiComponentEntry[]>>
+  >({});
+  const loadedRef = useRef<Set<UiComponentCategory>>(new Set());
+  const inFlightRef = useRef<Set<UiComponentCategory>>(new Set());
+  const startedRef = useRef(false);
+  const deepLinkRef = useRef<string | null>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setVisibleCount(PAGE_SIZE);
-  }, [query, catFilter]);
-
-  const { open } = Route.useSearch();
-  useEffect(() => {
-    if (!open) return;
-    const sep = open.indexOf(":");
-    if (sep < 0) return;
-    const entry = UI_COMPONENTS.find(
-      (e) => e.category === open.slice(0, sep) && e.slug === open.slice(sep + 1),
-    );
-    if (entry) setSelected(entry);
-  }, [open ]);
-
-  const catCounts = useMemo(() => {
-    const counts = new Map<UiComponentCategory, number>();
-    for (const e of UI_COMPONENTS) counts.set(e.category, (counts.get(e.category) ?? 0) + 1);
-    return counts;
-  }, []);
 
   const catLabelById = useMemo(
     () => new Map(UI_COMPONENT_CATEGORIES.map((c) => [c.id, c.label] as const)),
     [],
   );
+  const sourceLabelById = useMemo(
+    () => new Map(UI_COMPONENT_SOURCES.map((s) => [s.id, s.label] as const)),
+    [],
+  );
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return UI_COMPONENTS.filter((e) => {
+  const ensureCats = useCallback((cats: readonly UiComponentCategory[]) => {
+    for (const cat of cats) {
+      if (loadedRef.current.has(cat) || inFlightRef.current.has(cat)) continue;
+      inFlightRef.current.add(cat);
+      void UI_COMPONENT_LOADERS[cat]().then(
+        (mod) => {
+          inFlightRef.current.delete(cat);
+          loadedRef.current.add(cat);
+          setChunks((prev) => ({ ...prev, [cat]: mod.ENTRIES }));
+        },
+        () => {
+          inFlightRef.current.delete(cat);
+        },
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    void loadComponentIndex().then((mod) => {
+      if (!cancelled) setIndex(mod.UI_COMPONENTS_INDEX);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [query, catFilter]);
+
+  const q = query.trim().toLowerCase();
+
+  const filteredMeta = useMemo(() => {
+    if (!index) return [];
+    return index.filter((e) => {
       if (catFilter !== "all" && e.category !== catFilter) return false;
       if (!q) return true;
       return (
         e.title.toLowerCase().includes(q) ||
         e.author.toLowerCase().includes(q) ||
-        (catLabelById.get(e.category) ?? "").toLowerCase().includes(q)
+        (catLabelById.get(e.category) ?? "").toLowerCase().includes(q) ||
+        (sourceLabelById.get(e.source) ?? "").toLowerCase().includes(q)
       );
     });
-  }, [query, catFilter, catLabelById]);
+  }, [index, catFilter, q, catLabelById, sourceLabelById]);
+
+  const progressive = !q && catFilter === "all";
+
+  // Filtered views and searches load every category they can show.
+  useEffect(() => {
+    if (!index || progressive) return;
+    const cats = [...new Set(filteredMeta.map((m) => m.category))];
+    ensureCats(cats);
+  }, [index, progressive, filteredMeta, ensureCats]);
+
+  // The unfiltered "All" view starts with the first category; the
+  // sentinel below loads the next category as the user scrolls.
+  useEffect(() => {
+    if (!index || !progressive || startedRef.current) return;
+    startedRef.current = true;
+    const first = CATEGORY_ORDER[0];
+    if (first) ensureCats([first]);
+  }, [index, progressive, ensureCats]);
+
+  const pool = useMemo(() => {
+    const byKey = new Map<string, UiComponentEntry>();
+    for (const cat of CATEGORY_ORDER) {
+      for (const e of chunks[cat] ?? []) {
+        byKey.set(`${e.category}:${e.slug}`, e);
+      }
+    }
+    const out: UiComponentEntry[] = [];
+    for (const m of filteredMeta) {
+      const e = byKey.get(`${m.category}:${m.slug}`);
+      if (e) out.push(e);
+    }
+    return out;
+  }, [chunks, filteredMeta]);
+
+  const { open } = Route.useSearch();
+  useEffect(() => {
+    if (!open || !index) return;
+    const sep = open.indexOf(":");
+    if (sep < 0) return;
+    const meta = index.find(
+      (e) => e.category === open.slice(0, sep) && e.slug === open.slice(sep + 1),
+    );
+    if (meta) ensureCats([meta.category]);
+  }, [open, index, ensureCats]);
+
+  useEffect(() => {
+    if (!open || deepLinkRef.current === open) return;
+    const sep = open.indexOf(":");
+    if (sep < 0) return;
+    for (const cat of CATEGORY_ORDER) {
+      const hit = (chunks[cat] ?? []).find(
+        (e) => `${e.category}:${e.slug}` === open,
+      );
+      if (hit) {
+        deepLinkRef.current = open;
+        setSelected(hit);
+        return;
+      }
+    }
+  }, [open, chunks]);
+
+  const loadedCount = Object.keys(chunks).length;
 
   useEffect(() => {
     const el = sentinelRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisibleCount((c) => (c < filtered.length ? c + PAGE_SIZE : c));
+        if (!entries.some((e) => e.isIntersecting)) return;
+        if (visibleCount < pool.length) {
+          setVisibleCount((c) => (c < pool.length ? c + PAGE_SIZE : c));
+          return;
+        }
+        if (progressive) {
+          const next = CATEGORY_ORDER.find(
+            (c) => !loadedRef.current.has(c) && !inFlightRef.current.has(c),
+          );
+          if (next) ensureCats([next]);
         }
       },
       { rootMargin: "600px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [filtered.length, visibleCount]);
+  }, [pool.length, visibleCount, progressive, ensureCats]);
 
-  const visible = filtered.slice(0, visibleCount);
+  const visible = pool.slice(0, visibleCount);
 
   return (
     <PageShell fullWidth>
@@ -300,13 +423,14 @@ function Page() {
         <div className="text-center">
           <p className="eyebrow">Open-source · MIT licensed</p>
           <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            <span className="text-gradient">{UI_COMPONENTS.length}</span> Free UI{" "}
+            <span className="text-gradient">{UI_COMPONENTS_TOTAL}</span> Free UI{" "}
             <span className="text-gradient">components</span>
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-muted-foreground">
-            Copy-paste buttons, cards, loaders, toggles, inputs and more from the open-source
-            Uiverse community. Preview live, copy the HTML, JSX or CSS, and paste into any
-            project - free for personal and commercial use.
+            Copy-paste buttons, cards, loaders, navigation, sections, toggles, inputs and
+            more from open-source libraries — the Uiverse community, HyperUI and Flowbite.
+            Preview live, copy the HTML, JSX or CSS, and paste into any project - free for
+            personal and commercial use.
           </p>
         </div>
       </Reveal>
@@ -335,7 +459,7 @@ function Page() {
                   : "border border-border text-muted-foreground hover:bg-muted",
               )}
             >
-              All · {UI_COMPONENTS.length}
+              All · {UI_COMPONENTS_TOTAL}
             </button>
             {UI_COMPONENT_CATEGORIES.map((c) => (
               <button
@@ -349,65 +473,75 @@ function Page() {
                     : "border border-border text-muted-foreground hover:bg-muted",
                 )}
               >
-                {c.label} · {catCounts.get(c.id) ?? 0}
+                {c.label} · {UI_COMPONENT_COUNTS[c.id] ?? 0}
               </button>
             ))}
           </div>
         </div>
       </Reveal>
 
-      <div className="mt-6 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {visible.map((entry, i) => (
-          <Reveal
-            key={`${entry.category}:${entry.slug}`}
-            delay={Math.min((i % PAGE_SIZE) * 15, 300)}
-            className="h-full"
-          >
-            <button
-              type="button"
-              onClick={() => setSelected(entry)}
-              className="surface-card lift-hover focus-ring group block h-full w-full p-4 text-left transition-transform active:scale-[0.98]"
-              aria-label={`View ${entry.title} code`}
-            >
-              <span className="block overflow-hidden rounded-xl ring-1 ring-inset ring-border/50">
-                <LazyPreview entry={entry} />
-              </span>
-              <span className="mt-3 flex items-center justify-between gap-2">
-                <span className="truncate font-display text-[0.95rem] font-semibold tracking-tight">
-                  {entry.title}
-                </span>
-                <span className="shrink-0 rounded-full bg-primary-soft px-2 py-0.5 text-[11px] font-medium text-primary">
-                  {entry.css ? "HTML + CSS" : "Tailwind"}
-                </span>
-              </span>
-              <span className="mt-0.5 flex items-center justify-between gap-2">
-                <span className="truncate text-xs text-muted-foreground">
-                  {catLabelById.get(entry.category)} · by {entry.author} · MIT
-                </span>
-                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground transition-transform group-hover:translate-x-0.5">
-                  Click Here <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </span>
-            </button>
-          </Reveal>
-        ))}
-      </div>
+      {index === null ? (
+        <p className="mt-10 text-center text-muted-foreground">Loading components…</p>
+      ) : (
+        <>
+          <div className="mt-6 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {visible.map((entry, i) => (
+              <Reveal
+                key={`${entry.category}:${entry.slug}`}
+                delay={Math.min((i % PAGE_SIZE) * 15, 300)}
+                className="h-full"
+              >
+                <button
+                  type="button"
+                  onClick={() => setSelected(entry)}
+                  className="surface-card lift-hover focus-ring group block h-full w-full p-4 text-left transition-transform active:scale-[0.98]"
+                  aria-label={`View ${entry.title} code`}
+                >
+                  <span className="block overflow-hidden rounded-xl ring-1 ring-inset ring-border/50">
+                    <LazyPreview entry={entry} />
+                  </span>
+                  <span className="mt-3 flex items-center justify-between gap-2">
+                    <span className="truncate font-display text-[0.95rem] font-semibold tracking-tight">
+                      {entry.title}
+                    </span>
+                    <span className="shrink-0 rounded-full bg-primary-soft px-2 py-0.5 text-[11px] font-medium text-primary">
+                      {entry.css ? "HTML + CSS" : "Tailwind"}
+                    </span>
+                  </span>
+                  <span className="mt-0.5 flex items-center justify-between gap-2">
+                    <span className="truncate text-xs text-muted-foreground">
+                      {catLabelById.get(entry.category)} · by {entry.author} · MIT
+                    </span>
+                    <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground transition-transform group-hover:translate-x-0.5">
+                      Click Here <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </span>
+                </button>
+              </Reveal>
+            ))}
+          </div>
 
-      {filtered.length === 0 && (
-        <p className="mt-10 text-center text-muted-foreground">
-          No components match “{query}”.
-        </p>
-      )}
+          {pool.length === 0 && filteredMeta.length === 0 && (
+            <p className="mt-10 text-center text-muted-foreground">
+              No components match “{query}”.
+            </p>
+          )}
+          {pool.length === 0 && filteredMeta.length > 0 && (
+            <p className="mt-10 text-center text-muted-foreground">Loading components…</p>
+          )}
 
-      {visibleCount < filtered.length && (
-        <div ref={sentinelRef} className="mt-10 text-center" aria-hidden="true">
-          <span className="text-sm text-muted-foreground">Loading more components…</span>
-        </div>
+          {(visibleCount < pool.length ||
+            (progressive && loadedCount < CATEGORY_ORDER.length)) && (
+            <div ref={sentinelRef} className="mt-10 text-center" aria-hidden="true">
+              <span className="text-sm text-muted-foreground">Loading more components…</span>
+            </div>
+          )}
+        </>
       )}
 
       <p className="mt-10 text-center text-sm text-muted-foreground">
-        All components are MIT licensed, by their Uiverse community authors. Copy, tweak and
-        use them in personal and commercial projects.
+        All components are MIT licensed, by their original authors at Uiverse, HyperUI and
+        Flowbite. Copy, tweak and use them in personal and commercial projects.
       </p>
 
       <GallerySeoSections seo={UI_COMPONENTS_SEO} />
