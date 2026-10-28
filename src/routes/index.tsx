@@ -19,7 +19,6 @@ import {
   Sparkles,
   Wrench,
 } from "lucide-react";
-import { toast } from "sonner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SearchBar from "@/components/SearchBar";
