@@ -1,15 +1,11 @@
 /** Deterministic rotation helpers (no React, unit-testable with bun).
  *
- * The homepage sections show different samples every hour without any
- * server state, extra requests, or hydration mismatch: SSR renders
- * fixed defaults, and the client swaps in the hour's seeded picks after
- * mount (both sections sit below the fold, so the swap is invisible).
- */
-
-/** Hour bucket since the epoch (UTC). Same for every visitor in an hour. */
-export function hourBucket(now: number): number {
-  return Math.floor(now / 3_600_000);
-}
+ * The homepage sections show different samples on every visit without
+ * any server state, extra requests, or hydration mismatch: SSR renders
+ * fixed defaults, and the client swaps in a fresh random-seeded pick
+ * after mount (both sections sit below the fold, so the swap is
+ * invisible). The pick functions stay deterministic per seed so the
+ * rotation is testable. */
 
 /** mulberry32: tiny deterministic PRNG for seeded shuffles. */
 export function mulberry32(seed: number): () => number {

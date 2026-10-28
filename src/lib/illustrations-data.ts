@@ -2288,6 +2288,65 @@ export const normalizeSvg = (svg: string): string =>
     return `<svg${cleaned} width="100%" height="100%" preserveAspectRatio="xMidYMid meet">`;
   });
 
+/** Inline `<style>` class rules as `style` attributes (v53 fix).
+ *
+ * 119 of 439 bundled SVGs (mostly Illustrator exports) define fills via
+ * classes in an embedded `<style>` block (`.st0{fill:#fff}` ...). The
+ * sanitizer forbids `<style>` (SEC-L8), so those fills were stripped and
+ * every shape rendered default black — whole illustrations showed as a
+ * black box (Sameer screenshot 2026-10-28: "Work From Home 2"). Inlining
+ * the rules before sanitizing keeps the exact rendering with the
+ * `<style>` block gone, so the sanitizer policy is untouched. Only
+ * simple `.name{...}` rules are inlined (what these exports contain);
+ * anything else is dropped with the block, as before. Elements that
+ * already carry a `style` attribute keep it winning (it is appended
+ * after the inlined declarations, matching CSS cascade). */
+export const inlineSvgStyles = (svg: string): string => {
+  const styleMatch = svg.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+  const css = styleMatch?.[1];
+  if (!styleMatch || css === undefined) return svg;
+  // Selector lists too (`.st17,.st19{...}`): every class in the list maps
+  // to the same declarations; a later rule wins, matching CSS cascade.
+  const rules = new Map<string, string>();
+  for (const m of css.matchAll(/([^{}]+)\{([^}]*)\}/g)) {
+    const selectors = m[1];
+    const decls = m[2]?.trim();
+    if (selectors === undefined || decls === undefined) continue;
+    for (const sel of selectors.split(",")) {
+      const classMatch = sel.trim().match(/^\.([A-Za-z0-9_-]+)$/);
+      const className = classMatch?.[1];
+      if (className !== undefined) rules.set(className, decls);
+    }
+  }
+  let out = svg.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
+  if (rules.size === 0) return out;
+  return out.replace(/<([A-Za-z][\w-]*)\b([^>]*?)>/g, (tag, name: string, attrs: string) => {
+    const classMatch = attrs.match(/\sclass="([^"]*)"/);
+    const classList = classMatch?.[1];
+    if (!classMatch || classList === undefined) return tag;
+    const decls = classList
+      .split(/\s+/)
+      .map((c) => rules.get(c))
+      .filter((d): d is string => d !== undefined);
+    if (decls.length === 0) return tag;
+    let newAttrs = attrs.replace(/\sclass="[^"]*"/, "");
+    // Self-closing tags (`/>`): keep the `/` last, or the appended
+    // style attribute lands outside the tag and is ignored.
+    const selfClose = /\/\s*$/.test(newAttrs);
+    if (selfClose) newAttrs = newAttrs.replace(/\/\s*$/, "");
+    const styleMatch2 = newAttrs.match(/\sstyle="([^"]*)"/);
+    if (styleMatch2) {
+      newAttrs = newAttrs.replace(
+        /\sstyle="[^"]*"/,
+        ` style="${decls.join(";")};${styleMatch2[1]}"`,
+      );
+    } else {
+      newAttrs += ` style="${decls.join(";")}"`;
+    }
+    return `<${name}${newAttrs}${selfClose ? " /" : ""}>`;
+  });
+};
+
 const rawCache = new Map<string, Promise<string>>();
 
 /** Fetch one illustration's raw SVG markup (session-cached). */
@@ -2304,7 +2363,7 @@ export const loadIllustrationSvg = (entry: IllustrationEntry, theme: "light" | "
       // Reject non-SVG payloads (ROB-L6): an error page or HTML must never
       // be injected as "art" or offered as a download.
       if (!text.includes("<svg")) throw new Error(`Illustration is not SVG: ${key}`);
-      return normalizeSvg(text);
+      return inlineSvgStyles(normalizeSvg(text));
     });
   rawCache.set(key, promise);
   // A failed fetch must NOT stay cached forever (ROB-H1): drop the entry

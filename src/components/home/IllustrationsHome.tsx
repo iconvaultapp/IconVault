@@ -2,10 +2,11 @@
 // the "Browse icons" section. Shows the live illustration count and a few
 // sample scenes, recoloured to the site's verdigris so they sit inside the
 // existing theme, with a straight path into the /illustrations gallery.
-// Samples rotate every hour (v52): a seeded round-robin over a pool of the
-// smallest SVG files per pack, so every visit mixes all five packs and
-// returning visitors keep seeing fresh scenes. SSR renders the original 8
-// Flowbite samples; the hour's picks swap in after mount. The section
+// Samples rotate on every visit (v53, was hourly in v52): a fresh
+// random-seeded round-robin over a pool of the smallest SVG files per
+// pack on each mount, so every refresh and every return to the homepage
+// mixes all five packs with fresh scenes. SSR renders the original 8
+// Flowbite samples; the fresh picks swap in after mount. The section
 // skips off-screen rendering (cv-auto) until scrolled near, and each
 // SVG still fetches only near the viewport (IllustrationArt).
 import { useMemo } from "react";
@@ -23,7 +24,7 @@ import {
   HOME_ILLUSTRATION_POOL,
   type HomeIllustrationPick,
 } from "@/lib/illustrations-home-pool";
-import { useHourlyMixedSamples } from "@/lib/use-hourly-samples";
+import { useRotatingMixedSamples } from "@/lib/use-rotating-samples";
 
 // Original samples (SSR defaults, unchanged since v19): the first paint
 // looks exactly like it always did; rotation only swaps in after mount.
@@ -50,7 +51,7 @@ const GROUPS: Array<readonly HomeIllustrationPick[]> = ILLUSTRATION_PACKS.map((p
 const BRAND_COLOR = "#0d7a68";
 
 export const IllustrationsHome = () => {
-  const picks = useHourlyMixedSamples(DEFAULT_PICKS, GROUPS, 8);
+  const picks = useRotatingMixedSamples(DEFAULT_PICKS, GROUPS, 8);
   const samples = useMemo(
     () =>
       picks

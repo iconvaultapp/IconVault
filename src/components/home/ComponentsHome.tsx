@@ -1,26 +1,28 @@
 // Homepage UI components section (Sameer 2026-10-26): mirrors the
 // IllustrationsHome section directly above it — same section shell,
 // centered header, 8-sample grid and "browse all" path, but for UI
-// components. Samples rotate every hour (v52): a seeded shuffle over a
-// small 34-entry pool, so returning visitors keep seeing fresh
-// components without the homepage paying for the full gallery data.
-// SSR renders the first 8 pool entries; the hour's picks swap in after
-// mount. Previews mount lazily on scroll like the gallery grid, and the
-// section skips off-screen rendering (cv-auto) until scrolled near.
+// components. Samples rotate on every visit (v53, was hourly in v52):
+// a fresh random-seeded shuffle over a small 34-entry pool on each
+// mount, so every refresh and every return to the homepage shows
+// different components without the homepage paying for the full
+// gallery data. SSR renders the first 8 pool entries; the fresh picks
+// swap in after mount. Previews mount lazily on scroll like the gallery
+// grid, and the section skips off-screen rendering (cv-auto) until
+// scrolled near.
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Component } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { LazyPreview } from "@/components/UiComponentPreview";
 import { HOME_COMPONENTS_POOL, UI_COMPONENTS_TOTAL } from "@/lib/ui-components-home";
 import { UI_COMPONENT_CATEGORIES } from "@/lib/ui-components-data";
-import { useHourlySamples } from "@/lib/use-hourly-samples";
+import { useRotatingSamples } from "@/lib/use-rotating-samples";
 
 const CAT_LABEL = new Map(UI_COMPONENT_CATEGORIES.map((c) => [c.id, c.label] as const));
 
 const DEFAULTS = HOME_COMPONENTS_POOL.slice(0, 8);
 
 export const ComponentsHome = () => {
-  const samples = useHourlySamples(DEFAULTS, HOME_COMPONENTS_POOL, 8);
+  const samples = useRotatingSamples(DEFAULTS, HOME_COMPONENTS_POOL, 8);
   return (
     <section className="cv-auto mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
       <Reveal>
