@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert PNG to a real Windows .ico file online free. Multi-size 16/32/48 icons, PNG-compressed entries, in-browser, no upload.",
     about: [
       "**IconVault**'s **PNG to ICO converter** turns your **PNG** **image** into a genuine, standards-compliant **Windows** .**ico** **file** - the format browsers still look for at /**favicon**.**ico** and **Windows** uses for shortcuts and taskbar icons. It packs 16, 32 and 48-pixel entries with **PNG** compression into one **file**, so **Windows** picks the sharpest size for every context, from tab to desktop.",
-      "The entire conversion runs in your browser: your **image** is never uploaded, and there are no watermarks or queues. You get 5 **free** conversions with no account; **IconVault** Pro ($19/year) unlocks unlimited conversions plus unlimited runs of every other tool.",
+      "The entire conversion runs in your browser: your **image** is never uploaded, and there are no watermarks or queues. You get 5 **free** conversions with no account; **IconVault** Pro ($19 one-time) unlocks unlimited conversions plus unlimited runs of every other tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free PNG-to-ICO conversions, no account needed. IconVault Pro ($19/year) unlocks unlimited conversions and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free PNG-to-ICO conversions, no account needed. IconVault Pro ($19 one-time) unlocks unlimited conversions and unlimited uses of all tools.",
       },
     ],
     tags: [

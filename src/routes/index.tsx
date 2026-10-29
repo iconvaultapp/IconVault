@@ -470,14 +470,15 @@ function Landing() {
                 it
               </h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                Size, colour and import path are baked into whatever you copy. Pull icons from the CLI,
-                the VS Code extension, or the REST API when you'd rather not leave your editor at all.
+                Size, colour and import path are baked into whatever you copy. Pull icons from the CLI
+                or the REST API when you'd rather not leave your editor at all. The VS Code extension is
+                coming soon.
               </p>
               <ul className="mt-7 grid gap-3">
                 {[
                   { emoji: "💻", title: "CLI", sub: "iconvault add lucide:rocket", mono: true },
                   { emoji: "🔌", title: "REST API", sub: "with per-project keys", mono: false },
-                  { emoji: "🎨", title: "Figma plugin", sub: "drops icons straight into frames", mono: false },
+                  { emoji: "🎨", title: "Figma plugin", sub: "Drops icons into frames · coming soon", mono: false },
                 ].map((row) => (
                   <li key={row.title} className="surface-card lift-hover flex items-center gap-3.5 p-3.5">
                     <span

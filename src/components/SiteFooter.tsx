@@ -146,6 +146,15 @@ export const SiteFooter = () => {
           </p>
           <p className="font-mono">Built for designers and engineers who move fast.</p>
           <div className="flex items-center gap-5">
+            <Link to="/about" className="transition-colors hover:text-primary">
+              About
+            </Link>
+            <Link to="/blog" className="transition-colors hover:text-primary">
+              Blog
+            </Link>
+            <Link to="/app" className="transition-colors hover:text-primary">
+              Browse Icons
+            </Link>
             <Link to="/privacy" className="transition-colors hover:text-primary">
               Privacy Policy
             </Link>

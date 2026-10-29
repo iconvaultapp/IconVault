@@ -47,7 +47,7 @@ function Page() {
   return (
     <PageShell
       eyebrow="Payment successful"
-      title={isPro ? "Welcome to Pro Yearly" : "Payment received"}
+      title={isPro ? "Welcome to Lifetime" : "Payment received"}
       description={
         isPro
           ? "Your Pro plan is active. Unlimited tool runs, bulk downloads, design tokens and API access are all yours."

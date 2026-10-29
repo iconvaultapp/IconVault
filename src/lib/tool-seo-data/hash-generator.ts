@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes instantly. Free online hash generator - private, runs entirely in your browser.",
     about: [
       "The **Hash Generator** turns any **text** into its cryptographic fingerprint - a fixed-length digest that changes completely if even one character changes. It computes **MD5**, **SHA**-1, **SHA**-**256**, **SHA**-384 and **SHA**-**512** all at once: the **SHA** family via your browser's built-in WebCrypto, **MD5** via a compact standards-compliant implementation, since browsers no longer ship **MD5**. New: HMAC mode signs **text** with your secret key (HMAC-**SHA**-**256**/**512**, e.g. for webhook signature debugging), and an expected-**hash** field gives a green Match / red Mismatch verdict.",
-      "Hashes are perfect for checksums, cache keys, Gravatar URLs and verifying file integrity. Everything is computed on your device - your input is never uploaded or stored. You get 5 **free** generations with no account - **IconVault** Pro ($19/year) unlocks unlimited hashing and every other tool on the platform.",
+      "Hashes are perfect for checksums, cache keys, Gravatar URLs and verifying file integrity. Everything is computed on your device - your input is never uploaded or stored. You get 5 **free** generations with no account - **IconVault** Pro ($19 one-time) unlocks unlimited hashing and every other tool on the platform.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free hashes can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19/year) unlocks unlimited hashing plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited hashing plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [

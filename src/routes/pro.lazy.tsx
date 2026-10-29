@@ -17,7 +17,7 @@ const proFeatures = [
   "Unlimited bulk downloads",
   "Full-page & HD website screenshots",
   "Batch vectorize + ZIP exports",
-  "Cancel anytime",
+  "30-day refund",
 ];
 
 const freePlan = {
@@ -87,7 +87,7 @@ const matrix: { group: string; rows: { label: string; values: [Cell, Cell] }[] }
     group: "Platform",
     rows: [
       { label: "REST API calls", values: ["1,000 / mo", "50,000 / mo"] },
-      { label: "CLI, Figma, VS Code", values: ["Read only", true] },
+      { label: "CLI, Figma, VS Code", values: ["Read only", "Coming soon"] },
       { label: "Custom icon uploads", values: [false, "500"] },
       { label: "Cross-device sync", values: [true, true] },
     ],

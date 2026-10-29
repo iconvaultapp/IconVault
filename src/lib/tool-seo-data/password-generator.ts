@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate strong random passwords or memorable passphrases instantly in your browser. Custom length, symbols, ambiguous-character exclusion, word count and entropy meter - free, private, no signup needed.",
     about: [
       "**IconVault**'s **Password** **Generator** creates truly **random**, cryptographically **secure** **passwords** using your browser's built-in crypto.getRandomValues - the same source of randomness your operating system uses for encryption keys. Nothing is sent to a server, logged or stored: the **password** exists only in your tab until you copy it. Choose a length from 8 to 64 characters and mix lowercase, uppercase, digits and symbols to taste.",
-      "Every **password** comes with a live entropy meter that shows its strength in bits, so you can see exactly how hard it would be to crack. You get 5 **free** generations with no account - **IconVault** Pro ($19/year) unlocks unlimited generations and every other tool on the platform.",
+      "Every **password** comes with a live entropy meter that shows its strength in bits, so you can see exactly how hard it would be to crack. You get 5 **free** generations with no account - **IconVault** Pro ($19 one-time) unlocks unlimited generations and every other tool on the platform.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free passwords can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19/year) unlocks unlimited password generations plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited password generations plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [

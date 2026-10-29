@@ -31,7 +31,7 @@ export interface BlogPost {
   content: BlogBlock[];
 }
 
-export const BLOG_AUTHOR = "IconVault Team";
+export const BLOG_AUTHOR = "Dev Coder";
 
 export const BLOG_POSTS: BlogPost[] = [...POSTS_A, ...POSTS_B, ...POSTS_C, ...POSTS_D].sort((a, b) =>
   b.date.localeCompare(a.date),

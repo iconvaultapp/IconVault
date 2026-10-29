@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Format, minify, validate and sort-keys in JSON in your browser. Error messages, copy, .json download - free, nothing uploaded.",
     about: [
       "**IconVault**'s **JSON Formatter** takes messy, minified or broken **JSON** and makes it readable: **pretty**-**print** with 2-space indentation, **minify** it back down for production, or **validate** it and get a plain-English error message pointing at the problem. It also loads .**json** files straight from your computer.",
-      "Everything runs in your browser - your **JSON** is parsed locally and never uploaded to any server, so API keys and payloads stay private. Every visitor gets 5 **free** **format**/**minify** runs (validation is unlimited); Pro members ($19/year) get unlimited runs across all **IconVault** tools.",
+      "Everything runs in your browser - your **JSON** is parsed locally and never uploaded to any server, so API keys and payloads stay private. Every visitor gets 5 **free** **format**/**minify** runs (validation is unlimited); Pro members ($19 one-time) get unlimited runs across all **IconVault** tools.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free formats do I get?",
-        a: "Every visitor gets 5 free format/minify runs, no account needed; validation is unlimited. IconVault Pro ($19/year) unlocks unlimited runs of every tool.",
+        a: "Every visitor gets 5 free format/minify runs, no account needed; validation is unlimited. IconVault Pro ($19 one-time) unlocks unlimited runs of every tool.",
       },
     ],
     tags: [

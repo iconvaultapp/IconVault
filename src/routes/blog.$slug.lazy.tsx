@@ -52,7 +52,12 @@ function BlogPostPage() {
             >
               <ReliableIcon prefix="lucide" name={post.icon} alt="" width={15} height={15} />
             </span>
-            <span className="font-medium text-foreground">{BLOG_AUTHOR}</span>
+            <span className="font-medium text-foreground">
+              <Link to="/about" className="transition-colors hover:text-primary">
+                {BLOG_AUTHOR}
+              </Link>
+            </span>
+            <span className="text-muted-foreground">Founder, IconVault</span>
           </span>
           <span className="flex items-center gap-1.5">
             <CalendarDays className="h-4 w-4" /> {formatBlogDate(post.date)}

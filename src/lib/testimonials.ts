@@ -56,7 +56,7 @@ export const DEFAULT_TESTIMONIALS: Testimonial[] = [
     id: "default-6",
     name: "Rahul Verma",
     role: "IconVault User",
-    text: "579 tools and I keep discovering new ones. The QR generator and JSON formatter are part of my daily workflow now.",
+    text: "578 tools and I keep discovering new ones. The QR generator and JSON formatter are part of my daily workflow now.",
     rating: 5,
     created_at: "2026-01-06T00:00:00Z",
   },

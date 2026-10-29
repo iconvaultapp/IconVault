@@ -29,7 +29,7 @@ export const POSTS_D: BlogPost[] = [
       { type: "h2", text: "What IconVault actually is" },
       {
         type: "p",
-        text: "**IconVault** does not draw **icons**. It indexes them. One search box covers 239 sets, from **Lucide** and Tabler to Phosphor, Heroicons, Material Symbols and Bootstrap Icons, and every result can be downloaded as SVG or PNG, copied as a component, recoloured, or added to a sprite sheet. Around the **index** sit 579 free online tools, including an [SVG to JSX converter](/tools/svg-to-jsx), an [SVG optimizer](/tools/svg-optimizer) and a [sprite generator](/tools/svg-sprite-generator). The value is not a house style, because there is none. The value is that you stop opening six library sites to answer one question: does this **icon** exist, and in which set does it look best?",
+        text: "**IconVault** does not draw **icons**. It indexes them. One search box covers 239 sets, from **Lucide** and Tabler to Phosphor, Heroicons, Material Symbols and Bootstrap Icons, and every result can be downloaded as SVG or PNG, copied as a component, recoloured, or added to a sprite sheet. Around the **index** sit 578 free online tools, including an [SVG to JSX converter](/tools/svg-to-jsx), an [SVG optimizer](/tools/svg-optimizer) and a [sprite generator](/tools/svg-sprite-generator). The value is not a house style, because there is none. The value is that you stop opening six library sites to answer one question: does this **icon** exist, and in which set does it look best?",
       },
       { type: "h2", text: "Side by side" },
       {

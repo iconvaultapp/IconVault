@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate favicons from any of 421,020 icons or your own image. All sizes 16–512px, free PNGs, Pro favicon kit with webmanifest.",
     about: [
       "**IconVault**'s **Favicon Generator** builds every **favicon** size your site needs - 16, 32, 180, 192 and 512 pixels - from any of 421,020 library **icons**, an **image** you upload - or the new Text mode (initials with font, color and shape) and Emoji mode. No design software, no pixel-tweaking: pick a source, hit generate, and download crisp PNGs rendered at each standard size, all in your browser.",
-      "Individual PNG downloads are completely **free**. Everything runs client-side, so your source **image** never leaves your device. You get 5 **free** generations without an account; **IconVault** Pro ($19/year) unlocks the full **favicon** kit ZIP - all PNGs plus a ready-to-drop-in site.webmanifest - and unlimited uses of every tool.",
+      "Individual PNG downloads are completely **free**. Everything runs client-side, so your source **image** never leaves your device. You get 5 **free** generations without an account; **IconVault** Pro ($19 one-time) unlocks the full **favicon** kit ZIP - all PNGs plus a ready-to-drop-in site.webmanifest - and unlimited uses of every tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free favicon generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. Individual PNG downloads are always free. IconVault Pro ($19/year) unlocks unlimited generations and the full kit ZIP.",
+        a: "Every visitor gets 5 free generations, no account needed. Individual PNG downloads are always free. IconVault Pro ($19 one-time) unlocks unlimited generations and the full kit ZIP.",
       },
     ],
     tags: [

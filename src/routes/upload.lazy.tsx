@@ -277,7 +277,7 @@ function Page() {
 
         <CTABand
           title="Share uploads with your team"
-          body="Team workspaces put custom icons in the same search as the open sets, for everyone."
+          body="Team workspaces (coming soon) will put custom icons in the same search as the open sets, for everyone."
           primary={{ label: "See team workspaces", to: "/team" }}
           secondary={{ label: "Export design tokens", to: "/design-tokens" }}
         />

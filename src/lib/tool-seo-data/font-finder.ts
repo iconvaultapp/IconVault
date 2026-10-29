@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free analyses do I get?",
-        a: "Every visitor gets 5 free font analyses, no account needed. IconVault Pro ($19/year) unlocks unlimited analyses.",
+        a: "Every visitor gets 5 free font analyses, no account needed. IconVault Pro ($19 one-time) unlocks unlimited analyses.",
       },
     ],
     tags: [

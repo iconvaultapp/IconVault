@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert colors between HEX, RGB, HSL, HSV, HWB, CMYK, LAB & LCH instantly. Harmonies, shades, WCAG contrast, CSS export - free.",
     about: [
       "**IconVault**'s **Color Converter** translates any **color** between **HEX**, **RGB**, **HSL**, HSV, HWB, **CMYK**, CIE-**LAB** and LCH in real time - type a value in any field, pick visually, or browse the 1,000+ named-**color** library below, and every other format updates instantly. Beyond conversion you get **color** harmonies (complementary, triadic, tetradic…), stepped shades & tints, WCAG contrast ratios against black and white, and one-click CSS variable export.",
-      "Everything runs in your browser: no uploads, no accounts, no waiting. Every visitor gets 5 **free** copies - Pro members ($19/year) get unlimited conversions across all tools plus unlimited Logo Builder, image and JSON tooling.",
+      "Everything runs in your browser: no uploads, no accounts, no waiting. Every visitor gets 5 **free** copies - Pro members ($19 one-time) get unlimited conversions across all tools plus unlimited Logo Builder, image and JSON tooling.",
     ],
     faqs: [
       {
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($19/year) unlocks unlimited use of the Color Converter and every other tool.",
+        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($19 one-time) unlocks unlimited use of the Color Converter and every other tool.",
       },
       {
         q: "Is my data sent anywhere?",

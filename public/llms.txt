@@ -6,7 +6,7 @@
 
 - 421,020 free SVG icons, including 33,016 alias names
 - 239 icon collections (libraries), 215 categories
-- 579 free online tools
+- 578 free online tools
 - 386 free SVG illustrations, recolourable to any brand colour
 - Icons are free for personal and commercial use under their own licences (MIT, ISC, Apache-2.0 are permissive; CC BY sets require attribution)
 - One-click SVG and PNG downloads, copy as React/Vue/HTML component, bulk export, SVG sprite generation
@@ -22,7 +22,7 @@
 - [Illustrations](https://iconvault.site/illustrations): 386 free SVG illustrations, recolour and download
 - [Categories](https://iconvault.site/categories): 215 icon categories
 - [Libraries](https://iconvault.site/libraries): all 239 icon collections
-- [Tools](https://iconvault.site/tools): 579 free online tools
+- [Tools](https://iconvault.site/tools): 578 free online tools
 - [Blog](https://iconvault.site/blog): guides and comparisons about SVG icons
 
 ## Popular icon sets indexed

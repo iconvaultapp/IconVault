@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build .editorconfig files visually. Set root, sections, indent and line endings with live output preview. Free, copy or download, no signup.",
     about: [
       "**IconVault**'s **EditorConfig Generator** builds a correct **.editorconfig** file without memorizing the syntax. Toggle **root = true**, add per-section rows like **[*]**, **[*.{js,ts}]** or **[Makefile]**, and set **indent style and size**, **line endings**, **charset**, **trailing whitespace** and **final newline** for each section from a visual form.",
-      "The **.editorconfig output updates live** as you edit, so you always see the exact file your editor will read, then copy it or **download** it with one click. Everything runs **100% in your browser**: no installs, no account, nothing uploaded. It is the fastest way to keep **consistent code style** across editors and team members. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($19/year) unlocks unlimited use of every developer tool.",
+      "The **.editorconfig output updates live** as you edit, so you always see the exact file your editor will read, then copy it or **download** it with one click. Everything runs **100% in your browser**: no installs, no account, nothing uploaded. It is the fastest way to keep **consistent code style** across editors and team members. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($19/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

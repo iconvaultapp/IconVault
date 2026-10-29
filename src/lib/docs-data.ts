@@ -212,7 +212,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "h", text: "Limits" },
       {
         type: "p",
-        text: "5 free conversions per visitor per day, no account needed. Pro (from $19/year) unlocks unlimited conversions, 16-color traces and batch ZIP export of up to 10 images.",
+        text: "5 free conversions per visitor per day, no account needed. Pro (from $19 one-time) unlocks unlimited conversions, 16-color traces and batch ZIP export of up to 10 images.",
       },
     ],
   },
@@ -304,7 +304,7 @@ export const DOC_SECTIONS: DocSection[] = [
         items: [
           "Each tool page has the same layout: the tool itself up top, then About, FAQs and related tags below.",
           "Free visitors get 5 uses per tool, no account needed. Usage is tracked per tool on your device.",
-          "Pro (from $19/year) unlocks unlimited runs of every tool.",
+          "Pro (from $19 one-time) unlocks unlimited runs of every tool.",
           "Tags under each tool are clickable - they lead to related tools and icon searches.",
         ],
       },
@@ -352,7 +352,7 @@ export const DOC_SECTIONS: DocSection[] = [
         type: "list",
         items: [
           "Free accounts get 7 bulk downloads - plenty to try the workflow.",
-          "Pro (from $19/year) unlocks unlimited bulk downloads.",
+          "Pro (from $19 one-time) unlocks unlimited bulk downloads.",
           "ZIPs are generated in your browser; your selections never leave your device.",
         ],
       },
@@ -563,7 +563,7 @@ export const DOC_SECTIONS: DocSection[] = [
     blocks: [
       {
         type: "p",
-        text: "IconVault Pro starts at $19/year ($19/year, or $19 lifetime): plans that unlock unlimited runs of every tool, unlimited bulk ZIP downloads, the full Logo Builder kit, and a 1,000-call monthly API quota with no per-minute cap.",
+        text: "IconVault Pro starts at $19 one-time: unlocks unlimited runs of every tool, unlimited bulk ZIP downloads, the full Logo Builder kit, and a 1,000-call monthly API quota with no per-minute cap.",
       },
       {
         type: "list",
@@ -616,9 +616,9 @@ export const DOC_SECTIONS: DocSection[] = [
       {
         type: "list",
         items: [
-          "VS Code extension - insert icons as you code, with inline previews.",
-          "Figma plugin - search and drop 421,020 icons without leaving Figma.",
-          "Chrome extension - find and copy icons from the toolbar.",
+          "VS Code extension - insert icons as you code, with inline previews. Coming soon.",
+          "Figma plugin - search and drop 421,020 icons without leaving Figma. Coming soon.",
+          "Chrome extension - find and copy icons from the toolbar. Coming soon.",
         ],
       },
       { type: "h", text: "Recently shipped" },
@@ -667,7 +667,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "h", text: "Is IconVault really free?" },
       {
         type: "p",
-        text: "Yes - browsing, searching, copying and single downloads are free forever, and every tool gives you 5 free uses per day. Pro is an optional paid plan (from $19/year) that unlocks unlimited everything.",
+        text: "Yes - browsing, searching, copying and single downloads are free forever, and every tool gives you 5 free uses per day. Pro is an optional paid plan (from $19 one-time) that unlocks unlimited everything.",
       },
       { type: "h", text: "Can I use the icons commercially?" },
       {
@@ -711,7 +711,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 conversions per tool, no account needed. Pro (from $19/year) unlocks unlimited conversions across all tools.",
+        text: "Free plan: 5 conversions per tool, no account needed. Pro (from $19 one-time) unlocks unlimited conversions across all tools.",
       },
     ],
   },
@@ -739,7 +739,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 optimizations per tool, no account needed. Pro (from $19/year) unlocks unlimited runs across all tools.",
+        text: "Free plan: 5 optimizations per tool, no account needed. Pro (from $19 one-time) unlocks unlimited runs across all tools.",
       },
     ],
   },
@@ -768,7 +768,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 conversions per tool, no account needed. Pro (from $19/year) unlocks unlimited conversions across all tools.",
+        text: "Free plan: 5 conversions per tool, no account needed. Pro (from $19 one-time) unlocks unlimited conversions across all tools.",
       },
     ],
   },
@@ -797,7 +797,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 generations per tool, no account needed. Pro (from $19/year) unlocks unlimited runs across all tools.",
+        text: "Free plan: 5 generations per tool, no account needed. Pro (from $19 one-time) unlocks unlimited runs across all tools.",
       },
     ],
   },
@@ -825,7 +825,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 sprite generations per tool, no account needed. Pro (from $19/year) unlocks unlimited runs across all tools.",
+        text: "Free plan: 5 sprite generations per tool, no account needed. Pro (from $19 one-time) unlocks unlimited runs across all tools.",
       },
     ],
   },
@@ -853,7 +853,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 10 images per run, 8192px max per side. Every visitor gets 5 free resizing runs per day - IconVault Pro (from $19/year) unlocks unlimited runs of every tool. Your files never leave your device.",
+        text: "Limits: 10 images per run, 8192px max per side. Every visitor gets 5 free resizing runs per day - IconVault Pro (from $19 one-time) unlocks unlimited runs of every tool. Your files never leave your device.",
       },
     ],
   },
@@ -881,7 +881,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free generations per visitor per day; individual PNGs are always free. The full kit ZIP is a Pro feature - IconVault Pro starts at $19/year, with unlimited runs of every tool.",
+        text: "Limits: 5 free generations per visitor per day; individual PNGs are always free. The full kit ZIP is a Pro feature - IconVault Pro starts at $19 one-time, with unlimited runs of every tool.",
       },
     ],
   },
@@ -909,7 +909,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free conversions per visitor per day, no account needed. IconVault Pro (from $19/year) unlocks unlimited conversions and unlimited runs of every tool. Files never leave your device.",
+        text: "Limits: 5 free conversions per visitor per day, no account needed. IconVault Pro (from $19 one-time) unlocks unlimited conversions and unlimited runs of every tool. Files never leave your device.",
       },
     ],
   },
@@ -937,7 +937,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free generations per visitor per day. IconVault Pro (from $19/year) unlocks unlimited QR codes plus unlimited runs of every tool. Everything is generated on your device.",
+        text: "Limits: 5 free generations per visitor per day. IconVault Pro (from $19 one-time) unlocks unlimited QR codes plus unlimited runs of every tool. Everything is generated on your device.",
       },
     ],
   },
@@ -965,7 +965,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free CSS copies per visitor per day. IconVault Pro (from $19/year) unlocks unlimited copies and unlimited runs of every tool. No account needed to experiment.",
+        text: "Limits: 5 free CSS copies per visitor per day. IconVault Pro (from $19 one-time) unlocks unlimited copies and unlimited runs of every tool. No account needed to experiment.",
       },
     ],
   },
@@ -990,7 +990,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "tip", text: "Use HSL when you want to nudge a color's lightness or saturation without changing its hue - much easier than editing RGB channels." },
       {
         type: "p",
-        text: "5 free copies per visitor per day. Pro (from $19/year) unlocks unlimited conversions across all tools. Everything runs in your browser - nothing is uploaded.",
+        text: "5 free copies per visitor per day. Pro (from $19 one-time) unlocks unlimited conversions across all tools. Everything runs in your browser - nothing is uploaded.",
       },
     ],
   },
@@ -1016,7 +1016,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "tip", text: "Light gray text on white almost always fails AA - e.g. #9ca3af on white is only ~3.5:1. Darken the text until the badge turns green." },
       {
         type: "p",
-        text: "5 free checks per visitor per day. Pro (from $19/year) unlocks unlimited checks. The math runs entirely in your browser - nothing is uploaded.",
+        text: "5 free checks per visitor per day. Pro (from $19 one-time) unlocks unlimited checks. The math runs entirely in your browser - nothing is uploaded.",
       },
     ],
   },
@@ -1041,7 +1041,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "tip", text: "Blur softens the edge, spread changes the size. For crisp tight shadows, keep blur low and spread slightly negative." },
       {
         type: "p",
-        text: "5 free copies per visitor per day. Pro (from $19/year) unlocks unlimited copies across all tools. Everything runs in your browser - nothing is uploaded.",
+        text: "5 free copies per visitor per day. Pro (from $19 one-time) unlocks unlimited copies across all tools. Everything runs in your browser - nothing is uploaded.",
       },
     ],
   },
@@ -1066,7 +1066,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "tip", text: "Parsing happens with your browser's own JSON.parse - safe for API keys and private payloads, since the data never leaves your device." },
       {
         type: "p",
-        text: "5 free format/minify runs per visitor; validation is unlimited. Pro (from $19/year) unlocks unlimited runs across all tools.",
+        text: "5 free format/minify runs per visitor; validation is unlimited. Pro (from $19 one-time) unlocks unlimited runs across all tools.",
       },
     ],
   },
@@ -1091,7 +1091,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { type: "tip", text: "Base64 is an encoding, not encryption - never use it to hide secrets. It's for transporting binary data through text-only channels." },
       {
         type: "p",
-        text: "5 free conversions per visitor. Pro (from $19/year) unlocks unlimited conversions across all tools. Encoding runs locally in your browser - nothing is uploaded.",
+        text: "5 free conversions per visitor. Pro (from $19 one-time) unlocks unlimited conversions across all tools. Encoding runs locally in your browser - nothing is uploaded.",
       },
     ],
   },
@@ -1121,7 +1121,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 decodes per tool. IconVault Pro (from $19/year) unlocks unlimited decodes and every other developer tool.",
+        text: "Free plan: 5 decodes per tool. IconVault Pro (from $19 one-time) unlocks unlimited decodes and every other developer tool.",
       },
     ],
   },
@@ -1151,7 +1151,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 tests per tool. IconVault Pro (from $19/year) unlocks unlimited tests and every other developer tool.",
+        text: "Free plan: 5 tests per tool. IconVault Pro (from $19 one-time) unlocks unlimited tests and every other developer tool.",
       },
     ],
   },
@@ -1180,7 +1180,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 conversions per tool. IconVault Pro (from $19/year) unlocks unlimited conversions and every other developer tool.",
+        text: "Free plan: 5 conversions per tool. IconVault Pro (from $19 one-time) unlocks unlimited conversions and every other developer tool.",
       },
     ],
   },
@@ -1208,7 +1208,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 encodes/decodes per tool. IconVault Pro (from $19/year) unlocks unlimited use and every other developer tool.",
+        text: "Free plan: 5 encodes/decodes per tool. IconVault Pro (from $19 one-time) unlocks unlimited use and every other developer tool.",
       },
     ],
   },
@@ -1236,7 +1236,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Free plan: 5 generations per tool. IconVault Pro (from $19/year) unlocks unlimited generations and every other developer tool.",
+        text: "Free plan: 5 generations per tool. IconVault Pro (from $19 one-time) unlocks unlimited generations and every other developer tool.",
       },
     ],
   },
@@ -1265,7 +1265,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free generations per visitor, no account needed. IconVault Pro (from $19/year) unlocks unlimited generations.",
+        text: "Limits: 5 free generations per visitor, no account needed. IconVault Pro (from $19 one-time) unlocks unlimited generations.",
       },
     ],
   },
@@ -1293,7 +1293,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free comparisons per visitor, no account needed. IconVault Pro (from $19/year) unlocks unlimited comparisons.",
+        text: "Limits: 5 free comparisons per visitor, no account needed. IconVault Pro (from $19 one-time) unlocks unlimited comparisons.",
       },
     ],
   },
@@ -1322,7 +1322,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free generations per visitor, no account needed. IconVault Pro (from $19/year) unlocks unlimited hashing.",
+        text: "Limits: 5 free generations per visitor, no account needed. IconVault Pro (from $19 one-time) unlocks unlimited hashing.",
       },
     ],
   },
@@ -1349,7 +1349,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free HTML copies per visitor, no account needed. IconVault Pro (from $19/year) unlocks unlimited copies.",
+        text: "Limits: 5 free HTML copies per visitor, no account needed. IconVault Pro (from $19 one-time) unlocks unlimited copies.",
       },
     ],
   },
@@ -1377,7 +1377,7 @@ export const DOC_SECTIONS: DocSection[] = [
       },
       {
         type: "p",
-        text: "Limits: 5 free generations per visitor, no account needed. IconVault Pro (from $19/year) unlocks unlimited generations.",
+        text: "Limits: 5 free generations per visitor, no account needed. IconVault Pro (from $19 one-time) unlocks unlimited generations.",
       },
     ],
   },

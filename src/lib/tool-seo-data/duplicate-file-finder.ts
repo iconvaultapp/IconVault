@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Find duplicate files by SHA-256 content hash. Groups identical files and totals wasted space. 100% private, files never leave your device. Free.",
     about: [
       "**IconVault**'s **Duplicate Finder** finds **duplicate files** by content, not by name. It hashes every file with **SHA-256** and groups files with **identical hashes** together, so renamed copies, repeated downloads and forgotten backups are all caught. Each group shows the **wasted bytes** it costs you, with a running total across the whole scan.",
-      "Everything happens **100% in your browser**: file contents are hashed locally and **never uploaded**, so the tool is safe for private photos, documents and work files. On supported browsers you can scan a whole **folder** at once via the File System Access API; everywhere else you can select multiple files. Visitors get 5 **free** scans with no signup; **IconVault** Pro ($19/year) unlocks unlimited use of every tool.",
+      "Everything happens **100% in your browser**: file contents are hashed locally and **never uploaded**, so the tool is safe for private photos, documents and work files. On supported browsers you can scan a whole **folder** at once via the File System Access API; everywhere else you can select multiple files. Visitors get 5 **free** scans with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free scans do I get?",
-        a: "Every visitor gets 5 free scans with no account needed. IconVault Pro ($19/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free scans with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

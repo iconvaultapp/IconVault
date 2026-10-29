@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Compare two texts and see every change highlighted line by line, with character-level highlights inside changed lines. Free online diff checker with addition/deletion counts - private and in-browser.",
     about: [
       "The **Diff Checker** compares **two** pieces of **text** and highlights exactly what changed - removed lines in red with a − prefix, added lines in green with a + prefix, and unchanged lines dimmed for context. It runs a classic LCS (longest common subsequence) **diff** over lines, the same family of algorithm behind Git's **diff**, and shows you a count of additions and deletions at a glance. Character-level highlights pinpoint edits inside changed lines, Ignore-whitespace / Ignore-case toggles cut noise, and **Unified**/Split views switch the layout.",
-      "Everything happens in your browser: paste drafts, **code** snippets, configs or JSON and your **text** is never uploaded anywhere. You get 5 **free** comparisons with no account - **IconVault** Pro ($19/year) unlocks unlimited comparisons and every other **tool** on the platform.",
+      "Everything happens in your browser: paste drafts, **code** snippets, configs or JSON and your **text** is never uploaded anywhere. You get 5 **free** comparisons with no account - **IconVault** Pro ($19 one-time) unlocks unlimited comparisons and every other **tool** on the platform.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free comparisons do I get?",
-        a: "Every visitor gets 5 free comparisons, no account needed. IconVault Pro ($19/year) unlocks unlimited diffs plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free comparisons, no account needed. IconVault Pro ($19 one-time) unlocks unlimited diffs plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [

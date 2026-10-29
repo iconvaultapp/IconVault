@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Shrink SVG file size instantly with a real DOM-based optimizer: precision control, metadata/empty-element/unused-ID cleanup and hidden-element removal - see before/after bytes. Free, private, in-browser.",
     about: [
       "**IconVault**'s **SVG Optimizer** trims the bloat out of **SVG** files so they load faster on your site. Design tools like Illustrator, Figma and Inkscape export SVGs stuffed with comments, editor metadata, redundant whitespace and absurdly precise decimals (12.3456789 when 12.35 would do). This tool strips comments, collapses whitespace between tags and rounds long decimals to two places - typically cutting **file** **size** by 20–60% with zero visual change.",
-      "You see the before and after byte counts plus the exact percentage saved, then copy or download the leaner **SVG**. Everything runs in your browser, so your artwork is never uploaded anywhere. Every visitor gets 5 **free** optimizations with no account needed. **IconVault** Pro ($19/year) unlocks unlimited runs across all tools plus HD exports and every template.",
+      "You see the before and after byte counts plus the exact percentage saved, then copy or download the leaner **SVG**. Everything runs in your browser, so your artwork is never uploaded anywhere. Every visitor gets 5 **free** optimizations with no account needed. **IconVault** Pro ($19 one-time) unlocks unlimited runs across all tools plus HD exports and every template.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free optimizations do I get?",
-        a: "Every visitor gets 5 free optimizations per tool, no account needed. IconVault Pro ($19/year) unlocks unlimited optimizations and every other Pro feature.",
+        a: "Every visitor gets 5 free optimizations per tool, no account needed. IconVault Pro ($19 one-time) unlocks unlimited optimizations and every other Pro feature.",
       },
     ],
     tags: [

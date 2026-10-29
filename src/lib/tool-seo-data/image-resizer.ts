@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Resize up to 10 images at once in your browser. Exact dimensions, percentage scaling, PNG/JPG/WebP output - free, private, no upload.",
     about: [
       "**IconVault**'s **Image Resizer** changes the dimensions of your **photos** and graphics right in your browser - no uploads, no queues, no watermarks. Drop up to 10 **images**, pick an exact pixel size or drag a percentage slider, and download everything resized in PNG, JPG or **WebP**. A **quality** slider tunes JPEG/**WebP** compression, and a “don't enlarge smaller **images**” toggle protects you from blurry upscales. It's the fastest way to prep **images** for websites, marketplaces, social posts and print.",
-      "Everything runs client-side, so your files never leave your device - a genuine privacy advantage over upload-based resizers. Every visitor gets 5 **free** uses with no account needed; **IconVault** Pro ($19/year) unlocks unlimited resizing along with unlimited runs of every other tool.",
+      "Everything runs client-side, so your files never leave your device - a genuine privacy advantage over upload-based resizers. Every visitor gets 5 **free** uses with no account needed; **IconVault** Pro ($19 one-time) unlocks unlimited resizing along with unlimited runs of every other tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free resizes do I get?",
-        a: "Every visitor gets 5 free resizing runs, no account needed. IconVault Pro ($19/year) unlocks unlimited resizing plus unlimited uses of all 11+ tools.",
+        a: "Every visitor gets 5 free resizing runs, no account needed. IconVault Pro ($19 one-time) unlocks unlimited resizing plus unlimited uses of all 11+ tools.",
       },
     ],
     tags: [

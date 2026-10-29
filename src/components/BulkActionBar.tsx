@@ -129,7 +129,7 @@ export const BulkActionBar = ({ selected, onClear, onSelectAll }: BulkActionBarP
               </span>
             ) : (
               <span className="text-muted-foreground">
-                Free bulk downloads used up - upgrade to Pro Yearly for unlimited downloads.
+                Free bulk downloads used up - upgrade to Lifetime for unlimited downloads.
               </span>
             )}
             <Link

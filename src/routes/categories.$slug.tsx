@@ -117,6 +117,34 @@ function Page() {
           </Link>
           .
         </p>
+
+        <section aria-label={`About ${category.name} icons`} className="mt-10">
+          <h2 className="font-display text-lg font-semibold tracking-tight">
+            About {category.name} icons
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            This category holds {category.count.toLocaleString("en-US")} free {category.name.toLowerCase()}{" "}
+            icons from every pack indexed by IconVault. Download any icon as SVG, PNG or WebP, or
+            copy it as a React component. Every icon stays under its original open-source licence,
+            and no account is needed.
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Related categories:{" "}
+            {staticCategories
+              .filter((c) => c.slug !== category.slug)
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 4)
+              .map((c, i, arr) => (
+                <span key={c.slug}>
+                  <Link to="/categories/$slug" params={{ slug: c.slug }} className="text-primary hover:underline">
+                    {c.name} icons
+                  </Link>
+                  {i < arr.length - 1 ? ", " : ""}
+                </span>
+              ))}
+            .
+          </p>
+        </section>
       </div>
 
       {activeIcon && <IconifyDetail iconId={activeIcon} onClose={() => setActiveIcon(null)} />}

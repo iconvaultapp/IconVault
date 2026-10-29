@@ -152,6 +152,7 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/auth", changefreq: "yearly", priority: "0.3" },
   { path: "/privacy", changefreq: "yearly", priority: "0.5" },
   { path: "/terms", changefreq: "yearly", priority: "0.5" },
+  { path: "/about", changefreq: "yearly", priority: "0.5" },
   // Every icon pack gets its own SEO page (about, FAQs, tags).
   ...Object.keys(collectionsData as Record<string, unknown>).map((prefix) => ({
     path: `/packs/${prefix}`,

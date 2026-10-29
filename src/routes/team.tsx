@@ -98,7 +98,7 @@ function Page() {
               steps={[
                 { title: "Create the workspace", body: "Name it, invite by email or domain, and pick who owns billing. Seats are prorated daily." },
                 { title: "Curate the approved set", body: "Pull in the sets you already use, drop the icons you don't, and mark one variant as canonical." },
-                { title: "Wire it into the work", body: "Connect the CLI in CI, install the Figma plugin, and hand engineers a scoped API key." },
+                { title: "Wire it into the work", body: "Connect the CLI in CI, and hand engineers a scoped API key. The Figma plugin is coming soon." },
               ]}
             />
           </div>

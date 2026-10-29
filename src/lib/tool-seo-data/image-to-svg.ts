@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions, no account needed. IconVault Pro ($19/year) unlocks unlimited conversions, higher detail settings and batch vectorizing.",
+        a: "Every visitor gets 5 free conversions, no account needed. IconVault Pro ($19 one-time) unlocks unlimited conversions, higher detail settings and batch vectorizing.",
       },
       {
         q: "What is vectorizing useful for?",

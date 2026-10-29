@@ -19,7 +19,7 @@ export const Route = createLazyFileRoute("/auth")({
 const perks = [
   "Favourites and collections synced everywhere",
   "Custom icon uploads in your own workspace",
-  "API keys, CLI login and the Figma plugin",
+  "API keys, CLI login and the Figma plugin (coming soon)",
   "Release alerts for the sets you actually use",
 ];
 

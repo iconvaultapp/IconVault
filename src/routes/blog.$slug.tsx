@@ -73,7 +73,12 @@ export const Route = createFileRoute("/blog/$slug")({
             description: post.description,
             datePublished: post.date,
             dateModified: post.updated ?? post.date,
-            author: { "@type": "Organization", name: "IconVault Team", url: "https://iconvault.site" },
+            author: {
+              "@type": "Person",
+              name: "Dev Coder",
+              jobTitle: "Founder, IconVault",
+              url: "https://iconvault.site/about",
+            },
             publisher: { "@type": "Organization", name: "IconVault", url: "https://iconvault.site" },
             mainEntityOfPage: url,
             keywords: [post.keyword, ...post.tags].join(", "),

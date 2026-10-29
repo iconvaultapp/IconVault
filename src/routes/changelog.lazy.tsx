@@ -89,11 +89,11 @@ const releases: {
     date: "May 2026",
     title: "Developer surface area",
     summary:
-      "The REST API, CLI and editor integrations landed together so icons can be pulled wherever the work actually happens.",
+      "The REST API and CLI landed together so icons can be pulled wherever the work actually happens.",
     entries: [
       { kind: "feature", text: "REST API with scoped keys and per-key usage metering." },
       { kind: "feature", text: "iconvault CLI: search, add and sync icons from the terminal." },
-      { kind: "feature", text: "VS Code extension and Figma plugin, both public." },
+      { kind: "feature", text: "VS Code extension and Figma plugin in development (coming soon)." },
       { kind: "improvement", text: "Rate limit headers on every API response." },
     ],
   },

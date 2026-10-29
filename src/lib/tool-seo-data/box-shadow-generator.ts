@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Design CSS box shadows visually: offsets, blur, spread, color, opacity and inset, 8 one-click presets. Live preview, one-click copy - free.",
     about: [
       "**IconVault**'s **Box Shadow Generator** lets you design **CSS** **box**-shadows the visual way: drag sliders for X/Y offset, blur radius and spread, pick a color and opacity, toggle inset - and watch a live preview update on a real card. When it looks right, **copy** the exact **box**-**shadow** declaration straight into your stylesheet - or grab the Tailwind arbitrary-value class (**shadow**-[...]) and a one-click preset gallery (**Soft** card, Glow, Neumorphic…).",
-      "Everything runs in your browser: no uploads, no accounts. Every visitor gets 5 free copies - Pro members ($19/year) get unlimited copies plus unlimited use of every other **IconVault** tool, from the Color Converter to the Logo Builder.",
+      "Everything runs in your browser: no uploads, no accounts. Every visitor gets 5 free copies - Pro members ($19 one-time) get unlimited copies plus unlimited use of every other **IconVault** tool, from the Color Converter to the Logo Builder.",
     ],
     faqs: [
       {
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free shadows can I copy?",
-        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($19/year) unlocks unlimited copies and every other tool.",
+        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($19 one-time) unlocks unlimited copies and every other tool.",
       },
       {
         q: "Does the output work in all browsers?",

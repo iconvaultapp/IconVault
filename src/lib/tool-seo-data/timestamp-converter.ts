@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert Unix timestamps to readable dates and back. Seconds or milliseconds, UTC, local time and relative time - free, in your browser.",
     about: [
       "**IconVault**'s **Timestamp Converter** translates **Unix** **epoch** timestamps into human-readable dates - and **back** again. Paste an **epoch** value - the tool auto-detects seconds, milliseconds, microseconds or nanoseconds by digit length - and instantly see the UTC ISO string, your local **time** and a relative phrase like “3 hours ago”, or pick any **date** and **time** to get its **epoch** seconds and milliseconds for APIs and databases. A two-way duration calculator converts seconds to and from 1d 2h 3m 4s notation.",
-      "Everything is computed locally in your browser - no API calls, no rounding errors from a server, and it works with the full JavaScript **date** range. A Now button fills the current **time** in one click, and every result is click-to-copy. Every visitor gets 5 **free** conversions - **IconVault** Pro ($19/year) unlocks unlimited use of every developer tool.",
+      "Everything is computed locally in your browser - no API calls, no rounding errors from a server, and it works with the full JavaScript **date** range. A Now button fills the current **time** in one click, and every result is click-to-copy. Every visitor gets 5 **free** conversions - **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free timestamp conversions with no account needed. IconVault Pro ($19/year) gives unlimited conversions plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free timestamp conversions with no account needed. IconVault Pro ($19 one-time) gives unlimited conversions plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [

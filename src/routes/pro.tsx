@@ -12,12 +12,12 @@ export const Route = createFileRoute("/pro")({
       {
         name: "description",
         content:
-          "Free forever for solo work. Pro from $19/year for unlimited tools, exports and API access - yearly or lifetime.",
+          "Free forever for solo work. Pro Lifetime is $19 one-time for unlimited tools, exports and API access.",
       },
       { property: "og:title", content: "Pricing - IconVault Free & Lifetime plans" },
       {
         property: "og:description",
-        content: "Free forever, or Pro from $19/year for unlimited everything.",
+        content: "Free forever, or Pro Lifetime for $19 one-time for unlimited everything.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/pro" },
@@ -44,15 +44,8 @@ export const Route = createFileRoute("/pro")({
             },
             {
               "@type": "Offer",
-              name: "Pro Yearly",
-              price: "19",
-              priceCurrency: "USD",
-              description: "Per year, cancel anytime.",
-            },
-            {
-              "@type": "Offer",
               name: "Lifetime",
-              price: "39",
+              price: "19",
               priceCurrency: "USD",
               description: "One-time payment, yours forever.",
             },

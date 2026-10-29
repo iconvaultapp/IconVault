@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Design CSS cubic-bezier easing curves visually. Drag handles, try presets, race against linear animation and copy the CSS. Free, no signup.",
     about: [
       "**IconVault**'s **Easing Visualizer** lets you design **CSS easing curves** by hand instead of guessing numbers. Drag the two **cubic-bezier handles** on the curve editor, or start from built-in **presets** like ease-in, ease-out, ease-in-out and springy custom curves, and watch an **animated dot race** your easing against linear motion so you can feel the difference instantly.",
-      "The tool outputs ready-to-paste **CSS** (cubic-bezier values and transition or animation snippets) with one click. Everything runs **100% in your browser**: no installs, no account, no uploads. It is a fast way for developers and designers to craft motion that feels right for buttons, modals and page transitions. Visitors get 5 **free** copies with no signup; **IconVault** Pro ($19/year) unlocks unlimited use of every tool.",
+      "The tool outputs ready-to-paste **CSS** (cubic-bezier values and transition or animation snippets) with one click. Everything runs **100% in your browser**: no installs, no account, no uploads. It is a fast way for developers and designers to craft motion that feels right for buttons, modals and page transitions. Visitors get 5 **free** copies with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free uses do I get?",
-        a: "Every visitor gets 5 free uses with no account needed. IconVault Pro ($19/year) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free uses with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

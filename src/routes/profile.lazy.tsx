@@ -1085,7 +1085,7 @@ function Page() {
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
                   {isPro ? (
-                    "Your Pro Yearly plan removes all trial limits."
+                    "Your Pro plan removes all trial limits."
                   ) : trialSummary && trialSummary.tried > 0 ? (
                     <>
                       {trialSummary.usedUp} used up
