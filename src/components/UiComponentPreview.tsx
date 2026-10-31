@@ -154,7 +154,20 @@ function InlinePreview({
   return (
     <div
       ref={stageRef}
-      style={{ height: fluidHeight }}
+      // Visibility (v57): translateZ(0) makes this stage the containing
+      // block for fixed AND absolute descendants. Tailwind entries whose
+      // root is `fixed` (Flowbite banners, bottom navs, speed dials,
+      // toasts, sticky footers — all rendered inline, no iframe) used to
+      // escape their card and pin to the viewport, leaving an empty white
+      // box in the card and a stray bar floating over the page; in the
+      // detail modal they pinned to the viewport instead of the preview
+      // box. With the stage as containing block, `fixed bottom-0` means
+      // the bottom of this preview box and `w-full` means its width, so
+      // those components render fully inside their card and modal.
+      // The transform does not disturb the fit math below: all
+      // measurements are viewport rects with the content origin
+      // subtracted, so a shared stage shift cancels out.
+      style={{ height: fluidHeight, transform: "translateZ(0)" }}
       className="grid place-items-center overflow-hidden bg-white"
     >
       <div

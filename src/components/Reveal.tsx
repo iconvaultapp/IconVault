@@ -16,6 +16,13 @@ export const Reveal = ({ children, className, delay = 0, as = "div" }: RevealPro
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+    // Visibility (v57): without IntersectionObserver the old code never
+    // set visible, leaving every wrapped card permanently at opacity 0.
+    // All modern browsers have it; this is belt-and-braces for the rest.
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

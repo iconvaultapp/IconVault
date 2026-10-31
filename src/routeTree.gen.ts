@@ -692,7 +692,7 @@ const ApiAccessRoute = ApiAccessRouteImport.update({
   id: '/api-access',
   path: '/api-access',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/api-access.lazy').then((d) => d.Route))
 const AppRoute = AppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -707,7 +707,9 @@ const BestLucideAlternativesRoute = BestLucideAlternativesRouteImport.update({
   id: '/best-lucide-alternatives',
   path: '/best-lucide-alternatives',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/best-lucide-alternatives.lazy').then((d) => d.Route),
+)
 const ChangelogRoute = ChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
@@ -742,17 +744,19 @@ const DocsRoute = DocsRouteImport.update({
   id: '/docs',
   path: '/docs',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/docs.lazy').then((d) => d.Route))
 const EmbedRoute = EmbedRouteImport.update({
   id: '/embed',
   path: '/embed',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/embed.lazy').then((d) => d.Route))
 const FreeSvgIconsRoute = FreeSvgIconsRouteImport.update({
   id: '/free-svg-icons',
   path: '/free-svg-icons',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/free-svg-icons.lazy').then((d) => d.Route),
+)
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
@@ -762,7 +766,7 @@ const IllustrationsRoute = IllustrationsRouteImport.update({
   id: '/illustrations',
   path: '/illustrations',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/illustrations.lazy').then((d) => d.Route))
 const LibrariesRoute = LibrariesRouteImport.update({
   id: '/libraries',
   path: '/libraries',
@@ -787,7 +791,7 @@ const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/pricing.lazy').then((d) => d.Route))
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -807,7 +811,7 @@ const ReactIconsRoute = ReactIconsRouteImport.update({
   id: '/react-icons',
   path: '/react-icons',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/react-icons.lazy').then((d) => d.Route))
 const RequestRoute = RequestRouteImport.update({
   id: '/request',
   path: '/request',
@@ -827,7 +831,7 @@ const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/team.lazy').then((d) => d.Route))
 const TemplatesRoute = TemplatesRouteImport.update({
   id: '/templates',
   path: '/templates',
@@ -847,7 +851,7 @@ const UiComponentsRoute = UiComponentsRouteImport.update({
   id: '/ui-components',
   path: '/ui-components',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/ui-components.lazy').then((d) => d.Route))
 const UploadRoute = UploadRouteImport.update({
   id: '/upload',
   path: '/upload',
@@ -889,12 +893,14 @@ const BillingSuccessRoute = BillingSuccessRouteImport.update({
   id: '/billing/success',
   path: '/billing/success',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/billing.success.lazy').then((d) => d.Route),
+)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/blog.index.lazy').then((d) => d.Route))
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
@@ -911,7 +917,9 @@ const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
   id: '/categories/$slug',
   path: '/categories/$slug',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/categories.$slug.lazy').then((d) => d.Route),
+)
 const OriginalCollectionRoute = OriginalCollectionRouteImport.update({
   id: '/$collection',
   path: '/$collection',
@@ -923,7 +931,7 @@ const PacksPrefixRoute = PacksPrefixRouteImport.update({
   id: '/packs/$prefix',
   path: '/packs/$prefix',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/packs.$prefix.lazy').then((d) => d.Route))
 const TemplatesSlugRoute = TemplatesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',

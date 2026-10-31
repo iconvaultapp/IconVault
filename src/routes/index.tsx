@@ -24,6 +24,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SearchBar from "@/components/SearchBar";
 import { Reveal } from "@/components/Reveal";
 import { getIconSvgUrl } from "@/lib/iconify";
+import { HERO_ICONS } from "@/components/HeroIcons";
 import { TOOL_COUNT } from "@/lib/tool-catalog-meta";
 import AgentStrip from "@/components/home/AgentStrip";
 import PopularLibraries from "@/components/home/PopularLibraries";
@@ -110,20 +111,8 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const HERO_ICONS = [
-  "lucide:sparkles",
-  "lucide:rocket",
-  "ph:heart-duotone",
-  "tabler:brand-figma",
-  "solar:cart-large-2-bold-duotone",
-  "mdi:github",
-  "carbon:api",
-  "ri:vuejs-line",
-  "lucide:layers",
-  "ph:paint-brush-duotone",
-  "tabler:command",
-  "solar:bolt-bold-duotone",
-];
+// Hero glyphs are inlined SVG now (v57 opt) - see src/components/HeroIcons.tsx.
+// The 12 /api/icon Worker requests the old <img> version issued are gone.
 
 const FEATURES = [
   {
@@ -357,26 +346,20 @@ function Landing() {
 
             <Reveal delay={340}>
               <div className="mx-auto mt-14 grid max-w-3xl grid-cols-4 gap-3 sm:grid-cols-6 md:grid-cols-12">
-                {HERO_ICONS.map((id, i) => {
-                  const [prefix, name] = id.split(":");
-                  return (
-                    <span
-                      key={id}
-                      style={{ animationDelay: `${i * 220}ms` }}
-                      className="animate-float grid aspect-square place-items-center rounded-2xl border border-border bg-surface shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:rotate-6 hover:scale-105 hover:border-primary/40 hover:shadow-lift"
-                    >
-                      <img
-                        src={getIconSvgUrl(prefix ?? "", name ?? "", { width: 20, height: 20, color: "#0F766E" })}
-                        alt=""
-                        aria-hidden
-                        className="h-5 w-5"
-                        loading="eager"
-                        decoding="async"
-                        fetchPriority={i < 6 ? "high" : "auto"}
-                      />
-                    </span>
-                  );
-                })}
+                {HERO_ICONS.map((icon, i) => (
+                  <span
+                    key={icon.id}
+                    style={{ animationDelay: `${i * 220}ms` }}
+                    className="animate-float grid aspect-square place-items-center rounded-2xl border border-border bg-surface shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:rotate-6 hover:scale-105 hover:border-primary/40 hover:shadow-lift"
+                  >
+                    <svg
+                      viewBox={icon.viewBox}
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                      dangerouslySetInnerHTML={{ __html: icon.body }}
+                    />
+                  </span>
+                ))}
               </div>
             </Reveal>
           </div>

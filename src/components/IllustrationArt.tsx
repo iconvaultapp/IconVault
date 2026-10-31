@@ -101,6 +101,15 @@ export const IllustrationArt = ({
           className="block h-full w-full [&>svg]:h-full [&>svg]:w-full"
           dangerouslySetInnerHTML={{ __html: recolorSvg(entry, raw, activeColor) }}
         />
+      ) : raw === "" && entry ? (
+        // Visibility (v57): a failed fetch used to render a completely
+        // empty preview box with no indication anything was missing.
+        // All 386 entries resolve to shipped files today, so this only
+        // fires on a genuinely broken file — but then it says so instead
+        // of showing a blank card/modal.
+        <span className="grid h-full w-full place-items-center px-2 text-center text-xs text-muted-foreground">
+          Preview unavailable
+        </span>
       ) : null}
     </span>
   );
