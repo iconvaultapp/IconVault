@@ -28,6 +28,7 @@ import PromoPopup from "@/components/PromoPopup";
 import IllustrationArt from "@/components/IllustrationArt";
 import { getIllustration } from "@/lib/illustrations-data";
 import GlobalSidebar from "@/components/GlobalSidebar";
+import { isNoSidebarRoute } from "@/lib/no-sidebar-routes";
 import { FavouritesProvider } from "@/hooks/useFavourites";
 import { CollectionsProvider } from "@/hooks/useCollections";
 import { SearchHistoryProvider } from "@/hooks/useSearchHistory";
@@ -383,11 +384,14 @@ function RootComponent() {
   const bare = pathname.startsWith("/admin-login");
   // Sidebar on all pages except tool pages (/tools, /tools/*) and the
   // homepage (Sameer 2026-10-23: landing page must be full-width, no sidebar).
+  // Plus the 8 full-width sections in src/lib/no-sidebar-routes.ts
+  // (Sameer 2026-11-01, v58: listing + detail/sub-pages, prefix match).
   // The dashboard panels (/admin, /profile) have their own DashboardShell
   // sidebar, so the global sidebar stays off there to avoid a double
   // sidebar and the dead gap it creates next to the content.
   const showSidebar =
     !bare &&
+    !isNoSidebarRoute(pathname) &&
     pathname !== "/" &&
     !pathname.startsWith("/tools") &&
     !pathname.startsWith("/admin") &&

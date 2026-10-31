@@ -114,8 +114,20 @@ export default function BrowsePage({ search, basePath }: BrowsePageProps) {
   // an abandoned scan can stop itself mid-flight instead of burning CPU on
   // results that will be discarded anyway.
   const searchRunId = useRef(0);
+  // Tracks the set for the stale-display fix below (first run = mount).
+  const prevPrefixRef = useRef<string | null | undefined>(undefined);
 
   useEffect(() => {
+    // STALE-DISPLAY FIX (v58, same pattern as /packs and /categories in
+    // v57): clear the previous set's icons BEFORE the new set's icons
+    // arrive, so the grid never shows old-set tiles under a new set's
+    // header while fetchCollectionIcons is in flight. Also close any open
+    // detail modal when the set changes (its icon belongs to the old set).
+    setIcons([]);
+    if (prevPrefixRef.current !== undefined && prevPrefixRef.current !== activePrefix) {
+      setActiveIcon(null);
+    }
+    prevPrefixRef.current = activePrefix;
     let cancelled = false;
     const run = async () => {
       if (!query.trim() && !activePrefix) {

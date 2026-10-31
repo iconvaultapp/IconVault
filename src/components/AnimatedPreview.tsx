@@ -187,10 +187,19 @@ export function AnimatedPreview({ item, size = 64 }: { item: AnimatedIconEntry; 
   if (item.format === "html-css") {
     return <HtmlCssPreview item={item} size={size} />;
   }
-  // SVG+SMIL and static SVG (meteocons + svg-loaders)
+  // SVG+SMIL and static SVG (meteocons + svg-loaders).
+  // v58 FIX: Meteocons list the Lottie JSON FIRST and the SVG second
+  // (e.g. ["alert-avalanche-danger.json", "alert-avalanche-danger.svg"]),
+  // so files[0] as an <img> src asked the browser to render JSON as an
+  // image -> broken-image placeholder on all 475 Meteocons entries.
+  // Pick the .svg explicitly; packs that already list the SVG first
+  // (svg-loaders) are unaffected via the files[0] fallback. The data
+  // file order is intentionally untouched: the detail page's Lottie
+  // lookup and download buttons assume the current order.
+  const svgFile = item.files.find((f) => f.endsWith(".svg")) ?? item.files[0];
   return (
     <img
-      src={`/animated-icons/${item.slug}/${item.files[0]}`}
+      src={`/animated-icons/${item.slug}/${svgFile}`}
       alt={item.title}
       width={size}
       height={size}

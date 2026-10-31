@@ -63,6 +63,12 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
   const [isMultiColor, setIsMultiColor] = useState(false);
   const [svgContent, setSvgContent] = useState<string | null>(null);
   const [coloredSvg, setColoredSvg] = useState<string | null>(null);
+  // v58 FIX: load failures used to leave svgContent/coloredSvg null forever
+  // (modal with a broken preview <img>, "Raw SVG" stuck on "Loading…",
+  // download buttons silently no-op). loadError surfaces the failure with
+  // Close/Retry actions instead; retryCount re-runs the fetch below.
+  const [loadError, setLoadError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
   const [tab, setTab] = useState<"copy" | "download" | "collections">("copy");
   const [newColName, setNewColName] = useState("");
   const { isFavourite, toggleFavourite } = useFavourites();
@@ -85,9 +91,13 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
     setColoredSvg(null);
     setUseOriginal(false);
     setIsMultiColor(false);
+    setLoadError(false);
     fetchIconSvg(prefix, name)
       .then((svg) => {
-        if (!svg) return;
+        if (!svg) {
+          setLoadError(true);
+          return;
+        }
         setSvgContent(svg);
         // Multi-colour artwork keeps its own palette by default; the user can
         // still force a single colour from the swatches below.
@@ -95,10 +105,10 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
         setIsMultiColor(multi);
         setUseOriginal(multi);
       })
-      .catch(() => undefined);
+      .catch(() => setLoadError(true));
     onAddToRecent?.(iconId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [prefix, name]);
+  }, [prefix, name, retryCount]);
 
   useEffect(() => {
     if (!svgContent) return;
@@ -138,7 +148,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
 
   const snippets: { label: string; code: string }[] = [
     { label: "Icon name", code: iconId },
-    { label: "Raw SVG", code: coloredSvg ?? "Loading…" },
+    { label: "Raw SVG", code: loadError ? "This icon could not be loaded." : (coloredSvg ?? "Loading…") },
     {
       label: "React",
       code: `import { Icon } from '@iconify/react';\n\n<Icon icon="${iconId}" width="${size}" height="${size}"${colorAttr("prop")} />`,
@@ -240,14 +250,39 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
         <div className="grid flex-1 gap-0 overflow-y-auto md:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
           {/* Preview panel */}
           <div className="border-b border-border bg-surface-2 p-5 md:border-b-0 md:border-r">
-            <div
-              className={cn(
-                "grid aspect-square w-full place-items-center rounded-2xl border border-border",
-                lightSwatch ? "bg-ink" : "bg-surface",
-              )}
-            >
-              <img src={svgDataUrl} alt={name} style={{ width: Math.min(size * 2, 256), height: Math.min(size * 2, 256) }} />
-            </div>
+            {loadError ? (
+              <div className="grid aspect-square w-full place-items-center rounded-2xl border border-border bg-surface p-5 text-center">
+                <div>
+                  <p className="text-sm font-medium">This icon could not be loaded</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    The icon may not exist, or loading failed. Try again, or close this preview.
+                  </p>
+                  <div className="mt-4 flex justify-center gap-2">
+                    <button
+                      onClick={() => setRetryCount((c) => c + 1)}
+                      className="focus-ring rounded-full bg-ink px-4 py-2 text-sm font-medium text-background"
+                    >
+                      Retry
+                    </button>
+                    <button
+                      onClick={onClose}
+                      className="focus-ring rounded-full border border-border px-4 py-2 text-sm font-medium"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div
+                className={cn(
+                  "grid aspect-square w-full place-items-center rounded-2xl border border-border",
+                  lightSwatch ? "bg-ink" : "bg-surface",
+                )}
+              >
+                <img src={svgDataUrl} alt={name} style={{ width: Math.min(size * 2, 256), height: Math.min(size * 2, 256) }} />
+              </div>
+            )}
 
             <p className="eyebrow mt-5">Size · {size}px</p>
             <div className="mt-2 flex flex-wrap gap-1.5">
@@ -352,7 +387,8 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
                 <div className="space-y-4">
                   <button
                     onClick={downloadSvg}
-                    className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.02]"
+                    disabled={!coloredSvg}
+                    className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
                   >
                     <Download className="h-4 w-4" /> Download SVG
                   </button>
@@ -363,7 +399,8 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
                         <button
                           key={px}
                           onClick={() => downloadPng(px)}
-                          className="rounded-xl border border-border bg-surface-2 py-2.5 font-mono text-xs transition-colors hover:border-primary/40 hover:text-primary"
+                          disabled={!coloredSvg}
+                          className="rounded-xl border border-border bg-surface-2 py-2.5 font-mono text-xs transition-colors hover:border-primary/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           {px}px
                         </button>

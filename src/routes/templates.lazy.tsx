@@ -61,6 +61,16 @@ function Page() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((t) => (
             <article key={t.slug} className="flex flex-col rounded-2xl border border-border bg-card p-5">
+              {/* v58: real preview image per card (author screenshot for
+                  hugo-papermod, headless screenshot of the entry page for
+                  the other 33) — NOT a scaled live iframe (34 full pages
+                  in one grid would be heavy) and not a restyled blank area. */}
+              <img
+                src={t.preview}
+                alt={`Preview of the ${t.title} template`}
+                loading="lazy"
+                className="mb-4 aspect-[16/10] w-full rounded-xl border border-border object-cover object-top"
+              />
               <div className="flex items-start justify-between gap-2">
                 <h2 className="text-base font-semibold">
                   <Link to="/templates/$slug" params={{ slug: t.slug }} className="hover:underline">
