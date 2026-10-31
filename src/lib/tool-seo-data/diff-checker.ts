@@ -31,14 +31,14 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free comparisons do I get?",
-        a: "Every visitor gets 5 free comparisons, no account needed. IconVault Pro ($19 one-time) unlocks unlimited diffs plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free comparisons, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited diffs plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
       "diff checker", "text diff checker", "compare two texts", "text comparison tool",
       "diff tool online", "free diff checker", "compare text online",
       "find differences between two texts", "compare two documents", "code diff checker",
-      "diff viewer online", "line by line diff", "unified diff viewer", "diff checker no signup",
+      "diff viewer online", "line by line diff", "unified diff viewer", "diff checker a free account for downloads",
       "online text compare", "text comparator", "string diff tool", "text difference finder",
       "spot the difference in text", "compare paragraphs online", "compare two versions of text",
       "document comparison tool", "code comparison tool", "diff checker for developers",
@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "html diff checker", "xml diff online", "yaml diff checker", "markdown diff",
       "compare configs online", "git diff online tool", "simple diff tool", "fast text diff",
       "private diff checker", "browser based diff tool", "diff checker without upload",
-      "compare text without signup", "text compare and merge helper", "redline text compare",
+      "compare text with a free account for downloads", "text compare and merge helper", "redline text compare",
       "track changes text compare",
     ],
   };

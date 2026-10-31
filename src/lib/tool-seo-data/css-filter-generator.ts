@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "Filters run on the **GPU** in modern browsers, so they are perfect for hover effects, photo treatments and duotone looks without touching an image editor. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the CSS filter generator free?", a: "Yes, free with no signup. Adjust sliders, preview live and copy the filter CSS." },
+      { q: "Is the CSS filter generator free?", a: "Yes, free to use; downloads need a free account. Adjust sliders, preview live and copy the filter CSS." },
       { q: "Can I combine multiple CSS filters?", a: "Yes. Filters are space-separated in one filter declaration, for example filter: grayscale(50%) sepia(20%). Order matters, filters apply left to right." },
       { q: "What is the difference between drop-shadow and box-shadow?", a: "drop-shadow follows the shape of the content including transparent images, while box-shadow follows the box. drop-shadow is a filter function." },
       { q: "Does the tool support backdrop-filter?", a: "The generator focuses on the filter property. The same functions work in backdrop-filter, which filters what is behind the element." },

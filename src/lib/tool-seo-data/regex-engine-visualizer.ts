@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Watch a backtracking regex engine work. Type a pattern and test string, then step through every match attempt, backtrack and capture. Free, in your browser.",
     about: [
       "**IconVault**'s **Regex Engine** visualizer opens up the black box of regular expressions. Type a **pattern** and a **test string**, and a simplified **NFA-style simulator** replays the match attempt **token by token**: every try, every successful step, every failure and every **backtrack**, with **capture groups** tracked along the way.",
-      "You can **step forward and backward**, play the sequence automatically, and see exactly where a pattern slows down or fails. It is a brilliant way to finally understand **catastrophic backtracking**. The whole thing runs **free** in your browser with no signup."
+      "You can **step forward and backward**, play the sequence automatically, and see exactly where a pattern slows down or fails. It is a brilliant way to finally understand **catastrophic backtracking**. The whole thing runs **free** in your browser with a free account for downloads."
     ],
     faqs: [
       { q: "What does the regex engine visualizer show?", a: "It shows a step-by-step trace of how a regex engine matches your pattern against your test string: which token is tried at which position, where it succeeds or fails, when the engine backtracks, and what each capture group holds." },
@@ -66,7 +66,7 @@ const seo: ToolSeo = {
       "regex match steps explained",
       "regex engine lab",
       "browser based regex simulator",
-      "no signup regex tool"
+      "a free account for downloads regex tool"
     ],
   };
 

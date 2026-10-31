@@ -10,6 +10,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import toolSeo from "@/lib/tool-seo-data/sitemap-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/tools_/sitemap-generator")({
   component: SitemapGeneratorTool,
@@ -80,15 +81,10 @@ function SitemapGeneratorTool() {
   const download = () => {
     try {
       const blob = new Blob([output], { type: "application/xml;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = brandFilename("sitemap.xml");
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      toast.success("sitemap.xml downloaded");
+      // v55 download gate: parked + sign-in prompt when anonymous.
+      if (downloadWithGate(blob, brandFilename("sitemap.xml"))) {
+        toast.success("sitemap.xml downloaded");
+      }
     } catch {
       toast.error("Download failed");
     }

@@ -32,7 +32,7 @@ function Page() {
             </a>{" "}
             is a free search index of 421,020 open-source SVG icons from 239 sets. One search box
             covers every set, and every icon can be previewed, recoloured and downloaded as SVG or
-            PNG, or copied as a React, Vue or HTML component. No account is needed for the basics.
+            PNG, or copied as a React, Vue or HTML component. Browsing and copying need no account; downloads need a free account.
             Around the index sit 578 free online tools, 386 free SVG illustrations and 3,359 UI
             components.
           </p>

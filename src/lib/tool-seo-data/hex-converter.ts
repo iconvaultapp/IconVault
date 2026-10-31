@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert text to hex and hex back to text in your browser, with uppercase/lowercase, 7 delimiter styles and a hex to ASCII table view. Free.",
     about: [
       "**IconVault**'s **Hex Converter** turns plain **text into hex bytes** and decodes **hex back to readable text**, using your browser's built-in encoders. Pick **uppercase or lowercase** digits and one of seven **delimiter styles**: none, spaces, colons, dashes, backslash-x escapes, 0x prefixes or commas, so the output matches exactly what your code, protocol or payload format expects.",
-      "A third mode renders any hex dump as a classic **hex to ASCII table** with byte offsets, just like a hex editor, with 16 bytes per row and printable characters shown beside each row. The decoder is forgiving: paste hex with **0x prefixes, \\x escapes, spaces, colons or dashes** and it still parses, and it flags odd digit counts and invalid characters with a clear error instead of guessing. It is **free** to use with no signup, and everything runs **fully in your browser** so your data never leaves your device."
+      "A third mode renders any hex dump as a classic **hex to ASCII table** with byte offsets, just like a hex editor, with 16 bytes per row and printable characters shown beside each row. The decoder is forgiving: paste hex with **0x prefixes, \\x escapes, spaces, colons or dashes** and it still parses, and it flags odd digit counts and invalid characters with a clear error instead of guessing. It is **free** to use; downloads need a free account, and everything runs **fully in your browser** so your data never leaves your device."
     ],
     faqs: [
       { q: "What is hex encoding used for?", a: "Hex represents binary data as printable text, two characters per byte. Developers use it to debug network protocols, inspect file contents, craft test payloads, check character encodings and move binary data through text-only channels." },
@@ -59,7 +59,7 @@ const seo: ToolSeo = {
       "hex encode utf-8",
       "hex decode utf-8",
       "free hex converter",
-      "hex converter no signup",
+      "hex converter a free account for downloads",
       "browser hex converter",
       "hex tool online",
       "hex conversion tool",

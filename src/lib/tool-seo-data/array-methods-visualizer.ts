@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Step through map, filter, reduce, find and sort like a debugger: watch the index pointer move and the result grow. Free, in your browser.",
     about: [
       "**IconVault**'s **Array Visualizer** teaches **JavaScript array methods** the way a debugger would. Step through **map**, **filter**, **reduce**, **find** and **sort** one operation at a time while the **index pointer** moves across your array, each step explained in plain English, the **result so far** growing beside it and the **accumulator** shown for reduce.",
-      "Bring your own data (comma-separated values, up to 24 items) and even your own **callback expression**, which is compiled **locally in your browser** and never leaves your device. It is **free** with no signup. The honest framing: it builds real intuition for iteration, filtering and folding, which you then cement by writing the code yourself."
+      "Bring your own data (comma-separated values, up to 24 items) and even your own **callback expression**, which is compiled **locally in your browser** and never leaves your device. It is **free** to use; downloads need a free account. The honest framing: it builds real intuition for iteration, filtering and folding, which you then cement by writing the code yourself."
     ],
     faqs: [
       { q: "Which array methods are covered?", a: "map (transform every element), filter (keep elements that pass), reduce (fold into one value), find (first element that passes) and sort (animated bubble sort). Each method runs as a step-by-step trace you control." },
@@ -57,7 +57,7 @@ const seo: ToolSeo = {
       "frontend interview prep",
       "javascript visualizer free",
       "free js learning tool online",
-      "no signup js playground",
+      "a free account for downloads js playground",
       "browser javascript lab",
       "learn by watching code run",
       "code execution visualizer",

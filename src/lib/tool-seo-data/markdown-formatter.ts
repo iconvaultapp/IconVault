@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Format Markdown free: normalize headings, lists, spacing and code fences. Tidy messy Markdown in one click.",
     about: [
       "**IconVault**'s **Markdown Formatter** tidies messy **Markdown**: consistent **heading** spacing, normalized **list** indentation and bullets, single blank lines between blocks, trimmed trailing spaces and fenced **code blocks** - so your README renders the same everywhere.",
-      "Paste, format, copy. A diff-style summary tells you what changed. Runs in your browser - free, no account needed.",
+      "Paste, format, copy. A diff-style summary tells you what changed. Runs in your browser - free, downloads need a free account.",
     ],
     faqs: [
       {
@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "markdown style guide checker",
       "prettier markdown online",
       "markdown formatter free",
-      "format markdown no signup",
+      "format markdown a free account for downloads",
       "online markdown tool",
       "markdown text formatter",
       "md file formatter",

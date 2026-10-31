@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "avoid same teams twice",
       "free team randomizer",
       "online team randomizer free",
-      "team randomizer no signup"
+      "team randomizer a free account for downloads"
     ],
   };
 

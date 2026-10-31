@@ -1,3 +1,4 @@
+import { downloadWithGate } from "./download-guard";
 /**
  * Logo Builder - compose app icons / logos / favicons from any of the
  * 421,020 library icons, then export PNGs, SVG and a full favicon kit.
@@ -205,14 +206,9 @@ export function brandFilename(filename: string): string {
 
 export function downloadBlob(blob: Blob, filename: string) {
   const branded = brandFilename(filename);
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = branded;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  // v55 site-wide download gate: anonymous users get the blob parked in
+  // IndexedDB + the sign-in prompt; it resumes automatically after login.
+  if (!downloadWithGate(blob, branded)) return;
   // Fire-and-forget download history for signed-in users. Never breaks downloads.
   try {
     void import("@/lib/user-account.functions")

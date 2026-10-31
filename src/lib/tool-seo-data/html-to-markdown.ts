@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Turn HTML into clean Markdown: headings, bold, links, images, lists, quotes, code blocks and tables. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **HTML to Markdown** converter turns pasted **HTML into clean Markdown**: headings, bold and italic, **links and images**, ordered and unordered **lists**, blockquotes, **code blocks** and tables come out as tidy, readable Markdown you can drop into a README, docs site or static site generator.",
-      "It is perfect for **migrating blog posts or CMS content** to Markdown-based publishing, or grabbing web content in a copy-friendly format. It is **free** with no signup and runs **fully in your browser**, so your content never leaves your device. The honest note: Markdown is simpler than HTML by design, so complex layouts, nested tables and presentational styling will not survive the trip; review the output and tidy anything intricate by hand."
+      "It is perfect for **migrating blog posts or CMS content** to Markdown-based publishing, or grabbing web content in a copy-friendly format. It is **free** to use; downloads need a free account and runs **fully in your browser**, so your content never leaves your device. The honest note: Markdown is simpler than HTML by design, so complex layouts, nested tables and presentational styling will not survive the trip; review the output and tidy anything intricate by hand."
     ],
     faqs: [
       { q: "What is Markdown?", a: "Markdown is a lightweight plain-text format for formatted writing, using simple symbols like # for headings and ** for bold. It is the standard for READMEs, documentation and static site content because it is readable as-is and converts cleanly to HTML." },
@@ -25,7 +25,7 @@ const seo: ToolSeo = {
       "turn html into markdown",
       "html markdown conversion",
       "free html to markdown",
-      "html to markdown no signup",
+      "html to markdown a free account for downloads",
       "html to markdown browser",
       "markdown converter",
       "html to markdown tool",

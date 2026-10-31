@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which utilities are supported?", a: "The converter covers common utilities: spacing scale, text sizes, font weights, display modes and layout helpers. It is a static table, not the full Tailwind engine, so arbitrary values and variants may not translate." },
       { q: "Is this a replacement for the Tailwind compiler?", a: "No. It is a lightweight reference and migration helper. It does not handle variants (hover:, md:), custom theme values, plugins or the full Tailwind utility set." },
       { q: "What is p-4 in CSS?", a: "p-4 maps to padding: 1rem in Tailwind's spacing scale, where each step is 0.25rem. The tool shows these conversions instantly." },
-      { q: "Does it cost anything or need signup?", a: "No. The converter is free to try and runs entirely in your browser with no account needed." }
+      { q: "Does it cost anything or need signup?", a: "No. The converter is free to try and runs entirely in your browser with downloads need a free account." }
     ],
     tags: [
       "tailwind converter",
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "tailwind spacing scale chart",
       "tailwind to css table",
       "online tailwind converter",
-      "tailwind converter no signup",
+      "tailwind converter a free account for downloads",
       "tailwind reverse converter"
     ],
   };

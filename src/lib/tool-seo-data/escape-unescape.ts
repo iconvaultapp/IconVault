@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I unescape text too?", a: "Yes. The tool works in both directions, so you can decode escaped output back to its original readable form." },
       { q: "Why URL-encode query parameters?", a: "Characters like spaces, & and = have structural meaning in URLs. Encoding them with percent-encoding (for example a space becomes %20) keeps your parameter values intact." },
       { q: "Is my text uploaded anywhere?", a: "No. The tool runs entirely in your browser, so code snippets and text you paste are never sent to a server." },
-      { q: "Is it free?", a: "Yes, completely free with no signup and no usage limits." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account and no usage limits." }
     ],
     tags: [
       "escape unescape", "escape string online", "unescape string online",
@@ -26,7 +26,7 @@ const seo: ToolSeo = {
       "encode html special characters", "decode html entities online",
       "string escaper", "text escaper", "code escaper",
       "escape newline string", "escape tabs newlines", "json string escape",
-      "free escape tool", "escape unescape free online", "escape tool no signup",
+      "free escape tool", "escape unescape free online", "escape tool a free account for downloads",
       "how to escape a javascript string", "how to escape special characters in regex",
       "how to url encode a string", "how to decode html entities",
       "javascript escape online", "js escape tool", "js unescape tool",

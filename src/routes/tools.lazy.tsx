@@ -193,7 +193,7 @@ function ToolsPage() {
   return (
     <PageShell
       title="Tools"
-      description={`${enabledTools.length} free online tools for developers, designers and creators - no account needed.`}
+      description={`${enabledTools.length} free online tools for developers, designers and creators - downloads need a free account.`}
       fullWidth
       compactHero
     >
@@ -207,7 +207,7 @@ function ToolsPage() {
           <div>
             <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Tools</h1>
             <p className="text-sm text-muted-foreground">
-              {enabledTools.length} free tools, grouped by what they do - 5 free uses per tool per day, 20+ tools free unlimited, no account needed.
+              {enabledTools.length} free tools, grouped by what they do - 5 free uses per tool per day, 20+ tools free unlimited, downloads need a free account.
             </p>
           </div>
         </div>

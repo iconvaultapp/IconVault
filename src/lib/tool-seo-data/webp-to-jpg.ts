@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "What quality should I use?", a: "90% is a good default for sharp results. Drop toward 75% for smaller web files." },
       { q: "Can I convert multiple WebP files at once?", a: "Yes. Add as many as you like and download them together as a ZIP file." },
     ],
-    tags: ["webp to jpg", "convert webp to jpg", "webp converter", "webp to jpeg", "webp to jpg online", "bulk webp to jpg", "webp to jpg free", "convert webp files", "webp to jpg quality", "webp transparent to jpg", "webp to jpg batch", "webp to jpg no signup", "webp image converter", "webp to jpg private", "save webp as jpg", "webp to jpg chrome", "webp to jpg download", "webp to jpeg converter", "free webp converter", "webp to jpg zip",
+    tags: ["webp to jpg", "convert webp to jpg", "webp converter", "webp to jpeg", "webp to jpg online", "bulk webp to jpg", "webp to jpg free", "convert webp files", "webp to jpg quality", "webp transparent to jpg", "webp to jpg batch", "webp to jpg a free account for downloads", "webp image converter", "webp to jpg private", "save webp as jpg", "webp to jpg chrome", "webp to jpg download", "webp to jpeg converter", "free webp converter", "webp to jpg zip",
       "jpg from webp",
       "webp to jpeg online",
       "convert webp to jpeg",

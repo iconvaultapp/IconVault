@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations per tool, no account needed. IconVault Pro ($19 one-time) unlocks unlimited generations and every other Pro feature.",
+        a: "Every visitor gets 5 free generations per tool, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited generations and every other Pro feature.",
       },
     ],
     tags: [
@@ -41,7 +41,7 @@ const seo: ToolSeo = {
       "svg in css url", "css background svg data uri", "svg data uri css trick",
       "encode svg for css", "svg url encoder", "svg encoder online", "svg css encoder",
       "data:image/svg+xml", "svg img src data uri", "embed svg in html data uri",
-      "svg data uri copy paste", "svg to data uri free", "svg data uri no signup",
+      "svg data uri copy paste", "svg to data uri free", "svg data uri a free account for downloads",
       "svg data uri in browser", "svg data uri privacy", "svg data uri generator free",
       "optimize svg data uri", "small svg data uri", "svg data uri size",
       "svg data uri vs file", "when to use svg data uri", "svg data uri performance",

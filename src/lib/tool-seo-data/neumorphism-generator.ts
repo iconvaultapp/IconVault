@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How do I use the generated CSS?", a: "Copy the output and paste it into your stylesheet. It sets the background color and the box-shadow values, and optionally a gradient background for concave and convex shapes." },
       { q: "Does it support dark mode?", a: "Yes. Toggle dark preview to see how the same settings render on a dark base, then adjust distance and intensity until the shadows read well on dark surfaces." },
       { q: "Which colors work best?", a: "Muted mid-tone bases like light gray or slate work best, because the shadows are derived by shading the base color. Very saturated or very dark colors can make the shadows look muddy, and always check text contrast, since neumorphism is naturally low contrast." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "neumorphism generator",

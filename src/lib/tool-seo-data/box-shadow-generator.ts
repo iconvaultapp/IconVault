@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free shadows can I copy?",
-        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($19 one-time) unlocks unlimited copies and every other tool.",
+        a: "Every visitor gets 5 free copies, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited copies and every other tool.",
       },
       {
         q: "Does the output work in all browsers?",
@@ -47,7 +47,7 @@ const seo: ToolSeo = {
       "multiple box shadows css", "layered shadows css generator", "css shadow presets",
       "box shadow cheat sheet", "box shadow visualizer", "css box shadow playground",
       "box shadow slider", "interactive box shadow", "free box shadow tool",
-      "box shadow generator no signup", "css shadow tool online", "shadow css code",
+      "box shadow generator a free account for downloads", "css shadow tool online", "shadow css code",
       "box-shadow 0 4px 12px", "subtle shadow css", "deep shadow css",
       "hover shadow css", "elevation shadow css", "css shadow color picker",
       "box shadow generator for developers", "box shadow generator for designers",

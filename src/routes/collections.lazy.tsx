@@ -12,6 +12,7 @@ import { useFavourites } from "@/hooks/useFavourites";
 import { useAuth } from "@/hooks/useAuth";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { fetchIconSvg, getIconSvgUrl, parseIconId } from "@/lib/iconify";
+import { isGateAuthed, storePendingAction } from "@/lib/download-guard";
 import { brandFilename } from "@/lib/logo-builder";
 
 export const Route = createLazyFileRoute("/collections")({
@@ -47,6 +48,12 @@ function Page() {
   /** Downloads every icon in a collection as individual SVG files. */
   const exportCollection = async (id: string, label: string, iconIds: string[]) => {
     if (iconIds.length === 0) return;
+    // v55 download gate: anonymous users park the export + get the sign-in
+    // prompt; the listener rebuilds it after login.
+    if (!isGateAuthed()) {
+      storePendingAction({ kind: "collection", label, ids: iconIds });
+      return;
+    }
     setExporting(id);
     try {
       for (const iconId of iconIds) {

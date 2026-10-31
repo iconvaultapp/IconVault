@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Zoom from quarks to the observable universe on a logarithmic scale. An interactive, educational size comparison. Free in your browser.",
     about: [
       "**IconVault**'s **Scale of Universe** is an interactive **logarithmic scale explorer** that takes you from the tiniest particles to the largest structures we know. Zoom through **quarks, protons, atoms, cells, humans, mountains, planets, stars, galaxies** and finally the **observable universe**, with each object placed at its real size on the scale. It is the classic **powers of ten** journey made interactive.",
-      "Everything runs **100% in your browser** and it is completely **free** with no signup. Sizes are rounded, educational estimates rather than survey-grade measurements, and the observable universe figure reflects current cosmology. Perfect for classrooms, curious minds and anyone who has wondered exactly how small an atom is or how big a galaxy is."
+      "Everything runs **100% in your browser** and it is completely **free** with a free account for downloads. Sizes are rounded, educational estimates rather than survey-grade measurements, and the observable universe figure reflects current cosmology. Perfect for classrooms, curious minds and anyone who has wondered exactly how small an atom is or how big a galaxy is."
     ],
     faqs: [
       { q: "What is the scale of the universe tool?", a: "An interactive visualization where you zoom along a logarithmic scale from subatomic particles like quarks up through atoms, everyday objects, planets, stars and galaxies to the observable universe." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How small is an atom?", a: "A typical atom is about 0.1 to 0.3 nanometers wide, around a hundred million times smaller than a millimeter. Zooming the scale makes that gap feel real." },
       { q: "What does logarithmic scale mean here?", a: "Each step on the scale multiplies size by a fixed factor (powers of ten), so the enormous range from a proton to a galaxy fits in one smooth zoom." },
       { q: "Are the sizes exact?", a: "They are rounded educational estimates. Many cosmic objects are not perfectly spherical or precisely measured, so the tool prioritizes intuition over survey precision." },
-      { q: "Is it good for teaching?", a: "Yes. It is a popular classroom demo for orders of magnitude, metric prefixes and astronomy, and it works on any device with no login." }
+      { q: "Is it good for teaching?", a: "Yes. It is a popular classroom demo for orders of magnitude, metric prefixes and astronomy, and it works on any device; browsing needs no login, downloads need a free account." }
     ],
     tags: [
       "scale of the universe",
@@ -63,7 +63,7 @@ const seo: ToolSeo = {
       "dna to universe scale",
       "milky way vs observable universe",
       "universe scale free online",
-      "scale of universe no signup",
+      "scale of universe a free account for downloads",
       "powers of 10 interactive",
       "cosmic scale chart",
       "size of things in the universe",

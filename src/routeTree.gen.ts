@@ -14,6 +14,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdminLoginRouteImport } from './routes/admin-login'
 import { Route as AiSearchRouteImport } from './routes/ai-search'
+import { Route as AnimatedBackgroundsRouteImport } from './routes/animated-backgrounds'
+import { Route as AnimatedIconsRouteImport } from './routes/animated-icons'
 import { Route as ApiAccessRouteImport } from './routes/api-access'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -22,6 +24,7 @@ import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as CliRouteImport } from './routes/cli'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as CompareRouteImport } from './routes/compare'
+import { Route as CustomizerRouteImport } from './routes/customizer'
 import { Route as DesignTokensRouteImport } from './routes/design-tokens'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as EmbedRouteImport } from './routes/embed'
@@ -29,20 +32,26 @@ import { Route as FreeSvgIconsRouteImport } from './routes/free-svg-icons'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as IllustrationsRouteImport } from './routes/illustrations'
 import { Route as LibrariesRouteImport } from './routes/libraries'
+import { Route as MockupsRouteImport } from './routes/mockups'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as OriginalRouteImport } from './routes/original'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ReactIconsRouteImport } from './routes/react-icons'
 import { Route as RequestRouteImport } from './routes/request'
+import { Route as ShowcaseRouteImport } from './routes/showcase'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UiComponentsRouteImport } from './routes/ui-components'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as UsageStatsRouteImport } from './routes/usage-stats'
+import { Route as WallpapersRouteImport } from './routes/wallpapers'
+import { Route as AnimatedIconsSlugRouteImport } from './routes/animated-icons.$slug'
 import { Route as ApiIconsRouteImport } from './routes/api.icons'
 import { Route as ApiLogErrorRouteImport } from './routes/api.log-error'
 import { Route as ApiVideoProxyRouteImport } from './routes/api.video-proxy'
@@ -51,7 +60,9 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CategoriesIndexRouteImport } from './routes/categories.index'
 import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
+import { Route as OriginalCollectionRouteImport } from './routes/original.$collection'
 import { Route as PacksPrefixRouteImport } from './routes/packs.$prefix'
+import { Route as TemplatesSlugRouteImport } from './routes/templates.$slug'
 import { Route as ToolsA11yContrastGridRouteImport } from './routes/tools_.a11y-contrast-grid'
 import { Route as ToolsA11yScannerRouteImport } from './routes/tools_.a11y-scanner'
 import { Route as ToolsAbortSignalPlaygroundRouteImport } from './routes/tools_.abort-signal-playground'
@@ -628,11 +639,13 @@ import { Route as ToolsXsdValidatorRouteImport } from './routes/tools_.xsd-valid
 import { Route as ToolsYamlFormatterRouteImport } from './routes/tools_.yaml-formatter'
 import { Route as ToolsYamlJsonConverterRouteImport } from './routes/tools_.yaml-json-converter'
 import { Route as ToolsZipExplorerRouteImport } from './routes/tools_.zip-explorer'
+import { Route as WallpapersSlugRouteImport } from './routes/wallpapers.$slug'
 import { Route as ApiBillingCheckoutRouteImport } from './routes/api.billing.checkout'
 import { Route as ApiBillingLifetimeCountRouteImport } from './routes/api.billing.lifetime-count'
 import { Route as ApiBillingWebhookRouteImport } from './routes/api.billing.webhook'
 import { Route as ApiIconifyCollectionsRouteImport } from './routes/api.iconify.collections'
 import { Route as ApiIconifySearchRouteImport } from './routes/api.iconify.search'
+import { Route as ApiShowcaseSubmitRouteImport } from './routes/api.showcase.submit'
 import { Route as ApiIconPrefixNameRouteImport } from './routes/api.icon.$prefix.$name'
 import { Route as ApiIconifyCollectionPrefixRouteImport } from './routes/api.iconify.collection.$prefix'
 
@@ -661,6 +674,20 @@ const AiSearchRoute = AiSearchRouteImport.update({
   path: '/ai-search',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/ai-search.lazy').then((d) => d.Route))
+const AnimatedBackgroundsRoute = AnimatedBackgroundsRouteImport.update({
+  id: '/animated-backgrounds',
+  path: '/animated-backgrounds',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/animated-backgrounds.lazy').then((d) => d.Route),
+)
+const AnimatedIconsRoute = AnimatedIconsRouteImport.update({
+  id: '/animated-icons',
+  path: '/animated-icons',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/animated-icons.lazy').then((d) => d.Route),
+)
 const ApiAccessRoute = ApiAccessRouteImport.update({
   id: '/api-access',
   path: '/api-access',
@@ -701,6 +728,11 @@ const CompareRoute = CompareRouteImport.update({
   path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/compare.lazy').then((d) => d.Route))
+const CustomizerRoute = CustomizerRouteImport.update({
+  id: '/customizer',
+  path: '/customizer',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/customizer.lazy').then((d) => d.Route))
 const DesignTokensRoute = DesignTokensRouteImport.update({
   id: '/design-tokens',
   path: '/design-tokens',
@@ -736,11 +768,21 @@ const LibrariesRoute = LibrariesRouteImport.update({
   path: '/libraries',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/libraries.lazy').then((d) => d.Route))
+const MockupsRoute = MockupsRouteImport.update({
+  id: '/mockups',
+  path: '/mockups',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/mockups.lazy').then((d) => d.Route))
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/notifications.lazy').then((d) => d.Route))
+const OriginalRoute = OriginalRouteImport.update({
+  id: '/original',
+  path: '/original',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/original.lazy').then((d) => d.Route))
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -771,6 +813,11 @@ const RequestRoute = RequestRouteImport.update({
   path: '/request',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/request.lazy').then((d) => d.Route))
+const ShowcaseRoute = ShowcaseRouteImport.update({
+  id: '/showcase',
+  path: '/showcase',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/showcase.lazy').then((d) => d.Route))
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -781,6 +828,11 @@ const TeamRoute = TeamRouteImport.update({
   path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplatesRoute = TemplatesRouteImport.update({
+  id: '/templates',
+  path: '/templates',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/templates.lazy').then((d) => d.Route))
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -806,6 +858,18 @@ const UsageStatsRoute = UsageStatsRouteImport.update({
   path: '/usage-stats',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/usage-stats.lazy').then((d) => d.Route))
+const WallpapersRoute = WallpapersRouteImport.update({
+  id: '/wallpapers',
+  path: '/wallpapers',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/wallpapers.lazy').then((d) => d.Route))
+const AnimatedIconsSlugRoute = AnimatedIconsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AnimatedIconsRoute,
+} as any).lazy(() =>
+  import('./routes/animated-icons.$slug.lazy').then((d) => d.Route),
+)
 const ApiIconsRoute = ApiIconsRouteImport.update({
   id: '/api/icons',
   path: '/api/icons',
@@ -848,11 +912,25 @@ const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
   path: '/categories/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OriginalCollectionRoute = OriginalCollectionRouteImport.update({
+  id: '/$collection',
+  path: '/$collection',
+  getParentRoute: () => OriginalRoute,
+} as any).lazy(() =>
+  import('./routes/original.$collection.lazy').then((d) => d.Route),
+)
 const PacksPrefixRoute = PacksPrefixRouteImport.update({
   id: '/packs/$prefix',
   path: '/packs/$prefix',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplatesSlugRoute = TemplatesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TemplatesRoute,
+} as any).lazy(() =>
+  import('./routes/templates.$slug.lazy').then((d) => d.Route),
+)
 const ToolsA11yContrastGridRoute = ToolsA11yContrastGridRouteImport.update({
   id: '/tools_/a11y-contrast-grid',
   path: '/tools/a11y-contrast-grid',
@@ -5103,6 +5181,13 @@ const ToolsZipExplorerRoute = ToolsZipExplorerRouteImport.update({
 } as any).lazy(() =>
   import('./routes/tools_.zip-explorer.lazy').then((d) => d.Route),
 )
+const WallpapersSlugRoute = WallpapersSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => WallpapersRoute,
+} as any).lazy(() =>
+  import('./routes/wallpapers.$slug.lazy').then((d) => d.Route),
+)
 const ApiBillingCheckoutRoute = ApiBillingCheckoutRouteImport.update({
   id: '/api/billing/checkout',
   path: '/api/billing/checkout',
@@ -5128,6 +5213,11 @@ const ApiIconifySearchRoute = ApiIconifySearchRouteImport.update({
   path: '/api/iconify/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiShowcaseSubmitRoute = ApiShowcaseSubmitRouteImport.update({
+  id: '/api/showcase/submit',
+  path: '/api/showcase/submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiIconPrefixNameRoute = ApiIconPrefixNameRouteImport.update({
   id: '/api/icon/$prefix/$name',
   path: '/api/icon/$prefix/$name',
@@ -5146,6 +5236,8 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
+  '/animated-backgrounds': typeof AnimatedBackgroundsRoute
+  '/animated-icons': typeof AnimatedIconsRouteWithChildren
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
@@ -5154,6 +5246,7 @@ export interface FileRoutesByFullPath {
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
   '/compare': typeof CompareRoute
+  '/customizer': typeof CustomizerRoute
   '/design-tokens': typeof DesignTokensRoute
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
@@ -5161,27 +5254,35 @@ export interface FileRoutesByFullPath {
   '/history': typeof HistoryRoute
   '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
+  '/mockups': typeof MockupsRoute
   '/notifications': typeof NotificationsRoute
+  '/original': typeof OriginalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
   '/react-icons': typeof ReactIconsRoute
   '/request': typeof RequestRoute
+  '/showcase': typeof ShowcaseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
+  '/templates': typeof TemplatesRouteWithChildren
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
+  '/wallpapers': typeof WallpapersRouteWithChildren
+  '/animated-icons/$slug': typeof AnimatedIconsSlugRoute
   '/api/icons': typeof ApiIconsRoute
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
+  '/original/$collection': typeof OriginalCollectionRoute
   '/packs/$prefix': typeof PacksPrefixRoute
+  '/templates/$slug': typeof TemplatesSlugRoute
   '/tools/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
   '/tools/a11y-scanner': typeof ToolsA11yScannerRoute
   '/tools/abort-signal-playground': typeof ToolsAbortSignalPlaygroundRoute
@@ -5758,6 +5859,7 @@ export interface FileRoutesByFullPath {
   '/tools/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools/zip-explorer': typeof ToolsZipExplorerRoute
+  '/wallpapers/$slug': typeof WallpapersSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/categories/': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
@@ -5765,6 +5867,7 @@ export interface FileRoutesByFullPath {
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/api/iconify/collections': typeof ApiIconifyCollectionsRoute
   '/api/iconify/search': typeof ApiIconifySearchRoute
+  '/api/showcase/submit': typeof ApiShowcaseSubmitRoute
   '/api/icon/$prefix/$name': typeof ApiIconPrefixNameRoute
   '/api/iconify/collection/$prefix': typeof ApiIconifyCollectionPrefixRoute
 }
@@ -5774,6 +5877,8 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
+  '/animated-backgrounds': typeof AnimatedBackgroundsRoute
+  '/animated-icons': typeof AnimatedIconsRouteWithChildren
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
@@ -5782,6 +5887,7 @@ export interface FileRoutesByTo {
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
   '/compare': typeof CompareRoute
+  '/customizer': typeof CustomizerRoute
   '/design-tokens': typeof DesignTokensRoute
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
@@ -5789,27 +5895,35 @@ export interface FileRoutesByTo {
   '/history': typeof HistoryRoute
   '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
+  '/mockups': typeof MockupsRoute
   '/notifications': typeof NotificationsRoute
+  '/original': typeof OriginalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
   '/react-icons': typeof ReactIconsRoute
   '/request': typeof RequestRoute
+  '/showcase': typeof ShowcaseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
+  '/templates': typeof TemplatesRouteWithChildren
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
+  '/wallpapers': typeof WallpapersRouteWithChildren
+  '/animated-icons/$slug': typeof AnimatedIconsSlugRoute
   '/api/icons': typeof ApiIconsRoute
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
+  '/original/$collection': typeof OriginalCollectionRoute
   '/packs/$prefix': typeof PacksPrefixRoute
+  '/templates/$slug': typeof TemplatesSlugRoute
   '/tools/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
   '/tools/a11y-scanner': typeof ToolsA11yScannerRoute
   '/tools/abort-signal-playground': typeof ToolsAbortSignalPlaygroundRoute
@@ -6386,6 +6500,7 @@ export interface FileRoutesByTo {
   '/tools/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools/zip-explorer': typeof ToolsZipExplorerRoute
+  '/wallpapers/$slug': typeof WallpapersSlugRoute
   '/blog': typeof BlogIndexRoute
   '/categories': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
@@ -6393,6 +6508,7 @@ export interface FileRoutesByTo {
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/api/iconify/collections': typeof ApiIconifyCollectionsRoute
   '/api/iconify/search': typeof ApiIconifySearchRoute
+  '/api/showcase/submit': typeof ApiShowcaseSubmitRoute
   '/api/icon/$prefix/$name': typeof ApiIconPrefixNameRoute
   '/api/iconify/collection/$prefix': typeof ApiIconifyCollectionPrefixRoute
 }
@@ -6403,6 +6519,8 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
+  '/animated-backgrounds': typeof AnimatedBackgroundsRoute
+  '/animated-icons': typeof AnimatedIconsRouteWithChildren
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
@@ -6411,6 +6529,7 @@ export interface FileRoutesById {
   '/cli': typeof CliRoute
   '/collections': typeof CollectionsRoute
   '/compare': typeof CompareRoute
+  '/customizer': typeof CustomizerRoute
   '/design-tokens': typeof DesignTokensRoute
   '/docs': typeof DocsRoute
   '/embed': typeof EmbedRoute
@@ -6418,27 +6537,35 @@ export interface FileRoutesById {
   '/history': typeof HistoryRoute
   '/illustrations': typeof IllustrationsRoute
   '/libraries': typeof LibrariesRoute
+  '/mockups': typeof MockupsRoute
   '/notifications': typeof NotificationsRoute
+  '/original': typeof OriginalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
   '/profile': typeof ProfileRoute
   '/react-icons': typeof ReactIconsRoute
   '/request': typeof RequestRoute
+  '/showcase': typeof ShowcaseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
+  '/templates': typeof TemplatesRouteWithChildren
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
+  '/wallpapers': typeof WallpapersRouteWithChildren
+  '/animated-icons/$slug': typeof AnimatedIconsSlugRoute
   '/api/icons': typeof ApiIconsRoute
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
+  '/original/$collection': typeof OriginalCollectionRoute
   '/packs/$prefix': typeof PacksPrefixRoute
+  '/templates/$slug': typeof TemplatesSlugRoute
   '/tools_/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
   '/tools_/a11y-scanner': typeof ToolsA11yScannerRoute
   '/tools_/abort-signal-playground': typeof ToolsAbortSignalPlaygroundRoute
@@ -7015,6 +7142,7 @@ export interface FileRoutesById {
   '/tools_/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools_/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools_/zip-explorer': typeof ToolsZipExplorerRoute
+  '/wallpapers/$slug': typeof WallpapersSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/categories/': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
@@ -7022,6 +7150,7 @@ export interface FileRoutesById {
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/api/iconify/collections': typeof ApiIconifyCollectionsRoute
   '/api/iconify/search': typeof ApiIconifySearchRoute
+  '/api/showcase/submit': typeof ApiShowcaseSubmitRoute
   '/api/icon/$prefix/$name': typeof ApiIconPrefixNameRoute
   '/api/iconify/collection/$prefix': typeof ApiIconifyCollectionPrefixRoute
 }
@@ -7033,6 +7162,8 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-login'
     | '/ai-search'
+    | '/animated-backgrounds'
+    | '/animated-icons'
     | '/api-access'
     | '/app'
     | '/auth'
@@ -7041,6 +7172,7 @@ export interface FileRouteTypes {
     | '/cli'
     | '/collections'
     | '/compare'
+    | '/customizer'
     | '/design-tokens'
     | '/docs'
     | '/embed'
@@ -7048,27 +7180,35 @@ export interface FileRouteTypes {
     | '/history'
     | '/illustrations'
     | '/libraries'
+    | '/mockups'
     | '/notifications'
+    | '/original'
     | '/pricing'
     | '/privacy'
     | '/pro'
     | '/profile'
     | '/react-icons'
     | '/request'
+    | '/showcase'
     | '/sitemap.xml'
     | '/team'
+    | '/templates'
     | '/terms'
     | '/tools'
     | '/ui-components'
     | '/upload'
     | '/usage-stats'
+    | '/wallpapers'
+    | '/animated-icons/$slug'
     | '/api/icons'
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/blog/$slug'
     | '/categories/$slug'
+    | '/original/$collection'
     | '/packs/$prefix'
+    | '/templates/$slug'
     | '/tools/a11y-contrast-grid'
     | '/tools/a11y-scanner'
     | '/tools/abort-signal-playground'
@@ -7645,6 +7785,7 @@ export interface FileRouteTypes {
     | '/tools/yaml-formatter'
     | '/tools/yaml-json-converter'
     | '/tools/zip-explorer'
+    | '/wallpapers/$slug'
     | '/blog/'
     | '/categories/'
     | '/api/billing/checkout'
@@ -7652,6 +7793,7 @@ export interface FileRouteTypes {
     | '/api/billing/webhook'
     | '/api/iconify/collections'
     | '/api/iconify/search'
+    | '/api/showcase/submit'
     | '/api/icon/$prefix/$name'
     | '/api/iconify/collection/$prefix'
   fileRoutesByTo: FileRoutesByTo
@@ -7661,6 +7803,8 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-login'
     | '/ai-search'
+    | '/animated-backgrounds'
+    | '/animated-icons'
     | '/api-access'
     | '/app'
     | '/auth'
@@ -7669,6 +7813,7 @@ export interface FileRouteTypes {
     | '/cli'
     | '/collections'
     | '/compare'
+    | '/customizer'
     | '/design-tokens'
     | '/docs'
     | '/embed'
@@ -7676,27 +7821,35 @@ export interface FileRouteTypes {
     | '/history'
     | '/illustrations'
     | '/libraries'
+    | '/mockups'
     | '/notifications'
+    | '/original'
     | '/pricing'
     | '/privacy'
     | '/pro'
     | '/profile'
     | '/react-icons'
     | '/request'
+    | '/showcase'
     | '/sitemap.xml'
     | '/team'
+    | '/templates'
     | '/terms'
     | '/tools'
     | '/ui-components'
     | '/upload'
     | '/usage-stats'
+    | '/wallpapers'
+    | '/animated-icons/$slug'
     | '/api/icons'
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/blog/$slug'
     | '/categories/$slug'
+    | '/original/$collection'
     | '/packs/$prefix'
+    | '/templates/$slug'
     | '/tools/a11y-contrast-grid'
     | '/tools/a11y-scanner'
     | '/tools/abort-signal-playground'
@@ -8273,6 +8426,7 @@ export interface FileRouteTypes {
     | '/tools/yaml-formatter'
     | '/tools/yaml-json-converter'
     | '/tools/zip-explorer'
+    | '/wallpapers/$slug'
     | '/blog'
     | '/categories'
     | '/api/billing/checkout'
@@ -8280,6 +8434,7 @@ export interface FileRouteTypes {
     | '/api/billing/webhook'
     | '/api/iconify/collections'
     | '/api/iconify/search'
+    | '/api/showcase/submit'
     | '/api/icon/$prefix/$name'
     | '/api/iconify/collection/$prefix'
   id:
@@ -8289,6 +8444,8 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-login'
     | '/ai-search'
+    | '/animated-backgrounds'
+    | '/animated-icons'
     | '/api-access'
     | '/app'
     | '/auth'
@@ -8297,6 +8454,7 @@ export interface FileRouteTypes {
     | '/cli'
     | '/collections'
     | '/compare'
+    | '/customizer'
     | '/design-tokens'
     | '/docs'
     | '/embed'
@@ -8304,27 +8462,35 @@ export interface FileRouteTypes {
     | '/history'
     | '/illustrations'
     | '/libraries'
+    | '/mockups'
     | '/notifications'
+    | '/original'
     | '/pricing'
     | '/privacy'
     | '/pro'
     | '/profile'
     | '/react-icons'
     | '/request'
+    | '/showcase'
     | '/sitemap.xml'
     | '/team'
+    | '/templates'
     | '/terms'
     | '/tools'
     | '/ui-components'
     | '/upload'
     | '/usage-stats'
+    | '/wallpapers'
+    | '/animated-icons/$slug'
     | '/api/icons'
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/blog/$slug'
     | '/categories/$slug'
+    | '/original/$collection'
     | '/packs/$prefix'
+    | '/templates/$slug'
     | '/tools_/a11y-contrast-grid'
     | '/tools_/a11y-scanner'
     | '/tools_/abort-signal-playground'
@@ -8901,6 +9067,7 @@ export interface FileRouteTypes {
     | '/tools_/yaml-formatter'
     | '/tools_/yaml-json-converter'
     | '/tools_/zip-explorer'
+    | '/wallpapers/$slug'
     | '/blog/'
     | '/categories/'
     | '/api/billing/checkout'
@@ -8908,6 +9075,7 @@ export interface FileRouteTypes {
     | '/api/billing/webhook'
     | '/api/iconify/collections'
     | '/api/iconify/search'
+    | '/api/showcase/submit'
     | '/api/icon/$prefix/$name'
     | '/api/iconify/collection/$prefix'
   fileRoutesById: FileRoutesById
@@ -8918,6 +9086,8 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AiSearchRoute: typeof AiSearchRoute
+  AnimatedBackgroundsRoute: typeof AnimatedBackgroundsRoute
+  AnimatedIconsRoute: typeof AnimatedIconsRouteWithChildren
   ApiAccessRoute: typeof ApiAccessRoute
   AppRoute: typeof AppRoute
   AuthRoute: typeof AuthRoute
@@ -8926,6 +9096,7 @@ export interface RootRouteChildren {
   CliRoute: typeof CliRoute
   CollectionsRoute: typeof CollectionsRoute
   CompareRoute: typeof CompareRoute
+  CustomizerRoute: typeof CustomizerRoute
   DesignTokensRoute: typeof DesignTokensRoute
   DocsRoute: typeof DocsRoute
   EmbedRoute: typeof EmbedRoute
@@ -8933,20 +9104,25 @@ export interface RootRouteChildren {
   HistoryRoute: typeof HistoryRoute
   IllustrationsRoute: typeof IllustrationsRoute
   LibrariesRoute: typeof LibrariesRoute
+  MockupsRoute: typeof MockupsRoute
   NotificationsRoute: typeof NotificationsRoute
+  OriginalRoute: typeof OriginalRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProRoute: typeof ProRoute
   ProfileRoute: typeof ProfileRoute
   ReactIconsRoute: typeof ReactIconsRoute
   RequestRoute: typeof RequestRoute
+  ShowcaseRoute: typeof ShowcaseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
+  TemplatesRoute: typeof TemplatesRouteWithChildren
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRoute
   UiComponentsRoute: typeof UiComponentsRoute
   UploadRoute: typeof UploadRoute
   UsageStatsRoute: typeof UsageStatsRoute
+  WallpapersRoute: typeof WallpapersRouteWithChildren
   ApiIconsRoute: typeof ApiIconsRoute
   ApiLogErrorRoute: typeof ApiLogErrorRoute
   ApiVideoProxyRoute: typeof ApiVideoProxyRoute
@@ -9537,6 +9713,7 @@ export interface RootRouteChildren {
   ApiBillingWebhookRoute: typeof ApiBillingWebhookRoute
   ApiIconifyCollectionsRoute: typeof ApiIconifyCollectionsRoute
   ApiIconifySearchRoute: typeof ApiIconifySearchRoute
+  ApiShowcaseSubmitRoute: typeof ApiShowcaseSubmitRoute
   ApiIconPrefixNameRoute: typeof ApiIconPrefixNameRoute
   ApiIconifyCollectionPrefixRoute: typeof ApiIconifyCollectionPrefixRoute
 }
@@ -9576,6 +9753,20 @@ declare module '@tanstack/react-router' {
       path: '/ai-search'
       fullPath: '/ai-search'
       preLoaderRoute: typeof AiSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/animated-backgrounds': {
+      id: '/animated-backgrounds'
+      path: '/animated-backgrounds'
+      fullPath: '/animated-backgrounds'
+      preLoaderRoute: typeof AnimatedBackgroundsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/animated-icons': {
+      id: '/animated-icons'
+      path: '/animated-icons'
+      fullPath: '/animated-icons'
+      preLoaderRoute: typeof AnimatedIconsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api-access': {
@@ -9634,6 +9825,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customizer': {
+      id: '/customizer'
+      path: '/customizer'
+      fullPath: '/customizer'
+      preLoaderRoute: typeof CustomizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/design-tokens': {
       id: '/design-tokens'
       path: '/design-tokens'
@@ -9683,11 +9881,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibrariesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mockups': {
+      id: '/mockups'
+      path: '/mockups'
+      fullPath: '/mockups'
+      preLoaderRoute: typeof MockupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notifications': {
       id: '/notifications'
       path: '/notifications'
       fullPath: '/notifications'
       preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/original': {
+      id: '/original'
+      path: '/original'
+      fullPath: '/original'
+      preLoaderRoute: typeof OriginalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -9732,6 +9944,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RequestRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/showcase': {
+      id: '/showcase'
+      path: '/showcase'
+      fullPath: '/showcase'
+      preLoaderRoute: typeof ShowcaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -9744,6 +9963,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/templates': {
+      id: '/templates'
+      path: '/templates'
+      fullPath: '/templates'
+      preLoaderRoute: typeof TemplatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -9780,6 +10006,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/usage-stats'
       preLoaderRoute: typeof UsageStatsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/wallpapers': {
+      id: '/wallpapers'
+      path: '/wallpapers'
+      fullPath: '/wallpapers'
+      preLoaderRoute: typeof WallpapersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/animated-icons/$slug': {
+      id: '/animated-icons/$slug'
+      path: '/$slug'
+      fullPath: '/animated-icons/$slug'
+      preLoaderRoute: typeof AnimatedIconsSlugRouteImport
+      parentRoute: typeof AnimatedIconsRoute
     }
     '/api/icons': {
       id: '/api/icons'
@@ -9837,12 +10077,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/original/$collection': {
+      id: '/original/$collection'
+      path: '/$collection'
+      fullPath: '/original/$collection'
+      preLoaderRoute: typeof OriginalCollectionRouteImport
+      parentRoute: typeof OriginalRoute
+    }
     '/packs/$prefix': {
       id: '/packs/$prefix'
       path: '/packs/$prefix'
       fullPath: '/packs/$prefix'
       preLoaderRoute: typeof PacksPrefixRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/templates/$slug': {
+      id: '/templates/$slug'
+      path: '/$slug'
+      fullPath: '/templates/$slug'
+      preLoaderRoute: typeof TemplatesSlugRouteImport
+      parentRoute: typeof TemplatesRoute
     }
     '/tools_/a11y-contrast-grid': {
       id: '/tools_/a11y-contrast-grid'
@@ -13876,6 +14130,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsZipExplorerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/wallpapers/$slug': {
+      id: '/wallpapers/$slug'
+      path: '/$slug'
+      fullPath: '/wallpapers/$slug'
+      preLoaderRoute: typeof WallpapersSlugRouteImport
+      parentRoute: typeof WallpapersRoute
+    }
     '/api/billing/checkout': {
       id: '/api/billing/checkout'
       path: '/api/billing/checkout'
@@ -13911,6 +14172,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiIconifySearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/showcase/submit': {
+      id: '/api/showcase/submit'
+      path: '/api/showcase/submit'
+      fullPath: '/api/showcase/submit'
+      preLoaderRoute: typeof ApiShowcaseSubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/icon/$prefix/$name': {
       id: '/api/icon/$prefix/$name'
       path: '/api/icon/$prefix/$name'
@@ -13928,12 +14196,62 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AnimatedIconsRouteChildren {
+  AnimatedIconsSlugRoute: typeof AnimatedIconsSlugRoute
+}
+
+const AnimatedIconsRouteChildren: AnimatedIconsRouteChildren = {
+  AnimatedIconsSlugRoute: AnimatedIconsSlugRoute,
+}
+
+const AnimatedIconsRouteWithChildren = AnimatedIconsRoute._addFileChildren(
+  AnimatedIconsRouteChildren,
+)
+
+interface OriginalRouteChildren {
+  OriginalCollectionRoute: typeof OriginalCollectionRoute
+}
+
+const OriginalRouteChildren: OriginalRouteChildren = {
+  OriginalCollectionRoute: OriginalCollectionRoute,
+}
+
+const OriginalRouteWithChildren = OriginalRoute._addFileChildren(
+  OriginalRouteChildren,
+)
+
+interface TemplatesRouteChildren {
+  TemplatesSlugRoute: typeof TemplatesSlugRoute
+}
+
+const TemplatesRouteChildren: TemplatesRouteChildren = {
+  TemplatesSlugRoute: TemplatesSlugRoute,
+}
+
+const TemplatesRouteWithChildren = TemplatesRoute._addFileChildren(
+  TemplatesRouteChildren,
+)
+
+interface WallpapersRouteChildren {
+  WallpapersSlugRoute: typeof WallpapersSlugRoute
+}
+
+const WallpapersRouteChildren: WallpapersRouteChildren = {
+  WallpapersSlugRoute: WallpapersSlugRoute,
+}
+
+const WallpapersRouteWithChildren = WallpapersRoute._addFileChildren(
+  WallpapersRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
   AdminLoginRoute: AdminLoginRoute,
   AiSearchRoute: AiSearchRoute,
+  AnimatedBackgroundsRoute: AnimatedBackgroundsRoute,
+  AnimatedIconsRoute: AnimatedIconsRouteWithChildren,
   ApiAccessRoute: ApiAccessRoute,
   AppRoute: AppRoute,
   AuthRoute: AuthRoute,
@@ -13942,6 +14260,7 @@ const rootRouteChildren: RootRouteChildren = {
   CliRoute: CliRoute,
   CollectionsRoute: CollectionsRoute,
   CompareRoute: CompareRoute,
+  CustomizerRoute: CustomizerRoute,
   DesignTokensRoute: DesignTokensRoute,
   DocsRoute: DocsRoute,
   EmbedRoute: EmbedRoute,
@@ -13949,20 +14268,25 @@ const rootRouteChildren: RootRouteChildren = {
   HistoryRoute: HistoryRoute,
   IllustrationsRoute: IllustrationsRoute,
   LibrariesRoute: LibrariesRoute,
+  MockupsRoute: MockupsRoute,
   NotificationsRoute: NotificationsRoute,
+  OriginalRoute: OriginalRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProRoute: ProRoute,
   ProfileRoute: ProfileRoute,
   ReactIconsRoute: ReactIconsRoute,
   RequestRoute: RequestRoute,
+  ShowcaseRoute: ShowcaseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
+  TemplatesRoute: TemplatesRouteWithChildren,
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRoute,
   UiComponentsRoute: UiComponentsRoute,
   UploadRoute: UploadRoute,
   UsageStatsRoute: UsageStatsRoute,
+  WallpapersRoute: WallpapersRouteWithChildren,
   ApiIconsRoute: ApiIconsRoute,
   ApiLogErrorRoute: ApiLogErrorRoute,
   ApiVideoProxyRoute: ApiVideoProxyRoute,
@@ -14556,6 +14880,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiBillingWebhookRoute: ApiBillingWebhookRoute,
   ApiIconifyCollectionsRoute: ApiIconifyCollectionsRoute,
   ApiIconifySearchRoute: ApiIconifySearchRoute,
+  ApiShowcaseSubmitRoute: ApiShowcaseSubmitRoute,
   ApiIconPrefixNameRoute: ApiIconPrefixNameRoute,
   ApiIconifyCollectionPrefixRoute: ApiIconifyCollectionPrefixRoute,
 }

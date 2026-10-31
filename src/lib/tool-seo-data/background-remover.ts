@@ -27,14 +27,14 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free removals do I get?",
-        a: "Every visitor gets 5 free background removals, no account needed. IconVault Pro ($19 one-time) unlocks unlimited removals.",
+        a: "Every visitor gets 5 free background removals, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited removals.",
       },
     ],
     tags: [
       "background remover", "remove background free", "transparent background maker",
       "remove white background", "bg remover", "image background eraser",
       "product photo background remover", "green screen remover", "remove bg online",
-      "transparent png maker", "erase background", "background remover no signup",
+      "transparent png maker", "erase background", "background remover a free account for downloads",
       "free background remover", "remove background from image", "white background remover",
       "png transparent background", "cutout maker", "background eraser tool",
     

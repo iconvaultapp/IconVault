@@ -17,7 +17,7 @@ const FAQ = [
   },
   {
     q: "How do I download a free SVG icon from IconVault?",
-    a: "Search the icon in the IconVault app, open it, and download the SVG in one click. No account is needed for the basics. You can also copy it as a React component, export it as PNG, or add it to a sprite sheet.",
+    a: "Search the icon in the IconVault app, open it, and download the SVG in one click. Browsing and copying need no account; downloads need a free account. You can also copy it as a React component, export it as PNG, or add it to a sprite sheet.",
   },
   {
     q: "Can I recolour an SVG icon to my brand colour?",
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/free-svg-icons")({
       {
         name: "description",
         content:
-          "Download free SVG icons for websites, apps and UI design. 421,020 open-source icons from 239 sets, one-click SVG and PNG downloads, no signup needed.",
+          "Download free SVG icons for websites, apps and UI design. 421,020 open-source icons from 239 sets, one-click SVG and PNG downloads, downloads need a free account.",
       },
       { name: "keywords", content: "free SVG icons, SVG icons download, open-source icons, Lucide, Tabler, Phosphor" },
       { property: "og:title", content: "Free SVG Icons | IconVault" },
@@ -97,7 +97,7 @@ function Page() {
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
         <strong>IconVault</strong> indexes <strong className="text-foreground">421,020 free SVG icons</strong> from{" "}
         <strong className="text-foreground">239 open-source sets</strong>. Search them all from one
-        box, customize colour and size, and <strong>download</strong> the SVG in one click. No account is needed for
+        box, customize colour and size, and <strong>download</strong> the SVG in one click. Downloads need a free account for
         the basics, and the <strong>icons</strong> are free for personal and commercial use under their own licences.
       </p>
 

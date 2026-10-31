@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Markdown Preview - Live Markdown to HTML Editor | IconVault",
     metaDescription:
-      "Write Markdown and see live HTML preview side by side. Copy clean, sanitized HTML for your site - free online editor, no signup.",
+      "Write Markdown and see live HTML preview side by side. Copy clean, sanitized HTML for your site - free online editor; downloads need a free account.",
     about: [
       "The **Markdown Preview** tool is a **live** two-pane **editor**: **write** **Markdown** on the left and watch it render as styled **HTML** on the right, instantly. It handles headings, bold and italic, lists, links, images, blockquotes, code blocks, tables and horizontal rules - everything you need for READMEs, blog posts and documentation.",
       "Code blocks get automatic **syntax** **highlighting**, tables render as clean bordered grids, and the **preview** pane scrolls independently so long documents stay easy to review. Paste an existing **README**.**md** or draft from scratch - the **editor** never uploads your **text** anywhere.",
@@ -32,7 +32,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free copies do I get?",
-        a: "Live previewing is unlimited and free. Copying the HTML counts as a use - 5 free per visitor, no account needed. IconVault Pro ($19 one-time) unlocks unlimited copies plus all 10+ tools.",
+        a: "Live previewing is unlimited and free. Copying the HTML counts as a use - 5 free per visitor, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited copies plus all 10+ tools.",
       },
     ],
     tags: [
@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "write markdown online", "markdown live editor", "markdown to html converter online",
       "copy markdown as html", "markdown cheat sheet", "markdown syntax preview",
       "github flavored markdown preview", "gfm preview online", "markdown table generator",
-      "markdown editor no signup", "browser markdown editor", "markdown to html no login",
+      "markdown editor a free account for downloads", "browser markdown editor", "markdown to html no login",
       "convert md to html free", "markdown paste html", "markdown for bloggers",
       "markdown for developers", "markdown notes online", "readme preview online",
       "readme.md preview", "github readme previewer", "markdown documentation editor",

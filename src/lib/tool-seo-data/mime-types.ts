@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How many entries does the lookup include?", a: "Over 150 extension and MIME type pairs, covering images, video, audio, text, code, fonts, documents, archives, executables, 3D formats and common web data types." },
       { q: "Why does my server send the wrong MIME type?", a: "Usually the server is missing a mapping for that extension. Look up the correct type here and add it to your nginx mime.types, Apache .htaccess, or your framework's static file configuration." },
       { q: "Is my data uploaded anywhere?", a: "No. The whole lookup runs locally in your browser. Your searches never leave your device." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "mime type lookup",

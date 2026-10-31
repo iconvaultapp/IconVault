@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "**:has()** ended decades of asking for a parent selector in CSS: card:has(img), form:has(:invalid), nav:has(.active). It ships in all modern browsers. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the :has() playground free?", a: "Yes, free with no signup. Try interactive :has() demos and edit the samples in your browser." },
+      { q: "Is the :has() playground free?", a: "Yes, free to use; downloads need a free account. Try interactive :has() demos and edit the samples in your browser." },
       { q: "What does :has() do in CSS?", a: ":has() is a relational pseudo-class that selects an element based on its descendants or siblings, for example article:has(img) selects articles containing an image." },
       { q: "Is :has() the CSS parent selector?", a: "Effectively yes. It is the first widely supported way to style a parent based on its children, which was impossible in CSS for years." },
       { q: "Which browsers support :has()?", a: "All modern browsers: Chrome, Edge, Safari and Firefox all support :has() now. Check exact versions on caniuse for older support." },

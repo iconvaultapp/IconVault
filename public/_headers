@@ -2,6 +2,16 @@
   Cache-Control: public, max-age=31536000, immutable
 /embed/v1.js
   Cache-Control: public, max-age=31536000, immutable
+/templates/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/original-icons/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/animated-icons/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/wallpapers/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/mockups/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
 /iconify/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=86400
 /search-index.json

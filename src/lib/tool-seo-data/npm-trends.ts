@@ -5,13 +5,13 @@ const seo: ToolSeo = {
     metaDescription: "Compare npm download trends for up to 5 packages with canvas charts over the last month or year. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **NPM Trends** compares **download trends** for up to **5 npm packages** side by side, rendered as clean **canvas charts** with per-package totals. Pick the **last month** or **last year**, and the tool pulls daily download data from the official **npm downloads API** (api.npmjs.org) so you can see which library is growing, which is flat and which is fading.",
-      "Everything is computed and drawn **fully in your browser**: no account, no tracking pixel, no server storing your comparisons. It is **free** to use with no signup. The honest caveat: download counts measure **installs, not quality**. CI pipelines, mirrors and bots inflate numbers, so use trends as one signal alongside docs quality, maintenance activity and API fit."
+      "Everything is computed and drawn **fully in your browser**: no account, no tracking pixel, no server storing your comparisons. It is **free** to use; downloads need a free account. The honest caveat: download counts measure **installs, not quality**. CI pipelines, mirrors and bots inflate numbers, so use trends as one signal alongside docs quality, maintenance activity and API fit."
     ],
     faqs: [
       { q: "How many packages can I compare at once?", a: "Up to 5 packages per comparison. Add names one at a time, remove any with one click, and re-run the comparison whenever the list changes." },
       { q: "Where does the download data come from?", a: "The official npm downloads API at api.npmjs.org, the same source behind npmjs.com download graphs. Data is fetched live in your browser each time you compare." },
       { q: "What time ranges are available?", a: "Last month (daily points over 30 days) and last year (daily points over 365 days). Totals shown are the sum of downloads across the selected range." },
-      { q: "Is it really free?", a: "Yes. Unlimited comparisons, no account, no signup. The npm downloads API is public and free to query." },
+      { q: "Is it really free?", a: "Yes. Unlimited comparisons, no account; downloads need a free account. The npm downloads API is public and free to query." },
       { q: "Why does a package show zero downloads?", a: "Either the name is wrong, the package was never published, or it is too new for the API to have data. Double-check the exact package name on npmjs.com." },
       { q: "Can downloads be faked or inflated?", a: "Partially. Mirrors, CI installs and automated tooling count as downloads, so treat the numbers as relative popularity signals rather than exact human usage." }
     ],

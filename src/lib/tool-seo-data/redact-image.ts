@@ -48,7 +48,7 @@ const seo: ToolSeo = {
       "before after redaction",
       "redact multiple areas image",
       "bulk redact images",
-      "redact image online free no signup",
+      "redact image online free a free account for downloads",
       "redact image without watermark",
       "drag to redact image",
       "draw black box on image",

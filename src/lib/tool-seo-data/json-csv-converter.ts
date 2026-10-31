@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How are nested objects handled?", a: "Nested objects are flattened using dotted key paths, so {\"user\": {\"name\": \"Ava\"}} becomes a column named user.name. This keeps every row the same shape so the CSV opens correctly in spreadsheets." },
       { q: "What if my JSON values contain commas or quotes?", a: "Values with commas, quotes or newlines are wrapped in double quotes and inner quotes are doubled, following standard CSV escaping rules, so spreadsheets parse them back into single cells." },
       { q: "Is my data uploaded anywhere?", a: "No. The conversion runs entirely in your browser with JavaScript. Your data never leaves your device, which makes it safe for sensitive exports and client datasets." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json to csv",
@@ -54,7 +54,7 @@ const seo: ToolSeo = {
       "jsonl to csv converter",
       "json to csv without upload",
       "json to csv private",
-      "json to csv no signup",
+      "json to csv a free account for downloads",
       "csv json converter tool",
       "free csv to json tool",
       "json to csv batch",

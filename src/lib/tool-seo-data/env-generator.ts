@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "When do values get quoted?", a: "Values containing spaces or # characters are automatically quoted, because unquoted spaces and # start comments in the dotenv format, which would silently truncate your value." },
       { q: "What is .env.example for?", a: "It is a template with the same keys but empty or placeholder values, committed to the repo so new developers know which variables to set without seeing real secrets." },
       { q: "Is my data sent to a server?", a: "No. Everything is generated locally in your browser, which is exactly what you want for a tool that handles secrets and API keys." },
-      { q: "Is this tool free?", a: "Yes, completely free with no signup and no limits on how many files you generate." }
+      { q: "Is this tool free?", a: "Yes, completely free to use; downloads need a free account and no limits on how many files you generate." }
     ],
     tags: [
       "env generator", "env file generator", "dotenv generator", ".env generator",
@@ -23,7 +23,7 @@ const seo: ToolSeo = {
       "nodejs env generator", "react env file generator", "nextjs env file",
       "python dotenv generator", "laravel env generator", "docker env file generator",
       "vite env variables", "env variable formatter", "env key validator",
-      "free env generator", "env generator online free", "env generator no signup",
+      "free env generator", "env generator online free", "env generator a free account for downloads",
       "how to create a .env file", "how to write env variables", "env file syntax",
       "dotenv format rules", "quoting env values", "env file best practices",
       "keep secrets out of git", "env file template", "env template generator",

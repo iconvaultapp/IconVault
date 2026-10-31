@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it handle numbers?", a: "Yes. Digits 0-9 map to Zero, One, Two, Three, Four, Five, Six, Seven, Eight and Niner. Niner is pronounced with an extra syllable so it cannot be confused with the German word nein." },
       { q: "What is the difference between Nine and Niner?", a: "The official NATO word is Niner, chosen to avoid confusion over radio. This tool accepts both on decode, so pasting either variant works." },
       { q: "Is my text uploaded anywhere?", a: "No. Conversion happens entirely in your browser with JavaScript. Your text never leaves your device." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "nato phonetic alphabet",

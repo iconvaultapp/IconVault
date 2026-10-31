@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which algorithms are supported?", a: "HS256 (HMAC with SHA-256), HS384 and HS512. Asymmetric algorithms like RS256 and ES256 are not supported." },
       { q: "How does signature verification work?", a: "After signing, the tool decodes the header and payload, re-signs them with your secret, and compares the result to the original signature. If they match, the signature is verified." },
       { q: "What are the iat and exp buttons for?", a: "They set the issued-at claim to the current time and the expiry claim to one hour from now, so you can build realistic test tokens quickly." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "jwt builder",
@@ -54,7 +54,7 @@ const seo: ToolSeo = {
       "test jwt token",
       "jwt testing tool",
       "free jwt tool",
-      "jwt tool no signup",
+      "jwt tool a free account for downloads",
       "jwt in browser",
       "client side jwt signer",
       "webcrypto jwt",

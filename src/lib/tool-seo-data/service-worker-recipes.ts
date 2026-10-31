@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: pick a recipe, study its flow, then copy or download the sw.js file and serve it from your site root. Perfect for **developers** adding offline support and fast repeat loads to any site or PWA.",
     ],
     faqs: [
-      { q: "Is Service Worker Recipes free to use?", a: "Yes. Service Worker Recipes is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Service Worker Recipes free to use?", a: "Yes. Service Worker Recipes is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "Why can't the page register a demo worker?", a: "Service workers require HTTPS or localhost and a real same-origin file; a Blob URL is not allowed. The tool is honest about this and gives you complete files instead." },
       { q: "Which strategy should I use?", a: "Cache-first for static assets like images and fonts, network-first for HTML and APIs that change, stale-while-revalidate when slightly old content is fine." },
       { q: "What does skipWaiting do?", a: "It lets a new service worker activate immediately instead of waiting for all tabs using the old one to close, so deploys take effect faster." },

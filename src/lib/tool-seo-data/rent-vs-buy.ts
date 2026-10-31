@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Compare renting vs buying a home: cumulative costs, break-even year and an interactive chart. Adjust rent growth, rates and more. Free, in your browser.",
     about: [
       "**IconVault**'s **Rent vs Buy** calculator compares the true cost of **renting vs buying** a home, year by year. Enter rent, home price, down payment, mortgage rate and your time horizon, and it plots **cumulative costs** for both paths on an **interactive chart**, minus the **equity** you build as a buyer.",
-      "The headline number is the **break-even year**: the point where buying becomes cheaper than renting. Rent grows at an adjustable rate, ownership costs include taxes, insurance and maintenance, and home values appreciate. It runs **100% in your browser** and is **free** with no signup, a starting point for the biggest money decision most people make."
+      "The headline number is the **break-even year**: the point where buying becomes cheaper than renting. Rent grows at an adjustable rate, ownership costs include taxes, insurance and maintenance, and home values appreciate. It runs **100% in your browser** and is **free** with a free account for downloads, a starting point for the biggest money decision most people make."
     ],
     faqs: [
       { q: "How is the break-even year calculated?", a: "The tool totals what you pay each year under both scenarios. For buying it counts the down payment, mortgage payments and ownership costs, then subtracts equity built from principal repaid and price appreciation. The first year buying costs less than renting is the break-even." },
@@ -66,7 +66,7 @@ const seo: ToolSeo = {
       "years to break even home purchase",
       "free rent vs buy calculator",
       "online rent buy comparison",
-      "no signup mortgage calculator",
+      "a free account for downloads mortgage calculator",
       "private finance calculator"
     ],
   };

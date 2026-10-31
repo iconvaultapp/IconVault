@@ -39,7 +39,7 @@ const seo: ToolSeo = {
       "combine jpg online",
       "merge webp images",
       "stitch photos no watermark",
-      "image stitcher no signup",
+      "image stitcher a free account for downloads",
       "how to stitch images together",
       "how to combine two photos",
       "merge images in browser",

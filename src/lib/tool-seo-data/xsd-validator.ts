@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How are errors reported?", a: "Each violation is listed with the full path of the offending element, for example a missing required element or an unexpected element not declared in the schema, so you can jump straight to the problem." },
       { q: "Is my XML or XSD uploaded?", a: "No. Both documents are parsed and compared entirely in your browser. Nothing is sent to any server, which makes it safe for proprietary schemas and payloads." },
       { q: "What happens if my XML is not well-formed?", a: "The tool reports that the XML itself is not well-formed before attempting any schema validation, since a broken document cannot be checked against a schema." },
-      { q: "Is the tool free?", a: "Yes, it is free to try with no signup. A limited number of free validations are included; heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the tool free?", a: "Yes, it is free to try; downloads need a free account. A limited number of free validations are included; heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "xsd validator",

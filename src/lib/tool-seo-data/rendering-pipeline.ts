@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Look up any CSS property and see if it triggers layout, paint or composite. Interactive pipeline diagram plus copyable lists. Free, in your browser.",
     about: [
       "**IconVault**'s **Rendering Pipeline Lab** answers the classic performance question: does this CSS property trigger **layout**, **paint**, or just **composite**? **Search any property** and an **interactive pipeline diagram** lights up to show exactly which rendering stages it hits, so you can spot jank before it ships.",
-      "The lab ships with **copyable reference lists** of layout, paint and composite properties for quick lookups and documentation. It runs **100% in your browser** and is **free** with no signup, built for frontend developers tuning animations and scroll performance."
+      "The lab ships with **copyable reference lists** of layout, paint and composite properties for quick lookups and documentation. It runs **100% in your browser** and is **free** with a free account for downloads, built for frontend developers tuning animations and scroll performance."
     ],
     faqs: [
       { q: "What are layout, paint and composite?", a: "They are the stages of browser rendering. Layout computes geometry, paint fills in pixels, and composite layers the result onto the screen. Changes that only composite, like transform and opacity, are the cheapest." },
@@ -66,7 +66,7 @@ const seo: ToolSeo = {
       "css optimization checklist",
       "animation performance checklist",
       "free css performance tool",
-      "no signup dev tool"
+      "a free account for downloads dev tool"
     ],
   };
 

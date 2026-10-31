@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Compare two images side by side with a draggable before/after slider and a pixel-difference score. Free, fully in your browser.",
     about: [
       "**IconVault**'s **Image Compare** puts two images on one canvas with a **draggable before/after slider**, so you can sweep between versions and spot exactly what changed. Switch between **split view** and **side-by-side**, and get a live **difference percentage** computed from the pixels, with an adjustable **threshold** for how sensitive the comparison is.",
-      "Everything is processed **in your browser** with **no upload** and **no signup**, and it is **free** to use, which makes it safe for unreleased designs and client work. Honest note: the difference score is a raw pixel comparison, so compression artifacts or tiny shifts can inflate it; use your eyes for the final judgment."
+      "Everything is processed **in your browser** with **no upload** and **a free account for downloads**, and it is **free** to use, which makes it safe for unreleased designs and client work. Honest note: the difference score is a raw pixel comparison, so compression artifacts or tiny shifts can inflate it; use your eyes for the final judgment."
     ],
     faqs: [
       { q: "How do I compare two images?", a: "Upload both images, then drag the slider to wipe between them, or switch to side-by-side mode. The difference percentage updates live as you move the slider." },

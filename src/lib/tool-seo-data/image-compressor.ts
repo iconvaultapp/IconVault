@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free compressions do I get?",
-        a: "5 free compression runs, no account needed. Pro members get unlimited runs and batch ZIP downloads.",
+        a: "5 free compression runs, downloads need a free account. Pro members get unlimited runs and batch ZIP downloads.",
       },
     ],
     tags: [
@@ -43,7 +43,7 @@ const seo: ToolSeo = {
       "reduce image file size", "make image smaller kb", "image kb reducer",
       "compress png online", "compress jpg online", "tiny png alternative",
       "image compressor no upload", "private image compressor", "browser image compression",
-      "compress image no signup", "free image optimizer", "best image compressor 2026",
+      "compress image a free account for downloads", "free image optimizer", "best image compressor 2026",
       "compress screenshot", "compress logo png", "optimize images for wordpress",
       "image compression for web performance", "faster page load images", "core web vitals images",
       "compress hero image", "blog image optimizer", "ecommerce image compression",

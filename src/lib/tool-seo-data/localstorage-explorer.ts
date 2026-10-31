@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I export and import my storage?", a: "Yes. Export downloads every key and value as JSON, and you can import that JSON back later, overwriting keys with the same names." },
       { q: "What does the usage meter measure?", a: "It estimates the byte length of all keys plus values and compares it to the typical 5 MB quota. The real quota varies by browser." },
       { q: "Is anything sent to a server?", a: "No. All reads and writes happen locally in your browser." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Viewing keys is unlimited; add, edit, delete and export use the trial, and Pro unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Viewing keys is unlimited; add, edit, delete and export use the trial, and Pro unlocks unlimited use." }
     ],
     tags: [
       "localstorage explorer",
@@ -57,7 +57,7 @@ const seo: ToolSeo = {
       "application tab alternative",
       "chrome localstorage viewer",
       "free localstorage tool",
-      "localstorage tool no signup",
+      "localstorage tool a free account for downloads",
       "localstorage quota exceeded",
       "localstorage storage estimate",
       "localstorage json export",

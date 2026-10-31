@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Article performance dashboard for dev.to authors: views, reactions, comments, top tags and posting patterns. Free, in your browser.",
     about: [
       "**IconVault**'s **Dev.to Stats** builds an **article performance dashboard** for any **dev.to author**. Enter a username and the tool pulls up to **1,000 public articles** through the **dev.to API**, then totals **page views, reactions and comments**, ranks your **top tags** by views, and charts your **posting pattern** month by month so you can see what topics and cadences actually land.",
-      "Everything is fetched and computed **fully in your browser** from dev.to's public API: no login, no API key, no signup. It is **free** to use. The honest caveat: view counts are what dev.to reports publicly and can lag behind the dashboard in your own author panel. Drafts and unlisted posts are never included."
+      "Everything is fetched and computed **fully in your browser** from dev.to's public API: no login, no API key; downloads need a free account. It is **free** to use. The honest caveat: view counts are what dev.to reports publicly and can lag behind the dashboard in your own author panel. Drafts and unlisted posts are never included."
     ],
     faqs: [
       { q: "What data does the dashboard show?", a: "Total page views, reactions and comments across all public articles, a per-article table with views and engagement, top tags ranked by total views and a monthly posting pattern chart." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why do the numbers differ from my dev.to dashboard?", a: "The public API reports the same underlying counts, but your private author dashboard may update faster or include extra metrics like follows. Small timing differences are normal." },
       { q: "What if the user is not found?", a: "You will see a not-found error. Usernames are lowercased before lookup, so check the exact spelling on dev.to." },
       { q: "Are drafts included?", a: "No. Only published public articles are visible through the dev.to API, so drafts and unlisted posts never appear." },
-      { q: "Is it really free?", a: "Yes. Unlimited author lookups, no account, no signup. The dev.to API is public and free." }
+      { q: "Is it really free?", a: "Yes. Unlimited author lookups, no account; downloads need a free account. The dev.to API is public and free." }
     ],
     tags: [
       "dev.to stats",

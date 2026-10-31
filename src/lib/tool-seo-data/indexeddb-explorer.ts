@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Browse your site's IndexedDB databases, object stores and records, with add, edit, delete and JSON import/export. Free, in your browser.",
     about: [
       "**IconVault**'s **IndexedDB Explorer** lets you inspect the **IndexedDB databases** stored by websites in your browser: list **object stores**, page through **records** (25 per page, up to 500 reads), and view keys, values and indexes. You can **add, edit and delete records**, and **import or export JSON** for backup or migration.",
-      "It runs **entirely in your browser** with **no signup** and is **free**. Honest notes: for privacy and security, browsers only expose **this origin's** databases, so you see IconVault's own storage here, not other sites'; and edits write straight to the live database, so export a backup before changing production data."
+      "It runs **entirely in your browser** with **a free account for downloads** and is **free**. Honest notes: for privacy and security, browsers only expose **this origin's** databases, so you see IconVault's own storage here, not other sites'; and edits write straight to the live database, so export a backup before changing production data."
     ],
     faqs: [
       { q: "What is IndexedDB?", a: "A low-level browser API for storing large amounts of structured data, including files and blobs, on the client. Web apps use it for offline data, caches and local state." },

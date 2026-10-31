@@ -5,13 +5,13 @@ const seo: ToolSeo = {
     metaDescription: "Look up any Python package on PyPI: version, summary, license, requires-python and full release history. Free, in your browser.",
     about: [
       "**IconVault**'s **PyPI Search** looks up any **Python package** through the public **PyPI JSON API**. You get the **latest version**, **summary**, **author**, **license**, **homepage**, **requires-python** and **keywords**, plus the complete **release history** with dates, and a one-click button that copies the **`pip install`** command.",
-      "Lookups run **fully in your browser** against pypi.org, with nothing to install and nothing uploaded. It is **free** with no signup. The honest caveat: metadata comes from the package author and can be incomplete or outdated, especially the license field. Verify anything critical against the project's own repository before relying on it."
+      "Lookups run **fully in your browser** against pypi.org, with nothing to install and nothing uploaded. It is **free** to use; downloads need a free account. The honest caveat: metadata comes from the package author and can be incomplete or outdated, especially the license field. Verify anything critical against the project's own repository before relying on it."
     ],
     faqs: [
       { q: "What package details does it show?", a: "Name, latest version, summary, author, license, home page, project URLs, requires-python, keywords and the full release history with upload dates for every version." },
       { q: "How does the pip install button work?", a: "It copies pip install package-name to your clipboard so you can paste it straight into your terminal. The command uses the exact package name from PyPI." },
       { q: "Where does the data come from?", a: "The public PyPI JSON API at pypi.org/pypi/<name>/json, fetched directly in your browser. No server in the middle, no caching layer." },
-      { q: "Is it really free?", a: "Yes. Unlimited lookups, no account, no signup. The PyPI API is public and free." },
+      { q: "Is it really free?", a: "Yes. Unlimited lookups, no account; downloads need a free account. The PyPI API is public and free." },
       { q: "What if the package is not found?", a: "You will see a not-found error. Double-check the spelling and capitalization. PyPI names are case-insensitive but must match the registered name." },
       { q: "Can I trust the license field?", a: "Treat it as a hint, not a verdict. Many packages leave it blank or use non-standard strings. Check the project's repository or LICENSE file for anything legally important." }
     ],

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Copy, Download, Search, X } from "lucide-react";
+import { downloadWithGate } from "@/lib/download-guard";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -92,13 +93,10 @@ function htmlToJsx(html: string): string {
   return out;
 }
 
+// v55 download gate: anonymous users park the file + get the sign-in prompt;
+// it resumes automatically after login.
 function downloadBlob(name: string, blob: Blob) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  downloadWithGate(blob, name);
 }
 
 async function copyText(text: string, okMsg: string) {

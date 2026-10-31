@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "chore commit meaning",
       "git commit message tool",
       "developer commit helper",
-      "no signup commit generator",
+      "a free account for downloads commit generator",
       "browser commit message builder",
       "copy paste commit message",
       "commitlint friendly messages",

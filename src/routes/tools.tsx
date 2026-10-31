@@ -18,7 +18,7 @@ export const Route = createFileRoute("/tools")({
       {
         property: "og:description",
         content:
-          "578 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools and more. No account needed.",
+          "578 free online tools: dev utilities, image converters, SEO checkers, calculators, security tools and more. Downloads need a free account.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iconvault.site/tools" },

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What YAML errors does it catch?", a: "It catches the common ones: bad indentation, tabs instead of spaces, unclosed quotes and brackets, duplicate keys behavior, and malformed block scalars, reporting the line and column of each failure." },
       { q: "Is my YAML uploaded to a server?", a: "No. Parsing and formatting happen entirely in your browser using a lazily loaded YAML library. Your config files never leave your device." },
       { q: "Does it work for Kubernetes or Docker Compose files?", a: "Yes. It validates any YAML document, including Kubernetes manifests, docker-compose files, GitHub Actions workflows and Ansible playbooks, which are the most common use cases." },
-      { q: "Is the tool free?", a: "Yes, it is free to try with no signup. A limited number of free format runs are included; heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the tool free?", a: "Yes, it is free to try; downloads need a free account. A limited number of free format runs are included; heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "yaml formatter",
@@ -35,7 +35,7 @@ const seo: ToolSeo = {
       "yaml tidy online",
       "yaml formatter free",
       "best yaml formatter",
-      "yaml formatter no signup",
+      "yaml formatter a free account for downloads",
       "yaml normalizer online",
       "yaml canonical formatter",
       "yaml parser online",

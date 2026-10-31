@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free checks do I get?",
-        a: "Every visitor gets 5 free contrast checks, no account needed. IconVault Pro ($19 one-time) unlocks unlimited checks and every other tool.",
+        a: "Every visitor gets 5 free contrast checks, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited checks and every other tool.",
       },
       {
         q: "Is the preview accurate?",
@@ -46,7 +46,7 @@ const seo: ToolSeo = {
       "contrast checker for developers", "figma contrast checker alternative", "tailwind contrast checker",
       "check contrast of hex colors", "hex contrast ratio", "rgb contrast ratio calculator",
       "large text contrast requirement", "normal text contrast requirement", "aa large text contrast",
-      "color contrast guidelines", "minimum contrast ratio wcag", "contrast checker no signup",
+      "color contrast guidelines", "minimum contrast ratio wcag", "contrast checker a free account for downloads",
       "dark mode contrast checker", "light mode contrast checker", "button contrast checker",
       "link color contrast", "placeholder text contrast", "gray text contrast ratio",
       "white text on color background contrast", "black text contrast", "contrast checker tool",

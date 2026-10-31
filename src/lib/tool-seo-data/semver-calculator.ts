@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Parse versions, bump major/minor/patch/prerelease, test semver ranges and compare versions. A hand-written engine, 100% client-side.",
     about: [
       "**IconVault**'s **Semver Calculator** is built on a **hand-written semver engine** (no npm semver package) that runs **100% client-side**. It **parses versions**, **bumps major, minor, patch and prerelease** numbers, **tests version ranges** (`^`, `~`, `>=`, `<=`, `>`, `<`, `=`) and **compares two versions**, so you can answer questions like whether `1.2.3` satisfies `^1.0.0` before you publish.",
-      "It is **free** with no signup, and everything happens in your browser. The honest note: this implements the widely used npm-style semver conventions. If your ecosystem versions differently (some do), treat the results as a guide and check your package manager's own rules."
+      "It is **free** to use; downloads need a free account, and everything happens in your browser. The honest note: this implements the widely used npm-style semver conventions. If your ecosystem versions differently (some do), treat the results as a guide and check your package manager's own rules."
     ],
     faqs: [
       { q: "What is semantic versioning?", a: "A versioning scheme of MAJOR.MINOR.PATCH where major means breaking changes, minor means new backwards-compatible features and patch means backwards-compatible fixes. Prerelease tags like 1.0.0-beta.1 mark early releases." },
@@ -61,7 +61,7 @@ const seo: ToolSeo = {
       "api versioning semver",
       "semver for developers",
       "free semver tool online",
-      "semver calculator no signup",
+      "semver calculator a free account for downloads",
       "semver in browser",
       "semver version validator",
       "is this a valid semver",

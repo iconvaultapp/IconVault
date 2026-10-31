@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Encode and decode ROT13 plus any Caesar shift from 1 to 25, with live output as you type. Free and fully in your browser.",
     about: [
       "**IconVault**'s **ROT13 Cipher** tool encodes and decodes **ROT13** text instantly, and also works as a full **Caesar cipher** tool with an adjustable shift from 1 to 25. Type or paste your text and the output updates **live as you type**; flip between **Encode** and **Decode** with one tap. Non-letters pass through untouched, and letter case is preserved.",
-      "Everything runs **100% in your browser**, so nothing you encode ever leaves your device, and copying the result is all it takes to use it. It is **free** with no signup. The honest note: ROT13 and Caesar shifts are **puzzles and obfuscation, not real encryption**. They are great for spoilers, geocaching hints and classroom demos, but anything that must stay secret needs real encryption like AES."
+      "Everything runs **100% in your browser**, so nothing you encode ever leaves your device, and copying the result is all it takes to use it. It is **free** to use; downloads need a free account. The honest note: ROT13 and Caesar shifts are **puzzles and obfuscation, not real encryption**. They are great for spoilers, geocaching hints and classroom demos, but anything that must stay secret needs real encryption like AES."
     ],
     faqs: [
       { q: "What is ROT13?", a: "ROT13 is a simple letter substitution where each letter is replaced by the one 13 places later in the alphabet. Applying it twice restores the original text, which is why it is popular for hiding spoilers." },
@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "unscramble rot13 text",
       "rot13 shift 13",
       "caesar cipher shift 3",
-      "rot13 online free no signup",
+      "rot13 online free a free account for downloads",
       "caesar cipher free tool",
       "encode text with cipher online",
       "decode caesar cipher without shift",

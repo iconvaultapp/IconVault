@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How does TCP close a connection?", a: "Each side sends a FIN packet when it is done, and the other side ACKs it. This goes through states like FIN_WAIT_1, FIN_WAIT_2, CLOSE_WAIT and LAST_ACK before both sides reach CLOSED, which the lab steps through visually." },
       { q: "Is this a real packet capture tool?", a: "No. It is an educational simulation of the handshake, data transfer and teardown, not a sniffer. For live traffic use Wireshark or tcpdump." },
       { q: "Who is this tool for?", a: "Networking students, CS coursework, and developers preparing for interviews or certifications who want an intuitive feel for TCP states and flags before reading an RFC." },
-      { q: "Is it free?", a: "Yes. The TCP Lab is free to use and runs entirely in your browser with no signup." }
+      { q: "Is it free?", a: "Yes. The TCP Lab is free to use and runs entirely in your browser with a free account for downloads." }
     ],
     tags: [
       "tcp lab",

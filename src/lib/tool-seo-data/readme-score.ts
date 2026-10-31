@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste your README.md and get it graded against 16 proven practices: badges, screenshots, install docs, usage, API, license. Free, runs 100% in your browser.",
     about: [
       "**IconVault**'s **README Score** grades your README against **16 proven practices** that separate good project docs from great ones: a clear H1 title, a one-paragraph description, **status badges**, screenshots or a demo, **install** and **usage** sections, API reference, **contributing** guide, changelog, table of contents and a **license**, among others.",
-      "Paste your markdown and every check gets a **pass or fail** with a short, actionable tip explaining what to add or fix. It runs **100% in your browser**, so your content is never uploaded, and it is **free** with no signup."
+      "Paste your markdown and every check gets a **pass or fail** with a short, actionable tip explaining what to add or fix. It runs **100% in your browser**, so your content is never uploaded, and It is **free** to use; downloads need a free account."
     ],
     faqs: [
       { q: "How is my README scored?", a: "The tool runs 16 checks against proven README practices: title, description, badges, screenshots or demo, install section, usage section, API docs, contributing guide, changelog, table of contents, license, and more. Each check passes or fails with a tip." },

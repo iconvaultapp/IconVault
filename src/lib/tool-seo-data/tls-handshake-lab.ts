@@ -5,14 +5,14 @@ const seo: ToolSeo = {
     metaDescription: "Step through the TLS 1.2 and 1.3 handshakes message by message with an animated client-server diagram. Free, in your browser.",
     about: [
       "**IconVault**'s **TLS Lab** lets you **step through the TLS 1.2 and TLS 1.3 handshakes message by message**, from ClientHello to Finished, with an **animated client/server diagram** showing exactly which messages travel in which direction and what each one carries. Play, pause, step forward and backward to study the exchange at your own pace.",
-      "Everything runs **in your browser** with no signup, and it is completely **free**, which makes it ideal for students, interviews and curious developers. The honest note: this is a **simplified educational model**, not a real cryptographic implementation, so it explains the protocol flow rather than the underlying math."
+      "Everything runs **in your browser** with a free account for downloads, and it is completely **free**, which makes it ideal for students, interviews and curious developers. The honest note: this is a **simplified educational model**, not a real cryptographic implementation, so it explains the protocol flow rather than the underlying math."
     ],
     faqs: [
       { q: "What can I learn in the TLS handshake lab?", a: "The full message flow of TLS 1.2 and TLS 1.3: ClientHello, ServerHello, certificates, key exchange, ChangeCipherSpec, and Finished, shown step by step with an animated diagram of who sends what to whom." },
       { q: "What is the difference between TLS 1.2 and 1.3 handshakes?", a: "TLS 1.3 completes in fewer round trips, encrypts more of the handshake, and removes legacy options. The lab shows both side by side so the difference is visible message by message." },
       { q: "Does this do real encryption?", a: "No. It is an educational visualization of the protocol flow. Real key exchange math and certificate validation are represented, not executed." },
       { q: "Is it good for interview prep?", a: "Yes. TLS handshake questions are common in backend and security interviews, and stepping through the messages builds exactly the mental model those questions test." },
-      { q: "Do I need an account?", a: "No. The lab runs entirely in your browser with no signup." },
+      { q: "Do I need an account?", a: "No. The lab runs entirely in your browser with a free account for downloads." },
       { q: "Is it free?", a: "Yes, completely free." }
     ],
     tags: [

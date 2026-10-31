@@ -44,7 +44,7 @@ const seo: ToolSeo = {
       "json placeholder alternative",
       "mockaroo alternative free",
       "free mock data tool",
-      "no signup mock generator",
+      "a free account for downloads mock generator",
       "client side data generator",
       "javascript mock data",
       "react mock api data",

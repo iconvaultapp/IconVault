@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How many color pins can I use?", a: "Between 4 and 6 pins. Four pins give a balanced blend, while six pins let you build richer, more complex color fields. Select a pin to change its color, drag it to move it, or remove it." },
       { q: "Is my work uploaded anywhere?", a: "No. The whole tool runs locally in your browser with JavaScript. Your colors and layouts never leave your device, so it is safe to use for client or unreleased projects." },
       { q: "Can I get random ideas quickly?", a: "Yes. The shuffle button repositions every pin and picks fresh colors from a curated palette, so you can generate dozens of starting points in seconds and fine tune the one you like." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "mesh gradient generator",

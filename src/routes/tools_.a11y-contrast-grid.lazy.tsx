@@ -11,6 +11,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import toolSeo from "@/lib/tool-seo-data/a11y-contrast-grid";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/tools_/a11y-contrast-grid")({
   component: ContrastGridTool,
@@ -121,14 +122,11 @@ function ContrastGridTool() {
       }
     }
     const blob = new Blob([lines.join("\n")], { type: "text/csv" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = brandFilename("contrast-grid.csv");
-    a.click();
-    URL.revokeObjectURL(url);
-    trial.recordUse();
-    toast.success("CSV exported");
+    // v55 download gate: parked + sign-in prompt when anonymous.
+    if (downloadWithGate(blob, brandFilename("contrast-grid.csv"))) {
+      trial.recordUse();
+      toast.success("CSV exported");
+    }
   };
 
   const detail = selected

@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert headlines to clean URL slugs free. Lowercase, hyphenated, stop-word removal and bulk mode. Copy-paste ready.",
     about: [
       "**IconVault**'s **Slug Generator** turns messy **headlines** into clean **URL slugs**: lowercases everything, strips accents and special characters, joins words with hyphens, and can drop **stop words** for shorter URLs. Paste a whole list for **bulk** slug generation.",
-      "Slugs are generated live as you type with duplicate detection for lists. Everything runs in your browser - free, no account needed.",
+      "Slugs are generated live as you type with duplicate detection for lists. Everything runs in your browser - free, downloads need a free account.",
     ],
     faqs: [
       {
@@ -76,7 +76,7 @@ const seo: ToolSeo = {
       "shopify slug generator",
       "next.js slug generator",
       "youtube video slug",
-      "slug generator no signup",
+      "slug generator a free account for downloads",
       "online permalink maker",
       "url slug generator free"],
   };

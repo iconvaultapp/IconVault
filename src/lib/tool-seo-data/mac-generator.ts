@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is an OUI and how does the lookup work?", a: "An OUI (Organizationally Unique Identifier) is the first three octets of a MAC address, assigned to a manufacturer. Paste any MAC address into the lookup box and the tool checks its OUI against the built-in vendor table and names the company if it is a known one." },
       { q: "Is it legal to use random MAC addresses?", a: "Generating addresses is fine, but using them to impersonate another device on a network you do not own or manage may be against the law or your provider's terms. Use generated MACs only for your own devices, labs and test environments." },
       { q: "Are the generated addresses stored anywhere?", a: "No. Generation happens with crypto.getRandomValues directly in your browser, and nothing is sent to a server or saved. Each batch is freshly random." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "mac address generator",
@@ -56,7 +56,7 @@ const seo: ToolSeo = {
       "unicast mac address generator",
       "mac address randomizer online",
       "generate mac addresses in bulk",
-      "mac address generator no signup",
+      "mac address generator a free account for downloads",
       "free mac address tool",
       "online mac generator",
       "browser mac address generator",

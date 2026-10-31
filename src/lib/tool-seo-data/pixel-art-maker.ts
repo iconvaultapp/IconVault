@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Draw pixel art on an 8x8 to 64x64 grid with brush, eraser and fill tools. Export scaled PNG or copy a data URL. Free, fully in your browser.",
     about: [
       "**IconVault**'s **Pixel Art Maker** is a free in-browser studio for drawing **pixel art** on grids from **8x8 to 64x64**. Pick a color from the 16-color **palette** or any **custom color**, then paint with the **brush**, clean up with the **eraser**, or fill whole areas with the **flood-fill** tool. Full **undo and redo** history means every stroke is reversible.",
-      "When your art is done, **export a scaled-up PNG** that keeps every pixel crisp with no smoothing, or **copy a PNG data URL** straight to your clipboard for embedding in code and game assets. Everything runs **fully in your browser**, free with no signup. The honest note: changing the grid size starts a fresh blank canvas, so export your work before switching sizes."
+      "When your art is done, **export a scaled-up PNG** that keeps every pixel crisp with no smoothing, or **copy a PNG data URL** straight to your clipboard for embedding in code and game assets. Everything runs **fully in your browser**, free to use; downloads need a free account. The honest note: changing the grid size starts a fresh blank canvas, so export your work before switching sizes."
     ],
     faqs: [
       { q: "What grid sizes are available?", a: "8x8, 16x16, 24x24, 32x32, 48x48 and 64x64. Smaller grids suit icons and sprites, larger ones suit detailed scenes. Changing size clears the canvas, so export first." },
@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "pixel art practice tool",
       "draw pixel art with mouse",
       "online drawing pixel grid",
-      "pixel art maker no signup",
+      "pixel art maker a free account for downloads",
       "retro game art tool",
       "pixel art studio online",
       "pixel art maker free online",

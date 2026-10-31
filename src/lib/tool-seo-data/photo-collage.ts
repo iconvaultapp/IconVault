@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "collage for whatsapp status",
       "printable photo collage",
       "photo collage without app",
-      "collage maker no signup",
+      "collage maker a free account for downloads",
       "drag and drop collage maker",
       "square photo collage maker",
       "download collage free",

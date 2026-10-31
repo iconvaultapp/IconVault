@@ -1,0 +1,3149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, fine dining gastronomy menu website, michelin star restaurant culinary site, gourmet chef culinary profile html, luxury gastronomy table booking page, wine bar steakhouse template, elegant candlelight dinner restaurant, contemporary fine dining bistro, exclusive menu chef tasting portfolio, private dining reservation page">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/restaurant-fine-dining">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiss Fine Dining — Free Restaurant Template</title>
+  <meta name="description" content="Luxurious culinary page optimized for Michelin-star Alpine restaurants, offering beautiful menu galleries and digital reservatio... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Swiss Fine Dining — Free Restaurant Template">
+  <meta property="og:description" content="Luxurious culinary page optimized for Michelin-star Alpine restaurants, offering beautiful menu galleries and digital reservatio... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/restaurant_fine_dining.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Swiss Fine Dining — Free Restaurant Template">
+  <meta name="twitter:description" content="Luxurious culinary page optimized for Michelin-star Alpine restaurants, offering beautiful menu galleries and digital reservatio... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/restaurant_fine_dining.webp">
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & CSS Variables */
+    :root {
+      --color-bg-primary: #0A0A0A;
+      --color-bg-secondary: #121212;
+      --color-bg-tertiary: #191919;
+      --color-gold-primary: #C5A880;
+      --color-gold-light: #E5C494;
+      --color-gold-dark: #8C7355;
+      --color-gold-glow: rgba(197, 168, 128, 0.35);
+      --color-gold-border: rgba(197, 168, 128, 0.2);
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #CCCCCC;
+      --color-text-muted: #888888;
+      
+      --font-serif: 'Playfair Display', serif;
+      --font-accent: 'Cormorant Garamond', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.2s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Premium Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-gold-dark);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-gold-primary);
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Typography Utilities */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #FFFFFF;
+    }
+
+    .accent-text {
+      font-family: var(--font-accent);
+      color: var(--color-gold-primary);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .small-caps {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-family: var(--font-sans);
+      color: var(--color-gold-primary);
+      font-weight: 600;
+    }
+
+    /* Elegant Page Overlay Background */
+    .bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 30%, rgba(140, 115, 85, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Main Container Padding */
+    section {
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Premium Button Styles */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #FFFFFF;
+      background: transparent;
+      border: 1px solid var(--color-gold-primary);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-gold-primary);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-gold:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn-gold:hover {
+      color: #0A0A0A;
+      box-shadow: 0 0 20px var(--color-gold-glow);
+      border-color: var(--color-gold-light);
+    }
+
+    .btn-gold:hover::before {
+      left: 100%;
+    }
+
+    .btn-gold-solid {
+      background: var(--color-gold-primary);
+      color: #0A0A0A;
+      border: 1px solid var(--color-gold-primary);
+    }
+    
+    .btn-gold-solid::after {
+      background: #FFFFFF;
+    }
+
+    .btn-gold-solid:hover {
+      color: #0A0A0A;
+      border-color: #FFFFFF;
+      background: #FFFFFF;
+    }
+
+    /* --- Elegant Header --- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.8rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-smooth);
+    }
+
+    header.scrolled {
+      padding: 1rem 4rem;
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-gold-border);
+      box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 35px;
+      height: 35px;
+      fill: var(--color-gold-primary);
+      transition: var(--transition-smooth);
+    }
+
+    .logo-container:hover .logo-icon {
+      transform: rotate(45deg) scale(1.1);
+      fill: var(--color-gold-light);
+    }
+
+    .logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .logo-text span {
+      color: var(--color-gold-primary);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    nav a {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #E0E0E0;
+      text-decoration: none;
+      transition: var(--transition-fast);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-gold-primary);
+      transition: var(--transition-smooth);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--color-gold-primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Mobile Menu Burger Icon */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      width: 100%;
+      height: 2px;
+      background-color: #FFFFFF;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+      background-color: var(--color-gold-primary);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+      background-color: var(--color-gold-primary);
+    }
+
+    /* --- Romantic Hero Section --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 10rem;
+      padding-bottom: 5rem;
+      background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.95)), 
+                  radial-gradient(circle at 80% 40%, rgba(197, 168, 128, 0.08) 0%, transparent 60%);
+      position: relative;
+    }
+
+    /* Subtle background grid lines */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(197, 168, 128, 0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(197, 168, 128, 0.02) 1px, transparent 1px);
+      background-size: 100px 100px;
+      background-position: center center;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .hero-subtitle {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      line-height: 1.15;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-weight: 300;
+    }
+
+    .hero-desc {
+      font-family: var(--font-accent);
+      font-size: 1.6rem;
+      font-style: italic;
+      color: #E0E0E0;
+      margin-bottom: 3.5rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* --- Quick Booking Form in Hero --- */
+    .hero-booking {
+      background: rgba(18, 18, 18, 0.85);
+      border: 1px solid var(--color-gold-border);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-gold-primary);
+      font-weight: 600;
+    }
+
+    .form-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-input-wrapper svg {
+      position: absolute;
+      left: 1rem;
+      width: 18px;
+      height: 18px;
+      fill: var(--color-gold-primary);
+      pointer-events: none;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(10, 10, 10, 0.7);
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      padding: 0.9rem 1rem 0.9rem 2.8rem;
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .form-input:focus {
+      border-color: var(--color-gold-primary);
+      box-shadow: 0 0 10px rgba(197, 168, 128, 0.2);
+    }
+
+    .form-input option {
+      background-color: var(--color-bg-secondary);
+      color: #FFFFFF;
+      padding: 10px;
+    }
+
+    .hero-booking .btn-gold {
+      height: 100%;
+      align-self: flex-end;
+      padding: 0.9rem 1.5rem;
+    }
+
+    /* Decor Element */
+    .decor-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .decor-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold-primary), transparent);
+      width: 120px;
+    }
+
+    .decor-symbol {
+      width: 18px;
+      height: 18px;
+      fill: var(--color-gold-primary);
+    }
+
+    /* --- Interactive Menu Section --- */
+    .menu-section {
+      background-color: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-gold-border);
+      border-bottom: 1px solid var(--color-gold-border);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      margin-top: 0.8rem;
+      font-weight: 400;
+    }
+
+    .section-header h2 span {
+      display: block;
+    }
+
+    /* Menu Tabs */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 1rem;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--color-text-muted);
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 0.8rem 2rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-gold-primary);
+      transform: scaleX(0);
+      transition: var(--transition-smooth);
+    }
+
+    .tab-btn:hover {
+      color: var(--color-gold-light);
+    }
+
+    .tab-btn.active {
+      color: var(--color-gold-primary);
+    }
+
+    .tab-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    /* Menu Grid Layout */
+    .menu-content {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .menu-panel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem 5rem;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(15px);
+      pointer-events: none;
+    }
+
+    .menu-panel.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      group: hover;
+    }
+
+    .menu-item-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .menu-item-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      transition: var(--transition-fast);
+    }
+
+    .menu-item:hover .menu-item-title {
+      color: var(--color-gold-light);
+    }
+
+    .menu-item-dots {
+      flex-grow: 1;
+      border-bottom: 1px dotted var(--color-gold-border);
+      position: relative;
+      top: -4px;
+    }
+
+    .menu-item-price {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-gold-primary);
+    }
+
+    .menu-item-desc {
+      font-family: var(--font-accent);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+
+    .menu-item-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .dietary-tag {
+      font-size: 0.65rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--color-gold-primary);
+      border: 1px solid var(--color-gold-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- Chef's Story Section --- */
+    .chef-section {
+      background: radial-gradient(circle at 10% 50%, rgba(197, 168, 128, 0.05) 0%, transparent 60%);
+    }
+
+    .chef-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .chef-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .chef-quote {
+      font-family: var(--font-accent);
+      font-size: 1.9rem;
+      font-style: italic;
+      line-height: 1.4;
+      color: #FFFFFF;
+      border-left: 2px solid var(--color-gold-primary);
+      padding-left: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .chef-bio {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .chef-signature {
+      width: 180px;
+      height: auto;
+      margin-top: 1rem;
+      fill: var(--color-gold-primary);
+    }
+
+    .chef-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* SVG Stylized Culinary Art Frame */
+    .culinary-frame {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 4/5;
+      position: relative;
+      border: 1px solid var(--color-gold-border);
+      background-color: var(--color-bg-secondary);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    }
+
+    .culinary-frame::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid var(--color-gold-primary);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .culinary-frame-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .culinary-badge {
+      width: 90px;
+      height: 90px;
+      fill: var(--color-gold-primary);
+    }
+
+    .culinary-frame h3 {
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .culinary-frame p {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      max-width: 280px;
+    }
+
+    .culinary-est {
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--color-gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* --- Special Events Grid --- */
+    .events-section {
+      background-color: var(--color-bg-tertiary);
+      border-top: 1px solid var(--color-gold-border);
+      border-bottom: 1px solid var(--color-gold-border);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .event-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-gold-border);
+      padding: 3rem 2.2rem;
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-gold-dark), var(--color-gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition-smooth);
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(197, 168, 128, 0.05);
+      border-color: rgba(197, 168, 128, 0.4);
+    }
+
+    .event-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .event-icon {
+      width: 48px;
+      height: 48px;
+      fill: var(--color-gold-primary);
+    }
+
+    .event-card h3 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .event-card p {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .event-link {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-gold-primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-fast);
+      margin-top: auto;
+    }
+
+    .event-link svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--color-gold-primary);
+      transition: var(--transition-fast);
+    }
+
+    .event-card:hover .event-link {
+      color: #FFFFFF;
+    }
+
+    .event-card:hover .event-link svg {
+      fill: #FFFFFF;
+      transform: translateX(5px);
+    }
+
+    /* --- Interactive Testimonials Section --- */
+    .testimonials-section {
+      background: radial-gradient(circle at 90% 10%, rgba(197, 168, 128, 0.04) 0%, transparent 55%);
+    }
+
+    .testimonials-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    }
+
+    .quote-icon {
+      width: 60px;
+      height: 60px;
+      fill: rgba(197, 168, 128, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-carousel {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+    }
+
+    .testimonial-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: scale(0.97);
+    }
+
+    .testimonial-slide.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      transform: scale(1);
+    }
+
+    .testimonial-text {
+      font-family: var(--font-accent);
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-author {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-gold-primary);
+      font-weight: 600;
+    }
+
+    .testimonial-author span {
+      color: var(--color-text-muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-accent);
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-left: 0.5rem;
+    }
+
+    /* Carousel Nav Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 3rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-text-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: none;
+    }
+
+    .dot.active {
+      background-color: var(--color-gold-primary);
+      transform: scale(1.4);
+      box-shadow: 0 0 8px var(--color-gold-glow);
+    }
+
+    /* --- Contact & Location Section --- */
+    .contact-section {
+      background-color: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-gold-border);
+      border-bottom: 1px solid var(--color-gold-border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 6rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .info-block h4 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold-primary);
+    }
+
+    .info-block p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .info-socials {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--color-gold-border);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-gold-primary);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-gold-primary);
+      transition: var(--transition-smooth);
+    }
+
+    .social-link:hover {
+      border-color: var(--color-gold-primary);
+      background-color: var(--color-gold-primary);
+      box-shadow: 0 0 15px var(--color-gold-glow);
+    }
+
+    .social-link:hover svg {
+      fill: #0A0A0A;
+      transform: scale(1.1);
+    }
+
+    /* General Inquiry Form */
+    .contact-form-container {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-gold-border);
+      padding: 3.5rem;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .contact-form-container h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .inquiry-form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+
+    .inquiry-form .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .inquiry-form input,
+    .inquiry-form textarea {
+      width: 100%;
+      background: rgba(10, 10, 10, 0.5);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      padding: 1rem;
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .inquiry-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .inquiry-form input:focus,
+    .inquiry-form textarea:focus {
+      border-color: var(--color-gold-primary);
+      background: rgba(10, 10, 10, 0.8);
+      box-shadow: 0 0 10px rgba(197, 168, 128, 0.1);
+    }
+
+    .inquiry-form button {
+      grid-column: span 2;
+      justify-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    /* --- Elegant Detailed Footer --- */
+    footer {
+      background-color: var(--color-bg-primary);
+      border-top: 1px solid var(--color-gold-border);
+      padding: 6rem 4rem 2rem 4rem;
+      font-family: var(--font-sans);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-bottom: 5rem;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .footer-logo .logo-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .footer-logo .logo-text {
+      font-size: 1.3rem;
+    }
+
+    .footer-desc {
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-gold-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-gold-primary);
+      padding-left: 5px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .newsletter-input-wrapper {
+      display: flex;
+      position: relative;
+    }
+
+    .newsletter-input {
+      flex-grow: 1;
+      background: var(--color-bg-secondary);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      border-right: none;
+      padding: 0.9rem 1.2rem;
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      border-radius: 2px 0 0 2px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--color-gold-primary);
+    }
+
+    .newsletter-btn {
+      background: var(--color-gold-primary);
+      border: 1px solid var(--color-gold-primary);
+      color: #0A0A0A;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border-radius: 0 2px 2px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .newsletter-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: #0A0A0A;
+      transition: var(--transition-smooth);
+    }
+
+    .newsletter-btn:hover {
+      background: var(--color-gold-light);
+      border-color: var(--color-gold-light);
+    }
+
+    .newsletter-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-bottom-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--color-gold-primary);
+    }
+
+    /* --- Interactive Reservation Modal System --- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-gold-primary);
+      width: 100%;
+      max-width: 600px;
+      border-radius: 4px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 50px rgba(197, 168, 128, 0.1);
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.9) translateY(30px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Modal Close Button */
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: transparent;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: var(--transition-smooth);
+      z-index: 10;
+    }
+
+    .modal-close svg {
+      width: 14px;
+      height: 14px;
+      fill: #FFFFFF;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close:hover {
+      border-color: var(--color-gold-primary);
+      background-color: var(--color-gold-primary);
+    }
+
+    .modal-close:hover svg {
+      fill: #0A0A0A;
+      transform: rotate(90deg);
+    }
+
+    /* Stepper indicator */
+    .modal-stepper {
+      display: flex;
+      background-color: var(--color-bg-tertiary);
+      border-bottom: 1px solid var(--color-gold-border);
+      padding: 1.5rem 3rem;
+    }
+
+    .step-indicator {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    .step-indicator::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: var(--color-gold-border);
+      width: 100%;
+      top: 15px;
+      left: 50%;
+      z-index: 1;
+    }
+
+    .step-indicator:last-child::after {
+      display: none;
+    }
+
+    .step-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--color-bg-secondary);
+      border: 1px solid var(--color-gold-border);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      z-index: 2;
+      transition: var(--transition-smooth);
+    }
+
+    .step-indicator.active .step-circle {
+      border-color: var(--color-gold-primary);
+      background-color: var(--color-gold-primary);
+      color: #0A0A0A;
+      box-shadow: 0 0 10px var(--color-gold-glow);
+    }
+
+    .step-indicator.completed .step-circle {
+      border-color: var(--color-gold-primary);
+      background-color: var(--color-gold-primary);
+      color: #0A0A0A;
+    }
+
+    .step-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .step-indicator.active .step-label {
+      color: var(--color-gold-primary);
+    }
+
+    /* Modal Form Content */
+    .modal-content {
+      padding: 3rem;
+    }
+
+    .modal-step-panel {
+      display: none;
+      flex-direction: column;
+      gap: 1.8rem;
+      animation: modalFadeIn 0.4s ease forwards;
+    }
+
+    .modal-step-panel.active {
+      display: flex;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-step-panel h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-step-panel p.step-desc {
+      font-family: var(--font-accent);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .modal-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .modal-form-grid .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    /* Booking Confirmation Ticket Styles */
+    .ticket-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .ticket {
+      width: 100%;
+      border: 1px solid var(--color-gold-primary);
+      border-radius: 4px;
+      position: relative;
+      background: var(--color-bg-tertiary);
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+
+    .ticket::before, .ticket::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-bg-secondary);
+      border-radius: 50%;
+      z-index: 5;
+      border: 1px solid var(--color-gold-primary);
+    }
+
+    .ticket::before {
+      left: -11px;
+    }
+
+    .ticket::after {
+      right: -11px;
+    }
+
+    .ticket-header {
+      padding: 1.8rem;
+      text-align: center;
+      border-bottom: 1px dashed var(--color-gold-border);
+      background: rgba(197, 168, 128, 0.05);
+    }
+
+    .ticket-header h4 {
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold-primary);
+    }
+
+    .ticket-header p {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+      margin-top: 0.4rem;
+    }
+
+    .ticket-body {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .ticket-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .ticket-field span.label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+    }
+
+    .ticket-field span.value {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: #FFFFFF;
+    }
+
+    .ticket-footer {
+      grid-column: span 2;
+      border-top: 1px dashed var(--color-gold-border);
+      padding-top: 1.5rem;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .ticket-code {
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-gold-primary);
+      letter-spacing: 0.2em;
+      background: rgba(197, 168, 128, 0.1);
+      padding: 0.4rem 1.5rem;
+      border-radius: 2px;
+      border: 1px solid var(--color-gold-border);
+    }
+
+    /* Loading Spinner */
+    .booking-loader {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 5rem 0;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(197, 168, 128, 0.1);
+      border-top: 3px solid var(--color-gold-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Validation visual styling */
+    .validation-alert {
+      color: #FF5A5A;
+      font-size: 0.75rem;
+      display: none;
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .form-group.invalid .form-input {
+      border-color: #FF5A5A;
+      box-shadow: 0 0 10px rgba(255, 90, 90, 0.15);
+    }
+
+    .form-group.invalid .validation-alert {
+      display: block;
+    }
+
+    /* SUCCESS NOTIFICATION TOAST */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-gold-primary);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      border-radius: 4px;
+      padding: 1.2rem 2rem;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition-smooth);
+      pointer-events: none;
+    }
+
+    .toast.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .toast-icon {
+      width: 24px;
+      height: 24px;
+      fill: var(--color-gold-primary);
+    }
+
+    .toast-content h5 {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .toast-content p {
+      color: var(--color-text-secondary);
+      font-size: 0.8rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      header {
+        padding: 1.5rem 2rem;
+      }
+      header.scrolled {
+        padding: 1rem 2rem;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      .hero-booking {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .chef-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .chef-visual {
+        order: -1;
+      }
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 5rem 1.5rem;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--color-bg-secondary);
+        border-left: 1px solid var(--color-gold-border);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 1000;
+        transition: var(--transition-smooth);
+        padding: 2rem;
+      }
+      nav.active {
+        right: 0;
+        box-shadow: -20px 0 60px rgba(0,0,0,0.8);
+      }
+      nav a {
+        font-size: 1.1rem;
+      }
+      .nav-cta {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      .hero-desc {
+        font-size: 1.3rem;
+      }
+      .hero-booking {
+        grid-template-columns: 1fr;
+        padding: 1.8rem;
+      }
+      .menu-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .tab-btn {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+      }
+      .menu-panel {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-card {
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-stepper {
+        padding: 1.2rem 1rem;
+      }
+      .modal-content {
+        padding: 2rem 1.5rem;
+      }
+      .modal-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-form-grid .form-group.full-width {
+        grid-column: span 1;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Swiss Fine Dining",
+    "description": "Luxurious culinary page optimized for Michelin-star Alpine restaurants, offering beautiful menu galleries and digital reservatio... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/restaurant-fine-dining",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/restaurant-fine-dining.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- Background elegant overlay glow -->
+  <div class="bg-overlay"></div>
+
+  <!-- --- Elegant Header --- -->
+  <header id="header">
+    <a href="#" class="logo-container">
+      <svg class="logo-icon" viewBox="0 0 100 100">
+        <path d="M50 5 L58 35 L88 35 L64 53 L73 83 L50 65 L27 83 L36 53 L12 35 L42 35 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M50 20 L50 35 M50 65 L50 80 M20 50 L35 50 M65 50 L80 50" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="logo-text">Aurelia<span>.</span></span>
+    </a>
+    
+    <nav id="nav">
+      <a href="#hero" class="nav-link">The Experience</a>
+      <a href="#menu" class="nav-link">The Menu</a>
+      <a href="#chef" class="nav-link">Our Story</a>
+      <a href="#events" class="nav-link">Events</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <button class="btn-gold" onclick="openBookingModal()">Book a Table</button>
+    </div>
+
+    <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- --- Romantic Hero Section --- -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="small-caps hero-subtitle">Michelin-Starred Gastronomy</span>
+        <h1>Where Culinary Artistry<br><span>Meets Timeless Elegance</span></h1>
+        
+        <p class="hero-desc">
+          An intimate space designed for the modern gastronome. Indulge in an orchestration of seasonal rare ingredients, tailored service, and legendary vintages.
+        </p>
+
+        <!-- Quick Booking Form in Hero -->
+        <form class="hero-booking" id="hero-quick-form" onsubmit="handleQuickSubmit(event)">
+          <div class="form-group">
+            <label for="quick-date">Date</label>
+            <div class="form-input-wrapper">
+              <!-- Calendar Icon -->
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/></svg>
+              <input type="date" id="quick-date" class="form-input" required>
+            </div>
+            <span class="validation-alert" id="err-quick-date">Please select a valid future date.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="quick-time">Preferred Time</label>
+            <div class="form-input-wrapper">
+              <!-- Clock Icon -->
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
+              <select id="quick-time" class="form-input" required>
+                <option value="">Select Time</option>
+                <option value="17:00">5:00 PM</option>
+                <option value="17:30">5:30 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+                <option value="21:00">9:00 PM</option>
+                <option value="21:30">9:30 PM</option>
+              </select>
+            </div>
+            <span class="validation-alert" id="err-quick-time">Please select a preferred seating time.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="quick-guests">Guests</label>
+            <div class="form-input-wrapper">
+              <!-- User Icon -->
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              <select id="quick-guests" class="form-input" required>
+                <option value="">Select Guests</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7">7 Guests</option>
+                <option value="8+">8+ Guests</option>
+              </select>
+            </div>
+            <span class="validation-alert" id="err-quick-guests">Please select guest count.</span>
+          </div>
+
+          <button type="submit" class="btn-gold">Find a Table</button>
+        </form>
+      </div>
+
+      <div class="decor-divider">
+        <div class="decor-line"></div>
+        <svg class="decor-symbol" viewBox="0 0 24 24">
+          <path d="M12 2L14.8 8.6L22 9.2L16.5 13.8L18.2 21L12 17.2L5.8 21L7.5 13.8L2 9.2L9.2 8.6Z"/>
+        </svg>
+        <div class="decor-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Interactive Menu Section --- -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="small-caps">Symphony of Flavors</span>
+        <h2>Explore Our Curated Menu</h2>
+      </div>
+
+      <!-- Elegant Tabs -->
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="switchMenuTab(event, 'appetizers')">L'Entrée</button>
+        <button class="tab-btn" onclick="switchMenuTab(event, 'mains')">Le Plat Principal</button>
+        <button class="tab-btn" onclick="switchMenuTab(event, 'desserts')">Le Dessert</button>
+        <button class="tab-btn" onclick="switchMenuTab(event, 'wines')">La Cave</button>
+      </div>
+
+      <!-- Menu Grid/Lists -->
+      <div class="menu-content">
+        <!-- Appetizers Panel -->
+        <div class="menu-panel active" id="appetizers">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Truffle Infused Langoustine</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$42</span>
+            </div>
+            <p class="menu-item-desc">Pan-seared Brittany langoustine, winter black truffle shavings, celery root cream, delicate chervil oil.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">GF</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Foie Gras Terrine Royale</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$38</span>
+            </div>
+            <p class="menu-item-desc">Hand-pressed duck liver, marinated in vintage Armagnac, spiced fig compote, toasted artisanal brioche.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">Signature</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Heirloom Beetroot Carpaccio</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$32</span>
+            </div>
+            <p class="menu-item-desc">Slow-roasted organic beets, whipped local goat cheese, toasted pistachios, aged balsamic pearl essence.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">V</span>
+              <span class="dietary-tag">GF</span>
+              <span class="dietary-tag">N</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Seared Diver Scallops</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$45</span>
+            </div>
+            <p class="menu-item-desc">Maine diver scallops, parsnip silk, crispy Jamón Ibérico, saffron emulsion, sea fennel.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">GF</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mains Panel -->
+        <div class="menu-panel" id="mains">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Dry-Aged Wagyu Filet Mignon</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$85</span>
+            </div>
+            <p class="menu-item-desc">A5 Miyazaki Wagyu beef, charred wild chanterelles, bone marrow reduction, pommes purée with gold leaf.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">GF</span>
+              <span class="dietary-tag">Signature</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Pan-Roasted Line Caught Sea Bass</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$68</span>
+            </div>
+            <p class="menu-item-desc">Atlantic sea bass, butter-poached lobster medallion, baby asparagus, champagne caviar velouté.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">GF</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Duo of Heritage Lamb</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$72</span>
+            </div>
+            <p class="menu-item-desc">Herb-crusted roasted rack & slow-braised shoulder, sweet potato pavé, rosemary jus, wild ramp pesto.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">N</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Wild Mushroom & Truffle Gnocchi</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$58</span>
+            </div>
+            <p class="menu-item-desc">House-rolled potato gnocchi, forest mushrooms, fresh shaved Burgundy truffles, Parmigiano foam.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">V</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desserts Panel -->
+        <div class="menu-panel" id="desserts">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">The Golden Aurelia Sphere</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$24</span>
+            </div>
+            <p class="menu-item-desc">Dark chocolate shell, warm salted caramel pour-over, hazelnut praline, Madagascar vanilla bean mousse.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">V</span>
+              <span class="dietary-tag">N</span>
+              <span class="dietary-tag">Signature</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Deconstructed Meyer Lemon Tart</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$20</span>
+            </div>
+            <p class="menu-item-desc">Meyer lemon curd, toasted Italian meringue peaks, shortbread crumble, wild basil sorbet.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">V</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Grand Marnier Soufflé</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$26</span>
+            </div>
+            <p class="menu-item-desc">Traditional warm copper-baked soufflé, candied orange peel, cold Grand Marnier cream core.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">V</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Artisanal Cheese Degustation</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$30</span>
+            </div>
+            <p class="menu-item-desc">Selection of four European raw milk cheeses, honeycomb, artisanal dried fruit crackers.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">V</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wines Panel -->
+        <div class="menu-panel" id="wines">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Château Margaux, Grand Cru Classé 2012</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$185 <span style="font-size: 0.8rem; color: var(--color-text-muted);">/glass</span></span>
+            </div>
+            <p class="menu-item-desc">Silky tannins, deep blackcurrant, cedar notes with an exceptionally elegant and long finish.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">Bordeaux</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Dom Pérignon Vintage Champagne 2013</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$65 <span style="font-size: 0.8rem; color: var(--color-text-muted);">/glass</span></span>
+            </div>
+            <p class="menu-item-desc">Vibrant mineral freshness, toasted brioche, light citrus notes, and persistent active effervescence.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">Champagne</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Kistler Vineyards Chardonnay 2021</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$45 <span style="font-size: 0.8rem; color: var(--color-text-muted);">/glass</span></span>
+            </div>
+            <p class="menu-item-desc">Layered aromas of white peach, honeysuckle, and toasted almond with a rich, mineral-driven finish.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">Sonoma Coast</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-title">Penfolds Grange Shiraz 2018</span>
+              <div class="menu-item-dots"></div>
+              <span class="menu-item-price">$220 <span style="font-size: 0.8rem; color: var(--color-text-muted);">/glass</span></span>
+            </div>
+            <p class="menu-item-desc">A majestic, full-bodied profile of dark plum, sweet spices, dark chocolate, and impeccable structure.</p>
+            <div class="menu-item-tags">
+              <span class="dietary-tag">Australia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 5rem;">
+        <button class="btn-gold" onclick="openBookingModal()">Reserve a Table Experience</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Chef's Story Section --- -->
+  <section class="chef-section" id="chef">
+    <div class="container">
+      <div class="chef-grid">
+        <div class="chef-text">
+          <span class="small-caps">Philosophy & Origin</span>
+          <h2>A Symphony of Tradition<br>& Modern Gastronomy</h2>
+          
+          <p class="chef-quote">
+            "Cooking is not merely an art; it is a confession of love for the senses. Every plate represents a memory, a landscape, a story told in the universal language of flavor."
+          </p>
+
+          <p class="chef-bio">
+            Raised in the sun-drenched rolling vineyards of Bordeaux, Chef de Cuisine Antoine Dubois began his path in the culinary world standing alongside his grandmother. He learned to respect the soil, to listen to the seasons, and to let nature command the kitchen. 
+          </p>
+
+          <p class="chef-bio">
+            At Aurelia, Antoine and his team curate culinary journeys utilizing organic ingredients harvested from small-scale local micro-farms, wild ingredients responsibly foraged at sunrise, and deep-sea catches brought directly from generational fishing boats. Each recipe seamlessly blends classic French cooking techniques with modern molecular design.
+          </p>
+
+          <!-- Stylized signature -->
+          <svg class="chef-signature" viewBox="0 0 300 100">
+            <path d="M30,50 Q60,20 80,60 T130,40 T180,60 T230,30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M60,30 L60,80 M120,40 L120,70" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <text x="140" y="80" font-family="'Cormorant Garamond', serif" font-size="28" font-style="italic" fill="currentColor">Antoine Dubois</text>
+          </svg>
+        </div>
+
+        <div class="chef-visual">
+          <div class="culinary-frame">
+            <div class="culinary-frame-content">
+              <!-- Elegant Cloche SVG inside frame -->
+              <svg class="culinary-badge" viewBox="0 0 100 100">
+                <path d="M10,80 L90,80 A5,5 0 0 0 90,70 L10,70 A5,5 0 0 0 10,80 Z" />
+                <path d="M15,65 C15,35 35,20 50,20 C65,20 85,35 85,65 Z" fill="none" stroke="currentColor" stroke-width="3" />
+                <circle cx="50" cy="15" r="5" />
+              </svg>
+              <h3>La Haute Cuisine</h3>
+              <p>Crafting rare dining memories with passion, integrity, and soul.</p>
+              <div class="culinary-est">Est. 2018</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Special Events Section --- -->
+  <section class="events-section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <span class="small-caps">Exquisite Encounters</span>
+        <h2>Curated Culinary Journeys</h2>
+      </div>
+
+      <div class="events-grid">
+        <!-- Event Card 1 -->
+        <div class="event-card">
+          <!-- Sommelier Glass SVG -->
+          <svg class="event-icon" viewBox="0 0 100 100">
+            <path d="M35 15 L65 15 L60 55 C60 65 40 65 40 55 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M50 60 L50 85 M30 85 L70 85" stroke="currentColor" stroke-width="3"/>
+            <path d="M42 30 H58" stroke="currentColor" stroke-width="1"/>
+          </svg>
+          <h3>Grand Vintage Soirée</h3>
+          <p>An extraordinary dinner event featuring a bespoke 7-course degustation menu masterfully paired with legendary grand crus selected from our private underground reserve cellar.</p>
+          <a href="#contact" class="event-link">
+            Inquire Details
+            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+          </a>
+        </div>
+
+        <!-- Event Card 2 -->
+        <div class="event-card">
+          <!-- Chef Hat / Laurel SVG -->
+          <svg class="event-icon" viewBox="0 0 100 100">
+            <path d="M25 80 L75 80 L70 60 C75 55 75 45 65 40 C65 25 35 25 35 40 C25 45 25 55 30 60 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M30 80 H70" stroke="currentColor" stroke-width="6"/>
+          </svg>
+          <h3>The Chef's Atelier Table</h3>
+          <p>An immersive culinary sensory experience designed for up to six esteemed guests. Sit in absolute privacy and enjoy customized culinary theater prepared right before your eyes by Chef Antoine.</p>
+          <a href="#contact" class="event-link">
+            Inquire Details
+            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+          </a>
+        </div>
+
+        <!-- Event Card 3 -->
+        <div class="event-card">
+          <!-- Candle / Chamber SVG -->
+          <svg class="event-icon" viewBox="0 0 100 100">
+            <path d="M40 80 L60 80 M50 80 L50 45" stroke="currentColor" stroke-width="4"/>
+            <path d="M45 45 H55 V35 H45 Z" fill="currentColor"/>
+            <path d="M50 30 Q53 25 50 15 Q47 25 50 30 Z" fill="var(--color-gold-primary)"/>
+            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4"/>
+          </svg>
+          <h3>Opera & Candlelight</h3>
+          <p>Enjoy a mesmerizing atmosphere featuring neoclassical melodies performed live by guest concert soloists in our grand candlelit salon room, accompanied by an award-winning seasonal menu.</p>
+          <a href="#contact" class="event-link">
+            Inquire Details
+            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Interactive Testimonials Section --- -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-container">
+        <!-- Quote icon design -->
+        <svg class="quote-icon" viewBox="0 0 24 24">
+          <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+        </svg>
+
+        <div class="testimonial-carousel" id="testimonial-carousel">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide active">
+            <p class="testimonial-text">
+              "An architectural masterpiece of culinary flavor. Every single presentation was a magnificent visual landscape, yet the complexity and harmony of taste was even more breathtaking. Aurelia represents modern fine dining at its absolute zenith."
+            </p>
+            <div class="testimonial-author">Clara Vance<span>— Haute Cuisine Monthly</span></div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-text">
+              "Aurelia does not simply serve dinner; they conduct an exquisite gastronomic orchestra. The seamless, intuitive pairing of the legendary 2012 Château Margaux with Chef Antoine's heritage rack of lamb was a moment of pure poetic brilliance."
+            </p>
+            <div class="testimonial-author">Marcus Sterling<span>— The Gastronome Review</span></div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-text">
+              "The immaculate attention to detail is staggering. From the hand-warmed linen towels to the custom gold-flaked spherical desserts, Aurelia raises the benchmark for fine dining luxury hospitality worldwide."
+            </p>
+            <div class="testimonial-author">Evelyn Rose<span>— Modern Luxury Gastronomy</span></div>
+          </div>
+        </div>
+
+        <div class="carousel-dots" id="carousel-dots">
+          <button class="dot active" onclick="jumpToTestimonial(0)" aria-label="Go to slide 1"></button>
+          <button class="dot" onclick="jumpToTestimonial(1)" aria-label="Go to slide 2"></button>
+          <button class="dot" onclick="jumpToTestimonial(2)" aria-label="Go to slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Contact & Location Section --- -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-block">
+            <span class="small-caps">Visit Our Sanctuary</span>
+            <h2>Hours & Location</h2>
+          </div>
+
+          <div class="info-block">
+            <h4>Location</h4>
+            <p>742 Rue de L'Étoile, Culinary District<br>New York, NY 10013</p>
+          </div>
+
+          <div class="info-block">
+            <h4>Hours of Operation</h4>
+            <p>
+              <strong>Wednesday – Sunday</strong><br>
+              Dinner Service: 5:00 PM – 11:00 PM
+            </p>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic;">
+              Closed Mondays and Tuesdays for culinary research & menu development.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h4>Contact Details</h4>
+            <p>
+              Reservations: (555) 890-4422<br>
+              Inquiries: experience@aureliarest.com
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h4>Follow Our Art</h4>
+            <div class="info-socials">
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m8.4 2.25a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9m0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M17 2H14c-2.76 0-5 2.24-5 5v3H7v4h2v8h4v-8h3l.5-4h-3.5V7c0-.55.45-1 1-1h3V2z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Pinterest">
+                <svg viewBox="0 0 24 24"><path d="M12.24 2C6.59 2 2 6.59 2 12.24c0 4.33 2.7 8 6.5 9.44-.1-.83-.2-2.11 0-3 .2-.83 1.25-5.32 1.25-5.32s-.32-.63-.32-1.57c0-1.47.85-2.57 1.92-2.57.9 0 1.34.68 1.34 1.5 0 .91-.58 2.27-.88 3.53-.25 1.06.53 1.92 1.57 1.92 1.88 0 3.33-1.98 3.33-4.85 0-2.54-1.82-4.31-4.42-4.31-3 0-4.77 2.26-4.77 4.58 0 .91.35 1.89.79 2.42.09.11.1.2.07.31l-.3 1.21c-.05.21-.16.25-.37.15-1.4-.65-2.28-2.7-2.28-4.35 0-3.54 2.57-6.8 7.42-6.8 3.9 0 6.93 2.78 6.93 6.49 0 3.88-2.45 7-5.85 7-1.14 0-2.22-.59-2.59-1.29l-.7 2.69c-.25.96-.94 2.16-1.4 2.9 1.05.32 2.16.5 3.31.5 5.65 0 10.24-4.59 10.24-10.24C22.48 6.59 17.89 2 12.24 2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sleek Sommelier/General Inquiry form -->
+        <div class="contact-form-container">
+          <h3>Send an Inquiry</h3>
+          <form class="inquiry-form" id="contact-inquiry-form" onsubmit="handleInquirySubmit(event)">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" placeholder="Antoine Dubois" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" placeholder="antoine@example.com" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="contact-subject">Inquiry Category</label>
+              <input type="text" id="contact-subject" placeholder="General, Private Dining Room, Press" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" placeholder="How may we elevate your sensory dining experience..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-gold">Transmit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Footer --- -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="footer-logo">
+          <svg class="logo-icon" viewBox="0 0 100 100">
+            <path d="M50 5 L58 35 L88 35 L64 53 L73 83 L50 65 L27 83 L36 53 L12 35 L42 35 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+            <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span class="logo-text">Aurelia<span>.</span></span>
+        </a>
+        <p class="footer-desc">
+          Crafting legendary Michelin star-worthy dining journeys since 2018. Combining local organic sustainability with modern culinary wizardry.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>The House</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">The Experience</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#chef">Our Chef</a></li>
+          <li><a href="#events">Bespoke Events</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Reservations</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="openBookingModal(); return false;">Book a Table</a></li>
+          <li><a href="#contact">Private Events Space</a></li>
+          <li><a href="#contact">Dietary Accommodations</a></li>
+          <li><a href="#contact">Cancellation Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Journal</h4>
+        <p class="footer-desc">Subscribe to receive exclusive invites, special seasonal menu announcements, and rare vintages news.</p>
+        <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+          <div class="newsletter-input-wrapper">
+            <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Your Luxury Email" required aria-label="Email for Newsletter">
+            <button type="submit" class="newsletter-btn" aria-label="Submit Newsletter">
+              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aurelia Fine Dining. All culinary rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Excellence</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- Interactive Reservation System Modal --- -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeBookingModal()" aria-label="Close Reservation Overlay">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+
+      <!-- Step Progress Bar -->
+      <div class="modal-stepper">
+        <div class="step-indicator active" id="indicator-step1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Schedule</span>
+        </div>
+        <div class="step-indicator" id="indicator-step2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Connoisseur</span>
+        </div>
+        <div class="step-indicator" id="indicator-step3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Ticket</span>
+        </div>
+      </div>
+
+      <!-- Spinner Loader inside Modal -->
+      <div class="booking-loader" id="booking-loader">
+        <div class="spinner"></div>
+        <h4 style="letter-spacing: 0.1em;">Analyzing Salon Seating...</h4>
+        <p class="accent-text">Verifying availability with the Maitre D'</p>
+      </div>
+
+      <div class="modal-content" id="modal-content-panel">
+        
+        <!-- STEP 1: DATE, TIME, GUESTS -->
+        <div class="modal-step-panel active" id="modal-panel-step1">
+          <div>
+            <h3>Select Dining Schedule</h3>
+            <p class="step-desc">Coordinate your perfect date and table parameters.</p>
+          </div>
+
+          <div class="modal-form-grid">
+            <div class="form-group">
+              <label for="book-date">Date</label>
+              <div class="form-input-wrapper">
+                <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/></svg>
+                <input type="date" id="book-date" class="form-input" required>
+              </div>
+              <span class="validation-alert" id="err-book-date">Reservations must be made for future dates only.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="book-time">Seatings</label>
+              <div class="form-input-wrapper">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
+                <select id="book-time" class="form-input" required>
+                  <option value="">Select Time</option>
+                  <option value="17:00">5:00 PM</option>
+                  <option value="17:30">5:30 PM</option>
+                  <option value="18:00">6:00 PM</option>
+                  <option value="18:30">6:30 PM</option>
+                  <option value="19:00">7:00 PM</option>
+                  <option value="19:30">7:30 PM</option>
+                  <option value="20:00">8:00 PM</option>
+                  <option value="20:30">8:30 PM</option>
+                  <option value="21:00">9:00 PM</option>
+                  <option value="21:30">9:30 PM</option>
+                </select>
+              </div>
+              <span class="validation-alert" id="err-book-time">Please select an available seating slot.</span>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="book-guests">Parties Size</label>
+              <div class="form-input-wrapper">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <select id="book-guests" class="form-input" required>
+                  <option value="">Select Guests</option>
+                  <option value="1 Guest">1 Guest</option>
+                  <option value="2 Guests">2 Guests (Highly Recommended)</option>
+                  <option value="3 Guests">3 Guests</option>
+                  <option value="4 Guests">4 Guests</option>
+                  <option value="5 Guests">5 Guests</option>
+                  <option value="6 Guests">6 Guests (Chef's Atelier Table Limit)</option>
+                  <option value="7 Guests">7 Guests</option>
+                  <option value="8+ Guests">8+ Guests (Requires Salon Booking)</option>
+                </select>
+              </div>
+              <span class="validation-alert" id="err-book-guests">Please declare the exact size of your party.</span>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div></div> <!-- empty placeholder to push right -->
+            <button class="btn-gold" onclick="advanceStep1To2()">Connoisseur Info &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: GUEST DETAILS & SPECIAL REQUIREMENTS -->
+        <div class="modal-step-panel" id="modal-panel-step2">
+          <div>
+            <h3>Connoisseur Particulars</h3>
+            <p class="step-desc">Establish secure contact coordinates and menu configurations.</p>
+          </div>
+
+          <div class="modal-form-grid">
+            <div class="form-group">
+              <label for="book-name">Full Name</label>
+              <input type="text" id="book-name" class="form-input" style="padding-left:1rem;" placeholder="Antoine Dubois" required>
+              <span class="validation-alert" id="err-book-name">Name must contain at least 3 letters.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="book-email">Email Address</label>
+              <input type="email" id="book-email" class="form-input" style="padding-left:1rem;" placeholder="antoine@aurelia.com" required>
+              <span class="validation-alert" id="err-book-email">Please input a valid luxury email coordinate.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="book-phone">Phone Coordinate</label>
+              <input type="tel" id="book-phone" class="form-input" style="padding-left:1rem;" placeholder="(555) 000-0000" required>
+              <span class="validation-alert" id="err-book-phone">Please provide a valid phone layout.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="book-diet">Dietary Configurations</label>
+              <select id="book-diet" class="form-input" style="padding-left:1rem;">
+                <option value="None">None</option>
+                <option value="Vegetarian">Vegetarian (V)</option>
+                <option value="Gluten-Free">Gluten-Free (GF)</option>
+                <option value="Nut Allergies">Nut Allergies (N)</option>
+                <option value="Multiple Accommodations">Multiple Accommodations</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="book-notes">Special Occasions & Cru Requests</label>
+              <textarea id="book-notes" class="form-input" style="padding-left:1rem; resize:none; min-height:80px;" placeholder="E.g., Anniversaries, private cellar allocations, request window salon seating..."></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn-gold" onclick="regressStep2To1()" style="border-color: rgba(255,255,255,0.1);">&larr; Schedule</button>
+            <button class="btn-gold btn-gold-solid" onclick="finalizeBooking()">Confirm Reservation</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: TICKET CONFIRMATION -->
+        <div class="modal-step-panel" id="modal-panel-step3">
+          <div class="ticket-container">
+            <div style="text-align: center;">
+              <h3 style="color: var(--color-gold-primary);">Sanctuary Table Allocated</h3>
+              <p class="step-desc">Your seating code has been registered in the Aurelia registry book.</p>
+            </div>
+
+            <!-- Golden Frame Ticket -->
+            <div class="ticket" id="printable-ticket">
+              <div class="ticket-header">
+                <h4>Aurelia Gastronomy</h4>
+                <p>Michelin Guild Registry Seat Pass</p>
+              </div>
+
+              <div class="ticket-body">
+                <div class="ticket-field">
+                  <span class="label">Connoisseur</span>
+                  <span class="value" id="ticket-val-name">Antoine Dubois</span>
+                </div>
+
+                <div class="ticket-field">
+                  <span class="label">Date Reserved</span>
+                  <span class="value" id="ticket-val-date">2026-05-23</span>
+                </div>
+
+                <div class="ticket-field">
+                  <span class="label">Hour Seated</span>
+                  <span class="value" id="ticket-val-time">7:30 PM</span>
+                </div>
+
+                <div class="ticket-field">
+                  <span class="label">Party Allocation</span>
+                  <span class="value" id="ticket-val-guests">2 Guests</span>
+                </div>
+
+                <div class="ticket-field">
+                  <span class="label">Dietaries Config</span>
+                  <span class="value" id="ticket-val-diet">None</span>
+                </div>
+
+                <div class="ticket-field">
+                  <span class="label">Private Salon Room</span>
+                  <span class="value">Main Rotunda</span>
+                </div>
+
+                <div class="ticket-footer">
+                  <span class="label">Digital Booking Code</span>
+                  <span class="ticket-code" id="ticket-val-code">AUR-8921-X</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; width: 100%;">
+              <button class="btn-gold" style="flex: 1;" onclick="printTicket()">Print Pass</button>
+              <button class="btn-gold btn-gold-solid" style="flex: 1;" onclick="closeBookingModal()">Enter Sanctuary</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- --- Success Toast Notification --- -->
+  <div class="toast" id="success-toast">
+    <!-- Checkmark icon -->
+    <svg class="toast-icon" viewBox="0 0 24 24">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    </svg>
+    <div class="toast-content">
+      <h5 id="toast-title">Registry Updated</h5>
+      <p id="toast-message">Inquiry successfully transmitted.</p>
+    </div>
+  </div>
+
+  <!-- --- Javascript Logic --- -->
+  <script>
+    // --- Sticky Header Scroll Logic ---
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // --- Mobile Navigation Menu Toggle ---
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+
+    // --- Interactive Menu Section Tab Switching ---
+    function switchMenuTab(event, panelId) {
+      // Deactivate all tab buttons
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+
+      // Deactivate all menu panels
+      const panels = document.querySelectorAll('.menu-panel');
+      panels.forEach(panel => panel.classList.remove('active'));
+
+      // Activate clicked button and associated panel
+      event.currentTarget.classList.add('active');
+      
+      const targetPanel = document.getElementById(panelId);
+      targetPanel.classList.add('active');
+    }
+
+    // --- Testimonials Slide Carousel Logic ---
+    let currentTestimonialIndex = 0;
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const dotButtons = document.querySelectorAll('#carousel-dots .dot');
+    let testimonialInterval;
+
+    function showTestimonial(index) {
+      testimonialSlides.forEach(slide => slide.classList.remove('active'));
+      dotButtons.forEach(dot => dot.classList.remove('active'));
+
+      testimonialSlides[index].classList.add('active');
+      dotButtons[index].classList.add('active');
+      currentTestimonialIndex = index;
+    }
+
+    function jumpToTestimonial(index) {
+      clearInterval(testimonialInterval);
+      showTestimonial(index);
+      startTestimonialAutoRotation();
+    }
+
+    function rotateTestimonial() {
+      let nextIndex = currentTestimonialIndex + 1;
+      if (nextIndex >= testimonialSlides.length) {
+        nextIndex = 0;
+      }
+      showTestimonial(nextIndex);
+    }
+
+    function startTestimonialAutoRotation() {
+      testimonialInterval = setInterval(rotateTestimonial, 6000);
+    }
+
+    // Initialize rotation
+    startTestimonialAutoRotation();
+
+    // --- Success Toast System ---
+    function triggerToast(title, message) {
+      const toast = document.getElementById('success-toast');
+      document.getElementById('toast-title').innerText = title;
+      document.getElementById('toast-message').innerText = message;
+
+      toast.classList.add('active');
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 4000);
+    }
+
+    // --- Inquiry & Newsletter Mock Submissions ---
+    function handleInquirySubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      
+      // Mimic API delay
+      const btn = event.target.querySelector('button');
+      const originalText = btn.innerText;
+      btn.innerText = "Transmitting...";
+      btn.disabled = true;
+
+      setTimeout(() => {
+        triggerToast("Inquiry Transmitted", `Thank you ${name}. Our concierge will respond shortly.`);
+        event.target.reset();
+        btn.innerText = originalText;
+        btn.disabled = false;
+      }, 1200);
+    }
+
+    function handleNewsletterSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('newsletter-email').value;
+      
+      triggerToast("Entry Secured", "Welcome to the Aurelia Culinary Society journal.");
+      event.target.reset();
+    }
+
+    // --- Premium Booking Engine Modal Flow ---
+    const bookingModal = document.getElementById('booking-modal');
+    
+    // Prevent past dates in reservation selectors
+    const today = new Date();
+    const formattedToday = today.toISOString().split('T')[0];
+    document.getElementById('quick-date').min = formattedToday;
+    document.getElementById('book-date').min = formattedToday;
+
+    function openBookingModal() {
+      // Clear steps and reset to Step 1
+      resetBookingModalState();
+      bookingModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Lock background scroll
+    }
+
+    function closeBookingModal() {
+      bookingModal.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Restore scroll
+    }
+
+    function resetBookingModalState() {
+      // Hide loader, show contents
+      document.getElementById('booking-loader').style.display = 'none';
+      document.getElementById('modal-content-panel').style.display = 'block';
+
+      // Reset panels to Step 1
+      setModalStepActive(1);
+      
+      // Clear visual errors
+      const invalidGroups = document.querySelectorAll('.form-group.invalid');
+      invalidGroups.forEach(group => group.classList.remove('invalid'));
+    }
+
+    function setModalStepActive(stepNum) {
+      // Manage panel displays
+      document.querySelectorAll('.modal-step-panel').forEach(panel => panel.classList.remove('active'));
+      document.getElementById(`modal-panel-step${stepNum}`).classList.add('active');
+
+      // Manage stepper indicator circles
+      const indicators = document.querySelectorAll('.step-indicator');
+      indicators.forEach((indicator, index) => {
+        indicator.classList.remove('active', 'completed');
+        if (index + 1 < stepNum) {
+          indicator.classList.add('completed');
+        } else if (index + 1 === stepNum) {
+          indicator.classList.add('active');
+        }
+      });
+    }
+
+    // Validate date is today or future, and not closed days (Monday, Tuesday as declared)
+    function validateDateInput(dateString, errorId, groupElement) {
+      if (!dateString) {
+        showValidationError(groupElement, errorId, "Reservation date is required.");
+        return false;
+      }
+      const selected = new Date(dateString);
+      const todayDate = new Date();
+      todayDate.setHours(0,0,0,0);
+      
+      if (selected < todayDate) {
+        showValidationError(groupElement, errorId, "Past dates are not available.");
+        return false;
+      }
+
+      // Check if day is Monday (1) or Tuesday (2)
+      const day = selected.getUTCDay();
+      if (day === 1 || day === 2) {
+        showValidationError(groupElement, errorId, "The sanctuary is closed Mondays & Tuesdays.");
+        return false;
+      }
+
+      hideValidationError(groupElement, errorId);
+      return true;
+    }
+
+    function showValidationError(groupElement, errorId, text) {
+      groupElement.classList.add('invalid');
+      if (text) {
+        document.getElementById(errorId).innerText = text;
+      }
+    }
+
+    function hideValidationError(groupElement, errorId) {
+      groupElement.classList.remove('invalid');
+    }
+
+    // --- QUICK SUBMIT HERO FORM ---
+    function handleQuickSubmit(event) {
+      event.preventDefault();
+      
+      const qDateInput = document.getElementById('quick-date');
+      const qTimeInput = document.getElementById('quick-time');
+      const qGuestsInput = document.getElementById('quick-guests');
+
+      const isDateValid = validateDateInput(qDateInput.value, 'err-quick-date', qDateInput.closest('.form-group'));
+      const isTimeValid = qTimeInput.value !== '';
+      const isGuestsValid = qGuestsInput.value !== '';
+
+      if (!isTimeValid) {
+        showValidationError(qTimeInput.closest('.form-group'), 'err-quick-time');
+      } else {
+        hideValidationError(qTimeInput.closest('.form-group'), 'err-quick-time');
+      }
+
+      if (!isGuestsValid) {
+        showValidationError(qGuestsInput.closest('.form-group'), 'err-quick-guests');
+      } else {
+        hideValidationError(qGuestsInput.closest('.form-group'), 'err-quick-guests');
+      }
+
+      if (isDateValid && isTimeValid && isGuestsValid) {
+        // Pre-fill Step 1 parameters in the modal form
+        document.getElementById('book-date').value = qDateInput.value;
+        document.getElementById('book-time').value = qTimeInput.value;
+        
+        // Find match in guests selector
+        const matchValue = qGuestsInput.value + (qGuestsInput.value === '1' ? ' Guest' : ' Guests');
+        const selector = document.getElementById('book-guests');
+        for (let i = 0; i < selector.options.length; i++) {
+          if (selector.options[i].value.startsWith(qGuestsInput.value)) {
+            selector.selectedIndex = i;
+            break;
+          }
+        }
+
+        // Open modal and advance immediately to Step 2
+        openBookingModal();
+        setModalStepActive(2);
+      }
+    }
+
+    // --- STEP 1 TO 2 TRANSITION ---
+    function advanceStep1To2() {
+      const bDateInput = document.getElementById('book-date');
+      const bTimeInput = document.getElementById('book-time');
+      const bGuestsInput = document.getElementById('book-guests');
+
+      const isDateValid = validateDateInput(bDateInput.value, 'err-book-date', bDateInput.closest('.form-group'));
+      const isTimeValid = bTimeInput.value !== '';
+      const isGuestsValid = bGuestsInput.value !== '';
+
+      if (!isTimeValid) {
+        showValidationError(bTimeInput.closest('.form-group'), 'err-book-time');
+      } else {
+        hideValidationError(bTimeInput.closest('.form-group'), 'err-book-time');
+      }
+
+      if (!isGuestsValid) {
+        showValidationError(bGuestsInput.closest('.form-group'), 'err-book-guests');
+      } else {
+        hideValidationError(bGuestsInput.closest('.form-group'), 'err-book-guests');
+      }
+
+      if (isDateValid && isTimeValid && isGuestsValid) {
+        setModalStepActive(2);
+      }
+    }
+
+    function regressStep2To1() {
+      setModalStepActive(1);
+    }
+
+    // --- STEP 2 FINALIZATION (WITH LOADING ANIMATION) ---
+    function finalizeBooking() {
+      const bName = document.getElementById('book-name');
+      const bEmail = document.getElementById('book-email');
+      const bPhone = document.getElementById('book-phone');
+      const bDiet = document.getElementById('book-diet').value;
+      const bNotes = document.getElementById('book-notes').value;
+
+      // Validate Contact Info
+      const isNameValid = bName.value.trim().length >= 3;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isEmailValid = emailRegex.test(bEmail.value.trim());
+      const phoneRegex = /^\+?[\d\s\-()]{7,18}$/;
+      const isPhoneValid = phoneRegex.test(bPhone.value.trim());
+
+      if (!isNameValid) {
+        showValidationError(bName.closest('.form-group'), 'err-book-name');
+      } else {
+        hideValidationError(bName.closest('.form-group'), 'err-book-name');
+      }
+
+      if (!isEmailValid) {
+        showValidationError(bEmail.closest('.form-group'), 'err-book-email');
+      } else {
+        hideValidationError(bEmail.closest('.form-group'), 'err-book-email');
+      }
+
+      if (!isPhoneValid) {
+        showValidationError(bPhone.closest('.form-group'), 'err-book-phone');
+      } else {
+        hideValidationError(bPhone.closest('.form-group'), 'err-book-phone');
+      }
+
+      if (isNameValid && isEmailValid && isPhoneValid) {
+        // Trigger Loading Spinner simulating dynamic backend seating audit
+        const loader = document.getElementById('booking-loader');
+        const contentPanel = document.getElementById('modal-content-panel');
+
+        contentPanel.style.display = 'none';
+        loader.style.display = 'flex';
+
+        setTimeout(() => {
+          // Success Callback: Populate Ticket
+          document.getElementById('ticket-val-name').innerText = bName.value;
+          document.getElementById('ticket-val-date').innerText = document.getElementById('book-date').value;
+          
+          const timeSelect = document.getElementById('book-time');
+          document.getElementById('ticket-val-time').innerText = timeSelect.options[timeSelect.selectedIndex].text;
+          
+          const guestsSelect = document.getElementById('book-guests');
+          document.getElementById('ticket-val-guests').innerText = guestsSelect.options[guestsSelect.selectedIndex].text.split(' (')[0];
+          
+          document.getElementById('ticket-val-diet').innerText = bDiet;
+
+          // Generate randomized luxurious booking reference code
+          const randomCode = 'AUR-' + Math.floor(1000 + Math.random() * 9000) + '-' + String.fromCharCode(65 + Math.floor(Math.random() * 26));
+          document.getElementById('ticket-val-code').innerText = randomCode;
+
+          // Transition UI to Step 3
+          loader.style.display = 'none';
+          contentPanel.style.display = 'block';
+          setModalStepActive(3);
+
+          triggerToast("Table Reserved", `Seat allocation secured code: ${randomCode}`);
+        }, 1800);
+      }
+    }
+
+    // --- Ticket Printing System ---
+    function printTicket() {
+      const printContents = document.getElementById('printable-ticket').innerHTML;
+      const originalContents = document.body.innerHTML;
+
+      // Construct minimalist high-end printable viewport dynamically
+      const style = `<style>
+        body { background-color: white; color: black; font-family: 'Playfair Display', serif; padding: 2rem; text-align: center; }
+        .ticket { border: 2px solid #8C7355; padding: 2rem; border-radius: 8px; max-width: 500px; margin: 0 auto; }
+        .ticket-header h4 { font-size: 2rem; color: #8C7355; margin: 0; text-transform: uppercase; }
+        .ticket-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: left; margin-top: 2rem; }
+        .ticket-field { display: flex; flex-direction: column; }
+        .label { font-size: 0.8rem; text-transform: uppercase; color: #666; font-family: sans-serif; }
+        .value { font-size: 1.2rem; font-weight: bold; margin-top: 0.2rem; }
+        .ticket-footer { grid-column: span 2; border-top: 1px dashed #8C7355; padding-top: 1.5rem; text-align: center; margin-top: 1rem; }
+        .ticket-code { font-size: 1.8rem; font-weight: bold; color: #8C7355; letter-spacing: 0.2em; display: block; margin-top: 0.5rem; }
+      </style>`;
+
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write('<html><head>
+  <meta name="keywords" content="free website templates, free html templates, responsive web design, fine dining website, luxury restaurant menu, maÃ®tre d reservation system html, fine dining menu templates, restaurant online booking free download">
+  <meta name="author" content="jaks.dev">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>"><title>Aurelia Registry Pass</title>');
+      printWindow.document.write(style);
+      printWindow.document.write('</head><body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: block; color: #f59e0b; filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));">
+        <path d="M12 2l2.4 7.2 7.2 2.4-7.2 2.4-2.4 7.2-2.4-7.2-7.2-2.4 7.2-2.4z"/>
+      </svg>
+      <a href="/" style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 4px;">JAKS<span style="color: #4F46E5;">.dev</span> <span style="font-weight: 400; color: #8888a8;">Vault</span></a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(79, 70, 229, 0.15); border: 1px solid rgba(79, 70, 229, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">â† Back to Vault</a>
+      <a href="https://jaks.dev" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/restaurant-fine-dining.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">â† Back to Vault</a>
+      <a href="https://jaks.dev" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/restaurant-fine-dining.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>');
+      printWindow.document.write(printContents);
+      printWindow.document.write('
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/restaurant-cafe-bistro" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">restaurant</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Vienna Café & Bistro</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/fitness-yoga" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">restaurant</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Oslo Yoga Studio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body></html>');
+      printWindow.document.close();
+      printWindow.print();
+    }
+  </script>
+</body>
+</html>

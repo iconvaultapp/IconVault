@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "**Specificity** decides which rule applies when selectors tie: IDs beat classes, classes beat elements, and **!important** beats everything. Understanding the score ends most CSS debugging mysteries. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the CSS specificity calculator free?", a: "Yes, free with no signup. Type any selector and get its specificity score instantly." },
+      { q: "Is the CSS specificity calculator free?", a: "Yes, free to use; downloads need a free account. Type any selector and get its specificity score instantly." },
       { q: "How is CSS specificity calculated?", a: "Count ID selectors (a), class, attribute and pseudo-class selectors (b), and element and pseudo-element selectors (c). Compare a first, then b, then c." },
       { q: "What beats an ID selector?", a: "Only another ID in the same cascade layer, inline styles, or !important. That is why IDs are discouraged for styling: they are hard to override." },
       { q: "Does :not() add specificity?", a: ":not() itself adds nothing, but the selector inside it does. :where() always contributes zero specificity." },

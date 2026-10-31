@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it support emoji and non-English text?", a: "Yes. The converter works on UTF-8 bytes, not just ASCII, so emoji, accented characters and scripts like Hindi or Chinese encode and decode correctly." },
       { q: "What delimiters can I use?", a: "You can separate bytes with spaces, commas, newlines or no separator at all, depending on the format your assignment or tool expects." },
       { q: "Why does it say the length must be a multiple of 8?", a: "Each byte is 8 bits, so valid binary text must come in groups of 8. If your length is off, a digit is missing or extra somewhere." },
-      { q: "Is it free?", a: "Yes. The converter is free to use and runs entirely in your browser with no signup." }
+      { q: "Is it free?", a: "Yes. The converter is free to use and runs entirely in your browser with a free account for downloads." }
     ],
     tags: [
       "text to binary",
@@ -34,7 +34,7 @@ const seo: ToolSeo = {
       "binary decoder online",
       "binary converter online",
       "free binary translator",
-      "binary translator no signup",
+      "binary translator a free account for downloads",
       "utf-8 to binary",
       "binary to utf-8",
       "emoji to binary",

@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "URL Encoder / Decoder - Encode URLs Online Free | IconVault",
     metaDescription:
-      "Encode and decode URLs online. encodeURIComponent, encodeURI and smart decode modes - 100% in your browser, free, no signup.",
+      "Encode and decode URLs online. encodeURIComponent, encodeURI and smart decode modes - 100% in your browser, free; downloads need a free account.",
     about: [
       "**IconVault**'s **URL Encoder** / **Decoder** handles **percent**-**encoding** the way browsers do. Choose **encodeURIComponent** for a single query parameter or form value (encodes everything unsafe), **encodeURI** for a full **URL** (keeps : / ? & = # intact), or **Decode** to turn %XX sequences back into readable characters - with a smart fallback that handles full-**URL** encodings too.",
       "Everything runs in your browser: nothing is uploaded, logged or stored, so it's safe for **URLs** containing tokens or PII. Input/output character counts show exactly how much the string grew, and one click moves the output back into the input for round-trip checks. Every visitor gets 5 **free** encodes - **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free encodes do I get?",
-        a: "Every visitor gets 5 free URL encodes/decodes with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free URL encodes/decodes with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -44,7 +44,7 @@ const seo: ToolSeo = {
       "encode special characters url", "encode space in url", "url space encoding",
       "encode unicode url", "encode emoji url", "encode utf8 url",
       "url encoding tool", "url decoding tool", "online url encoder",
-      "free url encoder", "url encoder no signup", "browser url encoder",
+      "free url encoder", "url encoder a free account for downloads", "browser url encoder",
       "private url encoder", "url encoder for developers", "url encoder dev tool",
       "encode form data url", "url form encoding", "application x-www-form-urlencoded",
       "encode ampersand url", "encode hashtag url", "encode question mark url",

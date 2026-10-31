@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate barcodes free: CODE128, EAN-13, EAN-8, UPC-A, Code39 and ITF-14. Customize size and export print-ready PNG or SVG.",
     about: [
       "**IconVault**'s **Barcode Generator** creates scannable **barcodes** in seconds: **CODE128**, **EAN-13**, EAN-8, **UPC-A**, Code39 and ITF-14 - with control over width, height, margins, colors and human-readable text. Export **print-ready PNG** or infinitely scalable **SVG** for packaging and labels.",
-      "Checksums are computed automatically (EAN/UPC), and invalid input is flagged before rendering. Everything runs in your **browser** - free, no account needed.",
+      "Checksums are computed automatically (EAN/UPC), and invalid input is flagged before rendering. Everything runs in your **browser** - free, downloads need a free account.",
     ],
     faqs: [
       {
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free barcodes can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited generations.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited generations.",
       },
     ],
     tags: [
@@ -49,7 +49,7 @@ const seo: ToolSeo = {
       "code 39 barcode maker",
       "itf barcode generator",
       "qr and barcode generator",
-      "barcode generator no signup",
+      "barcode generator a free account for downloads",
       "bulk barcode generator",
       "generate barcodes in bulk",
       "barcode batch maker",

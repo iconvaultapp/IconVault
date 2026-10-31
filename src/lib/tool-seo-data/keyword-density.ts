@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Check keyword density free: keyword frequency, density percentage and top terms for any text. Optimize content without stuffing.",
     about: [
       "**IconVault**'s **Keyword Density Checker** shows how often any **keyword** appears in your **text**: exact **count**, **density percentage**, and a ranked table of top single words and two-word phrases - the fastest way to spot **keyword stuffing** or thin topical coverage before you publish.",
-      "Paste your article, type the target **keyword**, get instant stats plus reading-level signals. All client-side, free, no account needed.",
+      "Paste your article, type the target **keyword**, get instant stats plus reading-level signals. All client-side, free, downloads need a free account.",
     ],
     faqs: [
       {

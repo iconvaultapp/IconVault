@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I convert a C# class back to JSON?", a: "Yes. Switch to the C#-to-JSON tab and paste a class with auto-properties. The tool returns a sample JSON object with sensible placeholder values for each property, useful for mocking API responses." },
       { q: "Does it support nullable reference types?", a: "Yes. Properties that were null in the JSON are emitted as nullable types, which keeps the generated code compatible with nullable reference type contexts." },
       { q: "Is my code uploaded anywhere?", a: "No. Generation runs entirely in your browser with JavaScript. Your JSON and classes never leave your device, so it is safe for proprietary APIs and models." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json to c#",
@@ -38,7 +38,7 @@ const seo: ToolSeo = {
       "json array to c#",
       "nested json to c#",
       "json to c# free",
-      "json to c# no signup",
+      "json to c# a free account for downloads",
       "json to c# private",
       "json to c# without upload",
       "c# to json",

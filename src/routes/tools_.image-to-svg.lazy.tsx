@@ -157,7 +157,7 @@ function ImageToSvgTool() {
           {!isPro && (
             <p className="text-xs text-muted-foreground">
               {trial.left > 0
-                ? `${trial.left} of ${TOOL_TRIAL_LIMIT} free conversions left - no account needed.`
+                ? `${trial.left} of ${TOOL_TRIAL_LIMIT} free conversions left - downloads need a free account.`
                 : "Free trial used up. Go Pro for unlimited vectorizing."}
             </p>
           )}

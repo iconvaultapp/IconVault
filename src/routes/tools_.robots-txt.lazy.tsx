@@ -10,6 +10,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import toolSeo from "@/lib/tool-seo-data/robots-txt";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/tools_/robots-txt")({
   component: RobotsTxtTool,
@@ -96,15 +97,10 @@ function RobotsTxtTool() {
   const download = () => {
     try {
       const blob = new Blob([output], { type: "text/plain;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = brandFilename("robots.txt");
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      toast.success("robots.txt downloaded");
+      // v55 download gate: parked + sign-in prompt when anonymous.
+      if (downloadWithGate(blob, brandFilename("robots.txt"))) {
+        toast.success("robots.txt downloaded");
+      }
     } catch {
       toast.error("Download failed");
     }

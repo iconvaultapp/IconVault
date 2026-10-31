@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How do I copy a port number?", a: "Click any row in the table and the port number is copied to your clipboard with a confirmation toast." },
       { q: "What do the security notes cover?", a: "Each row carries a short hardening tip, for example never expose port 3389 (RDP) to the internet, bind Redis on 6379 to localhost, or enforce 2FA on hosting panels. Treat them as starting reminders, not full security guidance." },
       { q: "Can this tool scan my open ports?", a: "No. It is a static reference of common ports. Use a dedicated port scanner or firewall tool to check which ports are actually open on a device." },
-      { q: "Does it need an internet connection or account?", a: "The full 130 port table is bundled with the page, so once it loads it works without any further requests and without an account." }
+      { q: "Does it need an internet connection or account?", a: "The full 130 port table is bundled with the page, so once it loads it works without any further requests; browsing needs no account, downloads need a free account." }
     ],
     tags: [
       "port reference",

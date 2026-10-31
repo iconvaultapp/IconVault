@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: pick an attack payload like img onerror or javascript: links, press Sanitize, and compare the escaped input with the cleaned output. Perfect for **developers** learning XSS prevention, secure DOM insertion and content-security practices.",
     ],
     faqs: [
-      { q: "Is Sanitizer API Playground free to use?", a: "Yes. Sanitizer API Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Sanitizer API Playground free to use?", a: "Yes. Sanitizer API Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "Are the XSS payloads dangerous?", a: "No. They are never executed: the input preview is escaped text, and the cleaned result renders inside a sandboxed iframe." },
       { q: "What does setHTML do?", a: "It is the browser's built-in Sanitizer API method that parses HTML and strips scripts, event handlers and dangerous URLs before inserting it." },
       { q: "What if my browser has no Sanitizer API?", a: "The tool detects this and runs a strict built-in allowlist sanitizer instead, with the same rules and no external dependency." },

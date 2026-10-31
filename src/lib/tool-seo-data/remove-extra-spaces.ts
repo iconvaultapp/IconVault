@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Remove extra spaces free: collapse multiple spaces, trim lines and clean pasted text. One-click whitespace cleanup.",
     about: [
       "**IconVault**'s **Remove Extra Spaces** fixes sloppy **whitespace** in one click: collapse **multiple spaces** to one, **trim** leading/trailing spaces per line, strip blank lines, and normalize tabs - the cleanup every pasted **text** needs.",
-      "See before/after stats (characters saved) and copy the cleaned result. Runs in your browser, free, no account needed.",
+      "See before/after stats (characters saved) and copy the cleaned result. Runs in your browser, free, downloads need a free account.",
     ],
     faqs: [
       {
@@ -78,7 +78,7 @@ const seo: ToolSeo = {
       "excel space remover",
       "remove spaces in excel cell",
       "sql space cleaner",
-      "remove spaces no signup",
+      "remove spaces a free account for downloads",
       "free whitespace tool",
       "text tidier"],
   };

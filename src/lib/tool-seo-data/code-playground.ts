@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Code Playground - Write HTML, CSS & JS Live Online | IconVault",
     metaDescription:
-      "Free online HTML, CSS and JavaScript playground - write code in three panes and watch your page compile live. Download as a standalone .html file, no signup.",
+      "Free online HTML, CSS and JavaScript playground - write code in three panes and watch your page compile live. Download as a standalone .html file; downloads need a free account.",
     about: [
       "The **Code** **Playground** is a **live** web **editor**: **write** **HTML**, **CSS** and JavaScript in three panes and watch your page compile and run **live** in an isolated **preview** as you type. Perfect for testing snippets, prototyping layouts and learning front-end **code** without setting up a project.",
       "Your **code** runs inside a sandboxed iframe with scripts allowed but no access to the **IconVault** page - so experiments can never break anything. Hit **Copy** to grab the current pane, or **Download** .**html** to save everything as one standalone file you can open in any browser or send to anyone.",
@@ -32,7 +32,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free uses do I get?",
-        a: "Coding and the live preview are free and unlimited. Copying a pane or downloading the page counts as a use - 5 free per visitor, no account needed. IconVault Pro ($19 one-time) unlocks unlimited uses.",
+        a: "Coding and the live preview are free and unlimited. Copying a pane or downloading the page counts as a use - 5 free per visitor, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited uses.",
       },
     ],
     tags: [
@@ -41,7 +41,7 @@ const seo: ToolSeo = {
       "test html css js online", "html preview live", "javascript playground",
       "css playground", "frontend playground", "web code editor online",
       "html sandbox", "try html online", "html css tester",
-      "live code preview", "browser code editor", "html editor no signup",
+      "live code preview", "browser code editor", "html editor a free account for downloads",
       "write html online free", "html css js compiler online",
       "web snippet tester", "prototype html online", "single file html download",
       "html css js practice", "learn html online editor", "codepen alternative",
@@ -70,7 +70,7 @@ const seo: ToolSeo = {
       "learn javascript online editor",
       "html code runner",
       "online css compiler",
-      "javascript playground no signup",
+      "javascript playground a free account for downloads",
       "web code sandbox",
       "test html online free",
       "js code tester",

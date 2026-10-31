@@ -29,7 +29,7 @@ const seo: ToolSeo = {
       "compress png to kb",
       "png compression online",
       "reduce png mb",
-      "compress png no signup",
+      "compress png a free account for downloads",
       "png file size reducer",
       "compress png download",
       "make png file smaller",

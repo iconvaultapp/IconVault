@@ -11,7 +11,7 @@ const seo: ToolSeo = {
       { q: "Which delimiters are supported?", a: "Auto-detect plus comma, semicolon, tab and pipe. Auto-detect inspects your data and picks the most likely delimiter, and you can override it manually." },
       { q: "Can I convert CSV to JSON?", a: "Yes. Once parsed, you can export the table as JSON, which is handy for APIs, config files and JavaScript apps." },
       { q: "Does it handle quoted fields and line breaks?", a: "Yes. The parser understands RFC-style quoting, so fields like \"Cambridge, UK\" with embedded commas or escaped quotes parse correctly." },
-      { q: "Is it free?", a: "Yes, it is completely free with no account needed." }
+      { q: "Is it free?", a: "Yes, it is completely free to use; downloads need a free account." }
     ],
     tags: [
       "csv viewer",

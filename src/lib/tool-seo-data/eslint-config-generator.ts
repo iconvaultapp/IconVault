@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How do ignore patterns work?", a: "Patterns like node_modules, dist or *.min.js tell ESLint to skip matching files. The generator adds one per line into the ignores array of the exported config." },
       { q: "Can I use the output with TypeScript?", a: "Yes. The generated flat config is plain JavaScript that works with any project setup, and you can extend it with typescript-eslint or other plugin configs afterward." },
       { q: "Is my config stored anywhere?", a: "No. Everything is generated locally in your browser and nothing is uploaded." },
-      { q: "Is this generator free?", a: "Yes, completely free with no signup." }
+      { q: "Is this generator free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "eslint config generator", "eslint flat config generator", "eslint.config.js generator",
@@ -24,7 +24,7 @@ const seo: ToolSeo = {
       "javascript linting setup", "typescript eslint setup", "eslint beginner setup",
       "eslint recommended config", "eslint strict config", "eslint warn vs error",
       "how to configure eslint", "how to write eslint flat config", "eslint config tutorial",
-      "free eslint tool", "eslint generator online free", "eslint tool no signup",
+      "free eslint tool", "eslint generator online free", "eslint tool a free account for downloads",
       "eslint config for react", "eslint config for node", "eslint config for nextjs",
       "eslint config for vue", "eslint config typescript project",
       "migrate eslintrc to flat config", "eslintrc to flat config converter",

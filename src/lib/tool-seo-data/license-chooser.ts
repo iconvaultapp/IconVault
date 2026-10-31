@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "MIT or Apache-2.0, which should I pick?", a: "Apache-2.0 adds an explicit patent grant and requires stating changes, so it suits larger projects. MIT is shorter and simpler, and is the default for most small projects. The comparison table shows the exact differences." },
       { q: "Does it generate the full license text?", a: "For MIT, ISC and BSD-3-Clause you get the complete license text. For Apache-2.0, GPL-3.0 and MPL-2.0 you get the official header notice plus a link to the authoritative full text, since those are long documents maintained by their foundations." },
       { q: "Is this legal advice?", a: "No. The tool compares publicly documented license terms and generates standard texts, but it is not legal advice. For commercial projects, talk to a lawyer." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "license chooser",
@@ -68,7 +68,7 @@ const seo: ToolSeo = {
       "license for npm package",
       "license for python package",
       "not legal advice license",
-      "license tool no signup",
+      "license tool a free account for downloads",
       "free license tool online",
       "oss license picker",
       "open source licensing guide"

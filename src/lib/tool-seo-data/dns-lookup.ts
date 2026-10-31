@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "DNS Lookup - Free Online DNS Record Checker Tool | IconVault",
-    metaDescription: "Check DNS records for any domain instantly. A, AAAA, MX, TXT, CNAME, NS and SOA lookups over encrypted DNS. Free, no signup, runs in your browser.",
+    metaDescription: "Check DNS records for any domain instantly. A, AAAA, MX, TXT, CNAME, NS and SOA lookups over encrypted DNS. Free; downloads need a free account; runs in your browser.",
     about: [
       "**IconVault**'s **DNS Lookup** checks **DNS records** for any domain right in your browser. Query **A**, **AAAA**, **MX**, **TXT**, **CNAME**, **NS** and **SOA** records and see the **TTL**, record type and value for every answer. It is perfect for verifying **mail server records**, **SPF** and **DMARC** entries, nameserver changes and website migrations.",
-      "Queries go straight from your browser to **Cloudflare's encrypted DNS-over-HTTPS** endpoint, so lookups are fast, private and tamper-proof, with no backend server in the middle and nothing logged. The tool is **100% free**, works without an account and runs entirely on your device. Visitors get 5 **free** lookups with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every tool.",
+      "Queries go straight from your browser to **Cloudflare's encrypted DNS-over-HTTPS** endpoint, so lookups are fast, private and tamper-proof, with no backend server in the middle and nothing logged. The tool is **100% free** to use without an account and runs entirely on your device. Visitors get 5 **free** lookups; downloads need a free account; **IconVault** Pro ($19 one-time) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free DNS lookups do I get?",
-        a: "Every visitor gets 5 free lookups with no account needed. IconVault Pro ($19 one-time) gives unlimited lookups plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free lookups with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited lookups plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -45,7 +45,7 @@ const seo: ToolSeo = {
       "encrypted dns lookup", "cloudflare dns lookup", "query dns records online",
       "dns records for website", "check dns for domain", "verify dns records",
       "dns troubleshooting tool", "website dns checker", "domain dns records check",
-      "dns lookup no signup", "dns lookup tool free", "online dns query tool",
+      "dns lookup a free account for downloads", "dns lookup tool free", "online dns query tool",
       "what are my dns records", "check ttl of dns record", "dns ttl checker",
       "find mail servers for domain", "check email dns records",
       "dns lookup for website", "a record checker", "cname record checker",

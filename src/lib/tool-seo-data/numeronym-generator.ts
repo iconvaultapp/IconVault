@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Turn long words into i18n-style numeronyms: first letter, middle letter count, last letter. Bulk, instant and free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Numeronym Generator** turns long words into **i18n-style numeronyms**: the first letter, the count of letters in the middle, and the last letter. So **internationalization** becomes **i18n**, **localization** becomes **l10n**, **accessibility** becomes **a11y** and **Kubernetes** becomes **k8s**. Paste a whole list and every word converts at once, with a one-click copy of the results.",
-      "It runs **fully in your browser**, is **free** with no signup, and works on bulk lists. Words of three letters or fewer are left unchanged since a numeronym would not shorten them. The honest note: generated forms follow the standard pattern mechanically, so for a public project name still check that the result is not already taken and reads the way you intend."
+      "It runs **fully in your browser**, is **free** with a free account for downloads, and works on bulk lists. Words of three letters or fewer are left unchanged since a numeronym would not shorten them. The honest note: generated forms follow the standard pattern mechanically, so for a public project name still check that the result is not already taken and reads the way you intend."
     ],
     faqs: [
       { q: "What is a numeronym?", a: "A numeronym is an abbreviation made of a word's first and last letters with the number of omitted letters in between. Internationalization has 18 letters between i and n, so it becomes i18n." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why are short words skipped?", a: "Words with three or fewer letters are returned unchanged, because a numeronym would be the same length or longer and would not save anything." },
       { q: "What are common numeronym examples?", a: "i18n (internationalization), l10n (localization), a11y (accessibility), k8s (Kubernetes), g11n (globalization), p13n (personalization), o11y (observability) and c14n (canonicalization)." },
       { q: "Is my word list sent to a server?", a: "No. Everything happens in your browser with JavaScript. Your words never leave your device." },
-      { q: "Is it free?", a: "Yes, completely free with no signup." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "numeronym generator",

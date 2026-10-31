@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "Use it before **resizing images**, **encoding video**, or setting **canvas sizes** so nothing comes out stretched or cropped. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the aspect ratio calculator free?", a: "Yes. Calculate and resize as many dimensions as you like with no signup." },
+      { q: "Is the aspect ratio calculator free?", a: "Yes. Calculate and resize as many dimensions as you like with a free account for downloads." },
       { q: "What aspect ratios does it know?", a: "Common presets like 16:9, 4:3, 1:1, 21:9, 9:16, plus any custom ratio you type, all simplified to lowest terms." },
       { q: "How do I resize proportionally?", a: "Enter your known dimension and the tool computes the matching dimension that preserves the ratio exactly." },
       { q: "What is a 1920x1080 aspect ratio?", a: "16:9, the standard for HD video, YouTube thumbnails, and most modern screens." },

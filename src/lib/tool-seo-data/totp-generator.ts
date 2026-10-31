@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate TOTP secrets, scan-ready QR codes and live 2FA codes in your browser. SHA-1, SHA-256, SHA-512 supported. Free.",
     about: [
       "**IconVault**'s **TOTP Generator** creates **time-based one-time password** secrets for **two-factor authentication**, shows the **current 6-digit code** with a live countdown, and builds a **scan-ready QR code** (otpauth URI) with your issuer and account label so you can enroll it in **Google Authenticator, Authy or any TOTP app**.",
-      "You can also switch to **validate mode** to check a code, and choose **SHA-1, SHA-256 or SHA-512**, with everything computed **entirely in your browser** so your secrets are **never uploaded or stored** anywhere. It is **free** with no signup. The honest note: this is a convenience tool for generating and testing codes, and you should store real 2FA secrets in your authenticator app or password manager, not in a browser tab."
+      "You can also switch to **validate mode** to check a code, and choose **SHA-1, SHA-256 or SHA-512**, with everything computed **entirely in your browser** so your secrets are **never uploaded or stored** anywhere. It is **free** to use; downloads need a free account. The honest note: this is a convenience tool for generating and testing codes, and you should store real 2FA secrets in your authenticator app or password manager, not in a browser tab."
     ],
     faqs: [
       { q: "How do I create a TOTP secret?", a: "Click generate to get a random Base32 secret. The tool then shows live 6-digit codes with a countdown and a QR code you can scan with any authenticator app." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which hash algorithms are supported?", a: "SHA-1, SHA-256 and SHA-512. SHA-1 is the default and the most widely compatible with authenticator apps." },
       { q: "Can I check whether a code is valid?", a: "Yes. Switch to validate mode, enter the secret and the code, and the tool tells you whether it matches the current time window." },
       { q: "Is my secret sent to a server?", a: "No. Secret generation, code calculation and QR rendering all happen locally in your browser. Nothing is uploaded or saved." },
-      { q: "Is it free?", a: "Yes, completely free with no signup." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "totp generator",
@@ -59,7 +59,7 @@ const seo: ToolSeo = {
       "totp uri generator",
       "otpauth uri builder",
       "generate otp online free",
-      "totp generator no signup",
+      "totp generator a free account for downloads",
       "private totp generator",
       "totp in browser",
       "2fa code generator online free",

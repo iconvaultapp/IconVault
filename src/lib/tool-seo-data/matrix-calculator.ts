@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What happens with singular matrices?", a: "A matrix with a determinant of zero has no inverse, and the tool reports that honestly instead of returning garbage. For solving, a singular coefficient matrix means the system has no unique solution." },
       { q: "How accurate are the results?", a: "Computations use double-precision arithmetic, and tiny floating point artifacts are cleaned to zero so you get readable answers like 2 instead of 1.9999999998." },
       { q: "Can I copy the results?", a: "Yes, results can be copied to the clipboard for pasting into assignments, notes or reports." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "matrix calculator",
@@ -37,7 +37,7 @@ const seo: ToolSeo = {
       "3x3 matrix calculator",
       "3x3 determinant calculator",
       "2x2 inverse calculator",
-      "matrix calculator no signup",
+      "matrix calculator a free account for downloads",
       "free linear algebra calculator",
       "linear algebra tools online",
       "matrix math calculator",

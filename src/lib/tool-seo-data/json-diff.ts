@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can it ignore key order?", a: "Yes. Because the comparison is structural, reordering keys does not register as a change. Only real additions, removals and value changes are reported." },
       { q: "What is JSON Diff useful for?", a: "Common uses include comparing API responses between environments, reviewing config file changes before deploys, verifying database migrations, and debugging why a frontend receives different data than expected." },
       { q: "Is my JSON uploaded anywhere?", a: "No. The comparison runs entirely in your browser with JavaScript. Your documents never leave your device, so it is safe for production configs and sensitive payloads." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json diff",
@@ -43,7 +43,7 @@ const seo: ToolSeo = {
       "compare api json outputs",
       "json config diff",
       "compare config files json",
-      "json diff no signup",
+      "json diff a free account for downloads",
       "json diff private",
       "json diff without upload",
       "json diff tool free",

@@ -3,7 +3,6 @@ import { Check, Copy, Heart } from "lucide-react";
 import { toast } from "sonner";
 import { loadIconData, parseIconId } from "@/lib/iconify";
 import { useFavourites } from "@/hooks/useFavourites";
-import { useRequireAuth } from "@/hooks/useRequireAuth";
 import ReliableIcon from "@/components/ReliableIcon";
 import IllustrationArt from "@/components/IllustrationArt";
 import { getIllustration } from "@/lib/illustrations-data";
@@ -24,7 +23,6 @@ export const IconifyGrid = ({
 }: IconifyGridProps) => {
   const [copiedIcon, setCopiedIcon] = useState<string | null>(null);
   const { isFavourite, toggleFavourite } = useFavourites();
-  const { requireAuth } = useRequireAuth();
   const bulkMode = selectedIcons !== undefined;
 
   // Warm the icon-data cache during idle time for icons just below the fold,
@@ -54,7 +52,7 @@ export const IconifyGrid = ({
 
   const copyName = (iconId: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!requireAuth("copy icon names")) return;
+    // v55: copying an icon name is NOT gated (copy is not a download).
     void navigator.clipboard.writeText(iconId);
     setCopiedIcon(iconId);
     toast.success(`Copied ${iconId}`);

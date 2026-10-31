@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "flip multiple photos",
       "mirror batch photos",
       "rotate all images at once",
-      "rotate image no signup",
+      "rotate image a free account for downloads",
       "rotate image free tool",
       "online image flipper",
       "photo rotation editor",

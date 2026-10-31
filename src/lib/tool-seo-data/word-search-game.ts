@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate themed word search puzzles in animals, food, space, tech, sports and music, then find words by dragging. Free, unlimited, in your browser.",
     about: [
       "**IconVault**'s **Word Search** generates unlimited **word search puzzles** from built-in **themes** like Animals, Food, Space, Tech, Sports and Music. Every puzzle is freshly randomized: words hide in all eight directions and the remaining squares fill with random letters, so no two grids are the same. Find words by **clicking and dragging** across the grid, track your progress in the word list, and print puzzles for offline play.",
-      "It runs **fully in your browser** with no signup, no downloads and no ads interrupting your game, and it is **free** with unlimited puzzles. Great for a quick brain break, vocabulary practice for kids, or printing a stack of puzzles for a classroom or road trip."
+      "It runs **fully in your browser** with a free account for downloads, no downloads and no ads interrupting your game, and it is **free** with unlimited puzzles. Great for a quick brain break, vocabulary practice for kids, or printing a stack of puzzles for a classroom or road trip."
     ],
     faqs: [
       { q: "How do I play the word search?", a: "Pick a theme, then click and drag across letters to select words. Words can run horizontally, vertically or diagonally, forwards or backwards. Found words are marked off the list until the puzzle is complete." },

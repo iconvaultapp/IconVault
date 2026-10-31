@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Free Pomodoro timer with custom focus and break durations, browser notifications on phase changes and session history. Runs fully in your browser.",
     about: [
       "**IconVault**'s **Pomodoro Timer** runs the classic **focus technique** in your browser: **25-minute focus sessions** broken up by **short breaks** and **long breaks**, with all durations **editable** to fit your rhythm. When a phase ends you get an **audible beep** and an optional **browser notification**, the timer advances automatically, and every finished session is saved to a **session history** you can review or export.",
-      "It is **free** and runs **fully in your browser**, with history stored on your device so no account is needed. The honest limit: the timer only keeps time while the page stays open, so closing the tab pauses your session. It tracks time in a box for you; it cannot make the work happen, but it gives focus a clear start and end."
+      "It is **free** and runs **fully in your browser**, with history stored on your device so Downloads need a free account. The honest limit: the timer only keeps time while the page stays open, so closing the tab pauses your session. It tracks time in a box for you; it cannot make the work happen, but it gives focus a clear start and end."
     ],
     faqs: [
       { q: "What is the Pomodoro technique?", a: "It is a focus method where you work in timed intervals, classically 25 minutes of focused work followed by a 5 minute break, with a longer break after four sessions. The timer automates the cycle so you do not watch the clock." },
@@ -56,7 +56,7 @@ const seo: ToolSeo = {
       "break reminder timer",
       "work break timer",
       "browser pomodoro timer",
-      "pomodoro timer no signup",
+      "pomodoro timer a free account for downloads",
       "pomodoro timer no app",
       "pomodoro timer web",
       "pomodoro timer csv export",

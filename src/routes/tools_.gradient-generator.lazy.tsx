@@ -274,7 +274,7 @@ function GradientTool() {
           </ActionButton>
           {!isPro && (
             <p className="text-xs text-muted-foreground">
-              {trial.left} of {TOOL_TRIAL_LIMIT} free copies left - no account needed.
+              {trial.left} of {TOOL_TRIAL_LIMIT} free copies left.
             </p>
           )}
         </div>

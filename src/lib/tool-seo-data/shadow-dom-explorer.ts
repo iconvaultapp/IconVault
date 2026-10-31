@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: work through the four tabs, run each demo, and read the what-happened log for real DOM results. Perfect for **developers** learning web components, custom elements and style scoping.",
     ],
     faqs: [
-      { q: "Is Shadow DOM Explorer free to use?", a: "Yes. Shadow DOM Explorer is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Shadow DOM Explorer free to use?", a: "Yes. Shadow DOM Explorer is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is the difference between open and closed shadow roots?", a: "An open root is reachable via host.shadowRoot; a closed root returns null, sealing the tree even from the page's own script. The demo proves both live." },
       { q: "What do slots do?", a: "Slots project light-DOM children into the shadow tree at marked points. The nodes never move; assignedNodes() shows the projection." },
       { q: "How does ::part() work?", a: "Elements inside the shadow tree marked with part=\"name\" can be styled from the page with ::part(name), a controlled hole in encapsulation." },

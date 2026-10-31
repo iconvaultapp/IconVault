@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Apply retro dithering to photos: Floyd-Steinberg, ordered Bayer and Atkinson, with classic palettes. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Image Dithering** turns photos into **retro pixel-art style** images with real dithering algorithms: **Floyd-Steinberg** error diffusion, **ordered Bayer** (4x4 and 8x8 matrices) and **Atkinson** dithering. Pick a **classic palette** like 1-bit black and white, Game Boy greens or CGA colors, and watch smooth gradients dissolve into beautiful dot patterns.",
-      "Processing happens **entirely in your browser** on an HTML canvas, with **no upload** and **no signup**, and it is **free**. Honest note: dithering is destructive by design; keep your original file, because the effect cannot be reversed from the exported image."
+      "Processing happens **entirely in your browser** on an HTML canvas, with **no upload** and **a free account for downloads**, and it is **free**. Honest note: dithering is destructive by design; keep your original file, because the effect cannot be reversed from the exported image."
     ],
     faqs: [
       { q: "What is image dithering?", a: "A technique that simulates shades and gradients using a limited palette by arranging dots of available colors in patterns. Your eye blends the dots into tones that are not really there." },
@@ -58,7 +58,7 @@ const seo: ToolSeo = {
       "posterize vs dither",
       "image to gameboy style",
       "image to retro console style",
-      "free dithering tool no signup",
+      "free dithering tool a free account for downloads",
       "dither image in browser",
       "no upload dither tool",
       "dithered avatar maker",

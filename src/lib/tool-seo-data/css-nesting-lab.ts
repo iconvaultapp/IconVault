@@ -2,13 +2,13 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "CSS Nesting Lab - Free Online CSS Tool | IconVault",
-    metaDescription: "Play with native CSS nesting and the & parent selector with live previews. Free, no signup, runs in your browser.",
+    metaDescription: "Play with native CSS nesting and the & parent selector with live previews. Free; downloads need a free account; runs in your browser.",
     about: [
       "**IconVault**'s **CSS Nesting Lab** is a playground for **native CSS nesting**: write nested rules with the **& parent selector**, nest **pseudo-classes, pseudo-elements, media queries and combinators**, and see the flattened result update live. No **Sass** or build step needed.",
       "**Nesting** is now part of the CSS language itself, so the patterns you learned in preprocessors work in the browser directly. Try **& :hover**, **&:not()**, nested **@media** and **@supports** blocks. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the CSS nesting lab free?", a: "Yes, free with no signup. Write nested CSS and see the live preview and flattened output." },
+      { q: "Is the CSS nesting lab free?", a: "Yes, free to use; downloads need a free account. Write nested CSS and see the live preview and flattened output." },
       { q: "What is native CSS nesting?", a: "Nesting lets you write child selectors inside a parent rule, like .card { & img { ... } }. It is now built into CSS, so no preprocessor is required." },
       { q: "Which browsers support CSS nesting?", a: "All modern browsers support native CSS nesting. It reached full support across Chrome, Safari and Firefox." },
       { q: "How is native nesting different from Sass?", a: "The & parent selector works the same, but native nesting has stricter parsing rules, for example nested selectors cannot start with an element name without &." },

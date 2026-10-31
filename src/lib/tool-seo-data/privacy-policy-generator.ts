@@ -61,7 +61,7 @@ const seo: ToolSeo = {
       "privacy policy last updated",
       "free legal document generator",
       "website legal pages generator",
-      "privacy policy no signup",
+      "privacy policy a free account for downloads",
       "privacy policy no lawyer",
       "online privacy policy tool",
       "privacy policy generator free download",

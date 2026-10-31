@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Turn text into ASCII art with 4 built-in FIGlet-style fonts. Copy to clipboard or download as a text file. Free, runs in your browser.",
     about: [
       "**IconVault**'s **ASCII Art** generator turns plain text into big **block-letter art**. Type anything, pick from **4 built-in FIGlet-style fonts**, and watch the preview render instantly. **Copy** the result to your clipboard or **download** it as a text file for READMEs, code comments, terminal banners and profile headers.",
-      "Everything renders **purely client-side**, so it is instant, **free** and private with no signup. The honest scope: these are stylized **text fonts**, not image-to-ASCII conversion, and the art only lines up correctly in a **monospace font**, so view or paste it somewhere like a terminal or code editor."
+      "Everything renders **purely client-side**, so it is instant, **free** and private with a free account for downloads. The honest scope: these are stylized **text fonts**, not image-to-ASCII conversion, and the art only lines up correctly in a **monospace font**, so view or paste it somewhere like a terminal or code editor."
     ],
     faqs: [
       { q: "What fonts are included?", a: "Four built-in FIGlet-style block letter fonts covering A to Z, 0 to 9 and common punctuation, all rendered locally in your browser with no font files to download." },
@@ -58,7 +58,7 @@ const seo: ToolSeo = {
       "save ascii art",
       "monospace ascii art",
       "why ascii art misaligned",
-      "ascii art generator no signup",
+      "ascii art generator a free account for downloads",
       "free text art tool",
       "browser ascii generator",
       "ascii art for github readme",

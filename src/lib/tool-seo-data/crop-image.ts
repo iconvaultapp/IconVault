@@ -34,7 +34,7 @@ const seo: ToolSeo = {
       "crop image to 9:16",
       "crop photo to 4:5",
       "crop image custom size",
-      "crop image no signup",
+      "crop image a free account for downloads",
       "free online cropper",
       "crop image download",
       "crop photo to square",

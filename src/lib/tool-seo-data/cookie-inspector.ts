@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "View, add, edit and delete cookies for the current site in your browser. See names, values and session flags. Free, nothing leaves your device.",
     about: [
       "**IconVault**'s **Cookie Inspector** lists every cookie your browser stores for the **current site**: the **name**, the **decoded value** and a **likely-session flag** that highlights probable auth or session tokens. You can **add new cookies** with an expiry, path, Secure and SameSite settings, **edit** existing values in a dialog and **delete** cookies one by one with a confirmation.",
-      "The tool states its **honest limits** up front: **HttpOnly cookies are invisible to JavaScript** and cannot be listed, and the Secure and SameSite flags are not exposed to JS either. Everything runs **fully in your browser** using document.cookie, so your cookies never leave the page. Free for everyone, no signup.",
+      "The tool states its **honest limits** up front: **HttpOnly cookies are invisible to JavaScript** and cannot be listed, and the Secure and SameSite flags are not exposed to JS either. Everything runs **fully in your browser** using document.cookie, so your cookies never leave the page. Free for everyone; downloads need a free account.",
     ],
     faqs: [
       { q: "Is the cookie inspector free?", a: "Yes. Viewing, adding, editing and deleting cookies are all free, and the tool runs entirely in your browser." },

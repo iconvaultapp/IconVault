@@ -8,6 +8,7 @@ import { Barcode, Copy, Download, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { usePlan } from "@/hooks/usePlan";
 import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
+import { downloadWithGate } from "@/lib/download-guard";
 import toolSeo from "@/lib/tool-seo-data/barcode-generator";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
@@ -143,13 +144,10 @@ function BarcodeGeneratorTool() {
   const downloadSvg = () => {
     const text = serializedSvg();
     if (!text) return;
-    const url = URL.createObjectURL(new Blob([text], { type: "image/svg+xml" }));
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = brandFilename(`barcode-${format.toLowerCase()}.svg`);
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success("SVG downloaded");
+    // v55 download gate: parked + sign-in prompt when anonymous.
+    if (downloadWithGate(new Blob([text], { type: "image/svg+xml" }), brandFilename(`barcode-${format.toLowerCase()}.svg`))) {
+      toast.success("SVG downloaded");
+    }
   };
 
   const downloadPng = () => {
@@ -175,11 +173,12 @@ function BarcodeGeneratorTool() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       URL.revokeObjectURL(url);
-      const a = document.createElement("a");
-      a.href = canvas.toDataURL("image/png");
-      a.download = brandFilename(`barcode-${format.toLowerCase()}.png`);
-      a.click();
-      toast.success("PNG downloaded");
+      // v55 download gate: parked + sign-in prompt when anonymous.
+      canvas.toBlob((pngBlob) => {
+        if (pngBlob && downloadWithGate(pngBlob, brandFilename(`barcode-${format.toLowerCase()}.png`))) {
+          toast.success("PNG downloaded");
+        }
+      }, "image/png");
     };
     img.onerror = () => {
       toast.error("PNG export failed");

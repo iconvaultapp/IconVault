@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Step through WebRTC SDP offer/answer exchanges and ICE candidate flows in an interactive visual lab. Free, runs in your browser.",
     about: [
       "**IconVault**'s **WebRTC Lab** is an interactive **signaling simulator** that walks you through a complete WebRTC call setup, step by step. Watch an **SDP offer** get created, travel through the **signaling server**, get answered, then follow **ICE candidate** gathering and trickle exchange until a peer-to-peer media path connects. Each step shows who sends what to whom, with sample payloads you can inspect.",
-      "The signaling is **simulated for teaching**: no real RTCPeerConnection is created and no actual media flows, which makes the sequence diagrams clear without the noise of real networking. Everything runs **fully in your browser** and it is **free** with no signup. Ideal for students and developers learning how WebRTC negotiation actually works before touching real peer connection code."
+      "The signaling is **simulated for teaching**: no real RTCPeerConnection is created and no actual media flows, which makes the sequence diagrams clear without the noise of real networking. Everything runs **fully in your browser** and It is **free** to use; downloads need a free account. Ideal for students and developers learning how WebRTC negotiation actually works before touching real peer connection code."
     ],
     faqs: [
       { q: "What is WebRTC?", a: "WebRTC is the browser technology that enables real-time audio, video and data connections directly between peers, powering video calls, screen sharing and file transfer without plugins." },

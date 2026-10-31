@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "urlsearchparams",
       "how to add parameters to url",
       "browser url builder",
-      "no signup url tool",
+      "a free account for downloads url tool",
       "developer url tool",
       "free developer tools"
     ],

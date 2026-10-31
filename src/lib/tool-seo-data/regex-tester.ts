@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Regex Tester - Test Regular Expressions Online Free | IconVault",
     metaDescription:
-      "Test JavaScript regular expressions live in your browser. Live match highlighting, flag toggles, capture-group inspection and find-and-replace with $1 group references - free, no signup.",
+      "Test JavaScript regular expressions live in your browser. Live match highlighting, flag toggles, capture-group inspection and find-and-replace with $1 group references - free; downloads need a free account.",
     about: [
       "**IconVault**'s **Regex Tester** is a live workbench for **regular** **expressions**. Type your pattern, toggle flags like g, i, m, s, u and y, and paste a **test** string - matches are highlighted instantly, each match is listed with its index, and captured groups are shown one by one so you can see exactly what your pattern grabbed.",
       "It runs entirely in your browser using the real **JavaScript** RegExp engine, so what you **test** here behaves exactly like it will in your code. Invalid patterns get a clear red error message instead of silent failure, and you can copy the pattern as a ready-to-paste /pattern/flags literal. A built-in replace mode lets you **test** find-and-replace with $1-style backreferences before touching your code, a searchable cheat-sheet inserts common tokens with one click, and a share button encodes pattern, flags and **test** text into a linkable URL. Every visitor gets 5 **free** tests - **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free tests do I get?",
-        a: "Every visitor gets 5 free regex tests with no account needed. IconVault Pro ($19 one-time) gives unlimited tests plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free regex tests with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited tests plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -48,7 +48,7 @@ const seo: ToolSeo = {
       "regex for javascript", "js regex test", "es regex tester",
       "regex multiline test", "regex global flag test", "regex unicode test",
       "regex sticky flag", "regex dotall test", "private regex tester",
-      "regex tester no signup", "browser regex tester", "regex tester for developers",
+      "regex tester a free account for downloads", "browser regex tester", "regex tester for developers",
       "regex test string", "regex match groups", "regex group viewer",
       "regex index viewer", "copy regex literal", "regex pattern validator online",
       "regex cheatsheet tester", "regex sandbox", "regex workbench",

@@ -12,7 +12,7 @@ const seo: ToolSeo = {
       { q: "Which units can I use?", a: "Kilometers with km/h or miles with mph. Just keep distance and speed in matching units and the math works out." },
       { q: "Does it account for traffic or stops?", a: "No. The calculator assumes a constant average speed, so for trips with traffic or breaks, lower your average speed to build in a buffer." },
       { q: "Can I calculate travel time without a departure time?", a: "Yes. Distance and speed alone give you the trip duration; the departure time is only needed to convert that into an arrival clock time." },
-      { q: "Is the ETA calculator free?", a: "Yes, completely free with no signup and no limits." }
+      { q: "Is the ETA calculator free?", a: "Yes, completely free to use; downloads need a free account and no limits." }
     ],
     tags: [
       "eta calculator", "eta calculator online", "free eta calculator",
@@ -25,7 +25,7 @@ const seo: ToolSeo = {
       "calculate arrival time", "calculate travel time", "calculate trip duration",
       "km to time calculator", "miles to time calculator", "mph to arrival time",
       "average speed calculator", "speed distance time formula",
-      "eta formula", "how to calculate eta", "eta calculator free no signup",
+      "eta formula", "how to calculate eta", "eta calculator free a free account for downloads",
       "online travel calculator", "trip planner calculator", "logistics eta tool",
       "shipping eta calculator", "package delivery time estimator",
       "when will i arrive calculator", "what time will i get there",

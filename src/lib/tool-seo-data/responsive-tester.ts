@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why is the preview blank for some sites?", a: "Many sites send X-Frame-Options or Content-Security-Policy headers that forbid embedding in iframes. That is the site protecting itself, and no iframe-based tester can bypass it. Your own sites work if you allow framing." },
       { q: "Can I rotate the viewport?", a: "Yes. A rotate button swaps width and height so you can check landscape layouts on phones and tablets instantly." },
       { q: "Does it emulate touch or device pixels?", a: "It resizes the viewport only. It does not emulate device pixel ratio, touch events or user agents. For deep device emulation, use your browser's built-in dev tools alongside this quick checker." },
-      { q: "Is it free?", a: "Yes. Unlimited previews with no account and no signup." }
+      { q: "Is it free?", a: "Yes. Unlimited previews with no account and a free account for downloads." }
     ],
     tags: [
       "responsive tester",

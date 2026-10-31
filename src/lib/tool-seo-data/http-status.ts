@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Look up any HTTP status code: 200, 301, 404, 500 and more, with plain-English meanings and when each appears. Free reference in your browser.",
     about: [
       "**IconVault**'s **HTTP Status Codes** is a searchable reference of every **HTTP status code**, from 100 Continue to 511 Network Authentication Required. Search by code or keyword, filter by class (**1xx** informational, **2xx** success, **3xx** redirection, **4xx** client error, **5xx** server error), and get a **plain-English explanation** of what each code means and when servers send it.",
-      "It runs **fully in your browser** with **no signup** and is **free** to use, handy whether you are debugging a failing API call, writing error handling, or studying for an exam. Honest note: it is a reference guide, not a live checker; the exact behavior of a code can vary slightly between servers and frameworks."
+      "It runs **fully in your browser** with **a free account for downloads** and is **free** to use, handy whether you are debugging a failing API call, writing error handling, or studying for an exam. Honest note: it is a reference guide, not a live checker; the exact behavior of a code can vary slightly between servers and frameworks."
     ],
     faqs: [
       { q: "What are HTTP status codes?", a: "Three-digit numbers a server returns with every HTTP response to say what happened: 2xx means success, 3xx means redirection, 4xx means the client made an error, and 5xx means the server failed." },

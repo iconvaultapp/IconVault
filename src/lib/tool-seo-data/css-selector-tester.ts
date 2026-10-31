@@ -2,7 +2,7 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "CSS Selector Tester - Free Online Tool | IconVault",
-    metaDescription: "Test CSS selectors live on a sample DOM with match highlighting and a specificity calculator. Free, no signup, runs in your browser.",
+    metaDescription: "Test CSS selectors live on a sample DOM with match highlighting and a specificity calculator. Free; downloads need a free account; runs in your browser.",
     about: [
       "**IconVault**'s **CSS Selector Tester** lets you type any CSS selector and instantly see what it matches. Matches light up with a teal outline on a realistic sample document, you get an exact match count plus a list of the matched elements, and a built-in specificity calculator scores your selector as you type. It is free and runs fully in your browser.",
       "Debugging selectors by refreshing a page and squinting at DevTools is slow. This tester gives you a safe sandbox to experiment with **combinators**, **pseudo-classes** like :nth-child(), and **attribute selectors**, while the **specificity readout** (IDs vs classes vs elements) teaches you why one rule beats another. Invalid selectors are caught and explained instead of failing silently."

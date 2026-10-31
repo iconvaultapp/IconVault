@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions, no account needed. IconVault Pro ($19 one-time) unlocks unlimited conversions, higher detail settings and batch vectorizing.",
+        a: "Every visitor gets 5 free conversions, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited conversions, higher detail settings and batch vectorizing.",
       },
       {
         q: "What is vectorizing useful for?",
@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "logo to vector", "convert logo to svg", "trace image to svg", "image trace online",
       "png to svg transparent", "jpg to svg transparent background", "vectorize logo free",
       "online vectorizer", "free vectorizer", "image vectorizer", "ai image to svg",
-      "png to svg no signup", "jpg to svg no watermark", "convert png to svg for cricut",
+      "png to svg a free account for downloads", "jpg to svg no watermark", "convert png to svg for cricut",
       "svg converter for laser engraving", "vectorize for vinyl cutting", "image to svg for embroidery",
       "png to svg for print", "high quality vectorizer", "best png to svg converter",
       "webp to svg", "gif to svg converter", "bmp to svg", "picture to svg",

@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, minimal blog template, digital writer journal html, personal travel blog, medium style clean theme, minimalist writer portfolio, static blog layout, clean white blog website, literature publishing template, poetry minimalist journal">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/blog-minimal-journal">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copenhagen Journal — Free Blog Template</title>
+  <meta name="description" content="Minimalist, high-readability personal writing space focusing on distraction-free Scandinavian layout, perfect for European novel... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Copenhagen Journal — Free Blog Template">
+  <meta property="og:description" content="Minimalist, high-readability personal writing space focusing on distraction-free Scandinavian layout, perfect for European novel... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/blog_minimal_journal.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Copenhagen Journal — Free Blog Template">
+  <meta name="twitter:description" content="Minimalist, high-readability personal writing space focusing on distraction-free Scandinavian layout, perfect for European novel... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/blog_minimal_journal.webp">
+    
+    <!-- Google Fonts: Lora (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* -------------------------------------------------------------
+           CSS Custom Variables & Theme Palettes
+        ------------------------------------------------------------- */
+        :root {
+            /* Light Theme Palette (Warm Cream, Slate Gray, Charcoal) */
+            --bg-primary: #FAF8F5;
+            --bg-secondary: #F3EFEA;
+            --text-primary: #1C1A17;
+            --text-secondary: #656059;
+            --text-muted: #9E978E;
+            --border-color: #E7E2DB;
+            --accent-color: #7D6B58;
+            --accent-hover: #5A4C3E;
+            --overlay-bg: rgba(26, 25, 23, 0.4);
+            --drawer-shadow: -10px 0 30px rgba(28, 26, 23, 0.05);
+            --toast-bg: #1C1A17;
+            --toast-text: #FAF8F5;
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-serif: 'Lora', Georgia, Cambria, "Times New Roman", Times, serif;
+            --transition-speed: 0.3s;
+            --transition-curve: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Palette (Deep Charcoal, Soft Cream, Taupe) */
+            --bg-primary: #121211;
+            --bg-secondary: #1A1A19;
+            --text-primary: #EBE8E2;
+            --text-secondary: #A39E96;
+            --text-muted: #6E6961;
+            --border-color: #2D2C2A;
+            --accent-color: #C3B4A2;
+            --accent-hover: #E3D5C4;
+            --overlay-bg: rgba(10, 10, 9, 0.8);
+            --drawer-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            --toast-bg: #EBE8E2;
+            --toast-text: #121211;
+        }
+
+        /* -------------------------------------------------------------
+           Base & Reset Styles
+        ------------------------------------------------------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.625;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color var(--transition-speed) var(--transition-curve),
+                        color var(--transition-speed) var(--transition-curve),
+                        border-color var(--transition-speed) var(--transition-curve);
+            overflow-x: hidden;
+        }
+
+        /* Standard text selection */
+        ::selection {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+        }
+
+        /* Custom Scrollbar for premium feeling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Common layout containers */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .container-narrow {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* -------------------------------------------------------------
+           Typography Rules
+        ------------------------------------------------------------- */
+        h1, h2, h3, h4, .serif {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-speed) var(--transition-curve),
+                        opacity var(--transition-speed) var(--transition-curve);
+        }
+
+        /* Focus rings for excellent keyboard accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 4px;
+        }
+
+        /* -------------------------------------------------------------
+           Header Section
+        ------------------------------------------------------------- */
+        .header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: rgba(250, 248, 245, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: background-color var(--transition-speed) var(--transition-curve),
+                        border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        [data-theme="dark"] .header {
+            background-color: rgba(18, 18, 17, 0.85);
+        }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header__logo-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .header__menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 2.25rem;
+        }
+
+        .header__menu-link {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .header__menu-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition-curve);
+        }
+
+        .header__menu-link:hover {
+            color: var(--text-primary);
+        }
+
+        .header__menu-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Header Controls (Theme switcher + Mobile menu) */
+        .header__controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: background-color var(--transition-speed) var(--transition-curve),
+                        color var(--transition-speed) var(--transition-curve),
+                        transform 0.5s var(--transition-curve);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Moon icon stays hidden unless dark theme, Sun icon stays hidden unless light theme */
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+        /* Mobile Menu Trigger Button */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-primary);
+            z-index: 110;
+        }
+
+        .mobile-nav-toggle span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background-color: currentColor;
+            transition: transform var(--transition-speed) var(--transition-curve),
+                        opacity var(--transition-speed) var(--transition-curve);
+        }
+
+        /* -------------------------------------------------------------
+           Hero Section
+        ------------------------------------------------------------- */
+        .hero {
+            padding: 7.5rem 0 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .hero__content {
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: 2.85rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__title em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-color);
+        }
+
+        .hero__bio {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero__socials {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .hero__social-link {
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0;
+            position: relative;
+        }
+
+        .hero__social-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-speed) var(--transition-curve);
+        }
+
+        .hero__social-link:hover {
+            color: var(--accent-color);
+        }
+
+        .hero__social-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero__social-dot {
+            width: 4px;
+            height: 4px;
+            background-color: var(--border-color);
+            border-radius: 50%;
+        }
+
+        /* -------------------------------------------------------------
+           Linear Articles Feed Section
+        ------------------------------------------------------------- */
+        .feed {
+            padding: 6rem 0;
+        }
+
+        .feed__header {
+            margin-bottom: 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1.5px solid var(--text-primary);
+            padding-bottom: 1rem;
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .feed__title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+        }
+
+        .feed__meta {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .feed__list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            padding: 3.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: border-color var(--transition-speed) var(--transition-curve),
+                        background-color var(--transition-speed) var(--transition-curve);
+            position: relative;
+        }
+
+        .article-card:last-child {
+            border-bottom: none;
+        }
+
+        .article-card__meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-top: 0.25rem;
+        }
+
+        .article-card__category {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .article-card__content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            position: relative;
+        }
+
+        .article-card__title {
+            font-size: 1.625rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            position: relative;
+            display: inline-block;
+            transition: color var(--transition-speed) var(--transition-curve);
+        }
+
+        .article-card__title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 1.5px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--transition-curve);
+        }
+
+        .article-card__desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.65;
+            max-width: 580px;
+        }
+
+        .article-card__action {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity var(--transition-speed) var(--transition-curve),
+                        transform var(--transition-speed) var(--transition-curve),
+                        color var(--transition-speed) var(--transition-curve);
+            margin-top: 0.25rem;
+        }
+
+        .article-card__action svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Hover States for Article Cards */
+        .article-card:hover .article-card__title {
+            color: var(--accent-color);
+        }
+
+        .article-card:hover .article-card__title::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .article-card:hover .article-card__action {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* -------------------------------------------------------------
+           About the Author Profile Section
+        ------------------------------------------------------------- */
+        .profile {
+            background-color: var(--bg-secondary);
+            padding: 6.5rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color var(--transition-speed) var(--transition-curve),
+                        border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .profile__grid {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .profile__left {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile__author-info {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        /* Elegant SVG Avatar */
+        .profile__avatar-container {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .profile__avatar-svg {
+            width: 50px;
+            height: 50px;
+            color: var(--text-secondary);
+        }
+
+        .profile__author-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .profile__author-title {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .profile__manifesto {
+            border-left: 2.5px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .profile__manifesto-text {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .profile__principles {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .profile__principle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .profile__principle-bullet {
+            width: 5px;
+            height: 5px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .profile__right {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .profile__bio-extended {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .profile__bio-extended p {
+            margin-bottom: 1.25rem;
+        }
+
+        .profile__bio-extended p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Reading list styling */
+        .profile__reading-list-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .reading-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .reading-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.9375rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .reading-item__title {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .reading-item__author {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Elegant Newsletter form */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form__title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .newsletter-form__subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: -0.75rem;
+        }
+
+        .newsletter-form__group {
+            display: flex;
+            border-bottom: 1.5px solid var(--text-primary);
+            padding: 0.5rem 0;
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .newsletter-form__group:focus-within {
+            border-color: var(--accent-color);
+        }
+
+        .newsletter-form__input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.9375rem;
+            padding: 0.25rem 0;
+        }
+
+        .newsletter-form__input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.8;
+        }
+
+        .newsletter-form__input:focus {
+            outline: none;
+        }
+
+        .newsletter-form__btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            padding: 0 0.5rem;
+            transition: color var(--transition-speed) var(--transition-curve),
+                        transform var(--transition-speed) var(--transition-curve);
+        }
+
+        .newsletter-form__btn:hover {
+            color: var(--text-primary);
+            transform: translateX(3px);
+        }
+
+        .newsletter-feedback {
+            font-size: 0.8125rem;
+            color: #4B8E6A;
+            display: none;
+            animation: fadeIn 0.4s var(--transition-curve);
+        }
+
+        [data-theme="dark"] .newsletter-feedback {
+            color: #72BF94;
+        }
+
+        /* -------------------------------------------------------------
+           Footer Section
+        ------------------------------------------------------------- */
+        .footer {
+            padding: 5rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .footer__grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer__left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer__logo {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .footer__nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer__nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .footer__right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer__clock {
+            font-variant-numeric: tabular-nums;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .footer__clock-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #4B8E6A;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        [data-theme="dark"] .footer__clock-dot {
+            background-color: #72BF94;
+        }
+
+        .back-to-top {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color var(--transition-speed) var(--transition-curve);
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-color);
+        }
+
+        .back-to-top svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform var(--transition-speed) var(--transition-curve);
+        }
+
+        .back-to-top:hover svg {
+            transform: translateY(-3px);
+        }
+
+        /* -------------------------------------------------------------
+           Active Reader Slide-In Overlay Drawer
+        ------------------------------------------------------------- */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s var(--transition-curve),
+                        visibility 0.5s var(--transition-curve);
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 720px;
+            max-width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            box-shadow: var(--drawer-shadow);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color var(--transition-speed) var(--transition-curve);
+            overflow: hidden;
+        }
+
+        .drawer.active {
+            right: 0;
+        }
+
+        /* Scroll Progress Bar in drawer */
+        .drawer__progress-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--bg-secondary);
+            z-index: 1010;
+        }
+
+        .drawer__progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--accent-color);
+            transition: width 0.1s linear;
+        }
+
+        /* Drawer Header */
+        .drawer__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            transition: border-color var(--transition-speed) var(--transition-curve),
+                        background-color var(--transition-speed) var(--transition-curve);
+            z-index: 1005;
+        }
+
+        .drawer__close-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 0;
+            transition: color var(--transition-speed) var(--transition-curve),
+                        transform var(--transition-speed) var(--transition-curve);
+        }
+
+        .drawer__close-btn:hover {
+            color: var(--accent-color);
+        }
+
+        .drawer__close-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform var(--transition-speed) var(--transition-curve);
+        }
+
+        .drawer__close-btn:hover svg {
+            transform: translateX(-4px);
+        }
+
+        .drawer__nav-meta {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* Drawer Scrollable Content Container */
+        .drawer__body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 4.5rem 3.5rem 6.5rem 3.5rem;
+            scroll-behavior: smooth;
+        }
+
+        /* Article Typography within Reader */
+        .reader-article {
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .reader-article__meta {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .reader-article__dot {
+            width: 4px;
+            height: 4px;
+            background-color: var(--border-color);
+            border-radius: 50%;
+        }
+
+        .reader-article__category {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        .reader-article__title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 2.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .reader-article__intro {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2.5rem;
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        /* High premium standard typography for essays */
+        .reader-article__text {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .reader-article__text p {
+            margin-bottom: 1.85rem;
+            font-weight: 400;
+        }
+
+        /* Dropcap effect for visual superiority */
+        .reader-article__text p.dropcap {
+            float: left;
+            font-size: 4rem;
+            line-height: 0.8;
+            padding-right: 0.65rem;
+            padding-top: 0.25rem;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            color: var(--accent-color);
+        }
+
+        .reader-article__text h3 {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            margin: 2.75rem 0 1.25rem 0;
+            font-weight: 600;
+        }
+
+        .reader-article__text blockquote {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 2rem;
+            margin: 2.5rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        .reader-article__text em {
+            font-style: italic;
+        }
+
+        /* Drawer Footer / Social Actions */
+        .reader-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 3rem;
+            margin-top: 4.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: border-color var(--transition-speed) var(--transition-curve);
+        }
+
+        .reader-footer__title {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .reader-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .reader-share {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .reader-share__btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding: 0.25rem 0;
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .reader-share__btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-speed) var(--transition-curve);
+        }
+
+        .reader-share__btn:hover {
+            color: var(--accent-color);
+        }
+
+        .reader-share__btn:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .reader-share__btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .reader-nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .reader-nav-btn {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.65rem 1.25rem;
+            font-family: var(--font-sans);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-speed) var(--transition-curve);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reader-nav-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            border-color: var(--accent-color);
+        }
+
+        .reader-nav-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* -------------------------------------------------------------
+           Live Toast Component
+        ------------------------------------------------------------- */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translate(-50%, 100px);
+            background-color: var(--toast-bg);
+            color: var(--toast-text);
+            padding: 0.85rem 1.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            z-index: 2000;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.5s var(--transition-curve);
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toast.show {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+
+        .toast svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.25;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* -------------------------------------------------------------
+           Animations & Helper Classes
+        ------------------------------------------------------------- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        /* -------------------------------------------------------------
+           Media Queries for Perfect Responsiveness
+        ------------------------------------------------------------- */
+        @media (max-width: 900px) {
+            .profile__grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+            .drawer {
+                width: 100%;
+            }
+            .drawer__header {
+                padding: 1.5rem 2rem;
+            }
+            .drawer__body {
+                padding: 3rem 2rem 5rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .header__nav {
+                height: 80px;
+            }
+
+            .header__menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                gap: 3rem;
+                padding-bottom: 80px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                            opacity 0.5s var(--transition-curve);
+                z-index: 90;
+            }
+
+            .header__menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .header__menu-link {
+                font-size: 1.5rem;
+                font-family: var(--font-serif);
+                color: var(--text-primary);
+            }
+
+            .mobile-nav-toggle {
+                display: flex;
+            }
+
+            /* Toggle animation */
+            .mobile-nav-toggle.active span:nth-child(1) {
+                transform: translateY(6.5px) rotate(45deg);
+            }
+            .mobile-nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .mobile-nav-toggle.active span:nth-child(3) {
+                transform: translateY(-6.5px) rotate(-45deg);
+            }
+
+            .hero {
+                padding: 5rem 0 3.5rem 0;
+            }
+
+            .hero__title {
+                font-size: 2.25rem;
+            }
+
+            .article-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 2.5rem 0;
+            }
+
+            .article-card__meta {
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .article-card__desc {
+                max-width: 100%;
+            }
+
+            .article-card__action {
+                opacity: 1;
+                transform: translateX(0);
+                margin-top: 0.5rem;
+            }
+
+            .footer__grid {
+                flex-direction: column;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .footer__left {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer__nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer__right {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Copenhagen Journal",
+    "description": "Minimalist, high-readability personal writing space focusing on distraction-free Scandinavian layout, perfect for European novelists and essayists. MIT licen...",
+    "url": "https://templates.jack-codes.com/templates/blog-minimal-journal",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/blog-minimal-journal.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- -----------------------------------------------------------------
+       1. Header Navigation
+    ------------------------------------------------------------------ -->
+    <header class="header">
+        <div class="container header__nav">
+            <!-- Brand Logo -->
+            <a href="#" class="header__logo" aria-label="Minimal Journal Home">
+                Minimal Journal<span class="header__logo-dot"></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="header__menu" id="headerMenu">
+                    <li><a href="#feed" class="header__menu-link" onclick="closeMobileMenu()">Essays</a></li>
+                    <li><a href="#archive" class="header__menu-link" onclick="handleMockNavigation(event, 'Archive')">Archive</a></li>
+                    <li><a href="#profile" class="header__menu-link" onclick="closeMobileMenu()">About</a></li>
+                    <li><a href="#contact" class="header__menu-link" onclick="handleMockNavigation(event, 'Contact channel')">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Controls (Theme Swapper & Mobile Menu Hamburger) -->
+            <div class="header__controls">
+                <!-- Theme Switcher -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle visual theme">
+                    <!-- Moon Icon (Light Mode shows Moon -> toggle to Dark) -->
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <!-- Sun Icon (Dark Mode shows Sun -> toggle to Light) -->
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+
+                <!-- Mobile Nav toggle -->
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- -------------------------------------------------------------
+           2. Text-Heavy Hero Section
+        -------------------------------------------------------------- -->
+        <section class="hero">
+            <div class="container hero__content">
+                <h1 class="hero__title">
+                    Quiet reflections on <em>design</em>, <em>philosophy</em>, and the art of slowing down.
+                </h1>
+                <p class="hero__bio">
+                    Written by Elena Vance, a designer and essayist exploring the intersection of modern technology and simple living. Based in Copenhagen.
+                </p>
+                <div class="hero__socials">
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="hero__social-link">Twitter</a>
+                    <span class="hero__social-dot"></span>
+                    <a href="https://read.cv" target="_blank" rel="noopener" class="hero__social-link">Read.cv</a>
+                    <span class="hero__social-dot"></span>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="hero__social-link">GitHub</a>
+                    <span class="hero__social-dot"></span>
+                    <a href="#newsletter" class="hero__social-link" onclick="focusNewsletter(event)">Newsletter</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+           3. Linear Articles Feed
+        -------------------------------------------------------------- -->
+        <section class="feed" id="feed">
+            <div class="container-narrow">
+                <div class="feed__header">
+                    <span class="feed__title">Recent Essays</span>
+                    <span class="feed__meta" id="articleCount">5 Publications</span>
+                </div>
+
+                <div class="feed__list" id="feedList">
+                    <!-- Article 1 -->
+                    <article class="article-card" data-article-id="1">
+                        <div class="article-card__meta">
+                            <span class="article-card__date">MAY 24, 2026</span>
+                            <span class="article-card__category">Design Philosophy</span>
+                        </div>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">The Typography of Silence</h2>
+                            <p class="article-card__desc">
+                                How the spaces between letters and lines shape our thoughts, and why modern screens are losing the art of pause.
+                            </p>
+                            <div class="article-card__action">
+                                <span>Read Essay</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="article-card" data-article-id="2">
+                        <div class="article-card__meta">
+                            <span class="article-card__date">APR 18, 2026</span>
+                            <span class="article-card__category">Technology</span>
+                        </div>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">On the Beauty of Finished Things</h2>
+                            <p class="article-card__desc">
+                                In the digital realm, nothing is ever truly complete. What can software creators learn from the permanence of print?
+                            </p>
+                            <div class="article-card__action">
+                                <span>Read Essay</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="article-card" data-article-id="3">
+                        <div class="article-card__meta">
+                            <span class="article-card__date">MAR 30, 2026</span>
+                            <span class="article-card__category">Lifestyle</span>
+                        </div>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">A Digital Sabbath in Copenhagen</h2>
+                            <p class="article-card__desc">
+                                Seven days disconnected from the digital grid. A field guide to rediscovering analog sights, sounds, and manual writing.
+                            </p>
+                            <div class="article-card__action">
+                                <span>Read Essay</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="article-card" data-article-id="4">
+                        <div class="article-card__meta">
+                            <span class="article-card__date">FEB 12, 2026</span>
+                            <span class="article-card__category">Design</span>
+                        </div>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">Designing for the Decades</h2>
+                            <p class="article-card__desc">
+                                How do we build interfaces and structures that age gracefully? Exploring visual longevity over ephemeral design trends.
+                            </p>
+                            <div class="article-card__action">
+                                <span>Read Essay</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="article-card" data-article-id="5">
+                        <div class="article-card__meta">
+                            <span class="article-card__date">JAN 05, 2026</span>
+                            <span class="article-card__category">Philosophy</span>
+                        </div>
+                        <div class="article-card__content">
+                            <h2 class="article-card__title">The Subtraction of Noise</h2>
+                            <p class="article-card__desc">
+                                Mies van der Rohe's maxim 'less is more' has been commercialized, but its spiritual core remains a necessary cure for digital anxiety.
+                            </p>
+                            <div class="article-card__action">
+                                <span>Read Essay</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+           4. "About the Author" Profile Section & Principles
+        -------------------------------------------------------------- -->
+        <section class="profile" id="profile">
+            <div class="container profile__grid">
+                <!-- Profile Left Side: Quick summary, avatar & manifesto -->
+                <div class="profile__left">
+                    <div class="profile__author-info">
+                        <div class="profile__avatar-container" aria-hidden="true">
+                            <!-- Premium minimalist vector-style SVG avatar -->
+                            <svg class="profile__avatar-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="profile__author-name">Elena Vance</h3>
+                            <p class="profile__author-title">Editor &amp; Essayist</p>
+                        </div>
+                    </div>
+
+                    <div class="profile__manifesto">
+                        <blockquote class="profile__manifesto-text">
+                            "A design is not done when there is nothing left to add, but when there is nothing left to subtract."
+                        </blockquote>
+                    </div>
+
+                    <div class="profile__principles">
+                        <div class="profile__principle">
+                            <span class="profile__principle-bullet"></span>
+                            <span>Analog-first workflow</span>
+                        </div>
+                        <div class="profile__principle">
+                            <span class="profile__principle-bullet"></span>
+                            <span>Absolute distraction-free interfaces</span>
+                        </div>
+                        <div class="profile__principle">
+                            <span class="profile__principle-bullet"></span>
+                            <span>Longevity over short-term trends</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Right Side: Deeper bio, reading list, and newsletter -->
+                <div class="profile__right">
+                    <div class="profile__bio-extended">
+                        <p>
+                            I spend my days designing layout grids and structural systems for interfaces that respect human cognitive capacity. My essays explore the subtle art of subtracting physical and digital noise to rediscover our genuine voice.
+                        </p>
+                        <p>
+                            Before launching this Minimal Journal, I worked as a typographical advisor for design firms across Scandinavia. Currently, I run a boutique publishing press and practice analog photography with medium-format cameras.
+                        </p>
+                    </div>
+
+                    <!-- What I'm Reading List -->
+                    <div>
+                        <h4 class="profile__reading-list-title">On My Bookshelf</h4>
+                        <div class="reading-items">
+                            <div class="reading-item">
+                                <span class="reading-item__title">The Form of the Book</span>
+                                <span class="reading-item__author">Jan Tschichold</span>
+                            </div>
+                            <div class="reading-item">
+                                <span class="reading-item__title">As Beautiful as Yesterday</span>
+                                <span class="reading-item__author">Dieter Rams</span>
+                            </div>
+                            <div class="reading-item">
+                                <span class="reading-item__title">In Praise of Shadows</span>
+                                <span class="reading-item__author">Jun'ichirō Tanizaki</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Distraction-Free Newsletter Sign-up -->
+                    <div class="newsletter-form" id="newsletter">
+                        <h4 class="newsletter-form__title">Subscribe to the Printed Despatch</h4>
+                        <p class="newsletter-form__subtitle">Sent quarterly by post or email. No tracking. No spam.</p>
+                        
+                        <form onsubmit="handleNewsletterSubmit(event)">
+                            <div class="newsletter-form__group">
+                                <input type="email" class="newsletter-form__input" placeholder="your.email@domain.com" required aria-label="Email Address">
+                                <button type="submit" class="newsletter-form__btn" aria-label="Submit subscription">
+                                    Subscribe &rarr;
+                                </button>
+                            </div>
+                        </form>
+                        <div class="newsletter-feedback" id="newsletterFeedback">
+                            Thank you. You are now subscribed to the quarterly despatch.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- -----------------------------------------------------------------
+       5. Minimalist Footer
+    ------------------------------------------------------------------ -->
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__left">
+                <span class="footer__logo">Minimal Journal</span>
+                <span class="serif" style="font-style: italic; opacity: 0.7;">Est. 2026</span>
+            </div>
+
+            <nav class="footer__nav" aria-label="Footer Menu">
+                <a href="#feed" class="footer__nav-link">Essays</a>
+                <a href="#archive" class="footer__nav-link" onclick="handleMockNavigation(event, 'Archive')">Archive</a>
+                <a href="#profile" class="footer__nav-link">About</a>
+                <a href="#contact" class="footer__nav-link" onclick="handleMockNavigation(event, 'Contact channel')">Contact</a>
+            </nav>
+
+            <div class="footer__right">
+                <!-- Copenhagen Live Clock -->
+                <div class="footer__clock" title="Local Copenhagen Time">
+                    <span class="footer__clock-dot"></span>
+                    <span id="copenhagenTime">CPH 14:54:42</span>
+                </div>
+
+                <!-- Back to top button -->
+                <button class="back-to-top" onclick="scrollToTop()" aria-label="Scroll back to top of the page">
+                    <span>Back to top</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                        <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- -----------------------------------------------------------------
+       6. Active Reader Overlay Slide-In Drawer
+    ------------------------------------------------------------------ -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="closeArticle()"></div>
+    
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <!-- Progress bar tracking scroll position in the article -->
+        <div class="drawer__progress-container">
+            <div class="drawer__progress-bar" id="drawerProgressBar"></div>
+        </div>
+
+        <!-- Drawer Header -->
+        <div class="drawer__header">
+            <button class="drawer__close-btn" onclick="closeArticle()" aria-label="Close reader panel">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Esc / Close</span>
+            </button>
+            <span class="drawer__nav-meta" id="drawerNavMeta">ESSAY READER</span>
+        </div>
+
+        <!-- Drawer Scrollable Content Body -->
+        <div class="drawer__body" id="drawerBody" onscroll="updateProgressBar()">
+            <article class="reader-article">
+                <header>
+                    <div class="reader-article__meta">
+                        <span class="reader-article__category" id="drawerCategory">DESIGN</span>
+                        <span class="reader-article__dot"></span>
+                        <span class="reader-article__date" id="drawerDate">MAY 24, 2026</span>
+                        <span class="reader-article__dot"></span>
+                        <span class="reader-article__read-time" id="drawerReadTime">6 MIN READ</span>
+                    </div>
+                    <h2 class="reader-article__title" id="drawerTitle">The Typography of Silence</h2>
+                    <p class="reader-article__intro" id="drawerIntro">
+                        How the spaces between letters and lines shape our thoughts, and why modern screens are losing the art of pause.
+                    </p>
+                </header>
+
+                <div class="reader-article__text" id="drawerContent">
+                    <!-- Content will be injected here dynamically by JS -->
+                </div>
+
+                <!-- Footer elements inside article (Share buttons, Next article) -->
+                <footer class="reader-footer">
+                    <span class="reader-footer__title">Finished reading?</span>
+                    <div class="reader-actions">
+                        <div class="reader-share">
+                            <button class="reader-share__btn" onclick="triggerAction('Twitter Share')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                                <span>Share on Twitter</span>
+                            </button>
+                            <button class="reader-share__btn" onclick="triggerAction('Copy Link')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                </svg>
+                                <span>Copy Link</span>
+                            </button>
+                        </div>
+
+                        <div class="reader-nav-buttons">
+                            <button class="reader-nav-btn" id="nextArticleBtn" onclick="loadNextArticle()">
+                                <span>Next Essay</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </aside>
+
+    <!-- -----------------------------------------------------------------
+       7. Interactive Toast Notification Component
+    ------------------------------------------------------------------ -->
+    <div class="toast" id="toast" aria-live="polite">
+        <!-- Dynamic Check icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span id="toastMessage">Done successfully.</span>
+    </div>
+
+    <!-- -----------------------------------------------------------------
+       8. Fully-Featured Javascript Controller
+    ------------------------------------------------------------------ -->
+    <script>
+        /* -------------------------------------------------------------
+           A. Rich Essay Database Structure
+        ------------------------------------------------------------- */
+        const articlesDatabase = {
+            "1": {
+                title: "The Typography of Silence",
+                date: "MAY 24, 2026",
+                readTime: "6 MIN READ",
+                category: "Design Philosophy",
+                intro: "How the spaces between letters and lines shape our thoughts, and why modern screens are losing the art of pause.",
+                content: `
+                    <p class="dropcap">I</p><p>n our relentless pursuit of visual noise, we have forgotten the profound power of empty space. Typography is not merely the selection of letterforms; it is the deliberate orchestration of silence. Just as music relies on the silence between notes to create rhythm, reading relies on the blank margins and generous leading to let ideas breathe.</p>
+                    <p>Modern screen design is suffering from a hyper-efficiency epidemic. Websites squeeze margins, cram blocks of text, and pack every square pixel with banners, pop-ups, and flashing reminders. In doing so, they convert the act of reading from a deep, reflective experience into an anxious sprint. When every element screams for attention, nothing is heard.</p>
+                    <blockquote>
+                        "Silence is the canvas upon which typography paints its quietest, most enduring masterpieces."
+                    </blockquote>
+                    <p>To design with silence is to respect the reader's mind. It requires choosing typefaces like <em>Lora</em> or <em>Merriweather</em> that possess physical grace—letterforms designed to be read slow, not scanned fast. It demands margins that represent at least a third of the viewport width, and a line height that allows the eyes to glide effortlessly from line to line without losing their place.</p>
+                    <h3>The Geometry of Restraint</h3>
+                    <p>Jan Tschichold, the pioneer of modern typography, spoke of the 'active white space.' White space is never passive; it is a structural element. When we look at a classic, centuries-old printed book, the margins are vast, often occupying more space than the text block itself. This was not a waste of paper; it was a sanctuary for the hands and the eyes.</p>
+                    <p>As we design for the next generation of digital interfaces, we must re-learn the art of letting go. We must resist the urge to fill. A truly premium digital journal is not defined by what it adds, but by what it bravely leaves out. When the typography is correct and the margins are wide, the content speaks in a voice that is both authoritative and calm.</p>
+                `
+            },
+            "2": {
+                title: "On the Beauty of Finished Things",
+                date: "APR 18, 2026",
+                readTime: "8 MIN READ",
+                category: "Technology",
+                intro: "In the digital realm, nothing is ever truly complete. What can software creators learn from the permanence of print?",
+                content: `
+                    <p class="dropcap">T</p><p>he physical world is bound by the beautiful finality of print. Once a book is bound, once ink meets paper, the creator's hands are tied. The work is finished. It must stand on its own merits, unyielding to updates, patches, or revisions. This finality, though terrifying to the modern digital creator, is the source of its immense artistic dignity.</p>
+                    <p>Contrast this with the digital world, where everything exists in a state of perpetual draft. Software is updated weekly; blog posts are edited continuously; websites are redesigned in real time. We live in an era of 'perpetual beta,' where the pressure to iterate has completely replaced the discipline of completion.</p>
+                    <blockquote>
+                        "The digital medium has liberated us from the physical limits of paper, but it has also stripped us of the peace that comes with being done."
+                    </blockquote>
+                    <p>This endless mutability changes our relationship with our creations. When a digital product can always be fixed tomorrow, there is less incentive to make it perfect today. Mistakes are tolerated because a patch is always on the horizon. More importantly, this constant change deprives the user of stability. The interfaces they rely on shift beneath their fingers, and the content they value can disappear with a single database overwrite.</p>
+                    <h3>The Ethics of Completion</h3>
+                    <p>What if we deliberately designed software and digital artifacts to be finished? What if we declared a version 'complete' and vowed never to touch it again? This is not laziness; it is a profound act of design restraint. It forces us to think deeply about every detail, every line of code, and every word of copy, knowing that they will be preserved forever.</p>
+                    <p>By embracing finality, we create objects of lasting value. We allow digital artifacts to acquire their own digital patina—a sense of historical placement. A blog post written in 2026 should remain exactly as it was written, a perfect capsule of the author's mind at that specific moment in time. Only then can we build a digital culture that commands the same respect as our physical libraries.</p>
+                `
+            },
+            "3": {
+                title: "A Digital Sabbath in Copenhagen",
+                date: "MAR 30, 2026",
+                readTime: "5 MIN READ",
+                category: "Lifestyle",
+                intro: "Seven days disconnected from the digital grid. A field guide to rediscovering analog sights, sounds, and manual writing.",
+                content: `
+                    <p class="dropcap">L</p><p>ast month, I turned off my smartphone, packed a single leather-bound notebook, a fountain pen, and a mechanical Leica M6 camera, and spent seven days walking the cold, cobblestone streets of Copenhagen. My goal was simple yet incredibly difficult: to experience a city without the digital mediator that has become our second skin.</p>
+                    <p>In the first forty-eight hours, the phantom vibration in my pocket was constant. I felt a persistent anxiety—a sense that I was missing urgent updates, that my friends were wondering where I was, and that the world was moving on without me. But by the third day, something shifted. The anxiety gave way to an extraordinary clarity of attention.</p>
+                    <blockquote>
+                        "Without a screen to capture the sunset, I was forced to actually look at it, to feel the cold air on my face, and to store the image in the only archive that truly matters: my memory."
+                    </blockquote>
+                    <p>I began to notice details that I had missed during a dozen previous visits to the Danish capital. The specific way the afternoon light hit the ochre-painted houses of Nyboder; the rhythmic clicking of bicycle gears over cobblestones; the quiet conversations in corner cafés where people looked at each other, not down at their laps.</p>
+                    <h3>Reclaiming the Analog Mind</h3>
+                    <p>Writing by hand in a notebook is a fundamentally different cognitive process than typing on a glass screen or keyboard. The physical resistance of paper forces you to slow down, to think ahead, and to embrace the permanence of your ink. You cannot delete a sentence with a keystroke; you must cross it out, leaving a physical record of your hesitation and evolution of thought.</p>
+                    <p>When my digital sabbath ended, I returned to the grid, but I returned changed. I now set strict boundaries for my devices: no screens in the bedroom, no notifications during creative hours, and a dedicated day of offline living every week. In subtraction, I found an abundance of time, focus, and creative renewal.</p>
+                `
+            },
+            "4": {
+                title: "Designing for the Decades",
+                date: "FEB 12, 2026",
+                readTime: "10 MIN READ",
+                category: "Design",
+                intro: "How do we build interfaces and structures that age gracefully? Exploring visual longevity over ephemeral design trends.",
+                content: `
+                    <p class="dropcap">T</p><p>he lifespan of a modern website is embarrassingly short. On average, a digital interface is completely redesigned every three to five years, often not because it has stopped working, but because it has simply 'come to look old.' We are trapped in a cycle of visual obsolescence, driven by the rapid turnover of design trends.</p>
+                    <p>One year it is skeuomorphism, the next flat design, followed by glassmorphism, neo-brutalism, and clean neo-minimalism. These trends are pushed by design platforms and agencies eager to sell the illusion of progress. But this constant cosmetic churning is wasteful, confusing to users, and visually exhausting.</p>
+                    <blockquote>
+                        "Good design is not about being fashionable; it is about being correct. A correct solution does not age."
+                    </blockquote>
+                    <p>If we look at other design disciplines—architecture, furniture, book printing—we find objects that have remained beautiful and functional for decades, if not centuries. A chair designed by Hans Wegner or Dieter Rams in 1960 looks as fresh and elegant in a contemporary room today as it did sixty years ago. Why? Because they focused on structural integrity, human ergonomics, and absolute visual economy.</p>
+                    <h3>The Principles of Visual Longevity</h3>
+                    <p>To design a digital interface that can survive for a decade, we must build on foundational principles rather than ephemeral fashions. This means placing typography at the absolute center of our system. Beautiful type, set with mathematically correct proportions, has been the standard of human communication for five hundred years. It does not go out of style.</p>
+                    <p>We must also embrace neutral, functional color palettes, robust layout grids, and standard browser elements. Rather than inventing complex, non-standard navigation patterns, we should rely on simple, predictable user flows that respect human intuition. When we strip away the decorative ornaments, what remains is the pure utility of the content—and that is timeless.</p>
+                `
+            },
+            "5": {
+                title: "The Subtraction of Noise",
+                date: "JAN 05, 2026",
+                readTime: "7 MIN READ",
+                category: "Philosophy",
+                intro: "Mies van der Rohe's maxim 'less is more' has been commercialized, but its spiritual core remains a necessary cure for digital anxiety.",
+                content: `
+                    <p class="dropcap">M</p><p>inimalism has been co-opted. What began as a radical philosophical stance in art and architecture has been reduced to a commercial aesthetic: sterile white rooms, expensive luxury goods, and pristine layouts that feel cold and uninviting. But true minimalism is not an aesthetic; it is a spiritual practice of subtraction.</p>
+                    <p>In our modern daily life, noise is the default. We are bombarded with notifications, ads, recommendations, and algorithmically generated content designed to keep our brains in a state of low-grade, perpetual panic. This is not just visual noise; it is cognitive pollution. To survive with our focus and mental health intact, we must develop a fierce commitment to subtraction.</p>
+                    <blockquote>
+                        "Minimalism is the deliberate elimination of the non-essential in order to clear a space for the things that truly matter."
+                    </blockquote>
+                    <p>Subtraction is not about deprivation. It is not about living in an empty box or owning fewer than fifty things. It is about creating empty space—in our schedules, on our desks, and on our screens—so that our minds have the freedom to wander, contemplate, and create. It is about saying 'no' to the marginal so we can say a full, resonant 'yes' to the profound.</p>
+                    <h3>Crafting a Quiet Digital Ecology</h3>
+                    <p>How do we apply subtraction to our digital lives? It starts with a ruthless audit. Delete the apps that do not serve a creative or essential purpose. Turn off all non-human notifications. Curate your digital inputs with the same extreme care that a museum curator exercises when selecting pieces for an exhibition.</p>
+                    <p>When you sit down to write, read, or design, do it in a distraction-free environment. Use software that hides the interface when you start typing. Read blogs that do not have sidebars, ads, or recommended links. By deliberately narrowing our inputs, we deepen our outputs. In the quiet space of subtraction, our authentic voice is finally allowed to speak.</p>
+                `
+            }
+        };
+
+        let currentActiveArticleId = null;
+
+        /* -------------------------------------------------------------
+           B. DOM Elements Cache
+        ------------------------------------------------------------- */
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const headerMenu = document.getElementById('headerMenu');
+        const drawer = document.getElementById('drawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        const drawerBody = document.getElementById('drawerBody');
+        const drawerProgressBar = document.getElementById('drawerProgressBar');
+        const nextArticleBtn = document.getElementById('nextArticleBtn');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        /* -------------------------------------------------------------
+           C. Theme Management (Light / Dark Mode with LocalStorage memory)
+        ------------------------------------------------------------- */
+        function initTheme() {
+            const savedTheme = localStorage.getItem('minimal-journal-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+            
+            if (currentTheme === 'light') {
+                newTheme = 'dark';
+            }
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('minimal-journal-theme', newTheme);
+            showToast(`Switched to ${newTheme} aesthetics.`);
+        });
+
+        /* -------------------------------------------------------------
+           D. Mobile Responsive Menu
+        ------------------------------------------------------------- */
+        mobileNavToggle.addEventListener('click', () => {
+            const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+            mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileNavToggle.classList.toggle('active');
+            headerMenu.classList.toggle('active');
+            
+            if (!isExpanded) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        function closeMobileMenu() {
+            if (headerMenu.classList.contains('active')) {
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+                mobileNavToggle.classList.remove('active');
+                headerMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        /* -------------------------------------------------------------
+           E. "Read Article" Slide-In Drawer Logic
+        ------------------------------------------------------------- */
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const articleId = card.getAttribute('data-article-id');
+                openArticle(articleId);
+            });
+        });
+
+        function openArticle(id) {
+            const article = articlesDatabase[id];
+            if (!article) return;
+
+            currentActiveArticleId = id;
+
+            // Inject Content into Drawer Elements
+            document.getElementById('drawerCategory').textContent = article.category.toUpperCase();
+            document.getElementById('drawerDate').textContent = article.date;
+            document.getElementById('drawerReadTime').textContent = article.readTime;
+            document.getElementById('drawerTitle').textContent = article.title;
+            document.getElementById('drawerIntro').textContent = article.intro;
+            document.getElementById('drawerContent').innerHTML = article.content;
+
+            // Reset Drawer scroll position & progress bar
+            drawerBody.scrollTop = 0;
+            drawerProgressBar.style.width = '0%';
+
+            // Setup Next Article Button visibility/action
+            const totalArticles = Object.keys(articlesDatabase).length;
+            const nextId = parseInt(id) + 1;
+            
+            if (nextId <= totalArticles) {
+                nextArticleBtn.style.display = 'flex';
+                nextArticleBtn.querySelector('span').textContent = 'Next Essay';
+            } else {
+                // If it is the last article, we can link back to article 1 or hide
+                nextArticleBtn.querySelector('span').textContent = 'Read First Essay';
+            }
+
+            // Trigger Drawer animations by adding classes
+            drawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            
+            // Disable background scrolling behind the open reader
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticle() {
+            drawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            currentActiveArticleId = null;
+        }
+
+        function loadNextArticle() {
+            if (!currentActiveArticleId) return;
+            const totalArticles = Object.keys(articlesDatabase).length;
+            let nextId = parseInt(currentActiveArticleId) + 1;
+            
+            if (nextId > totalArticles) {
+                nextId = 1; // Cycle back to the first essay
+            }
+
+            // Smoothly animate the loading: we fade drawer content quickly, change data, scroll back to top
+            drawerBody.style.opacity = '0';
+            drawerBody.style.transition = 'opacity 0.25s ease';
+            
+            setTimeout(() => {
+                openArticle(nextId.toString());
+                drawerBody.style.opacity = '1';
+            }, 250);
+        }
+
+        // Live Scroll Progress Bar Updater
+        function updateProgressBar() {
+            const scrollTop = drawerBody.scrollTop;
+            const scrollHeight = drawerBody.scrollHeight - drawerBody.clientHeight;
+            if (scrollHeight > 0) {
+                const scrollPercent = (scrollTop / scrollHeight) * 100;
+                drawerProgressBar.style.width = scrollPercent + '%';
+            }
+        }
+
+        // Close drawer with standard ESC keyboard key for elite user accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('active')) {
+                closeArticle();
+            }
+        });
+
+        /* -------------------------------------------------------------
+           F. Copenhagen Live Clock Component
+        ------------------------------------------------------------- */
+        function updateCopenhagenClock() {
+            const clockElement = document.getElementById('copenhagenTime');
+            if (!clockElement) return;
+
+            // Formatter for Copenhagen local time (Europe/Copenhagen timezone)
+            const options = {
+                timeZone: 'Europe/Copenhagen',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            
+            try {
+                const formatter = new Intl.DateTimeFormat('en-US', options);
+                const timeString = formatter.format(new Date());
+                clockElement.innerHTML = `CPH ${timeString}`;
+            } catch (err) {
+                // Fallback to local system time if timezone code fails
+                const now = new Date();
+                const timeString = now.toTimeString().split(' ')[0];
+                clockElement.innerHTML = `CPH ${timeString}`;
+            }
+        }
+
+        setInterval(updateCopenhagenClock, 1000);
+        updateCopenhagenClock(); // Run immediately
+
+        /* -------------------------------------------------------------
+           G. Newsletter Subscription Mimicry
+        ------------------------------------------------------------- */
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const input = form.querySelector('.newsletter-form__input');
+            const feedback = document.getElementById('newsletterFeedback');
+            
+            if (input && input.value) {
+                // Mimic database post latency
+                const button = form.querySelector('.newsletter-form__btn');
+                button.disabled = true;
+                button.textContent = 'Submitting...';
+                
+                setTimeout(() => {
+                    form.reset();
+                    button.disabled = false;
+                    button.innerHTML = 'Subscribe &rarr;';
+                    feedback.style.display = 'block';
+                    showToast('Successfully subscribed to Printed Despatch.');
+                    
+                    // Hide feedback message after 6 seconds
+                    setTimeout(() => {
+                        feedback.style.display = 'none';
+                    }, 6000);
+                }, 1200);
+            }
+        }
+
+        function focusNewsletter(e) {
+            e.preventDefault();
+            closeMobileMenu();
+            const input = document.querySelector('.newsletter-form__input');
+            if (input) {
+                input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => input.focus(), 800);
+            }
+        }
+
+        /* -------------------------------------------------------------
+           H. UI Utilities (Toast notifications, back to top, mock pages)
+        ------------------------------------------------------------- */
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function handleMockNavigation(event, pageName) {
+            event.preventDefault();
+            closeMobileMenu();
+            showToast(`${pageName} layout is currently being dynamically curated.`);
+        }
+
+        function triggerAction(actionName) {
+            showToast(`${actionName} triggered successfully.`);
+        }
+
+        // Initialize theme configuration
+        initTheme();
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/blog-modern" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">blog</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Brussels Modern Press</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/portfolio-developer" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">blog</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Stockholm Dev Portfolio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

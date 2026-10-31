@@ -63,7 +63,7 @@ const seo: ToolSeo = {
       "design color naming tool",
       "color name lookup online free",
       "browser color name finder",
-      "no signup color namer",
+      "a free account for downloads color namer",
       "color name with hex code",
       "official web color names",
       "color name thesaurus"

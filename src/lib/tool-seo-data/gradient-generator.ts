@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free gradients do I get?",
-        a: "Every visitor gets 5 free CSS copies, no account needed. IconVault Pro ($19 one-time) unlocks unlimited copies and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free CSS copies, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited copies and unlimited uses of all tools.",
       },
     ],
     tags: [
@@ -39,7 +39,7 @@ const seo: ToolSeo = {
       "css gradient maker", "linear gradient generator", "radial gradient generator",
       "gradient color picker", "css gradient tool", "online gradient generator",
       "background gradient generator", "website gradient generator", "ui gradient generator",
-      "gradient generator no signup", "gradient css code", "copy css gradient",
+      "gradient generator a free account for downloads", "gradient css code", "copy css gradient",
       "linear-gradient generator", "radial-gradient generator", "gradient angle",
       "gradient color stops", "multi color gradient", "two color gradient", "three color gradient",
       "sunset gradient css", "ocean gradient css", "purple gradient css", "blue gradient css",

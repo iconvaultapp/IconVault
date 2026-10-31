@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste raw HTTP response headers or fetch a URL to check security headers like HSTS, CSP and X-Frame-Options. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Header Analyzer** turns raw **HTTP response headers** into a clean, readable table plus an automatic **security header audit**. Paste a captured header block, or fetch a URL and inspect the headers the browser actually exposes. Parsing and analysis are 100% client-side.",
-      "It flags the headers that matter for **web security**: **Strict-Transport-Security (HSTS)**, **Content-Security-Policy**, **X-Frame-Options**, **X-Content-Type-Options**, **Referrer-Policy**, **Permissions-Policy** and cookie flags like **Secure**, **HttpOnly** and **SameSite**. It is **free** with **no signup** and nothing leaves your device. Honest note: the browser only exposes headers that CORS allows, so a cross-origin fetch may show fewer headers than a full raw paste from DevTools or curl."
+      "It flags the headers that matter for **web security**: **Strict-Transport-Security (HSTS)**, **Content-Security-Policy**, **X-Frame-Options**, **X-Content-Type-Options**, **Referrer-Policy**, **Permissions-Policy** and cookie flags like **Secure**, **HttpOnly** and **SameSite**. It is **free** with **a free account for downloads** and nothing leaves your device. Honest note: the browser only exposes headers that CORS allows, so a cross-origin fetch may show fewer headers than a full raw paste from DevTools or curl."
     ],
     faqs: [
       { q: "How do I use the Header Analyzer?", a: "Paste a raw HTTP response header block into the input, or enter a URL and fetch it. The tool parses every header into a table and runs a security check against the headers that matter most: HSTS, CSP, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy and cookie flags." },
@@ -71,7 +71,7 @@ const seo: ToolSeo = {
       "response header names list",
       "common http response headers",
       "test website headers free",
-      "free http header tool no signup"
+      "free http header tool a free account for downloads"
     ],
   };
 

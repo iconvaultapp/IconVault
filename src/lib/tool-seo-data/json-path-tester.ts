@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it support filters and wildcards?", a: "Yes. Wildcards (*), recursive descent (..), array slices ([0:3]) and filter expressions ([?(@.price < 10)]) are supported, along with the standard child and bracket operators." },
       { q: "What if my expression matches nothing?", a: "The tool shows zero matches clearly, which usually means a typo in a key name, a wrong array index, or a filter that excludes everything. Try shortening the expression to find where the path stops matching." },
       { q: "Is my JSON uploaded anywhere?", a: "No. Expression evaluation happens entirely in your browser with JavaScript. Your documents never leave your device, so it is safe for production payloads." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "jsonpath tester",
@@ -43,7 +43,7 @@ const seo: ToolSeo = {
       "jsonpath not working",
       "jsonpath returns nothing",
       "jsonpath match count",
-      "jsonpath online free no signup",
+      "jsonpath online free a free account for downloads",
       "jsonpath without upload",
       "jsonpath private",
       "evaluate jsonpath in browser",

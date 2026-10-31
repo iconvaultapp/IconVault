@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert length, mass, temperature, area, volume and more instantly. Precise, free, and runs entirely in your browser.",
     about: [
       "**IconVault**'s **Unit Converter** turns any measurement into any other, instantly. Convert **length** (millimeters to miles), **mass** (milligrams to tons), **temperature** (Celsius, Fahrenheit, Kelvin), **area**, **volume**, **speed**, **time** and **data** with a single tap. Just type a value and pick your units.",
-      "Conversions use precise standard factors, and the whole tool **runs fully in your browser** so results are instant with no waiting on a server. It is **free** with no signup, perfect for cooking, DIY, schoolwork and travel."
+      "Conversions use precise standard factors, and the whole tool **runs fully in your browser** so results are instant with no waiting on a server. It is **free** to use; downloads need a free account, perfect for cooking, DIY, schoolwork and travel."
     ],
     faqs: [
       { q: "Which units can I convert?", a: "Length, mass, temperature, area, volume, speed, time and data storage, covering metric and imperial units like mm, inches, feet, miles, grams, pounds, liters, gallons, mph and more." },
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       "cups to ml", "fluid ounce to ml", "stone to kg", "ton to kg", "inch converter",
       "metric converter", "imperial to metric", "metric to imperial calculator",
       "unit conversion tool", "quick unit converter", "simple unit converter free",
-      "best unit converter online", "no signup unit converter",
+      "best unit converter online", "a free account for downloads unit converter",
       "measurement unit converter", "convert measurements online",
       "length mass temperature converter", "free online conversion calculator",
       "unit converter app free"

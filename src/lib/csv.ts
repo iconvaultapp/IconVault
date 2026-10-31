@@ -1,4 +1,5 @@
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "./download-guard";
 /** Minimal, dependency-free CSV export helpers used by the account and admin pages. */
 
 const escapeCell = (value: unknown): string => {
@@ -17,14 +18,8 @@ export const downloadCsv = (filename: string, headers: string[], rows: unknown[]
   const blob = new Blob([`\uFEFF${toCsv(headers, rows)}`], {
     type: "text/csv;charset=utf-8;",
   });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = brandFilename(filename);
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
+  // v55 site-wide download gate (same parking + resume as downloadBlob).
+  downloadWithGate(blob, brandFilename(filename));
 };
 
 export const stamp = () => new Date().toISOString().slice(0, 10);

@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Work out how much grass seed your lawn needs by length x width or acres, for new lawns or overseeding, with bag counts. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Grass Seed Calculator** tells you exactly how much **grass seed** to buy. Enter your lawn by **length x width** or by **acres**, choose **new lawn** or **overseeding**, set your **seeding rate** in pounds per 1,000 sq ft, and pick a **bag size**.",
-      "It instantly computes the **lawn area**, the **total pounds of seed** and how many **bags** that means, with a one-click **copy of the estimate**. New lawns default to 8 lbs per 1,000 sq ft and overseeding to 4, matching common guidance. It is **free** with no signup and runs **fully in your browser**. The honest caveat: rates vary by seed blend and region, so treat this as a planning estimate and check your seed bag's label before buying."
+      "It instantly computes the **lawn area**, the **total pounds of seed** and how many **bags** that means, with a one-click **copy of the estimate**. New lawns default to 8 lbs per 1,000 sq ft and overseeding to 4, matching common guidance. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest caveat: rates vary by seed blend and region, so treat this as a planning estimate and check your seed bag's label before buying."
     ],
     faqs: [
       { q: "How much grass seed do I need per 1,000 sq ft?", a: "For new lawns, common rates are 6 to 10 lbs per 1,000 sq ft; for overseeding, 3 to 5 lbs. The tool defaults to 8 and 4 but lets you set any rate." },

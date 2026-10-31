@@ -5,14 +5,14 @@ const seo: ToolSeo = {
     metaDescription: "Build an ATS-friendly resume with live preview. Add experience, education and skills, then export to PDF, Word or Markdown. Free, runs 100% in your browser.",
     about: [
       "**IconVault**'s **Resume Builder** helps you write a clean, **ATS-friendly resume** without fighting a word processor. Add your contact details, a **summary**, **work experience** with bullet points, **education** and **skills**, and a **live preview** shows exactly how the finished resume looks as you type.",
-      "When it is ready, **export to PDF, Word or Markdown** in one click. Everything is built **100% in your browser**, so your personal details are never uploaded or stored, and the tool is **free** with no signup."
+      "When it is ready, **export to PDF, Word or Markdown** in one click. Everything is built **100% in your browser**, so your personal details are never uploaded or stored, and the tool is **free** with a free account for downloads."
     ],
     faqs: [
       { q: "What makes a resume ATS-friendly?", a: "Applicant tracking systems parse simple, single-column layouts best. This builder uses a clean structure with standard section headings, no text boxes or graphics, and plain text that parsers can read reliably." },
       { q: "Which export formats are supported?", a: "You can export your resume as PDF, Word (.doc) or Markdown, so you can submit the PDF to employers and keep an editable copy for yourself." },
       { q: "Can I add multiple jobs and schools?", a: "Yes. Add as many experience and education entries as you need, reorder them, and remove any that no longer belong." },
       { q: "Is my personal information private?", a: "Completely. Everything you type stays in your browser. Nothing is uploaded, stored or shared, which matters when your resume contains phone numbers and addresses." },
-      { q: "Do I need an account?", a: "No. The full builder and all exports work with no signup." },
+      { q: "Do I need an account?", a: "No. The full builder and all exports work with a free account for downloads." },
       { q: "Can I use it for a CV or a one-page resume?", a: "Yes. The format works for resumes and academic CVs alike. Keep it to one or two pages for most roles by trimming older or less relevant entries." }
     ],
     tags: [
@@ -40,7 +40,7 @@ const seo: ToolSeo = {
       "clean resume builder",
       "modern resume builder",
       "one page resume builder",
-      "resume builder no signup",
+      "resume builder a free account for downloads",
       "resume maker no account",
       "private resume builder",
       "resume builder no watermark",

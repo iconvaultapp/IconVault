@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does WPM mean?", a: "WPM is words per minute, the standard measure of Morse speed based on the word PARIS. Beginners start around 5 WPM, while experienced operators copy 20 WPM or faster. Move the slider to change the playback speed." },
       { q: "Can I actually hear the Morse code?", a: "Yes. The play button renders the dots and dashes as audio beeps through your browser with correct ITU timing, including the pauses between letters and words." },
       { q: "What standard does this follow?", a: "International Morse code as defined by the ITU, the same standard used in amateur radio and maritime signaling. SOS is dot-dot-dot dash-dash-dash dot-dot-dot." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "morse code translator",

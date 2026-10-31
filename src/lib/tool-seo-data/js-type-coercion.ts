@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why is [] == false true in JavaScript?", a: "Because == converts both sides to primitives: [] becomes '' and then 0, while false becomes 0, so 0 == 0 is true. Strict equality [] === false is false because the types differ. The visualizer walks through exactly these steps." },
       { q: "Is == ever safe to use?", a: "Most style guides recommend === by default because it is predictable. Loose equality is occasionally used for null == undefined checks, which match both null and undefined. The visualizer helps you build the intuition to decide case by case." },
       { q: "Does the tool use real ECMAScript coercion rules?", a: "Yes. The step walk follows the abstract operations defined by the ECMAScript spec (ToPrimitive, ToNumber, ToString, ToBoolean) and the Abstract Equality Comparison algorithm, not simplified approximations." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "javascript type coercion",

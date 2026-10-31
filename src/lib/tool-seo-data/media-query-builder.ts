@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does the generated CSS look like?", a: "Each breakpoint becomes a commented @media block with its name and range, for example a Mobile block covering up to 480px. The comments make it easy to find the right block later when your stylesheet grows." },
       { q: "Can I add custom breakpoints?", a: "Yes. Add as many breakpoints as you need with your own names and min/max values, and remove any you do not want. The skeleton regenerates instantly." },
       { q: "Is my CSS sent anywhere?", a: "No. The breakpoint list and the generated CSS are built locally in your browser. Nothing is uploaded or stored." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "media query generator",
@@ -58,7 +58,7 @@ const seo: ToolSeo = {
       "free css tools online",
       "frontend developer tools",
       "web design helper tools",
-      "media query generator no signup",
+      "media query generator a free account for downloads",
       "browser media query builder",
       "css tools free online",
       "responsive layout helper",

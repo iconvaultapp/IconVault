@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "**Logical properties** follow the **writing mode and direction** instead of the screen: inline-start means left in English and right in Arabic. They are the correct foundation for **multilingual** sites. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the logical properties tool free?", a: "Yes, free with no signup. Convert physical properties and preview the result in LTR and RTL." },
+      { q: "Is the logical properties tool free?", a: "Yes, free to use; downloads need a free account. Convert physical properties and preview the result in LTR and RTL." },
       { q: "What are CSS logical properties?", a: "Logical properties describe layout in terms of block and inline axes (start/end) instead of physical directions (top/left). They adapt automatically to writing mode and text direction." },
       { q: "What is margin-inline-start?", a: "The logical equivalent of margin-left in LTR and margin-right in RTL. Use it whenever a margin should sit at the start of the text flow." },
       { q: "Why use logical properties for RTL?", a: "With physical properties you must rewrite every left/right rule for RTL. Logical properties flip automatically, so one stylesheet serves all directions." },

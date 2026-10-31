@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Scan text against a built-in word list plus your own custom words, highlight matches or clean them to ***. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Word Filter** scans your text against a built-in **sensitive word list** plus any **custom words** you add, then either **highlights every match** in place or **cleans** them to ***. It is a quick way to check user comments, chat messages, form submissions or any copy before it goes live, and to produce a sanitized version you can copy out.",
-      "Scanning runs **fully in your browser**, so your text is never uploaded and nothing is stored. It is **free** with no signup. Honest note: the built-in list is a moderate starter set in English, not a comprehensive moderation dictionary, so add your own words for real moderation use, and remember that simple word matching cannot catch creative misspellings or context."
+      "Scanning runs **fully in your browser**, so your text is never uploaded and nothing is stored. It is **free** to use; downloads need a free account. Honest note: the built-in list is a moderate starter set in English, not a comprehensive moderation dictionary, so add your own words for real moderation use, and remember that simple word matching cannot catch creative misspellings or context."
     ],
     faqs: [
       { q: "What is a word filter?", a: "A tool that scans text for a list of blocked or sensitive words. This one highlights matches so you can review them, or replaces them with *** to produce a clean version." },
@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "content moderation basics",
       "simple content moderator",
       "free moderation tools",
-      "profanity filter no signup",
+      "profanity filter a free account for downloads",
       "online text cleaner",
       "sanitize text online",
       "clean copy before publishing",

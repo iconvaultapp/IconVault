@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Is my database uploaded to a server?", a: "No. Every query runs locally in your browser through WebAssembly. Your file never leaves your device, so it is safe to inspect databases with real or sensitive data." },
       { q: "Can I export query results?", a: "Yes. Any result set can be downloaded as CSV or JSON with one click, and you can copy your SQL statements to the clipboard." },
       { q: "Which file types are supported?", a: "Files with .sqlite, .db, .sqlite3 and .db3 extensions. If the engine cannot parse the file, you will get a clear error instead of a silent failure." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Opening many databases in a short period may prompt an upgrade to Pro for unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Opening many databases in a short period may prompt an upgrade to Pro for unlimited use." }
     ],
     tags: [
       "sqlite browser",

@@ -53,7 +53,7 @@ const seo: ToolSeo = {
       "batch resize gifs",
       "resize multiple gifs",
       "free gif resize tool",
-      "gif resizer no signup",
+      "gif resizer a free account for downloads",
       "fast gif resizer",
       "resize gif online free tool"],
   };

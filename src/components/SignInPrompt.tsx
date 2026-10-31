@@ -2,6 +2,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { X, Sparkles, Mail, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { useSignInPrompt } from "@/hooks/useSignInPrompt";
+import { hasPendingDownload } from "@/lib/download-guard";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
@@ -19,14 +20,24 @@ export const SignInPrompt = () => {
 
   const goToAuth = (mode: "signin" | "signup") => {
     close();
-    void navigate({ to: "/auth", search: { mode } });
+    // v55 download gate: after login, send the user back to the page they
+    // were downloading from so the parked download can resume there.
+    const redirect = hasPendingDownload()
+      ? `${window.location.pathname}${window.location.search}`
+      : undefined;
+    void navigate({ to: "/auth", search: redirect ? { mode, redirect } : { mode } });
   };
 
   const google = async () => {
+    // v55 download gate: when a download is parked, come back to this page
+    // after Google sign-in so the parked download can resume automatically.
+    const redirectTo = hasPendingDownload()
+      ? window.location.href
+      : `${window.location.origin}/profile`;
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/profile`,
+        redirectTo,
       },
     });
     if (error) {

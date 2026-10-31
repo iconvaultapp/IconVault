@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, creative photography gallery theme, visual arts photo portfolio, art gallery exhibition layout, editorial photographer collection html, fine art photographer catalog, responsive masonry image grid, photo agency media hub template, cinematic gallery presentation, minimal design photo portal">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/photography-gallery">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icelandic Photo Gallery — Free Photography Template</title>
+  <meta name="description" content="Stunning photography showcase template displaying Nordic landscapes and architectural photography in a fluid masonry portfolio g... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Icelandic Photo Gallery — Free Photography Template">
+  <meta property="og:description" content="Stunning photography showcase template displaying Nordic landscapes and architectural photography in a fluid masonry portfolio g... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/photography_gallery.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Icelandic Photo Gallery — Free Photography Template">
+  <meta name="twitter:description" content="Stunning photography showcase template displaying Nordic landscapes and architectural photography in a fluid masonry portfolio g... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/photography_gallery.webp">
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern CSS Custom Properties / Design Tokens */
+        :root {
+            --bg-dark: #050505;
+            --bg-card: #0c0c0c;
+            --bg-nav: rgba(5, 5, 5, 0.9);
+            --accent: #d4af37; /* Champagne Gold */
+            --accent-rgb: 212, 175, 55;
+            --accent-glow: rgba(212, 175, 55, 0.15);
+            --text-main: #ffffff;
+            --text-muted: #8e8e93;
+            --text-dim: #444446;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(212, 175, 55, 0.2);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        /* Base Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-dark);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) var(--bg-dark);
+        }
+
+        /* Custom Scrollbar for premium browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .accent-text {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+            background: none;
+            border: none;
+            color: inherit;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            background: rgba(5, 5, 5, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled .nav-container {
+            padding: 0.8rem 0;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-logo::after {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        /* Header Navigation Middle Filters */
+        .nav-categories {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-categories a {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0.5rem 0.8rem;
+            position: relative;
+        }
+
+        .nav-categories a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: var(--transition-smooth);
+            transform: translateX(-50%);
+        }
+
+        .nav-categories a:hover,
+        .nav-categories a.active {
+            color: var(--text-main);
+        }
+
+        .nav-categories a.active::after,
+        .nav-categories a:hover::after {
+            width: 80%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-booking {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-accent);
+            color: var(--text-main);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-booking::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-booking:hover::before {
+            left: 100%;
+        }
+
+        .btn-booking:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+            background-color: rgba(var(--accent-rgb), 0.05);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: var(--transition-smooth);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 45%, rgba(var(--accent-rgb), 0.08) 0%, rgba(5, 5, 5, 0) 70%), var(--bg-dark);
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        /* Fine lines background for premium architectural feel */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.01) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.01) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-position: center center;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.4em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-title {
+            font-size: calc(2.2rem + 2.4vw);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: 0.08em;
+            margin-bottom: 2.5rem;
+            color: var(--text-main);
+            animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-title span.slash {
+            color: var(--accent);
+            font-weight: 300;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+            animation: fadeInUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            animation: fadeInUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .btn-primary {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background-color: var(--accent);
+            color: #000;
+            padding: 1.1rem 2.2rem;
+            border-radius: 0;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(var(--accent-rgb), 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 1.1rem 2.2rem;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background-color: rgba(255,255,255,0.03);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dim);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        .scroll-indicator .mouse-icon {
+            width: 20px;
+            height: 32px;
+            border: 1.5px solid var(--text-dim);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse-icon::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            width: 2px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 1px;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite ease-in-out;
+        }
+
+        /* Gallery Filter Bar Subtitle Section */
+        .section-header {
+            padding: 8rem 0 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 1px;
+            background-color: var(--accent);
+            margin: 0 auto 2.5rem auto;
+        }
+
+        /* Filter Controls */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .filter-btn {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--text-main);
+            border-color: var(--accent);
+            background-color: rgba(var(--accent-rgb), 0.03);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        /* Responsive Dynamic Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-flow: dense;
+            gap: 2.5rem;
+            margin-bottom: 8rem;
+        }
+
+        /* Visual sizes config to support high-end magazine styling */
+        .card-size-standard {
+            grid-column: span 1;
+            height: 480px;
+        }
+        .card-size-tall {
+            grid-column: span 1;
+            grid-row: span 2;
+            height: 720px;
+        }
+        .card-size-wide {
+            grid-column: span 2;
+            height: 480px;
+        }
+
+        /* Gallery Cards */
+        .gallery-card {
+            position: relative;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            cursor: pointer;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.4s ease;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .gallery-card:hover {
+            border-color: var(--border-accent);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .gallery-card.hidden {
+            opacity: 0;
+            transform: scale(0.92);
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            border: none;
+            pointer-events: none;
+        }
+
+        .card-image-wrap {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image-wrap svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-card:hover .card-image-wrap svg {
+            transform: scale(1.06);
+        }
+
+        /* Premium Overlay card effect */
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.4) 50%, 
+                rgba(0, 0, 0, 0) 100%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.2rem;
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: 5;
+        }
+
+        .gallery-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-category {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            transform: translateY(15px);
+            transition: var(--transition-smooth);
+            transition-delay: 0.05s;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--text-main);
+            margin-bottom: 0.6rem;
+            transform: translateY(15px);
+            transition: var(--transition-smooth);
+            transition-delay: 0.1s;
+        }
+
+        .card-meta {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            transform: translateY(15px);
+            transition: var(--transition-smooth);
+            transition-delay: 0.15s;
+        }
+
+        .card-action {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            transform: translateY(15px);
+            transition: var(--transition-smooth);
+            transition-delay: 0.2s;
+        }
+
+        .card-action .btn-zoom-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-card:hover .card-category,
+        .gallery-card:hover .card-title,
+        .gallery-card:hover .card-meta,
+        .gallery-card:hover .card-action {
+            transform: translateY(0);
+        }
+
+        .gallery-card:hover .card-action .btn-zoom-icon {
+            border-color: var(--accent);
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.4);
+        }
+
+        /* Lightbox Fullscreen Modal Overlay */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background-color: rgba(3, 3, 3, 0.98);
+            backdrop-filter: blur(15px);
+            display: flex;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Main Media Canvas */
+        .lightbox-view-area {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            position: relative;
+            background-color: #020202;
+        }
+
+        .lightbox-image-wrap {
+            max-width: 90%;
+            max-height: 85%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .lightbox-image-wrap svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Sidebar Details Panel */
+        .lightbox-details-sidebar {
+            width: 420px;
+            background-color: #080808;
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 2.5rem;
+            overflow-y: auto;
+            justify-content: space-between;
+        }
+
+        .lightbox-details-header {
+            margin-bottom: 2rem;
+        }
+
+        .lightbox-edition {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .lightbox-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .lightbox-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .meta-item-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.4rem;
+        }
+
+        .meta-item-value {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .lightbox-story {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .tech-settings-dashboard {
+            background-color: #0c0c0c;
+            border: 1px solid var(--border-color);
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+
+        .tech-dial {
+            text-align: center;
+        }
+
+        .tech-dial-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        .tech-dial-label {
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.2rem;
+        }
+
+        .tech-divider {
+            width: 1px;
+            height: 25px;
+            background-color: var(--border-color);
+        }
+
+        .btn-lightbox-action {
+            width: 100%;
+            text-align: center;
+            padding: 1.1rem;
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-lightbox-action:hover {
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* Floating Controls */
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: calc(420px + 2rem);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(12, 12, 12, 0.8);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition-smooth);
+        }
+
+        .lightbox-close:hover {
+            border-color: var(--accent);
+            transform: rotate(90deg);
+            color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(12, 12, 12, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition-smooth);
+        }
+
+        .lightbox-arrow:hover {
+            border-color: var(--accent);
+            background-color: #0c0c0c;
+            color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .arrow-left {
+            left: 2rem;
+        }
+
+        .arrow-right {
+            right: calc(420px + 2rem);
+        }
+
+        /* Immersive Booking & Contact Section */
+        .booking-section {
+            background-color: #080808;
+            border-top: 1px solid var(--border-color);
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .booking-info h2 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .booking-info p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .contact-icon-box {
+            width: 46px;
+            height: 46px;
+            border: 1px solid var(--border-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .contact-item-text h4 {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item-text p {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 0;
+        }
+
+        /* Premium Form Styling */
+        .booking-form-wrapper {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3.5rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .booking-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: #050505;
+            border: 1px solid var(--border-color);
+            padding: 1.1rem 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            letter-spacing: 0.05em;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23d4af37' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            padding-right: 3rem;
+            cursor: pointer;
+        }
+
+        /* Calendar customization style forcing browser theme dark compatibility */
+        input[type="date"] {
+            color-scheme: dark;
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: none;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: var(--accent);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 25px rgba(var(--accent-rgb), 0.25);
+        }
+
+        .btn-submit:hover {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Success Toast Modal styling */
+        .toast-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            background-color: rgba(3, 3, 3, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .toast-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toast-box {
+            background-color: #0a0a0a;
+            border: 1px solid var(--border-accent);
+            padding: 4rem 3rem;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+        }
+
+        .toast-overlay.active .toast-box {
+            transform: scale(1);
+        }
+
+        .toast-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1.5px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin: 0 auto 2rem auto;
+            text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .toast-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .toast-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-toast-close {
+            padding: 0.9rem 2.2rem;
+            background-color: var(--accent);
+            color: #000;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-toast-close:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Detailed Luxury Footer */
+        footer {
+            background-color: #030303;
+            border-top: 1px solid var(--border-color);
+            padding: 6rem 0 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .footer-logo-col p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .footer-heading {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--text-main);
+            margin-bottom: 1.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-newsletter p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-form:focus-within {
+            border-color: var(--accent);
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.5rem 0;
+            font-size: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+        }
+
+        .btn-newsletter {
+            padding: 0.5rem 1rem;
+            color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-newsletter:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-socials a {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollWheel {
+            0% {
+                opacity: 0;
+                top: 6px;
+                height: 0;
+            }
+            50% {
+                opacity: 1;
+                height: 6px;
+            }
+            100% {
+                opacity: 0;
+                top: 18px;
+                height: 0;
+            }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .lightbox-close {
+                right: 2rem;
+            }
+            .lightbox-arrow {
+                width: 50px;
+                height: 50px;
+            }
+            .arrow-right {
+                right: calc(420px + 1.5rem);
+            }
+            .arrow-left {
+                left: 1.5rem;
+            }
+            .booking-grid {
+                gap: 3rem;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.8rem;
+            }
+            .card-size-wide {
+                grid-column: span 2;
+            }
+            .card-size-tall {
+                grid-row: span 1;
+                height: 520px;
+            }
+            .lightbox-container {
+                flex-direction: column;
+            }
+            .lightbox-view-area {
+                height: 60%;
+                padding: 2rem;
+            }
+            .lightbox-details-sidebar {
+                width: 100%;
+                height: 40%;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding: 2rem;
+            }
+            .lightbox-close {
+                top: 1.5rem;
+                right: 1.5rem;
+                width: 44px;
+                height: 44px;
+            }
+            .arrow-left {
+                left: 1rem;
+            }
+            .arrow-right {
+                right: 1rem;
+            }
+            .booking-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-categories {
+                display: none; /* Collapses to full-screen mobile menu */
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-active .nav-categories {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                inset: 0;
+                top: 80px;
+                background-color: var(--bg-dark);
+                padding: 4rem 2rem;
+                gap: 2.5rem;
+                z-index: 99;
+                animation: fadeInUp 0.4s ease forwards;
+            }
+
+            .mobile-menu-active .nav-categories a {
+                font-size: 1.2rem;
+            }
+
+            .hero-title {
+                font-size: 2.4rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .card-size-wide {
+                grid-column: span 1;
+                height: 380px;
+            }
+            .card-size-tall {
+                height: 480px;
+            }
+            .card-size-standard {
+                height: 380px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .booking-form-wrapper {
+                padding: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Icelandic Photo Gallery",
+    "description": "Stunning photography showcase template displaying Nordic landscapes and architectural photography in a fluid masonry portfolio g... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/photography-gallery",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/photography-gallery.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">AETHER</a>
+            
+            <!-- Gallery Categories in Middle Navigation -->
+            <nav class="nav-categories" id="nav-categories">
+                <a href="#gallery" class="active filter-nav-btn" data-filter="all">All Works</a>
+                <a href="#gallery" class="filter-nav-btn" data-filter="nature">Nature</a>
+                <a href="#gallery" class="filter-nav-btn" data-filter="portrait">Portrait</a>
+                <a href="#gallery" class="filter-nav-btn" data-filter="street">Street</a>
+                <a href="#gallery" class="filter-nav-btn" data-filter="architecture">Architecture</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn-booking" onclick="scrollToBooking()">Book Session</button>
+                <div class="mobile-toggle" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-subtitle">FINE ART PHOTOGRAPHY</span>
+            <h1 class="hero-title">
+                CAPTURING MOMENTS <br>
+                <span class="slash">/</span> SHAPING LIGHT
+            </h1>
+            <p class="hero-desc">
+                An archival portfolio exploring emotional texture, visual geometry, and the silent narratives occurring within our landscapes, streets, and human form.
+            </p>
+            <div class="hero-ctas">
+                <a href="#gallery" class="btn-primary">View Galleries</a>
+                <a href="#booking" class="btn-secondary">Request Session</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="mouse-icon"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Subtitle Section -->
+    <section class="container" id="gallery">
+        <div class="section-header">
+            <span class="section-tag">CURATED WORKS</span>
+            <h2 class="section-title">THE GALLERIES</h2>
+            <div class="section-line"></div>
+            
+            <!-- Category Filter pills below title -->
+            <div class="gallery-filters" id="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Collection</button>
+                <button class="filter-btn" data-filter="nature">Nature / Wilderness</button>
+                <button class="filter-btn" data-filter="portrait">Human / Studio Portrait</button>
+                <button class="filter-btn" data-filter="street">Nocturnal / Street Life</button>
+                <button class="filter-btn" data-filter="architecture">Geometry / Architectural</button>
+            </div>
+        </div>
+
+        <!-- Responsive Grid Photo Gallery -->
+        <div class="gallery-grid" id="gallery-grid">
+            
+            <!-- Item 1: Nature -->
+            <div class="gallery-card card-size-standard" 
+                 data-category="nature"
+                 data-title="THE SILENT SUMMIT"
+                 data-location="Mount Rainier, Washington"
+                 data-settings="85mm • f/2.8 • 1/160s • ISO 100"
+                 data-date="October 14, 2025"
+                 data-story="Captured during the absolute stillness of blue hour. The peak stands as a silent sentinel above a sea of alpine fog, catching the last whispers of solar warmth. Print numbered 1 of 25 in fine art series."
+                 data-shutter="1/160s" data-aperture="f/2.8" data-iso="100" data-focal="85mm">
+                <div class="card-image-wrap">
+                    <!-- Elegant Custom SVG representing high quality nature picture -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="skyGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#0a1128"/>
+                                <stop offset="60%" stop-color="#1c1f38"/>
+                                <stop offset="100%" stop-color="#b85c76"/>
+                            </linearGradient>
+                            <radialGradient id="sunGlow" cx="50%" cy="65%" r="60%">
+                                <stop offset="0%" stop-color="#ffdfa9" stop-opacity="0.8"/>
+                                <stop offset="40%" stop-color="#ffb37e" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#b85c76" stop-opacity="0"/>
+                            </radialGradient>
+                            <linearGradient id="mountGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#141529"/>
+                                <stop offset="100%" stop-color="#070814"/>
+                            </linearGradient>
+                            <linearGradient id="mountGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#2a2235"/>
+                                <stop offset="100%" stop-color="#0c0714"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#skyGrad1)"/>
+                        <circle cx="400" cy="380" r="180" fill="url(#sunGlow)"/>
+                        <circle cx="400" cy="340" r="4" fill="#ffffff" opacity="0.6"/>
+                        <path d="M 0 500 L 250 320 L 520 480 L 800 360 L 800 600 L 0 600 Z" fill="url(#mountGrad2)" opacity="0.8"/>
+                        <rect x="0" y="440" width="800" height="160" fill="url(#sunGlow)" opacity="0.15" style="mix-blend-mode: overlay;"/>
+                        <path d="M 0 600 L 150 450 L 400 240 L 680 500 L 800 420 L 800 600 Z" fill="url(#mountGrad1)"/>
+                        <path d="M 400 240 L 420 380 L 460 440 L 680 500" stroke="#ffb37e" stroke-width="1.5" opacity="0.25" fill="none"/>
+                        <path d="M 400 240 L 360 360 L 300 420 L 150 450" stroke="#b85c76" stroke-width="1" opacity="0.2" fill="none"/>
+                        <path d="M 50 600 L 50 560 L 55 565 L 50 550 L 55 553 L 50 540 L 45 553 L 50 550 L 45 565 L 50 560 Z" fill="#070814"/>
+                        <path d="M 70 600 L 70 550 L 76 555 L 70 540 L 75 543 L 70 530 L 65 543 L 70 540 L 64 555 L 70 550 Z" fill="#070814"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Nature / Wilderness</span>
+                    <h3 class="card-title">THE SILENT SUMMIT</h3>
+                    <p class="card-meta">Mount Rainier, Washington • 85mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Portrait -->
+            <div class="gallery-card card-size-tall" 
+                 data-category="portrait"
+                 data-title="ECHOES OF SILENCE"
+                 data-location="Aether Studio, London"
+                 data-settings="50mm • f/1.2 • 1/200s • ISO 64"
+                 data-date="November 03, 2025"
+                 data-story="A deep double-exposure studio profile exploring cosmic geometry. The subject's form is merged with complex starlight reflections to project the wilderness of the human mind."
+                 data-shutter="1/200s" data-aperture="f/1.2" data-iso="64" data-focal="50mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="portGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#020005"/>
+                                <stop offset="50%" stop-color="#0f0c20"/>
+                                <stop offset="100%" stop-color="#2a0845"/>
+                            </linearGradient>
+                            <linearGradient id="faceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ec008c" stop-opacity="0.7"/>
+                                <stop offset="50%" stop-color="#fc6767" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#ffb37e" stop-opacity="0"/>
+                            </linearGradient>
+                            <radialGradient id="faceLight" cx="40%" cy="40%" r="50%">
+                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+                                <stop offset="50%" stop-color="#ec008c" stop-opacity="0.1"/>
+                                <stop offset="100%" stop-color="#020005" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#portGrad1)"/>
+                        <circle cx="350" cy="280" r="220" fill="url(#faceLight)"/>
+                        <path d="M 220 600 C 220 500, 260 480, 280 440 C 300 400, 310 380, 300 320 C 290 260, 320 200, 380 180 C 450 160, 520 200, 530 280 C 535 320, 520 350, 500 370 C 480 390, 485 410, 480 430 C 475 450, 490 480, 510 500 C 530 520, 560 550, 580 600 Z" fill="none" stroke="url(#faceGrad)" stroke-width="3"/>
+                        <circle cx="360" cy="240" r="1.5" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="410" cy="220" r="2" fill="#ffffff" opacity="0.9"/>
+                        <circle cx="430" cy="270" r="1" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="390" cy="310" r="2.5" fill="#ffffff" opacity="0.7"/>
+                        <circle cx="450" cy="330" r="1.5" fill="#ffffff" opacity="0.5"/>
+                        <circle cx="370" cy="360" r="1" fill="#ffffff" opacity="0.4"/>
+                        <line x1="150" y1="280" x2="650" y2="280" stroke="#ffffff" stroke-width="0.5" opacity="0.15"/>
+                        <line x1="200" y1="360" x2="600" y2="200" stroke="#ec008c" stroke-width="0.75" opacity="0.25"/>
+                        <line x1="250" y1="200" x2="550" y2="440" stroke="#ffb37e" stroke-width="0.75" opacity="0.25"/>
+                        <path d="M 330 310 C 330 260, 360 210, 420 210 C 470 210, 490 250, 490 300 C 490 340, 460 380, 420 380 C 370 380, 330 350, 330 310 Z" fill="url(#faceGrad)" opacity="0.4" style="mix-blend-mode: screen;"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Human / Studio Portrait</span>
+                    <h3 class="card-title">ECHOES OF SILENCE</h3>
+                    <p class="card-meta">Aether Studio, London • 50mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Street -->
+            <div class="gallery-card card-size-standard" 
+                 data-category="street"
+                 data-title="NOCTURNAL DRIFT"
+                 data-location="Shinjuku, Tokyo"
+                 data-settings="35mm • f/1.4 • 1/80s • ISO 800"
+                 data-date="December 18, 2025"
+                 data-story="Midnight rain turns the concrete canyons of Shinjuku into dynamic mirrors of liquid neon. A lone traveler navigating high-frequency dreamscapes of high-contrast cyber noir shadows."
+                 data-shutter="1/80s" data-aperture="f/1.4" data-iso="800" data-focal="35mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="streetGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#020813"/>
+                                <stop offset="60%" stop-color="#08162f"/>
+                                <stop offset="100%" stop-color="#1a0b2e"/>
+                            </linearGradient>
+                            <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#4facfe" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="neonPink" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ff007f" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#7f00ff" stop-opacity="0.1"/>
+                            </linearGradient>
+                            <radialGradient id="headlight" cx="30%" cy="85%" r="40%">
+                                <stop offset="0%" stop-color="#fff8db" stop-opacity="0.9"/>
+                                <stop offset="50%" stop-color="#ffaf00" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#020813" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#streetGrad1)"/>
+                        <path d="M 0 0 L 120 0 L 120 500 L 0 540 Z" fill="#030c1d" stroke="#00f2fe" stroke-width="0.75" opacity="0.3"/>
+                        <path d="M 800 0 L 680 0 L 680 480 L 800 520 Z" fill="#040b17" stroke="#ff007f" stroke-width="0.75" opacity="0.3"/>
+                        <rect x="220" y="100" width="80" height="380" fill="#050e1d" opacity="0.6"/>
+                        <rect x="310" y="150" width="90" height="330" fill="#040a15" opacity="0.8"/>
+                        <rect x="420" y="80" width="110" height="400" fill="#030812" opacity="0.7"/>
+                        <rect x="135" y="120" width="22" height="180" fill="url(#neonPink)" rx="3"/>
+                        <text x="146" y="150" fill="#ffffff" font-size="12" font-weight="900" font-family="'Inter'" text-anchor="middle" letter-spacing="4" opacity="0.8">夜</text>
+                        <text x="146" y="180" fill="#ffffff" font-size="12" font-weight="900" font-family="'Inter'" text-anchor="middle" letter-spacing="4" opacity="0.8">間</text>
+                        <text x="146" y="210" fill="#ffffff" font-size="12" font-weight="900" font-family="'Inter'" text-anchor="middle" letter-spacing="4" opacity="0.8">飛</text>
+                        <text x="146" y="240" fill="#ffffff" font-size="12" font-weight="900" font-family="'Inter'" text-anchor="middle" letter-spacing="4" opacity="0.8">行</text>
+                        <rect x="645" y="150" width="22" height="150" fill="url(#neonCyan)" rx="3"/>
+                        <path d="M 120 500 L 680 480 L 800 600 L 0 600 Z" fill="#070c18"/>
+                        <path d="M 280 490 L 320 490 L 220 600 L 100 600 Z" fill="url(#headlight)" opacity="0.4"/>
+                        <path d="M 520 485 L 540 485 L 680 600 L 600 600 Z" fill="url(#neonPink)" opacity="0.15"/>
+                        <path d="M 400 485 L 415 485 L 430 600 L 380 600 Z" fill="url(#neonCyan)" opacity="0.2"/>
+                        <path d="M 385 450 C 370 450, 365 455, 365 460 C 375 460, 395 460, 405 460 C 405 455, 400 450, 385 450 Z" fill="#000000"/>
+                        <path d="M 385 450 C 360 450, 350 458, 350 463 C 350 463, 355 466, 385 464 C 415 466, 420 463, 420 463 C 420 458, 410 450, 385 450 Z" fill="#020813"/>
+                        <rect x="383" y="462" width="4" height="42" fill="#000000" rx="1"/>
+                        <path d="M 374 464 L 396 464 L 392 504 L 378 504 Z" fill="#000000"/>
+                        <ellipse cx="385" cy="504" rx="20" ry="3" fill="#000000" opacity="0.8"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Nocturnal / Street Life</span>
+                    <h3 class="card-title">NOCTURNAL DRIFT</h3>
+                    <p class="card-meta">Shinjuku, Tokyo • 35mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Architecture -->
+            <div class="gallery-card card-size-standard" 
+                 data-category="architecture"
+                 data-title="INFINITE VORTEX"
+                 data-location="Guggenheim Museum, New York"
+                 data-settings="24mm • f/5.6 • 1/60s • ISO 200"
+                 data-date="January 07, 2026"
+                 data-story="A geometric study of sweeping structural curves. By isolating the rhythm of the spiral staircase looking straight upwards, the brutalist space becomes a musical symphony of metallic layers."
+                 data-shutter="1/60s" data-aperture="f/5.6" data-iso="200" data-focal="24mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="archSky" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#080808"/>
+                                <stop offset="100%" stop-color="#2c2c2c"/>
+                            </linearGradient>
+                            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+                                <stop offset="35%" stop-color="#a8a8a8" stop-opacity="0.8"/>
+                                <stop offset="70%" stop-color="#404040" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#141414" stop-opacity="1"/>
+                            </linearGradient>
+                            <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#aa7c11"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#archSky)"/>
+                        <path d="M 400 300 M 0 300 A 400 300 0 1 1 800 300 A 400 300 0 1 1 0 300 Z" fill="none" stroke="url(#metalGrad)" stroke-width="40" opacity="0.35"/>
+                        <path d="M 400 300 M 80 300 A 320 240 0 1 1 720 300 A 320 240 0 1 1 80 300 Z" fill="none" stroke="url(#metalGrad)" stroke-width="30" opacity="0.55"/>
+                        <path d="M 400 300 M 160 300 A 240 180 0 1 1 640 300 A 240 180 0 1 1 160 300 Z" fill="none" stroke="url(#metalGrad)" stroke-width="20" opacity="0.75"/>
+                        <path d="M 400 300 M 240 300 A 160 120 0 1 1 560 300 A 160 120 0 1 1 240 300 Z" fill="none" stroke="url(#metalGrad)" stroke-width="12" opacity="0.85"/>
+                        <path d="M 400 300 M 300 300 A 100 75 0 1 1 500 300 A 100 75 0 1 1 300 300 Z" fill="none" stroke="url(#goldAccent)" stroke-width="6"/>
+                        <line x1="400" y1="0" x2="400" y2="600" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+                        <line x1="0" y1="300" x2="800" y2="300" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+                        <line x1="100" y1="75" x2="700" y2="525" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+                        <line x1="700" y1="75" x2="100" y2="525" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+                        <g stroke="#000000" stroke-width="2" opacity="0.5">
+                            <line x1="400" y1="300" x2="400" y2="50"/>
+                            <line x1="400" y1="300" x2="570" y2="125"/>
+                            <line x1="400" y1="300" x2="640" y2="300"/>
+                            <line x1="400" y1="300" x2="570" y2="475"/>
+                            <line x1="400" y1="300" x2="400" y2="550"/>
+                            <line x1="400" y1="300" x2="230" y2="475"/>
+                            <line x1="400" y1="300" x2="160" y2="300"/>
+                            <line x1="400" y1="300" x2="230" y2="125"/>
+                        </g>
+                        <circle cx="400" cy="300" r="45" fill="#ffffff" opacity="0.2" filter="blur(8px)"/>
+                        <circle cx="400" cy="300" r="10" fill="#ffffff" opacity="0.9"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Geometry / Architectural</span>
+                    <h3 class="card-title">INFINITE VORTEX</h3>
+                    <p class="card-meta">Guggenheim Museum, NY • 24mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Nature (2) -->
+            <div class="gallery-card card-size-standard" 
+                 data-category="nature"
+                 data-title="CELESTIAL VEIL"
+                 data-location="Lofoten Islands, Norway"
+                 data-settings="18mm • f/1.8 • 8s • ISO 1600"
+                 data-date="February 12, 2026"
+                 data-story="An explosive solar wind storm triggers a magnificent auroral dance, draping organic curtains of green and emerald light over frozen Arctic fjords and towering dark peaks."
+                 data-shutter="8s" data-aperture="f/1.8" data-iso="1600" data-focal="18mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="auroraSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#02040b"/>
+                                <stop offset="60%" stop-color="#0a0f1d"/>
+                                <stop offset="100%" stop-color="#14061a"/>
+                            </linearGradient>
+                            <linearGradient id="auroraGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#39ff14" stop-opacity="0"/>
+                                <stop offset="30%" stop-color="#00ffcc" stop-opacity="0.6"/>
+                                <stop offset="70%" stop-color="#39ff14" stop-opacity="0.5"/>
+                                <stop offset="100%" stop-color="#0066ff" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="fjordMount" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#060914"/>
+                                <stop offset="100%" stop-color="#010205"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#auroraSky)"/>
+                        <g fill="#ffffff" opacity="0.6">
+                            <circle cx="100" cy="80" r="1"/>
+                            <circle cx="250" cy="140" r="1.5"/>
+                            <circle cx="430" cy="70" r="1"/>
+                            <circle cx="620" cy="120" r="2"/>
+                            <circle cx="710" cy="90" r="1"/>
+                            <circle cx="180" cy="220" r="1"/>
+                            <circle cx="540" cy="200" r="1.5"/>
+                            <circle cx="330" cy="50" r="1"/>
+                        </g>
+                        <path d="M -100 200 Q 150 50, 400 180 T 900 100 L 900 400 L -100 400 Z" fill="url(#auroraGrad)" opacity="0.3" style="mix-blend-mode: screen;"/>
+                        <path d="M -100 240 Q 200 90, 450 220 T 900 150 L 900 400 L -100 400 Z" fill="url(#auroraGrad)" opacity="0.4" style="mix-blend-mode: screen;"/>
+                        <path d="M 0 600 L 120 400 L 280 500 L 500 300 L 720 520 L 800 420 L 800 600 Z" fill="url(#fjordMount)"/>
+                        <rect x="0" y="520" width="800" height="80" fill="#010205"/>
+                        <path d="M 0 520 C 100 520, 200 525, 300 525 C 500 525, 600 520, 800 520 L 800 600 L 0 600 Z" fill="#02040b" opacity="0.9"/>
+                        <line x1="50" y1="550" x2="150" y2="550" stroke="#00ffcc" stroke-width="0.5" opacity="0.25"/>
+                        <line x1="300" y1="565" x2="500" y2="565" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+                        <line x1="600" y1="545" x2="720" y2="545" stroke="#00ffcc" stroke-width="0.5" opacity="0.2"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Nature / Wilderness</span>
+                    <h3 class="card-title">CELESTIAL VEIL</h3>
+                    <p class="card-meta">Lofoten Islands, Norway • 18mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Portrait (2) -->
+            <div class="gallery-card card-size-tall" 
+                 data-category="portrait"
+                 data-title="SOLITUDE IN GOLD"
+                 data-location="Mojave Desert, California"
+                 data-settings="105mm • f/2.0 • 1/1000s • ISO 50"
+                 data-date="March 29, 2026"
+                 data-story="Sculpting fine art profile lines with blinding natural backlit dunes. Atmospheric dust creates a copper haze, perfectly isolation framing the human silhouette within sand dunes."
+                 data-shutter="1/1000s" data-aperture="f/2.0" data-iso="50" data-focal="105mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="desertSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#2a1408"/>
+                                <stop offset="50%" stop-color="#4a2c11"/>
+                                <stop offset="100%" stop-color="#140802"/>
+                            </linearGradient>
+                            <radialGradient id="sunBacklight" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ffe6b3" stop-opacity="0.95"/>
+                                <stop offset="40%" stop-color="#ff9933" stop-opacity="0.4"/>
+                                <stop offset="100%" stop-color="#2a1408" stop-opacity="0"/>
+                            </radialGradient>
+                            <linearGradient id="duneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#733d11"/>
+                                <stop offset="100%" stop-color="#1a0b02"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#desertSky)"/>
+                        <circle cx="400" cy="260" r="280" fill="url(#sunBacklight)"/>
+                        <path d="M 400 120 C 405 120, 410 125, 412 135 C 414 145, 400 165, 395 180 C 390 195, 405 210, 415 210 C 425 210, 430 215, 428 220 C 426 225, 410 235, 405 240 C 400 245, 418 255, 428 260 C 438 265, 435 275, 420 275 C 405 275, 395 285, 385 305 C 375 325, 380 350, 400 380 L 420 420 L 330 420 Z" fill="#0d0501" stroke="#ffe6b3" stroke-width="1"/>
+                        <path d="M -100 600 Q 150 420, 450 510 T 900 440 L 900 600 Z" fill="url(#duneGrad)"/>
+                        <path d="M 300 600 Q 550 490, 850 530 L 850 600 Z" fill="#120601"/>
+                        <g fill="#ffe6b3" opacity="0.7">
+                            <circle cx="380" cy="220" r="1.5"/>
+                            <circle cx="410" cy="180" r="1"/>
+                            <circle cx="440" cy="250" r="2"/>
+                            <circle cx="360" cy="280" r="1"/>
+                            <circle cx="340" cy="200" r="1.5"/>
+                            <circle cx="460" cy="150" r="1"/>
+                            <circle cx="480" cy="220" r="2"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Human / Studio Portrait</span>
+                    <h3 class="card-title">SOLITUDE IN GOLD</h3>
+                    <p class="card-meta">Mojave Desert, CA • 105mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7: Street (2) -->
+            <div class="gallery-card card-size-standard" 
+                 data-category="street"
+                 data-title="THE GOLDEN INTERVAL"
+                 data-location="Flatiron District, New York"
+                 data-settings="50mm • f/2.4 • 1/320s • ISO 400"
+                 data-date="April 05, 2026"
+                 data-story="Atmospheric steam vents releasing clouds of glowing orange mist into the Manhattan golden hour sunset. A high-contrast intersection where city architecture merges with natural flares."
+                 data-shutter="1/320s" data-aperture="f/2.4" data-iso="400" data-focal="50mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="nycSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ff7e5f"/>
+                                <stop offset="60%" stop-color="#feb47b"/>
+                                <stop offset="100%" stop-color="#1c0a00"/>
+                            </linearGradient>
+                            <linearGradient id="steamGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#ffe3cc" stop-opacity="0"/>
+                                <stop offset="50%" stop-color="#feb47b" stop-opacity="0.4"/>
+                                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#2a1103"/>
+                                <stop offset="100%" stop-color="#050200"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#nycSky)"/>
+                        <path d="M 0 100 L 180 200 L 180 600 L 0 600 Z" fill="url(#buildingGrad)"/>
+                        <path d="M 800 150 L 620 220 L 620 600 L 800 600 Z" fill="url(#buildingGrad)"/>
+                        <path d="M 380 280 L 420 280 L 450 600 L 350 600 Z" fill="#0d0400" stroke="#feb47b" stroke-width="0.5" opacity="0.7"/>
+                        <ellipse cx="400" cy="480" rx="90" ry="40" fill="url(#steamGrad)"/>
+                        <circle cx="370" cy="430" r="60" fill="url(#steamGrad)"/>
+                        <circle cx="430" cy="420" r="70" fill="url(#steamGrad)"/>
+                        <ellipse cx="400" cy="380" rx="100" ry="30" fill="url(#steamGrad)"/>
+                        <polygon points="400,280 200,600 600,600" fill="#ffe3cc" opacity="0.15"/>
+                        <polygon points="400,280 300,600 500,600" fill="#ffffff" opacity="0.1"/>
+                        <path d="M 180 500 L 620 500 L 800 600 L 0 600 Z" fill="#060200"/>
+                        <path d="M 140 320 L 150 320 L 150 500 L 140 500 Z" fill="#000000"/>
+                        <path d="M 120 340 L 180 340 L 180 348 L 120 348 Z" fill="#000000"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Nocturnal / Street Life</span>
+                    <h3 class="card-title">THE GOLDEN INTERVAL</h3>
+                    <p class="card-meta">Flatiron District, NY • 50mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8: Architecture (2) -->
+            <div class="gallery-card card-size-wide" 
+                 data-category="architecture"
+                 data-title="SHADOW PLAY"
+                 data-location="Chandigarh Pavilion, India"
+                 data-settings="28mm • f/8.0 • 1/500s • ISO 100"
+                 data-date="May 10, 2026"
+                 data-story="Brutalist concrete formworks interacting with extreme tropical solar rays. Deep harsh geometric shadows act as shifting abstract shapes painted on visual planes of limestone concrete structures."
+                 data-shutter="1/500s" data-aperture="f/8.0" data-iso="100" data-focal="28mm">
+                <div class="card-image-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="concreteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#eceae4"/>
+                                <stop offset="50%" stop-color="#cfcbc2"/>
+                                <stop offset="100%" stop-color="#b0aba0"/>
+                            </linearGradient>
+                            <linearGradient id="shadowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0a0a0f" stop-opacity="0.95"/>
+                                <stop offset="100%" stop-color="#1d1e24" stop-opacity="0.99"/>
+                            </linearGradient>
+                            <linearGradient id="skyBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#2c3e50"/>
+                                <stop offset="100%" stop-color="#0f2027"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#skyBlue)"/>
+                        <polygon points="0,0 240,0 120,600 0,600" fill="url(#concreteGrad)"/>
+                        <polygon points="120,600 240,0 480,0 300,600" fill="url(#shadowGrad)"/>
+                        <polygon points="100,80 800,80 800,200 130,200" fill="url(#concreteGrad)"/>
+                        <polygon points="130,200 800,200 800,220 135,220" fill="#8c877e"/>
+                        <g fill="#615d55" opacity="0.7">
+                            <circle cx="50" cy="100" r="4"/>
+                            <circle cx="150" cy="100" r="4"/>
+                            <circle cx="60" cy="300" r="4"/>
+                            <circle cx="120" cy="300" r="4"/>
+                            <circle cx="50" cy="500" r="4"/>
+                            <circle cx="85" cy="500" r="4"/>
+                            <circle cx="300" cy="140" r="4"/>
+                            <circle cx="450" cy="140" r="4"/>
+                            <circle cx="600" cy="140" r="4"/>
+                            <circle cx="750" cy="140" r="4"/>
+                        </g>
+                        <polygon points="560,80 620,80 500,600 440,600" fill="#d4af37" opacity="0.8"/>
+                        <polygon points="500,600 620,80 680,80 560,600" fill="url(#shadowGrad)" opacity="0.6"/>
+                    </svg>
+                </div>
+                <div class="card-overlay">
+                    <span class="card-category">Geometry / Architectural</span>
+                    <h3 class="card-title">SHADOW PLAY</h3>
+                    <p class="card-meta">Chandigarh Pavilion, India • 28mm</p>
+                    <div class="card-action">
+                        <span>View Details</span>
+                        <div class="btn-zoom-icon">
+                            <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5z"/><path fill-rule="evenodd" d="M8 1.5a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Immersive Lightbox Modal Container -->
+    <div class="lightbox-modal" id="lightbox-modal">
+        <!-- Close Button -->
+        <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close Lightbox">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <!-- Navigation Arrows -->
+        <button class="lightbox-arrow arrow-left" id="lightbox-prev-btn" aria-label="Previous Image">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="lightbox-arrow arrow-right" id="lightbox-next-btn" aria-label="Next Image">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="lightbox-container">
+            <!-- Left Canvas Area -->
+            <div class="lightbox-view-area">
+                <div class="lightbox-image-wrap" id="lightbox-canvas">
+                    <!-- Cloned SVG goes here -->
+                </div>
+            </div>
+
+            <!-- Right Premium Sidebar -->
+            <div class="lightbox-details-sidebar">
+                <div class="lightbox-details-content">
+                    <div class="lightbox-details-header">
+                        <span class="lightbox-edition" id="lightbox-edition-tag">Archival Print Series</span>
+                        <h2 class="lightbox-title" id="lightbox-title-text">THE SILENT SUMMIT</h2>
+                    </div>
+
+                    <!-- Meta Data Dashboard -->
+                    <div class="lightbox-meta-grid">
+                        <div class="meta-item">
+                            <div class="meta-item-label">Location</div>
+                            <div class="meta-item-value" id="lightbox-location-text">Mount Rainier, WA</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-item-label">Capture Date</div>
+                            <div class="meta-item-value" id="lightbox-date-text">Oct 14, 2025</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-item-label">Print Status</div>
+                            <div class="meta-item-value">Limited (1/25)</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-item-label">Category</div>
+                            <div class="meta-item-value" id="lightbox-category-text">Nature</div>
+                        </div>
+                    </div>
+
+                    <!-- Artistic writeup story -->
+                    <p class="lightbox-story" id="lightbox-story-text">
+                        Captured during the absolute stillness of blue hour. The peak stands as a silent sentinel above a sea of alpine fog, catching the last whispers of solar warmth.
+                    </p>
+
+                    <!-- Technical Camera Dashboard dials -->
+                    <div class="tech-settings-dashboard">
+                        <div class="tech-dial">
+                            <div class="tech-dial-value" id="tech-val-lens">85mm</div>
+                            <div class="tech-dial-label">Lens</div>
+                        </div>
+                        <div class="tech-divider"></div>
+                        <div class="tech-dial">
+                            <div class="tech-dial-value" id="tech-val-aperture">f/2.8</div>
+                            <div class="tech-dial-label">Aperture</div>
+                        </div>
+                        <div class="tech-divider"></div>
+                        <div class="tech-dial">
+                            <div class="tech-dial-value" id="tech-val-shutter">1/160s</div>
+                            <div class="tech-dial-label">Shutter</div>
+                        </div>
+                        <div class="tech-divider"></div>
+                        <div class="tech-dial">
+                            <div class="tech-dial-value" id="tech-val-iso">100</div>
+                            <div class="tech-dial-label">ISO</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Direct Bridge Action Button linking to Booking Form -->
+                <button class="btn-lightbox-action" id="btn-request-print">Request Fine Art Print</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Booking & Session Reservation Form -->
+    <section class="booking-section" id="booking">
+        <div class="container booking-grid">
+            
+            <div class="booking-info">
+                <span class="section-tag">COLLABORATION</span>
+                <h2>RESERVE A SIGHT /<br>SESSION</h2>
+                <p>
+                    Whether commissioning bespoke custom environment captures, booking a premium portrait studio block, or securing a limited edition archival physical print, our studio works directly with collectors and brands to realize absolute visual clarity.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Studio Atelier</h4>
+                            <p>302 Bruton Passage, London, W1K</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Digital Inquiries</h4>
+                            <p>curator@aether-gallery.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Direct Voice</h4>
+                            <p>+44 (0) 20 7946 0892</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Form Wrapper -->
+            <div class="booking-form-wrapper">
+                <form id="session-booking-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="client-name">Your Identity</label>
+                            <input type="text" id="client-name" class="form-control" placeholder="Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="client-email">Email Connection</label>
+                            <input type="email" id="client-email" class="form-control" placeholder="jane@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="session-type">Inquiry Direction</label>
+                            <select id="session-type" class="form-control" required>
+                                <option value="" disabled selected>Select option</option>
+                                <option value="studio-portrait">Human Studio Portrait Session</option>
+                                <option value="architectural-commission">Brutalist / Architectural Commission</option>
+                                <option value="wilderness-campaign">Wilderness Environment Campaign</option>
+                                <option value="fine-art-order">Fine Art Limited Edition Print Order</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="booking-date">Target Session / Delivery Date</label>
+                            <!-- Premium Custom date element forcing dark color schemes on modern browsers -->
+                            <input type="date" id="booking-date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width" style="margin-bottom: 2.5rem;">
+                        <label class="form-label" for="project-vision">Project Vision / Details</label>
+                        <textarea id="project-vision" class="form-control" placeholder="Describe the atmosphere, settings, lighting elements, or print specs you seek..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Request</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Success Toast Modal -->
+    <div class="toast-overlay" id="success-toast">
+        <div class="toast-box">
+            <div class="toast-icon">✓</div>
+            <h3 class="toast-title">TRANSMISSION RECEIVED</h3>
+            <p class="toast-desc" id="toast-message-text">
+                Your request details have been logged into the Aether archive system. Our curator will examine the specifications and make contact within 24 hours.
+            </p>
+            <button class="btn-toast-close" onclick="closeToast()">Return to Gallery</button>
+        </div>
+    </div>
+
+    <!-- Luxury Detailed Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-logo-col">
+                <a href="#" class="brand-logo">AETHER</a>
+                <p>
+                    Archival fine art photography capturing structural geometry, human emotion, and desolate wilderness landscapes. Standing at the intersection of natural light and raw contrast.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Navigational</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home Base</a></li>
+                    <li><a href="#gallery">Visual Galleries</a></li>
+                    <li><a href="#booking">Bookings / Orders</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Fine Art Series</h4>
+                <ul class="footer-links">
+                    <li><a href="#gallery" onclick="triggerGridFilter('nature')">Silent Summits</a></li>
+                    <li><a href="#gallery" onclick="triggerGridFilter('portrait')">Echoes of Silence</a></li>
+                    <li><a href="#gallery" onclick="triggerGridFilter('street')">Nocturnal Shinjuku</a></li>
+                    <li><a href="#gallery" onclick="triggerGridFilter('architecture')">Infinite Vertices</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4 class="footer-heading">Private Dispatch</h4>
+                <p>Subscribe to secure early catalogs and private exhibition invitations.</p>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Newsletter email">
+                    <button type="submit" class="btn-newsletter" aria-label="Subscribe">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AETHER Fine Art Photography Studio. All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Vero">Vero</a>
+                <a href="#" aria-label="Foundation">Foundation</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactive Code -->
+    <script>
+        // Header scrolled state handling
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle logic
+        function toggleMobileMenu() {
+            document.body.classList.toggle('mobile-menu-active');
+            const toggle = document.getElementById('mobile-menu-btn');
+            toggle.classList.toggle('active');
+        }
+
+        // Close mobile menu when items are clicked
+        document.querySelectorAll('.filter-nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.body.classList.remove('mobile-menu-active');
+                document.getElementById('mobile-menu-btn').classList.remove('active');
+            });
+        });
+
+        // Category Filter Logic (Both Header navigation and Main grid filter pills)
+        const filterPillButtons = document.querySelectorAll('.filter-btn');
+        const filterNavLinks = document.querySelectorAll('.filter-nav-btn');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+
+        function applyFilter(category) {
+            // Update active pill button
+            filterPillButtons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update active nav link
+            filterNavLinks.forEach(link => {
+                if (link.getAttribute('data-filter') === category) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Show/Hide cards with beautiful scale/fade transitions
+            galleryCards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Click handler for Main filter pills
+        filterPillButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-filter');
+                applyFilter(category);
+            });
+        });
+
+        // Click handler for Header nav links
+        filterNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const category = link.getAttribute('data-filter');
+                applyFilter(category);
+            });
+        });
+
+        // Helper trigger to filter from external links (e.g. footer)
+        function triggerGridFilter(category) {
+            applyFilter(category);
+        }
+
+        // Interactive Lightbox State Management
+        const lightbox = document.getElementById('lightbox-modal');
+        const lightboxCanvas = document.getElementById('lightbox-canvas');
+        const lightboxTitleText = document.getElementById('lightbox-title-text');
+        const lightboxLocationText = document.getElementById('lightbox-location-text');
+        const lightboxDateText = document.getElementById('lightbox-date-text');
+        const lightboxCategoryText = document.getElementById('lightbox-category-text');
+        const lightboxStoryText = document.getElementById('lightbox-story-text');
+        
+        // Tech spec dials
+        const techValLens = document.getElementById('tech-val-lens');
+        const techValAperture = document.getElementById('tech-val-aperture');
+        const techValShutter = document.getElementById('tech-val-shutter');
+        const techValIso = document.getElementById('tech-val-iso');
+
+        // Lightbox buttons
+        const closeBtn = document.getElementById('lightbox-close-btn');
+        const prevBtn = document.getElementById('lightbox-prev-btn');
+        const nextBtn = document.getElementById('lightbox-next-btn');
+        const requestPrintBtn = document.getElementById('btn-request-print');
+
+        let activeFilteredCards = [];
+        let currentActiveIndex = 0;
+
+        // Open Lightbox with specified card
+        function openLightbox(card) {
+            // Re-evaluate list of actively visible filtered cards to cycle clean navigation sequence
+            activeFilteredCards = Array.from(galleryCards).filter(c => !c.classList.contains('hidden'));
+            currentActiveIndex = activeFilteredCards.indexOf(card);
+
+            populateLightbox(card);
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Block background scroll
+        }
+
+        function populateLightbox(card) {
+            // Extract attributes
+            const title = card.getAttribute('data-title');
+            const category = card.getAttribute('data-category');
+            const location = card.getAttribute('data-location');
+            const date = card.getAttribute('data-date');
+            const story = card.getAttribute('data-story');
+            const shutter = card.getAttribute('data-shutter');
+            const aperture = card.getAttribute('data-aperture');
+            const iso = card.getAttribute('data-iso');
+            const focal = card.getAttribute('data-focal');
+
+            // Clone SVG inside wrapper to canvas area
+            const svgContent = card.querySelector('.card-image-wrap').innerHTML;
+            lightboxCanvas.innerHTML = svgContent;
+
+            // Fill text values
+            lightboxTitleText.textContent = title;
+            lightboxLocationText.textContent = location;
+            lightboxDateText.textContent = date;
+            lightboxCategoryText.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            lightboxStoryText.textContent = story;
+
+            // Fill dial dials
+            techValLens.textContent = focal;
+            techValAperture.textContent = aperture;
+            techValShutter.textContent = shutter;
+            techValIso.textContent = iso;
+        }
+
+        // Lightbox Close Logic
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore background scroll
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        
+        // Prev/Next Navigation
+        function navigatePrev() {
+            if (activeFilteredCards.length <= 1) return;
+            currentActiveIndex = (currentActiveIndex - 1 + activeFilteredCards.length) % activeFilteredCards.length;
+            populateLightbox(activeFilteredCards[currentActiveIndex]);
+        }
+
+        function navigateNext() {
+            if (activeFilteredCards.length <= 1) return;
+            currentActiveIndex = (currentActiveIndex + 1) % activeFilteredCards.length;
+            populateLightbox(activeFilteredCards[currentActiveIndex]);
+        }
+
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
+
+        // Add keyboard support to Lightbox modal
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigatePrev();
+            if (e.key === 'ArrowRight') navigateNext();
+        });
+
+        // Click anywhere outside visual/sidebar to close
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-container') || e.target.classList.contains('lightbox-view-area')) {
+                closeLightbox();
+            }
+        });
+
+        // Attach clicks to all gallery cards to launch Lightbox
+        galleryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                openLightbox(card);
+            });
+        });
+
+        // Premium Print Request integration bridge linking Lightbox to Booking form
+        requestPrintBtn.addEventListener('click', () => {
+            const activeCard = activeFilteredCards[currentActiveIndex];
+            const title = activeCard.getAttribute('data-title');
+            const location = activeCard.getAttribute('data-location');
+            const settings = activeCard.getAttribute('data-settings');
+
+            closeLightbox();
+
+            setTimeout(() => {
+                // Focus and select fields in booking
+                const selectElement = document.getElementById('session-type');
+                selectElement.value = 'fine-art-order';
+
+                const textarea = document.getElementById('project-vision');
+                textarea.value = `I am interested in requesting an archival fine art gallery print of "${title}" captured in ${location}.\nSpecs: ${settings}. Please provide sizing options and pricing brackets.`;
+
+                // Scroll cleanly to booking section
+                scrollToBooking();
+                textarea.focus();
+            }, 500);
+        });
+
+        // Scroll helper function
+        function scrollToBooking() {
+            const bookingSec = document.getElementById('booking');
+            bookingSec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Interactive Booking Request Form Submission
+        const toast = document.getElementById('success-toast');
+        const toastMessage = document.getElementById('toast-message-text');
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('client-name').value;
+            const email = document.getElementById('client-email').value;
+            const direction = document.getElementById('session-type').options[document.getElementById('session-type').selectedIndex].text;
+            const date = document.getElementById('booking-date').value;
+
+            // Format date for better presentation
+            const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Customize toast content dynamically
+            toastMessage.innerHTML = `Thank you, <strong>${name}</strong>. Your request for a <strong>${direction}</strong> target-dated on <strong>${formattedDate}</strong> has been logged.<br><br>Our lead curator will contact you at <strong>${email}</strong> inside 24 hours to coordinate the session specifics and review print options.`;
+
+            // Clear the form
+            document.getElementById('session-booking-form').reset();
+
+            // Trigger visual toast
+            toast.classList.add('active');
+        }
+
+        function closeToast() {
+            toast.classList.remove('active');
+        }
+
+        // Handle Newsletter submission
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const input = event.target.querySelector('input');
+            const email = input.value;
+
+            toastMessage.innerHTML = `Thank you. The private digital dispatch connection has been bridged with <strong>${email}</strong>.<br><br>You will receive the early-access catalog for the next Brutalist concrete series when published.`;
+            input.value = '';
+            
+            toast.classList.add('active');
+        }
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/photography-wedding" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">photography</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Tuscany Wedding Photos</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/portfolio-creative-studio" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">photography</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Paris Creative Studio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

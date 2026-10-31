@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Check if a GitHub personal access token is valid, see its account, scopes and rate limit. Sent directly from your browser to GitHub, never stored. Free.",
     about: [
       "**IconVault**'s **GitHub Token Validator** checks a **personal access token** (classic ghp_ or fine-grained) by calling GitHub's own **/user** endpoint. In seconds you learn whether the token is **valid**, which **account** it belongs to, which **OAuth scopes** it grants and how much **API rate limit** remains, so you can confirm a token works before pasting it into CI or a deploy pipeline.",
-      "The validation request goes **directly from your browser to GitHub**. The token lives in **memory only** and is never saved, logged or sent to our servers, and the Clear button wipes it instantly. It is **free** to use with no signup. The honest caveat: this tool cannot tell you why a token was revoked or when it expires, and it checks only the token you paste, it never touches your GitHub password or 2FA."
+      "The validation request goes **directly from your browser to GitHub**. The token lives in **memory only** and is never saved, logged or sent to our servers, and the Clear button wipes it instantly. It is **free** to use; downloads need a free account. The honest caveat: this tool cannot tell you why a token was revoked or when it expires, and it checks only the token you paste, it never touches your GitHub password or 2FA."
     ],
     faqs: [
       { q: "How do I check if a GitHub token is valid?", a: "Paste it into the tool and click Validate token. It calls GitHub's /user API with the token and reports whether GitHub accepted it, along with the account, scopes and remaining rate limit." },
@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "github api user endpoint test",
       "free github token checker",
       "online github pat checker",
-      "no signup github token test",
+      "a free account for downloads github token test",
       "secure github token validation",
       "github token privacy check",
       "github token memory only",

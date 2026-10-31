@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Split bills evenly with tip and tax. Enter the total, add tip percent, and see exactly what everyone owes. Free, in your browser.",
     about: [
       "**IconVault**'s **Bill Splitter** ends the awkward math at the table: enter the **bill total**, add **tax and tip percent**, set the **number of people**, and see exactly what **each person owes**, rounded fairly to the cent.",
-      "**No app install**, **no signup**, no one downloading yet another thing just to split dinner. Free and runs fully in your browser.",
+      "**No app install**, **a free account for downloads**, no one downloading yet another thing just to split dinner. Free and runs fully in your browser.",
     ],
     faqs: [
       { q: "Is the bill splitter free?", a: "Yes. Split as many bills as you like with no account." },

@@ -21,7 +21,7 @@ const seo: ToolSeo = {
       "create gif from pictures",
       "how to make a gif online",
       "best gif maker online",
-      "free gif maker no sign up",
+      "free gif maker a free account for downloads",
       "animated gif maker online",
       "convert pictures to gif",
       "make a gif from multiple images",

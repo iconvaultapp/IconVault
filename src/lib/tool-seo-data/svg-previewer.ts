@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why is my SVG not showing anything?", a: "Common causes: the root element is not <svg>, unclosed tags, or an unescaped & or < in the markup. The validator message usually points at the exact issue." },
       { q: "What is the checker background for?", a: "The checkerboard pattern marks transparent areas, so you can tell whether empty-looking regions are actually transparent or rendered white." },
       { q: "Can I download the SVG?", a: "Yes. Once the markup validates, the Download .svg button saves it as a file, and you can also copy the code to the clipboard." },
-      { q: "Is the SVG Previewer free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the SVG Previewer free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "svg previewer",
@@ -44,7 +44,7 @@ const seo: ToolSeo = {
       "open .svg in browser",
       "svg viewer free",
       "online svg viewer free",
-      "svg preview no signup",
+      "svg preview a free account for downloads",
       "render svg online",
       "svg renderer online",
       "display svg code",

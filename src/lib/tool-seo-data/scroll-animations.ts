@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build scroll-triggered CSS animations (fade, slide, zoom, parallax) with copy-paste keyframes and IntersectionObserver code. Free.",
     about: [
       "**IconVault**'s **Scroll Animations** tool generates **scroll-triggered CSS animations** you can drop into any website. Pick a preset like **fade in**, **slide up**, **slide from left**, **scale up** or **parallax drift**, preview it live, then copy the **CSS keyframes** and the small **IntersectionObserver** snippet that fires the animation when the element scrolls into view.",
-      "The generated code is **framework-free vanilla CSS and JavaScript**, so it works in plain HTML, React, or any site builder, and it is **free** with no signup. The honest note: animation presets are starting points, not finished design. Tune duration, easing and distance to match your site, and keep `prefers-reduced-motion` in mind so motion-sensitive visitors get a calm experience."
+      "The generated code is **framework-free vanilla CSS and JavaScript**, so it works in plain HTML, React, or any site builder, and It is **free** to use; downloads need a free account. The honest note: animation presets are starting points, not finished design. Tune duration, easing and distance to match your site, and keep `prefers-reduced-motion` in mind so motion-sensitive visitors get a calm experience."
     ],
     faqs: [
       { q: "How do scroll-triggered animations work?", a: "An IntersectionObserver watches your element and adds a CSS class when it enters the viewport. That class starts a keyframe animation such as fade-in or slide-up." },

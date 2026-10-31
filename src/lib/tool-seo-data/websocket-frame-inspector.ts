@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build raw WebSocket frames byte by byte and decode hex frames back into FIN, opcode, mask and payload. Free, fully in your browser.",
     about: [
       "**IconVault**'s **WebSocket Frames** inspector lets you **build raw WebSocket frames byte by byte** according to **RFC 6455** and decode hex dumps back into their fields. Choose the **opcode** (text, binary, close, ping, pong, continuation), set **FIN** and **mask** flags, supply a payload, and get the exact bytes a client would put on the wire, or paste hex and see it broken down into header fields and decoded payload.",
-      "It is built for developers debugging **custom WebSocket implementations**, proxies and protocol stacks, where seeing the actual framing matters more than a high-level client. Everything is computed **in your browser** with nothing uploaded, and it is **free** with no signup. Honest note: this inspects protocol framing only; it does not open real connections, for that use a WebSocket client or sandbox tool."
+      "It is built for developers debugging **custom WebSocket implementations**, proxies and protocol stacks, where seeing the actual framing matters more than a high-level client. Everything is computed **in your browser** with nothing uploaded, and It is **free** to use; downloads need a free account. Honest note: this inspects protocol framing only; it does not open real connections, for that use a WebSocket client or sandbox tool."
     ],
     faqs: [
       { q: "What is a WebSocket frame?", a: "The binary unit of a WebSocket message defined by RFC 6455. Each frame has a header with a FIN bit, an opcode (text, binary, close, ping, pong), masking info and payload length, followed by the payload bytes." },

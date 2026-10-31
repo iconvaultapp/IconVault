@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "JPG or PNG: which format is better?", a: "JPG is smaller for document pages. PNG is lossless and better for graphics-heavy pages." },
       { q: "How do I download many pages?", a: "When you convert more than one page, everything is bundled into a single ZIP download." },
     ],
-    tags: ["pdf to image", "pdf to jpg", "pdf to png", "convert pdf to image", "pdf to jpg online", "pdf page to image", "pdf to image free", "pdf to jpg free", "extract images from pdf", "pdf to png online", "pdf to image dpi", "pdf to jpg 300 dpi", "pdf pages to jpg", "pdf to image batch", "pdf to image no signup", "pdf to image private", "pdf screenshot", "pdf to jpg zip", "convert pdf pages", "pdf to image tool",
+    tags: ["pdf to image", "pdf to jpg", "pdf to png", "convert pdf to image", "pdf to jpg online", "pdf page to image", "pdf to image free", "pdf to jpg free", "extract images from pdf", "pdf to png online", "pdf to image dpi", "pdf to jpg 300 dpi", "pdf pages to jpg", "pdf to image batch", "pdf to image a free account for downloads", "pdf to image private", "pdf screenshot", "pdf to jpg zip", "convert pdf pages", "pdf to image tool",
       "convert pdf to image free",
       "pdf to jpg online free",
       "pdf to png online free",
@@ -53,7 +53,7 @@ const seo: ToolSeo = {
       "pdf to image android",
       "pdf to image iphone",
       "pdf to image without acrobat",
-      "pdf to image no signup free",
+      "pdf to image a free account for downloads free",
       "pdf to image fast converter",
       "pdf to image converter app"],
   };

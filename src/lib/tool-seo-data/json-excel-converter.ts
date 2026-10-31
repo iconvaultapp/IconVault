@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I name the worksheet?", a: "Yes. The tool lets you set the sheet name before converting, which is handy when you build workbooks for reports, clients or imports that expect a specific tab name." },
       { q: "How are nested objects exported?", a: "Nested objects are flattened into dotted column paths such as user.name, so every row has the same columns and the sheet opens correctly. Arrays are kept readable in their cells." },
       { q: "Is my data uploaded anywhere?", a: "No. The workbook is generated entirely in your browser with JavaScript. Your data never leaves your device, so it is safe for sensitive reports and client data." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json to excel",
@@ -35,7 +35,7 @@ const seo: ToolSeo = {
       "generate xlsx from json",
       "json to excel free",
       "online json to xlsx converter",
-      "json to excel no signup",
+      "json to excel a free account for downloads",
       "json to excel private",
       "json to excel without upload",
       "api json to excel",

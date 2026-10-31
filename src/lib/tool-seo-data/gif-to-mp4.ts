@@ -50,12 +50,12 @@ const seo: ToolSeo = {
       "gif to mp4 loop video",
       "make gif a video file",
       "convert gif to video file",
-      "gif to video online no sign up",
+      "gif to video online a free account for downloads",
       "gif to mp4 free converter online",
       "gif to mp4 fast converter",
       "convert gif to mp4 for free",
       "gif to mp4 tool",
-      "gif to mp4 converter no signup"],
+      "gif to mp4 converter a free account for downloads"],
   };
 
 export default seo;

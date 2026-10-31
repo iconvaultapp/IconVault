@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "color relationships tool",
       "adobe color alternative free",
       "coolors alternative",
-      "free palette generator no signup",
+      "free palette generator a free account for downloads",
       "color palette tool online",
       "harmonious color combinations",
       "design color palette maker",

@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Find and replace with regex and $1 backreferences. Live highlighted diff, match count and copyable output. Free, runs 100% in your browser.",
     about: [
       "**IconVault**'s **Regex Replace** is a live **find and replace** workbench for text. Enter a **regex pattern** with any JS flags, write a **replacement string** using **$1 backreferences**, **$&**, **$$** and friends, and see a **highlighted diff** of every change update instantly as you type.",
-      "It shows the **match count**, flags pattern errors clearly, and gives you a **copyable output** in one click. Everything runs **100% in your browser**, so large or private text never leaves your device, and it is **free** with no signup."
+      "It shows the **match count**, flags pattern errors clearly, and gives you a **copyable output** in one click. Everything runs **100% in your browser**, so large or private text never leaves your device, and It is **free** to use; downloads need a free account."
     ],
     faqs: [
       { q: "How do backreferences work here?", a: "Use $1 through $9 to insert capture groups into the replacement. $& inserts the whole match, $$ inserts a literal dollar sign, $` inserts the text before the match and $' inserts the text after it, following JavaScript replacement string rules." },
@@ -66,7 +66,7 @@ const seo: ToolSeo = {
       "regex substitution examples",
       "regex replace cheat sheet",
       "free regex replace tool",
-      "no signup regex tool",
+      "a free account for downloads regex tool",
       "browser regex replace",
       "private text replace tool"
     ],

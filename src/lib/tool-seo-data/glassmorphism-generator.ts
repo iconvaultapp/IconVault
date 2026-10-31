@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Design frosted glass cards with blur, opacity, border and shadow sliders, preview over live gradients and copy the CSS. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Glassmorphism Generator** builds the **frosted glass** look visually. Drag sliders for **backdrop blur**, **background opacity**, **border width, color and opacity**, **border radius** and **shadow**, and watch the card update live over colorful **gradient backgrounds** (Sunset, Ocean, Candy, Forest).",
-      "When it looks right, one click copies production-ready **CSS** with the **backdrop-filter** rule, the **-webkit-backdrop-filter** fallback for Safari, and your exact values. It is **free** with no signup and runs **fully in your browser**. The honest caveat: heavy blur values can cost performance on low-end phones, and always provide a readable fallback because backdrop-filter is unsupported in very old browsers."
+      "When it looks right, one click copies production-ready **CSS** with the **backdrop-filter** rule, the **-webkit-backdrop-filter** fallback for Safari, and your exact values. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest caveat: heavy blur values can cost performance on low-end phones, and always provide a readable fallback because backdrop-filter is unsupported in very old browsers."
     ],
     faqs: [
       { q: "What is glassmorphism?", a: "A UI style where elements look like frosted glass: a translucent background with a backdrop blur so content behind shows through softly, plus a subtle border and shadow." },
@@ -56,7 +56,7 @@ const seo: ToolSeo = {
       "glassmorphism figma to css",
       "glassmorphism generator free",
       "online glass effect maker",
-      "no signup css generator",
+      "a free account for downloads css generator",
       "copy glassmorphism css",
       "glassmorphism css code snippet",
       "frosted glass overlay css",

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is the difference between sample and population standard deviation?", a: "Population standard deviation divides by n and describes the full data set; sample standard deviation divides by n-1 and estimates the spread of a larger population your data was drawn from. The tool shows both so you can pick the right one." },
       { q: "What does the box plot show?", a: "The box spans Q1 to Q3 with a line at the median, and the whiskers extend to the minimum and maximum values, giving a quick visual of the data's spread and center." },
       { q: "Is my data uploaded anywhere?", a: "No. All calculations happen locally in your browser with JavaScript, so your numbers never leave your device." },
-      { q: "Is the Statistics Calculator free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the Statistics Calculator free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "statistics calculator",
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "numpy percentile calculator",
       "linear interpolation percentile",
       "copy statistics as text",
-      "statistics calculator no signup",
+      "statistics calculator a free account for downloads",
       "online stats calculator",
       "basic statistics calculator"
     ],

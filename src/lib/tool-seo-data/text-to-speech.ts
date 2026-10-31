@@ -61,7 +61,7 @@ const seo: ToolSeo = {
       "speech synthesis online",
       "web speech api demo",
       "browser text to speech",
-      "text to speech no signup",
+      "text to speech a free account for downloads",
       "text to speech without download",
       "paste text listen",
       "online voice generator free",

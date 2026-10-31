@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Validate Open Graph and Twitter card meta tags: paste page HTML to check og:title, og:image, twitter:card and more. Free, 100% in your browser.",
     about: [
       "**IconVault**'s **OG Checker** validates your **Open Graph** and **Twitter card** meta tags so your links look right when shared. Paste a page's **HTML** and it checks the required tags (**og:title**, **og:type**, **og:image**, **og:url**) plus recommended ones (**og:description**, **og:site_name**, **twitter:card**, image dimensions), reporting **pass, warn or fail** for each with a plain-English hint on how to fix it.",
-      "It is **free**, needs no signup, and runs **100% in your browser**. One honest note: fetching a URL directly is usually blocked by **CORS**, so for a full check you paste your page's HTML (View Source, copy, paste). The checker validates tags, it does not render the final preview exactly as each social network would."
+      "It is **free**, needs a free account for downloads, and runs **100% in your browser**. One honest note: fetching a URL directly is usually blocked by **CORS**, so for a full check you paste your page's HTML (View Source, copy, paste). The checker validates tags, it does not render the final preview exactly as each social network would."
     ],
     faqs: [
       { q: "How do I check my page's Open Graph tags?", a: "Open your page, use View Source, copy the HTML, and paste it into the checker. It parses all meta tags and validates the Open Graph and Twitter card set with pass, warn or fail statuses." },
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "html meta tag validator",
       "social share preview tester",
       "debug social media preview",
-      "open graph checker no signup",
+      "open graph checker a free account for downloads",
       "free og tag validator",
       "twitter meta tags checker",
       "check twitter:card tag",

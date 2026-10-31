@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: drag across bold and italic text, press Inspect selection, and read each range's start and end containers. Try select-all, collapse and expand-to-word to see how offsets behave. Perfect for **developers** building editors, annotations and custom selection UIs.",
     ],
     faqs: [
-      { q: "Is Selection and Range Playground free to use?", a: "Yes. Selection and Range Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Selection and Range Playground free to use?", a: "Yes. Selection and Range Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is the difference between Selection and Range?", a: "A Selection is what the user has highlighted (anchor and focus); it contains one or more Range objects, each with a start and end container plus offsets." },
       { q: "What does an offset mean?", a: "Inside a text node it is a character index; inside an element it is a child index. The debugger shows which node type each offset belongs to." },
       { q: "Why draw the rects as overlays?", a: "getClientRects() returns one rectangle per rendered line of the range, so the overlay shows exactly how a multi-line selection is laid out." },

@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "**!important declarations** are ranked above normal ones, exactly like the browser does. The specificity engine is **hand-written** and handles IDs, classes, attributes, pseudo-classes, pseudo-elements and :not() correctly. The honest caveat: matching is a **static approximation** of the selector's last compound, not a live DOM inspector, so treat it as a logic check. **Free** and runs **fully in your browser**.",
     ],
     faqs: [
-      { q: "Is the cascade debugger free?", a: "Yes. Debugging CSS, specificity scores and winner explanations are free with no signup." },
+      { q: "Is the cascade debugger free?", a: "Yes. Debugging CSS, specificity scores and winner explanations are free to use; downloads need a free account." },
       { q: "What is CSS specificity?", a: "The scoring system browsers use to decide which rule wins when several match one element. It is counted as three numbers: ID selectors, then class, attribute and pseudo-class selectors, then element and pseudo-element selectors." },
       { q: "Does !important always win?", a: "An !important declaration beats any normal declaration, and among !important declarations the usual specificity and source-order rules apply again. The tool ranks them exactly this way." },
       { q: "What does later in source order wins mean?", a: "When two matching selectors have identical specificity, the declaration that appears later in the stylesheet wins. The tool shows this reason explicitly." },

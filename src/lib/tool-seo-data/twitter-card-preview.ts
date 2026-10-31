@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does this replace the official X card validator?", a: "It is a fast design-time preview, not a replacement. X caches cards aggressively, so after publishing, still run your URL through the official validator to refresh the cache." },
       { q: "Where do my uploaded images go?", a: "Nowhere. The preview runs entirely in your browser, so your images are never uploaded to a server. You host the final image yourself and reference its URL in the meta tags." },
       { q: "Why do I see character count warnings?", a: "X truncates titles around 70 characters and descriptions around 200. The counters turn red past those limits so you can trim your copy before publishing." },
-      { q: "Is the X Card Preview free?", a: "Yes, completely free with no signup. Paste your copy, preview the card and copy the meta tags as many times as you like." }
+      { q: "Is the X Card Preview free?", a: "Yes, completely free to use; downloads need a free account. Paste your copy, preview the card and copy the meta tags as many times as you like." }
     ],
     tags: [
       "x card preview", "twitter card preview", "x link preview", "twitter link preview tool",
@@ -23,7 +23,7 @@ const seo: ToolSeo = {
       "x card validator online", "twitter card debugger", "x social preview",
       "twitter link card mockup", "see how link looks on x", "x card image preview",
       "twitter card image size", "twitter card title length", "twitter card description length",
-      "free twitter card tester", "online x card preview tool", "x card preview no signup",
+      "free twitter card tester", "online x card preview tool", "x card preview a free account for downloads",
       "twitter card html generator", "generate twitter meta tags", "x card meta tag generator",
       "og card preview tool", "link preview for x twitter", "x post link preview",
       "twitter card checker free", "test twitter card online", "x card preview free online",

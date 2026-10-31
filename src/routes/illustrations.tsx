@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Copy, Download, Moon, Search, Sun, X } from "lucide-react";
+import { downloadWithGate } from "@/lib/download-guard";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -65,16 +66,9 @@ const SWATCHES: Array<{ name: string; hex: string }> = [
 const themeFor = (entry: IllustrationEntry, theme: Theme): Theme =>
   theme === "dark" && entry.dark ? "dark" : "light";
 
-const downloadBlob = (name: string, blob: Blob) => {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  a.click();
-  // 60s, not 4s (ROB-L7): revoking too early can abort a slow download
-  // before the browser has picked the blob up.
-  setTimeout(() => URL.revokeObjectURL(url), 60_000);
-};
+// v55 download gate: anonymous users park the file + get the sign-in prompt;
+// it resumes automatically after login. Returns false when parked.
+const downloadBlob = (name: string, blob: Blob): boolean => downloadWithGate(blob, name);
 
 function ColorControls({
   color,
@@ -159,8 +153,9 @@ function EditorModal({
     setBusy(true);
     try {
       const svg = await buildSvg();
-      downloadBlob(`${entry.slug}.svg`, new Blob([svg], { type: "image/svg+xml" }));
-      toast.success("SVG downloaded");
+      if (downloadBlob(`${entry.slug}.svg`, new Blob([svg], { type: "image/svg+xml" }))) {
+        toast.success("SVG downloaded");
+      }
     } catch {
       // ROB-M2: a failed load used to leave the button spinning forever.
       toast.error("SVG download failed - try again");
@@ -189,8 +184,9 @@ function EditorModal({
       ctx.drawImage(img, 0, 0, size, size);
       const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
       if (blob) {
-        downloadBlob(`${entry.slug}.png`, blob);
-        toast.success("PNG downloaded");
+        if (downloadBlob(`${entry.slug}.png`, blob)) {
+          toast.success("PNG downloaded");
+        }
       }
     } catch {
       toast.error("PNG export failed - try the SVG instead");

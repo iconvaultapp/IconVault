@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: choose a scenario, run operations against its proxy, and read the trap sequence. The source panel explains why Reflect matters for keeping language invariants. Perfect for **developers** learning ES6 proxies or understanding how frameworks like Vue build reactivity.",
     ],
     faqs: [
-      { q: "Is Proxy and Reflect Playground free to use?", a: "Yes. Proxy and Reflect Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Proxy and Reflect Playground free to use?", a: "Yes. Proxy and Reflect Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is a Proxy trap?", a: "A trap is a handler method (get, set, has, deleteProperty, apply and more) that intercepts a fundamental operation on the proxied object." },
       { q: "Why use Reflect inside traps?", a: "Reflect performs the default behavior correctly, preserving language invariants such as the right this value and non-configurable property rules." },
       { q: "What happens when a set trap returns false?", a: "In strict mode it throws a TypeError; in sloppy mode the assignment silently fails. The validation scenario shows this live." },

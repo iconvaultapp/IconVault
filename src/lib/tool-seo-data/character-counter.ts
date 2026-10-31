@@ -71,7 +71,7 @@ const seo: ToolSeo = {
       "youtube title character limit",
       "headline character counter",
       "free char counter",
-      "character counter no signup",
+      "character counter a free account for downloads",
       "instant character count",
       "real time character counter",
       "live character counter",

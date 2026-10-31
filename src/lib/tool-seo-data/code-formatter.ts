@@ -53,7 +53,7 @@ const seo: ToolSeo = {
       "online prettier alternative",
       "lightweight code formatter",
       "format code in browser",
-      "no signup code formatter",
+      "a free account for downloads code formatter",
       "paste and format code",
       "javascript code tidier",
       "css code tidier",

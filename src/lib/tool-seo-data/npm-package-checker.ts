@@ -2,18 +2,18 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "npm Checker - Free Online npm Package Lookup Tool | IconVault",
-    metaDescription: "Look up any npm package: latest version, license, downloads, repo link, age and a heuristic health grade. Free, no signup, public registry data.",
+    metaDescription: "Look up any npm package: latest version, license, downloads, repo link, age and a heuristic health grade. Free; downloads need a free account, public registry data.",
     about: [
       "**IconVault**'s **npm Checker** looks up any **npm package** using only **public registry data**, so nothing is uploaded and there is nothing to install. You get the **latest version**, description, **license**, repository and homepage links, publish and modification dates, **weekly download counts**, keywords and a compact **health grade** that combines downloads, recency, license presence and repository presence into one glanceable score.",
-      "It is **free** with no signup. The honest caveat: the health grade is a quick heuristic to help you compare packages, not a security audit or a guarantee of quality. Before depending on a package, skim its repository, check open issues and confirm the license fits your project."
+      "It is **free** to use; downloads need a free account. The honest caveat: the health grade is a quick heuristic to help you compare packages, not a security audit or a guarantee of quality. Before depending on a package, skim its repository, check open issues and confirm the license fits your project."
     ],
     faqs: [
       { q: "What information does the npm checker show?", a: "Name, latest version, description, license, repository and homepage URLs, creation and last-modified dates, weekly download counts and keywords, plus a heuristic health grade." },
-      { q: "Where does the data come from?", a: "Only public npm registry data: the package metadata endpoint and the public downloads API. Nothing is uploaded from your device and no login is needed." },
+      { q: "Where does the data come from?", a: "Only public npm registry data: the package metadata endpoint and the public downloads API. Nothing is uploaded from your device; using it needs no login, downloads need a free account." },
       { q: "How is the health grade calculated?", a: "It is a simple heuristic. High weekly downloads, a recent publish date, a declared license and a linked repository each add points. It is meant for quick comparison, not as a security verdict." },
       { q: "Can this tell me if a package is safe to use?", a: "Not by itself. Popularity and maintenance signals help, but they do not prove the code is secure. For sensitive use, review the source, check for known vulnerabilities and pin a version you have tested." },
       { q: "Why do some packages show no download data?", a: "The downloads API sometimes returns nothing for brand-new, private or very low-traffic packages. The rest of the metadata still shows normally." },
-      { q: "Is it free?", a: "Yes. Lookups are free with no signup, and you can check as many packages as you like." }
+      { q: "Is it free?", a: "Yes. Lookups are free to use; downloads need a free account, and you can check as many packages as you like." }
     ],
     tags: [
       "npm package checker",

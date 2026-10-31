@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Dice Roller - Free Online RPG Dice Roller Tool | IconVault",
-    metaDescription: "Roll virtual dice online free. D4, D6, D8, D10, D12, D20 and D100 with modifiers, animated rolls and roll history. Runs fully in your browser, no signup.",
+    metaDescription: "Roll virtual dice online free. D4, D6, D8, D10, D12, D20 and D100 with modifiers, animated rolls and roll history. Runs fully in your browser; downloads need a free account.",
     about: [
       "**IconVault**'s **Dice Roller** is a **free online dice roller** for tabletop RPGs, board games and quick decisions. Pick from **D4**, **D6**, **D8**, **D10**, **D12**, **D20** and **D100**, roll up to 10 dice at once and add a **modifier** (+3, -2) for attack rolls, skill checks and saving throws. Every roll plays a quick animation and shows the individual results plus the total.",
-      "Everything runs **100% in your browser**: no downloads, no account and no data sent anywhere. Your last 30 rolls are saved in **roll history** on your device, and one click copies a roll in standard **NdN+mod notation** (like 2d6+3) so you can paste it into chat or your character sheet. Visitors get 5 **free** rolls with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited rolls across every tool.",
+      "Everything runs **100% in your browser**: no downloads, no account and no data sent anywhere. Your last 30 rolls are saved in **roll history** on your device, and one click copies a roll in standard **NdN+mod notation** (like 2d6+3) so you can paste it into chat or your character sheet. Visitors get 5 **free** rolls with a free account for downloads; **IconVault** Pro ($19 one-time) unlocks unlimited rolls across every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free rolls do I get?",
-        a: "Every visitor gets 5 free rolls with no account needed. IconVault Pro ($19 one-time) gives unlimited rolls plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free rolls with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited rolls plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -40,7 +40,7 @@ const seo: ToolSeo = {
       "dice roller with modifiers", "digital dice roller", "d4 dice roller",
       "d8 dice roller", "d12 dice roller", "d100 dice roller",
       "percentile dice roller", "dnd dice roller online free", "virtual dice for dnd",
-      "online d20 roller", "dice roller no download", "dice roller no signup",
+      "online d20 roller", "dice roller no download", "dice roller a free account for downloads",
       "multiple dice roller", "dice roller with history", "animated dice roller",
       "d20 dice roller free", "roll dice for board games", "board game dice roller",
       "tabletop dice roller", "dice roller for tabletop rpg", "roll 2d6 online",

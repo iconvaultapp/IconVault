@@ -2,7 +2,7 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "App Icon Generator - Free Online Tool | IconVault",
-    metaDescription: "Generate a complete iOS + Android app icon package from one image, with site.webmanifest, in seconds. Free, no signup.",
+    metaDescription: "Generate a complete iOS + Android app icon package from one image, with site.webmanifest, in seconds. Free; downloads need a free account.",
     about: [
       "**IconVault**'s **App Icon Generator** turns one square artwork file into the full icon package your app needs: every required iOS size from 180px down to 29px plus the 1024px App Store icon, Android launcher sizes from 192px down to 48px, and a maskable 512px icon for adaptive launchers. It even writes a **site.webmanifest** with your app name and the icon list, so a PWA is ready to drop in.",
       "Everything runs **100% in your browser**: your artwork never leaves your device. Tune padding, pick a background color or keep transparency, name your app, and download a single ZIP with organized ios/, android/ folders. **Free** to use with a daily trial, and Pro users get unlimited generations.",
@@ -53,7 +53,7 @@ const seo: ToolSeo = {
       "generate notification icons android",
       "app icon creator online",
       "download app icons zip",
-      "app icon generator no signup",
+      "app icon generator a free account for downloads",
       "xcode app icon sizes",
       "app icon from logo maker"],
   };

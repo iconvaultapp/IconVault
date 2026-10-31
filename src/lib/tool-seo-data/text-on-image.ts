@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "text alignment photo tool",
       "drag drop text photo",
       "photo text font changer",
-      "add text to image free no signup",
+      "add text to image free a free account for downloads",
       "text on image without watermark",
       "text on png online",
       "text on jpg online",

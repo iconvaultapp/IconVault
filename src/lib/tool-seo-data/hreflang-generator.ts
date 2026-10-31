@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build valid hreflang link tags for multilingual sites: language and region codes, x-default fallback, per-page URLs. Copy-ready HTML, free.",
     about: [
       "**IconVault**'s **Hreflang Generator** builds the **hreflang link tags** that tell Google which **language and region version** of a page to show each searcher. Add your **language-region pairs** like en-US or fr-CA with their page URLs, set an **x-default fallback** for unmatched visitors, and get copy-ready <link rel=\"alternate\" hreflang=\"...\"> tags to paste into your page head.",
-      "Getting hreflang wrong is one of the most common **international SEO** mistakes: wrong codes, missing self-references and one-way tags all silently break it. This tool formats every tag to the correct **ISO language and region code** syntax so you can avoid those errors. It is **free** with no signup and runs **fully in your browser**. The honest note: hreflang is a signal, not a ranking boost, and every language version should link back to all the others, including itself."
+      "Getting hreflang wrong is one of the most common **international SEO** mistakes: wrong codes, missing self-references and one-way tags all silently break it. This tool formats every tag to the correct **ISO language and region code** syntax so you can avoid those errors. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest note: hreflang is a signal, not a ranking boost, and every language version should link back to all the others, including itself."
     ],
     faqs: [
       { q: "What is hreflang?", a: "Hreflang is an HTML link tag that tells search engines which language and regional version of a page to show a searcher. Without it, Google may show the wrong language version or treat translated pages as duplicates." },
@@ -52,7 +52,7 @@ const seo: ToolSeo = {
       "hreflang seo guide",
       "free hreflang generator",
       "hreflang generator online",
-      "hreflang tool no signup",
+      "hreflang tool a free account for downloads",
       "browser hreflang builder",
       "hreflang tags copy paste",
       "multiple languages seo tags",

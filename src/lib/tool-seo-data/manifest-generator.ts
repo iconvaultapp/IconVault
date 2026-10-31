@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What display modes can I choose?", a: "Standalone, fullscreen, minimal-ui and browser are all supported, along with orientation options of any, portrait, landscape and natural." },
       { q: "What are app shortcuts?", a: "Shortcuts are quick actions that appear when a user long-presses your installed app icon (for example, New note or Open inbox). The tool lets you add them with names, URLs and icons, and writes them into the manifest." },
       { q: "Is my uploaded icon sent to a server?", a: "No. The icon is resized locally in your browser with canvas, and the PNGs are generated on your device. Nothing is uploaded." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "pwa manifest generator",
@@ -52,7 +52,7 @@ const seo: ToolSeo = {
       "installable web app checklist",
       "progressive web app tools",
       "pwa builder online free",
-      "manifest generator no signup",
+      "manifest generator a free account for downloads",
       "browser pwa manifest tool",
       "android pwa manifest",
       "ios pwa apple touch icon",

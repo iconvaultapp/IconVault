@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it use my browser's Intl data?", a: "Yes. All formatting is done with the browser's built-in Intl formatters, so results match exactly what your users' browsers would produce." },
       { q: "Can I export the results?", a: "Yes. Copy all formats to the clipboard or download them as JSON for use as a reference in your code." },
       { q: "Why do formats differ between browsers?", a: "Browsers ship different versions of ICU locale data, so edge cases can vary slightly. When precision matters, test in your target browsers too." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "locale explorer",
@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "intl api playground",
       "intl api explorer",
       "free locale tool",
-      "locale tool no signup",
+      "locale tool a free account for downloads",
       "download locale formats json",
       "copy formatted date",
       "internationalization formats",

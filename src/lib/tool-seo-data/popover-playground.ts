@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: pick a demo, choose auto or manual mode, set the anchor position, and click the trigger. The copy-ready code panel mirrors your exact setup. Perfect for **developers** replacing JS tooltip libraries with the built-in top-layer API.",
     ],
     faqs: [
-      { q: "Is Popover Playground free to use?", a: "Yes. Popover Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Popover Playground free to use?", a: "Yes. Popover Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is the difference between auto and manual popovers?", a: "Auto popovers close on outside click and Escape, and only one can be open at a time. Manual popovers stay open until your code closes them and can stack." },
       { q: "What is the top layer?", a: "It is where popovers and dialogs render, above the rest of the page, so they never fight with z-index or get clipped by overflow." },
       { q: "How does anchor positioning work?", a: "The trigger gets anchor-name and the popover gets position-anchor plus position-area, so the browser positions it with pure CSS, no measuring code." },

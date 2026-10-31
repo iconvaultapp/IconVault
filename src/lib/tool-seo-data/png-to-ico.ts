@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free PNG-to-ICO conversions, no account needed. IconVault Pro ($19 one-time) unlocks unlimited conversions and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free PNG-to-ICO conversions, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited conversions and unlimited uses of all tools.",
       },
     ],
     tags: [
@@ -40,7 +40,7 @@ const seo: ToolSeo = {
       "png to icon", "convert image to ico", "jpg to ico", "image to ico converter",
       "ico file generator", "windows icon converter", "favicon.ico generator", "favicon.ico maker",
       "multi size ico", "16 32 48 ico", "ico with multiple sizes", "png compressed ico",
-      "transparent ico converter", "ico converter no signup", "ico converter no watermark",
+      "transparent ico converter", "ico converter a free account for downloads", "ico converter no watermark",
       "free ico maker", "online ico creator", "browser icon file", "taskbar icon maker",
       "desktop icon converter", "shortcut icon maker", "website favicon ico",
       "how to make favicon.ico", "favicon.ico from png", "convert logo to ico",

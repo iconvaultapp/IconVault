@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Website Screenshot & Scroll Video Tool - Capture Any Site Free | IconVault",
     metaDescription:
-      "Take full-page screenshots of any website, or record a ~14-second full-HD scrolling video in MP4, WebM or GIF - vertical 9:16, square 1:1 or horizontal 16:9. Free, instant, no signup.",
+      "Take full-page screenshots of any website, or record a ~14-second full-HD scrolling video in MP4, WebM or GIF - vertical 9:16, square 1:1 or horizontal 16:9. Free, instant; downloads need a free account.",
     about: [
       "The **Website Screenshot** **tool** captures pixel-perfect screenshots of any public URL - homepages for portfolios, competitor pages for teardowns, or your own deploys for visual QA. Choose **desktop**, laptop, tablet or mobile viewports, then add an optional caption overlay (bar, gradient or pill, top or bottom) to make the shot reel-ready before downloading. The **Scroll** **Video** tab records a real **full**-**page** scrolling **video** instead: the **page** is captured in three **Full**-HD parts (top, middle, bottom) that glide smoothly and are stitched into one ~14-second **video**. Each part sweeps its section first so lazy-loaded sections appear fully loaded.",
       "Pick your format - MP4 for universal playback, WebM for the smallest file, GIF for looping anywhere - and your aspect ratio: vertical 9:16 for Reels and Stories, square 1:1 for feeds, horizontal 16:9 for YouTube. Designers use screenshots for moodboards and client presentations, developers for documentation and bug reports, marketers for competitor research and social teasers. 5 **free** captures per visitor including 2 **free** **full**-**page** captures, plus 5 **free** **scroll** videos; Pro members get unlimited everything and HD retina output.",
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "Do I need to install anything?",
-        a: "No. It runs entirely in your browser - no extension, no software, no signup for the first 5 captures.",
+        a: "No. It runs entirely in your browser - no extension, no software; downloads need a free account for the first 5 captures.",
       },
       {
         q: "Can I screenshot my localhost or private pages?",
@@ -60,7 +60,7 @@ const seo: ToolSeo = {
       "test website on mobile screenshot", "viewport screenshot tool", "1280x800 screenshot",
       "1440x900 website preview", "mobile viewport capture", "tablet screenshot website",
       "screenshot for documentation", "website screenshot for presentation", "client website preview",
-      "share website as image", "website screenshot no signup", "free screenshotone alternative",
+      "share website as image", "website screenshot a free account for downloads", "free screenshotone alternative",
       "website capture no watermark",
       "website scroll video", "scrolling website video", "url to video", "website to mp4",
       "webpage screen recording", "website video generator", "scroll capture video",

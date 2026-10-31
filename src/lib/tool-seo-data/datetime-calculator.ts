@@ -4,7 +4,7 @@ const seo: ToolSeo = {
     title: "DateTime Calculator - Free Online Calculator | IconVault",
     metaDescription: "Date math made easy: add or subtract days, find the difference between dates, get ISO week numbers and day of year. Free, runs in your browser.",
     about: [ "**IconVault**'s **DateTime Calculator** handles everyday **date math** without a spreadsheet. **Add or subtract** days, weeks, months or years from any date to find deadlines and anniversaries, compute the exact **difference between two dates** in days, get the **ISO week number** and **day of year** for any date, and see the resulting weekday spelled out clearly.",
-    "Everything runs **100% in your browser**: no sign-up, nothing uploaded, free to use. Project managers can count working days to a launch, travelers can measure trip lengths, and developers can verify **ISO 8601 week numbers** for reports and scheduling. Results are shown instantly as you change the inputs." ],
+    "Everything runs **100% in your browser**: a free account for downloads, nothing uploaded, free to use. Project managers can count working days to a launch, travelers can measure trip lengths, and developers can verify **ISO 8601 week numbers** for reports and scheduling. Results are shown instantly as you change the inputs." ],
     faqs: [
       { q: "What does the DateTime Calculator do?", a: "It does date arithmetic: add or subtract time from a date, find the difference between two dates, and look up ISO week numbers and day-of-year values." },
       { q: "How do I add 90 days to a date?", a: "Use the add/subtract tab, pick your start date, enter 90 days, and the tool returns the resulting date with its weekday." },

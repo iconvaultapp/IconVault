@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Compose Generator - Free Online Docker Compose Generator Tool | IconVault",
-    metaDescription: "Build docker-compose.yml visually. Add services, ports, volumes, env vars and networks with live YAML preview. Free, 100% client side, no signup.",
+    metaDescription: "Build docker-compose.yml visually. Add services, ports, volumes, env vars and networks with live YAML preview. Free, 100% client side; downloads need a free account.",
     about: [
       "**IconVault**'s **Compose Generator** builds a valid **docker-compose.yml** without you writing a line of YAML. Add services with a visual form: **image**, **ports**, **volumes**, **environment variables**, **depends_on**, **restart policy** and **networks**. One-click presets for **Nginx**, **Node.js**, **Postgres**, **Redis**, **MySQL** and **MongoDB** fill in sensible defaults you can tweak.",
-      "The **YAML output updates live** as you type, so you always see exactly what your stack will look like, then copy it or **download the file** with one click. Everything runs **100% client side** in your browser: no server, no account, no uploads. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
+      "The **YAML output updates live** as you type, so you always see exactly what your stack will look like, then copy it or **download the file** with one click. Everything runs **100% client side** in your browser: no server, no account, no uploads. Visitors get 5 **free** generations with a free account for downloads; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free generations with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

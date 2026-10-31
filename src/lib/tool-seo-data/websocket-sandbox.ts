@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Connect to any WebSocket endpoint, send messages and watch a live timestamped log, or subscribe to an SSE stream. Free, runs in your browser.",
     about: [
       "**IconVault**'s **WebSocket Sandbox** is a live **WebSocket client** in your browser: enter any **ws:// or wss:// endpoint**, connect, send text messages, and watch every sent and received message appear in a **timestamped log**. It ships with a public **echo server preset** so you can test immediately, and an **SSE mode** for subscribing to **Server-Sent Events** streams too.",
-      "It is ideal for debugging APIs, chat backends, realtime dashboards and IoT endpoints without writing throwaway client code. Everything happens **in your browser** with no signup and no install, and it is **free**. Honest note: browser security rules mean you can only reach servers that accept the connection and, for wss, valid HTTPS contexts; mixed-content restrictions may block plain ws:// from a secure page."
+      "It is ideal for debugging APIs, chat backends, realtime dashboards and IoT endpoints without writing throwaway client code. Everything happens **in your browser** with a free account for downloads and no install, and it is **free**. Honest note: browser security rules mean you can only reach servers that accept the connection and, for wss, valid HTTPS contexts; mixed-content restrictions may block plain ws:// from a secure page."
     ],
     faqs: [
       { q: "How do I test a WebSocket server?", a: "Paste the ws:// or wss:// URL, hit connect, then type messages and send them. Incoming messages show up in the timestamped log alongside system events like connects and disconnects." },

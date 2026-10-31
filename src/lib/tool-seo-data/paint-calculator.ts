@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Estimate paint for any room: wall sizes minus doors and windows, any number of coats, custom coverage. Results in gallons and liters. Free.",
     about: [
       "**IconVault**'s **Paint Calculator** estimates how much paint a room needs from real measurements. Add each wall's width and height, subtract **doors and windows** as openings, choose your **number of coats** and your paint's **coverage per gallon**, and it computes the paintable area plus the **gallons and liters** required, including a rounded-up buy quantity so you do not run short mid-wall.",
-      "It is **free**, needs no signup, and runs **fully in your browser**. The honest caveat: this is an estimate, not a guarantee. Real coverage varies with paint brand, color change, surface texture and application method, so buy a little extra and check the coverage figure printed on your paint can."
+      "It is **free**, needs a free account for downloads, and runs **fully in your browser**. The honest caveat: this is an estimate, not a guarantee. Real coverage varies with paint brand, color change, surface texture and application method, so buy a little extra and check the coverage figure printed on your paint can."
     ],
     faqs: [
       { q: "How much paint do I need for a room?", a: "Measure each wall's width and height, subtract doors and windows, multiply by the number of coats, then divide by your paint's coverage per gallon (often around 350 sq ft). This calculator does all of that for you." },

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which field types are supported?", a: "Full names, emails, phone numbers, company names, UUIDs, integers and floats with min/max ranges, booleans, dates and ISO dates, IPv4 addresses, URLs, hex colors, word lists and full sentences." },
       { q: "Is the generated data real?", a: "No, every value is fabricated from built-in word lists and random generators. Names, emails and companies are fictional, so nothing can be traced to a real person." },
       { q: "Can I use the generated data in commercial projects?", a: "Yes. It is placeholder data with no copyrighted content, so you can use it in prototypes, demos, tests and documentation freely." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "mock data generator",
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "placeholder data generator",
       "generate rows of fake data",
       "bulk fake data generator",
-      "no signup mock data generator",
+      "a free account for downloads mock data generator",
       "free fake data tool",
       "faker js alternative online",
       "generate fake names list",

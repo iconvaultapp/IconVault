@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "What happens to transparency?", a: "JPG has no transparency, so any see-through areas are filled with the background color you pick, white by default." },
       { q: "Can I convert many HEIC files at once?", a: "Yes. Add as many files as you like and download them all at once as a ZIP file." },
     ],
-    tags: ["heic to jpg", "heic converter", "convert heic to jpg", "heic to jpg online", "iphone photo converter", "heif to jpg", "heic to jpeg", "bulk heic converter", "heic to jpg free", "convert apple photos to jpg", "heic file converter", "heif converter", "jpg from heic", "heic to jpg batch", "iphone heic to jpg", "heic to jpg no signup", "heic to jpg private", "convert heic iphone", "heic to jpg quality", "heic download as jpg",
+    tags: ["heic to jpg", "heic converter", "convert heic to jpg", "heic to jpg online", "iphone photo converter", "heif to jpg", "heic to jpeg", "bulk heic converter", "heic to jpg free", "convert apple photos to jpg", "heic file converter", "heif converter", "jpg from heic", "heic to jpg batch", "iphone heic to jpg", "heic to jpg a free account for downloads", "heic to jpg private", "convert heic iphone", "heic to jpg quality", "heic download as jpg",
       "convert heic to jpg free",
       "heic to jpg online free",
       "heic to jpg without losing quality",

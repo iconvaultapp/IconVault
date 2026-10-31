@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How does it name nested types?", a: "Nested objects become their own named types derived from the property name, following each language's naming conventions (PascalCase in TypeScript, Go and C#, snake-friendly names in Python, and Rust conventions in Rust output)." },
       { q: "Can I rename the root type?", a: "Yes. Set the root name before generating and all nested type names are derived consistently, so the output drops straight into your codebase." },
       { q: "Is my JSON uploaded anywhere?", a: "No. Type generation runs entirely in your browser with JavaScript. Your JSON never leaves your device, so it is safe for proprietary API payloads." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json to types",
@@ -45,7 +45,7 @@ const seo: ToolSeo = {
       "json to python online free",
       "json to rust online free",
       "nested json to types",
-      "json to types no signup",
+      "json to types a free account for downloads",
       "json to types private",
       "json to types without upload",
       "json type generator",

@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free hashes can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited hashing plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited hashing plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
@@ -43,7 +43,7 @@ const seo: ToolSeo = {
       "hash text online free", "password hash generator", "hash my password",
       "create hash from text", "sha-1 hash generator", "sha-384 generator",
       "sha-512 hash online", "md5 vs sha256", "what is a hash function",
-      "hash generator no signup", "browser hash generator", "client side hash generator",
+      "hash generator a free account for downloads", "browser hash generator", "client side hash generator",
       "secure hash generator", "crypto hash online", "hash encoder", "string hash calculator",
       "online digest calculator", "generate checksum for file", "verify file integrity hash",
       "hash generator for developers", "api key hash generator", "token hash generator",

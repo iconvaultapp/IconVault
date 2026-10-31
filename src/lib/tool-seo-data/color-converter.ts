@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free copies, no account needed. IconVault Pro ($19 one-time) unlocks unlimited use of the Color Converter and every other tool.",
+        a: "Every visitor gets 5 free copies, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited use of the Color Converter and every other tool.",
       },
       {
         q: "Is my data sent anywhere?",
@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "hex to rgb css", "rgb to hex css", "convert color codes",
       "hexadecimal to rgb", "rgb to hexadecimal", "hsl to rgb converter online",
       "color picker hex rgb", "online color converter", "free color converter",
-      "hex to rgb no signup", "web color converter", "css color converter",
+      "hex to rgb a free account for downloads", "web color converter", "css color converter",
       "convert cmyk to rgb", "rgb to cmyk", "hex to cmyk",
       "color converter for designers", "color converter for developers", "tailwind color converter",
       "figma hex to rgb", "photoshop color converter", "hsl color picker",

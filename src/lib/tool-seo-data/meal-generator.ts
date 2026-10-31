@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Are these full recipes or just ideas?", a: "They are meal ideas with a short description and macro breakdown, meant to spark a decision, not detailed recipes. Copy an idea and look up a full recipe for it if you want step-by-step instructions." },
       { q: "Can I use this for meal planning?", a: "Yes. Reroll through a few ideas, copy the ones you like, and you have a day or week of meals with macro estimates. It is a starting point for planning, not a substitute for a dietitian's advice." },
       { q: "Is my data saved anywhere?", a: "No. Your diet choice and calorie target stay in your browser session, and nothing is uploaded or stored on a server." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "meal generator",
@@ -50,7 +50,7 @@ const seo: ToolSeo = {
       "simple meal generator",
       "free meal idea tool",
       "online meal planner free",
-      "meal generator no signup",
+      "meal generator a free account for downloads",
       "browser meal generator",
       "diet meal ideas",
       "vegetarian dinner ideas",

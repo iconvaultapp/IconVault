@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert between Simplified and Traditional Chinese instantly with a built-in character table. Free, runs fully in your browser, no uploads.",
     about: [
       "**IconVault**'s **Trad/Simp Converter** switches text between **Simplified Chinese** and **Traditional Chinese** in one click using a built-in common-character table. Paste a paragraph, pick the direction, and get the converted result with a copy button. It is free and runs fully in your browser, so nothing you paste ever leaves your device.",
-      "The converter covers frequent **simplified/traditional character pairs** such as 爱/愛, 国/國 and 学/學, which handles everyday text like product copy, subtitles and emails. Rare or variant characters that are not in the table pass through unchanged, so always **proofread names and specialized terms** before publishing. There is no sign-up and **no server round trip**."
+      "The converter covers frequent **simplified/traditional character pairs** such as 爱/愛, 国/國 and 学/學, which handles everyday text like product copy, subtitles and emails. Rare or variant characters that are not in the table pass through unchanged, so always **proofread names and specialized terms** before publishing. There is a free account for downloads and **no server round trip**."
     ],
     faqs: [
       { q: "How does the Simplified to Traditional conversion work?", a: "The tool matches each character against a built-in table of common simplified/traditional pairs and swaps them. Conversion happens instantly in your browser, character by character." },
@@ -66,7 +66,7 @@ const seo: ToolSeo = {
       "convert cantonese text simplified traditional",
       "traditional chinese input converter",
       "simplified chinese input converter",
-      "instant chinese converter no signup",
+      "instant chinese converter a free account for downloads",
       "browser chinese converter private"
     ],
   };

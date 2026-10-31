@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert TOML to JSON and JSON to TOML instantly with validation. Free, runs entirely in your browser, nothing uploaded.",
     about: [
       "**IconVault**'s **TOML to JSON** converter translates configs both ways, **TOML to JSON** and **JSON to TOML**, with syntax validation and clear error messages when the input is malformed. The result can be **copied or downloaded**, and the TOML parser loads on demand so the page stays fast.",
-      "All conversion runs **entirely in your browser**, so your config files are **never uploaded**, and the tool is **free** with no signup. The honest note: exotic TOML edge cases like unusual datetime forms may round-trip differently, so spot-check generated configs before shipping them to production."
+      "All conversion runs **entirely in your browser**, so your config files are **never uploaded**, and the tool is **free** with a free account for downloads. The honest note: exotic TOML edge cases like unusual datetime forms may round-trip differently, so spot-check generated configs before shipping them to production."
     ],
     faqs: [
       { q: "Can I convert TOML to JSON?", a: "Yes. Paste TOML, get formatted JSON instantly. The reverse direction, JSON to TOML, is supported in the same tool." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Is my config data sent to a server?", a: "No. Parsing and conversion run entirely in your browser. Your files never leave your device." },
       { q: "Can I download the converted file?", a: "Yes. Both directions support copy to clipboard and download as a file." },
       { q: "Why convert TOML to JSON?", a: "TOML is common for config files like Cargo.toml and pyproject.toml, while JSON is easier to process programmatically. Converting lets you script, diff or validate configs with JSON tooling." },
-      { q: "Is it free?", a: "Yes, completely free with no signup." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "toml to json",
@@ -56,7 +56,7 @@ const seo: ToolSeo = {
       "fix toml syntax",
       "toml to json api alternative",
       "convert toml online free",
-      "no signup toml converter",
+      "a free account for downloads toml converter",
       "toml to json no upload",
       "private toml converter",
       "toml to json pretty",

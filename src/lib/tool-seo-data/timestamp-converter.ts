@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free timestamp conversions with no account needed. IconVault Pro ($19 one-time) gives unlimited conversions plus unlimited use of all 10+ developer tools.",
+        a: "Every visitor gets 5 free timestamp conversions with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited conversions plus unlimited use of all 10+ developer tools.",
       },
     ],
     tags: [
@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "javascript timestamp converter", "js date to epoch", "date.now converter",
       "10 digit timestamp", "13 digit timestamp", "seconds vs milliseconds timestamp",
       "epoch milliseconds converter", "timestamp converter dev tool",
-      "epoch converter no signup", "browser timestamp converter",
+      "epoch converter a free account for downloads", "browser timestamp converter",
       "private timestamp converter", "timestamp converter for developers",
       "api timestamp converter", "database timestamp converter",
       "mysql timestamp converter", "postgres epoch converter",

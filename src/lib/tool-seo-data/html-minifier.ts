@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Minify HTML in your browser: strip comments, collapse whitespace, drop optional quotes, shrink inline CSS and JS. Preserves pre and code blocks.",
     about: [
       "**IconVault**'s **HTML Minifier** shrinks your markup by stripping **comments**, collapsing **whitespace**, removing **optional quotes** and applying basic minification to **inline CSS and JavaScript**. Paste your HTML, tune the options, and copy the compact output, with before-and-after sizes so you can see exactly how many bytes you saved.",
-      "Smaller HTML means **faster page loads** and less bandwidth, especially on large templates. Content inside **<pre>, <textarea>, <script> and <style>** is always preserved, so code samples and scripts survive minification untouched. It is **free** with no signup and runs **fully in your browser**. The honest note: always test the minified page before deploying, because aggressive whitespace removal can change rendering where spacing is significant."
+      "Smaller HTML means **faster page loads** and less bandwidth, especially on large templates. Content inside **<pre>, <textarea>, <script> and <style>** is always preserved, so code samples and scripts survive minification untouched. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest note: always test the minified page before deploying, because aggressive whitespace removal can change rendering where spacing is significant."
     ],
     faqs: [
       { q: "What is HTML minification?", a: "It removes everything browsers do not need to render the page: comments, extra whitespace, redundant attributes and optional quotes, plus it compresses inline styles and scripts. The page looks identical but the file is smaller." },
@@ -35,7 +35,7 @@ const seo: ToolSeo = {
       "html size reducer",
       "shrink html file",
       "html minify free",
-      "html minifier no signup",
+      "html minifier a free account for downloads",
       "minify html browser",
       "html performance tool",
       "faster page load html",

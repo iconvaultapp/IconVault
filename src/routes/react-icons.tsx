@@ -43,7 +43,7 @@ export const Route = createFileRoute("/react-icons")({
       {
         name: "description",
         content:
-          "Free React icons from Lucide, Tabler, Phosphor and more. Copy any of 421,020 icons as a React component, convert SVG to JSX, and ship without signup.",
+          "Free React icons from Lucide, Tabler, Phosphor and more. Copy any of 421,020 icons as a React component, convert SVG to JSX, and download with a free account.",
       },
       { name: "keywords", content: "React icons, lucide-react, tabler icons react, SVG to JSX, free icons for React" },
       { property: "og:title", content: "Free React Icons | IconVault" },

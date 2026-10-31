@@ -12,7 +12,7 @@ const seo: ToolSeo = {
       { q: "What is the difference between justify-content and align-items?", a: "justify-content aligns items along the main axis (horizontal in a row layout), while align-items aligns them along the cross axis (vertical in a row layout). The generator's live preview makes the difference obvious." },
       { q: "How do I center a div with flexbox?", a: "Set display flex on the parent, then justify-content center and align-items center. The generator produces exactly this CSS when you pick those options." },
       { q: "Can I copy the generated CSS?", a: "Yes. The CSS output panel shows clean, ready-to-paste code reflecting every control setting, with a one-click copy button." },
-      { q: "Is this flexbox tool free?", a: "Yes, completely free with no signup. Everything runs in your browser." }
+      { q: "Is this flexbox tool free?", a: "Yes, completely free to use; downloads need a free account. Everything runs in your browser." }
     ],
     tags: [
       "flexbox generator", "flexbox generator online", "free flexbox generator",
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       "flexbox navbar", "flexbox card layout", "flexbox responsive layout",
       "flex wrap demo", "flex gap generator", "flexbox gap",
       "display flex generator", "css flex generator", "flex container generator",
-      "flexbox tool free", "flexbox generator no signup", "best flexbox generator",
+      "flexbox tool free", "flexbox generator a free account for downloads", "best flexbox generator",
       "flexbox vs grid", "when to use flexbox", "css layout generator",
       "flexbox align content", "flexbox space between", "flexbox space around",
       "flex grow shrink basis", "flexbox item properties", "flex order demo",

@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free formats do I get?",
-        a: "Every visitor gets 5 free format/minify runs, no account needed; validation is unlimited. IconVault Pro ($19 one-time) unlocks unlimited runs of every tool.",
+        a: "Every visitor gets 5 free format/minify runs, downloads need a free account; validation is unlimited. IconVault Pro ($19 one-time) unlocks unlimited runs of every tool.",
       },
     ],
     tags: [
@@ -39,7 +39,7 @@ const seo: ToolSeo = {
       "format json", "beautify json", "validate json", "minify json",
       "json formatter online", "json validator online", "json beautifier online free",
       "json minifier online", "pretty print json", "json prettier",
-      "json formatter no signup", "free json formatter", "online json tools",
+      "json formatter a free account for downloads", "free json formatter", "online json tools",
       "json lint", "jsonlint alternative", "json parser online",
       "json syntax checker", "check json validity", "json error finder",
       "fix json online", "json unexpected token fix", "json trailing comma",

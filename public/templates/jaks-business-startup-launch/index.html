@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, startup launch pitch landing page, VC tech venture template, modern startup consulting website, incubator startup accelerator portal, high converting pitch deck site, tech company launch theme, angel investment network layout, SaaS project launch website, innovative startup bootstrap">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/business-startup-launch">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berlin Tech Launch — Free Business Template</title>
+  <meta name="description" content="Vibrant and engaging landing page optimized for tech startups in Berlin and EU incubator networks. Features localized marketing... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Berlin Tech Launch — Free Business Template">
+  <meta property="og:description" content="Vibrant and engaging landing page optimized for tech startups in Berlin and EU incubator networks. Features localized marketing... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/startup_launch.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Berlin Tech Launch — Free Business Template">
+  <meta name="twitter:description" content="Vibrant and engaging landing page optimized for tech startups in Berlin and EU incubator networks. Features localized marketing... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/startup_launch.webp">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       GLOBAL STYLES & VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-dark: #07070f;
+      --bg-card: rgba(18, 16, 36, 0.65);
+      --bg-card-hover: rgba(28, 25, 53, 0.8);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(124, 58, 237, 0.3);
+      --primary: #7C3AED;
+      --primary-hover: #6D28D9;
+      --primary-glow: rgba(124, 58, 237, 0.25);
+      --secondary: #10B981;
+      --secondary-hover: #059669;
+      --secondary-glow: rgba(16, 185, 129, 0.25);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-glow);
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Typography Gradients */
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 40%, #a78bfa 75%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-purple-emerald {
+      background: linear-gradient(135deg, #a78bfa 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Background Neon Globs */
+    .bg-grid-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bg-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.8;
+    }
+
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      top: -200px;
+      left: -150px;
+    }
+
+    .blob-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+      top: 300px;
+      right: -150px;
+    }
+
+    .blob-3 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+      bottom: 200px;
+      left: 20%;
+    }
+
+    /* ==========================================================================
+       BUTTONS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-emerald {
+      background: linear-gradient(135deg, var(--secondary) 0%, #059669 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--secondary-glow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-emerald:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(7, 7, 15, 0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      height: 70px;
+      background: rgba(7, 7, 15, 0.9);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .logo-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    /* Nav Links */
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Nav Action */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1010;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile Nav Active */
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation overlay */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(7, 7, 15, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .mobile-nav.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .mobile-nav-links a {
+      color: var(--text-main);
+      font-size: 24px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding-top: 180px;
+      padding-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      font-size: 13px;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--secondary);
+      box-shadow: 0 0 10px var(--secondary);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 40px auto;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* Mock App UI Showcase */
+    .showcase-wrapper {
+      max-width: 1050px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* Floating UI highlights */
+    .floating-card {
+      position: absolute;
+      background: rgba(18, 16, 36, 0.85);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 16px 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 30;
+      transition: var(--transition);
+    }
+
+    .floating-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      border-color: var(--border-glow);
+    }
+
+    .floating-card-1 {
+      top: 40px;
+      left: -60px;
+      animation: float-slow 6s ease-in-out infinite alternate;
+    }
+
+    .floating-card-2 {
+      bottom: 80px;
+      right: -65px;
+      animation: float-slow 7s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes float-slow {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-15px); }
+    }
+
+    .floating-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-card-1 .floating-card-icon {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .floating-card-2 .floating-card-icon {
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .floating-card-details h4 {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .floating-card-details p {
+      font-size: 16px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Mock Window */
+    .mock-window {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 0 60px rgba(124, 58, 237, 0.08);
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      width: 100%;
+    }
+
+    .mock-header {
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mock-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mock-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .mock-dot.red { background-color: #ef4444; }
+    .mock-dot.yellow { background-color: #f59e0b; }
+    .mock-dot.green { background-color: #10b981; }
+
+    .mock-url {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 4px 32px;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+
+    .mock-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 480px;
+    }
+
+    /* Mock Sidebar */
+    .mock-sidebar {
+      background: rgba(255, 255, 255, 0.01);
+      border-right: 1px solid var(--border-color);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted);
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .sidebar-link.active, .sidebar-link:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+
+    .sidebar-link svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.8;
+    }
+
+    .sidebar-link.active svg {
+      stroke: var(--secondary);
+    }
+
+    /* Mock Main Content Area */
+    .mock-main {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    /* Dashboard Widgets */
+    .mock-widget {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .widget-title {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .widget-title span.pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--secondary);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--secondary);
+    }
+
+    /* SVG Chart Widget */
+    .chart-container {
+      height: 180px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .chart-grid-line {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      border-top: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .chart-path-bg {
+      fill: url(#chart-gradient);
+      opacity: 0.2;
+    }
+
+    .chart-path-line {
+      fill: none;
+      stroke: url(#line-gradient);
+      stroke-width: 3;
+      stroke-linecap: round;
+      animation: draw-chart 2s ease-out forwards;
+    }
+
+    @keyframes draw-chart {
+      from { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Metrics Grid inside Mockup */
+    .metrics-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .mini-metric-card {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    .mini-metric-card h5 {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .mini-metric-card p {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Terminal Console Widget */
+    .terminal-console {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      background: #040409;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .terminal-line {
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .terminal-line.cmd { color: #a78bfa; }
+    .terminal-line.success { color: #34d399; }
+    .terminal-line.info { color: #60a5fa; }
+    .terminal-line.highlight { color: #facc15; font-weight: bold; }
+
+    .terminal-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background-color: var(--secondary);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ==========================================================================
+       FEATURES SECTION
+       ========================================================================== */
+    .features {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.1) 0%, transparent 60%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(124, 58, 237, 0.3);
+      box-shadow: 0 20px 40px rgba(7, 6, 17, 0.6), 0 0 30px rgba(124, 58, 237, 0.05);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon-box {
+      background: rgba(124, 58, 237, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .feature-icon-box svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--secondary);
+      fill: none;
+      stroke-width: 2;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon-box svg {
+      stroke: #fff;
+      transform: scale(1.1);
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       PRICING SECTION
+       ========================================================================== */
+    .pricing {
+      padding: 120px 0;
+      position: relative;
+      background: rgba(7, 7, 15, 0.4);
+    }
+
+    /* Toggle Switch */
+    .toggle-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .toggle-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .toggle-label.active {
+      color: #fff;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.08);
+      transition: .4s;
+      border-radius: 34px;
+      border: 1px solid var(--border-color);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      bottom: 3px;
+      background-color: var(--secondary);
+      box-shadow: 0 0 10px var(--secondary-glow);
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: rgba(124, 58, 237, 0.2);
+      border-color: var(--primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(28px);
+      background-color: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .save-badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      margin-left: 8px;
+    }
+
+    /* Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(180deg, rgba(23, 18, 52, 0.8) 0%, rgba(11, 9, 24, 0.9) 100%);
+      border: 2px solid var(--primary);
+      box-shadow: 0 20px 40px rgba(124, 58, 237, 0.08), 0 0 50px rgba(124, 58, 237, 0.05);
+      transform: scale(1.03);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--secondary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-8px) scale(1.03);
+      border-color: #a78bfa;
+      box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .pricing-card.featured .plan-name {
+      color: #a78bfa;
+    }
+
+    .plan-price-wrapper {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      height: 60px;
+    }
+
+    .plan-price {
+      font-size: 48px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .plan-period {
+      font-size: 14px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .plan-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .plan-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .plan-feature-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--secondary);
+      stroke-width: 2.5;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .pricing-card.featured .plan-feature-item svg {
+      stroke: #a78bfa;
+    }
+
+    .plan-feature-item.muted {
+      color: var(--text-dim);
+      text-decoration: line-through;
+    }
+
+    .plan-feature-item.muted svg {
+      stroke: var(--text-dim);
+      opacity: 0.5;
+    }
+
+    .plan-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       FAQ SECTION
+       ========================================================================== */
+    .faq {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .faq-layout {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: rgba(124, 58, 237, 0.4);
+      background: rgba(18, 16, 36, 0.85);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .faq-header {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition);
+    }
+
+    .faq-header:hover h4 {
+      color: #fff;
+    }
+
+    .faq-header h4 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: var(--transition);
+      padding-right: 20px;
+    }
+
+    .faq-item.active .faq-header h4 {
+      color: var(--secondary);
+    }
+
+    .faq-icon-wrapper {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-icon-wrapper svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-muted);
+      stroke-width: 2.5;
+      fill: none;
+      transition: var(--transition);
+    }
+
+    .faq-item.active .faq-icon-wrapper {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--secondary);
+    }
+
+    .faq-item.active .faq-icon-wrapper svg {
+      stroke: var(--secondary);
+      transform: rotate(180deg);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-content {
+      padding: 0 24px 24px 24px;
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       NEWSLETTER & FOOTER SECTION
+       ========================================================================== */
+    .footer {
+      background-color: #040409;
+      border-top: 1px solid var(--border-color);
+      padding-top: 80px;
+      padding-bottom: 40px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Newsletter Card banner */
+    .newsletter-wrapper {
+      max-width: 1000px;
+      margin: 0 auto 80px auto;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 24px;
+      padding: 48px 60px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      backdrop-filter: blur(20px);
+    }
+
+    .newsletter-info h3 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .newsletter-info p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      position: relative;
+    }
+
+    .form-input {
+      flex-grow: 1;
+      background: rgba(7, 7, 15, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 14px 24px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .newsletter-form p.consent {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Footer Grid links */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 280px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--primary-glow);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .social-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .footer-col h5 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+      padding-left: 4px;
+    }
+
+    /* Bottom Copyright */
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================================================== */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 52px;
+      }
+      .floating-card-1 { left: -20px; }
+      .floating-card-2 { right: -20px; }
+    }
+
+    @media (max-width: 992px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .pricing-card.featured {
+        transform: none;
+      }
+      .pricing-card.featured:hover {
+        transform: translateY(-8px);
+      }
+      .newsletter-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        gap: 24px;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      .floating-card {
+        display: none; /* Hide floating cards on smaller screens to avoid overlap */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        height: 70px;
+      }
+      .nav-links, .nav-actions .btn-secondary {
+        display: none; /* Handled by mobile nav drawer */
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .hero {
+        padding-top: 140px;
+        padding-bottom: 60px;
+      }
+      .hero-title {
+        font-size: 40px;
+        letter-spacing: -1px;
+      }
+      .hero-subtitle {
+        font-size: 16px;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .mock-layout {
+        grid-template-columns: 1fr;
+      }
+      .mock-sidebar {
+        display: none;
+      }
+      .mock-main {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Berlin Tech Launch",
+    "description": "Vibrant and engaging landing page optimized for tech startups in Berlin and EU incubator networks. Features localized marketing copy and Cookie Law complianc...",
+    "url": "https://templates.jack-codes.com/templates/business-startup-launch",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/business-startup-launch.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- Background Grid & Glow Blobs -->
+  <div class="bg-grid-wrapper">
+    <div class="bg-grid"></div>
+    <div class="glow-blob blob-1"></div>
+    <div class="glow-blob blob-2"></div>
+    <div class="glow-blob blob-3"></div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12,2A10,10,0,0,0,2,12a10,10,0,0,0,10,10,10,10,0,0,0,10,-10A10,10,0,0,0,12,2m0,2A8,8,0,0,1,20,12a8,8,0,0,1,-8,8,8,8,0,0,1,-8,-8,8,8,0,0,1,8,-8M11,6v6l4.2,2.5,0.8,-1.2,-3.5,-2.1v-5.2H11Z"/>
+          </svg>
+        </div>
+        Launch
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#about">Docs</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-secondary btn-sm" style="padding: 8px 20px; font-size: 13px;">Login</a>
+        <a href="#pricing" class="btn btn-emerald btn-sm" style="padding: 8px 20px; font-size: 13px;">Launch App</a>
+        
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="#features" onclick="toggleMenu()">Features</a></li>
+      <li><a href="#pricing" onclick="toggleMenu()">Pricing</a></li>
+      <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
+      <li><a href="#about" onclick="toggleMenu()">Docs</a></li>
+      <li><a href="#pricing" class="btn btn-secondary" onclick="toggleMenu()" style="width: 200px; margin-top: 20px;">Login</a></li>
+      <li><a href="#pricing" class="btn btn-emerald" onclick="toggleMenu()" style="width: 200px;">Launch App</a></li>
+    </ul>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span>Version 2.0 Now Available</span>
+        </div>
+        <h1 class="hero-title text-gradient">Build, Scale &amp; Automate Your SaaS at Lightning Speed</h1>
+        <p class="hero-subtitle">
+          The ultimate platform for unified multi-cloud hosting, advanced visual metrics, and automated global scale deployments. Zero config required.
+        </p>
+        <div class="hero-ctas">
+          <a href="#pricing" class="btn btn-emerald">Get Started Free</a>
+          <a href="#features" class="btn btn-secondary">
+            <span>Explore Platform</span>
+            <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mock App UI Showcase -->
+      <div class="showcase-wrapper">
+        <!-- Floating Accent 1 -->
+        <div class="floating-card floating-card-1">
+          <div class="floating-card-icon">
+            <svg style="width: 20px; height: 20px; stroke: var(--secondary); fill: none; stroke-width: 2;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div class="floating-card-details">
+            <h4>Global Speed</h4>
+            <p>99.99% Uptime</p>
+          </div>
+        </div>
+
+        <!-- Floating Accent 2 -->
+        <div class="floating-card floating-card-2">
+          <div class="floating-card-icon">
+            <svg style="width: 20px; height: 20px; stroke: var(--primary); fill: none; stroke-width: 2;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div class="floating-card-details">
+            <h4>Security Shield</h4>
+            <p>ISO-27001 Active</p>
+          </div>
+        </div>
+
+        <!-- Window Mock -->
+        <div class="mock-window">
+          <div class="mock-header">
+            <div class="mock-dots">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+            </div>
+            <div class="mock-url">https://launch.dev/app/dashboard</div>
+            <div style="width: 48px;"></div> <!-- spacer -->
+          </div>
+
+          <div class="mock-layout">
+            <!-- Sidebar mock -->
+            <aside class="mock-sidebar">
+              <ul class="sidebar-menu">
+                <li>
+                  <a href="#" class="sidebar-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                    Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    Analytics
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"></path></svg>
+                    Databases
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    Deployments
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </aside>
+
+            <!-- Main Panel mock -->
+            <main class="mock-main">
+              <!-- Left Widget: Data Visualization -->
+              <div class="mock-widget">
+                <div class="widget-title">
+                  <span>Network Latency Trend</span>
+                  <span class="pulse-dot"></span>
+                </div>
+                
+                <div class="chart-container">
+                  <!-- Grid backdrop lines -->
+                  <div class="chart-grid-line" style="top: 25%"></div>
+                  <div class="chart-grid-line" style="top: 50%"></div>
+                  <div class="chart-grid-line" style="top: 75%"></div>
+
+                  <!-- SVG Dynamic Chart path -->
+                  <svg class="chart-svg" viewBox="0 0 350 150">
+                    <defs>
+                      <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"></stop>
+                        <stop offset="100%" stop-color="#10B981" stop-opacity="0"></stop>
+                      </linearGradient>
+                      <linearGradient id="line-gradient" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#7C3AED"></stop>
+                        <stop offset="50%" stop-color="#6366f1"></stop>
+                        <stop offset="100%" stop-color="#10B981"></stop>
+                      </linearGradient>
+                    </defs>
+                    <path class="chart-path-bg" d="M 0 150 L 0 120 Q 40 80 80 90 T 160 40 T 240 60 T 320 20 T 350 10 L 350 150 Z"></path>
+                    <path class="chart-path-line" d="M 0 120 Q 40 80 80 90 T 160 40 T 240 60 T 320 20 T 350 10"></path>
+                  </svg>
+                </div>
+
+                <div class="metrics-mini-grid">
+                  <div class="mini-metric-card">
+                    <h5>Avg Latency</h5>
+                    <p>8.42ms</p>
+                  </div>
+                  <div class="mini-metric-card">
+                    <h5>Bandwidth Saved</h5>
+                    <p>4.2 TB</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Widget: Terminal Log Simulator -->
+              <div class="mock-widget" style="padding: 10px;">
+                <div class="widget-title" style="padding: 10px 10px 0 10px;">
+                  <span>Deploy Stream</span>
+                  <span style="font-size: 10px; color: var(--text-dim);">PROD-ENV</span>
+                </div>
+                <div class="terminal-console" id="terminal-console">
+                  <div class="terminal-line cmd">$ launch deploy --prod</div>
+                  <div class="terminal-line success">✔ Verifying credentials... [OK]</div>
+                  <div class="terminal-line info">ℹ Syncing files with edge clusters...</div>
+                  <!-- Dynamic typing lines will load here via Javascript -->
+                  <div class="terminal-line success" style="display:none;" id="term-line-1">✔ Compiling React components... [OK]</div>
+                  <div class="terminal-line success" style="display:none;" id="term-line-2">✔ Optimizing asset bundling... [OK]</div>
+                  <div class="terminal-line success" style="display:none;" id="term-line-3">✔ Deploying to 48 Global POPs... [OK]</div>
+                  <div class="terminal-line highlight" style="display:none;" id="term-line-4">🚀 Site Live: dev-launch-a4f5.prod.net <span class="terminal-cursor"></span></div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURES SECTION (VALUE PROPS)
+       ========================================================================== */ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Engineered for Scale</span>
+        <h2 class="section-title text-gradient-purple-emerald">Powerful infrastructure. Unified in one sleek console.</h2>
+        <p class="section-desc">
+          Stop stitching together APIs, cloud providers, and metrics. Get every layer of your startup cloud optimized, synced, and secure by default.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3>Ultra-Fast Edge Scaling</h3>
+          <p>Instantly duplicate your databases and serverless backend layers closer to your customers with active edge routing. Sub-10ms latency guaranteed.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <h3>Multi-Cloud Backup &amp; Sync</h3>
+          <p>Sleep easy. We sync and replicate backups across AWS, Google Cloud, and Azure in real-time, providing immediate failover recovery features.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/>
+            </svg>
+          </div>
+          <h3>Advanced Analytics Suite</h3>
+          <p>Get deeply informative metrics on every core asset. Query speeds, active connections, cold start spikes, and billing breakdowns mapped on beautiful interactive charts.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <h3>Developer-First APIs</h3>
+          <p>Integrate with robust GraphQL and REST endpoints. Orchestrate deploys, query state, rotate security keys, and manage storage with single terminal queries.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3>Enterprise Shield Security</h3>
+          <p>Bank-grade isolation models. Automatic SSL encryption, DDOS prevention layers, and dedicated web application firewalls safeguarding your databases.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3>Automated Team Flows</h3>
+          <p>Coordinate, review, and collaborate safely. Roll out custom staging previews, track developer code inputs, and configure precise access control roles easily.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PRICING SECTION (INTERACTIVE TOGGLE)
+       ========================================================================== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Fair &amp; Flexible</span>
+        <h2 class="section-title text-gradient">Sleek plans. Tailored for your scale.</h2>
+        <p class="section-desc">
+          Choose the speed your startup requires. Upgrade, downgrade, or pause anytime you want.
+        </p>
+      </div>
+
+      <!-- Monthly/Yearly toggle switch -->
+      <div class="toggle-wrapper">
+        <span class="toggle-label active" id="label-monthly">Bill Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="billing-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label" id="label-yearly">Bill Yearly</span>
+        <span class="save-badge">Save 20%</span>
+      </div>
+
+      <!-- Pricing Plans grid -->
+      <div class="pricing-grid">
+        <!-- Starter Plan -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-name">Starter</div>
+            <div class="plan-price-wrapper">
+              <span class="plan-price" id="price-starter" data-monthly="19" data-yearly="15">$19</span>
+              <span class="plan-period">/ month</span>
+            </div>
+            <p class="plan-desc">For side projects, indie hackers, and proof-of-concepts looking for swift setup.</p>
+            
+            <ul class="plan-features-list">
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                3 Active Projects
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                50 GB Edge Bandwidth
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Automated SSL &amp; Backups
+              </li>
+              <li class="plan-feature-item muted">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Multi-cloud replication
+              </li>
+              <li class="plan-feature-item muted">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dedicated support channels
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="btn btn-secondary plan-btn">Start Free Trial</a>
+        </div>
+
+        <!-- Pro Plan (Featured) -->
+        <div class="pricing-card featured">
+          <span class="popular-tag">Most Popular</span>
+          <div>
+            <div class="plan-name">Pro Scale</div>
+            <div class="plan-price-wrapper">
+              <span class="plan-price" id="price-pro" data-monthly="49" data-yearly="39">$49</span>
+              <span class="plan-period">/ month</span>
+            </div>
+            <p class="plan-desc">For fast-growing startups and active developer teams handling production traffic.</p>
+            
+            <ul class="plan-features-list">
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Unlimited</strong> Projects
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                500 GB Edge Bandwidth
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Multi-cloud replication
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Advanced Analytics Suite
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Priority Developer Slack Support
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="btn btn-emerald plan-btn">Launch Pro Plan</a>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-name">Enterprise</div>
+            <div class="plan-price-wrapper">
+              <span class="plan-price" id="price-enterprise" data-monthly="149" data-yearly="119">$149</span>
+              <span class="plan-period">/ month</span>
+            </div>
+            <p class="plan-desc">For high-traffic operations, major enterprises, and platforms demanding maximum SLA.</p>
+            
+            <ul class="plan-features-list">
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dedicated Server Clusters
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Uncapped</strong> Edge Bandwidth
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Custom DB Node Sharding
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Custom SLA &amp; 99.99% Uptime Guarantee
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                24/7 Dedicated Support Engineer
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="btn btn-secondary plan-btn">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ SECTION (ACCORDION)
+       ========================================================================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Frequently Asked</span>
+        <h2 class="section-title text-gradient-purple-emerald">Got Questions? We've got answers.</h2>
+        <p class="section-desc">Everything you need to know about setting up and scaling your SaaS template on Launch.</p>
+      </div>
+
+      <div class="faq-layout">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>How does Launch achieve sub-10ms deployment latency?</h4>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              We leverage an intelligent Global Edge Network utilizing over 48 point-of-presence (POP) data centers. When you deploy, your static files, HTML headers, and API databases are cached and served directly from the node closest to the requesting browser, reducing round-trip connection overhead significantly.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>Can I migrate from Vercel, AWS, or Heroku automatically?</h4>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Absolutely. Our command-line tool (`launch`) scan and recognize active configuration profiles from alternative platforms automatically. In one click, we migrate database connection strings, parse environment variables, and build routing settings directly into your dashboard.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>Is there a limit on bandwidth or database sizes?</h4>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Starter plans include soft-limit capacity warnings up to 50 GB. Pro Scale plans allow dynamic burstable bandwidth to prevent service disruptions. Enterprise tiers are totally uncapped with customized, isolated database architectures tailored exclusively for high throughput.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>How secure is my data in the Multi-Cloud backup?</h4>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Your database backups are secure under AES-256 encryption both at rest and in transit. By distributing encrypted fragments dynamically across AWS S3, Google Cloud Storage, and Azure Blob storage, we ensure high durability and resistance to single-point-of-failure regional blackouts.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>Do you offer custom SLAs for Enterprise tier setups?</h4>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Yes, our Enterprise packages feature contractual Service Level Agreements (SLAs) offering up to 99.99% uptime guarantees. You will be assigned a dedicated solutions engineer and gain 24/7 access to priority pager hotlines and shared Slack, Teams, or Discord coordination channels.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEWSLETTER & FOOTER
+       ========================================================================== -->
+  <footer class="footer" id="about">
+    <div class="container">
+      <!-- Newsletter Banner -->
+      <div class="newsletter-wrapper">
+        <div class="newsletter-info">
+          <h3>Scale like never before</h3>
+          <p>Join over 15,000 developer teams already launching their applications globally on our ultra-fast infrastructure.</p>
+        </div>
+        <div class="newsletter-form">
+          <form class="form-row" onsubmit="event.preventDefault(); alert('Awesome! Check your email for verification.');">
+            <input type="email" placeholder="Enter your work email" class="form-input" required>
+            <button type="submit" class="btn btn-emerald" style="border-radius: 9999px;">Join Newsletter</button>
+          </form>
+          <p class="consent">We value your privacy. Unsubscribe at any time.</p>
+        </div>
+      </div>
+
+      <!-- Footer Grid -->
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12,2A10,10,0,0,0,2,12a10,10,0,0,0,10,10,10,10,0,0,0,10,-10A10,10,0,0,0,12,2m0,2A8,8,0,0,1,20,12a8,8,0,0,1,-8,8,8,8,0,0,1,-8,-8,8,8,0,0,1,8,-8M11,6v6l4.2,2.5,0.8,-1.2,-3.5,-2.1v-5.2H11Z"/>
+              </svg>
+            </div>
+            Launch
+          </a>
+          <p class="footer-desc">Next-generation cloud deployment, multi-cloud analytics, and security for modern SaaS start-ups.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Github">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+            <li><a href="#">Security Shield</a></li>
+            <li><a href="#">Edge Network</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul class="footer-links">
+            <li><a href="#">Developer API Docs</a></li>
+            <li><a href="#">Quickstart Guides</a></li>
+            <li><a href="#">System Uptime Status</a></li>
+            <li><a href="#">Github Sandbox</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Join the Team</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Launch Inc. All rights reserved. Designed for premium developer workflows.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Use</a>
+          <a href="#">Privacy Shield</a>
+          <a href="#">Cookie settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT FUNCTIONALITY
+       ========================================================================== -->
+  <script>
+    // 1. Mobile Drawer Navigation toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      if(mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // 2. Change Navbar layout on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // 3. Interactive Pricing Toggles
+    const billingToggle = document.getElementById('billing-toggle');
+    const labelMonthly = document.getElementById('label-monthly');
+    const labelYearly = document.getElementById('label-yearly');
+
+    const starterPrice = document.getElementById('price-starter');
+    const proPrice = document.getElementById('price-pro');
+    const enterprisePrice = document.getElementById('price-enterprise');
+
+    function updatePrices(isYearly) {
+      if (isYearly) {
+        labelYearly.classList.add('active');
+        labelMonthly.classList.remove('active');
+        
+        starterPrice.innerText = `$${starterPrice.getAttribute('data-yearly')}`;
+        proPrice.innerText = `$${proPrice.getAttribute('data-yearly')}`;
+        enterprisePrice.innerText = `$${enterprisePrice.getAttribute('data-yearly')}`;
+      } else {
+        labelMonthly.classList.add('active');
+        labelYearly.classList.remove('active');
+
+        starterPrice.innerText = `$${starterPrice.getAttribute('data-monthly')}`;
+        proPrice.innerText = `$${proPrice.getAttribute('data-monthly')}`;
+        enterprisePrice.innerText = `$${enterprisePrice.getAttribute('data-monthly')}`;
+      }
+    }
+
+    billingToggle.addEventListener('change', () => {
+      updatePrices(billingToggle.checked);
+    });
+
+    // 4. FAQ Accordion Panel opening
+    const faqHeaders = document.querySelectorAll('.faq-header');
+
+    faqHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const body = item.querySelector('.faq-body');
+        const isActive = item.classList.contains('active');
+
+        // Close any other open FAQ items first
+        document.querySelectorAll('.faq-item').forEach(el => {
+          el.classList.remove('active');
+          el.querySelector('.faq-body').style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // 5. Terminal Typing Simulator inside Mock App Showbox
+    document.addEventListener('DOMContentLoaded', () => {
+      const line1 = document.getElementById('term-line-1');
+      const line2 = document.getElementById('term-line-2');
+      const line3 = document.getElementById('term-line-3');
+      const line4 = document.getElementById('term-line-4');
+
+      // Simple staggered timers to load terminal streams
+      setTimeout(() => {
+        line1.style.display = 'block';
+      }, 1000);
+
+      setTimeout(() => {
+        line2.style.display = 'block';
+      }, 2200);
+
+      setTimeout(() => {
+        line3.style.display = 'block';
+      }, 3400);
+
+      setTimeout(() => {
+        line4.style.display = 'block';
+      }, 4600);
+    });
+  </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/business-corporate-pro" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">business</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Zurich Corporate Pro</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/agency-marketing-hub" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">business</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Amsterdam Marketing Hub</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

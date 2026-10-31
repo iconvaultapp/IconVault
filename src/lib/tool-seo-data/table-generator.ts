@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "data table maker",
       "comparison table generator",
       "pricing table generator",
-      "table generator no signup",
+      "table generator a free account for downloads",
       "table generator without login",
       "copy table as html",
       "download table as csv",

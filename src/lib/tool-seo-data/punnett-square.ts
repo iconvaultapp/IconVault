@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "ap biology punnett square",
       "high school genetics",
       "browser genetics lab",
-      "no signup punnett square",
+      "a free account for downloads punnett square",
       "free genetics tool"
     ],
   };

@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: drag the resize handle, toggle between content-box, border-box and device-pixel-content-box, and try the no-drag growing-text demo. Perfect for **developers** building responsive components, canvas renderers and container-aware layouts.",
     ],
     faqs: [
-      { q: "Is ResizeObserver Playground free to use?", a: "Yes. ResizeObserver Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is ResizeObserver Playground free to use?", a: "Yes. ResizeObserver Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What does ResizeObserver do?", a: "It calls your callback whenever an observed element's size changes, reporting contentRect, borderBoxSize and optionally devicePixelContentBoxSize." },
       { q: "What is devicePixelContentBoxSize for?", a: "It reports the size in physical device pixels, which canvas renderers use to size backing stores crisply without manual devicePixelRatio math." },
       { q: "Why do I get a resize loop error?", a: "It happens when your callback changes the observed element's size, triggering another callback. Read sizes without writing layout inside the callback." },

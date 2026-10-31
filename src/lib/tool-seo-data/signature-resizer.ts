@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "exam signature photo tool",
       "online signature editor",
       "signature cropper online",
-      "signature resizer no signup"],
+      "signature resizer a free account for downloads"],
   };
 
 export default seo;

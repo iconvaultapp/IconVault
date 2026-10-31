@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch Face Mockup</title>
+<!-- IconVault Original mockup template. Replace the placeholder screen content below with your own screenshot image. -->
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { min-height: 100vh; display: grid; place-items: center; background: #f2f0ea; font-family: system-ui, sans-serif; padding: 24px; }
+  .watch { position: relative; width: 260px; background: #1c1c1e; border-radius: 64px; padding: 14px; box-shadow: 0 30px 60px rgb(0 0 0 / .3); }
+  .crown { position: absolute; right: -6px; top: 90px; width: 6px; height: 34px; border-radius: 3px; background: #8a8a8e; }
+  .screen { height: 300px; background: #111827; color: #fff; border-radius: 52px; overflow: hidden; text-align: center; padding-top: 34px; }
+  .time { font-size: 44px; font-weight: 700; letter-spacing: -1px; }
+  .date { font-size: 13px; color: #9ca3af; margin-top: 2px; }
+  .rings { display: flex; justify-content: center; gap: 10px; margin-top: 22px; }
+  .ring { width: 56px; height: 56px; border-radius: 50%; border: 6px solid #0d7a68; display: grid; place-items: center; font-size: 11px; font-weight: 700; }
+  .ring:nth-child(2) { border-color: #e0654f; }
+  .ring:nth-child(3) { border-color: #f2c14e; }
+  .stats { display: flex; justify-content: center; gap: 22px; margin-top: 22px; font-size: 12px; color: #9ca3af; }
+  .stats b { display: block; color: #fff; font-size: 15px; }
+</style>
+</head>
+<body>
+  <div class="watch"><div class="crown"></div><div class="screen">
+    <div class="time">10:09</div><div class="date">Saturday, Oct 31</div>
+    <div class="rings"><div class="ring">82%</div><div class="ring">64%</div><div class="ring">91%</div></div>
+    <div class="stats"><div><b>8,412</b>Steps</div><div><b>62</b>BPM</div><div><b>312</b>kcal</div></div>
+  </div></div>
+</body>
+</html>

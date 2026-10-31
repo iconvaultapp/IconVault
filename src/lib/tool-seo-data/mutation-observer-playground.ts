@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: start the observer, append or remove nodes, edit text, toggle classes and set attributes, then inspect the live log. Perfect for **developers** learning the DOM API, debugging frameworks, or building autosave, validation and third-party script integrations that must react to page changes.",
     ],
     faqs: [
-      { q: "Is MutationObserver Playground free to use?", a: "Yes. MutationObserver Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is MutationObserver Playground free to use?", a: "Yes. MutationObserver Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is a MutationObserver?", a: "It is a browser API that watches a DOM element for changes (added or removed nodes, attribute edits, text edits) and calls your callback with a batch of mutation records." },
       { q: "Why is my mutation not reported?", a: "Check the options: deep descendant changes need subtree: true, text edits need characterData: true, and an attributeFilter limits reports to the listed attributes." },
       { q: "Is my page data uploaded anywhere?", a: "No. The playground runs entirely in your browser, so nothing you type or mutate leaves your device." },

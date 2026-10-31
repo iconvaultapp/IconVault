@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert between binary, octal, decimal and hexadecimal with a clickable bit visualizer and two's complement mode. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Base Converter** converts numbers between **binary**, **octal**, **decimal** and **hexadecimal** instantly, using **BigInt** so even very large values convert exactly. Type in any base and see all four representations at once, explore the value with a **clickable bit visualizer** at any **bit width**, and switch on **two's complement mode** to see how signed integers are stored.",
-      "Everything runs **fully in your browser** with no signup, and it is **free** to use. It is a learning and debugging aid for programmers, students and electronics hobbyists, not a calculator for financial or cryptographic work, so always double check results that feed into real systems."
+      "Everything runs **fully in your browser** with a free account for downloads, and it is **free** to use. It is a learning and debugging aid for programmers, students and electronics hobbyists, not a calculator for financial or cryptographic work, so always double check results that feed into real systems."
     ],
     faqs: [
       { q: "Which number bases are supported?", a: "Binary (base 2), octal (base 8), decimal (base 10) and hexadecimal (base 16). Type a value in any one base and the other three update instantly." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does two's complement mode do?", a: "It interprets the bits as a signed integer using two's complement, the standard way computers store negative numbers. Toggle it to see the signed and unsigned readings side by side." },
       { q: "Can it handle very large numbers?", a: "Yes. The converter uses BigInt internally, so huge values convert exactly instead of losing precision the way normal floating point math would." },
       { q: "Is my input sent anywhere?", a: "No. Conversion happens entirely in your browser with JavaScript. Nothing is uploaded or logged." },
-      { q: "Is it free?", a: "Yes, completely free with no signup and no limits." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account and no limits." }
     ],
     tags: [
       "number base converter",

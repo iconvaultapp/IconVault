@@ -47,7 +47,7 @@ const seo: ToolSeo = {
       "mortgage payment breakdown",
       "how is mortgage payment calculated",
       "mortgage formula",
-      "mortgage calculator no signup",
+      "mortgage calculator a free account for downloads",
       "free mortgage calculator",
       "online mortgage calculator",
       "best free mortgage calculator",

@@ -10,6 +10,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import toolSeo from "@/lib/tool-seo-data/json-formatter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/tools_/json-formatter")({
   component: JsonFormatterTool,
@@ -76,12 +77,8 @@ function JsonFormatterTool() {
   const download = () => {
     if (!output) return;
     const blob = new Blob([output], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = brandFilename("formatted.json");
-    a.click();
-    URL.revokeObjectURL(url);
+    // v55 download gate: parked + sign-in prompt when anonymous.
+    downloadWithGate(blob, brandFilename("formatted.json"));
   };
 
   const loadSample = () => {

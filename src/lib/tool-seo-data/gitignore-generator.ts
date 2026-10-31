@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Pick from 150+ templates for Node.js, Python, React, Docker and more, merged into one clean .gitignore with duplicates removed. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Gitignore Generator** turns ignore rules into a two-minute job. Choose from **150+ curated templates** covering **languages** (Node.js, Python, Go, Rust, Java), **frameworks** (React, Next.js, Django, Laravel, Flutter), **tools** (Docker, Terraform, Firebase), **operating systems** and **IDEs**, and the tool merges your selection into one clean **.gitignore** file.",
-      "The merge is smart: **duplicate lines are removed automatically**, every section is labeled, and you get a **live preview** as you toggle templates, then **copy or download** the finished file. It is **free** with no signup and runs **fully in your browser**, so your project setup stays private. The honest caveat: templates are starting points, so review the preview before committing, and remember .gitignore cannot untrack files you already committed (use git rm --cached for those)."
+      "The merge is smart: **duplicate lines are removed automatically**, every section is labeled, and you get a **live preview** as you toggle templates, then **copy or download** the finished file. It is **free** to use; downloads need a free account and runs **fully in your browser**, so your project setup stays private. The honest caveat: templates are starting points, so review the preview before committing, and remember .gitignore cannot untrack files you already committed (use git rm --cached for those)."
     ],
     faqs: [
       { q: "What is a .gitignore file?", a: "A text file in a Git repo that tells Git which files and folders to ignore, like node_modules, build output, logs and OS junk. It keeps repositories small and stops secrets from being committed." },
@@ -63,7 +63,7 @@ const seo: ToolSeo = {
       "git rm cached gitignore",
       "free gitignore tool",
       "online gitignore builder",
-      "no signup gitignore generator",
+      "a free account for downloads gitignore generator",
       "gitignore download",
       "gitignore copy",
       "gitignore live preview",

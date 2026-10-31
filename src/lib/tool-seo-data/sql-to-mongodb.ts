@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "sql vs mongodb queries",
       "free sql to mongodb converter",
       "online sql to mongo",
-      "sql to mongodb no signup",
+      "sql to mongodb a free account for downloads",
       "mongodb playground sql",
       "test mongodb queries online",
       "mongodb query generator",

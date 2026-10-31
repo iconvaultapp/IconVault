@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Regex Cheatsheet - Free Online Regex Reference Tool | IconVault",
-    metaDescription: "65 regex patterns grouped and searchable: anchors, character classes, quantifiers, groups, lookarounds. Click to copy. Free, JavaScript flavor, no signup.",
+    metaDescription: "65 regex patterns grouped and searchable: anchors, character classes, quantifiers, groups, lookarounds. Click to copy. Free, JavaScript flavor; downloads need a free account.",
     about: [
       "**IconVault**'s **Regex Cheatsheet** packs **65 essential regex patterns** into one fast, searchable page. Every pattern is grouped by topic: **anchors**, **character classes**, **quantifiers**, **groups and capturing**, **lookarounds**, **backreferences**, **flags**, **escaping** and more, each with a plain-language explanation of what it matches.",
-      "Type to **search** the whole sheet instantly and **click any pattern to copy it** to your clipboard. The patterns follow the **JavaScript regex flavor**, and the page is **free** with no signup, running entirely in your browser."
+      "Type to **search** the whole sheet instantly and **click any pattern to copy it** to your clipboard. The patterns follow the **JavaScript regex flavor**, and the page is **free** with a free account for downloads, running entirely in your browser."
     ],
     faqs: [
       { q: "How many patterns does the cheatsheet include?", a: "65 patterns grouped into topic sections: anchors, character classes, quantifiers, groups, lookarounds, backreferences, flags and escaping." },

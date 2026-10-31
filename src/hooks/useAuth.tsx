@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { User, Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { setGateAuthed } from "@/lib/download-guard";
 
 interface AuthContextType {
   user: User | null;
@@ -38,6 +39,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  // Site-wide download gate (v55): keep the guard's module flag in sync so
+  // low-level download helpers (logo-builder downloadBlob, csv) can gate
+  // without a React context.
+  useEffect(() => {
+    setGateAuthed(!!user);
+  }, [user]);
 
   const signOut = async () => {
     await supabase.auth.signOut();

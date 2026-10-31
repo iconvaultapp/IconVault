@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Upload a .wasm file to inspect its sections and read a WAT-style disassembly of the code. Free, private, runs in your browser.",
     about: [
       "**IconVault**'s **WASM Inspector** opens up any **WebAssembly (.wasm) binary** right in your browser. Upload a file and it lists every **section** (type, import, function, memory, export, code and custom sections) with sizes and offsets, then shows a simple **WAT-style disassembly** of the code section so you can read the actual instructions.",
-      "The binary is parsed with a hand-written, in-browser parser: nothing is uploaded, nothing is executed, and the tool is **free** with no signup. It is a safe way to peek inside Rust, C++ or AssemblyScript builds."
+      "The binary is parsed with a hand-written, in-browser parser: nothing is uploaded, nothing is executed, and the tool is **free** with a free account for downloads. It is a safe way to peek inside Rust, C++ or AssemblyScript builds."
     ],
     faqs: [
       { q: "What is a WASM file?", a: "WASM stands for WebAssembly, a binary format that runs at near-native speed in browsers and other runtimes. It is usually compiled from languages like Rust, C, C++ or AssemblyScript." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Is this a decompiler?", a: "No. It disassembles the bytecode into readable instructions in WAT text format. It does not reconstruct the original source code." },
       { q: "Does it run the WASM module?", a: "No, it only parses and displays the binary. Nothing in the module is executed, so inspecting an untrusted file is safe." },
       { q: "Are my uploaded files sent anywhere?", a: "No. Files are parsed fully in your browser and never leave your device." },
-      { q: "Is the WASM inspector free?", a: "Yes, free with no signup. Inspect as many .wasm files as you like." }
+      { q: "Is the WASM inspector free?", a: "Yes, free to use; downloads need a free account. Inspect as many .wasm files as you like." }
     ],
     tags: [
       "wasm inspector", "webassembly inspector", "wasm analyzer", "inspect wasm file",

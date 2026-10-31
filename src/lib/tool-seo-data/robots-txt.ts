@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate a valid robots.txt free: allow/disallow rules per user-agent, sitemap URL and crawl-delay. Copy or download instantly.",
     about: [
       "**IconVault**'s **Robots.txt Generator** builds a valid **robots.txt** for your site without memorizing the syntax: add **allow**/**disallow** rules per **user-agent**, point to your **sitemap**, set **crawl-delay** - and get a clean file ready to drop at your domain root.",
-      "The output follows the RFC 9309 **robots.txt** spec and validates as you type. **Download** the file or copy it. Free for everyone, no account needed.",
+      "The output follows the RFC 9309 **robots.txt** spec and validates as you type. **Download** the file or copy it. Free for everyone, downloads need a free account.",
     ],
     faqs: [
       {
@@ -76,7 +76,7 @@ const seo: ToolSeo = {
       "robots.txt syntax guide",
       "robots.txt checker tool",
       "validate robots.txt",
-      "robots.txt generator no signup",
+      "robots.txt generator a free account for downloads",
       "robots.txt example generator",
       "robots.txt for ecommerce",
       "robots.txt block crawlers",

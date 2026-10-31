@@ -53,7 +53,7 @@ const seo: ToolSeo = {
       "unminify sql",
       "sql one line to multiline",
       "format sql in browser",
-      "sql formatter no signup",
+      "sql formatter a free account for downloads",
       "free sql formatter",
       "sql formatter privacy",
       "format sql without upload",

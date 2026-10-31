@@ -24,7 +24,7 @@ const perks = [
 ];
 
 function Page() {
-  const { mode: searchMode } = Route.useSearch();
+  const { mode: searchMode, redirect } = Route.useSearch();
   const [mode, setMode] = useState<"signin" | "signup">(searchMode ?? "signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,8 +43,13 @@ function Page() {
   }, [searchMode]);
 
   useEffect(() => {
-    if (!loading && user && !signInPending.current) void navigate({ to: "/profile" });
-  }, [user, loading, navigate]);
+    // v55 download gate: a pending download sends the user back to the page
+    // they were downloading from (validated same-origin path in auth.tsx).
+    if (!loading && user && !signInPending.current) {
+      if (redirect) window.location.assign(redirect);
+      else void navigate({ to: "/profile" });
+    }
+  }, [user, loading, navigate, redirect]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,7 +134,8 @@ function Page() {
             );
           }
           toast.success("Welcome back.");
-          void navigate({ to: "/profile" });
+          if (redirect) window.location.assign(redirect);
+          else void navigate({ to: "/profile" });
         } finally {
           signInPending.current = false;
         }

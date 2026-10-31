@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I upload a large log file?", a: "Yes, you can upload a log file directly or paste the content. For very large files the tool caps the input it processes so the page stays responsive; filter down to the levels you care about for the fastest results." },
       { q: "How does level detection work for plain text logs?", a: "The parser looks for words like error, err, fatal, critical, fail, exception or traceback for errors, warn or warning for warnings, debug, trace or verbose for debug output, and info, notice, started, success or ok for info. Lines that match nothing are grouped as other." },
       { q: "Can I export the filtered lines?", a: "Yes. After filtering by level or searching, you can copy the matching lines to use in tickets, share with teammates, or paste into your debugging notes." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "log parser",
@@ -63,7 +63,7 @@ const seo: ToolSeo = {
       "copy filtered log lines",
       "log file privacy tool",
       "free server log parser",
-      "online log parser no signup",
+      "online log parser a free account for downloads",
       "log analyzer free tool",
       "parse log in browser",
       "log viewer with search",

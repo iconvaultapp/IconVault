@@ -13,6 +13,7 @@ import { useToolTrial, TOOL_TRIAL_LIMIT } from "@/lib/tool-trial";
 import toolSeo from "@/lib/tool-seo-data/json-excel-converter";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/tools_/json-excel-converter")({
   component: JsonExcelConverterTool,
@@ -103,14 +104,11 @@ function JsonExcelConverterTool() {
   const downloadJson = () => {
     if (rows.length === 0 || !trial.canUse) return;
     const blob = new Blob([JSON.stringify(rows, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = brandFilename(`${fileName.replace(/\.[^.]+$/, "") || "data"}.json`);
-    a.click();
-    URL.revokeObjectURL(url);
-    trial.recordUse();
-    toast.success("JSON downloaded");
+    // v55 download gate: parked + sign-in prompt when anonymous.
+    if (downloadWithGate(blob, brandFilename(`${fileName.replace(/\.[^.]+$/, "") || "data"}.json`))) {
+      trial.recordUse();
+      toast.success("JSON downloaded");
+    }
   };
 
   const copyJson = async () => {

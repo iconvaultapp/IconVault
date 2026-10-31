@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert any time between world timezones and plan meetings across 4 zones at once. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Timezone Converter** converts any date and time between **world timezones** instantly, showing the result in each zone with **daylight saving** handled by the browser's own timezone data. The built-in **meeting planner** lines up four zones side by side so you can pick a slot that works for everyone on the call.",
-      "All conversion happens **in your browser**, nothing is uploaded, and the tool is **free** with no signup. The honest note: results rely on your browser's timezone database, which is usually current, but double-check against an official source before booking flights or legal deadlines."
+      "All conversion happens **in your browser**, nothing is uploaded, and the tool is **free** with a free account for downloads. The honest note: results rely on your browser's timezone database, which is usually current, but double-check against an official source before booking flights or legal deadlines."
     ],
     faqs: [
       { q: "How do I convert a time to another timezone?", a: "Pick the source timezone, enter the date and time, and the tool shows the equivalent time in your chosen zones, with DST applied automatically." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it handle daylight saving time?", a: "Yes. Conversions use the IANA timezone database built into your browser, which includes DST rules for each zone." },
       { q: "Is my input sent to a server?", a: "No. Everything is computed locally in your browser. No account, no tracking, no uploads." },
       { q: "Can I convert past or future dates?", a: "Yes. Any date works, and historical and future DST rules come from the same timezone database." },
-      { q: "Is it free?", a: "Yes, completely free with no signup." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "timezone converter",
@@ -50,7 +50,7 @@ const seo: ToolSeo = {
       "hours difference between time zones",
       "international time converter",
       "remote team meeting scheduler",
-      "free timezone converter no signup",
+      "free timezone converter a free account for downloads",
       "time zone calculator online",
       "convert 3pm est to ist",
       "9am pst in ist",

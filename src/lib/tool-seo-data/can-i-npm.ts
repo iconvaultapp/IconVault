@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Check npm package name availability in bulk with validation and alternative name suggestions. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Can I NPM** tells you instantly whether a package name is **available on npm**. Check names **in bulk**, get **validation** against npm's real naming rules (length, lowercase, allowed characters, scoped format), and receive **alternative name suggestions** when your first choice is taken. A **404 on the registry** means the name is free to claim.",
-      "Checks run **fully in your browser** against the public npm registry, with nothing to install and nothing uploaded. It is **free** with no signup. The honest caveat: checking does not **reserve** the name. Anyone can publish it after you check, so publish promptly once you find a name you like."
+      "Checks run **fully in your browser** against the public npm registry, with nothing to install and nothing uploaded. It is **free** to use; downloads need a free account. The honest caveat: checking does not **reserve** the name. Anyone can publish it after you check, so publish promptly once you find a name you like."
     ],
     faqs: [
       { q: "How does the availability check work?", a: "The tool queries registry.npmjs.org for each name. If the registry returns 404, no package with that name exists and it is available. If it returns package data, the name is taken." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I check scoped names like @myorg/utils?", a: "Yes. Enter the full scoped name and the tool validates the @scope/name format, then checks the registry for that exact name." },
       { q: "Does checking a name reserve it for me?", a: "No. Availability checks never reserve anything. To claim a name you must publish a package under it (or contact npm support about an unpublished placeholder, subject to their policy)." },
       { q: "What do the name suggestions do?", a: "When a name is taken, the tool generates alternatives like name-js, name-cli and name-lib so you can find a free variant without starting your brainstorm over." },
-      { q: "Is it really free?", a: "Yes. Unlimited name checks, no account, no signup. The npm registry is public and free to query." }
+      { q: "Is it really free?", a: "Yes. Unlimited name checks, no account; downloads need a free account. The npm registry is public and free to query." }
     ],
     tags: [
       "can i npm",

@@ -4,14 +4,14 @@ const seo: ToolSeo = {
     title: "Data Size Converter - Free Online Calculator | IconVault",
     metaDescription: "Convert data sizes instantly: bits, bytes, KB, MB, GB, TB, KiB, MiB, GiB. Full conversion table with copy buttons. Free, runs in your browser.",
     about: [ "**IconVault**'s **Data Size Converter** converts any value between **bits, bytes, KB, MB, GB, TB, KiB, MiB and GiB** instantly. Type a number, pick the source unit, and a complete **conversion table** shows the value in every other unit with one-click **copy buttons** on each row. It handles both **decimal (SI)** units used by storage makers and **binary (IEC)** units used by operating systems.",
-    "Everything runs **100% in your browser**: no sign-up, nothing uploaded, free to use. Use it to translate download sizes, check how many **MB are in a GB**, compare **KB vs KiB**, or sanity-check file uploads and bandwidth math. Precise formatting keeps both tiny bit counts and huge terabyte values readable." ],
+    "Everything runs **100% in your browser**: a free account for downloads, nothing uploaded, free to use. Use it to translate download sizes, check how many **MB are in a GB**, compare **KB vs KiB**, or sanity-check file uploads and bandwidth math. Precise formatting keeps both tiny bit counts and huge terabyte values readable." ],
     faqs: [
       { q: "What does the Data Size Converter do?", a: "It converts a number between data-size units: bits, bytes, KB, MB, GB, TB, KiB, MiB and GiB, and shows all conversions in one table with copy buttons." },
       { q: "What is the difference between KB and KiB?", a: "KB (kilobyte) is 1,000 bytes in the decimal SI system, while KiB (kibibyte) is 1,024 bytes in the binary IEC system. Storage makers usually advertise in KB/MB/GB, while operating systems often measure in KiB/MiB/GiB." },
       { q: "How many MB are in a GB?", a: "1,000 MB in decimal (SI) terms, or 1,024 MiB in binary (IEC) terms. The tool shows both so there is no confusion." },
       { q: "How many bits are in a byte?", a: "8 bits. The converter uses bits as its base unit and derives every other unit from it." },
       { q: "Why does my 1TB drive show less space?", a: "The drive maker counts 1TB as 1 trillion bytes, but your OS divides by 1,024 repeatedly (TiB), which comes out to about 931 GiB. The tool lets you convert between both definitions." },
-      { q: "Is it free?", a: "Yes, it is free with no account needed, and everything runs locally in your browser." }
+      { q: "Is it free?", a: "Yes, it is free with downloads need a free account, and everything runs locally in your browser." }
     ],
     tags: [
       "data size converter",

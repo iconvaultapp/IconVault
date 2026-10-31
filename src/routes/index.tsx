@@ -42,6 +42,11 @@ const BlogTeaser = lazy(() => import("@/components/home/BlogTeaser"));
 // scrolling. (ToolsTeaser / CodeShowcaseCard / WaitlistForm were extracted
 // from this file into components/home/ for the same reason.)
 const StyleChips = lazy(() => import("@/components/home/StyleChips"));
+// v56: templates, animated icons, customizer, showcase, originals,
+// wallpapers, mockups and animated backgrounds. Lazy like the sections
+// below it: the cards carry no images, only Lucide icons, and the section
+// sits below the fold, so it stays out of the entry chunk.
+const V56Home = lazy(() => import("@/components/home/V56Home"));
 const ToolsTeaser = lazy(() => import("@/components/home/ToolsTeaser"));
 const MarqueeBand = lazy(() => import("@/components/home/MarqueeBand"));
 const CodeShowcaseCard = lazy(() => import("@/components/home/CodeShowcaseCard"));
@@ -391,6 +396,14 @@ function Landing() {
 
         {/* Free UI components showcase, like Illustrations above (Sameer 2026-10-26) */}
         <ComponentsHome />
+
+        {/* New in v56: templates, animated icons, customizer, showcase,
+            original collections, wallpapers, mockups, animated backgrounds */}
+        <Suspense fallback={null}>
+          <div className="cv-auto">
+            <V56Home />
+          </div>
+        </Suspense>
 
         {/* Collection styles chip cloud (added 2026-10-23) */}
         <Suspense fallback={null}>

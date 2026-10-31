@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "The security model is the point: the **private key is generated in your browser's memory and never uploaded**, so only you ever hold it. Copy or **download** both files, then send only the **CSR to your certificate authority**; never share the private key. **Free**, no account, no OpenSSL needed.",
     ],
     faqs: [
-      { q: "Is the CSR generator free?", a: "Yes. Generating the CSR and private key, and copying or downloading the PEM files, are all free with no signup." },
+      { q: "Is the CSR generator free?", a: "Yes. Generating the CSR and private key, and copying or downloading the PEM files, are all free to use; downloads need a free account." },
       { q: "What is a CSR?", a: "A Certificate Signing Request is a signed block of data you send to a certificate authority. It contains your public key and identity details; the CA verifies them and issues your SSL or TLS certificate." },
       { q: "Which fields do I need to fill in?", a: "Common Name is required and should be your fully qualified domain name, like example.com. Organization, unit, city, state, two-letter country code and email are optional but commonly requested by CAs." },
       { q: "Is my private key safe?", a: "It never leaves your browser. The key pair is generated with the Web Crypto API in local memory, and only the CSR is meant to be shared. Save the private key securely; losing it means reissuing the certificate." },

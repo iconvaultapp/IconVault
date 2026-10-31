@@ -4,14 +4,14 @@ const seo: ToolSeo = {
     title: "CSS Unit Converter - Free Online CSS Tool | IconVault",
     metaDescription: "Convert CSS units instantly: px, rem, em, percent, vw, vh and pt. Set your base font size and viewport for accurate conversions. Free, in-browser.",
     about: [ "**IconVault**'s **CSS Unit Converter** converts between **px, rem, em, percent, vw, vh and pt** in one keystroke. Type a value, pick the source unit, set your **base font size** and **viewport dimensions**, and a live **conversion table** shows every unit side by side with per-row copy buttons. Whether you are converting 16px to rem for accessible typography or vw to px for a hero banner, the math is instant and transparent.",
-    "Everything runs **100% in your browser**: no sign-up, no uploads, nothing to install. It is free to use and designed for daily front-end work, from sizing type scales and spacing systems to translating design files into production CSS. The converter respects the rem/em relationship to the root and parent font size so relative units convert correctly." ],
+    "Everything runs **100% in your browser**: a free account for downloads, no uploads, nothing to install. It is free to use and designed for daily front-end work, from sizing type scales and spacing systems to translating design files into production CSS. The converter respects the rem/em relationship to the root and parent font size so relative units convert correctly." ],
     faqs: [
       { q: "What does the CSS Unit Converter do?", a: "It converts a length value between px, rem, em, %, vw, vh and pt. You enter a value and source unit, set the base font size and viewport size, and it shows every unit conversion at once." },
       { q: "Why do I need to set a base font size?", a: "rem, em and % are relative units, so their pixel value depends on the root font size (usually 16px). Setting it lets the tool convert relative units accurately." },
       { q: "How do vw and vh convert to pixels?", a: "1vw is 1% of the viewport width, so it depends on the device width. The tool uses the viewport dimensions you enter (defaults 1920x1080) to compute the pixel equivalents." },
       { q: "What is the difference between rem and em?", a: "rem is relative to the root (html) font size, while em is relative to the parent element's font size. The tool treats both against the base font size you configure." },
       { q: "How many px are in a pt?", a: "In CSS, 1in = 72pt = 96px, so 1pt equals 1.333px. The converter applies this exact ratio." },
-      { q: "Is it free?", a: "Yes, it is completely free with no account needed, and everything runs locally in your browser." }
+      { q: "Is it free?", a: "Yes, it is completely free to use; downloads need a free account, and everything runs locally in your browser." }
     ],
     tags: [
       "css unit converter",

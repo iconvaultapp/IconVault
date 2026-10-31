@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How many usable hosts are in a /24?", a: "254. A /24 has 256 total addresses, but the network address and the broadcast address are reserved, leaving 254 usable for hosts." },
       { q: "What is a wildcard mask?", a: "The wildcard mask is the inverse of the subnet mask (every 0 becomes 1 and vice versa). It is used in router access lists and some firewall rules to specify which address bits to match." },
       { q: "Does it support IPv6?", a: "No. This calculator handles IPv4 CIDR blocks from /0 to /32 only; IPv6 subnets are not supported." },
-      { q: "Is the Subnet Calculator free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the Subnet Calculator free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "subnet calculator",
@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "private ip subnet calculator",
       "192.168.1.0/24 explained",
       "10.0.0.0/8 subnets",
-      "subnet calculator no signup",
+      "subnet calculator a free account for downloads",
       "network engineer tools",
       "ccna subnet calculator",
       "subnetting for beginners"

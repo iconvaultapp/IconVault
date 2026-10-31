@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it respect order of operations?", a: "Yes. The parser implements standard precedence: parentheses first, then powers, then multiplication, division and modulo, then addition and subtraction, just like PEMDAS/BODMAS." },
       { q: "Are results exact or rounded?", a: "Results are computed with JavaScript double-precision numbers and displayed as-is, so you may see long decimals for values like 1/3 or irrational results. That is normal floating point behavior." },
       { q: "Can I use the keyboard or the on-screen keypad?", a: "Both. Type directly into the input field or click the on-screen keypad buttons for digits, operators, parentheses and functions. Clear and delete keys help fix mistakes fast." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "math evaluator",
@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "quick math calculator",
       "free math tool",
       "browser calculator",
-      "no signup calculator",
+      "a free account for downloads calculator",
       "order of operations calculator",
       "pemdas calculator online",
       "parentheses calculator",

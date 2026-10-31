@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Roman Numerals - Free Online Roman Numeral Converter Tool | IconVault",
-    metaDescription: "Convert numbers to Roman numerals and back, live in your browser with a step-by-step breakdown. Handles 1 to 3999. Free, no signup.",
+    metaDescription: "Convert numbers to Roman numerals and back, live in your browser with a step-by-step breakdown. Handles 1 to 3999. Free; downloads need a free account.",
     about: [
       "**IconVault**'s **Roman Numerals** converter translates **Arabic numbers** into **Roman numerals** and back again, instantly and live in your browser. It handles the full standard range of **1 to 3999** (I through MMMCMXCIX) and shows the **subtractive-notation breakdown** of every conversion, so you can see exactly how each result is built. Just type in either box and the other updates automatically.",
-      "Everything runs **100% in your browser** with no server calls, no signup and no cost. Invalid input gets a plain-English explanation instead of a wrong answer: numbers outside 1 to 3999 are rejected, and malformed numerals like IIII are flagged. The honest note: classical Roman numerals have no zero and no values above 3999, so this tool sticks to the standard form used in dates, chapters, clock faces and copyright notices."
+      "Everything runs **100% in your browser** with no server calls; downloads need a free account and no cost. Invalid input gets a plain-English explanation instead of a wrong answer: numbers outside 1 to 3999 are rejected, and malformed numerals like IIII are flagged. The honest note: classical Roman numerals have no zero and no values above 3999, so this tool sticks to the standard form used in dates, chapters, clock faces and copyright notices."
     ],
     faqs: [
       { q: "What is 2026 in Roman numerals?", a: "2026 is MMXXVI: 2000 (MM) plus 26 (XXVI). Type any number from 1 to 3999 into the tool and it converts instantly, with the breakdown shown." },

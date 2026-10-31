@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Trig, logs, powers, roots, factorials, constants, DEG/RAD mode and a history tape, all in your browser with keyboard support. Free.",
     about: [
       "**IconVault**'s **Scientific Calculator** is a full-featured calculator with **trigonometric functions** (sin, cos, tan and inverses), **logarithms** (log and natural log), **powers and roots**, **factorials**, **permutations and combinations**, and constants like **pi and e**. A **DEG/RAD toggle**, a scrollable **history tape** and full **keyboard support** make it genuinely usable for real work.",
-      "Everything runs **100% in your browser**, so it works offline after loading and your calculations never leave the page. It is **free** with no signup. The honest note: it is a browser tool, not a certified exam calculator, so check your exam's rules before relying on it for a test. For homework, physics, chemistry and engineering, it is ready."
+      "Everything runs **100% in your browser**, so it works offline after loading and your calculations never leave the page. It is **free** to use; downloads need a free account. The honest note: it is a browser tool, not a certified exam calculator, so check your exam's rules before relying on it for a test. For homework, physics, chemistry and engineering, it is ready."
     ],
     faqs: [
       { q: "What functions does the scientific calculator have?", a: "Trigonometric and inverse trigonometric functions, logarithms (base 10 and natural), powers, square and nth roots, factorials, permutations, combinations, modulus, percentages and constants pi and e." },

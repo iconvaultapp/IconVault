@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert appsettings.json to .env format online. Nested sections become Section__Key pairs, connection strings shown in a table. Free, private, in browser.",
     about: [
       "**IconVault**'s **.NET Config Converter** turns **appsettings.json** into a **.env file** in one click. Nested sections are flattened into the **Section__Key** double-underscore format that .NET's environment variable configuration provider understands, and every entry in **ConnectionStrings** is parsed into a readable **key-value table** so you can inspect servers, databases and credentials at a glance.",
-      "The conversion runs **100% in your browser**: your config, including database passwords and API keys, is never uploaded, logged or stored anywhere, making it safe for production settings. Paste or upload your JSON, copy the **.env output** or scan the connection string table, then drop the result into your container or CI pipeline. Visitors get 5 **free** conversions with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
+      "The conversion runs **100% in your browser**: your config, including database passwords and API keys, is never uploaded, logged or stored anywhere, making it safe for production settings. Paste or upload your JSON, copy the **.env output** or scan the connection string table, then drop the result into your container or CI pipeline. Visitors get 5 **free** conversions with a free account for downloads; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free conversions with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -56,7 +56,7 @@ const seo: ToolSeo = {
       "docker compose dotnet appsettings", "azure app service dotnet env",
       "connection string builder alternative", "inspect connection string",
       "server database userid parser", "dotnet secrets to env",
-      "appsettings no signup", "json config to env free",
+      "appsettings a free account for downloads", "json config to env free",
       "dotnet 8 configuration env", "dotnet 9 configuration env",
       "convert json config online",
     ],

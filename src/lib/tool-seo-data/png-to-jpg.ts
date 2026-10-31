@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "What quality should I choose?", a: "90% is a solid default. Use 75 to 80% for web images and 95% plus for archiving." },
       { q: "Can I convert many PNGs at once?", a: "Yes. Drop in a batch and download everything as a ZIP file." },
     ],
-    tags: ["png to jpg", "convert png to jpg", "png to jpeg", "png to jpg online", "png converter", "png to jpg free", "bulk png to jpg", "png to jpg quality", "png transparent to jpg", "png to jpg batch", "png to jpg no signup", "png to jpg background", "png image converter", "save png as jpg", "png to jpg private", "png to jpg download", "free png converter", "png to jpeg converter", "png to jpg zip", "compress png to jpg",
+    tags: ["png to jpg", "convert png to jpg", "png to jpeg", "png to jpg online", "png converter", "png to jpg free", "bulk png to jpg", "png to jpg quality", "png transparent to jpg", "png to jpg batch", "png to jpg a free account for downloads", "png to jpg background", "png image converter", "save png as jpg", "png to jpg private", "png to jpg download", "free png converter", "png to jpeg converter", "png to jpg zip", "compress png to jpg",
       "jpg converter",
       "png jpg converter",
       "png to jpeg online",

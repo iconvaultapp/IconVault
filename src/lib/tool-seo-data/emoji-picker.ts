@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Emoji Picker - Free Online Fun Tool | IconVault",
-    metaDescription: "Search and copy emojis instantly in your browser. Click any emoji to copy it. Free, no signup, no downloads.",
+    metaDescription: "Search and copy emojis instantly in your browser. Click any emoji to copy it. Free; downloads need a free account, no downloads.",
     about: [
       "**IconVault**'s **Emoji Picker** is the fastest way to find and copy the emoji you need. Search by keyword across the full emoji set, click any emoji to **copy it to your clipboard**, and paste it anywhere: chats, docs, social posts, code comments. It is free and runs fully in your browser.",
-      "The picker shows a **live count** of matching emojis as you type, so narrowing down from the full set takes a second. Everything happens locally with **no network calls**, no tracking and no signup."
+      "The picker shows a **live count** of matching emojis as you type, so narrowing down from the full set takes a second. Everything happens locally with **no network calls**, no tracking and a free account for downloads."
     ],
     faqs: [
       { q: "How do I copy an emoji?", a: "Just click the emoji and it is copied to your clipboard, ready to paste into any app, document or chat." },
@@ -25,7 +25,7 @@ const seo: ToolSeo = {
       "cute emojis copy paste", "aesthetic emojis copy paste", "funny emojis copy paste",
       "heart emoji copy", "fire emoji copy", "party emoji copy", "star emoji copy",
       "emoji symbols", "emoji characters", "unicode emoji list", "unicode emoji picker",
-      "emoji picker no download", "emoji picker free no signup", "best emoji picker",
+      "emoji picker no download", "emoji picker free a free account for downloads", "best emoji picker",
       "how to copy emojis", "where to find emojis", "emoji search engine",
       "emoji browser tool", "web emoji picker", "emoji picker for pc", "emoji picker for mac",
       "emoji picker for windows", "emoji picker chrome", "emoji picker mobile",

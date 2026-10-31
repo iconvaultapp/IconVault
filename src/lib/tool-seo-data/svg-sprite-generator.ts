@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free sprites do I get?",
-        a: "Every visitor gets 5 free sprite generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited generations across all tools.",
+        a: "Every visitor gets 5 free sprite generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited generations across all tools.",
       },
     ],
     tags: [
@@ -39,7 +39,7 @@ const seo: ToolSeo = {
       "svg symbol generator", "svg use sprite", "svg sprite sheet", "svg icon sprite",
       "svg sprite from multiple svg", "combine svg into sprite", "merge svg files",
       "svg sprite maker", "svg sprite builder", "svg sprite free", "svg sprite online free",
-      "svg sprite no signup", "svg sprite in browser", "svg sprite privacy",
+      "svg sprite a free account for downloads", "svg sprite in browser", "svg sprite privacy",
       "svg symbol sprite", "svg defs symbol use", "how to use svg sprite",
       "svg use href", "svg sprite tutorial", "svg sprite vs icon font",
       "svg sprite performance", "svg sprite caching", "svg sprite best practice",

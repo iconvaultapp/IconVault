@@ -29,7 +29,7 @@ const freePlan = {
     "Search 421,020 open-source icons",
     "SVG, PNG and JSX copy-out",
     "7 bulk downloads in total",
-    "5 free runs per tool per day, no account needed",
+    "5 free runs per tool per day; downloads need a free account",
     "20+ tools free unlimited, forever",
     "Recolour and resize in the browser",
     "Favourites and collections sync across devices",

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why use clamp() instead of media queries?", a: "One clamp() line replaces several media queries, scales smoothly at every in-between screen size, and keeps type proportional on the growing number of device widths." },
       { q: "What ranges should I enter?", a: "Pick a minimum size that stays readable on a 360px phone, a maximum for large desktops, and the viewport widths between which the size should interpolate. The tool flags invalid ranges before generating." },
       { q: "Can I copy the generated CSS?", a: "Yes, the clamp() output is ready to copy and paste into your stylesheet." },
-      { q: "Is this tool free?", a: "Yes, completely free with no signup and no limits." }
+      { q: "Is this tool free?", a: "Yes, completely free to use; downloads need a free account and no limits." }
     ],
     tags: [
       "fluid typography", "fluid typography generator", "fluid type generator",
@@ -25,7 +25,7 @@ const seo: ToolSeo = {
       "typography calculator", "font size calculator responsive",
       "how to use css clamp", "clamp typography tutorial", "fluid type css tricks",
       "responsive headings css", "fluid h1 size", "responsive text without media queries",
-      "free typography tool", "fluid typography free online", "typography generator no signup",
+      "free typography tool", "fluid typography free online", "typography generator a free account for downloads",
       "web typography tools", "css typography generator", "design tools online free",
       "clamp min max preferred", "clamp vw rem", "css clamp examples",
       "fluid font size formula", "linear interpolation font size css",

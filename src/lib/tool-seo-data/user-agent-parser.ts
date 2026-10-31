@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can it detect bots and crawlers?", a: "Yes. Common bot and crawler user agents, such as search engine bots, are identified so you can separate them from real visitors." },
       { q: "How accurate is the detection?", a: "It matches against known patterns for browsers, engines, operating systems and devices. User agents can be spoofed, so treat results as what the client claims, not proof." },
       { q: "Is what I paste sent anywhere?", a: "No. The parser runs fully in your browser, so your user agent strings stay private on your device." },
-      { q: "Is the user agent parser free?", a: "Yes, free with no signup. Parse as many user agent strings as you like." }
+      { q: "Is the user agent parser free?", a: "Yes, free to use; downloads need a free account. Parse as many user agent strings as you like." }
     ],
     tags: [
       "user agent parser", "parse user agent", "user agent analyzer", "ua parser online",

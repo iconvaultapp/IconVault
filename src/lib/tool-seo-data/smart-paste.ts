@@ -67,7 +67,7 @@ const seo: ToolSeo = {
       "developer paste tool",
       "programmer clipboard helper",
       "free online paste tool",
-      "no signup paste detector"
+      "a free account for downloads paste detector"
     ],
   };
 

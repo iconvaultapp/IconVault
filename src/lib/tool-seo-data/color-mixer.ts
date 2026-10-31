@@ -57,7 +57,7 @@ const seo: ToolSeo = {
       "button hover shade generator",
       "data viz color scale",
       "mix brand colors",
-      "color mixer no signup",
+      "color mixer a free account for downloads",
       "browser color blender",
       "online color blender free",
       "color mix ratio slider",

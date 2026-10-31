@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       "sign pdf in browser",
       "draw my signature online",
       "electronic sign pdf free",
-      "pdf sign online free no signup",
+      "pdf sign online free a free account for downloads",
       "add digital signature to pdf",
       "sign pdf document free",
       "type signature on pdf",

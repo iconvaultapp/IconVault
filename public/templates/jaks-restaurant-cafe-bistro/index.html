@@ -1,0 +1,3774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, artisan coffee shop cafe site, local bistro bakery cafe website, brunch diner breakfast menu html, local cafe catering company, coffee roaster online catalog, cozy restaurant cafe template, pastry bakery shop website, neighborhood cafe bistro design, coffee bar reservation portal">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/restaurant-cafe-bistro">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vienna Café & Bistro — Free Restaurant Template</title>
+  <meta name="description" content="Charming Viennese cafe and bistro homepage highlighting local business hours, seasonal European specialties menu, and cozy coffe... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vienna Café &amp; Bistro — Free Restaurant Template">
+  <meta property="og:description" content="Charming Viennese cafe and bistro homepage highlighting local business hours, seasonal European specialties menu, and cozy coffe... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/restaurant_cafe_bistro.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vienna Café &amp; Bistro — Free Restaurant Template">
+  <meta name="twitter:description" content="Charming Viennese cafe and bistro homepage highlighting local business hours, seasonal European specialties menu, and cozy coffe... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/restaurant_cafe_bistro.webp">
+  <!-- Google Fonts: Outfit & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       CSS Variables & Premium Theme Configuration
+       ========================================== */
+    :root {
+      /* Cream and Earth Tones */
+      --bg-primary: #FAF6F0;
+      --bg-secondary: #F4EAE1;
+      --bg-tertiary: #E8DCCF;
+      --bg-white: #FFFFFF;
+      
+      /* Terracotta Accent Tones */
+      --color-terracotta: #C96F53;
+      --color-terracotta-dark: #AD543A;
+      --color-terracotta-light: #F6E6E1;
+      --color-terracotta-opaque: rgba(201, 111, 83, 0.1);
+      
+      /* Espresso & Cocoa Deep Browns */
+      --text-primary: #2C1E1A;
+      --text-secondary: #5A4C48;
+      --text-muted: #8E7D79;
+      --border-color: #E8DCCF;
+      
+      /* Soft Accent Sage Green */
+      --accent-green: #7D8E78;
+      --accent-green-light: #EBF0EA;
+      --accent-green-dark: #586754;
+
+      /* Typography */
+      --font-body: 'Outfit', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+      
+      /* Animations & Shadows */
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 4px 6px rgba(44, 30, 26, 0.03);
+      --shadow-md: 0 10px 20px rgba(44, 30, 26, 0.06);
+      --shadow-lg: 0 20px 40px rgba(44, 30, 26, 0.1);
+      --border-radius-sm: 8px;
+      --border-radius-md: 16px;
+      --border-radius-lg: 24px;
+    }
+
+    /* ==========================================
+       Base Reset & Global Styles
+       ========================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-terracotta) var(--bg-secondary);
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Headings & Typography */
+    h1, h2, h3, h4, .font-heading {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background-color: var(--color-terracotta-light);
+      color: var(--color-terracotta-dark);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-sage {
+      background-color: var(--accent-green-light);
+      color: var(--accent-green-dark);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--color-terracotta);
+      color: var(--color-terracotta-dark);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--color-terracotta-opaque);
+      transform: translateY(-2px);
+    }
+
+    /* Utility Sections */
+    .section-padding {
+      padding: 100px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin: 12px 0 16px 0;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       Top Announcement Bar
+       ========================================== */
+    .announcement-bar {
+      background-color: var(--text-primary);
+      color: var(--bg-secondary);
+      font-size: 0.85rem;
+      padding: 8px 0;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      position: relative;
+      z-index: 100;
+    }
+    
+    .announcement-bar a {
+      color: var(--color-terracotta-light);
+      text-decoration: underline;
+      margin-left: 6px;
+    }
+
+    /* ==========================================
+       Main Header & Navigation
+       ========================================== */
+    header {
+      background-color: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      padding: 12px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo Brand */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-terracotta);
+      border-radius: 50%;
+      color: var(--bg-primary);
+      fill: currentColor;
+    }
+
+    .brand-text h1 {
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-terracotta);
+      display: block;
+      margin-top: -2px;
+      font-weight: 600;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-terracotta);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Action Buttons (Socials & Order Online Badge) */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Operational Order Online Badge */
+    .order-badge-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid transparent;
+    }
+
+    .order-badge-btn:hover {
+      background-color: var(--color-terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .order-badge-btn .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #55B976;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .order-badge-btn .pulse-dot::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #55B976;
+      animation: pulse 1.8s infinite;
+    }
+
+    .order-count {
+      background-color: var(--color-terracotta);
+      color: var(--bg-white);
+      font-size: 0.75rem;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-left: 2px;
+      animation: popScale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    .hamburger span {
+      width: 26px;
+      height: 2.5px;
+      background-color: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    /* ==========================================
+       Hero Section
+       ========================================== */
+    .hero {
+      background: radial-gradient(circle at 80% 20%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      padding: 80px 0 100px 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Hero Text & Info Panel */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-title {
+      font-size: 3.8rem;
+      line-height: 1.15;
+    }
+
+    .hero-title span {
+      color: var(--color-terracotta);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    /* Hero Info Cards Row */
+    .hero-info-cards {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+      border-top: 1px dashed var(--bg-tertiary);
+      padding-top: 30px;
+    }
+
+    .hero-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .hero-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: var(--bg-secondary);
+      border-radius: var(--border-radius-sm);
+      color: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    .hero-card-text h4 {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-text p {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Hero SVG/CSS Illustration */
+    .hero-illustration {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      filter: drop-shadow(var(--shadow-lg));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Illustration Animations */
+    .steam-path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: steamAnim 4s infinite linear;
+    }
+    .path-1 { animation-delay: 0s; }
+    .path-2 { animation-delay: 1.3s; }
+    .path-3 { animation-delay: 2.6s; }
+
+    .lamp-glow-light {
+      animation: lampGlow 3s ease-in-out infinite alternate;
+    }
+
+    /* ==========================================
+       Features Highlights Bar
+       ========================================== */
+    .features-bar {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 40px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .feature-icon-box {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(250, 246, 240, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-terracotta-light);
+      flex-shrink: 0;
+    }
+
+    .feature-item h3 {
+      color: var(--bg-primary);
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .feature-item p {
+      color: var(--bg-tertiary);
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================
+       Menu Board Section
+       ========================================== */
+    .menu-section {
+      background-color: var(--bg-primary);
+    }
+
+    /* Category Filter Navigation */
+    .menu-categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 50px;
+    }
+
+    .category-btn {
+      padding: 10px 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 50px;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+    }
+
+    .category-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .category-btn.active {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+      border-color: var(--color-terracotta);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Menu Items Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .menu-card {
+      display: flex;
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-terracotta-light);
+    }
+
+    /* Menu Thumbnail Icon */
+    .menu-thumb {
+      width: 80px;
+      height: 80px;
+      background-color: var(--bg-secondary);
+      border-radius: var(--border-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-terracotta);
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .menu-card:hover .menu-thumb {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+    }
+
+    /* Menu Info Content */
+    .menu-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .menu-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .menu-price {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--color-terracotta-dark);
+      font-size: 1.25rem;
+    }
+
+    .menu-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      padding-right: 20px;
+    }
+
+    .menu-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .menu-tags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .menu-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .menu-tag-special {
+      background-color: var(--color-terracotta-light);
+      color: var(--color-terracotta-dark);
+    }
+
+    .menu-tag-best {
+      background-color: var(--accent-green-light);
+      color: var(--accent-green-dark);
+    }
+
+    /* Add to Bag Button */
+    .add-to-bag-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .add-to-bag-btn:hover {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+      transform: scale(1.1);
+    }
+
+    /* ==========================================
+       Cozy Corners Gallery Section
+       ========================================== */
+    .gallery-section {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* Card Panels */
+    .gallery-card {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-terracotta);
+    }
+
+    /* CSS Styling Panels (Image Placeholders) */
+    .gallery-panel {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    /* Card Panel Gradients & Custom CSS Graphics */
+    .panel-reading {
+      background: linear-gradient(135deg, #E6D4C3 0%, #CBB59F 100%);
+    }
+    .panel-sunlit {
+      background: linear-gradient(135deg, #DEE5DA 0%, #BAC7B3 100%);
+    }
+    .panel-roastery {
+      background: linear-gradient(135deg, #E8DFDA 0%, #C7B5AA 100%);
+    }
+    .panel-fireside {
+      background: linear-gradient(135deg, #F5DFD5 0%, #DDB6A2 100%);
+    }
+
+    /* SVG Overlay Scenes inside Panels */
+    .panel-svg {
+      width: 100px;
+      height: auto;
+      filter: drop-shadow(0 8px 12px rgba(44, 30, 26, 0.15));
+      transition: var(--transition);
+    }
+
+    .gallery-card:hover .panel-svg {
+      transform: scale(1.1) rotate(2deg);
+    }
+
+    .gallery-card:hover .gallery-panel::after {
+      opacity: 0.25;
+    }
+
+    .gallery-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--text-primary);
+      opacity: 0.1;
+      transition: var(--transition);
+    }
+
+    /* Info text */
+    .gallery-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .gallery-info h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .gallery-info p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .gallery-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
+
+    .gallery-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-terracotta-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .gallery-link:hover {
+      color: var(--text-primary);
+    }
+
+    /* ==========================================
+       Contact, Hours & Map Section
+       ========================================== */
+    .contact-section {
+      background-color: var(--bg-primary);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Hours Panel Details */
+    .hours-panel {
+      background-color: var(--bg-secondary);
+      border-radius: var(--border-radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hours-panel h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--bg-tertiary);
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .hours-day {
+      font-weight: 600;
+    }
+
+    .hours-time {
+      color: var(--color-terracotta-dark);
+      font-weight: 600;
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .meta-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-terracotta-light);
+      border-radius: 50%;
+      color: var(--color-terracotta-dark);
+      flex-shrink: 0;
+    }
+
+    .meta-text h5 {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-text p {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Custom Fully-Interactive Styled Neighborhood Map */
+    .map-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background-color: #E2DDD5;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      cursor: grab;
+      user-select: none;
+    }
+
+    .map-container:active {
+      cursor: grabbing;
+    }
+
+    /* Panning interactive Canvas */
+    .map-canvas {
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 700px;
+      height: 580px;
+      background: radial-gradient(circle at 350px 290px, #FAF6F0 0%, #ECE7DD 100%);
+      transform-origin: center center;
+      transition: transform 0.1s ease-out;
+    }
+
+    .map-streets-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Custom Map Marker Pins */
+    .map-pin {
+      position: absolute;
+      left: 350px;
+      top: 290px;
+      transform: translate(-50%, -100%);
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .map-pin-circle {
+      width: 24px;
+      height: 24px;
+      background: var(--color-terracotta);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-pin-pulse {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--color-terracotta);
+      border-radius: 50%;
+      animation: mapPulse 2.2s infinite;
+      opacity: 0;
+    }
+
+    /* Tooltip popup cards */
+    .map-tooltip {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 15;
+    }
+
+    .map-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--text-primary);
+    }
+
+    .map-pin:hover .map-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Extra decorative pins */
+    .map-pin-secondary {
+      position: absolute;
+      left: 180px;
+      top: 160px;
+      opacity: 0.65;
+    }
+    .map-pin-secondary-2 {
+      position: absolute;
+      left: 520px;
+      top: 410px;
+      opacity: 0.65;
+    }
+
+    /* Map UI Controls */
+    .map-controls {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 20;
+    }
+
+    .map-ctrl-btn {
+      width: 36px;
+      height: 36px;
+      background-color: var(--bg-white);
+      color: var(--text-primary);
+      border-radius: var(--border-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .map-ctrl-btn:hover {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+    }
+
+    .map-label-card {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(250, 246, 240, 0.95);
+      border-radius: var(--border-radius-sm);
+      padding: 12px 18px;
+      border-left: 4px solid var(--color-terracotta);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      max-width: 210px;
+      z-index: 20;
+    }
+
+    .map-label-card h5 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .map-label-card p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Clean Quick Feedback & Booking Form */
+    .contact-form-box {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-form-box h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-form-box p {
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-sm);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      background-color: var(--bg-white);
+      border-color: var(--color-terracotta);
+      box-shadow: 0 0 0 3px var(--color-terracotta-light);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* ==========================================
+       Footer Section
+       ========================================== */
+    footer {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 80px 0 30px 0;
+      border-top: 5px solid var(--color-terracotta);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col h4 {
+      color: var(--bg-white);
+      font-size: 1.15rem;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: var(--color-terracotta);
+    }
+
+    .footer-about p {
+      color: var(--bg-tertiary);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--bg-tertiary);
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-terracotta-light);
+      padding-left: 4px;
+    }
+
+    /* Newsletter Form */
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .newsletter-form p {
+      font-size: 0.9rem;
+      color: var(--bg-tertiary);
+    }
+
+    .newsletter-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-input {
+      flex-grow: 1;
+      padding: 12px;
+      border-radius: var(--border-radius-sm);
+      background-color: rgba(250, 246, 240, 0.1);
+      border: 1px solid rgba(250, 246, 240, 0.2);
+      color: var(--bg-primary);
+      font-size: 0.9rem;
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--bg-tertiary);
+      opacity: 0.6;
+    }
+
+    .newsletter-btn {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+      padding: 12px 18px;
+      border-radius: var(--border-radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+      background-color: var(--color-terracotta-dark);
+    }
+
+    /* Bottom footer metadata */
+    .footer-bottom {
+      border-top: 1px solid rgba(250, 246, 240, 0.1);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom p {
+      color: var(--bg-tertiary);
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--bg-tertiary);
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--color-terracotta-light);
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 80;
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+      border: 1px solid transparent;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--color-terracotta-dark);
+      transform: translateY(-4px);
+    }
+
+    /* Floating Cart Indicator Trigger */
+    .floating-cart-trigger {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 80;
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+      border: 1px solid rgba(250, 246, 240, 0.1);
+    }
+
+    .floating-cart-trigger.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .floating-cart-trigger:hover {
+      background-color: var(--color-terracotta);
+      transform: translateY(-4px);
+    }
+
+    .floating-cart-trigger .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+      font-size: 0.7rem;
+      font-weight: 700;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--text-primary);
+    }
+
+    /* ==========================================
+       Side Cart Order Drawer (Slide out)
+       ========================================== */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(44, 30, 26, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 150;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .order-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      background-color: var(--bg-primary);
+      z-index: 160;
+      box-shadow: var(--shadow-lg);
+      transform: translateX(100%);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .order-drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-header h3 {
+      font-size: 1.5rem;
+    }
+
+    .drawer-close {
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      transition: var(--transition);
+    }
+
+    .drawer-close:hover {
+      background-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    /* Drawer Items List */
+    .drawer-items {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-empty-msg {
+      text-align: center;
+      margin: auto;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .drawer-empty-msg svg {
+      width: 64px;
+      height: auto;
+      color: var(--border-color);
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius-sm);
+      padding: 14px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-heading);
+      color: var(--color-terracotta-dark);
+      font-weight: 700;
+    }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .qty-btn:hover {
+      background-color: var(--color-terracotta);
+      color: var(--bg-primary);
+    }
+
+    .cart-item-qty {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .cart-item-remove {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .cart-item-remove:hover {
+      color: var(--color-terracotta-dark);
+    }
+
+    /* Drawer Footer Totals & Form */
+    .drawer-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 24px;
+      background-color: var(--bg-white);
+    }
+
+    .totals-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .total-row-grand {
+      border-top: 1px dashed var(--border-color);
+      padding-top: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .total-row-grand span {
+      font-family: var(--font-heading);
+      color: var(--color-terracotta-dark);
+    }
+
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ==========================================
+       Modals (Table Booking & Success States)
+       ========================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(44, 30, 26, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background-color: var(--bg-primary);
+      border-radius: var(--border-radius-lg);
+      padding: 40px;
+      max-width: 550px;
+      width: 100%;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.9);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .modal-backdrop.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      background-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .modal-header h3 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-header p {
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    /* Success Ticket/Card Style */
+    .success-ticket {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background-color: var(--accent-green-light);
+      color: var(--accent-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+      font-size: 2rem;
+    }
+
+    .ticket-details {
+      background-color: var(--bg-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 20px;
+      border: 1px dashed var(--border-color);
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    .ticket-row:last-child {
+      border-bottom: none;
+    }
+
+    .ticket-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .ticket-val {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .ticket-id {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--color-terracotta);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* ==========================================
+       Toast Notifications System
+       ========================================== */
+    .toast-container {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 250;
+      pointer-events: none;
+    }
+
+    .toast {
+      pointer-events: auto;
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 16px 24px;
+      border-radius: var(--border-radius-sm);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: toastIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      border-left: 4px solid var(--color-terracotta);
+    }
+
+    .toast-success {
+      border-left-color: var(--accent-green);
+    }
+
+    .toast-icon {
+      flex-shrink: 0;
+      color: var(--color-terracotta-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toast-success .toast-icon {
+      color: var(--accent-green);
+    }
+
+    /* ==========================================
+       Interactive animations & Keyframes
+       ========================================== */
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(0.95); opacity: 0; }
+    }
+
+    @keyframes popScale {
+      0% { transform: scale(0.6); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes lampGlow {
+      0% { opacity: 0.12; }
+      100% { opacity: 0.22; }
+    }
+
+    @keyframes steamAnim {
+      0% {
+        stroke-dashoffset: 100;
+        opacity: 0;
+        transform: translateY(0) scaleX(1);
+      }
+      15% { opacity: 0.5; }
+      50% { transform: translateY(-10px) scaleX(1.2); }
+      90% { opacity: 0; }
+      100% {
+        stroke-dashoffset: 0;
+        transform: translateY(-24px) scaleX(0.7);
+        opacity: 0;
+      }
+    }
+
+    @keyframes mapPulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3.5); opacity: 0; }
+    }
+
+    @keyframes toastIn {
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Floating "+1" animation */
+    .plus-one-animation {
+      position: absolute;
+      color: var(--color-terracotta-dark);
+      font-weight: 700;
+      font-size: 1.1rem;
+      pointer-events: none;
+      animation: floatUpAndFade 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      z-index: 10;
+    }
+
+    @keyframes floatUpAndFade {
+      0% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) translateY(-40px);
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================
+       Responsive Media Queries
+       ========================================== */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 70px 0;
+      }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-primary);
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 24px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+        z-index: 100;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-illustration {
+        order: -1;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .social-icons {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-info-cards {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-box {
+        padding: 30px 20px;
+      }
+      .contact-form-box {
+        padding: 30px 20px;
+      }
+      .hours-panel {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Vienna Cafe & Bistro",
+    "description": "Charming Viennese cafe and bistro homepage highlighting local business hours, seasonal European specialties menu, and cozy coffe... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/restaurant-cafe-bistro",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/restaurant-cafe-bistro.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    ☕ Cozy autumn special: Enjoy 15% off your first pickup order! Use code <a href="#menu">FIRSTBREW</a>
+  </div>
+
+  <!-- Header Section -->
+  <header id="header">
+    <div class="container nav-wrapper">
+      <!-- Logo brand -->
+      <a href="#" class="brand">
+        <div class="brand-logo">
+          <!-- Steaming cup inline SVG -->
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1m16 2a2 2 0 0 1-2 2h-2V3h2a2 2 0 0 1 2 2v3Z" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>L'Arôme</h1>
+          <span>Café & Bistro</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#corners">Cozy Corners</a>
+        <a href="#contact">Hours & Find Us</a>
+      </nav>
+
+      <!-- Header actions (order badge + socials) -->
+      <div class="header-actions">
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+
+        <button class="order-badge-btn" id="openBagBtn" aria-label="Open Coffee Bag">
+          <div class="pulse-dot"></div>
+          <span>Order Online</span>
+          <div class="order-count" id="headerCartCount">0</div>
+        </button>
+      </div>
+
+      <!-- Hamburger mobile toggler -->
+      <div class="hamburger" id="hamburgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <!-- Left Info Content -->
+      <div class="hero-content">
+        <div>
+          <span class="badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            Cozy Neighborhood Sanctuary • Est. 2018
+          </span>
+        </div>
+        <h2 class="hero-title">Where Warmth Meets <span>Artisanal</span> Flavor</h2>
+        <p class="hero-desc">
+          Step into L'Arôme, a sunlit haven of fresh small-batch roasted espresso, flaky hand-rolled pastries, and warm rustic sourdough paninis. Crafted with love, served with a friendly smile.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">Explore Menu Board</a>
+          <button class="btn btn-outline" id="reserveTableBtnHero">Reserve a Cozy Nook</button>
+        </div>
+
+        <!-- Meta info Row (Operational hours & Address) -->
+        <div class="hero-info-cards">
+          <!-- Hours -->
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+              </svg>
+            </div>
+            <div class="hero-card-text">
+              <h4>Hours of Comfort</h4>
+              <p>Daily: 7:00 AM – 6:00 PM</p>
+            </div>
+          </div>
+          <!-- Address -->
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>
+            <div class="hero-card-text">
+              <h4>Find Our Hearth</h4>
+              <p>124 Maple Avenue, Old Town</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Cozy SVG Illustration -->
+      <div class="hero-illustration">
+        <svg viewBox="0 0 500 500" class="hero-svg">
+          <!-- Warm glowing sun/lamp circle background -->
+          <circle cx="250" cy="250" r="185" fill="#FAF6F0" />
+          <circle cx="250" cy="250" r="150" fill="#F4EAE1" opacity="0.8" />
+          <circle cx="250" cy="250" r="110" fill="#E8DCCF" opacity="0.4" />
+          
+          <!-- Modern abstract terracotta fluid paths -->
+          <path d="M 120,390 C 120,330 190,290 260,330 C 330,370 410,350 410,410 C 410,470 310,490 250,490 C 190,490 120,450 120,390 Z" fill="#7D8E78" opacity="0.12" />
+          <path d="M 330,140 C 370,170 430,150 450,200 C 470,250 430,310 390,290 C 350,270 310,210 310,170 C 310,130 290,110 330,140 Z" fill="#C96F53" opacity="0.08" />
+
+          <!-- Table surface -->
+          <ellipse cx="250" cy="415" rx="170" ry="22" fill="#E8DCCF" />
+          <ellipse cx="250" cy="420" rx="160" ry="18" fill="#D2C0AE" />
+
+          <!-- Cozy Potted Botanical Plant on table -->
+          <g transform="translate(130, 270)">
+            <!-- Clay Pot -->
+            <path d="M 22,110 L 32,140 L 58,140 L 68,110 Z" fill="#C96F53" />
+            <rect x="17" y="105" width="56" height="7" rx="3" fill="#B45338" />
+            <!-- Soft Green Foliage -->
+            <path d="M 45,105 C 45,80 15,70 10,60 C 5,50 20,45 30,65 C 40,85 45,105 45,105 Z" fill="#7D8E78" />
+            <path d="M 45,105 C 45,80 75,70 80,60 C 85,50 70,45 60,65 C 50,85 45,105 45,105 Z" fill="#6A7A66" />
+            <path d="M 45,105 C 30,90 20,95 10,85 C 0,75 15,65 25,80 C 35,95 45,105 45,105 Z" fill="#7D8E78" opacity="0.85" />
+            <path d="M 45,105 C 60,90 70,95 80,85 C 90,75 75,65 65,80 C 55,95 45,105 45,105 Z" fill="#6A7A66" opacity="0.85" />
+            <!-- Main Stem -->
+            <path d="M 45,105 Q 45,50 50,32" stroke="#4F5D4C" stroke-width="2" fill="none" />
+            <path d="M 50,32 C 40,22 40,12 50,2 C 60,12 60,22 50,32 Z" fill="#7D8E78" />
+          </g>
+
+          <!-- Steaming Coffee Mug -->
+          <g transform="translate(260, 325)">
+            <!-- Ceramic Saucer -->
+            <ellipse cx="60" cy="85" rx="65" ry="12" fill="#FAF6F0" stroke="#E8DCCF" stroke-width="2" />
+            <ellipse cx="60" cy="83" rx="48" ry="8" fill="#F4EAE1" />
+            
+            <!-- Mug Handle -->
+            <path d="M 98,40 C 118,40 118,70 98,70" stroke="#C96F53" stroke-width="10" fill="none" stroke-linecap="round" />
+            <!-- Mug Outer Body -->
+            <path d="M 22,30 L 27,75 C 29,85 91,85 93,75 L 98,30 Z" fill="#C96F53" />
+            <ellipse cx="60" cy="30" rx="38" ry="8" fill="#AD543A" />
+            <!-- Rich Espresso Liquid -->
+            <ellipse cx="60" cy="32" rx="34" ry="6" fill="#2C1E1A" />
+            <!-- Delicate Cream Latte Art -->
+            <path d="M 50,32 C 55,30 65,30 70,32 C 60,35 50,33 50,32 Z" fill="#FAF6F0" opacity="0.85" />
+            <path d="M 44,31 Q 60,35 76,31 C 60,30 44,31 44,31 Z" fill="#FAF6F0" opacity="0.55" />
+            
+            <!-- Floating Animated Steam Waves -->
+            <g>
+              <path class="steam-path path-1" d="M 45,12 Q 38,0 48,-15 T 43,-35" stroke="#C96F53" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round" />
+              <path class="steam-path path-2" d="M 60,15 Q 65,3 55,-12 T 60,-32" stroke="#C96F53" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" />
+              <path class="steam-path path-3" d="M 75,14 Q 68,0 78,-14 T 73,-30" stroke="#C96F53" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <!-- Retro Hanging Lamp -->
+          <g transform="translate(250, 0)">
+            <line x1="0" y1="0" x2="0" y2="90" stroke="#3E2E2A" stroke-width="3.5" />
+            <path d="M -26,90 L 26,90 L 36,120 L -36,120 Z" fill="#3E2E2A" />
+            <ellipse cx="0" cy="120" rx="36" ry="8" fill="#FAF6F0" />
+            <ellipse cx="0" cy="120" rx="26" ry="6" fill="#FAD18F" />
+            <!-- Soft Yellow Ambient Glow overlay -->
+            <polygon points="-26,123 26,123 110,400 -110,400" fill="url(#lamp-glow-grad)" opacity="0.14" class="lamp-glow-light" />
+          </g>
+
+          <!-- Fresh buttery Croissant on a small plate -->
+          <g transform="translate(190, 355)">
+            <!-- Plate -->
+            <ellipse cx="30" cy="40" rx="38" ry="11" fill="#FAF6F0" stroke="#E8DCCF" stroke-width="1.5" />
+            <!-- Croissant rolled crescents -->
+            <path d="M 10,38 C 12,28 48,28 50,38 C 48,46 12,46 10,38 Z" fill="#D38C45" />
+            <path d="M 18,38 C 20,31 40,31 42,38 C 40,44 20,44 18,38 Z" fill="#B36E27" />
+            <path d="M 25,38 C 26,33 34,33 35,38 C 34,42 26,42 25,38 Z" fill="#8C4E12" />
+          </g>
+
+          <!-- Floating organic coffee beans -->
+          <g>
+            <ellipse cx="90" cy="160" rx="9" ry="5.5" fill="#3E2E2A" transform="rotate(32, 90, 160)" />
+            <line x1="83" y1="160" x2="97" y2="160" stroke="#2C1E1A" stroke-width="1.2" transform="rotate(32, 90, 160)" />
+
+            <ellipse cx="380" cy="130" rx="11" ry="6.5" fill="#3E2E2A" transform="rotate(-38, 380, 130)" />
+            <line x1="371" y1="130" x2="389" y2="130" stroke="#2C1E1A" stroke-width="1.5" transform="rotate(-38, 380, 130)" />
+            
+            <ellipse cx="420" cy="310" rx="8" ry="4.5" fill="#3E2E2A" transform="rotate(20, 420, 310)" />
+          </g>
+
+          <!-- Defined Gradients -->
+          <defs>
+            <linearGradient id="lamp-glow-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FAD18F" />
+              <stop offset="100%" stop-color="#FAD18F" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights Bar Section -->
+  <section class="features-bar">
+    <div class="container features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-item">
+        <div class="feature-icon-box">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.58 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm-1-8h2v5h-2zm0-3h2v2h-2z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Ethically Sourced</h3>
+          <p>Organic, fair-trade micro-lot beans roasted weekly by us.</p>
+        </div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-item">
+        <div class="feature-icon-box">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Handcrafted Daily</h3>
+          <p>Slow fermentation bakery goods and custom sauces.</p>
+        </div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-item">
+        <div class="feature-icon-box">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Cozy Work Nooks</h3>
+          <p>High-speed fiber Wi-Fi, silent spaces, and reading light chairs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section -->
+  <section class="menu-section section-padding" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Artisanal Flavor Profile</span>
+        <h2>Explore Our Cozy Menu Board</h2>
+        <p>Gourmet sips and homemade bites curated for lazy mornings and comfortable afternoons.</p>
+      </div>
+
+      <!-- Filter Selection Tabs -->
+      <div class="menu-categories">
+        <button class="category-btn active" data-category="all">All Offerings</button>
+        <button class="category-btn" data-category="coffee">Specialty Coffee</button>
+        <button class="category-btn" data-category="tea">Artisanal Tea</button>
+        <button class="category-btn" data-category="bakery">Fresh Bakery</button>
+        <button class="category-btn" data-category="sandwiches">Rustic Sandwiches</button>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu-grid" id="menuGrid">
+        
+        <!-- Coffee 1 -->
+        <div class="menu-card" data-category="coffee" id="item-lavender-honey">
+          <div class="menu-thumb">
+            <!-- Specialty coffee mug SVG icon -->
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Lavender Honey Latte</h3>
+              <span class="menu-price">$5.75</span>
+            </div>
+            <p class="menu-desc">Double micro-lot espresso, velvety steamed oat milk, local organic lavender infusion, raw forest honey.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-special">House Special</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('lavender-honey', 'Lavender Honey Latte', 5.75, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coffee 2 -->
+        <div class="menu-card" data-category="coffee" id="item-maple-pecan">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Maple Pecan Cold Brew</h3>
+              <span class="menu-price">$5.25</span>
+            </div>
+            <p class="menu-desc">18-hour cold brew steeped with chicory, premium maple syrup, toasted pecan cream cold foam toppings.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-best">Best Seller</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('maple-pecan', 'Maple Pecan Cold Brew', 5.25, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coffee 3 -->
+        <div class="menu-card" data-category="coffee" id="item-pistachio-rose">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Pistachio Rose Flat White</h3>
+              <span class="menu-price">$5.95</span>
+            </div>
+            <p class="menu-desc">Ristretto espresso shots combined with silky pistachio milk, finished with culinary rose petals.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags"></div>
+              <button class="add-to-bag-btn" onclick="addToCart('pistachio-rose', 'Pistachio Rose Flat White', 5.95, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tea 1 -->
+        <div class="menu-card" data-category="tea" id="item-matcha-latte">
+          <div class="menu-thumb">
+            <!-- Tea cup/mug SVG -->
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Ceremonial Matcha Latte</h3>
+              <span class="menu-price">$6.00</span>
+            </div>
+            <p class="menu-desc">Premium stone-ground Uji matcha, steamed organic almond milk, lightly sweetened with vanilla bean paste.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-best">Pure Organic</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('matcha-latte', 'Ceremonial Matcha Latte', 6.00, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tea 2 -->
+        <div class="menu-card" data-category="tea" id="item-turmeric-chai">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Golden Turmeric Chai</h3>
+              <span class="menu-price">$5.75</span>
+            </div>
+            <p class="menu-desc">A warming blend of black tea leaves, cardamon, cloves, fresh grated turmeric root, ginger, and steamed milk.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-special">Healing Recipe</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('turmeric-chai', 'Golden Turmeric Chai', 5.75, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tea 3 -->
+        <div class="menu-card" data-category="tea" id="item-hibiscus-breeze">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Hibiscus Berry Breeze</h3>
+              <span class="menu-price">$4.95</span>
+            </div>
+            <p class="menu-desc">Iced organic hibiscus tea leaves, elderberry juice, sweet orange slices, topped with wild crushed mint leaves.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags"></div>
+              <button class="add-to-bag-btn" onclick="addToCart('hibiscus-breeze', 'Hibiscus Berry Breeze', 4.95, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bakery 1 -->
+        <div class="menu-card" data-category="bakery" id="item-almond-croissant">
+          <div class="menu-thumb">
+            <!-- Pastry/Croissant SVG icon -->
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Flaky Almond Croissant</h3>
+              <span class="menu-price">$4.50</span>
+            </div>
+            <p class="menu-desc">Twice-baked organic butter croissant loaded with thick sweet almond frangipane, topped with crispy shaved almonds.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-best">Baked Today</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('almond-croissant', 'Flaky Almond Croissant', 4.50, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bakery 2 -->
+        <div class="menu-card" data-category="bakery" id="item-caramel-bun">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Salted Caramel Pecan Bun</h3>
+              <span class="menu-price">$4.75</span>
+            </div>
+            <p class="menu-desc">Gooey soft-risen cardamom brioche buns topped with a rich sea salt caramel glaze and roasted dark pecans.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-special">Cozy Comfort</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('caramel-bun', 'Salted Caramel Pecan Bun', 4.75, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bakery 3 -->
+        <div class="menu-card" data-category="bakery" id="item-avocado-toast">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Sourdough Avocado Toast</h3>
+              <span class="menu-price">$9.50</span>
+            </div>
+            <p class="menu-desc">Toasted artisan sourdough, thick smash of Hass avocados, roasted cherry tomatoes, feta cheese crumbs, chili flakes.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags"></div>
+              <button class="add-to-bag-btn" onclick="addToCart('avocado-toast', 'Sourdough Avocado Toast', 9.50, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sandwich 1 -->
+        <div class="menu-card" data-category="sandwiches" id="item-turkey-pesto">
+          <div class="menu-thumb">
+            <!-- Sandwich inline SVG -->
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M20.5 7h-1.3l-2.6-3.8c-.3-.4-.8-.6-1.3-.6H8.7c-.5 0-1 .2-1.3.6L4.8 7H3.5C2.1 7 1 8.1 1 9.5v8c0 1.4 1.1 2.5 2.5 2.5h17c1.4 0 2.5-1.1 2.5-2.5v-8c0-1.4-1.1-2.5-2.5-2.5zm-11.8-3h6.6l1.8 2.6H6.9L8.7 4zm11.8 13.5c0 .3-.2.5-.5.5h-17c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h17c.3 0 .5.2.5.5v8z" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Turkey Focaccia Panini</h3>
+              <span class="menu-price">$11.75</span>
+            </div>
+            <p class="menu-desc">Smoked sliced turkey breast, heirloom tomatoes, fresh mozzarella, organic basil pesto, grilled crispy on garlic focaccia.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-best">Best Seller</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('turkey-pesto', 'Turkey Focaccia Panini', 11.75, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sandwich 2 -->
+        <div class="menu-card" data-category="sandwiches" id="item-halloumi-wrap">
+          <div class="menu-thumb">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M20.5 7h-1.3l-2.6-3.8c-.3-.4-.8-.6-1.3-.6H8.7c-.5 0-1 .2-1.3.6L4.8 7H3.5C2.1 7 1 8.1 1 9.5v8c0 1.4 1.1 2.5 2.5 2.5h17c1.4 0 2.5-1.1 2.5-2.5v-8c0-1.4-1.1-2.5-2.5-2.5zm-11.8-3h6.6l1.8 2.6H6.9L8.7 4zm11.8 13.5c0 .3-.2.5-.5.5h-17c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h17c.3 0 .5.2.5.5v8z" />
+            </svg>
+          </div>
+          <div class="menu-info">
+            <div class="menu-header-row">
+              <h3 class="menu-name">Garden Halloumi Panini</h3>
+              <span class="menu-price">$10.95</span>
+            </div>
+            <p class="menu-desc">Grilled cypriot halloumi cheese, fire-roasted sweet bell peppers, zucchini, fresh baby spinach, herb garlic tahini dressing.</p>
+            <div class="menu-footer-row">
+              <div class="menu-tags">
+                <span class="menu-tag menu-tag-special">Vegetarian</span>
+              </div>
+              <button class="add-to-bag-btn" onclick="addToCart('halloumi-wrap', 'Garden Halloumi Panini', 10.95, this)" aria-label="Add to Bag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Cozy Corners Section (Gallery Grid) -->
+  <section class="gallery-section section-padding" id="corners">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-sage">Curated Sanctuary Spaces</span>
+        <h2>Find Your Perfect Cozy Corner</h2>
+        <p>Every cozy space inside L'Arôme is handcrafted with unique lighting and comfort characters. Claim your nook today.</p>
+      </div>
+
+      <!-- Responsive Gallery Grid -->
+      <div class="gallery-grid">
+        
+        <!-- Card 1: Reading Nook -->
+        <div class="gallery-card">
+          <div class="gallery-panel panel-reading">
+            <!-- Cozy books SVG scene -->
+            <svg class="panel-svg" viewBox="0 0 100 100">
+              <rect x="25" y="40" width="12" height="45" rx="2" fill="#2C1E1A" />
+              <rect x="39" y="30" width="14" height="55" rx="2" fill="#C96F53" />
+              <rect x="55" y="45" width="10" height="40" rx="2" fill="#7D8E78" transform="rotate(10 60 65)" />
+              <line x1="15" y1="85" x2="85" y2="85" stroke="#2C1E1A" stroke-width="4" stroke-linecap="round" />
+              <!-- Soft candle flame -->
+              <circle cx="46" cy="18" r="4" fill="#FAD18F" />
+            </svg>
+          </div>
+          <div class="gallery-info">
+            <div>
+              <h3>The Reading Library</h3>
+              <p>Surrounded by floor-to-ceiling vintage oak bookshelves, antique leather armchairs, and warm amber light. Perfect for slow literature hours.</p>
+            </div>
+            <div class="gallery-action">
+              <span class="badge badge-sage">Quiet Spot</span>
+              <span class="gallery-link" onclick="openReservationModal('The Reading Library')">
+                Book This Nook
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Glass Conservatory -->
+        <div class="gallery-card">
+          <div class="gallery-panel panel-sunlit">
+            <!-- Plant conservatory SVG scene -->
+            <svg class="panel-svg" viewBox="0 0 100 100">
+              <!-- Hanging plant -->
+              <path d="M 50,15 L 50,45" stroke="#3E2E2A" stroke-width="2" />
+              <path d="M 35,45 C 35,55 65,55 65,45 Z" fill="#C96F53" />
+              <path d="M 42,45 C 38,30 25,25 20,28 Q 15,32 30,40" fill="none" stroke="#7D8E78" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M 58,45 C 62,30 75,25 80,28 Q 85,32 70,40" fill="none" stroke="#7D8E78" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="50" cy="35" r="5" fill="#7D8E78" />
+              <line x1="20" y1="90" x2="80" y2="90" stroke="#3E2E2A" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="gallery-info">
+            <div>
+              <h3>The Sunlit Conservatory</h3>
+              <p>A panoramic glasshouse space overflowing with climbing ivy, split-leaf monstera foliage, and gorgeous warm natural lighting.</p>
+            </div>
+            <div class="gallery-action">
+              <span class="badge badge-sage">Natural Light</span>
+              <span class="gallery-link" onclick="openReservationModal('The Sunlit Conservatory')">
+                Book This Nook
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: The Roastery Counter -->
+        <div class="gallery-card">
+          <div class="gallery-panel panel-roastery">
+            <!-- Roastery gear SVG scene -->
+            <svg class="panel-svg" viewBox="0 0 100 100">
+              <path d="M 25,75 L 75,75" stroke="#3E2E2A" stroke-width="4" />
+              <path d="M 30,73 L 30,35 L 70,35 L 70,73 Z" fill="#C96F53" />
+              <circle cx="50" cy="52" r="12" fill="#E8DCCF" stroke="#2C1E1A" stroke-width="2" />
+              <!-- Dial indicators -->
+              <path d="M 50,52 L 56,46" stroke="#2C1E1A" stroke-width="2" stroke-linecap="round" />
+              <rect x="42" y="25" width="16" height="10" fill="#3E2E2A" />
+            </svg>
+          </div>
+          <div class="gallery-info">
+            <div>
+              <h3>The Barista Hearth</h3>
+              <p>Claim a high stool directly in front of our raw copper Giesen roaster. Breathe the fresh coffee aromas and converse with our roaster masters.</p>
+            </div>
+            <div class="gallery-action">
+              <span class="badge badge-sage">Coffee Aromas</span>
+              <span class="gallery-link" onclick="openReservationModal('The Barista Hearth')">
+                Book This Nook
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Fireside Snug -->
+        <div class="gallery-card">
+          <div class="gallery-panel panel-fireside">
+            <!-- Fireplace cozy SVG scene -->
+            <svg class="panel-svg" viewBox="0 0 100 100">
+              <path d="M 20,80 L 80,80 L 70,40 L 30,40 Z" fill="#3E2E2A" />
+              <path d="M 35,80 C 35,60 65,60 65,80 Z" fill="#FAF6F0" />
+              <!-- Flickering flames -->
+              <path d="M 45,80 Q 42,65 48,58 Q 54,65 52,80" fill="#C96F53" />
+              <path d="M 51,80 Q 48,70 52,65 Q 56,70 55,80" fill="#FAD18F" />
+              <rect x="15" y="32" width="70" height="8" rx="2" fill="#C96F53" />
+            </svg>
+          </div>
+          <div class="gallery-info">
+            <div>
+              <h3>The Fireside Snug</h3>
+              <p>Plush mohair chairs nestled next to a rustic stone hearth fireplace. Unwind with a warm, slow-cooked cardamom milk brew.</p>
+            </div>
+            <div class="gallery-action">
+              <span class="badge badge-sage">Warm Glow</span>
+              <span class="gallery-link" onclick="openReservationModal('The Fireside Snug')">
+                Book This Nook
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Find Us Section (with fully responsive, premium interactive styled map) -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container contact-grid">
+      
+      <!-- Left side contact details & hours -->
+      <div class="map-wrapper">
+        <div class="hours-panel">
+          <h3>Hearth & Hours</h3>
+          <div class="hours-list">
+            <div class="hours-row">
+              <span class="hours-day">Weekday Coffee Roasts</span>
+              <span class="hours-time">7:00 AM – 6:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Weekend Lazy Brunch</span>
+              <span class="hours-time">8:00 AM – 7:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Bakery Batch Releases</span>
+              <span class="hours-time">Daily at 7:30 AM</span>
+            </div>
+          </div>
+
+          <div class="contact-meta">
+            <!-- Address item -->
+            <div class="meta-item">
+              <div class="meta-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div class="meta-text">
+                <h5>Physical Bistro Address</h5>
+                <p>124 Maple Avenue, Old Town District</p>
+              </div>
+            </div>
+            <!-- Phone item -->
+            <div class="meta-item">
+              <div class="meta-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+              </div>
+              <div class="meta-text">
+                <h5>Call the Baristas</h5>
+                <p>(555) 843-2766 (843-AROM)</p>
+              </div>
+            </div>
+            <!-- Email item -->
+            <div class="meta-item">
+              <div class="meta-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+              </div>
+              <div class="meta-text">
+                <h5>Direct Inquiries</h5>
+                <p>hearth@laromebistro.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fully Interactive Styled Vector Map Container -->
+        <div class="map-container" id="mapContainer">
+          
+          <!-- Moving Panning Map Canvas -->
+          <div class="map-canvas" id="mapCanvas">
+            <!-- Simulated Streets & River SVG Graphics -->
+            <svg class="map-streets-svg" viewBox="0 0 700 580">
+              <defs>
+                <!-- River pattern/gradient -->
+                <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#C2D8D6" />
+                  <stop offset="100%" stop-color="#A5C7C3" />
+                </linearGradient>
+              </defs>
+
+              <!-- Park Greens -->
+              <rect x="50" y="80" width="160" height="120" rx="15" fill="#DFE8DE" />
+              <rect x="420" y="320" width="220" height="180" rx="20" fill="#DFE8DE" />
+              <circle cx="580" cy="120" r="70" fill="#E6EDE5" />
+
+              <!-- Soft Blue-Green River -->
+              <path d="M-50,420 Q 200,320 380,480 T 750,400" fill="none" stroke="url(#riverGrad)" stroke-width="45" stroke-linecap="round" />
+
+              <!-- Secondary Streets Grid lines -->
+              <path d="M 40,0 L 40,580" fill="none" stroke="#E8DCCF" stroke-width="8" />
+              <path d="M 180,0 L 180,580" fill="none" stroke="#E8DCCF" stroke-width="8" />
+              <path d="M 350,0 L 350,580" fill="none" stroke="#E8DCCF" stroke-width="12" /> <!-- Maple Ave -->
+              <path d="M 520,0 L 520,580" fill="none" stroke="#E8DCCF" stroke-width="8" />
+              
+              <path d="M 0,110 L 700,110" fill="none" stroke="#E8DCCF" stroke-width="8" />
+              <path d="M 0,290 L 700,290" fill="none" stroke="#E8DCCF" stroke-width="12" /> <!-- Oak St -->
+              <path d="M 0,440 L 700,440" fill="none" stroke="#E8DCCF" stroke-width="8" />
+              
+              <!-- Street Names -->
+              <text x="365" y="50" fill="#8E7D79" font-size="11" font-weight="600" letter-spacing="1.5" transform="rotate(90, 365, 50)">MAPLE AVENUE</text>
+              <text x="50" y="282" fill="#8E7D79" font-size="11" font-weight="600" letter-spacing="1.5">OAK STREET</text>
+              <text x="75" y="145" fill="#7A8E77" font-size="12" font-weight="700" opacity="0.6">OLD TOWN PARK</text>
+            </svg>
+
+            <!-- Decorative Secondary pins (Coffee roaster partner, floral supply) -->
+            <div class="map-pin map-pin-secondary">
+              <div class="map-pin-circle" style="background-color: var(--accent-green); width: 16px; height: 16px;"></div>
+              <div class="map-tooltip">Botanical Flora Partner</div>
+            </div>
+            <div class="map-pin map-pin-secondary-2">
+              <div class="map-pin-circle" style="background-color: var(--accent-green); width: 16px; height: 16px;"></div>
+              <div class="map-tooltip">Organic Flour Mill Partner</div>
+            </div>
+
+            <!-- Primary Bistro Terracotta glowing pin -->
+            <div class="map-pin" id="bistroMapPin">
+              <div class="map-pin-pulse"></div>
+              <div class="map-pin-circle">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="#fff">
+                  <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+                </svg>
+              </div>
+              <div class="map-tooltip">L'Arôme Café & Bistro (124 Maple Ave)</div>
+            </div>
+          </div>
+
+          <!-- Label Card Overlay info -->
+          <div class="map-label-card">
+            <h5>L'Arôme Bistro</h5>
+            <p>124 Maple Avenue, Old Town</p>
+            <p style="color: var(--color-terracotta); font-weight: 600; margin-top: 4px;">📍 Grab map & pan around</p>
+          </div>
+
+          <!-- Map Zoom controls -->
+          <div class="map-controls">
+            <button class="map-ctrl-btn" id="mapZoomIn" aria-label="Zoom In">+</button>
+            <button class="map-ctrl-btn" id="mapZoomOut" aria-label="Zoom Out">−</button>
+            <button class="map-ctrl-btn" id="mapReset" style="font-size: 0.75rem;" aria-label="Reset Map">RST</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side quick contact message box -->
+      <div class="contact-form-box">
+        <h3>Send a Cozy Message</h3>
+        <p>Do you have a question about catering, coffee roasting workshops, or just want to leave feedback? We read every message.</p>
+        
+        <form id="contactBistroForm" onsubmit="handleMessageSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="contactName">Your Name</label>
+              <input type="text" id="contactName" class="form-input" placeholder="e.g. Eleanor Vance" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactEmail">Your Email</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="e.g. eleanor@gmail.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactSubject">Inquiry Interest</label>
+            <select id="contactSubject" class="form-input">
+              <option value="General Greetings">General Greetings / Coffee Chat</option>
+              <option value="Private Booking">Private Cozy Nook Gathering</option>
+              <option value="Coffee Roastery Workshop">Micro-lot Roastery Masterclass</option>
+              <option value="Catering & Pastries">Pastry & Focaccia Catering</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactMessage">Your Message</label>
+            <textarea id="contactMessage" class="form-input" placeholder="Breathe a cozy message onto our paper..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Toss into the Hearth Mailbox</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-grid">
+      
+      <!-- Col 1: About L'Arome -->
+      <div class="footer-col footer-about">
+        <h4 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">L'Arôme</h4>
+        <p>A comfortable, warm local bistro designed for artisanal micro-lot roasting, daily slow-fermentation baked bread, and silent afternoon reading spots.</p>
+        <div class="social-icons" style="display: flex;">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Navigation links -->
+      <div class="footer-col">
+        <h4>Explore Bistro</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Cozy Sanctuary Home</a></li>
+          <li><a href="#menu">Artisanal Menu Board</a></li>
+          <li><a href="#corners">Claim a Cozy Nook</a></li>
+          <li><a href="#contact">Hours & Local Map</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Menu Recommendations -->
+      <div class="footer-col">
+        <h4>Barista Specials</h4>
+        <ul class="footer-links">
+          <li><a href="#item-lavender-honey">Lavender Honey Latte</a></li>
+          <li><a href="#item-maple-pecan">Maple Pecan Cold Brew</a></li>
+          <li><a href="#item-almond-croissant">Flaky Almond Croissant</a></li>
+          <li><a href="#item-turkey-pesto">Turkey Focaccia Panini</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter -->
+      <div class="footer-col">
+        <h4>Cozy Bean & Leaf Digest</h4>
+        <div class="newsletter-form">
+          <p>Join our quiet monthly letter list. Receive seasonal bean tastings, artisan pastry recipes, and private booking promo codes.</p>
+          <form onsubmit="handleNewsletterSubmit(event)">
+            <div class="newsletter-row">
+              <input type="email" class="newsletter-input" placeholder="Cozy email here..." required>
+              <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyrights -->
+    <div class="container footer-bottom">
+      <p>&copy; 2026 L'Arôme Café & Bistro. Handcrafted with warm cream & terracotta earth tones. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Shelter</a>
+        <a href="#">Bistro Regulations</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Side Coffee Bag Order Drawer -->
+  <div class="order-drawer" id="orderDrawer">
+    <div class="drawer-header">
+      <h3>Your Coffee Bag</h3>
+      <button class="drawer-close" id="closeDrawerBtn" aria-label="Close Drawer">&times;</button>
+    </div>
+
+    <!-- Scrollable Items Area -->
+    <div class="drawer-items" id="drawerItemsList">
+      <!-- Empty message by default -->
+      <div class="drawer-empty-msg" id="drawerEmptyMsg">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z" />
+        </svg>
+        <p>Your bag is empty.<br>Browse the menu board & toss a cozy bite in here!</p>
+      </div>
+    </div>
+
+    <!-- Checkout Footer -->
+    <div class="drawer-footer" id="drawerFooter" style="display: none;">
+      <div class="totals-box">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="total-row">
+          <span>Bistro Tax (8%)</span>
+          <span id="cartTax">$0.00</span>
+        </div>
+        <div class="total-row">
+          <span>Small Pickup Charge</span>
+          <span id="cartService">$1.50</span>
+        </div>
+        <div class="total-row total-row-grand">
+          <span>Total Comfort Price</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout pickup form details -->
+      <form class="checkout-form" id="checkoutForm" onsubmit="handleCheckoutSubmit(event)">
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label class="form-label" style="font-size: 0.75rem;" for="checkoutName">Pickup Contact Name</label>
+          <input type="text" id="checkoutName" class="form-input" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. Arthur Pendelton" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <label class="form-label" style="font-size: 0.75rem;" for="checkoutTime">Estimated Pickup Time</label>
+          <select id="checkoutTime" class="form-input" style="padding: 8px 12px; font-size: 0.85rem;">
+            <option value="In 15 Minutes">In 15 Minutes</option>
+            <option value="In 30 Minutes">In 30 Minutes</option>
+            <option value="In 45 Minutes">In 45 Minutes</option>
+            <option value="In 1 Hour">In 1 Hour</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary checkout-btn">Confirm & Prep My Coffee</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Reservation Table Modal Backdrop -->
+  <div class="modal-backdrop" id="reservationModal">
+    <div class="modal-box">
+      <button class="modal-close" id="closeModalBtn" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <h3>Reserve a Cozy Nook</h3>
+        <p>Guarantee your sanctuary space in advance for deep reading, warm drinks, and co-working relaxation.</p>
+      </div>
+
+      <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="bookName">Full Name</label>
+            <input type="text" id="bookName" class="form-input" placeholder="Eleanor Vance" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bookEmail">Email Address</label>
+            <input type="email" id="bookEmail" class="form-input" placeholder="eleanor@gmail.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="bookGuests">Comfort Guests</label>
+            <select id="bookGuests" class="form-input">
+              <option value="1 Guest (Solo Reading)">1 Guest (Solo Oasis)</option>
+              <option value="2 Guests (Cozy Chat)">2 Guests (Cozy Chat)</option>
+              <option value="3 Guests (Quiet Collaboration)">3 Guests (Collaboration)</option>
+              <option value="4 Guests (Family Hearth)">4 Guests (Family Hearth)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bookNook">Sanctuary Spot</label>
+            <select id="bookNook" class="form-input">
+              <option value="No Preference (Barista's Choice)">No Preference (Barista's Choice)</option>
+              <option value="The Reading Library">The Reading Library</option>
+              <option value="The Sunlit Conservatory">The Sunlit Conservatory</option>
+              <option value="The Barista Hearth">The Barista Hearth</option>
+              <option value="The Fireside Snug">The Fireside Snug</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="bookDate">Reservation Date</label>
+            <input type="date" id="bookDate" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bookTime">Arrival Hour</label>
+            <select id="bookTime" class="form-input">
+              <option value="08:00 AM">08:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="12:00 PM">12:00 PM (Brunch)</option>
+              <option value="02:00 PM">02:00 PM (Reading Hour)</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="bookRequests">Special Hearth Pleasures</label>
+          <input type="text" id="bookRequests" class="form-input" placeholder="e.g. Near heating vent, extra blankets, vegan pasture menus...">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Reserve My Comfort Sanctuary</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Reservation Ticket Modal -->
+  <div class="modal-backdrop" id="successReservationModal">
+    <div class="modal-box" style="max-width: 460px;">
+      <button class="modal-close" onclick="closeSuccessReservation()">&times;</button>
+      <div class="success-ticket">
+        <div class="success-icon-wrap">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+          </svg>
+        </div>
+        <h3 class="font-heading" style="font-size: 1.8rem; margin-bottom: 8px;">Nook Reserved!</h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary);">Your cozy escape ticket is ready. Show this code to the baristas upon arrival.</p>
+
+        <!-- Simulated printable ticket details -->
+        <div class="ticket-details">
+          <div class="ticket-row">
+            <span class="ticket-label">Sanctuary Holder</span>
+            <span class="ticket-val" id="ticketHolderName">Eleanor Vance</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Selected Corner</span>
+            <span class="ticket-val" id="ticketNookName">The Reading Library</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Time & Guests</span>
+            <span class="ticket-val" id="ticketDateTime">May 25 @ 2:00 PM • 2 Guests</span>
+          </div>
+          <div class="ticket-id" id="ticketReservationId">LAR-892410</div>
+        </div>
+
+        <button class="btn btn-primary" onclick="closeSuccessReservation()" style="width: 100%;">Got it, Can't Wait!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Checkout Modal -->
+  <div class="modal-backdrop" id="successCheckoutModal">
+    <div class="modal-box" style="max-width: 440px;">
+      <button class="modal-close" onclick="closeSuccessCheckout()">&times;</button>
+      <div class="success-ticket">
+        <div class="success-icon-wrap" style="background-color: var(--color-terracotta-light); color: var(--color-terracotta);">
+          <!-- Coffee cup inline icon -->
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+            <path d="M2 21h18v-2H2v2M20 8h-2V5h2v3M4 19h12v-4H4v4m0-6h12V8H4v5m0-7h12V5H4v1" />
+          </svg>
+        </div>
+        <h3 class="font-heading" style="font-size: 1.8rem; margin-bottom: 8px;">Order Confirmed!</h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary);">Our baristas have ground the micro-lot beans and are heating up the steam pipes!</p>
+
+        <div class="ticket-details" style="background-color: var(--color-terracotta-light); border-color: var(--color-terracotta);">
+          <div class="ticket-row" style="border-bottom-color: rgba(201, 111, 83, 0.2);">
+            <span class="ticket-label">Pickup Customer</span>
+            <span class="ticket-val" id="checkoutReceiptName">Eleanor Vance</span>
+          </div>
+          <div class="ticket-row" style="border-bottom-color: rgba(201, 111, 83, 0.2);">
+            <span class="ticket-label">Pickup Target</span>
+            <span class="ticket-val" id="checkoutReceiptTime">In 30 Minutes</span>
+          </div>
+          <div class="ticket-row" style="border-bottom: none;">
+            <span class="ticket-label" style="font-weight: 700; color: var(--text-primary);">Total Paid</span>
+            <span class="ticket-val" id="checkoutReceiptTotal" style="color: var(--color-terracotta-dark);">$14.50</span>
+          </div>
+          <div class="ticket-id" style="color: var(--text-primary); font-size: 1.25rem; font-family: var(--font-body); margin-top: 15px;">Order #LAR-BAG-4921</div>
+        </div>
+
+        <button class="btn btn-primary" onclick="closeSuccessCheckout()" style="width: 100%;">Awesome, Prepare for Pickup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Float Cart Button Trigger -->
+  <button class="floating-cart-trigger" id="floatingCartBtn" onclick="toggleCartDrawer()" aria-label="Toggle Cart Drawer">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+      <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3z"/>
+    </svg>
+    <div class="cart-badge" id="floatingCartCount">0</div>
+  </button>
+
+  <!-- Back to top floating anchor button -->
+  <button class="back-to-top" id="backToTopBtn" onclick="scrollToTop()" aria-label="Back to Top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+      <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ==========================================
+       Javascript Code (Functional & Interactive)
+       ========================================== -->
+  <script>
+    /* Global Cart Array for Order Online Drawer */
+    let cart = [];
+
+    /* ==========================================
+       Mobile Navigation Menu Logic
+       ========================================== */
+    const hamburger = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile nav when link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    /* ==========================================
+       Header Shrink on Scroll Logic
+       ========================================== */
+    const header = document.getElementById('header');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const floatingCartBtn = document.getElementById('floatingCartBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+        if (cart.length > 0) {
+          floatingCartBtn.classList.add('visible');
+        }
+      } else {
+        backToTopBtn.classList.remove('visible');
+        floatingCartBtn.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    /* ==========================================
+       Interactive Category Filter Logic (Menu Board)
+       ========================================== */
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const menuCards = document.querySelectorAll('.menu-card');
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle Active Button Styles
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-category');
+
+        menuCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+
+          if (filterValue === 'all' || cardCategory === filterValue) {
+            // Smooth fade-in
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.96) translateY(5px)';
+            
+            setTimeout(() => {
+              card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1) translateY(0)';
+            }, 50);
+          } else {
+            // Hide non-matching items
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    /* ==========================================
+       Cozy Cart/Coffee Bag Operations System
+       ========================================== */
+    const openBagBtn = document.getElementById('openBagBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const orderDrawer = document.getElementById('orderDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerItemsList = document.getElementById('drawerItemsList');
+    const drawerEmptyMsg = document.getElementById('drawerEmptyMsg');
+    const drawerFooter = document.getElementById('drawerFooter');
+
+    const headerCartCount = document.getElementById('headerCartCount');
+    const floatingCartCount = document.getElementById('floatingCartCount');
+
+    // Drawer Toggles
+    openBagBtn.addEventListener('click', toggleCartDrawer);
+    closeDrawerBtn.addEventListener('click', toggleCartDrawer);
+    drawerBackdrop.addEventListener('click', toggleCartDrawer);
+
+    function toggleCartDrawer() {
+      orderDrawer.classList.toggle('active');
+      drawerBackdrop.classList.toggle('active');
+    }
+
+    // Add Item to bag logic
+    function addToCart(id, name, price, buttonElement) {
+      const existingItem = cart.find(item => item.id === id);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ id, name, price, quantity: 1 });
+      }
+
+      // Increment count updates
+      updateCartDisplay();
+
+      // Show beautiful Toast Notification
+      showToast(`Added ${name} to your coffee bag!`, 'success');
+
+      // Trigger standard floating +1 text animation over the clicked button
+      if (buttonElement) {
+        const plusOne = document.createElement('span');
+        plusOne.innerText = '+1';
+        plusOne.classList.add('plus-one-animation');
+        buttonElement.style.position = 'relative';
+        
+        // Positioning
+        plusOne.style.left = '50%';
+        plusOne.style.top = '0';
+        
+        buttonElement.appendChild(plusOne);
+        setTimeout(() => {
+          plusOne.remove();
+        }, 800);
+      }
+
+      // Animate order badge shake
+      openBagBtn.style.transform = 'scale(1.1) rotate(-3deg)';
+      setTimeout(() => {
+        openBagBtn.style.transform = 'none';
+      }, 250);
+    }
+
+    // Adjust quantities
+    function changeQty(id, delta) {
+      const item = cart.find(item => item.id === id);
+      if (!item) return;
+
+      item.quantity += delta;
+
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+
+      updateCartDisplay();
+    }
+
+    // Remove item
+    function removeItem(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartDisplay();
+      showToast("Removed item from bag", "normal");
+    }
+
+    // Render cart items inside Drawer
+    function updateCartDisplay() {
+      // Calculate total item count
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      headerCartCount.innerText = totalCount;
+      floatingCartCount.innerText = totalCount;
+
+      // Handle visibility of floating cart trigger anchor
+      if (totalCount > 0 && window.scrollY > 300) {
+        floatingCartBtn.classList.add('visible');
+      } else {
+        floatingCartBtn.classList.remove('visible');
+      }
+
+      // Check if cart is empty
+      if (cart.length === 0) {
+        drawerEmptyMsg.style.display = 'flex';
+        drawerFooter.style.display = 'none';
+        
+        // Remove items except empty message
+        const items = drawerItemsList.querySelectorAll('.cart-item');
+        items.forEach(i => i.remove());
+        return;
+      }
+
+      drawerEmptyMsg.style.display = 'none';
+      drawerFooter.style.display = 'block';
+
+      // Clear previous elements
+      const items = drawerItemsList.querySelectorAll('.cart-item');
+      items.forEach(i => i.remove());
+
+      // Render new items
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+
+        const cartItemEl = document.createElement('div');
+        cartItemEl.classList.add('cart-item');
+        cartItemEl.innerHTML = `
+          <div class="cart-item-info">
+            <h4 class="cart-item-name">${item.name}</h4>
+            <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+            <div class="cart-item-controls">
+              <button class="qty-btn" onclick="changeQty('${item.id}', -1)" aria-label="Decrease quantity">−</button>
+              <span class="cart-item-qty">${item.quantity}</span>
+              <button class="qty-btn" onclick="changeQty('${item.id}', 1)" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="removeItem('${item.id}')" aria-label="Remove item">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+            </svg>
+          </button>
+        `;
+        drawerItemsList.appendChild(cartItemEl);
+      });
+
+      // Update price totals
+      const tax = subtotal * 0.08;
+      const service = 1.50;
+      const total = subtotal + tax + service;
+
+      document.getElementById('cartSubtotal').innerText = `$${subtotal.toFixed(2)}`;
+      document.getElementById('cartTax').innerText = `$${tax.toFixed(2)}`;
+      document.getElementById('cartTotal').innerText = `$${total.toFixed(2)}`;
+    }
+
+    // Checkout pickup order submit logic
+    function handleCheckoutSubmit(event) {
+      event.preventDefault();
+      
+      const nameVal = document.getElementById('checkoutName').value;
+      const timeVal = document.getElementById('checkoutTime').value;
+      const totalVal = document.getElementById('cartTotal').innerText;
+
+      // Update receipts values on success ticket
+      document.getElementById('checkoutReceiptName').innerText = nameVal;
+      document.getElementById('checkoutReceiptTime').innerText = timeVal;
+      document.getElementById('checkoutReceiptTotal').innerText = totalVal;
+
+      // Close drawer & reset cart
+      toggleCartDrawer();
+      cart = [];
+      updateCartDisplay();
+      document.getElementById('checkoutForm').reset();
+
+      // Show receipt ticket modal window
+      document.getElementById('successCheckoutModal').classList.add('active');
+    }
+
+    function closeSuccessCheckout() {
+      document.getElementById('successCheckoutModal').classList.remove('active');
+      showToast("Order prep started! See you soon.", "success");
+    }
+
+    /* ==========================================
+       Hearth Table & Cozy Nook Reservation Modal
+       ========================================== */
+    const reserveModal = document.getElementById('reservationModal');
+    const reserveTableBtnHero = document.getElementById('reserveTableBtnHero');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const bookingForm = document.getElementById('bookingForm');
+
+    // Open/Close reservation modal events
+    reserveTableBtnHero.addEventListener('click', () => openReservationModal());
+    closeModalBtn.addEventListener('click', closeReservationModal);
+    
+    // Close modal if clicking background
+    reserveModal.addEventListener('click', (e) => {
+      if (e.target === reserveModal) closeReservationModal();
+    });
+
+    // Populate nook pre-selection when booking from card
+    function openReservationModal(nookName = "No Preference (Barista's Choice)") {
+      // Set select values
+      const selectEl = document.getElementById('bookNook');
+      for (let i = 0; i < selectEl.options.length; i++) {
+        if (selectEl.options[i].value === nookName) {
+          selectEl.selectedIndex = i;
+          break;
+        }
+      }
+
+      // Autofill date with tomorrow's date
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('bookDate').value = tomorrow.toISOString().substring(0, 10);
+
+      reserveModal.classList.add('active');
+    }
+
+    function closeReservationModal() {
+      reserveModal.classList.remove('active');
+      bookingForm.reset();
+    }
+
+    // Reservation Submit Form
+    function handleBookingSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('bookName').value;
+      const email = document.getElementById('bookEmail').value;
+      const guests = document.getElementById('bookGuests').value;
+      const nook = document.getElementById('bookNook').value;
+      const date = document.getElementById('bookDate').value;
+      const time = document.getElementById('bookTime').value;
+
+      // Generate random ticket Reservation ID
+      const randomId = "LAR-" + Math.floor(100000 + Math.random() * 900000);
+
+      // Populate Success ticket details
+      document.getElementById('ticketHolderName').innerText = name;
+      document.getElementById('ticketNookName').innerText = nook;
+      document.getElementById('ticketDateTime').innerText = `${date} @ ${time} • ${guests.split(' ')[0]} Guests`;
+      document.getElementById('ticketReservationId').innerText = randomId;
+
+      // Toggle views
+      closeReservationModal();
+      document.getElementById('successReservationModal').classList.add('active');
+    }
+
+    function closeSuccessReservation() {
+      document.getElementById('successReservationModal').classList.remove('active');
+      showToast("Sanctuary nook reserved! Check your email.", "success");
+    }
+
+    /* ==========================================
+       Message & Newsletter Forms Logic
+       ========================================== */
+    function handleMessageSubmit(event) {
+      event.preventDefault();
+      const subject = document.getElementById('contactSubject').value;
+      showToast(`Cozy message sent regarding "${subject}"!`, "success");
+      document.getElementById('contactBistroForm').reset();
+    }
+
+    function handleNewsletterSubmit(event) {
+      event.preventDefault();
+      showToast("Tossed into the newsletter list! Welcome.", "success");
+      event.target.reset();
+    }
+
+    /* ==========================================
+       Toast Notifications System Logic
+       ========================================== */
+    function showToast(message, type = "normal") {
+      const container = document.getElementById('toastContainer');
+      const toastEl = document.createElement('div');
+      toastEl.classList.add('toast');
+      if (type === 'success') {
+        toastEl.classList.add('toast-success');
+      }
+
+      const iconHTML = type === 'success' 
+        ? `<svg class="toast-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>`
+        : `<svg class="toast-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>`;
+
+      toastEl.innerHTML = `
+        ${iconHTML}
+        <span>${message}</span>
+      `;
+
+      container.appendChild(toastEl);
+
+      // Auto dismiss after 3.5s
+      setTimeout(() => {
+        toastEl.style.transition = 'all 0.35s ease-out';
+        toastEl.style.transform = 'translateY(15px) scale(0.95)';
+        toastEl.style.opacity = '0';
+        setTimeout(() => toastEl.remove(), 350);
+      }, 3500);
+    }
+
+    /* ==========================================
+       Fully-Interactive Drag-and-Pan simulated Map
+       ========================================== */
+    const mapContainer = document.getElementById('mapContainer');
+    const mapCanvas = document.getElementById('mapCanvas');
+    const zoomInBtn = document.getElementById('mapZoomIn');
+    const zoomOutBtn = document.getElementById('mapZoomOut');
+    const resetBtn = document.getElementById('mapReset');
+
+    let scale = 1.0;
+    let isDragging = false;
+    let startX, startY;
+    let translateX = -100;
+    let translateY = -100;
+
+    // Boundaries configuration to prevent dragging into void
+    const minX = -320;
+    const maxX = 100;
+    const minY = -250;
+    const maxY = 50;
+
+    // Dragging mouse actions
+    mapContainer.addEventListener('mousedown', (e) => {
+      // Allow buttons click without drag triggering
+      if (e.target.closest('.map-controls') || e.target.closest('.map-label-card') || e.target.closest('.map-pin')) return;
+      
+      isDragging = true;
+      mapContainer.style.cursor = 'grabbing';
+      startX = e.clientX - translateX;
+      startY = e.clientY - translateY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      let nextX = e.clientX - startX;
+      let nextY = e.clientY - startY;
+
+      // Clamp coordinates to bounds
+      translateX = Math.max(minX, Math.min(maxX, nextX));
+      translateY = Math.max(minY, Math.min(maxY, nextY));
+
+      applyMapTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      mapContainer.style.cursor = 'grab';
+    });
+
+    // Touch events for mobile screens
+    mapContainer.addEventListener('touchstart', (e) => {
+      if (e.target.closest('.map-controls') || e.target.closest('.map-label-card') || e.target.closest('.map-pin')) return;
+      isDragging = true;
+      startX = e.touches[0].clientX - translateX;
+      startY = e.touches[0].clientY - translateY;
+    });
+
+    mapContainer.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      let nextX = e.touches[0].clientX - startX;
+      let nextY = e.touches[0].clientY - startY;
+
+      translateX = Math.max(minX, Math.min(maxX, nextX));
+      translateY = Math.max(minY, Math.min(maxY, nextY));
+
+      applyMapTransform();
+    });
+
+    mapContainer.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    // Zoom Buttons actions
+    zoomInBtn.addEventListener('click', () => {
+      scale = Math.min(2.0, scale + 0.25);
+      applyMapTransform();
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+      scale = Math.max(0.75, scale - 0.25);
+      applyMapTransform();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      scale = 1.0;
+      translateX = -100;
+      translateY = -100;
+      applyMapTransform();
+      showToast("Map viewport reset", "normal");
+    });
+
+    function applyMapTransform() {
+      mapCanvas.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+    }
+
+    // Trigger map centering on pin load/click
+    const pinEl = document.getElementById('bistroMapPin');
+    pinEl.addEventListener('click', () => {
+      scale = 1.4;
+      translateX = -100;
+      translateY = -100;
+      applyMapTransform();
+      showToast("Centered on L'Arôme Bistro!", "success");
+    });
+
+  </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/restaurant-fine-dining" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">restaurant</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Swiss Fine Dining</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/fitness-yoga" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">restaurant</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Oslo Yoga Studio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

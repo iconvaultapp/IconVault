@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Calculate your weighted class grade from assignments and forecast what you need on the final exam to hit your target. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Grade Calculator** computes your **weighted course grade** from your assignments. Add rows with each **assignment's score, total points and weight**, and it instantly shows your current grade, how many items are counted and whether your weights add up.",
-      "It also includes a **final exam forecaster**: enter the **final's weight** and your **target grade**, and it tells you exactly what score you need on the final, flagging when the target is already locked in or mathematically **out of reach**. It is **free** with no signup and runs **fully in your browser**, so your grades stay private. The honest caveat: it uses the simple weighted-average formula, so confirm with your syllabus if your class drops lowest scores or uses a curve."
+      "It also includes a **final exam forecaster**: enter the **final's weight** and your **target grade**, and it tells you exactly what score you need on the final, flagging when the target is already locked in or mathematically **out of reach**. It is **free** to use; downloads need a free account and runs **fully in your browser**, so your grades stay private. The honest caveat: it uses the simple weighted-average formula, so confirm with your syllabus if your class drops lowest scores or uses a curve."
     ],
     faqs: [
       { q: "How is a weighted grade calculated?", a: "Each assignment contributes (earned / possible) x weight. The sum of those contributions divided by the total weight, times 100, gives your percentage grade." },
@@ -47,7 +47,7 @@ const seo: ToolSeo = {
       "calculate current grade",
       "grade calculator with weights",
       "grade calculator free",
-      "online grade calculator no signup",
+      "online grade calculator a free account for downloads",
       "grade calculator app alternative",
       "grade tracker",
       "gradebook calculator",

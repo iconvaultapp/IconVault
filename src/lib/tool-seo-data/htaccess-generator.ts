@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build a production .htaccess visually: HTTPS and www redirects, gzip, browser caching, security headers, error pages, rewrites. Free.",
     about: [
       "**IconVault**'s **htaccess Generator** builds a complete, production-ready **.htaccess file** through toggles instead of memorized Apache syntax. Turn on **HTTPS redirects**, **www to non-www** (or the reverse), **gzip compression**, **browser caching** with Expires headers for assets, **security headers** like HSTS and X-Frame-Options, **custom error pages**, **directory listing** control, **hotlink protection** for images and your own **rewrite rules**, with a live preview of the file as you configure it.",
-      "Copy the result or download it straight to your server directory. It is **free** with no signup and runs **fully in your browser**, so nothing is uploaded. The honest caveats: .htaccess is **Apache only** and does nothing on Nginx or LiteSpeed-without-support; some shared hosts disable certain directives, so test the file on staging first; and the tool cannot see your existing .htaccess, so merge its output with rules you already have instead of overwriting them."
+      "Copy the result or download it straight to your server directory. It is **free** to use; downloads need a free account and runs **fully in your browser**, so nothing is uploaded. The honest caveats: .htaccess is **Apache only** and does nothing on Nginx or LiteSpeed-without-support; some shared hosts disable certain directives, so test the file on staging first; and the tool cannot see your existing .htaccess, so merge its output with rules you already have instead of overwriting them."
     ],
     faqs: [
       { q: "What is an .htaccess file?", a: "It is a per-directory configuration file for Apache web servers. It controls redirects, compression, caching, security headers, error pages and URL rewrites without needing access to the main server configuration." },
@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "htaccess performance",
       "htaccess security",
       "free htaccess tool",
-      "htaccess generator no signup",
+      "htaccess generator a free account for downloads",
       "htaccess snippets",
       "common htaccess rules",
       "htaccess redirect http to https",

@@ -1,0 +1,178 @@
+/*
+ * IconVault v56 - original CSS device frames for the /mockups tool.
+ *
+ * This CSS is original IconVault code, written for this project. It renders
+ * the frame geometry from src/lib/mockup-frames.ts (bezel, corner radius,
+ * notch style, browser bar, laptop base, monitor stand, watch crown) using
+ * inline styles for the geometry plus the classes below for the chrome.
+ * No third-party CSS was copied into this file.
+ *
+ * Third-party sources checked, NOT vendored (see the delivery report):
+ * - marvelapp/devices.css: MIT verified on 2026-10-31 (repo page shows
+ *   "License: MIT License (MIT)" and its LICENSE file contains the MIT
+ *   text). Not vendored verbatim: its devices are 2014-2018 era and its
+ *   minified stylesheet does not cover the modern frames in this tool.
+ * - css-device-frames: MIT reported by Snyk, but its repository LICENSE
+ *   file could not be read directly in this session, so nothing from it
+ *   was vendored either.
+ * - No PSD file, and no file from any mockup site, was downloaded or used.
+ */
+
+.iv-mockup-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.iv-mockup-device {
+  position: relative;
+  flex-shrink: 0;
+  box-shadow:
+    0 24px 48px -16px rgb(0 0 0 / 0.35),
+    0 4px 12px -4px rgb(0 0 0 / 0.2);
+}
+
+.iv-mockup-screen {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.iv-mockup-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.iv-mockup-screen-cover img {
+  object-fit: cover;
+}
+
+.iv-mockup-screen-contain img {
+  object-fit: contain;
+}
+
+.iv-mockup-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12%;
+  box-sizing: border-box;
+  background: linear-gradient(160deg, #f2f7f5 0%, #d9ebe6 55%, #bfe0d8 100%);
+}
+
+.iv-mockup-placeholder-bar {
+  border-radius: 999px;
+  background: #0d7a68;
+}
+
+.iv-mockup-placeholder-bar-soft {
+  border-radius: 999px;
+  background: #9db8b1;
+}
+
+.iv-mockup-placeholder-card {
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+  flex: 1;
+}
+
+.iv-mockup-island,
+.iv-mockup-notch,
+.iv-mockup-punch {
+  position: absolute;
+  z-index: 3;
+  background: #000000;
+}
+
+.iv-mockup-island {
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+}
+
+.iv-mockup-notch {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 12px 12px;
+}
+
+.iv-mockup-punch {
+  top: 3%;
+  left: 50%;
+  border-radius: 999px;
+}
+
+.iv-mockup-browserbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background: #ececf0;
+}
+
+.iv-mockup-browserbar-dark {
+  background: #2c2c2e;
+}
+
+.iv-mockup-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.iv-mockup-url {
+  flex: 1;
+  height: 18px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.iv-mockup-browserbar-dark .iv-mockup-url {
+  background: #48484a;
+}
+
+.iv-mockup-base {
+  margin: 0 auto;
+  border-radius: 0 0 12px 12px;
+  background: #c9c9ce;
+  box-shadow: 0 6px 12px -4px rgb(0 0 0 / 0.3);
+}
+
+.iv-mockup-base-notch {
+  width: 12%;
+  height: 6px;
+  margin: 0 auto;
+  border-radius: 0 0 8px 8px;
+  background: #aeaeb2;
+}
+
+.iv-mockup-stand-neck {
+  margin: 0 auto;
+  background: #b9b9be;
+}
+
+.iv-mockup-stand-foot {
+  margin: 0 auto;
+  border-radius: 8px 8px 4px 4px;
+  background: #c9c9ce;
+}
+
+.iv-mockup-crown {
+  position: absolute;
+  right: -6px;
+  top: 30%;
+  width: 6px;
+  height: 18%;
+  border-radius: 3px;
+  background: #8a8a8e;
+}

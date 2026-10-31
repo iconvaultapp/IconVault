@@ -2,17 +2,17 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "npm Name Checker - Free Online npm Package Name Tool | IconVault",
-    metaDescription: "Check npm package name availability in bulk: paste names, see which are free or taken via the live npm registry. Free, no signup.",
+    metaDescription: "Check npm package name availability in bulk: paste names, see which are free or taken via the live npm registry. Free; downloads need a free account.",
     about: [
       "**IconVault**'s **npm Name Checker** checks many **npm package names** at once, so you can pick a name with confidence before you publish. Paste one name per line and it queries the **live npm registry** for each: a **404 response** means the name is available, anything else means it is taken. Results appear row by row with clear available, taken and error states, and you can copy the available names straight to your clipboard.",
-      "The tool is **free** with no signup. One honest note: the checks run against the live npm registry, so each lookup is a quick network request, and a name that is free right now could be registered by someone else before you publish. When a name matters to you, publish a placeholder version soon or reserve your namespace with an **npm scope**."
+      "The tool is **free** with a free account for downloads. One honest note: the checks run against the live npm registry, so each lookup is a quick network request, and a name that is free right now could be registered by someone else before you publish. When a name matters to you, publish a placeholder version soon or reserve your namespace with an **npm scope**."
     ],
     faqs: [
       { q: "How does the npm name check work?", a: "The tool queries https://registry.npmjs.org for each name you paste. If the registry returns a 404, the name is available; if it returns a package document, the name is taken. This is the same source of truth npm itself uses." },
       { q: "Can I check multiple names at once?", a: "Yes. Paste one name per line and the checker works through the whole list with a small concurrency limit, so you get fast results without hammering the registry." },
       { q: "Does it work with scoped packages like @myorg/name?", a: "Yes. Scoped names are URL-encoded correctly, so you can check names like @myorg/my-package the same way as unscoped ones." },
       { q: "Is an available name guaranteed to stay available?", a: "No. Names are first-come, first-served on the npm registry, so someone else can publish a name between your check and your publish. If a name matters to you, publish a placeholder version or reserve it under your scope soon." },
-      { q: "Do I need an npm account to use this?", a: "No. The checker is free and needs no signup or npm login. You only need an npm account when you actually publish a package." },
+      { q: "Do I need an npm account to use this?", a: "No. The checker is free and needs a free account for downloads or npm login. You only need an npm account when you actually publish a package." },
       { q: "What does an error result mean?", a: "Error usually means the registry request failed, often because of a network hiccup or rate limiting. Wait a moment and run the check again; names that errored are not confirmed either way." }
     ],
     tags: [

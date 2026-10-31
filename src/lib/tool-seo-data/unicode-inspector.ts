@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What are Unicode categories like Lu and Ll?", a: "They are the general categories in the Unicode standard. Lu means uppercase letter, Ll means lowercase letter, Nd means decimal number, and so on. They are used by regex engines and text processing libraries." },
       { q: "Does it work with emoji?", a: "Yes. Emoji sequences, skin tone modifiers and flag sequences are broken down into their individual code points so you can see exactly what they contain." },
       { q: "Is my pasted text sent to a server?", a: "No. Analysis runs fully in your browser, so your text stays private on your device." },
-      { q: "Is the Unicode inspector free?", a: "Yes, free with no signup. Inspect as many characters as you like." }
+      { q: "Is the Unicode inspector free?", a: "Yes, free to use; downloads need a free account. Inspect as many characters as you like." }
     ],
     tags: [
       "unicode inspector", "unicode character inspector", "inspect unicode characters",

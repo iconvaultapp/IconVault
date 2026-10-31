@@ -2,7 +2,7 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "JS Benchmark - Free Online JavaScript Speed Tool | IconVault",
-    metaDescription: "Compare JavaScript snippets by operations per second, right in your browser. Race multiple snippets live. Free, no sign up.",
+    metaDescription: "Compare JavaScript snippets by operations per second, right in your browser. Race multiple snippets live. Free, a free account for downloads.",
     about: [
       "**IconVault**'s **JS Benchmark** settles arguments about fast code: paste in multiple **JavaScript snippets**, and it races them against each other, measuring **operations per second** for each. The live results table shows the winner and how many times faster it is than the rest.",
       "Snippets run in a sandboxed **new Function** environment in your own browser, nothing is uploaded, and you can name, edit, and re-run snippets freely. Honest note: results measure your machine and browser, so use them for relative comparison, not absolute claims. Free and runs fully in your browser.",

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "When would I need this?", a: "Common cases include embedding a JSON object inside another JSON payload, building seed data for tests, pasting JSON into a JavaScript or Python string, and decoding escaped strings found in logs or API responses." },
       { q: "Does it handle unicode escapes?", a: "Yes. Unicode escape sequences are encoded and decoded correctly, and special characters survive the round trip without corruption." },
       { q: "Is my data uploaded anywhere?", a: "No. The conversion runs entirely in your browser with JavaScript. Your strings never leave your device." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json string converter",
@@ -45,7 +45,7 @@ const seo: ToolSeo = {
       "json to python string",
       "json string seed data",
       "json string test data",
-      "json string no signup",
+      "json string a free account for downloads",
       "json string private",
       "json string without upload",
       "json string online free",

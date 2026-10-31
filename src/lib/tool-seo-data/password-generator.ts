@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Free Password Generator - Strong Random Passwords Online | IconVault",
     metaDescription:
-      "Generate strong random passwords or memorable passphrases instantly in your browser. Custom length, symbols, ambiguous-character exclusion, word count and entropy meter - free, private, no signup needed.",
+      "Generate strong random passwords or memorable passphrases instantly in your browser. Custom length, symbols, ambiguous-character exclusion, word count and entropy meter - free, private, a free account needed for downloads.",
     about: [
       "**IconVault**'s **Password** **Generator** creates truly **random**, cryptographically **secure** **passwords** using your browser's built-in crypto.getRandomValues - the same source of randomness your operating system uses for encryption keys. Nothing is sent to a server, logged or stored: the **password** exists only in your tab until you copy it. Choose a length from 8 to 64 characters and mix lowercase, uppercase, digits and symbols to taste.",
       "Every **password** comes with a live entropy meter that shows its strength in bits, so you can see exactly how hard it would be to crack. You get 5 **free** generations with no account - **IconVault** Pro ($19 one-time) unlocks unlimited generations and every other tool on the platform.",
@@ -31,14 +31,14 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free passwords can I generate?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited password generations plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited password generations plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
       "strong password generator", "random password generator", "secure password generator",
       "password generator online", "free password generator", "password maker",
       "random password maker", "generate strong password", "create strong password",
-      "online password generator", "password generator no signup", "password generator no login",
+      "online password generator", "password generator a free account for downloads", "password generator no login",
       "random string generator", "secure password creator", "password generator with symbols",
       "password generator with numbers", "long password generator", "wifi password generator",
       "password entropy calculator", "password strength meter", "generate secure password",
@@ -54,7 +54,7 @@ const seo: ToolSeo = {
       "custom password generator", "password length generator", "64 character password generator",
       "unbreakable password generator", "hack proof password generator", "password generator tool",
       "free secure password tool", "password generator app", "online password maker",
-      "random password creator free", "generate password without signup",
+      "random password creator free", "generate password with a free account for downloads",
       "password generator for developers", "password generator for business",
     ],
   };

@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Encode text to HTML entities and decode entities back, with a searchable 250-entry reference. Named and numeric entities. Free, in-browser.",
     about: [
       "**IconVault**'s **HTML Entities** tool encodes text into **HTML entities** and decodes entities back to characters, instantly. Paste anything with **special characters**, symbols or markup and get properly encoded output using **named entities** like &amp;amp;, decimal codes like &amp;#169; or hex codes like &amp;#xA9;, or reverse the process to turn entity soup back into readable text.",
-      "It also includes a **searchable 250-entry reference** of the entities developers actually reach for: punctuation, quotes, currency, math, arrows and accented letters. Encoding special characters correctly keeps your **markup valid** and text displaying as intended instead of breaking tags. It is **free** with no signup and runs **fully in your browser**. The honest note: entity encoding is one layer of output safety, not a complete XSS defense on its own."
+      "It also includes a **searchable 250-entry reference** of the entities developers actually reach for: punctuation, quotes, currency, math, arrows and accented letters. Encoding special characters correctly keeps your **markup valid** and text displaying as intended instead of breaking tags. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest note: entity encoding is one layer of output safety, not a complete XSS defense on its own."
     ],
     faqs: [
       { q: "What are HTML entities?", a: "They are codes that represent special characters in HTML, like &amp; for an ampersand or &copy; for the copyright symbol. They let you display characters that would otherwise be interpreted as markup or that are hard to type." },
@@ -68,7 +68,7 @@ const seo: ToolSeo = {
       "less than greater than html",
       "ampersand html entity",
       "free html entity tool",
-      "html entities no signup",
+      "html entities a free account for downloads",
       "browser html encoder",
       "html entities tool online"
     ],

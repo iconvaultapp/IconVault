@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "DNS Lab - Free Online DNS Resolution Simulator Tool | IconVault",
-    metaDescription: "Watch a DNS query travel from stub resolver to root, TLD and authoritative servers. Interactive step by step lab. Free, educational, no signup.",
+    metaDescription: "Watch a DNS query travel from stub resolver to root, TLD and authoritative servers. Interactive step by step lab. Free, educational; downloads need a free account.",
     about: [
       "**IconVault**'s **DNS Lab** is an interactive **DNS resolution simulator** that shows exactly how a domain name becomes an IP address. Type any domain and watch the query move hop by hop: **stub resolver** on your device, **recursive resolver**, **root server**, **TLD server** and **authoritative nameserver**, with a plain-English explanation and realistic timing for every step.",
-      "Use **play**, **pause**, **step forward** and **step back** controls to study at your own pace, and see how **DNS caching** changes the path when an answer is already known. Everything is **simulated in your browser** using documentation IPs (no real network lookups), which makes it a safe, **free** study tool for students, bootcamp learners and interview prep. Visitors get 5 **free** lab runs with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every tool.",
+      "Use **play**, **pause**, **step forward** and **step back** controls to study at your own pace, and see how **DNS caching** changes the path when an answer is already known. Everything is **simulated in your browser** using documentation IPs (no real network lookups), which makes it a safe, **free** study tool for students, bootcamp learners and interview prep. Visitors get 5 **free** lab runs with a free account for downloads; **IconVault** Pro ($19 one-time) unlocks unlimited use of every tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free lab runs do I get?",
-        a: "Every visitor gets 5 free simulations with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free simulations with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [

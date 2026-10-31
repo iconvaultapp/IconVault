@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build a valid package.json visually: project type presets, name, version, scripts, dependencies, engines. Live preview, copy or download. Free.",
     about: [
       "**IconVault**'s **package.json Generator** builds a valid **package.json** visually, no memorized field names required. Pick a **project type** (app, library or CLI) for sensible presets, then fill in name, version, description, author and license, add or remove **scripts**, **dependencies** and **devDependencies** with versions, set **engines**, and watch the **live JSON preview** update as you type. Copy it or download the finished file when you are done.",
-      "It is **free**, needs no signup, and runs **100% client-side**. The honest note: the tool produces clean, valid JSON with correct structure, but it cannot know your exact dependency versions, so double check version ranges against the registry before you publish or commit."
+      "It is **free**, needs a free account for downloads, and runs **100% client-side**. The honest note: the tool produces clean, valid JSON with correct structure, but it cannot know your exact dependency versions, so double check version ranges against the registry before you publish or commit."
     ],
     faqs: [
       { q: "What project types are supported?", a: "App, library and CLI presets. Each sets sensible defaults: apps get dev/build/preview scripts, libraries get build/test/prepublishOnly with dist output, and CLIs get a bin entry wired up." },

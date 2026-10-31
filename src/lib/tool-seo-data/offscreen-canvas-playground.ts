@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: press Start race, then raise the particle slider to stress both renderers. Perfect for **developers** building games, data visualizations and creative tools who want to see exactly when moving paint work off the main thread pays off.",
     ],
     faqs: [
-      { q: "Is OffscreenCanvas Playground free to use?", a: "Yes. OffscreenCanvas Playground is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is OffscreenCanvas Playground free to use?", a: "Yes. OffscreenCanvas Playground is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is OffscreenCanvas?", a: "It is a canvas that can be rendered off the main thread, typically inside a Web Worker, so heavy painting no longer blocks user interaction." },
       { q: "Is the comparison fair?", a: "Yes. Both sides run the exact same particle simulation and draw calls; the only difference is the thread doing the work." },
       { q: "Why is the worker sometimes slower at low counts?", a: "Thread and message overhead dominates tiny workloads. The win appears under load, which is why the particle slider goes up to 20,000." },

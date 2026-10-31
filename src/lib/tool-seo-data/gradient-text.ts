@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Create gradient text with multi-stop color sliders, angle control, animated gradients and presets. Copy the CSS in one click. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Gradient Text** tool designs **gradient-filled headlines** visually. Add as many **color stops** as you like, drag each stop's position, set the **gradient angle**, adjust the **preview size**, and toggle an **animated gradient** that shifts colors with a smooth keyframe loop.",
-      "It renders a live preview and generates the exact **CSS** using **background-clip: text** with the **-webkit-** fallback, including the animation code when you enable it. **One-click copy** drops it into your project. It is **free** with no signup and runs **fully in your browser**. The honest caveat: background-clip text needs transparent text color, which can hurt readability over busy backgrounds and is invisible in very old browsers, so keep a solid-color fallback."
+      "It renders a live preview and generates the exact **CSS** using **background-clip: text** with the **-webkit-** fallback, including the animation code when you enable it. **One-click copy** drops it into your project. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest caveat: background-clip text needs transparent text color, which can hurt readability over busy backgrounds and is invisible in very old browsers, so keep a solid-color fallback."
     ],
     faqs: [
       { q: "How do I make gradient text with CSS?", a: "Apply a linear-gradient as the background, set background-clip: text with the -webkit- prefix, and make the text color transparent. This tool generates that CSS for you." },
@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "pink gradient text",
       "gradient text generator free",
       "online gradient text maker",
-      "no signup text generator",
+      "a free account for downloads text generator",
       "copy gradient css",
       "gradient text code snippet",
       "gradient text readability",

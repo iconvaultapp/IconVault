@@ -70,7 +70,7 @@ const seo: ToolSeo = {
       "remove duplicate rows csv",
       "dedupe csv",
       "excel dedupe online",
-      "remove duplicates no signup",
+      "remove duplicates a free account for downloads",
       "free duplicate remover",
       "duplicate finder online",
       "highlight duplicate lines",

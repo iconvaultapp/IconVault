@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Generate favicons from any of 421,020 icons or your own image. All sizes 16–512px, free PNGs, Pro favicon kit with webmanifest.",
     about: [
       "**IconVault**'s **Favicon Generator** builds every **favicon** size your site needs - 16, 32, 180, 192 and 512 pixels - from any of 421,020 library **icons**, an **image** you upload - or the new Text mode (initials with font, color and shape) and Emoji mode. No design software, no pixel-tweaking: pick a source, hit generate, and download crisp PNGs rendered at each standard size, all in your browser.",
-      "Individual PNG downloads are completely **free**. Everything runs client-side, so your source **image** never leaves your device. You get 5 **free** generations without an account; **IconVault** Pro ($19 one-time) unlocks the full **favicon** kit ZIP - all PNGs plus a ready-to-drop-in site.webmanifest - and unlimited uses of every tool.",
+      "Individual PNG downloads are completely **free** with a free account. Everything runs client-side, so your source **image** never leaves your device. You get 5 **free** generations; downloads need a free account; **IconVault** Pro ($19 one-time) unlocks the full **favicon** kit ZIP - all PNGs plus a ready-to-drop-in site.webmanifest - and unlimited uses of every tool.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free favicon generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. Individual PNG downloads are always free. IconVault Pro ($19 one-time) unlocks unlimited generations and the full kit ZIP.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. Individual PNG downloads are always free. IconVault Pro ($19 one-time) unlocks unlimited generations and the full kit ZIP.",
       },
     ],
     tags: [
@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "website favicon generator", "favicon kit", "favicon package download", "favicon zip",
       "site.webmanifest generator", "webmanifest icon generator", "pwa icon generator", "app icon generator",
       "favicon html code", "how to add favicon to website", "favicon best practices",
-      "favicon generator no signup", "favicon generator no watermark", "free favicon maker online",
+      "favicon generator a free account for downloads", "favicon generator no watermark", "free favicon maker online",
       "favicon from logo", "logo to favicon", "convert logo to favicon", "favicon transparent background",
       "favicon.ico alternative png", "modern favicon sizes", "favicon for wordpress",
       "favicon for shopify", "favicon for nextjs", "favicon for react", "favicon for html website",

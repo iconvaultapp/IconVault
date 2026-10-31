@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Press any key and see its key, code, keyCode, modifiers and location instantly. Free keyboard event tester that runs in your browser.",
     about: [
       "**IconVault**'s **Keycode Tester** shows the full **KeyboardEvent** details of any key you press. Click the capture area, press a key, and you instantly see its **key**, **code**, **keyCode**, **which**, **location** (general, left, right or numpad) and any **modifiers** (Ctrl, Shift, Alt, Meta), which is exactly what you need when debugging **keyboard shortcuts** or remapping keys.",
-      "Every press is logged to a **history table** (the last 50 events) so you can compare keys and spot inconsistencies across **browsers** and layouts. Everything runs **fully in your browser** with nothing uploaded, it is **free** to try (heavy repeated use may ask for **Pro**), and there is no signup."
+      "Every press is logged to a **history table** (the last 50 events) so you can compare keys and spot inconsistencies across **browsers** and layouts. Everything runs **fully in your browser** with nothing uploaded, it is **free** to try (heavy repeated use may ask for **Pro**), and there is a free account for downloads."
     ],
     faqs: [
       { q: "What details does it show for each key press?", a: "The key, code, keyCode, which, location (general, left, right or numpad), the active modifiers (Ctrl, Shift, Alt, Meta) and the time of the press." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it work for modifier and function keys?", a: "Yes. Ctrl, Shift, Alt, Meta, F1 to F12, arrows, numpad keys and media keys all register, as long as the browser reports them." },
       { q: "Is keyCode deprecated?", a: "Yes, keyCode is deprecated in the web specification but it is still widely used in legacy code and games, which is why this tool shows it alongside the modern code property." },
       { q: "Is anything I press recorded anywhere?", a: "No. The history lives only in the page's memory and is cleared when you reload or close the tab. Nothing is sent anywhere." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "keycode tester",
@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "browser key tester",
       "online keyboard tester",
       "free keycode tool",
-      "keycode tool no signup",
+      "keycode tool a free account for downloads",
       "keyboard event logger",
       "key press logger",
       "key history table",

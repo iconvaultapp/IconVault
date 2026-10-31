@@ -2,7 +2,7 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Freeze Time Guide - Free Online Freezer Life Tool | IconVault",
-    metaDescription: "Pick a food and get its freezer life, quality tips, and a use-by date from your freeze date. Covers 40 foods. Free, no signup.",
+    metaDescription: "Pick a food and get its freezer life, quality tips, and a use-by date from your freeze date. Covers 40 foods. Free; downloads need a free account.",
     about: [
       "**IconVault**'s **Freeze Time Guide** answers a simple kitchen question: how long can this stay in the freezer? Pick from **40 common foods** (chicken, ground beef, salmon, bread, milk, berries, leftovers and more) and get its **freezer life in months** plus a practical **quality tip** for freezing and thawing it right.",
       "Enter your **freeze date** and the tool calculates a **use-by date**, shows a timeline of how quality fades, and copies a **printable summary** for labeling bags. It is **free and runs fully in your browser**. These are **quality guidelines, not safety deadlines**: they assume a freezer that truly holds 0 F (-18 C).",

@@ -12,7 +12,7 @@ const seo: ToolSeo = {
       { q: "How does dialect quoting work?", a: "Pick generic, MySQL, PostgreSQL, SQL Server or SQLite and identifiers are quoted the way that database expects: `col` for MySQL, [col] for SQL Server, and \"col\" for the rest. Plain expressions pass through untouched." },
       { q: "How are values handled?", a: "Numbers and true/false stay unquoted, empty values become NULL, and everything else is wrapped in quotes with single quotes escaped, so the generated SQL is valid as written for simple cases." },
       { q: "Is a DELETE without WHERE dangerous?", a: "Very. The builder inserts a bold warning comment when no WHERE clause is present so you notice before copying, but always double-check the generated SQL before running it anywhere." },
-      { q: "Is my schema sent to a server?", a: "No. The builder runs entirely in your browser. Table names, columns and values never leave your device, and the tool is free with no signup." },
+      { q: "Is my schema sent to a server?", a: "No. The builder runs entirely in your browser. Table names, columns and values never leave your device, and the tool is free to use; downloads need a free account." },
       { q: "Can I use this to learn SQL?", a: "Yes, it is a nice learning aid: change a condition or toggle ORDER BY and watch how the SQL changes. For real work, review the output and test it against your database." }
     ],
     tags: [
@@ -59,7 +59,7 @@ const seo: ToolSeo = {
       "sql learning tool",
       "sql tutorial helper",
       "free online sql builder",
-      "sql builder no signup",
+      "sql builder a free account for downloads",
       "sql tools for developers",
       "dba query builder",
       "sql playground online",

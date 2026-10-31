@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build and run Turing machines on a live tape. Step through rules, try binary increment and palindrome examples. Free, in your browser.",
     about: [
       "**IconVault**'s **Turing Machine** simulator lets you define **states and transition rules** (what to read, what to write, which way to move, which state is next) and watch the machine run on a **live tape**, either **step by step** or **run to completion**, with adjustable speed and a reset button.",
-      "It ships with working examples, **binary increment**, **palindrome check** and **flip bits**, so you can learn by editing a real machine instead of starting from theory, and everything runs **entirely in your browser**, free with no signup. The honest note: it is a teaching simulator, not a formal verifier, so it will not prove halting or decidability for you."
+      "It ships with working examples, **binary increment**, **palindrome check** and **flip bits**, so you can learn by editing a real machine instead of starting from theory, and everything runs **entirely in your browser**, free to use; downloads need a free account. The honest note: it is a teaching simulator, not a formal verifier, so it will not prove halting or decidability for you."
     ],
     faqs: [
       { q: "How do I build a Turing machine here?", a: "Add states and rules in the editor. Each rule says: in this state, reading this symbol, write that symbol, move left or right, and go to that next state. Then type an input on the tape and press Run." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What example machines are included?", a: "Binary increment (adds one to a binary number), palindrome check (accepts strings like abba, rejects abab) and flip bits. Each comes with a description of how it works." },
       { q: "What is a Turing machine used for?", a: "It is the classic model of computation: a simple abstract machine that can simulate any algorithm. Computer science courses use it to teach computability, decidability and the halting problem." },
       { q: "Can I share or save my machine?", a: "You can copy your rules to the clipboard and paste them back later or share them with someone else using the same tool." },
-      { q: "Is it free?", a: "Yes, completely free with no signup, and the simulation runs locally in your browser." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account, and the simulation runs locally in your browser." }
     ],
     tags: [
       "turing machine",

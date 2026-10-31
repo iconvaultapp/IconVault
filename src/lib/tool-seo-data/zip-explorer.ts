@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I extract the original folder structure?", a: "Not exactly. Browsers cannot recreate folders when saving downloads, so Extract all downloads each file individually rather than as a folder tree. Filenames are preserved." },
       { q: "Does it support password-protected ZIPs?", a: "No. Encrypted ZIPs cannot be opened because decryption happens nowhere: everything runs locally in your browser, and the tool does not implement ZIP decryption." },
       { q: "Which file previews are supported?", a: "Text-based files such as code, configs, JSON, XML, CSV and markdown show their contents (long files are truncated in preview), and common image formats like PNG, JPG, GIF and WebP render inline." },
-      { q: "Is the tool free?", a: "Yes, it is free to try with no signup. A limited number of free extractions are included; heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the tool free?", a: "Yes, it is free to try; downloads need a free account. A limited number of free extractions are included; heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "zip explorer",
@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "unzip in browser",
       "browser zip extractor",
       "client side unzip",
-      "zip opener no signup",
+      "zip opener a free account for downloads",
       "free zip file opener",
       "zip viewer mac online",
       "zip viewer windows online",

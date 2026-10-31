@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Watch HTTP/1.1 with 6 connections race HTTP/2 multiplexing in an animated simulation. Free, educational, runs fully in your browser.",
     about: [
       "**IconVault**'s **HTTP/2 Lab** stages a side-by-side race: **HTTP/1.1** loading a page with 6 parallel connections and **head-of-line blocking** versus **HTTP/2** loading the same page over one **multiplexed connection**. Press play and watch each asset (HTML, CSS, JS, images, fonts) stream across the wire frame by frame.",
-      "Playback is **fully interactive**: step through **frames**, adjust the **speed**, and see exactly where HTTP/1.1 stalls while HTTP/2 keeps flowing. It is **free**, needs **no signup**, and runs **entirely in your browser**. Honest note: it is a simplified educational **simulation**, not a live network measurement; real-world gains depend on latency, server support and asset sizes."
+      "Playback is **fully interactive**: step through **frames**, adjust the **speed**, and see exactly where HTTP/1.1 stalls while HTTP/2 keeps flowing. It is **free**, needs **a free account for downloads**, and runs **entirely in your browser**. Honest note: it is a simplified educational **simulation**, not a live network measurement; real-world gains depend on latency, server support and asset sizes."
     ],
     faqs: [
       { q: "What does the HTTP/2 Lab show?", a: "An animated race between HTTP/1.1 (6 parallel connections, one request at a time per connection) and HTTP/2 (one connection, many interleaved streams), loading the same set of page assets." },

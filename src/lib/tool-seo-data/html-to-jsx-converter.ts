@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert HTML markup to React JSX: class becomes className, style strings to objects, comments and self-closing tags handled. Free, in-browser.",
     about: [
       "**IconVault**'s **HTML to JSX** converter turns ordinary **HTML markup into React-ready JSX**. Paste a snippet from a template, a design export or Stack Overflow, and get JSX where **class becomes className**, **for becomes htmlFor**, **style attributes become style objects**, HTML comments become **JSX comments**, and void elements like <br> and <img> are properly **self-closed**.",
-      "It is the fastest way to drop existing HTML into a **React or Next.js component** without rewriting every attribute by hand. It is **free** with no signup and runs **fully in your browser**. The honest note: it converts markup faithfully, but review the result before pasting: inline event handlers, custom data flows and framework-specific attributes still need your judgment."
+      "It is the fastest way to drop existing HTML into a **React or Next.js component** without rewriting every attribute by hand. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest note: it converts markup faithfully, but review the result before pasting: inline event handlers, custom data flows and framework-specific attributes still need your judgment."
     ],
     faqs: [
       { q: "What is JSX?", a: "JSX is a syntax extension for JavaScript used by React that lets you write HTML-like markup inside your code. It looks like HTML but follows JavaScript rules, which is why attributes like class have different names." },
@@ -33,7 +33,7 @@ const seo: ToolSeo = {
       "paste html into react",
       "html snippet to jsx",
       "free html to jsx",
-      "html to jsx no signup",
+      "html to jsx a free account for downloads",
       "html to jsx browser",
       "react converter tool",
       "jsx transform",

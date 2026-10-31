@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Turn an hourly wage into annual, monthly and weekly pay with overtime and an editable after-tax estimate. Planning estimates, free in-browser.",
     about: [
       "**IconVault**'s **Salary Calculator** converts an **hourly wage** into **annual, monthly and weekly pay**, and works in reverse too. Add **overtime hours** at your overtime rate and the calculator folds them into the totals. An **editable tax rate** produces a rough **after-tax estimate** so you can see take-home pay next to gross pay.",
-      "Everything runs **100% in your browser**, so your pay details never leave the page. It is **free** with no signup. The honest note: this is a **planning estimate, not tax advice**. Real take-home pay depends on your tax bracket, filing status, deductions and benefits, so always confirm with official payroll or tax guidance before making decisions."
+      "Everything runs **100% in your browser**, so your pay details never leave the page. It is **free** to use; downloads need a free account. The honest note: this is a **planning estimate, not tax advice**. Real take-home pay depends on your tax bracket, filing status, deductions and benefits, so always confirm with official payroll or tax guidance before making decisions."
     ],
     faqs: [
       { q: "How do I convert hourly pay to annual salary?", a: "Enter your hourly rate and weekly hours. The tool multiplies them out to annual, monthly and weekly totals instantly. A common shortcut is hourly rate times 2,080 hours for a full-time year." },
@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "pay stub calculator",
       "salary estimator",
       "expected salary calculator",
-      "salary calculator no signup",
+      "salary calculator a free account for downloads",
       "salary calculator in browser"
     ],
   };

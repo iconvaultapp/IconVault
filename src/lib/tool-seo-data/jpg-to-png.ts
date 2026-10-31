@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "Will the PNG be bigger than the JPG?", a: "Usually yes, because PNG stores every pixel exactly without lossy compression." },
       { q: "Can I convert many JPGs at once?", a: "Yes. Add a batch and download them all together as a ZIP." },
     ],
-    tags: ["jpg to png", "jpeg to png", "convert jpg to png", "jpg to png online", "jpeg converter png", "jpg to png free", "bulk jpg to png", "jpg to png no loss", "jpeg to png converter", "convert jpeg files", "jpg to png batch", "jpg to png no signup", "jpg to png private", "free image converter", "jpg to png zip", "jpeg to png online", "jpg file converter", "png from jpg", "convert photo to png", "jpg to png tool",
+    tags: ["jpg to png", "jpeg to png", "convert jpg to png", "jpg to png online", "jpeg converter png", "jpg to png free", "bulk jpg to png", "jpg to png no loss", "jpeg to png converter", "convert jpeg files", "jpg to png batch", "jpg to png a free account for downloads", "jpg to png private", "free image converter", "jpg to png zip", "jpeg to png online", "jpg file converter", "png from jpg", "convert photo to png", "jpg to png tool",
       "convert jpg to png free",
       "jpg to png online free",
       "jpeg to png online free",

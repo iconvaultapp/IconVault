@@ -46,7 +46,7 @@ const seo: ToolSeo = {
       "split pdf by pages",
       "rotate all pdf pages",
       "add draft watermark to pdf",
-      "merge pdf free no signup",
+      "merge pdf free a free account for downloads",
       "pdf page organizer",
       "reorder pages in pdf",
       "merge pdf in browser",

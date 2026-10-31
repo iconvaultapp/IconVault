@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Lorem Ipsum Generator - Free Placeholder Text | IconVault",
     metaDescription:
-      "Generate lorem ipsum paragraphs, sentences or words instantly. Free placeholder text generator for mockups - no signup needed.",
+      "Generate lorem ipsum paragraphs, sentences or words instantly. Free placeholder text generator for mockups - a free account needed for downloads.",
     about: [
       "The **Lorem Ipsum Generator** produces classic **placeholder** **text** for mockups, wireframes, font previews and layout drafts - starting with the authentic \"**Lorem ipsum** **dolor** sit **amet**…\" passage. Choose **paragraphs**, sentences or words and dial in any count from 1 to 50 for pixel-perfect control over your **dummy** **copy** - then export as plain **text**, HTML **paragraphs**, or an HTML bullet list.",
       "**Placeholder** **text** lets you design around realistic **text** shapes without real **copy** distracting reviewers. Everything runs in your browser with one click to **copy**. You get 5 **free** generations with no account - **IconVault** Pro ($19 one-time) unlocks unlimited generations and every other tool on the platform.",
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited lorem ipsum plus unlimited use of all 10+ tools.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited lorem ipsum plus unlimited use of all 10+ tools.",
       },
     ],
     tags: [
@@ -44,7 +44,7 @@ const seo: ToolSeo = {
       "lorem ipsum for website", "website placeholder text", "dummy text for website",
       "filler text for design", "lorem ipsum alternative", "funny lorem ipsum",
       "hipster ipsum", "bacon ipsum", "cupcake ipsum", "zombie ipsum",
-      "lorem ipsum generator no signup", "best lorem ipsum generator", "classic lorem ipsum",
+      "lorem ipsum generator a free account for downloads", "best lorem ipsum generator", "classic lorem ipsum",
       "lorem ipsum full text", "lorem ipsum meaning", "what is lorem ipsum",
       "lorem ipsum history", "why use lorem ipsum", "placeholder text for figma",
       "figma lorem ipsum", "lorem ipsum plugin alternative", "dummy content generator",

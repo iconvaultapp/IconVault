@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does the ratio do?", a: "Each step multiplies the previous step by the ratio, giving a geometric progression. A ratio of 1.5 with a base of 8 gives 8, 12, 18, 27 and so on. Ratios near 1.25 feel calm, larger ratios create more dramatic jumps." },
       { q: "How do I use the output in my project?", a: "Copy the CSS variables block into your stylesheet's :root and use var(--space-3) anywhere, or paste the Tailwind theme snippet into the spacing section of tailwind.config.js to get utilities like p-3 and m-6." },
       { q: "Are values shown in px and rem?", a: "Yes. Each step shows pixels and its rem equivalent at the standard 16px root size, so the scale stays consistent if users change their base font size." },
-      { q: "Is anything sent to a server?", a: "No. The scale math and code generation run entirely in your browser, and the tool is free to use with no signup." }
+      { q: "Is anything sent to a server?", a: "No. The scale math and code generation run entirely in your browser, and the tool is free to use with a free account for downloads." }
     ],
     tags: [
       "spacing scale generator",
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "web design spacing calculator",
       "free spacing scale generator",
       "online spacing scale tool",
-      "no signup design tool",
+      "a free account for downloads design tool",
       "frontend spacing helper",
       "css helper tool online"
     ],

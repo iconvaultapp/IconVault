@@ -6,9 +6,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (search: Record<string, unknown>): { mode?: "signin" | "signup" } => {
+  validateSearch: (search: Record<string, unknown>): { mode?: "signin" | "signup"; redirect?: string } => {
     const mode = search['mode'] === "signup" || search['mode'] === "signin" ? search['mode'] : undefined;
-    return mode ? { mode } : {};
+    // v55 download gate: only same-origin paths are accepted as a post-login
+    // destination (must start with a single "/").
+    const raw = typeof search['redirect'] === "string" ? search['redirect'] : undefined;
+    const redirect = raw && raw.startsWith("/") && !raw.startsWith("//") ? raw : undefined;
+    return { ...(mode ? { mode } : {}), ...(redirect ? { redirect } : {}) };
   },
   head: () => ({
     meta: [

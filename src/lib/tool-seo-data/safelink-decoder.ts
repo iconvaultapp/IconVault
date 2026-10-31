@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste Outlook SafeLinks and get the real destination URL back. Batch-friendly and 100% in-browser, so nothing is uploaded. Free.",
     about: [
       "**IconVault**'s **SafeLink Decoder** unwraps **Microsoft Outlook SafeLinks** (those long `safelinks.protection.outlook.com` URLs) and reveals the **real destination URL** underneath. Paste one link or a whole batch, and the tool decodes the wrapped address instantly so you can see where a link actually goes before deciding what to do with it.",
-      "Decoding runs **100% in your browser**: nothing is uploaded, nothing is clicked and no request is sent to the destination, so this is a **safe way to inspect suspicious links**. It is **free** with no signup. The honest note: decoding a link is not the same as verifying it is safe. A decoded URL can still point to a malicious site, so treat unknown links with care even after unwrapping them."
+      "Decoding runs **100% in your browser**: nothing is uploaded, nothing is clicked and no request is sent to the destination, so this is a **safe way to inspect suspicious links**. It is **free** to use; downloads need a free account. The honest note: decoding a link is not the same as verifying it is safe. A decoded URL can still point to a malicious site, so treat unknown links with care even after unwrapping them."
     ],
     faqs: [
       { q: "What is an Outlook SafeLink?", a: "SafeLinks is a Microsoft Defender feature that rewrites URLs in emails into long safelinks.protection.outlook.com addresses. The real destination is embedded inside, encoded in the URL parameters." },
@@ -53,7 +53,7 @@ const seo: ToolSeo = {
       "percent encoded url decoder",
       "url decode tool",
       "decode url parameters",
-      "safelink decoder no signup",
+      "safelink decoder a free account for downloads",
       "safelink decoder in browser",
       "private link decoder",
       "email security link decoder",

@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "temporary image generator",
       "stand in image generator",
       "hold space image generator",
-      "placeholder image no signup",
+      "placeholder image a free account for downloads",
       "placeholder image no watermark",
       "browser placeholder image generator",
       "free dummy image tool"

@@ -3,10 +3,10 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "Word Counter - Free Online | IconVault",
     metaDescription:
-      "Count words free: live word, character, sentence and paragraph counts plus reading time. No signup, runs in your browser.",
+      "Count words free: live word, character, sentence and paragraph counts plus reading time. Free to use; downloads need a free account; runs in your browser.",
     about: [
       "**IconVault**'s **Word Counter** counts as you type: **words**, **characters**, **sentences**, **paragraphs**, reading time and speaking time - the live stats writers, students and SEOs check before hitting publish.",
-      "Paste an essay, article or tweet draft and watch every metric update instantly. Your **text** never leaves your **browser**. Free forever, no account needed.",
+      "Paste an essay, article or tweet draft and watch every metric update instantly. Your **text** never leaves your **browser**. Free forever, downloads need a free account.",
     ],
     faqs: [
       {
@@ -28,7 +28,7 @@ const seo: ToolSeo = {
     ],
     tags: [
       "word counter", "word count online", "free word counter", "count words",
-      "word counter no signup", "character and word counter", "essay word counter",
+      "word counter a free account for downloads", "character and word counter", "essay word counter",
       "reading time calculator", "sentence counter", "paragraph counter",
       "word count tool", "online wordcount",
     
@@ -67,7 +67,7 @@ const seo: ToolSeo = {
       "word count for students",
       "free word count tool",
       "word counter no limit",
-      "count words without signup",
+      "count words with a free account for downloads",
       "instant word counter",
       "real time word counter",
       "live word counter",

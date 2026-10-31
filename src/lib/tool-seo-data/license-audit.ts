@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Audit your package.json dependencies: resolve each real license from the npm registry and flag copyleft conflicts. Free, in your browser.",
     about: [
       "**IconVault**'s **License Audit** finds the license problems hiding in your dependency tree. Paste or upload your **package.json**, pick your **project license**, and the tool resolves every dependency's **real license** from the **npm registry**, then grades each one as **ok**, **review**, **conflict** or **unknown**. **Strong copyleft** licenses like GPL and AGPL are flagged when they clash with a **permissive or proprietary** project license, and **weak copyleft** licenses like LGPL and MPL get a review warning.",
-      "Resolution happens **in your browser** against the public npm registry; nothing you paste is stored. It is **free** with no signup. The honest caveat: this tool is **not legal advice**. Registry license metadata can be wrong or missing, and real compliance depends on how you use and distribute the code. Treat conflicts as a starting point for review with counsel, not a verdict."
+      "Resolution happens **in your browser** against the public npm registry; nothing you paste is stored. It is **free** to use; downloads need a free account. The honest caveat: this tool is **not legal advice**. Registry license metadata can be wrong or missing, and real compliance depends on how you use and distribute the code. Treat conflicts as a starting point for review with counsel, not a verdict."
     ],
     faqs: [
       { q: "How does the audit work?", a: "You provide a package.json and select your project's license. The tool reads your dependencies and devDependencies, fetches each package's declared license from the npm registry, and compares it against your project license using copyleft compatibility rules." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does an unknown verdict mean?", a: "The registry metadata had no usable license field for that package. You must check the package's repository manually before shipping, since an unknown license is a compliance risk, not a pass." },
       { q: "Is this legal advice?", a: "No. This is a metadata-based screening tool. License obligations depend on jurisdiction, distribution method and linking, so confirm anything material with a lawyer." },
       { q: "Which project licenses can I choose?", a: "MIT, ISC, Apache-2.0, BSD-3-Clause, GPL-3.0-only, Unlicense and Proprietary, covering the common open source and commercial cases." },
-      { q: "Is it really free?", a: "Yes. Unlimited audits, no account, no signup. Registry license metadata is public and free to query." }
+      { q: "Is it really free?", a: "Yes. Unlimited audits, no account; downloads need a free account. Registry license metadata is public and free to query." }
     ],
     tags: [
       "license audit",

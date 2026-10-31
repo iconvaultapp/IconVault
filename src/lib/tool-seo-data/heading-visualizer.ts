@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste HTML and see your H1-H6 headings as an indented tree. Flags skipped levels, multiple H1s and empty headings. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Heading Visualizer** shows your page the way **search engines and screen readers** see it. Paste **HTML** and it extracts every **H1-H6** tag into an **indented outline tree**, so a broken document structure is obvious at a glance.",
-      "It automatically flags **SEO and accessibility issues**: **skipped heading levels** (jumping from H2 to H4), **multiple H1s**, an **H1 after other headings** and **empty headings** that screen readers announce with no name. You can **copy the outline** as plain text. It is **free** with no signup and runs **fully in your browser**. The honest caveat: it analyzes the HTML you paste, not your live site, so paste the rendered HTML (view source after JS runs) for single-page apps."
+      "It automatically flags **SEO and accessibility issues**: **skipped heading levels** (jumping from H2 to H4), **multiple H1s**, an **H1 after other headings** and **empty headings** that screen readers announce with no name. You can **copy the outline** as plain text. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest caveat: it analyzes the HTML you paste, not your live site, so paste the rendered HTML (view source after JS runs) for single-page apps."
     ],
     faqs: [
       { q: "Why do heading levels matter for SEO?", a: "Headings form the page's outline. A clean H1-H6 hierarchy helps search engines understand sections and helps screen reader users navigate, which is why both flag broken structure." },
@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "html h1-h6 extractor",
       "heading report",
       "free seo tools",
-      "online seo checker no signup",
+      "online seo checker a free account for downloads",
       "heading checker free",
       "technical seo headings",
       "heading best practices 2026"

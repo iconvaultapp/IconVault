@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste or upload an OpenAPI/Swagger spec and browse endpoints grouped by tag, with methods, parameters and responses. Free, no requests executed.",
     about: [
       "**IconVault**'s **OpenAPI Viewer** turns a raw **OpenAPI** or **Swagger** spec into a readable API reference. Paste or upload your spec in **JSON or YAML** and browse every **endpoint grouped by tag**, with **HTTP methods**, summaries, **parameters**, request bodies and **responses** laid out clearly, plus search to jump to the operation you need. A built-in sample spec lets you explore before loading your own.",
-      "It is **free** with no signup, and your spec is only **visualized**: no requests are executed and nothing is uploaded. The honest limitation: this is a viewer, not a try-it-out client, so you cannot send live requests from here, use a dedicated API client for that."
+      "It is **free** to use; downloads need a free account, and your spec is only **visualized**: no requests are executed and nothing is uploaded. The honest limitation: this is a viewer, not a try-it-out client, so you cannot send live requests from here, use a dedicated API client for that."
     ],
     faqs: [
       { q: "What file formats can I load?", a: "OpenAPI and Swagger specs in JSON or YAML format. You can paste the text directly or upload a .json, .yaml or .yml file." },
@@ -40,7 +40,7 @@ const seo: ToolSeo = {
       "api request response viewer",
       "swagger json viewer online",
       "openapi online tool free",
-      "no signup openapi viewer",
+      "a free account for downloads openapi viewer",
       "openapi viewer no server",
       "private swagger viewer",
       "openapi spec validator viewer",

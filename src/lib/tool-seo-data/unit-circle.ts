@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Explore the unit circle: drag the angle and watch sin, cos and tan update live, with degrees and radians toggle. Free, runs in your browser.",
     about: [
       "**IconVault**'s **Unit Circle** is an interactive way to learn trigonometry. **Drag the angle** around the circle and watch **sine**, **cosine** and **tangent** update live, with the exact coordinate shown for every position. Toggle between **degrees and radians** at any time.",
-      "It is perfect for students checking homework on special angles like 30, 45 and 60 degrees, and for anyone who wants to finally see why the values behave the way they do. The tool is **free** and **runs fully in your browser**, no signup needed."
+      "It is perfect for students checking homework on special angles like 30, 45 and 60 degrees, and for anyone who wants to finally see why the values behave the way they do. The tool is **free** and **runs fully in your browser**, a free account needed for downloads."
     ],
     faqs: [
       { q: "What is the unit circle?", a: "It is a circle of radius 1 centered at the origin. For any angle, the cosine is the x-coordinate and the sine is the y-coordinate of the point on the circle, which makes it the foundation of trigonometry." },

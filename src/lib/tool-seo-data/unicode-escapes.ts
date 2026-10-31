@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is the difference between \\u and \\U?", a: "\\uXXXX encodes a 4-digit code point and is used in JavaScript, Java and JSON. \\UXXXXXXXX encodes an 8-digit code point and is used in Python. The tool supports both." },
       { q: "Does it handle emoji correctly?", a: "Yes. Emoji live outside the basic multilingual plane, and the converter handles surrogate pairs and full code points properly instead of producing broken output." },
       { q: "Is my text uploaded anywhere?", a: "No. Conversion runs fully in your browser, so your text stays on your device." },
-      { q: "Is the Unicode escape tool free?", a: "Yes, completely free with no signup. Convert as much text as you need." }
+      { q: "Is the Unicode escape tool free?", a: "Yes, completely free to use; downloads need a free account. Convert as much text as you need." }
     ],
     tags: [
       "unicode escapes", "unicode escape converter", "text to unicode escape",

@@ -5,14 +5,14 @@ const seo: ToolSeo = {
     metaDescription: "Precision stopwatch with 10ms accuracy, lap times with deltas and CSV export. Free and unlimited in your browser.",
     about: [
       "**IconVault**'s **Stopwatch** is a **precision timer** with **10 millisecond (centisecond) accuracy**, showing **hours, minutes, seconds and centiseconds** in a clean tabular readout. **Start, stop and reset** with big buttons, and press **Lap** at any moment to capture **split times**. Every lap records its own time plus the **delta versus the previous lap**, with **best and worst lap** highlights so pacing problems jump out immediately.",
-      "A scrollable **lap table** lists every split with its delta and running total, and you can **export all laps to CSV** for analysis in a spreadsheet. The stopwatch itself is **unlimited and free** and runs **fully in your browser** with no signup; CSV export uses the free trial and Pro unlocks unlimited exports."
+      "A scrollable **lap table** lists every split with its delta and running total, and you can **export all laps to CSV** for analysis in a spreadsheet. The stopwatch itself is **unlimited and free** and runs **fully in your browser** with a free account for downloads; CSV export uses the free trial and Pro unlocks unlimited exports."
     ],
     faqs: [
       { q: "How accurate is this stopwatch?", a: "The display has 10ms (centisecond) precision and updates roughly every 31ms. Timing is based on timestamps rather than tick counting, so it stays accurate even if the browser tab is briefly throttled." },
       { q: "What is the lap delta column?", a: "The delta shows how much faster or slower a lap was compared to the previous one: a minus means you were faster, a plus means slower. The first lap has no delta." },
       { q: "Can I export my lap times?", a: "Yes. The Export laps CSV button downloads every lap with its lap time and total elapsed time in seconds, ready to open in Excel or Google Sheets." },
       { q: "Does the timer keep running if I switch tabs?", a: "Timing is computed from start and stop timestamps, so the measured time stays correct. The on-screen display only refreshes while the tab is visible." },
-      { q: "Is the stopwatch free?", a: "The stopwatch itself is completely free and unlimited with no signup. Only CSV export counts against the free trial; Pro makes exports unlimited." },
+      { q: "Is the stopwatch free?", a: "The stopwatch itself is completely free and unlimited with a free account for downloads. Only CSV export counts against the free trial; Pro makes exports unlimited." },
       { q: "What can I use it for?", a: "Running splits, swimming laps, workout intervals, classroom activities, presentations, cooking, studying or anything where you need precise elapsed time with recorded splits." }
     ],
     tags: [

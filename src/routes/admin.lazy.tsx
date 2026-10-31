@@ -858,7 +858,7 @@ function AdminPage() {
               </p>
               <div className="mt-4">
                 {signupRows.length === 0 ? (
-                  <p className="py-8 text-center text-sm text-muted-foreground">No signups yet.</p>
+                  <p className="py-8 text-center text-sm text-muted-foreground">a free account for downloadss yet.</p>
                 ) : (
                   <BarChart data={signupSeries} ariaLabel="Signups per day for the last 14 days" />
                 )}

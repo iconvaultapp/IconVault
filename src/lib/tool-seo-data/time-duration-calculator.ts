@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Calculate the exact duration between two dates or add and subtract time from any date. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Time Duration Calculator** gives you the exact time between any two **dates and times**, broken into days, hours, minutes and seconds plus total hours, minutes and seconds. A second mode **adds or subtracts** a duration (days, hours, minutes) from any date, so you can answer questions like what date is 90 days from now or what time was 36 hours ago.",
-      "Everything computes **instantly in your browser** with no signup and nothing sent anywhere, and it is completely **free**. The honest note: calculations use your device's local calendar math, so results across **daylight saving changes** reflect your local timezone rules, double-check if you need legal or payroll precision."
+      "Everything computes **instantly in your browser** with a free account for downloads and nothing sent anywhere, and it is completely **free**. The honest note: calculations use your device's local calendar math, so results across **daylight saving changes** reflect your local timezone rules, double-check if you need legal or payroll precision."
     ],
     faqs: [
       { q: "How do I calculate the time between two dates?", a: "Enter a start and end date with times, then press calculate. You get the difference in days, hours, minutes and seconds, plus the total in hours, minutes and seconds." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it count negative durations?", a: "Yes. If the end date is before the start date, the tool flags the result as negative and still shows the exact magnitude." },
       { q: "Is the calculation done on a server?", a: "No. Everything runs in your browser using JavaScript date math. No data leaves your device." },
       { q: "Is it accurate across timezones and DST?", a: "It uses your browser's local timezone calendar. Around daylight saving transitions the raw hour count can shift by an hour, so verify against a calendar for contracts or payroll." },
-      { q: "Is it free?", a: "Yes, completely free with no signup." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "time duration calculator",
@@ -54,7 +54,7 @@ const seo: ToolSeo = {
       "time subtraction calculator",
       "exact age calculator days hours",
       "calculate duration online",
-      "free date calculator no signup",
+      "free date calculator a free account for downloads",
       "date arithmetic tool",
       "add months days to date",
       "time between timestamps",

@@ -39,6 +39,7 @@ import toolSeo from "@/lib/tool-seo-data/background-remover";
 import ToolPageShell, { ActionButton, TrialUpsell } from "@/components/ToolPageShell";
 import { cn } from "@/lib/utils";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/tools_/background-remover")({
   component: BackgroundRemoverTool,
@@ -596,13 +597,10 @@ function BackgroundRemoverTool() {
           toast.error("Export failed.");
           return;
         }
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = filename;
-        a.click();
-        URL.revokeObjectURL(url);
-        toast.success("Downloaded.");
+        // v55 download gate: parked + sign-in prompt when anonymous.
+        if (downloadWithGate(blob, filename)) {
+          toast.success("Downloaded.");
+        }
       },
       mime,
       q,
@@ -782,13 +780,10 @@ function BackgroundRemoverTool() {
         }
       }
       const zipBlob = await zip.generateAsync({ type: "blob" });
-      const url = URL.createObjectURL(zipBlob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = brandFilename("iconvault-backgrounds.zip");
-      a.click();
-      URL.revokeObjectURL(url);
-      toast.success(`ZIP downloaded (${i} images).`, { id: toastId });
+      // v55 download gate: parked + sign-in prompt when anonymous.
+      if (downloadWithGate(zipBlob, brandFilename("iconvault-backgrounds.zip"))) {
+        toast.success(`ZIP downloaded (${i} images).`, { id: toastId });
+      }
     } catch {
       toast.error("ZIP export failed.", { id: toastId });
     }

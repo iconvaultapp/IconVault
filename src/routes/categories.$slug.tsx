@@ -22,7 +22,7 @@ export const Route = createFileRoute("/categories/$slug")({
     const name = loaderData?.category.name ?? "Category";
     const count = loaderData?.category.count ?? 0;
     const title = `${name} icons - ${count.toLocaleString("en-US")} free SVG icons | IconVault`;
-    const description = `Browse ${count.toLocaleString("en-US")} free ${name.toLowerCase()} icons. Download as SVG, PNG, WebP or copy-paste React components - free, no account needed.`;
+    const description = `Browse ${count.toLocaleString("en-US")} free ${name.toLowerCase()} icons. Download as SVG, PNG, WebP or copy-paste React components - free; downloads need a free account.`;
     return {
       meta: [
         { title },
@@ -126,7 +126,7 @@ function Page() {
             This category holds {category.count.toLocaleString("en-US")} free {category.name.toLowerCase()}{" "}
             icons from every pack indexed by IconVault. Download any icon as SVG, PNG or WebP, or
             copy it as a React component. Every icon stays under its original open-source licence,
-            and no account is needed.
+            and downloads need a free account.
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
             Related categories:{" "}

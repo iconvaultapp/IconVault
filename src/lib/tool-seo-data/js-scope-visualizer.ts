@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it explain hoisting?", a: "Yes. var declarations and function declarations are shown as hoisted to the top of their scope, while let and const bindings appear in the temporal dead zone until their declaration line, which helps explain common ReferenceError surprises." },
       { q: "Can it help me debug a variable bug?", a: "It can. If a variable holds an unexpected value, check whether the scope tree shows a shadowing inner binding or a hoisted var. Note that it is a static visualization of bindings, not a debugger: it does not run your code or show runtime values." },
       { q: "Is my code uploaded anywhere?", a: "No. The parsing and rendering happen entirely in your browser with JavaScript. Your code never leaves your device, so it is safe for proprietary snippets." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Very heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Very heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "javascript scope visualizer",

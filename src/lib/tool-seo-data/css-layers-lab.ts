@@ -2,13 +2,13 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Cascade Layers Lab - Free Online CSS Tool | IconVault",
-    metaDescription: "Learn CSS cascade layers visually: reorder @layer blocks and watch which styles win. Free, no signup, runs in your browser.",
+    metaDescription: "Learn CSS cascade layers visually: reorder @layer blocks and watch which styles win. Free; downloads need a free account; runs in your browser.",
     about: [
       "**IconVault**'s **Cascade Layers Lab** makes **@layer** tangible: declare layers like **base, components, utilities**, reorder them with a click and watch the **cascade** pick a different winner live. It shows how **layer order** beats **specificity**, and where **unlayered** styles sit in the priority stack.",
       "**Cascade layers** are the modern answer to specificity wars and !important arms races: a framework can ship in low-priority layers while your overrides win from higher ones. Free and runs fully in your browser.",
     ],
     faqs: [
-      { q: "Is the Cascade Layers Lab free?", a: "Yes, free with no signup. Reorder layers and watch the cascade outcome change live." },
+      { q: "Is the Cascade Layers Lab free?", a: "Yes, free to use; downloads need a free account. Reorder layers and watch the cascade outcome change live." },
       { q: "What are CSS cascade layers?", a: "@layer lets you group styles into named layers. Layers have an explicit priority order, so a style in a later layer beats one in an earlier layer regardless of specificity." },
       { q: "Do layers beat specificity?", a: "Yes. A rule in a higher-priority layer wins over a more specific selector in a lower layer. That is the whole point of layers." },
       { q: "Where do unlayered styles fit?", a: "Unlayered (normal author) styles beat all layered styles. They sit at the top of the author origin in the cascade." },

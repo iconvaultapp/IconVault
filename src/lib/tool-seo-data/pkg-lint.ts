@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste your package.json and get 25+ quality checks with an A-F grade: name, license, scripts, deps. Free, parsed locally in your browser.",
     about: [
       "**IconVault**'s **Package.json Linter** runs **25+ quality checks** on your package.json and rolls them into an **A-F grade**. It validates the **name** against npm rules, checks the **license** is a valid **SPDX identifier**, inspects **scripts**, **keywords**, **engines**, **repository**, **files**, **exports** and **dependency** hygiene, and flags the mistakes that break installs or publishes.",
-      "Your package.json is **parsed and checked locally in your browser**: it is never uploaded, never sent anywhere and never stored. It is **free** with no signup, and a **sample package.json** is included so you can try it instantly. The honest caveat: this is a **static checklist**, not a build test. A passing grade means the manifest looks right, not that the package actually builds or runs."
+      "Your package.json is **parsed and checked locally in your browser**: it is never uploaded, never sent anywhere and never stored. It is **free** to use; downloads need a free account, and a **sample package.json** is included so you can try it instantly. The honest caveat: this is a **static checklist**, not a build test. A passing grade means the manifest looks right, not that the package actually builds or runs."
     ],
     faqs: [
       { q: "What does the linter check?", a: "Over 25 checks across name validity, version format, license SPDX validity, description, keywords, author, repository, homepage, main/exports entry points, bin, files, scripts, engines and dependency ranges. Each check reports pass, warn or fail with an explanation." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is an SPDX license identifier?", a: "A standard short code for open source licenses, like MIT, ISC or Apache-2.0. npm warns when the license field is not a valid SPDX identifier, and this tool checks yours against the known list." },
       { q: "How is the A-F grade calculated?", a: "Fails weigh heaviest, warnings lighter, passes contribute positively. An A means publish-ready manifest hygiene; lower grades point at specific checks to fix first." },
       { q: "Can it fix my package.json automatically?", a: "No. It reports issues with explanations so you learn the fix, but it does not rewrite your file. Copy the flagged fields back into your editor after correcting them." },
-      { q: "Is it really free?", a: "Yes. Unlimited lint runs, no account, no signup." }
+      { q: "Is it really free?", a: "Yes. Unlimited lint runs, no account; downloads need a free account." }
     ],
     tags: [
       "package.json linter",

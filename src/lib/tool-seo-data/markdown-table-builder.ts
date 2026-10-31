@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is the maximum table size?", a: "The grid supports up to 30 rows and 12 columns, which covers nearly every documentation table. Very wide tables may scroll on some renderers, so keep columns modest for readability." },
       { q: "Will the output work on GitHub and GitLab?", a: "Yes. The tool emits standard GitHub Flavored Markdown tables, which render on GitHub, GitLab, Bitbucket, Notion, Reddit, Discord and most static site generators." },
       { q: "Can I paste data from a spreadsheet?", a: "You can paste text into any cell directly. For CSV content, many people paste it in cell by cell or one row at a time; the live preview shows the finished table as you go." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "markdown table generator",
@@ -39,7 +39,7 @@ const seo: ToolSeo = {
       "format markdown table online",
       "pretty markdown table",
       "align markdown table columns",
-      "markdown table generator no signup",
+      "markdown table generator a free account for downloads",
       "free markdown tools",
       "markdown table example",
       "markdown table cheat sheet",

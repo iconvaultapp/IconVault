@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Extract text from images with on-device OCR. English, live progress, copy or download as .txt. Free and private, runs fully in your browser.",
     about: [
       "**IconVault**'s **OCR Extractor** pulls text out of images using **on-device OCR** powered by **Tesseract.js**, so your image is never uploaded to a server. Drop in a screenshot, photo or scan, watch the **live progress bar**, then copy the recognized text or download it as a **.txt file**. Recognition happens right in your browser tab.",
-      "It is **free** with no signup and fully private. Two honest notes: the first run downloads the **English language model** once (it is cached after that), and accuracy depends on image quality, so sharp, high-contrast images give the best results. Stylized fonts, heavy blur or busy backgrounds will reduce accuracy."
+      "It is **free** to use; downloads need a free account and fully private. Two honest notes: the first run downloads the **English language model** once (it is cached after that), and accuracy depends on image quality, so sharp, high-contrast images give the best results. Stylized fonts, heavy blur or busy backgrounds will reduce accuracy."
     ],
     faqs: [
       { q: "How does the OCR extractor work?", a: "It runs Tesseract.js, a well-known open-source OCR engine, directly in your browser. Your image is processed locally and the recognized text appears with a progress bar while the engine works." },
@@ -24,7 +24,7 @@ const seo: ToolSeo = {
       "screenshot to text converter",
       "ocr extractor",
       "free ocr tool",
-      "online ocr no signup",
+      "online ocr a free account for downloads",
       "ocr in browser",
       "on device ocr",
       "private ocr tool",
@@ -63,7 +63,7 @@ const seo: ToolSeo = {
       "screenshot text copy tool",
       "grab text from image",
       "convert photo to text free",
-      "picture to text free no signup",
+      "picture to text free a free account for downloads",
       "ocr for students",
       "ocr for developers",
       "extract code from screenshot",

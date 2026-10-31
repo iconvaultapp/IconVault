@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Score your blog title across 16 headline elements with actionable fixes. Free, 100% in your browser, nothing uploaded.",
     about: [
       "**IconVault**'s **Title Analyzer** scores your headline across **16 headline elements**, including length, word balance, sentiment words, power words, numbers, question hooks and more, then gives you **actionable fixes** for each weak spot. You see exactly why a title scores the way it does instead of getting a mystery number.",
-      "The analysis runs **100% in your browser**, so your drafts are **never uploaded**, and the tool is **free** with no signup. The honest note: scoring rules are heuristics distilled from headline best practices, not a Google ranking formula, so treat the score as a writing aid, not a traffic guarantee."
+      "The analysis runs **100% in your browser**, so your drafts are **never uploaded**, and the tool is **free** with a free account for downloads. The honest note: scoring rules are heuristics distilled from headline best practices, not a Google ranking formula, so treat the score as a writing aid, not a traffic guarantee."
     ],
     faqs: [
       { q: "What does the title analyzer check?", a: "16 headline elements: character and word length, common/uncommon/emotional/power word balance, sentiment, numbers, question or how-to hooks, reading grade hints, keyword placement and more." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is the ideal headline length?", a: "Roughly 50 to 60 characters so it displays fully in search results, and 6 to 12 words for readability. The tool flags titles that fall outside these bands." },
       { q: "Is my title sent to a server?", a: "No. Scoring runs entirely in your browser. Your drafts never leave your device." },
       { q: "How do I raise my score?", a: "Follow the listed fixes: add a power or emotional word, front-load your keyword, try a number or a question hook, and trim filler words. Small edits usually move the score quickly." },
-      { q: "Is it free?", a: "Yes, completely free with no signup." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account." }
     ],
     tags: [
       "title analyzer",
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       "title length checker seo",
       "best headline analyzer",
       "co schedule headline analyzer alternative",
-      "free headline analyzer no signup",
+      "free headline analyzer a free account for downloads",
       "emotional headline analyzer",
       "power words checker",
       "headline word balance",

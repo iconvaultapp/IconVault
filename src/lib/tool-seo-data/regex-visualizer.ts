@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Understand any regex: railroad diagram, plain-English explanation and live match tester. Paste a pattern and see what it really matches. Free, in your browser.",
     about: [
       "**IconVault**'s **Regex Visualizer** turns cryptic patterns into something you can actually read. Paste any **JavaScript regex** and get a **railroad diagram** that lays the pattern out as a flowchart, a **plain-English explanation** of each token, and a **live tester** that highlights matches in your sample text.",
-      "It is perfect for **decoding** inherited patterns, **learning** regex by example, and **debugging** why a pattern matches too much or too little. Everything renders **instantly in your browser**, and the tool is **free** with no signup."
+      "It is perfect for **decoding** inherited patterns, **learning** regex by example, and **debugging** why a pattern matches too much or too little. Everything renders **instantly in your browser**, and the tool is **free** with a free account for downloads."
     ],
     faqs: [
       { q: "What is a railroad diagram?", a: "A railroad diagram, also called a syntax diagram, draws your regex as connected tracks. Loops represent quantifiers, branches represent alternation, and you can trace a valid match by following the lines, which makes structure obvious at a glance." },
@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "legacy regex decoder",
       "stack overflow regex explained",
       "copy paste regex explain",
-      "no signup regex visualizer",
+      "a free account for downloads regex visualizer",
       "browser regex diagram"
     ],
   };

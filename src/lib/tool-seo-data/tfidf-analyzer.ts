@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Rank up to 8 documents by TF-IDF relevance to any query with a per-term score breakdown. Free, 100% in your browser, nothing uploaded.",
     about: [
       "**IconVault**'s **TF-IDF Analyzer** ranks up to **8 documents** by **term frequency-inverse document frequency** relevance to your query, with a full **per-term score breakdown** showing TF, DF, IDF and TF-IDF for every query term in every document. It is the classic information-retrieval measure behind keyword relevance scoring, explained visually instead of as a formula.",
-      "Everything runs **fully in your browser** in **JavaScript**, so your documents are **never uploaded** and the tool works offline once loaded. It is **free** with no signup. The honest note: TF-IDF is a **bag-of-words** measure, it ignores word order and synonyms, so use it to compare keyword relevance across drafts, not as a final SEO quality score."
+      "Everything runs **fully in your browser** in **JavaScript**, so your documents are **never uploaded** and the tool works offline once loaded. It is **free** to use; downloads need a free account. The honest note: TF-IDF is a **bag-of-words** measure, it ignores word order and synonyms, so use it to compare keyword relevance across drafts, not as a final SEO quality score."
     ],
     faqs: [
       { q: "What is TF-IDF?", a: "Term frequency-inverse document frequency. TF measures how often a term appears in a document, IDF measures how rare it is across all documents. Terms that are frequent in one document but rare elsewhere get the highest scores, which is why TF-IDF is used to rank keyword relevance." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Is my text sent to a server?", a: "No. Tokenization, scoring and ranking all run in your browser in JavaScript. Nothing is uploaded or stored." },
       { q: "Can this improve my SEO?", a: "It helps you see which draft covers the query terms most thoroughly relative to the others, but it does not measure content quality, readability or intent match, which matter far more to rankings." },
       { q: "Which languages does it tokenize?", a: "Latin letters and digits plus CJK characters, so English text and Chinese text are handled by the same tokenizer." },
-      { q: "Is it really free?", a: "Yes. The analyzer is free to use with no signup. Pro plan or the trial limit only applies to how often the tool can be used per day." }
+      { q: "Is it really free?", a: "Yes. The analyzer is free to use with a free account for downloads. Pro plan or the trial limit only applies to how often the tool can be used per day." }
     ],
     tags: [
       "tfidf analyzer",

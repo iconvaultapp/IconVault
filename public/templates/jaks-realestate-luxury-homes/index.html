@@ -1,0 +1,3083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, luxury real estate agent mansions, premium villa rental agency html, luxury home listings directory, high-end properties realtor showcase, beachfront luxury villa template, realty investment broker landing, high class apartment locator, residential luxury home agent, property portfolio layout">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/realestate-luxury-homes">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riviera Luxury Homes — Free Real Estate Template</title>
+  <meta name="description" content="Premium property catalog highlighting historic estates and luxury seaside villas in the French Riviera and Costa Brava. MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Riviera Luxury Homes — Free Real Estate Template">
+  <meta property="og:description" content="Premium property catalog highlighting historic estates and luxury seaside villas in the French Riviera and Costa Brava. MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/realestate_luxury_homes.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Riviera Luxury Homes — Free Real Estate Template">
+  <meta name="twitter:description" content="Premium property catalog highlighting historic estates and luxury seaside villas in the French Riviera and Costa Brava. MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/realestate_luxury_homes.webp">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0d0d0d;
+            --bg-tertiary: #141414;
+            --gold-primary: #c5a059;
+            --gold-light: #ebd49b;
+            --gold-dark: #917135;
+            --gold-gradient: linear-gradient(135deg, #ebd49b 0%, #c5a059 50%, #917135 100%);
+            --gold-glow: 0 0 20px rgba(197, 160, 89, 0.2);
+            --gold-glow-intense: 0 0 35px rgba(197, 160, 89, 0.45);
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --text-muted: #666666;
+            --border-gold: rgba(197, 160, 89, 0.18);
+            --border-gold-hover: rgba(197, 160, 89, 0.45);
+            --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: all 0.25s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-primary);
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        p, span, a, button, input, textarea, select {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        /* GLOBAL STYLING COMPONENT DECORATION */
+        .section-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--gold-primary);
+            display: block;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .section-title span {
+            font-style: italic;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-desc {
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* FLOATING HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            transition: var(--transition-smooth);
+            background: rgba(5, 5, 5, 0.2);
+        }
+
+        header.scrolled {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold-primary);
+        }
+
+        .logo span {
+            color: var(--gold-primary);
+            font-weight: 300;
+            font-size: 1rem;
+            border-left: 1px solid var(--border-gold);
+            padding-left: 0.5rem;
+            margin-left: 0.25rem;
+        }
+
+        nav {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            nav {
+                display: flex;
+                align-items: center;
+                gap: 2.5rem;
+            }
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            font-weight: 400;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-primary);
+            transition: var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--gold-primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .phone-action {
+            display: none;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .phone-action {
+                display: flex;
+            }
+        }
+
+        .phone-action svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold-primary);
+            animation: pulse-gold 2s infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+            }
+        }
+
+        .btn-gold-outline {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: transparent;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .btn-gold-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(235, 212, 155, 0.2), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-gold-outline:hover::before {
+            left: 100%;
+        }
+
+        .btn-gold-outline:hover {
+            background: var(--gold-primary);
+            color: #000;
+            box-shadow: var(--gold-glow);
+        }
+
+        .menu-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        @media (min-width: 1024px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: var(--transition-fast);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--gold-primary);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--gold-primary);
+        }
+
+        /* MOBILE MENU OVERLAY */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(5,5,5,0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            transition: var(--transition-smooth);
+            border-left: 1px solid var(--border-gold);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+        }
+
+        .mobile-nav a:hover, .mobile-nav a.active {
+            color: var(--gold-primary);
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+        }
+
+        /* CINEMATIC HERO SECTION */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #111111 0%, #030303 100%);
+        }
+
+        /* Geometric architectural bg line art overlay */
+        .hero-bg-blueprint {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-bg-graphic {
+            position: absolute;
+            width: 130%;
+            height: 130%;
+            top: -15%;
+            left: -15%;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+            animation: slow-pan 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes slow-pan {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.1) translate(-2%, -3%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+            display: inline-block;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .hero-subtitle::before, .hero-subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background: var(--gold-primary);
+        }
+        .hero-subtitle::before { left: -45px; }
+        .hero-subtitle::after { right: -45px; }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        .hero-title span {
+            font-style: italic;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-actions-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 576px) {
+            .hero-actions-group {
+                flex-direction: row;
+            }
+        }
+
+        .btn-gold-solid {
+            background: var(--gold-gradient);
+            color: #000000;
+            border: none;
+            padding: 1.1rem 2.2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: var(--gold-glow);
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        .btn-gold-solid:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--gold-glow-intense);
+            color: #000;
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 1.1rem 2.2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 400;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        /* SCROLL DOWN INDICATOR */
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0.7;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .scroll-down:hover {
+            opacity: 1;
+        }
+
+        .scroll-down span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--text-secondary);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, var(--gold-primary), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: #ffffff;
+            animation: scroll-anim 2s infinite ease-in-out;
+        }
+
+        @keyframes scroll-anim {
+            0% { top: -20px; }
+            100% { top: 50px; }
+        }
+
+        /* HERO STATS OVERLAY */
+        .hero-stats {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-top: 1px solid var(--border-gold);
+            border-left: 1px solid var(--border-gold);
+            padding: 1.5rem 3rem;
+            display: none;
+            gap: 3rem;
+            z-index: 2;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-stats {
+                display: flex;
+            }
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .stat-val {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.8rem;
+            color: var(--gold-light);
+        }
+
+        .stat-lbl {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+        }
+
+        /* MASONRY LUXURY ESTATES SECTION */
+        .estates-section {
+            padding: 8rem 2rem;
+            background-color: var(--bg-primary);
+            position: relative;
+        }
+
+        .estates-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .estates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .estates-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .estate-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            transition: var(--transition-smooth);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Custom masonry layout configuration spanning */
+        @media (min-width: 1200px) {
+            .estate-card.large {
+                grid-column: span 2;
+                flex-direction: row;
+            }
+            .estate-card.large .estate-img-container {
+                width: 55%;
+                height: 100%;
+                min-height: 480px;
+            }
+            .estate-card.large .estate-details {
+                width: 45%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 3rem;
+            }
+            
+            .estate-card.tall {
+                grid-row: span 2;
+            }
+            .estate-card.tall .estate-img-container {
+                height: 520px;
+            }
+        }
+
+        .estate-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-gold-hover);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), var(--gold-glow);
+        }
+
+        .estate-img-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .estate-img-svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .estate-card:hover .estate-img-svg {
+            transform: scale(1.08);
+        }
+
+        .estate-tag {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: rgba(5,5,5,0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .estate-details {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .estate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .estate-title {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            transition: var(--transition-fast);
+        }
+
+        .estate-card:hover .estate-title {
+            color: var(--gold-light);
+        }
+
+        .estate-price {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            white-space: nowrap;
+        }
+
+        .estate-location {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .estate-location svg {
+            width: 12px;
+            height: 12px;
+            fill: var(--gold-primary);
+        }
+
+        .estate-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .estate-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 2rem;
+            margin-top: auto; /* Push tags to bottom of details */
+        }
+
+        .spec-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .spec-tag svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--gold-primary);
+        }
+
+        .estate-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-text-gold {
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .btn-text-gold svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold-primary);
+            transition: var(--transition-fast);
+        }
+
+        .btn-text-gold:hover {
+            color: var(--gold-light);
+        }
+
+        .btn-text-gold:hover svg {
+            transform: translateX(5px);
+            fill: var(--gold-light);
+        }
+
+        /* INTERACTIVE TOUR SELECTOR */
+        .tour-section {
+            padding: 8rem 2rem;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+            position: relative;
+        }
+
+        .tour-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .tour-container {
+                grid-template-columns: 350px 1fr;
+            }
+        }
+
+        .tour-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .tour-tab {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-gold);
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .tour-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gold-primary);
+            transform: scaleY(0);
+            transition: var(--transition-smooth);
+            transform-origin: bottom;
+        }
+
+        .tour-tab:hover {
+            border-color: var(--border-gold-hover);
+            transform: translateX(5px);
+            background: rgba(197, 160, 89, 0.03);
+        }
+
+        .tour-tab.active {
+            border-color: var(--gold-primary);
+            background: rgba(197, 160, 89, 0.06);
+            box-shadow: var(--gold-glow);
+        }
+
+        .tour-tab.active::before {
+            transform: scaleY(1);
+        }
+
+        .tour-tab-num {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .tour-tab-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .tour-tab-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .tour-display {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-gold);
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .tour-display {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .tour-visual-wrapper {
+            position: relative;
+            min-height: 350px;
+            background: radial-gradient(circle at center, #1b1b1b 0%, #080808 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .tour-visual-svg {
+            width: 90%;
+            height: 90%;
+            transition: var(--transition-smooth);
+        }
+
+        /* Hotspots */
+        .hotspot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .hotspot-pulse {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: pulse-ring 2s infinite ease-out;
+        }
+
+        .hotspot-dot {
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: var(--transition-fast);
+        }
+
+        .hotspot:hover .hotspot-dot {
+            transform: scale(1.3);
+            background: var(--gold-light);
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        /* Tooltips for hotspots */
+        .hotspot-tooltip {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(5,5,5,0.95);
+            border: 1px solid var(--gold-primary);
+            padding: 0.8rem 1.2rem;
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8), var(--gold-glow);
+            text-align: center;
+        }
+
+        .hotspot-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--gold-primary) transparent transparent transparent;
+        }
+
+        .hotspot:hover .hotspot-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .hotspot-tooltip strong {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+        }
+
+        .tour-info {
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 1px solid var(--border-gold);
+        }
+
+        @media (min-width: 768px) {
+            .tour-info {
+                border-top: none;
+                border-left: 1px solid var(--border-gold);
+                padding: 4rem 3rem;
+            }
+        }
+
+        .tour-info-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .tour-info-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .tour-info-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .tour-info-specs {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tour-info-specs li {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tour-info-specs li svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--gold-primary);
+            flex-shrink: 0;
+        }
+
+        /* CLIENT INQUIRY FORM SECTION */
+        .contact-section {
+            padding: 8rem 2rem;
+            background-color: var(--bg-primary);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-detail-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-detail-desc {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            transition: var(--transition-smooth);
+        }
+
+        .contact-info-card:hover {
+            border-color: var(--border-gold-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--gold-glow);
+        }
+
+        .contact-info-icon {
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--border-gold);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-info-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold-primary);
+        }
+
+        .contact-info-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-info-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* PREMIUM FORM STYLING */
+        .contact-form-wrapper {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            padding: 3rem 2rem;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        @media (min-width: 768px) {
+            .contact-form-wrapper {
+                padding: 4rem 3.5rem;
+            }
+        }
+
+        .contact-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold-gradient);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 1;
+        }
+
+        @media (min-width: 768px) {
+            .form-group.full-width {
+                grid-column: span 2;
+            }
+        }
+
+        .form-input {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-gold);
+            padding: 1.1rem 1.5rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
+            background: rgba(197, 160, 89, 0.02);
+        }
+
+        .form-label {
+            position: absolute;
+            top: 50%;
+            left: 1.5rem;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            pointer-events: none;
+            transition: var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Label floating mechanics */
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+            top: 0;
+            left: 1rem;
+            transform: translateY(-50%) scale(0.8);
+            background: var(--bg-secondary);
+            padding: 0 0.5rem;
+            color: var(--gold-primary);
+        }
+
+        /* Custom text area adjustments */
+        textarea.form-input {
+            min-height: 150px;
+            resize: none;
+        }
+
+        textarea.form-input + .form-label {
+            top: 1.5rem;
+            transform: none;
+        }
+
+        textarea.form-input:focus + .form-label,
+        textarea.form-input:not(:placeholder-shown) + .form-label {
+            top: 0;
+            left: 1rem;
+            transform: translateY(-50%) scale(0.8);
+        }
+
+        /* Dropdown custom style */
+        .form-select-wrapper {
+            position: relative;
+        }
+
+        .form-select {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-gold);
+            padding: 1.1rem 1.5rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition-fast);
+        }
+
+        .form-select:focus {
+            border-color: var(--gold-primary);
+            background: rgba(197, 160, 89, 0.02);
+        }
+
+        .form-select-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-30%) rotate(45deg);
+            width: 8px;
+            height: 8px;
+            border-right: 1px solid var(--gold-primary);
+            border-bottom: 1px solid var(--gold-primary);
+            pointer-events: none;
+            transition: var(--transition-fast);
+        }
+
+        .form-select-wrapper:hover::after {
+            border-color: var(--gold-light);
+        }
+
+        /* Custom luxury checkboxes */
+        .checkbox-group-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .checkbox-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 2rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 18px;
+            width: 18px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-gold);
+            transition: var(--transition-fast);
+        }
+
+        .checkbox-container:hover input ~ .checkmark {
+            border-color: var(--gold-primary);
+        }
+
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: var(--gold-primary);
+            border-color: var(--gold-primary);
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked ~ .checkmark::after {
+            display: block;
+        }
+
+        .checkbox-container .checkmark::after {
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 9px;
+            border: solid #000;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox-container input:checked ~ span {
+            color: var(--text-primary);
+        }
+
+        /* CLIENT INQUIRY FORM SUCCESS STATE */
+        .success-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-secondary);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-key-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            animation: float-key 3s infinite ease-in-out;
+        }
+
+        @keyframes float-key {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .success-key-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--gold-primary);
+        }
+
+        .success-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        .success-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* PREMIUM TESTIMONIALS SECTION */
+        .testimonials-section {
+            padding: 8rem 2rem;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            animation: fade-in 0.8s ease-in-out forwards;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quote-icon {
+            font-size: 6rem;
+            font-family: 'Bodoni Moda', serif;
+            color: var(--gold-primary);
+            line-height: 0.1;
+            margin-bottom: 2rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-text {
+                font-size: 2rem;
+            }
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .author-title {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .slider-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-gold);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .slider-btn:hover {
+            border-color: var(--gold-primary);
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .slider-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold-primary);
+        }
+
+        /* BRANDS MARQUEE */
+        .marquee-section {
+            padding: 4rem 0;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: rgba(255, 255, 255, 0.12);
+            padding: 0 4rem;
+            white-space: nowrap;
+            transition: var(--transition-fast);
+        }
+
+        .marquee-item:hover {
+            color: var(--gold-primary);
+        }
+
+        /* BOOKING MODAL */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            padding: 2rem;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5,5,5,0.92);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .modal-content {
+            position: relative;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            width: 100%;
+            max-width: 550px;
+            padding: 3rem 2rem;
+            z-index: 2001;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8), var(--gold-glow-intense);
+            transform: translateY(30px);
+            transition: var(--transition-smooth);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--text-secondary);
+            transition: var(--transition-fast);
+        }
+
+        .modal-close:hover svg {
+            fill: var(--gold-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+            text-align: center;
+        }
+
+        .modal-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* PREMIUM DETAILED FOOTER */
+        footer {
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-gold);
+            padding: 6rem 2rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .footer-container {
+                grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .footer-logo span {
+            color: var(--gold-primary);
+        }
+
+        .footer-tagline {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 320px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            background: var(--bg-secondary);
+        }
+
+        .social-link:hover {
+            border-color: var(--gold-primary);
+            color: #000000;
+            background: var(--gold-primary);
+            box-shadow: var(--gold-glow);
+        }
+
+        .social-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .footer-column h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+            transform: translateX(3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .newsletter-input-wrapper {
+            position: relative;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-gold);
+            padding: 1.1rem 3.5rem 1.1rem 1.5rem;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--gold-primary);
+            background: rgba(197, 160, 89, 0.02);
+        }
+
+        .newsletter-btn {
+            position: absolute;
+            top: 50%;
+            right: 0.5rem;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .newsletter-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold-primary);
+            transition: var(--transition-fast);
+        }
+
+        .newsletter-btn:hover svg {
+            fill: var(--gold-light);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+            }
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-policy {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-policy a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-policy a:hover {
+            color: var(--gold-primary);
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Riviera Luxury Homes",
+    "description": "Premium property catalog highlighting historic estates and luxury seaside villas in the French Riviera and Costa Brava. MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/realestate-luxury-homes",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/realestate-luxury-homes.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- FLOATING HEADER -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2zm1 10h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+                </svg>
+                LUXURY<span>HOMES</span>
+            </a>
+            <nav>
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#estates" class="nav-link">Estates</a>
+                <a href="#tour" class="nav-link">Interactive Tour</a>
+                <a href="#contact" class="nav-link">Private Access</a>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:+18005558888" class="phone-action">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    +1 (800) 555-8888
+                </a>
+                <button class="btn-gold-outline" onclick="openModal()">Private Tour</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#hero" onclick="toggleMenu()">Home</a>
+        <a href="#estates" onclick="toggleMenu()">Estates</a>
+        <a href="#tour" onclick="toggleMenu()">Interactive Tour</a>
+        <a href="#contact" onclick="toggleMenu()">Private Access</a>
+        <a href="tel:+18005558888" style="font-size: 1.1rem; color: var(--gold-primary);">+1 (800) 555-8888</a>
+    </div>
+
+    <!-- CINEMATIC HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-blueprint">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(197, 160, 89, 0.04)" stroke-width="1"/>
+                        <circle cx="100" cy="100" r="1.5" fill="rgba(197, 160, 89, 0.15)"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+                <!-- Modern Minimalistic Golden House Contour -->
+                <path d="M 300 600 L 600 300 L 900 600 M 350 550 L 350 750 L 850 750 L 850 550" fill="none" stroke="rgba(197, 160, 89, 0.05)" stroke-width="2" stroke-dasharray="10 5" />
+                <line x1="0" y1="450" x2="2000" y2="450" stroke="rgba(197, 160, 89, 0.03)" stroke-width="1" />
+                <line x1="600" y1="0" x2="600" y2="1200" stroke="rgba(197, 160, 89, 0.03)" stroke-width="1" />
+            </svg>
+        </div>
+        <div class="hero-bg-graphic"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">The Pinnacle of Living</span>
+            <h1 class="hero-title">Experience<br><span>Elite Living</span></h1>
+            <p class="hero-desc">Discover our curated collection of architectural marvels and high-end estates. Masterfully engineered sanctuaries crafted for the uncompromising few.</p>
+            <div class="hero-actions-group">
+                <a href="#estates" class="btn-gold-solid">Explore Portfolio</a>
+                <button class="btn-glass" onclick="openModal()">Book Private Showing</button>
+            </div>
+        </div>
+
+        <div class="scroll-down" onclick="document.getElementById('estates').scrollIntoView();">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-val">$2.4B+</span>
+                <span class="stat-lbl">Transactions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-val">120+</span>
+                <span class="stat-lbl">Premium Mansions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-val">100%</span>
+                <span class="stat-lbl">Discretion</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS MARQUEE -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-item">THE OBSIDIAN PILLARS</span>
+            <span class="marquee-item">KAUFMAN ARCHITECTS</span>
+            <span class="marquee-item">ELEVATED LIVING SYNDICATE</span>
+            <span class="marquee-item">AURELIA DESIGN STUDIO</span>
+            <span class="marquee-item">OPULENT LIVING MAGAZINE</span>
+            <!-- Duplicate for infinite seamless scroll -->
+            <span class="marquee-item">THE OBSIDIAN PILLARS</span>
+            <span class="marquee-item">KAUFMAN ARCHITECTS</span>
+            <span class="marquee-item">ELEVATED LIVING SYNDICATE</span>
+            <span class="marquee-item">AURELIA DESIGN STUDIO</span>
+            <span class="marquee-item">OPULENT LIVING MAGAZINE</span>
+        </div>
+    </section>
+
+    <!-- MASONRY LUXURY ESTATES SECTION -->
+    <section class="estates-section" id="estates">
+        <span class="section-tag">Curated Portfolio</span>
+        <h2 class="section-title">Architectural <span>Masterpieces</span></h2>
+        <p class="section-desc">Strictly limited collection of exceptionally rare residences engineered with elite standards, modern amenities, and breathtaking aesthetic profiles.</p>
+
+        <div class="estates-grid">
+            <!-- ESTATE CARD 1: Obsidian Penthouse (Large Spanning) -->
+            <div class="estate-card large">
+                <div class="estate-img-container">
+                    <span class="estate-tag">New Listing</span>
+                    <!-- Architectural premium visual -->
+                    <svg class="estate-img-svg" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#0a0a0a" />
+                        <defs>
+                            <linearGradient id="penthouse-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#2a2a2a" />
+                                <stop offset="100%" stop-color="#050505" />
+                            </linearGradient>
+                            <linearGradient id="gold-sunset" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#050505" stop-opacity="0.9" />
+                                <stop offset="50%" stop-color="#917135" stop-opacity="0.3" />
+                                <stop offset="100%" stop-color="#ebd49b" stop-opacity="0.0" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Skyscraper silhouette -->
+                        <rect x="150" y="80" width="200" height="320" fill="url(#penthouse-grad)" stroke="#3a3a3a" stroke-width="1"/>
+                        <rect x="180" y="120" width="140" height="280" fill="none" stroke="rgba(197, 160, 89, 0.2)" stroke-width="1"/>
+                        <!-- Gold Glass highlights -->
+                        <rect x="195" y="140" width="40" height="260" fill="none" stroke="rgba(197, 160, 89, 0.1)" stroke-width="1"/>
+                        <rect x="265" y="140" width="40" height="260" fill="none" stroke="rgba(197, 160, 89, 0.1)" stroke-width="1"/>
+                        <!-- Penthouse top deck luxury lines -->
+                        <line x1="120" y1="80" x2="380" y2="80" stroke="#c5a059" stroke-width="2"/>
+                        <line x1="140" y1="70" x2="360" y2="70" stroke="#917135" stroke-width="1"/>
+                        <circle cx="250" cy="50" r="3" fill="#c5a059" />
+                        <line x1="250" y1="50" x2="250" y2="70" stroke="#c5a059" stroke-width="1"/>
+                        <!-- Soft Atmospheric Glow -->
+                        <rect width="100%" height="100%" fill="url(#gold-sunset)" />
+                        <!-- Moon -->
+                        <circle cx="400" cy="100" r="25" fill="none" stroke="rgba(197, 160, 89, 0.15)" stroke-width="1"/>
+                        <circle cx="400" cy="100" r="18" fill="none" stroke="rgba(197, 160, 89, 0.08)" stroke-width="1"/>
+                        <!-- Text label graphic element -->
+                        <text x="30" y="360" fill="rgba(255,255,255,0.05)" font-family="Bodoni Moda" font-size="70">NYC</text>
+                    </svg>
+                </div>
+                <div class="estate-details">
+                    <div class="estate-header">
+                        <h3 class="estate-title">The Obsidian Penthouse</h3>
+                        <span class="estate-price">$48,500,000</span>
+                    </div>
+                    <div class="estate-location">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Fifth Avenue, New York
+                    </div>
+                    <p class="estate-desc">Soaring above the iconic Manhattan skyline, this architectural triplex crown offers uncompromised 360-degree panoramic views of Central Park, featuring full bespoke Calacatta design and personal heliport access.</p>
+                    <div class="estate-specs">
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+                            6 Beds
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M20 13V4H4v9H2v2h20v-2h-2zM6 12V6h12v6H6z"/></svg>
+                            8 Baths
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+                            12,400 Sq Ft
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6z"/></svg>
+                            Infinity Pool
+                        </div>
+                    </div>
+                    <div class="estate-footer">
+                        <button class="btn-text-gold" onclick="inquireForProperty('The Obsidian Penthouse')">
+                            Request Private Dossier 
+                            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTATE CARD 2: Villa Lumina (Tall Spanning) -->
+            <div class="estate-card tall">
+                <div class="estate-img-container">
+                    <span class="estate-tag">Rare Sanctuary</span>
+                    <svg class="estate-img-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#0a0a0a" />
+                        <defs>
+                            <linearGradient id="sea-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#151e29" />
+                                <stop offset="100%" stop-color="#050505" />
+                            </linearGradient>
+                            <linearGradient id="gold-mist" x1="100%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#917135" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Sea background -->
+                        <rect x="0" y="320" width="400" height="180" fill="url(#sea-grad)"/>
+                        <path d="M 0 320 Q 100 310 200 325 T 400 315 L 400 330 L 0 330 Z" fill="rgba(197,160,89,0.15)"/>
+                        <!-- Cliff side -->
+                        <path d="M 0 250 L 150 200 L 220 350 L 180 500 L 0 500 Z" fill="#121212" stroke="#2a2a2a" stroke-width="1"/>
+                        <!-- Villa structured cantilevered -->
+                        <polygon points="100,160 280,130 280,220 100,250" fill="#1a1a1a" stroke="#c5a059" stroke-width="1.5"/>
+                        <!-- Glass facades -->
+                        <polygon points="120,180 200,168 200,220 120,230" fill="none" stroke="rgba(197, 160, 89, 0.4)" stroke-width="1"/>
+                        <polygon points="210,166 270,158 270,210 210,218" fill="none" stroke="rgba(197, 160, 89, 0.4)" stroke-width="1"/>
+                        <!-- Pool drop line -->
+                        <line x1="280" y1="210" x2="350" y2="240" stroke="#ebd49b" stroke-width="2"/>
+                        <line x1="350" y1="240" x2="350" y2="350" stroke="#ebd49b" stroke-width="0.5" stroke-dasharray="3 3"/>
+                        <!-- Atmospheric effect -->
+                        <rect width="100%" height="100%" fill="url(#gold-mist)" />
+                        <!-- Moon reflection -->
+                        <ellipse cx="320" cy="380" rx="40" ry="2" fill="rgba(197, 160, 89, 0.2)"/>
+                        <!-- Sun/Moon high -->
+                        <circle cx="80" cy="70" r="15" fill="none" stroke="rgba(197, 160, 89, 0.2)" stroke-width="1"/>
+                        <text x="260" y="460" fill="rgba(255,255,255,0.03)" font-family="Bodoni Moda" font-size="50">AMALFI</text>
+                    </svg>
+                </div>
+                <div class="estate-details">
+                    <div class="estate-header">
+                        <h3 class="estate-title">Villa Lumina</h3>
+                        <span class="estate-price">$32,000,000</span>
+                    </div>
+                    <div class="estate-location">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Amalfi Coast, Italy
+                    </div>
+                    <p class="estate-desc">Suspended on a majestic, sheer golden limestone cliff facing the pristine Mediterranean, Villa Lumina integrates natural stone forms with stark cantilevered glass architecture and structural luxury.</p>
+                    <div class="estate-specs">
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+                            5 Beds
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M20 13V4H4v9H2v2h20v-2h-2zM6 12V6h12v6H6z"/></svg>
+                            6 Baths
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+                            9,800 Sq Ft
+                        </div>
+                    </div>
+                    <div class="estate-footer">
+                        <button class="btn-text-gold" onclick="inquireForProperty('Villa Lumina')">
+                            Request Private Dossier 
+                            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTATE CARD 3: Chateau de L'Or (Standard) -->
+            <div class="estate-card">
+                <div class="estate-img-container">
+                    <span class="estate-tag">Timeless Neo-classic</span>
+                    <svg class="estate-img-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#0a0a0a" />
+                        <defs>
+                            <linearGradient id="chateau-sky" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#0a0a0a" />
+                                <stop offset="100%" stop-color="#141c22" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Sky backdrop -->
+                        <rect width="100%" height="220" fill="url(#chateau-sky)"/>
+                        <!-- Symmetrical pillars neoclassical chateau outline -->
+                        <rect x="80" y="100" width="240" height="120" fill="#121212" stroke="#333" stroke-width="1"/>
+                        <polygon points="70,100 200,40 330,100" fill="#181818" stroke="#ebd49b" stroke-width="1"/>
+                        <!-- Pillars -->
+                        <line x1="120" y1="100" x2="120" y2="220" stroke="#c5a059" stroke-width="2"/>
+                        <line x1="160" y1="100" x2="160" y2="220" stroke="#c5a059" stroke-width="2"/>
+                        <line x1="240" y1="100" x2="240" y2="220" stroke="#c5a059" stroke-width="2"/>
+                        <line x1="280" y1="100" x2="280" y2="220" stroke="#c5a059" stroke-width="2"/>
+                        <!-- Grand steps -->
+                        <polygon points="140,220 260,220 280,250 120,250" fill="#151515" stroke="#444" stroke-width="1"/>
+                        <line x1="130" y1="235" x2="270" y2="235" stroke="#c5a059" stroke-width="0.5"/>
+                        <!-- Hedge circles -->
+                        <circle cx="60" cy="240" r="10" fill="none" stroke="rgba(197, 160, 89, 0.2)" stroke-width="1.5"/>
+                        <circle cx="340" cy="240" r="10" fill="none" stroke="rgba(197, 160, 89, 0.2)" stroke-width="1.5"/>
+                        <text x="40" y="270" fill="rgba(255,255,255,0.02)" font-family="Bodoni Moda" font-size="40">CHATEAU</text>
+                    </svg>
+                </div>
+                <div class="estate-details">
+                    <div class="estate-header">
+                        <h3 class="estate-title">Chateau de L'Or</h3>
+                        <span class="estate-price">$54,000,000</span>
+                    </div>
+                    <div class="estate-location">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        French Riviera, France
+                    </div>
+                    <p class="estate-desc">Blending French Neoclassical grandeur with hyper-modern custom amenities, including a private underground wine cave, olive orchards, and automated wellness lounges.</p>
+                    <div class="estate-specs">
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+                            8 Beds
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M20 13V4H4v9H2v2h20v-2h-2zM6 12V6h12v6H6z"/></svg>
+                            10 Baths
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+                            18,500 Sq Ft
+                        </div>
+                    </div>
+                    <div class="estate-footer">
+                        <button class="btn-text-gold" onclick="inquireForProperty('Chateau de L\'Or')">
+                            Request Private Dossier 
+                            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTATE CARD 4: Aero-Mirage Estate (Standard) -->
+            <div class="estate-card">
+                <div class="estate-img-container">
+                    <span class="estate-tag">Parametric Design</span>
+                    <svg class="estate-img-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#0a0a0a" />
+                        <defs>
+                            <linearGradient id="dusk-sky" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#0a0a0a" />
+                                <stop offset="100%" stop-color="#221215" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Sky backdrop -->
+                        <rect width="100%" height="220" fill="url(#dusk-sky)"/>
+                        <!-- Parametric architectural curves -->
+                        <path d="M 50 200 Q 150 100 250 180 T 380 150 L 380 250 L 50 250 Z" fill="#141414" stroke="#c5a059" stroke-width="1.5"/>
+                        <path d="M 70 210 Q 160 130 250 195 T 370 170" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="5 5"/>
+                        <!-- Light lines floating -->
+                        <line x1="80" y1="210" x2="350" y2="210" stroke="rgba(197, 160, 89, 0.3)" stroke-width="0.5"/>
+                        <!-- Helipad contour -->
+                        <ellipse cx="200" cy="230" rx="45" ry="12" fill="none" stroke="#ebd49b" stroke-width="1"/>
+                        <text x="195" y="234" fill="#ebd49b" font-family="Outfit" font-size="10" font-weight="600">H</text>
+                        <!-- Palm silhouettes minimal -->
+                        <line x1="50" y1="240" x2="35" y2="170" stroke="#222" stroke-width="2"/>
+                        <path d="M 35 170 Q 20 160 10 170 M 35 170 Q 30 150 45 155 M 35 170 Q 50 160 55 175" fill="none" stroke="#222" stroke-width="1.5"/>
+                        <text x="240" y="90" fill="rgba(255,255,255,0.02)" font-family="Bodoni Moda" font-size="40">MALIBU</text>
+                    </svg>
+                </div>
+                <div class="estate-details">
+                    <div class="estate-header">
+                        <h3 class="estate-title">Aero-Mirage Estate</h3>
+                        <span class="estate-price">$29,500,000</span>
+                    </div>
+                    <div class="estate-location">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Malibu, California
+                    </div>
+                    <p class="estate-desc">A futuristic sanctuary showcasing dramatic fluid contours, structural carbon support engineering, integrated ocean terrace helipad, and private surfing cove access.</p>
+                    <div class="estate-specs">
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+                            4 Beds
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M20 13V4H4v9H2v2h20v-2h-2zM6 12V6h12v6H6z"/></svg>
+                            5 Baths
+                        </div>
+                        <div class="spec-tag">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+                            8,200 Sq Ft
+                        </div>
+                    </div>
+                    <div class="estate-footer">
+                        <button class="btn-text-gold" onclick="inquireForProperty('Aero-Mirage Estate')">
+                            Request Private Dossier 
+                            <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE TOUR SELECTOR -->
+    <section class="tour-section" id="tour">
+        <span class="section-tag">Digital Experience</span>
+        <h2 class="section-title">Interactive <span>Sanctuary Tour</span></h2>
+        <p class="section-desc">Embark on a digital walkthrough of the signature estate zones. Hover or click custom golden hotspots to examine internal structural specifications and engineering.</p>
+
+        <div class="tour-container">
+            <!-- Controls (Tabs) -->
+            <div class="tour-controls">
+                <div class="tour-tab active" onclick="switchTourTab(0)">
+                    <span class="tour-tab-num">ZONE 01</span>
+                    <span class="tour-tab-title">The Grand Foyer</span>
+                    <span class="tour-tab-subtitle">Volume & Light Engineering</span>
+                </div>
+                <div class="tour-tab" onclick="switchTourTab(1)">
+                    <span class="tour-tab-num">ZONE 02</span>
+                    <span class="tour-tab-title">Master Sanctuary</span>
+                    <span class="tour-tab-subtitle">Bespoke Suite Experience</span>
+                </div>
+                <div class="tour-tab" onclick="switchTourTab(2)">
+                    <span class="tour-tab-num">ZONE 03</span>
+                    <span class="tour-tab-title">Subterranean Car Gallery</span>
+                    <span class="tour-tab-subtitle">Hydraulic Lift & Climate Vault</span>
+                </div>
+                <div class="tour-tab" onclick="switchTourTab(3)">
+                    <span class="tour-tab-num">ZONE 04</span>
+                    <span class="tour-tab-title">Infinity Sky Deck</span>
+                    <span class="tour-tab-subtitle">Seamless Horizon Lounging</span>
+                </div>
+            </div>
+
+            <!-- Showcase Display -->
+            <div class="tour-display">
+                <!-- Visual Component (Interactive Floorplan/Graphics) -->
+                <div class="tour-visual-wrapper">
+                    <!-- Dynamic vector/SVG floorplan layout depending on active zone -->
+                    <div id="tourSvgContainer" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <!-- SVGs are dynamically loaded here by script -->
+                    </div>
+                </div>
+
+                <!-- Text Info Box -->
+                <div class="tour-info" id="tourInfo">
+                    <span class="tour-info-tag" id="tourInfoZone">ZONE 01 / OBSIDIAN</span>
+                    <h3 class="tour-info-title" id="tourInfoTitle">The Grand Foyer</h3>
+                    <p class="tour-info-desc" id="tourInfoDesc">Designed to produce an overwhelming sensory impression of architectural volume, the 24-foot vaulted ceilings feature sweeping columns and direct visual alignments with Central Park panoramas.</p>
+                    <ul class="tour-info-specs" id="tourInfoSpecs">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            24-Foot Custom Vaulted Glass Ceiling
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Bookmatched Calacatta Gold Marble Floors
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Biometric Structural Main Portal Door
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="testimonials-slider">
+            <div class="quote-icon">“</div>
+            
+            <div class="testimonial-slide active">
+                <p class="testimonial-text">Acquiring the Obsidian Penthouse was an exercise in pure professionalism. The absolute discretion, swift contractual finalization, and the architectural brilliance of the property exceeded all elite international standards.</p>
+                <div class="testimonial-author">
+                    <span class="author-name">Sir Alistair Vance</span>
+                    <span class="author-title">Chairman of Vance Syndicate</span>
+                </div>
+            </div>
+
+            <div class="testimonial-slide">
+                <p class="testimonial-text">Villa Lumina is not merely a residence; it is a structural work of fine art. The integration of modern smart mechanics with the timeless coastal landscape has provided my family with an unmatched personal sanctuary.</p>
+                <div class="testimonial-author">
+                    <span class="author-name">Dr. Héléna Laurent</span>
+                    <span class="author-title">Biotech Pioneer & Philanthropist</span>
+                </div>
+            </div>
+
+            <div class="testimonial-slide">
+                <p class="testimonial-text">Luxury Homes possesses an unrivaled understanding of global elite estate acquisition. Their elite client representative handled our transaction with unparalleled care, absolute security, and perfect speed.</p>
+                <div class="testimonial-author">
+                    <span class="author-name">Kenji Sato</span>
+                    <span class="author-title">Founder, Sato Global Capital</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="prevSlide()" aria-label="Previous Testimonial">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="slider-btn" onclick="nextSlide()" aria-label="Next Testimonial">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT INQUIRY FORM SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-details">
+                <span class="section-tag" style="text-align: left; margin-bottom: 1rem;">Acquisitions</span>
+                <h2 class="contact-detail-title">Initiate Your <span>Sanctuary Search</span></h2>
+                <p class="contact-detail-desc">Our elite client representatives are standing by to coordinate private transport and secure structural credentials for prospective estate inspections. Complete the form to initiate personal access.</p>
+                
+                <div class="contact-info-list">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Discreet Inquiries</h4>
+                            <p>acquisitions@luxuryhomes.com<br>secure-comms@luxuryhomes.net (PGP Available)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Global Headquarters</h4>
+                            <p>750 Fifth Avenue, Floor 44<br>New York, NY 10019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Wrapper -->
+            <div class="contact-form-wrapper">
+                <form id="inquiryForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="clientName" placeholder=" " required>
+                            <label class="form-label" for="clientName">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="clientEmail" placeholder=" " required>
+                            <label class="form-label" for="clientEmail">Email Address</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" class="form-input" id="clientPhone" placeholder=" " required>
+                            <label class="form-label" for="clientPhone">Direct Phone</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-select-wrapper">
+                                <select class="form-select" id="interestProperty" required>
+                                    <option value="" disabled selected>Select Property</option>
+                                    <option value="The Obsidian Penthouse">The Obsidian Penthouse ($48.5M)</option>
+                                    <option value="Villa Lumina">Villa Lumina ($32.0M)</option>
+                                    <option value="Chateau de L'Or">Chateau de L'Or ($54.0M)</option>
+                                    <option value="Aero-Mirage Estate">Aero-Mirage Estate ($29.5M)</option>
+                                    <option value="Custom Sanctuary Search">Custom Bespoke Search</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="checkbox-group-title">Nature of Inquiry</span>
+                    <div class="checkbox-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="inquiryType" value="Private Tour" checked>
+                            <span class="checkmark"></span>
+                            Private Tour
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="inquiryType" value="Acquisition Portfolio">
+                            <span class="checkmark"></span>
+                            Acquisition Portfolio
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="inquiryType" value="Investment Syndicate">
+                            <span class="checkmark"></span>
+                            Syndicate
+                        </label>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <textarea class="form-input" id="clientMessage" placeholder=" " required></textarea>
+                        <label class="form-label" for="clientMessage">Describe your custom layout/amenity requirements...</label>
+                    </div>
+
+                    <button type="submit" class="btn-gold-solid" style="width: 100%; padding: 1.2rem;">Request Private Access</button>
+                </form>
+
+                <!-- SUCCESS STATE OVERLAY -->
+                <div class="success-overlay" id="formSuccess">
+                    <div class="success-key-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="success-title">Access Granted</h3>
+                    <p class="success-desc" id="successText">An elite client representative will contact you in under 15 minutes via secure channel. Your private key credentials are being generated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIVATE TOUR BOOKING MODAL -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <h3 class="modal-title">Schedule private tour</h3>
+            <p class="modal-desc">Provide your credentials below. A secure luxury vehicle and personal representative will be dispatched to your location for a seamless inspection experience.</p>
+            <form onsubmit="handleModalSubmit(event)">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="modalName" placeholder=" " required>
+                    <label class="form-label" for="modalName">Full Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" id="modalEmail" placeholder=" " required>
+                    <label class="form-label" for="modalEmail">Email Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input" id="modalPhone" placeholder=" " required>
+                    <label class="form-label" for="modalPhone">Direct Phone</label>
+                </div>
+                <button type="submit" class="btn-gold-solid" style="width: 100%; padding: 1.2rem;">Coordinate Showing</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PREMIUM DETAILED FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    LUXURY<span>HOMES</span>
+                </a>
+                <p class="footer-tagline">Architectural masterpieces and rare residential sanctuaries designed for the elite. Combining state-of-the-art physics with timeless Neoclassical design language.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.002 3.002 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Global Portfolios</h3>
+                <ul class="footer-links">
+                    <li><a href="#estates">New York Penthouses</a></li>
+                    <li><a href="#estates">Amalfi Coastal Villas</a></li>
+                    <li><a href="#estates">French Riviera Châteaux</a></li>
+                    <li><a href="#estates">Malibu Modernist Estates</a></li>
+                    <li><a href="#estates">Alpine Private Lodges</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>The Syndicate</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Bespoke Architectural Partners</a></li>
+                    <li><a href="#">Discreet Wealth Advisory</a></li>
+                    <li><a href="#">Cryptographic Transaction Hub</a></li>
+                    <li><a href="#">Global Elite Syndicate</a></li>
+                    <li><a href="#">Careers in High Luxury</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Private Registry</h3>
+                <p class="footer-tagline" style="margin-bottom: 1.5rem; font-size: 0.85rem;">Subscribe to the private luxury registry to receive unlisted real estate dossiers before public distribution.</p>
+                <div class="newsletter-form">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="ENTER ACCESS CODE OR EMAIL">
+                        <button class="newsletter-btn" onclick="submitNewsletter()" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 LUXURY HOMES LLC. ALL RIGHTS RESERVED. ACQUISITIONS ARE HANDLED WITH FULL SECURE ESCROW PROTOCOLS.</p>
+            <div class="footer-policy">
+                <a href="#">Privacy Agreement</a>
+                <a href="#">Discretion Guarantee</a>
+                <a href="#">Escrow Credentials</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // HEADER ANIMATION ON SCROLL
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // MOBILE NAV TOGGLE
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            // Prevent scrolling when mobile nav is open
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // INTERACTIVE TOUR SELECTOR DATA & LOGIC
+        const tourData = [
+            {
+                zone: "ZONE 01 / NEW YORK PENTHOUSE",
+                title: "The Grand Foyer",
+                desc: "Designed to produce an overwhelming sensory impression of architectural volume, the 24-foot vaulted ceilings feature sweeping columns and direct visual alignments with Central Park panoramas.",
+                specs: [
+                    "24-Foot Custom Vaulted Glass Ceiling",
+                    "Bookmatched Calacatta Gold Marble Floors",
+                    "Biometric Structural Main Portal Door"
+                ],
+                svg: `<svg class="tour-visual-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="none"/>
+                    <!-- Grand Columns -->
+                    <rect x="80" y="20" width="25" height="260" fill="#151515" stroke="rgba(197, 160, 89, 0.4)" stroke-width="1"/>
+                    <rect x="295" y="20" width="25" height="260" fill="#151515" stroke="rgba(197, 160, 89, 0.4)" stroke-width="1"/>
+                    <!-- Glass arches on ceiling -->
+                    <path d="M 80 20 Q 200 -10 320 20" fill="none" stroke="#c5a059" stroke-width="1.5"/>
+                    <path d="M 80 40 Q 200 10 320 40" fill="none" stroke="rgba(197, 160, 89, 0.3)" stroke-width="1"/>
+                    <!-- Elegant floor tiling lines -->
+                    <polygon points="105,280 295,280 340,300 60,300" fill="none" stroke="#917135" stroke-width="1"/>
+                    <line x1="200" y1="280" x2="200" y2="300" stroke="#c5a059" stroke-width="1"/>
+                    <!-- Central focal sculpture -->
+                    <ellipse cx="200" cy="180" rx="15" ry="30" fill="none" stroke="#ebd49b" stroke-width="1"/>
+                    <circle cx="200" cy="180" r="8" fill="none" stroke="#c5a059" stroke-width="1"/>
+                    <!-- Hotspots -->
+                    <div class="hotspot" style="top: 15%; left: 50%;" onclick="showHotspotDetail('Bespoke Architectural Glazing System designed by Kaufman Studio. Tempered acoustic panels.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Glazing Ceiling</strong>Vaulted Baccarat-inspired system</div>
+                    </div>
+                    <div class="hotspot" style="top: 88%; left: 50%;" onclick="showHotspotDetail('Rare bookmatched Italian Calacatta Gold marble, fully heated with integrated hydronic piping.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Heated Marble</strong>Rare bookmatched slabs</div>
+                    </div>
+                    <div class="hotspot" style="top: 55%; left: 50%;" onclick="showHotspotDetail('Hand-carved solid bronze core sculpture representing structural equilibrium.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Aurelia Sculpture</strong>Solid bronze masterpiece</div>
+                    </div>
+                </svg>`
+            },
+            {
+                zone: "ZONE 02 / AMALFI SANCTUARY",
+                title: "Master Sanctuary",
+                desc: "A custom wellness enclave configured with fully motorized glass walls that completely retract into structural cavities, merging the luxurious master suite seamlessly with the ocean air.",
+                specs: [
+                    "Retractable Motorized Double-Glazed Vitrocsa Walls",
+                    "Custom Hand-carved Limestone Bedstead pedestal",
+                    "Private Hammam and Swedish Sauna Access"
+                ],
+                svg: `<svg class="tour-visual-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="none"/>
+                    <!-- Room structure layout -->
+                    <polygon points="50,220 220,180 350,220 200,270" fill="none" stroke="rgba(197, 160, 89, 0.2)" stroke-width="1"/>
+                    <!-- Luxury Bed layout -->
+                    <polygon points="120,200 220,175 280,200 180,230" fill="#151515" stroke="#c5a059" stroke-width="1.5"/>
+                    <polygon points="180,185 220,175 250,185 210,195" fill="#333" stroke="none"/>
+                    <!-- Retractable Glass outline -->
+                    <line x1="50" y1="120" x2="350" y2="120" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                    <line x1="50" y1="120" x2="50" y2="220" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                    <line x1="350" y1="120" x2="350" y2="220" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                    <!-- Horizon / Sea background in room -->
+                    <line x1="50" y1="160" x2="350" y2="160" stroke="#ebd49b" stroke-width="0.5" stroke-dasharray="8 4"/>
+                    <!-- Hotspots -->
+                    <div class="hotspot" style="top: 35%; left: 50%;" onclick="showHotspotDetail('Fully retractable panoramic glass pane. Opens silently in 4.2 seconds via biometric command.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Retractable Wall</strong>Retractable Vitrocsa double glazing</div>
+                    </div>
+                    <div class="hotspot" style="top: 70%; left: 50%;" onclick="showHotspotDetail('Floating platform bedstead carved from a single 8-ton block of raw Travertine limestone.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Stone Bedstead</strong>Travertine limestone pedestal</div>
+                    </div>
+                </svg>`
+            },
+            {
+                zone: "ZONE 03 / CHATEAU VAULT",
+                title: "Subterranean Car Gallery",
+                desc: "An advanced underground sanctuary utilizing customized hydraulic parking platforms, professional mechanical diagnostics systems, and fully secure hermetic air filtration protocols.",
+                specs: [
+                    "Carbon Monoxide Automated High-Velocity Scrubber Vault",
+                    "Three-Level Hydraulic Vehicle Management Lift System",
+                    "Custom Soft-ambient LED Direct Track System"
+                ],
+                svg: `<svg class="tour-visual-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="none"/>
+                    <!-- Mechanical lift structure -->
+                    <line x1="100" y1="40" x2="100" y2="260" stroke="#c5a059" stroke-width="2"/>
+                    <line x1="300" y1="40" x2="300" y2="260" stroke="#c5a059" stroke-width="2"/>
+                    <!-- Lower platform -->
+                    <rect x="100" y="210" width="200" height="15" fill="#151515" stroke="rgba(197, 160, 89, 0.6)" stroke-width="1.5"/>
+                    <!-- Upper platform -->
+                    <rect x="100" y="110" width="200" height="15" fill="#151515" stroke="rgba(197, 160, 89, 0.6)" stroke-width="1.5"/>
+                    <!-- Minimalist car outline on top -->
+                    <path d="M 140 110 Q 150 90 200 90 T 260 110" fill="none" stroke="#ebd49b" stroke-width="1.5"/>
+                    <!-- Ceiling lighting lines -->
+                    <line x1="50" y1="40" x2="350" y2="40" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                    <!-- Hotspots -->
+                    <div class="hotspot" style="top: 32%; left: 50%;" onclick="showHotspotDetail('High-speed hydraulic scissor-jack lift platform. Capacities up to 14,000 lbs.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Hydraulic Lift</strong>Underground vehicle distribution</div>
+                    </div>
+                    <div class="hotspot" style="top: 10%; left: 50%;" onclick="showHotspotDetail('Automated air scrubbers filtering 99.97% of exhaust particulates, creating absolute museum air.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Air Filtration</strong>Medical-grade exhaust scrubbers</div>
+                    </div>
+                </svg>`
+            },
+            {
+                zone: "ZONE 04 / MALIBU DECK",
+                title: "Infinity Sky Deck",
+                desc: "A breathtaking outdoor lounge cantilevered directly over the ocean. Includes a custom salt-treated fire trench, heated spa seats, and absolute horizontal visual continuation with the Pacific Ocean.",
+                specs: [
+                    "Bespoke Reinforced Carbon Fiber Cantilever Decking",
+                    "Integrated Ethanol Clean-burning Linear Fire Trench",
+                    "Marine-Grade Stainless Glass Balustrade System"
+                ],
+                svg: `<svg class="tour-visual-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="none"/>
+                    <!-- Horizon -->
+                    <line x1="0" y1="120" x2="400" y2="120" stroke="#917135" stroke-width="0.5"/>
+                    <!-- Cantilever deck edge -->
+                    <polygon points="0,170 280,170 380,260 0,260" fill="#121212" stroke="#c5a059" stroke-width="2"/>
+                    <!-- Fire trench details -->
+                    <rect x="80" y="210" width="140" height="12" fill="#000" stroke="rgba(197, 160, 89, 0.4)" stroke-width="1"/>
+                    <!-- Minimal fire flames outline -->
+                    <path d="M 90 210 Q 95 190 100 210 M 110 210 Q 115 185 120 210 M 150 210 Q 155 190 160 210" fill="none" stroke="#ebd49b" stroke-width="1.5"/>
+                    <!-- Glass rails -->
+                    <line x1="280" y1="170" x2="280" y2="130" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                    <line x1="380" y1="260" x2="380" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                    <!-- Hotspots -->
+                    <div class="hotspot" style="top: 67%; left: 40%;" onclick="showHotspotDetail('Recessed linear fireplace. Fuel-efficient clean ethanol burner with remote smart-home ignition.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Ethanol Fire Pit</strong>Smart-home integrated fire line</div>
+                    </div>
+                    <div class="hotspot" style="top: 53%; left: 70%;" onclick="showHotspotDetail('Structural marine balustrades. Chemically toughened double-laminated ultra-clear low-iron glass.')">
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-tooltip"><strong>Ocean Balustrades</strong>Hurricane-rated safety glass</div>
+                    </div>
+                </svg>`
+            }
+        ];
+
+        // RENDER TOUR FUNCTION
+        function renderTourTab(index) {
+            const current = tourData[index];
+            
+            // Set Text Information
+            document.getElementById('tourInfoZone').innerText = current.zone;
+            document.getElementById('tourInfoTitle').innerText = current.title;
+            document.getElementById('tourInfoDesc').innerText = current.desc;
+            
+            // Set Specs
+            const specsList = document.getElementById('tourInfoSpecs');
+            specsList.innerHTML = '';
+            current.specs.forEach(spec => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    ${spec}
+                `;
+                specsList.appendChild(li);
+            });
+
+            // Set SVG and render actual Hotspots properly
+            const container = document.getElementById('tourSvgContainer');
+            container.innerHTML = current.svg;
+        }
+
+        // TAB SWITCHER
+        function switchTourTab(index) {
+            const tabs = document.querySelectorAll('.tour-tab');
+            tabs.forEach((tab, idx) => {
+                if (idx === index) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            renderTourTab(index);
+        }
+
+        // Initialize First Tab
+        switchTourTab(0);
+
+        // HOTSPOT CLICK INTERACTION
+        function showHotspotDetail(message) {
+            // Can be expanded to display custom details in an sleek in-app alert/panel
+            console.log("Hotspot Details:", message);
+        }
+
+
+        // TESTIMONIALS SLIDER
+        let currentSlideIdx = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            currentSlideIdx = index;
+            if (currentSlideIdx >= slides.length) currentSlideIdx = 0;
+            if (currentSlideIdx < 0) currentSlideIdx = slides.length - 1;
+
+            slides[currentSlideIdx].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlideIdx + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlideIdx - 1);
+        }
+
+        // Auto slide testimonials every 8 seconds
+        setInterval(nextSlide, 8000);
+
+
+        // ACQUISITION INQUIRY AUTO-FILL SYSTEM
+        function inquireForProperty(propertyName) {
+            const select = document.getElementById('interestProperty');
+            
+            // Loop and select correct option
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === propertyName) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            // Smooth scroll to form
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+
+        // CLIENT INQUIRY FORM SUBMISSION SYSTEM
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('clientName').value;
+            const property = document.getElementById('interestProperty').value;
+            const successText = document.getElementById('successText');
+            
+            // Set customized premium success response text
+            successText.innerHTML = `Welcome to the Inner Circle, <strong>${name}</strong>. A dedicated Acquisitions Partner has been designated to compile your custom portfolio dossier for <strong>${property}</strong>. We will contact you shortly via your direct channels.`;
+            
+            // Display cinematic gold overlay
+            const successOverlay = document.getElementById('formSuccess');
+            successOverlay.classList.add('active');
+
+            // Reset form details behind the overlay
+            document.getElementById('inquiryForm').reset();
+        }
+
+        // NEWSLETTER SUBMISSION
+        function submitNewsletter() {
+            const emailInput = document.getElementById('newsletterEmail');
+            if (emailInput.value.trim() !== '') {
+                alert(`Access request logged. Credentials for Private Registry will be transmitted to: ${emailInput.value}`);
+                emailInput.value = '';
+            } else {
+                alert('Please enter valid elite credentials or email.');
+            }
+        }
+
+
+        // PRIVATE SHOWING BOOKING MODAL LOGIC
+        const bookingModal = document.getElementById('bookingModal');
+
+        function openModal() {
+            bookingModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            bookingModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleModalSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('modalName').value;
+            
+            alert(`Credentials logged, ${name}. A dispatcher will call shortly to coordinate secure transportation.`);
+            closeModal();
+            document.getElementById('modalName').value = '';
+            document.getElementById('modalEmail').value = '';
+            document.getElementById('modalPhone').value = '';
+        }
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/realestate-property-listings" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">realestate</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Iberian Property Listings</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/business-corporate-pro" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">realestate</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Zurich Corporate Pro</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

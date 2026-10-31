@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which XPath result types are supported?", a: "All of them: node sets (shown as path and value pairs), booleans, numbers and strings. Each result is labeled with its result kind, such as Node set (3) or Boolean." },
       { q: "Can I test XPath for Selenium or Playwright?", a: "Yes. XPath is the same query language used by Selenium, Playwright and browser DevTools, so selectors you verify here will behave the same way against the same XML or HTML structure." },
       { q: "Why does my namespace-qualified XPath return nothing?", a: "The tool does not register namespace prefixes, so paths like ns:book may not match even when the document uses them. Use local-name() workarounds or test against a namespace-free copy of the XML." },
-      { q: "Is the tool free?", a: "Yes, it is free to try with no signup. A limited number of free evaluations are included; heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the tool free?", a: "Yes, it is free to try; downloads need a free account. A limited number of free evaluations are included; heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "xpath tester",

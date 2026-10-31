@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "search algorithm animation",
       "learn dsa free online",
       "algorithm intuition builder",
-      "sorting visualizer no signup",
+      "sorting visualizer a free account for downloads",
       "browser based algorithm lab",
       "dsa study tool",
       "algorithms explained with animation",

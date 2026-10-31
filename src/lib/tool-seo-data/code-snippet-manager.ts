@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it support syntax highlighting?", a: "Yes, saved snippets render with syntax highlighting by language, which makes scanning a long snippet much faster than reading plain text." },
       { q: "How do I find a snippet quickly?", a: "Use the search box to match titles and code, and organize snippets with tags like 'regex', 'api' or 'css' to filter your library." },
       { q: "Is there a limit to how many snippets I can save?", a: "The practical limit is your browser's localStorage quota (usually around 5MB), which holds thousands of typical snippets. Very large collections may need periodic export and cleanup." },
-      { q: "Do I need an account?", a: "No account, no sign-up. Open the tool and start saving snippets immediately."
+      { q: "Do I need an account?", a: "No account; downloads need a free account. Open the tool and start saving snippets immediately."
       }
     ],
     tags: [
@@ -39,7 +39,7 @@ const seo: ToolSeo = {
       "store code snippets browser",
       "localstorage snippet manager",
       "private snippet manager",
-      "no signup snippet manager",
+      "a free account for downloads snippet manager",
       "snippet manager export import",
       "backup code snippets",
       "code snippet notebook",

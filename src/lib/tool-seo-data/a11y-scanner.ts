@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste HTML and scan for missing alt text, empty links and buttons, unlabeled inputs, heading order and contrast issues. Free, 100% in your browser.",
     about: [
       "**IconVault**'s **A11y Scanner** runs a **static accessibility scan** on HTML you paste in. It flags the most common real-world issues: **missing alt text** on images, **empty links and buttons**, **unlabeled form inputs**, a missing **lang attribute**, **heading order** problems, **duplicate ids** and risky inline **color contrast**, each grouped by severity with counts and element descriptions.",
-      "The scan is instant and runs **100% in your browser**, so your markup is never uploaded or stored. It is **free** to use with no signup. Be honest about its limits: it checks static markup only and does not replace tools like axe or Lighthouse, keyboard walkthroughs or testing with an actual **screen reader**."
+      "The scan is instant and runs **100% in your browser**, so your markup is never uploaded or stored. It is **free** to use; downloads need a free account. Be honest about its limits: it checks static markup only and does not replace tools like axe or Lighthouse, keyboard walkthroughs or testing with an actual **screen reader**."
     ],
     faqs: [
       { q: "How do I use the A11y Scanner?", a: "Paste an HTML snippet or a full page of markup into the editor and run the scan. You get a list of errors and warnings with counts and short descriptions of the offending elements, which you can then fix in your own code." },

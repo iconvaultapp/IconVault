@@ -506,7 +506,7 @@ function ScreenshotTool() {
               </ActionButton>
               {!isPro && (
                 <p className="text-xs text-muted-foreground">
-                  {trial.left} of {TOOL_TRIAL_LIMIT} free captures left - no account needed.
+                  {trial.left} of {TOOL_TRIAL_LIMIT} free captures left - downloads need a free account.
                 </p>
               )}
               {error && <p className="text-sm font-medium text-red-500">{error}</p>}
@@ -698,7 +698,7 @@ function ScreenshotTool() {
               </ActionButton>
               {!isPro && (
                 <p className="text-xs text-muted-foreground">
-                  {videoTrial.left} of {TOOL_TRIAL_LIMIT} free videos left - no account needed.
+                  {videoTrial.left} of {TOOL_TRIAL_LIMIT} free videos left - downloads need a free account.
                 </p>
               )}
               <p className="text-xs leading-relaxed text-muted-foreground">

@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Validate any IBAN with the official mod-97 check, see the parsed bank code and account number, and format it for print. Free, in your browser.",
     about: [
       "**IconVault**'s **IBAN Validator** checks any **International Bank Account Number** with the official **mod-97 checksum algorithm** from ISO 13616. Paste an IBAN and instantly see whether it is valid, which **country** it belongs to, and the parsed **bank code** and **account number** inside it.",
-      "You can also **format** IBANs for print (groups of four) or compact electronic use, and browse per-country IBAN structure rows. It is **free**, needs **no signup**, and runs **fully in your browser**, so account numbers never leave your device. Honest note: a valid checksum only proves the IBAN is well-formed; it does not prove the account exists or belongs to anyone."
+      "You can also **format** IBANs for print (groups of four) or compact electronic use, and browse per-country IBAN structure rows. It is **free**, needs **a free account for downloads**, and runs **fully in your browser**, so account numbers never leave your device. Honest note: a valid checksum only proves the IBAN is well-formed; it does not prove the account exists or belongs to anyone."
     ],
     faqs: [
       { q: "How does IBAN validation work?", a: "The IBAN is rearranged (country code and check digits moved to the end, letters converted to numbers) and divided by 97. If the remainder is 1, the IBAN passes the mod-97 check defined by ISO 13616." },
@@ -66,7 +66,7 @@ const seo: ToolSeo = {
       "bank identifier code iban",
       "find bank from iban",
       "iban country lookup",
-      "free iban tool no signup",
+      "free iban tool a free account for downloads",
       "online iban verifier"
     ],
   };

@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "16 production flexbox patterns: Holy Grail, sticky footer, card grids, navbars. Live previews, adjustable gaps, copyable HTML and CSS. Free.",
     about: [
       "**IconVault**'s **Flexbox Patterns** is a visual cookbook of the layouts you build every week. Pick from **16 battle-tested patterns**, from the classic **Holy Grail** and **sticky footer** to card grids, split heroes, media objects, pricing rows and chat layouts, and see each one render live in your browser.",
-      "Every pattern ships with **copyable HTML and CSS** you can drop straight into a project, plus an adjustable **gap slider** on the patterns where spacing matters. Everything is **free** and runs fully in your browser: no signup, no build step, no framework lock-in. Download all sixteen patterns as one CSS file when you are done.",
+      "Every pattern ships with **copyable HTML and CSS** you can drop straight into a project, plus an adjustable **gap slider** on the patterns where spacing matters. Everything is **free** and runs fully in your browser: a free account for downloads, no build step, no framework lock-in. Download all sixteen patterns as one CSS file when you are done.",
     ],
     faqs: [
       {

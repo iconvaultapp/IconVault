@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate RSA-2048 or RSA-4096 key pairs with WebCrypto and export PKCS#8 and SPKI PEM files. Keys never leave your device. Free.",
     about: [
       "**IconVault**'s **RSA Key Generator** creates **RSA-2048** or **RSA-4096** key pairs using the browser's **WebCrypto API**, the same cryptography built into modern browsers. The private key is exported as **PKCS#8 PEM** and the public key as **SPKI PEM**, ready to paste into SSH configs, JWT signing setups, TLS workflows and API authentication.",
-      "Because generation happens **entirely on your device**, your private keys are **never transmitted, stored or logged** anywhere. It is **free** with no signup. The honest note: this produces fresh random keys for development and personal use. For production systems, follow your organization's key management policy, protect private keys with file permissions and consider RSA-4096 for long-lived credentials."
+      "Because generation happens **entirely on your device**, your private keys are **never transmitted, stored or logged** anywhere. It is **free** to use; downloads need a free account. The honest note: this produces fresh random keys for development and personal use. For production systems, follow your organization's key management policy, protect private keys with file permissions and consider RSA-4096 for long-lived credentials."
     ],
     faqs: [
       { q: "What key sizes are supported?", a: "RSA-2048 and RSA-4096. 2048 is the common default and still considered secure; 4096 is slower but stronger and preferred for long-lived keys." },
@@ -52,7 +52,7 @@ const seo: ToolSeo = {
       "rsa key fingerprint",
       "rsa private key example",
       "rsa public key example",
-      "free rsa key generator no signup",
+      "free rsa key generator a free account for downloads",
       "secure rsa key generator",
       "rsa keys for tls certificates",
       "rsa key generator for developers",

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How does the email preset work?", a: "It keeps the first character of the local part and the full domain, masking the rest, so john.doe@gmail.com becomes j***@gmail.com." },
       { q: "How does the phone preset work?", a: "It masks every character except the last 4 digits, so +1-555-0123 becomes ********0123." },
       { q: "Can the original value be recovered from the masked output?", a: "No. Masking is one-way: the hidden characters are replaced, not encrypted. And since everything runs in your browser, the originals never leave your device in the first place." },
-      { q: "Is the String Masker free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the String Masker free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "string masker",
@@ -68,7 +68,7 @@ const seo: ToolSeo = {
       "mask all but last 4",
       "custom mask character",
       "mask with hash symbol",
-      "string masker no signup",
+      "string masker a free account for downloads",
       "free string obfuscator",
       "obfuscate text online free",
       "mask confidential text"

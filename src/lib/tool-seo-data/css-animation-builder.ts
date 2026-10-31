@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "A **live preview** shows the animation running on a demo element as you edit, including two spring-style **cubic-bezier** easings. When it looks right, **copy the finished CSS**, keyframes plus the animation shorthand, straight into your stylesheet. **Free** and runs **fully in your browser**.",
     ],
     faqs: [
-      { q: "Is the CSS animation builder free?", a: "Yes. Building, previewing and copying animations are free with no signup, and everything runs in your browser." },
+      { q: "Is the CSS animation builder free?", a: "Yes. Building, previewing and copying animations are free to use; downloads need a free account, and everything runs in your browser." },
       { q: "Do I need to know CSS to use it?", a: "Not much. Pick a preset, adjust the sliders and fields, and watch the live preview. The tool writes the @keyframes and animation shorthand for you." },
       { q: "Which animation presets are included?", a: "Fade, slide up, bounce, spin, pulse and shake, each with sensible keyframe stops you can edit, extend or delete." },
       { q: "Can I use custom easing curves?", a: "Yes. Choose from standard easings like ease-in-out or pick one of two spring-style cubic-bezier curves, or type your own cubic-bezier values." },

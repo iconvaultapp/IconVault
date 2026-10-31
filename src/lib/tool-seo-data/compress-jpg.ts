@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "jpg optimizer free",
       "compress jpg to 100kb",
       "jpg file size reducer",
-      "compress jpg no signup",
+      "compress jpg a free account for downloads",
       "jpeg compressor online free",
       "shrink jpg online",
       "optimize jpg online",

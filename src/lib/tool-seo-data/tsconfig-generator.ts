@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate a correct tsconfig.json in seconds with Node, React, Next.js, Deno and library presets. Free, runs in your browser.",
     about: [
       "**IconVault**'s **tsconfig Generator** builds a working **tsconfig.json** from ready-made presets for **Node.js, React, Next.js, Deno and library** projects, plus plain toggles for the options that actually matter: **strict, target, module, lib, esModuleInterop, skipLibCheck, declaration and sourceMap**, with a short explanation of what each one does.",
-      "The generated config can be **copied or downloaded** instantly, and everything runs **entirely in your browser**, free with no signup. The honest note: presets cover common setups, so unusual monorepo or bundler-specific needs may still require a manual tweak of paths or moduleResolution."
+      "The generated config can be **copied or downloaded** instantly, and everything runs **entirely in your browser**, free to use; downloads need a free account. The honest note: presets cover common setups, so unusual monorepo or bundler-specific needs may still require a manual tweak of paths or moduleResolution."
     ],
     faqs: [
       { q: "How do I create a tsconfig.json?", a: "Pick a preset like Node.js or React, toggle the options you want, then copy or download the generated tsconfig.json into your project root." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does strict mode do?", a: "It enables the full set of strict type-checking options, including strictNullChecks and noImplicitAny. It catches more bugs but flags more existing code, so it is best enabled on new projects." },
       { q: "Should I enable skipLibCheck?", a: "Usually yes. It skips type checking of .d.ts files, which makes builds noticeably faster and avoids errors inside third-party type packages." },
       { q: "What is esModuleInterop for?", a: "It lets you use default imports from CommonJS modules, so import express from 'express' works without TypeScript complaining." },
-      { q: "Is it free?", a: "Yes, completely free with no signup, and the config is generated locally in your browser." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account, and the config is generated locally in your browser." }
     ],
     tags: [
       "tsconfig generator",

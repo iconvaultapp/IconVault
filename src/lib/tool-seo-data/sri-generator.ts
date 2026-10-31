@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Do I have to regenerate the hash when my file changes?", a: "Yes. Even a single changed byte produces a completely different hash, and the browser will refuse to load the resource until the integrity attribute is updated. Regenerate the hash on every deploy that touches the file." },
       { q: "Why does the generated tag include crossorigin?", a: "Browsers require crossorigin=\"anonymous\" on the tag for the integrity check to run on cross-origin resources. The paste-ready tag includes it automatically." },
       { q: "Is my file uploaded anywhere?", a: "No. The hash is computed locally with the WebCrypto API in your browser. Your script or stylesheet content never leaves your device." },
-      { q: "Is the SRI Generator free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the SRI Generator free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "sri generator",

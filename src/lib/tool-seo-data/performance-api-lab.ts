@@ -8,7 +8,7 @@ const seo: ToolSeo = {
       "How to use: add marks, run the built-in 120ms workload, start the observer to catch paint, LCP, layout-shift and longtask entries, then export the timeline as JSON. Perfect for **developers** learning web performance measurement or debugging slow pages.",
     ],
     faqs: [
-      { q: "Is Performance API Lab free to use?", a: "Yes. Performance API Lab is free to use with a generous free trial, no account needed. Pro unlocks unlimited use." },
+      { q: "Is Performance API Lab free to use?", a: "Yes. Performance API Lab is free to use with a generous free trial, downloads need a free account. Pro unlocks unlimited use." },
       { q: "What is the difference between a mark and a measure?", a: "A mark is a timestamp with a name; a measure is the duration between two marks (or a mark and now). Measures are what you read when profiling." },
       { q: "Why use performance.now() instead of Date.now()?", a: "performance.now() is high-resolution and monotonic, so it is not affected by system clock changes and is far more precise for benchmarking." },
       { q: "What does the observer catch?", a: "Paint entries, navigation timing, largest-contentful-paint, layout-shift and longtask entries, all buffered so past events appear too." },

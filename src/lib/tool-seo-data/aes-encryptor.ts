@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Encrypt and decrypt text with AES-256-GCM and PBKDF2 key derivation, with a fresh random salt and IV every time. Free, fully in your browser.",
     about: [
       "**IconVault**'s **AES Encryptor** protects text with **AES-256-GCM**, a modern **authenticated encryption** standard. Your passphrase is turned into a key with **PBKDF2-SHA-256** at **310,000 iterations**, and every operation generates a fresh random **16-byte salt** and **12-byte IV**, packed together with the ciphertext in one Base64 payload you can store or share.",
-      "All cryptography runs through the browser's **Web Crypto API**, so your plaintext and passphrase **never leave your device** and nothing is uploaded. It is **free** to use with no signup. The honest caveat: security depends on your **passphrase strength**, so use a long unique passphrase, and keep a backup of anything important because a forgotten passphrase cannot be recovered."
+      "All cryptography runs through the browser's **Web Crypto API**, so your plaintext and passphrase **never leave your device** and nothing is uploaded. It is **free** to use; downloads need a free account. The honest caveat: security depends on your **passphrase strength**, so use a long unique passphrase, and keep a backup of anything important because a forgotten passphrase cannot be recovered."
     ],
     faqs: [
       { q: "What algorithm does this tool use?", a: "AES-256 in GCM mode for encryption, with the key derived from your passphrase using PBKDF2 with SHA-256 and 310,000 iterations. GCM is authenticated, so tampered ciphertext is detected on decryption instead of silently producing garbage." },
@@ -38,7 +38,7 @@ const seo: ToolSeo = {
       "online cipher tool",
       "symmetric encryption online",
       "encrypt decrypt tool free",
-      "no signup encryption",
+      "a free account for downloads encryption",
       "private text encryption",
       "encrypt without server",
       "base64 aes payload",

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which atomic weights are used?", a: "Standard atomic weights in grams per mole, the same values published on the periodic table. Results are rounded to a sensible number of decimals for lab and homework use." },
       { q: "What is molar mass used for?", a: "Molar mass converts between grams and moles, the core step in stoichiometry. You need it to calculate reactant amounts, solution concentrations and percent composition." },
       { q: "What is the difference between molar mass and molecular weight?", a: "They are numerically the same value. Molar mass is expressed in g/mol, while molecular weight is dimensionless relative to carbon-12. This tool reports molar mass in g/mol." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "molar mass calculator",

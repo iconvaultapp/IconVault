@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Watch QUIC beat TCP: animated handshake RTT race, 0-RTT resumption, multiplexing without head-of-line blocking, connection migration. Free.",
     about: [
       "**IconVault**'s **HTTP/3 and QUIC Visualizer** makes the internet's newest transport protocol visible. Press play on the **handshake race** and watch TCP+TLS take two round trips while QUIC finishes in one, and **0-RTT** sends data in the very first packet. Then see **multiplexing** survive packet loss that freezes HTTP/2, and watch a **connection migration** keep streaming while TCP dies on a Wi-Fi to cellular handoff.",
-      "Every scene is **animated step by step** with plain-English narration, and you can export a **key-takeaways** note for study or slides. Everything is **free** and runs fully in your browser: no signup, no server, just the protocol brought to life.",
+      "Every scene is **animated step by step** with plain-English narration, and you can export a **key-takeaways** note for study or slides. Everything is **free** and runs fully in your browser: a free account for downloads, no server, just the protocol brought to life.",
     ],
     faqs: [
       {

@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "Does it keep transparency?", a: "PNG fully supports transparency, so any alpha in the source is preserved." },
       { q: "Can I convert many files at once?", a: "Yes. Add as many HEIC files as you like and download them all as a ZIP." },
     ],
-    tags: ["heic to png", "convert heic to png", "heic converter png", "heif to png", "heic to png online", "iphone photo to png", "bulk heic to png", "heic to png free", "heif converter", "heic file to png", "convert apple photos png", "heic png no signup", "heic to lossless png", "heic to png batch", "iphone heic png", "heic to png private", "heif to png online", "png from heic", "heic converter free", "convert heic files",
+    tags: ["heic to png", "convert heic to png", "heic converter png", "heif to png", "heic to png online", "iphone photo to png", "bulk heic to png", "heic to png free", "heif converter", "heic file to png", "convert apple photos png", "heic png a free account for downloads", "heic to lossless png", "heic to png batch", "iphone heic png", "heic to png private", "heif to png online", "png from heic", "heic converter free", "convert heic files",
       "convert heic to png free",
       "heic to png online free",
       "heic to png converter online",
@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "convert heic to png for web",
       "heic to png for printing",
       "batch heic png converter",
-      "heic to png no signup free"],
+      "heic to png a free account for downloads free"],
   };
 
 export default seo;

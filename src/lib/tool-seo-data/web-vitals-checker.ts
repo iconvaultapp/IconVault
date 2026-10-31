@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Web Vitals Checker - Free Core Web Vitals Tester | IconVault",
-    metaDescription: "Measure Core Web Vitals LCP, INP and CLS of the page you are on with real browser metrics. Free, instant, no signup.",
+    metaDescription: "Measure Core Web Vitals LCP, INP and CLS of the page you are on with real browser metrics. Free, instant; downloads need a free account.",
     about: [
       "**IconVault**'s **Web Vitals Checker** measures the **Core Web Vitals** of the page you are currently viewing, using the browser's own **PerformanceObserver API**. It captures **LCP** (Largest Contentful Paint), **INP** (Interaction to Next Paint) and **CLS** (Cumulative Layout Shift), rates each against Google's official thresholds, and gives a plain-English tip for improving any metric that needs work.",
-      "Because it reads real browser performance entries, the numbers reflect genuine rendering behavior rather than estimates. It is **free** with no signup and runs entirely in your browser. The honest limit: it measures **the page you are on**, not arbitrary URLs, so to test a site, open that site and run the checker there. Like all field-style metrics, results vary with your device and connection, so treat them as guidance alongside lab tools like PageSpeed Insights."
+      "Because it reads real browser performance entries, the numbers reflect genuine rendering behavior rather than estimates. It is **free** to use; downloads need a free account and runs entirely in your browser. The honest limit: it measures **the page you are on**, not arbitrary URLs, so to test a site, open that site and run the checker there. Like all field-style metrics, results vary with your device and connection, so treat them as guidance alongside lab tools like PageSpeed Insights."
     ],
     faqs: [
       { q: "What are Core Web Vitals?", a: "Google's three user-experience metrics: LCP measures how fast the largest visible element loads, INP measures how quickly the page responds to interactions, and CLS measures how much the layout shifts unexpectedly while loading." },

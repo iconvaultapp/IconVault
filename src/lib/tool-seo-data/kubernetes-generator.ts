@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it support resource requests and limits?", a: "Yes. The Deployment tab has a toggle for CPU and memory requests and limits, with sensible defaults you can override." },
       { q: "Are resource names sanitized?", a: "Yes. App names are automatically converted to valid lowercase DNS names, since Kubernetes rejects uppercase letters and most special characters." },
       { q: "Is the generated YAML production ready?", a: "It is syntactically valid, but you should review it against your cluster's ingress controller, networking, security policies and quota before applying it to production." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "kubernetes yaml generator",
@@ -67,7 +67,7 @@ const seo: ToolSeo = {
       "generate k8s manifests",
       "kubernetes deployment service ingress",
       "devops yaml generator",
-      "k8s yaml no signup",
+      "k8s yaml a free account for downloads",
       "kubernetes tool free online",
       "sanitize k8s names",
       "valid kubernetes names"

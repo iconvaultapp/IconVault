@@ -230,7 +230,7 @@ export const POSTS_D: BlogPost[] = [
       { type: "h3", text: "Nonprofit site" },
       {
         type: "p",
-        text: "IconVault vs Lucide which is better for a nonprofit site? The **index**, because budgets are small and needs are varied. A nonprofit site needs donation glyphs, volunteer **icons**, event marks and illustrations, all free, all quickly. In the IconVault vs Lucide question, nonprofits benefit most from the free basics of the index: search, download and recolour without an account.",
+        text: "IconVault vs Lucide which is better for a nonprofit site? The **index**, because budgets are small and needs are varied. A nonprofit site needs donation glyphs, volunteer **icons**, event marks and illustrations, all free, all quickly. In the IconVault vs Lucide question, nonprofits benefit most from the free basics of the index: search and recolour free; downloads need a free account.",
       },
       { type: "h3", text: "Marketplace" },
       {

@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited generations.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited generations.",
       },
     ],
     tags: [
@@ -78,7 +78,7 @@ const seo: ToolSeo = {
       "meta refresh tag generator",
       "meta generator for youtube",
       "seo tags for website",
-      "meta tag generator no signup",
+      "meta tag generator a free account for downloads",
       "online meta description tool",
       "free website meta tags"],
   };

@@ -45,7 +45,7 @@ const seo: ToolSeo = {
       "batch text watermark photos",
       "bulk image branding",
       "watermark multiple pictures",
-      "bulk watermark no signup",
+      "bulk watermark a free account for downloads",
       "batch logo watermark",
       "watermark photos in bulk free",
       "bulk watermark downloader",

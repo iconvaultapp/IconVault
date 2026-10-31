@@ -5,12 +5,12 @@ const seo: ToolSeo = {
     metaDescription: "Search Rust crates on crates.io with descriptions, versions, download counts and one-click cargo add copy. Free, in your browser.",
     about: [
       "**IconVault**'s **Crate Search** lets you explore **Rust crates** from the public **crates.io API** without leaving the page. Every result shows the **description**, **newest version**, **total downloads**, **last updated** date and links to **documentation** and the **repository**, plus a one-click button that copies the **`cargo add`** command straight to your clipboard.",
-      "Searches run **fully in your browser** against the official crates.io API, with nothing to install and nothing uploaded. It is **free** with no signup. The honest caveat: results reflect crates.io search ranking and raw download totals, which favor older crates. Read the docs and check recent activity before committing to a dependency."
+      "Searches run **fully in your browser** against the official crates.io API, with nothing to install and nothing uploaded. It is **free** to use; downloads need a free account. The honest caveat: results reflect crates.io search ranking and raw download totals, which favor older crates. Read the docs and check recent activity before committing to a dependency."
     ],
     faqs: [
       { q: "Where does the crate data come from?", a: "The official public crates.io API, queried directly from your browser. Descriptions, versions, download counts and timestamps are exactly what crates.io publishes." },
       { q: "What does the copy button do?", a: "It copies a ready-to-paste cargo add command for the selected crate, for example cargo add serde, so you can add the dependency to your Rust project without typing it." },
-      { q: "Is it really free?", a: "Yes. Unlimited searches, no account, no signup. The crates.io API is public and free." },
+      { q: "Is it really free?", a: "Yes. Unlimited searches, no account; downloads need a free account. The crates.io API is public and free." },
       { q: "Can I see older versions of a crate?", a: "The result shows the newest version. For the full version list, follow the crate's crates.io page link from the result." },
       { q: "Why do results differ from crates.io ordering?", a: "The tool displays the API's default relevance ordering. crates.io also offers sort options on its own site if you want download or recency ordering." },
       { q: "Do I need Rust installed to use this?", a: "No. This is a discovery tool that runs in your browser. You only need Rust and Cargo when you actually add a crate to a project." }

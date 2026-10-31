@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate copy-paste HTTP security headers for nginx, Apache and more: CSP, HSTS, X-Frame-Options and friends. Free, in your browser.",
     about: [
       "**IconVault**'s **Security Headers** tool generates ready-to-paste **HTTP security header** configurations for your server. It covers **Content-Security-Policy**, **Strict-Transport-Security (HSTS)**, **X-Frame-Options**, **X-Content-Type-Options**, **Referrer-Policy**, **Permissions-Policy** and **Cross-Origin** policies, with output formatted for **nginx** and **Apache** (plus plain header text you can adapt anywhere).",
-      "Generation runs **100% in your browser** and it is **free** with no signup. The honest note: this tool writes the config, it does not scan your site. A strict Content-Security-Policy can break scripts, styles or embeds, so test on staging first and confirm with a real header scanner before calling it done."
+      "Generation runs **100% in your browser** and It is **free** to use; downloads need a free account. The honest note: this tool writes the config, it does not scan your site. A strict Content-Security-Policy can break scripts, styles or embeds, so test on staging first and confirm with a real header scanner before calling it done."
     ],
     faqs: [
       { q: "What are HTTP security headers?", a: "They are response headers that tell browsers how to behave: enforcing HTTPS, blocking clickjacking, restricting scripts and controlling referrers. They are a free, high-value layer of web security." },

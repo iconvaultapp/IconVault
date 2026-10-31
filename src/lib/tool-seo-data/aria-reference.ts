@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Should I use ARIA or native HTML?", a: "Native HTML first. A real button element already has keyboard support, focus behavior and screen reader semantics that a div with role=\"button\" only gets if you hand-code all of it. Use ARIA when no native element fits, like custom sliders, tree views or live regions." },
       { q: "Can I copy the examples?", a: "Yes. Every role includes a copyable HTML snippet showing correct attribute usage, which you can paste into your project and adapt." },
       { q: "Is this the complete WAI-ARIA specification?", a: "No, it is a practical quick reference covering the roles and attributes developers reach for most. For normative details, global states, and rare roles, consult the official W3C specification." },
-      { q: "Do I need an account to use it?", a: "No. The reference is free, works entirely in your browser, and needs no signup." }
+      { q: "Do I need an account to use it?", a: "No. The reference is free, works entirely in your browser, and needs a free account for downloads." }
     ],
     tags: [
       "aria reference",

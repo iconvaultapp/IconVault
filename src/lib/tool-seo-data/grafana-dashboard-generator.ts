@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build import-ready Grafana dashboard JSON visually: add timeseries, stat and gauge panels with PromQL queries, then copy or download. Free, in-browser.",
     about: [
       "**IconVault**'s **Grafana Dashboard Generator** builds **import-ready dashboard JSON** without hand-writing it. Set the **dashboard title and UID**, add **timeseries, stat and gauge panels**, and for each panel pick a **unit** (percent, bytes, reqps, ms) and write the **PromQL expression**. The tool assembles correct **gridPos layout**, **Prometheus datasource** blocks and field config automatically.",
-      "You get a **live preview** of the dashboard JSON as you build, plus **copy and download** buttons. Import the file under Dashboards, New, Import in Grafana. It is **free** with no signup and runs **fully in your browser**. The honest caveat: the generator assumes a Prometheus datasource with the UID \"prometheus\", so update the datasource block if yours is named differently."
+      "You get a **live preview** of the dashboard JSON as you build, plus **copy and download** buttons. Import the file under Dashboards, New, Import in Grafana. It is **free** to use; downloads need a free account and runs **fully in your browser**. The honest caveat: the generator assumes a Prometheus datasource with the UID \"prometheus\", so update the datasource block if yours is named differently."
     ],
     faqs: [
       { q: "How do I import the generated JSON into Grafana?", a: "In Grafana go to Dashboards, New, Import, then paste the JSON or upload the downloaded file. The dashboard appears immediately." },
@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "grafana dashboard download json",
       "grafana import json file",
       "copy grafana dashboard json",
-      "grafana dashboard generator no signup",
+      "grafana dashboard generator a free account for downloads",
       "grafana dashboard quick start",
       "grafana dashboard json validator",
       "grafana dashboard json schema"

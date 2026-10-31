@@ -18,6 +18,7 @@ import { recordReferral } from "@/lib/admin.functions";
 import { PlanProvider } from "@/hooks/usePlan";
 import { SignInPromptProvider } from "@/hooks/useSignInPrompt";
 import { SignInPrompt } from "@/components/SignInPrompt";
+import { DownloadGateListener } from "@/components/DownloadGateListener";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { ArrowLeft, Box, Compass, Search, Shapes } from "lucide-react";
@@ -440,6 +441,7 @@ function RootComponent() {
                   </div>
                   {!bare && <MobileTabBar />}
                   <SignInPrompt />
+                  <DownloadGateListener />
                   <PromoPopup />
                   <CookieConsent />
                   <Toaster position="bottom-right" />

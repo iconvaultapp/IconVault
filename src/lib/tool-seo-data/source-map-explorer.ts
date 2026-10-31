@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "developer performance tool",
       "frontend dev tools online",
       "free online source map explorer",
-      "no signup bundle tool"
+      "a free account for downloads bundle tool"
     ],
   };
 

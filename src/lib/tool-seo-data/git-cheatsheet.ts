@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Git Cheatsheet - Free Online Git Commands Reference | IconVault",
-    metaDescription: "A searchable Git cheatsheet with the commands you actually use: setup, branching, staging, merging, rebasing, and recovery. Free, no signup.",
+    metaDescription: "A searchable Git cheatsheet with the commands you actually use: setup, branching, staging, merging, rebasing, and recovery. Free; downloads need a free account.",
     about: [
       "**IconVault**'s **Git Cheatsheet** is the **Git reference** you keep open in a tab: commands grouped by **setup, staging, branching, merging, rebasing, remotes, and recovery**, each with a plain-English description of what it does. Risky commands carry **danger flags** so you know when to pause before pressing enter.",
-      "Every command has a **one-click copy button**, and the whole sheet is **searchable**, so typing 'undo' finds git reset and git revert in a keystroke. It is **free and runs fully in your browser**, with no signup and nothing to install.",
+      "Every command has a **one-click copy button**, and the whole sheet is **searchable**, so typing 'undo' finds git reset and git revert in a keystroke. It is **free and runs fully in your browser**, with a free account for downloads and nothing to install.",
     ],
     faqs: [
       { q: "What does git rebase do?", a: "Rebase re-applies your commits on top of another branch, giving a linear history. It rewrites commit hashes, so avoid rebasing commits you have already pushed to a shared branch." },

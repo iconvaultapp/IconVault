@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Add realistic film grain to photos with adjustable intensity, mono or color noise, and repeatable seeds. Free, fully in your browser.",
     about: [
       "**IconVault**'s **Image Noise** adds **film grain** to any photo with fine control: an **intensity slider**, a choice between **monochrome and color noise**, and a **seeded random generator**, so the exact same grain pattern can be reproduced whenever you need it.",
-      "Grain is a classic way to add texture, hide **banding** in gradients, or give digital photos an **analog film look**. Everything runs **in your browser** with **no upload** and **no signup**, and it is **free**. Honest note: noise is baked into the exported pixels; keep the original if you might want a clean version later."
+      "Grain is a classic way to add texture, hide **banding** in gradients, or give digital photos an **analog film look**. Everything runs **in your browser** with **no upload** and **a free account for downloads**, and it is **free**. Honest note: noise is baked into the exported pixels; keep the original if you might want a clean version later."
     ],
     faqs: [
       { q: "What does the Image Noise tool do?", a: "It adds random grain to your photo, like the texture of analog film. You control how strong the grain is, whether it is monochrome or colored, and the random seed." },
@@ -65,7 +65,7 @@ const seo: ToolSeo = {
       "grainy black and white photo",
       "film grain lightroom alternative",
       "free film grain tool",
-      "add grain online no signup",
+      "add grain online a free account for downloads",
       "grain photo in browser",
       "no upload grain tool",
       "film grain maker free"

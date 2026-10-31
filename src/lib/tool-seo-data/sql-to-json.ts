@@ -37,7 +37,7 @@ const seo: ToolSeo = {
       "sql insert parser",
       "sql to json api",
       "sql to json free",
-      "sql to json no signup",
+      "sql to json a free account for downloads",
       "online sql converter",
       "sql to json array",
       "sql to json object",

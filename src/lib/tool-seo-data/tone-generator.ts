@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Play test tones from 20 Hz to 20 kHz with sine, square, sawtooth and triangle waves. Free, runs fully in your browser.",
     about: [
       "**IconVault**'s **Tone Generator** plays pure test tones using the **Web Audio API**, with **sine, square, sawtooth and triangle waveforms** on a logarithmic **20 Hz to 20 kHz** slider, adjustable **volume**, and a **frequency sweep mode** where you set the start frequency, end frequency and sweep duration.",
-      "Everything is generated **live in your browser**, so there are **no audio files to download** and nothing to upload, and the tool is **free** with no signup. The honest note: exact pitch perception depends on your speakers or headphones, so cheap laptop speakers will not reproduce very low bass tones accurately."
+      "Everything is generated **live in your browser**, so there are **no audio files to download** and nothing to upload, and the tool is **free** with a free account for downloads. The honest note: exact pitch perception depends on your speakers or headphones, so cheap laptop speakers will not reproduce very low bass tones accurately."
     ],
     faqs: [
       { q: "How do I play a tone at a specific frequency?", a: "Pick a waveform, drag the frequency slider or type a value between 20 Hz and 20 kHz, then press play. The tone is generated live in your browser." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is frequency sweep mode?", a: "Instead of a fixed pitch, the tone glides from a start frequency to an end frequency over the duration you set. It is useful for finding rattles, resonances or the limits of your hearing." },
       { q: "Can I test my hearing range with this?", a: "Roughly. Sweeping from 20 Hz to 20 kHz tells you where you start and stop hearing tones, but it is a casual check, not a medical hearing test. Keep the volume low at first." },
       { q: "Can I use it to test speakers or headphones?", a: "Yes. Fixed tones reveal buzzing or distortion at specific frequencies, and sweeps expose rattles, dropouts and weak bass response in speakers, headphones and rooms." },
-      { q: "Is it free?", a: "Yes, completely free with no signup, and all audio is synthesized locally in your browser." }
+      { q: "Is it free?", a: "Yes, completely free to use; downloads need a free account, and all audio is synthesized locally in your browser." }
     ],
     tags: [
       "tone generator",

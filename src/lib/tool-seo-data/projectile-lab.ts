@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "basketball shot physics",
       "golf ball trajectory",
       "browser physics simulator",
-      "no signup physics lab",
+      "a free account for downloads physics lab",
       "projectile motion worksheet",
       "physics classroom tool"
     ],

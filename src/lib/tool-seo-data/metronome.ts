@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Which time signatures are supported?", a: "Four of the most common: 2/4, 3/4, 4/4 and 6/8. The first beat of every bar is accented with a higher pitch, and the visual pulse shows which beat you are on." },
       { q: "Can I change the tempo while it plays?", a: "Yes. Move the BPM slider mid playback and the new tempo applies on the next scheduled beat without stopping the metronome." },
       { q: "Does it make sound on silent devices?", a: "On phones, make sure silent mode is off and media volume is up. The tool uses Web Audio, which follows your device's media volume, not the ringer." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "online metronome",

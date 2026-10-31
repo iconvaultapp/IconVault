@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Build raw HTTP request headers from common presets and custom fields, with name validation and one-click copy. Free, fully in your browser.",
     about: [
       "**IconVault**'s **Header Builder** helps you compose raw **HTTP request headers** without typos. Pick from common presets like **Authorization**, **Content-Type**, **Accept**, **Cache-Control**, **Origin** and **If-None-Match**, add your own **custom fields**, and copy the finished block straight into curl, Postman, Insomnia or your API client.",
-      "Every header **name is validated** as you type, so malformed names are caught before they ever reach your request. It is **free**, needs **no signup**, and everything runs **in your browser**, so tokens and API keys you type never leave your device. Honest note: it builds the header block; it does not send the request, which keeps your credentials local."
+      "Every header **name is validated** as you type, so malformed names are caught before they ever reach your request. It is **free**, needs **a free account for downloads**, and everything runs **in your browser**, so tokens and API keys you type never leave your device. Honest note: it builds the header block; it does not send the request, which keeps your credentials local."
     ],
     faqs: [
       { q: "What is the Header Builder for?", a: "For composing the raw header block of an HTTP request, for example Authorization: Bearer <token> plus Content-Type: application/json, then pasting it into curl, Postman, Insomnia or a fetch call." },

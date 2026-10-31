@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What are the orange Bezier handles?", a: "They are the curve control points. Dragging a handle changes the tangent and pull of the curve at that point, which is how you shape smooth cubic and quadratic Bezier segments." },
       { q: "Can I import an existing path to edit it?", a: "Not currently. The editor starts from a blank canvas, so it is best for creating new paths; copy the generated d attribute into your own file afterward." },
       { q: "How do I use the output in my project?", a: "Copy the path data and paste it as the d attribute of a <path> element, or use the Copy SVG button to get a complete standalone <svg> snippet you can drop into HTML or save as a file." },
-      { q: "Is the SVG Path Editor free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the SVG Path Editor free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "svg path editor",
@@ -38,7 +38,7 @@ const seo: ToolSeo = {
       "draw vector path online",
       "svg path tool free",
       "free svg path editor",
-      "svg path editor no signup",
+      "svg path editor a free account for downloads",
       "svg path commands",
       "svg m l c q z",
       "svg path d explained",

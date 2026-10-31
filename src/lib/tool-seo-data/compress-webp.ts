@@ -29,7 +29,7 @@ const seo: ToolSeo = {
       "compress webp to kb",
       "webp compression online",
       "reduce webp mb",
-      "compress webp no signup",
+      "compress webp a free account for downloads",
       "webp file size reducer",
       "compress webp download",
       "make webp file smaller",

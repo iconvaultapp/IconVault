@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Pretty-print, minify and validate XML in your browser, with an XPath query box. Free, instant, nothing uploaded.",
     about: [
       "**IconVault**'s **XML Formatter** takes messy or minified **XML** and **pretty-prints** it with clean indentation, or **minifies** it down for transport. It also **validates** your document and reports parse errors with line and column numbers, so you can fix malformed feeds, configs and API payloads fast. A built-in **XPath query box** powered by document.evaluate lets you extract exactly the nodes you need.",
-      "Parsing and formatting happen **fully in your browser** using the native DOMParser, so your data is never uploaded to a server. It is **free** with no signup and no limits. Honest note: it validates well-formedness, not schema conformance, so it will not check your document against an XSD or DTD."
+      "Parsing and formatting happen **fully in your browser** using the native DOMParser, so your data is never uploaded to a server. It is **free** to use; downloads need a free account and no limits. Honest note: it validates well-formedness, not schema conformance, so it will not check your document against an XSD or DTD."
     ],
     faqs: [
       { q: "How do I format XML online?", a: "Paste your XML and the tool pretty-prints it with readable indentation instantly. One click also minifies it back down when you need a compact payload." },

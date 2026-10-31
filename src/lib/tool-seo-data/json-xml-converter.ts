@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Do numbers and booleans survive XML to JSON conversion?", a: "No. XML has no data types, so everything comes back as strings. A 29 in XML becomes the string 29 in JSON." },
       { q: "Can I change the root element name?", a: "Yes. In JSON to XML mode you can set any root element name, and it is sanitized to a valid XML tag name automatically." },
       { q: "Is my data uploaded anywhere?", a: "No. Conversion happens locally in your browser, so it is safe for sensitive payloads and internal API data." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json to xml",
@@ -57,8 +57,8 @@ const seo: ToolSeo = {
       "data format converter",
       "json xml translation",
       "convert data format online",
-      "json to xml no signup",
-      "xml to json no signup",
+      "json to xml a free account for downloads",
+      "xml to json a free account for downloads",
       "online json converter",
       "online xml converter",
       "json to xml escaped",

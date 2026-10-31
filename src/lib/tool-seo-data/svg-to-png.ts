@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert SVG to PNG online in seconds. Choose 256, 512, 1024 or 2048px, or batch-export all sizes as ZIP. 100% free, runs in your browser.",
     about: [
       "**IconVault**'s **SVG to PNG converter** turns any **SVG** vector file into crisp raster PNGs at exactly the size you need. New: 1x–4x scale presets, custom W×H inputs, and a background picker (**transparent**/white/black/custom) so exports render correctly everywhere. Paste your **SVG** markup or upload an .**svg** file, pick **256**, **512**, **1024** or **2048** pixels, and get a pixel-perfect **PNG** with the aspect ratio preserved from the **SVG**'s viewBox. Need every size at once? One click exports all four as a ZIP - ideal for favicons, app icons and social assets.",
-      "Everything runs in your browser: your **SVG** is never uploaded to a server, so the tool works offline and your files stay private. Every visitor gets 5 **free** conversions with no account needed. **IconVault** Pro ($19 one-time) unlocks unlimited conversions across all tools, HD exports and every template.",
+      "Everything runs in your browser: your **SVG** is never uploaded to a server, so the tool works offline and your files stay private. Every visitor gets 5 **free** conversions with downloads need a free account. **IconVault** Pro ($19 one-time) unlocks unlimited conversions across all tools, HD exports and every template.",
     ],
     faqs: [
       {
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free conversions do I get?",
-        a: "Every visitor gets 5 free conversions per tool, no account needed. IconVault Pro ($19 one-time) unlocks unlimited conversions, HD exports and every template.",
+        a: "Every visitor gets 5 free conversions per tool, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited conversions, HD exports and every template.",
       },
     ],
     tags: [
@@ -42,7 +42,7 @@ const seo: ToolSeo = {
       "vector to png", "convert vector to png", "svg file to png", "svg to raster",
       "rasterize svg", "svg renderer online", "svg to png download", "svg to png batch",
       "svg to png multiple sizes", "svg to png zip", "svg to png bulk",
-      "convert svg to png no watermark", "svg to png no signup", "svg to png without illustrator",
+      "convert svg to png no watermark", "svg to png a free account for downloads", "svg to png without illustrator",
       "svg to png in browser", "svg to png transparent background", "svg logo to png",
       "convert logo svg to png", "svg icon to png", "icon svg to png converter",
       "favicon svg to png", "svg to png 16x16", "svg to png 32x32", "svg to png 180x180",

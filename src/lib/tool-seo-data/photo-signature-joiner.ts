@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "make photo signature image",
       "photo with signature online tool",
       "attach signature to passport photo",
-      "join photo signature no signup"],
+      "join photo signature a free account for downloads"],
   };
 
 export default seo;

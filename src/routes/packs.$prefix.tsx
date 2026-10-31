@@ -30,7 +30,7 @@ export const Route = createFileRoute("/packs/$prefix")({
     const name = loaderData?.collection.name ?? loaderData?.prefix ?? "Icon pack";
     const total = loaderData?.collection.total ?? 0;
     const title = `${name} - ${total.toLocaleString("en-US")} free SVG icons | IconVault`;
-    const description = `Download ${total.toLocaleString("en-US")} ${name} as SVG, PNG, WebP or copy-paste React components. Free, no account needed.`;
+    const description = `Download ${total.toLocaleString("en-US")} ${name} as SVG, PNG, WebP or copy-paste React components. Free; downloads need a free account.`;
     return {
       meta: [
         { title },

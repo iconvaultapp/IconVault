@@ -45,7 +45,7 @@ const seo: ToolSeo = {
       "line by line compare",
       "compare lists line by line",
       "free list comparer",
-      "list compare no signup",
+      "list compare a free account for downloads",
       "case insensitive list compare",
       "ignore case compare lists",
       "trim whitespace compare",

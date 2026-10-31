@@ -2,10 +2,10 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "Dockerfile Generator - Free Online Dockerfile Builder Tool | IconVault",
-    metaDescription: "Generate best practice Dockerfiles for 10 languages. Multi-stage builds, ports, workdir and env vars with live preview. Free, no signup, in browser.",
+    metaDescription: "Generate best practice Dockerfiles for 10 languages. Multi-stage builds, ports, workdir and env vars with live preview. Free; downloads need a free account, in browser.",
     about: [
       "**IconVault**'s **Dockerfile Generator** writes a correct, **best-practice Dockerfile** for your stack in seconds. Pick from **10 languages** (including Node.js, Python and Go), toggle **multi-stage builds** for smaller images, then set the **port**, **workdir** and **environment variables**. The Dockerfile renders in a **live preview** as you change options, and you can copy or download it with one click.",
-      "Everything runs **100% in your browser**: no installs, no account, nothing uploaded. The output is a solid production-style starting point using slim base images and layer-friendly instruction order, though you should still review it for your specific app before shipping. Visitors get 5 **free** generations with no signup; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
+      "Everything runs **100% in your browser**: no installs, no account, nothing uploaded. The output is a solid production-style starting point using slim base images and layer-friendly instruction order, though you should still review it for your specific app before shipping. Visitors get 5 **free** generations with a free account for downloads; **IconVault** Pro ($19 one-time) unlocks unlimited use of every developer tool.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free generations do I get?",
-        a: "Every visitor gets 5 free Dockerfile generations with no account needed. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
+        a: "Every visitor gets 5 free Dockerfile generations with downloads need a free account. IconVault Pro ($19 one-time) gives unlimited use plus unlimited use of all 100+ tools.",
       },
     ],
     tags: [
@@ -52,7 +52,7 @@ const seo: ToolSeo = {
       "dockerfile slim image", "dockerfile download", "copy dockerfile",
       "dockerfile for react app", "dockerfile for nextjs", "dockerfile for django",
       "dockerfile for flask", "dockerfile for spring boot", "dockerfile for laravel",
-      "dockerfile generator no signup",
+      "dockerfile generator a free account for downloads",
     ],
   };
 

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What data types does it infer?", a: "It infers xs:integer, xs:decimal, xs:boolean, xs:date and xs:dateTime from value patterns, defaulting to xs:string. Attributes present on every instance of an element are marked use=\"required\"." },
       { q: "Is my XML uploaded anywhere?", a: "No. The XML is parsed and analyzed entirely in your browser. Nothing leaves your device, so you can generate schemas from private or client XML safely." },
       { q: "Can I download the generated XSD?", a: "Yes. The output panel has a one-click .xsd download button as well as copy to clipboard, so you can drop the schema straight into your project or validator." },
-      { q: "Is the tool free?", a: "Yes, it is free to try with no signup. A limited number of free generations are included; heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the tool free?", a: "Yes, it is free to try; downloads need a free account. A limited number of free generations are included; heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "xsd generator",
@@ -69,7 +69,7 @@ const seo: ToolSeo = {
       "xsd editor generator free",
       "generate xsd without software",
       "xsd generator no download",
-      "xsd generator no signup",
+      "xsd generator a free account for downloads",
       "xsd generator browser",
       "xsd generator privacy safe",
       "xsd maxoccurs unbounded generator",

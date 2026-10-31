@@ -67,7 +67,7 @@ const seo: ToolSeo = {
       "escape commas in csv",
       "text to csv safe string",
       "escape string copy paste",
-      "string escaper no signup",
+      "string escaper a free account for downloads",
       "free string escaper tool"
     ],
   };

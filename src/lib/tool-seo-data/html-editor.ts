@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Write formatted content in a WYSIWYG editor and get clean HTML output instantly. Formatting toolbar, live code view. Free, in-browser.",
     about: [
       "**IconVault**'s **HTML Editor** is a **WYSIWYG editor**: type and format content visually with a familiar toolbar for **bold, italic, underline**, headings, **ordered and unordered lists**, links and clearing formatting, and get **clean HTML output** in the live code view below, ready to copy into your CMS, email or page.",
-      "It is ideal for drafting **blog posts, emails and CMS content** without hand-writing tags, or for quickly generating HTML snippets for a prototype. It is **free** with no signup and runs **fully in your browser**, so your content never leaves your device. The honest note: the output is straightforward presentational HTML, so for production use review it once and adapt it to your site's classes and styles, since formatting depends on your own CSS."
+      "It is ideal for drafting **blog posts, emails and CMS content** without hand-writing tags, or for quickly generating HTML snippets for a prototype. It is **free** to use; downloads need a free account and runs **fully in your browser**, so your content never leaves your device. The honest note: the output is straightforward presentational HTML, so for production use review it once and adapt it to your site's classes and styles, since formatting depends on your own CSS."
     ],
     faqs: [
       { q: "What is a WYSIWYG editor?", a: "What You See Is What You Get: you format text visually with buttons, like in a word processor, and the editor produces the underlying HTML for you instead of you writing tags by hand." },
@@ -30,7 +30,7 @@ const seo: ToolSeo = {
       "html editor with preview",
       "live html editor",
       "contenteditable editor",
-      "html editor no signup",
+      "html editor a free account for downloads",
       "browser html editor",
       "write html visually",
       "html email editor",

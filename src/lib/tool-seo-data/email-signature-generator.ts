@@ -23,7 +23,7 @@ const seo: ToolSeo = {
       "create email signature free", "make email signature online", "email signature builder",
       "email signature creator", "custom email signature", "personal email signature",
       "email signature with logo", "email signature with photo", "email signature html code",
-      "copy paste email signature", "email signature generator no signup", "email signature tool free",
+      "copy paste email signature", "email signature generator a free account for downloads", "email signature tool free",
       "how to create an email signature", "how to make a professional email signature",
       "best free email signature generator", "email signature generator for gmail free",
       "email footer generator", "email sign off generator", "corporate email signature template",

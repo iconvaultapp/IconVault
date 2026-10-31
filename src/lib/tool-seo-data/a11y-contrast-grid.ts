@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does this replace an automated accessibility audit?", a: "No. The Contrast Grid checks color contrast only. A full audit also covers keyboard navigation, screen reader behavior, focus order, form labels and motion, so treat this as one useful check inside a broader accessibility review." },
       { q: "Is my palette uploaded anywhere?", a: "No. Every ratio is computed locally in your browser with JavaScript. Your colors never leave your device, so it is safe to use with client or unreleased brand palettes." },
       { q: "How do I export the results?", a: "Use the export button to download the full matrix as CSV, including each pair's ratio and its AA/AAA verdict, which you can attach to design reviews, handoffs or compliance documentation." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "wcag contrast checker",

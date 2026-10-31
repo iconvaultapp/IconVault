@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is the SHA-256 checksum for?", a: "It is a fingerprint of each chunk's contents. Compare checksums before and after transferring chunks to prove nothing was corrupted in transit." },
       { q: "Is there a file size limit?", a: "The practical limit is your device's available memory, since processing happens in your browser. Most files of a few hundred megabytes work fine on a modern machine." },
       { q: "Is my file uploaded to a server?", a: "No. Splitting, merging and checksums all run locally in your browser, which keeps private or sensitive files on your device." },
-      { q: "Is the file splitter free?", a: "Yes, completely free with no signup and no limits on the number of files." }
+      { q: "Is the file splitter free?", a: "Yes, completely free to use; downloads need a free account and no limits on the number of files." }
     ],
     tags: [
       "file splitter", "file splitter online", "free file splitter",
@@ -27,7 +27,7 @@ const seo: ToolSeo = {
       "split zip file", "split video file", "split pdf into parts",
       "large file transfer tool", "send large file in parts",
       "how to split a large file", "how to join split files",
-      "file splitter no signup", "file splitter free no download",
+      "file splitter a free account for downloads", "file splitter free no download",
       "split file kb mb", "10mb file splitter", "25mb file splitter",
       "windows file splitter online", "mac file splitter online",
       "split file in browser", "client side file splitter", "private file splitter",

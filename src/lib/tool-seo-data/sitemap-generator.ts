@@ -56,7 +56,7 @@ const seo: ToolSeo = {
       "sitemap for blogger",
       "sitemap for wordpress",
       "sitemap for shopify",
-      "sitemap generator no signup",
+      "sitemap generator a free account for downloads",
       "visual sitemap generator",
       "image sitemap generator",
       "video sitemap generator",

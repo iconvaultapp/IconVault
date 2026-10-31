@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What happens with invalid input?", a: "The tool shows a clear error message, such as Invalid YAML or Invalid JSON with the underlying parser detail, and leaves the output pane empty so you never get a half-converted result." },
       { q: "Is my data uploaded anywhere?", a: "No. Conversion happens entirely in your browser with a lazily loaded YAML library. Nothing is sent to any server." },
       { q: "Can I download the converted file?", a: "Yes. The download button saves the result as converted.json or converted.yaml depending on the direction you converted." },
-      { q: "Is the tool free?", a: "Yes, it is free to try with no signup. A limited number of free conversions are included; heavier repeated use may prompt an upgrade to Pro." }
+      { q: "Is the tool free?", a: "Yes, it is free to try; downloads need a free account. A limited number of free conversions are included; heavier repeated use may prompt an upgrade to Pro." }
     ],
     tags: [
       "yaml to json",
@@ -40,7 +40,7 @@ const seo: ToolSeo = {
       "yaml to json tool",
       "json to yaml tool",
       "free yaml json converter",
-      "yaml json converter no signup",
+      "yaml json converter a free account for downloads",
       "yaml json converter no upload",
       "online yaml json converter",
       "yaml to json parser",
@@ -68,7 +68,7 @@ const seo: ToolSeo = {
       "yaml json converter browser",
       "client side yaml converter",
       "yaml to json without install",
-      "json to yaml no signup",
+      "json to yaml a free account for downloads",
       "yaml to json privacy safe"
     ],
   };

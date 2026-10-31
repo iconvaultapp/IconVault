@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "What quality should I use?", a: "90% is a good default for sharp photos. Lower it toward 75% for smaller web files." },
       { q: "Can I convert many AVIFs at once?", a: "Yes. Add a batch and download everything together as a ZIP file." },
     ],
-    tags: ["avif to jpg", "convert avif to jpg", "avif converter", "avif to jpeg", "avif to jpg online", "bulk avif to jpg", "avif to jpg free", "avif file converter", "avif to jpg quality", "avif transparent to jpg", "avif to jpg batch", "save avif as jpg", "avif to jpg no signup", "avif to jpg private", "avif image converter", "avif to jpg download", "free avif converter", "avif to jpeg converter", "avif to jpg zip", "open avif as jpg",
+    tags: ["avif to jpg", "convert avif to jpg", "avif converter", "avif to jpeg", "avif to jpg online", "bulk avif to jpg", "avif to jpg free", "avif file converter", "avif to jpg quality", "avif transparent to jpg", "avif to jpg batch", "save avif as jpg", "avif to jpg a free account for downloads", "avif to jpg private", "avif image converter", "avif to jpg download", "free avif converter", "avif to jpeg converter", "avif to jpg zip", "open avif as jpg",
       "avif converter online",
       "convert avif files",
       "avif to jpg converter free",

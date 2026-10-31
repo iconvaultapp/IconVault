@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "free sql parameterizer",
       "online sql parameterizer",
       "sql tools online free",
-      "no signup sql tool",
+      "a free account for downloads sql tool",
       "sql formatter parameters",
       "sql query cleaner",
       "sql placeholder list generator"

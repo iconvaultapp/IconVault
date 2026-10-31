@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Convert a dotted-decimal IPv4 address to integer, hex, binary, octal and IPv6-mapped forms instantly. Free, fully in your browser.",
     about: [
       "**IconVault**'s **IPv4 Converter** turns any **dotted-decimal IPv4 address** into every common numeric form: the **32-bit unsigned integer**, **hexadecimal**, **binary**, **octal**, and the **IPv6-mapped** (::ffff:) representation. Type an address and all conversions update instantly, with one-click copy on each value.",
-      "It validates each octet as you type and flags invalid input instead of guessing. It is **free**, needs **no signup**, and runs **fully in your browser**. Honest note: it converts the address you enter; it does not look up geolocation, ownership or whether the address is reachable."
+      "It validates each octet as you type and flags invalid input instead of guessing. It is **free**, needs **a free account for downloads**, and runs **fully in your browser**. Honest note: it converts the address you enter; it does not look up geolocation, ownership or whether the address is reachable."
     ],
     faqs: [
       { q: "How do I convert an IP address to a number?", a: "Type the dotted-decimal address, for example 192.168.1.1. The tool multiplies the octets into a single 32-bit unsigned integer, which for 192.168.1.1 is 3232235777." },
@@ -70,7 +70,7 @@ const seo: ToolSeo = {
       "ip address binary explained",
       "read ipv4 in binary",
       "hex ip address example",
-      "free networking tools no signup"
+      "free networking tools a free account for downloads"
     ],
   };
 

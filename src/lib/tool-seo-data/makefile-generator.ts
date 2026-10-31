@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What does the .PHONY toggle do?", a: "Marking a target as .PHONY tells make that the target is not a file name, so it always runs instead of being skipped when a file with that name exists. Targets like clean, test and all are marked phony by default." },
       { q: "How do variables work in the generated file?", a: "You add name and value pairs (for example CC = gcc or CFLAGS = -Wall -O2) and reference them in commands as $(NAME). The generator emits them at the top of the file so they are easy to tweak later." },
       { q: "I get a missing separator error in my own Makefile. Why?", a: "That error almost always means a recipe line starts with spaces instead of a tab. The generator eliminates this problem by emitting real tabs, so files it produces never have this issue." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "makefile generator",
@@ -52,7 +52,7 @@ const seo: ToolSeo = {
       "missing separator error makefile",
       "download makefile file",
       "copy makefile to clipboard",
-      "makefile generator no signup",
+      "makefile generator a free account for downloads",
       "browser makefile tool",
       "free make tool online",
       "gnu make makefile generator",

@@ -3,7 +3,7 @@ import type { ToolSeo } from "../tool-seo";
 const seo: ToolSeo = {
     title: "QR Code Generator - Free Custom QR Codes Online | IconVault",
     metaDescription:
-      "Create free QR codes for URLs, plain text, contact cards (vCard), Wi-Fi, SMS, email and phone calls. 22 fancy styles (8 free, 14 Pro), custom colors, brand-logo overlay and quiet-zone control - crisp 256–1024px PNG downloads, in-browser, no signup needed.",
+      "Create free QR codes for URLs, plain text, contact cards (vCard), Wi-Fi, SMS, email and phone calls. 22 fancy styles (8 free, 14 Pro), custom colors, brand-logo overlay and quiet-zone control - crisp 256–1024px PNG downloads, in-browser, a free account needed for downloads.",
     about: [
       "**IconVault**'s **QR Code Generator** turns URLs, plain text, contact cards (vCard), Wi-Fi credentials, SMS drafts, email drafts and phone numbers into scannable QR **codes** in seconds. Pick a content type - the tool builds the correct format (vCard, **WIFI**:, SMSTO:, mailto:, tel:) automatically. Then choose from 22 fancy styles - rounded dots, diamonds, stars, neon gradients and more - upload your brand logo in the center, and render at 256, 512 or 1024 pixels - or download an SVG for print. A live low-contrast warning flags color pairs that may not scan reliably before you download.",
       "**Codes** are generated entirely in your browser - your content is never sent to a server, tracked, or expiring like the links from ad-driven QR services. Every visitor gets 5 **free** generations with no account; **IconVault** Pro ($19 one-time) unlocks unlimited QR generation, all 14 premium styles, and unlimited uses of every tool.",
@@ -31,7 +31,7 @@ const seo: ToolSeo = {
       },
       {
         q: "How many free QR codes do I get?",
-        a: "Every visitor gets 5 free generations, no account needed. IconVault Pro ($19 one-time) unlocks unlimited QR codes and unlimited uses of all tools.",
+        a: "Every visitor gets 5 free generations, downloads need a free account. IconVault Pro ($19 one-time) unlocks unlimited QR codes and unlimited uses of all tools.",
       },
       {
         q: "Can I style my QR code with colors and a logo?",
@@ -46,7 +46,7 @@ const seo: ToolSeo = {
       "qr code for business card", "qr code for menu", "restaurant menu qr code",
       "qr code for flyer", "qr code for poster", "qr code for packaging",
       "qr code png download", "high resolution qr code", "qr code 1024",
-      "qr code no signup", "qr code no watermark", "qr code no expiry",
+      "qr code a free account for downloads", "qr code no watermark", "qr code no expiry",
       "qr code no tracking", "private qr generator", "offline qr generator",
       "qr code for vcard", "contact qr code", "qr code for phone number",
       "qr code for email", "sms qr code", "qr code for instagram",

@@ -51,7 +51,7 @@ const seo: ToolSeo = {
       "remove thumbnail from exif",
       "clean scanned document metadata",
       "photo metadata removal free",
-      "exif remover no signup",
+      "exif remover a free account for downloads",
       "remove metadata browser tool",
       "offline metadata remover",
       "keep image quality remove exif",

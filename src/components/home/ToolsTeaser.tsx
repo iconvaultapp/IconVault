@@ -87,8 +87,7 @@ function ToolsTeaser() {
             Icons are only half the story
           </h2>
           <p className="mt-4 text-muted-foreground">
-            {TOOL_COUNT} free tools for developers, designers and creators. 5 free uses each per day,
-            no account needed.
+            {TOOL_COUNT} free tools for developers, designers and creators. 5 free uses each per day; downloads need a free account.
           </p>
         </Reveal>
 
@@ -173,7 +172,7 @@ function ToolsTeaser() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <p className="mt-4 text-xs text-muted-foreground">
-            {TOOL_COUNT} free tools, 5 free uses each per day, no account needed
+            {TOOL_COUNT} free tools, 5 free uses each per day; downloads need a free account
           </p>
         </Reveal>
       </div>

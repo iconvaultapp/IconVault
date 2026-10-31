@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Browse release notes for any GitHub repo with version filtering, assets and download counts. Free, runs in your browser.",
     about: [
       "**IconVault**'s **GitHub Releases** browser lets you read the **release notes** of any public GitHub repository without opening a dozen tabs. Paste an **owner/repo** name or a full **github.com URL**, then filter releases by **version**, expand notes inline and see **prerelease** and **draft** flags, **publish dates** and downloadable **assets** with their **download counts**.",
-      "Everything is fetched from the **public GitHub API** directly in your browser: no login, no token, no signup. It is **free** to use. The honest caveat: anonymous GitHub API calls are limited to **60 requests per hour** per IP, so heavy browsing sessions can hit a rate limit. Wait a bit and retry if that happens."
+      "Everything is fetched from the **public GitHub API** directly in your browser: no login, no token; downloads need a free account. It is **free** to use. The honest caveat: anonymous GitHub API calls are limited to **60 requests per hour** per IP, so heavy browsing sessions can hit a rate limit. Wait a bit and retry if that happens."
     ],
     faqs: [
       { q: "How do I look up a repository?", a: "Type owner/repo, for example facebook/react, or paste a full github.com URL. The tool parses both formats and loads the release list from the GitHub API." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How does the version filter work?", a: "Type part of a version or tag name and the list narrows to matching releases, so you can jump straight to v2.x notes in a long history." },
       { q: "Why did I get a rate limit error?", a: "The public GitHub API allows 60 anonymous requests per hour per IP address. Each lookup uses a couple of requests, so slow down or wait an hour if you hit the cap." },
       { q: "Can I browse private repositories?", a: "No. Only public repositories are visible through the anonymous GitHub API. Private repos need an authenticated token, which this tool does not use." },
-      { q: "Is it really free?", a: "Yes. Unlimited browsing within GitHub's anonymous rate limit, no account, no signup." }
+      { q: "Is it really free?", a: "Yes. Unlimited browsing within GitHub's anonymous rate limit, no account; downloads need a free account." }
     ],
     tags: [
       "github releases",

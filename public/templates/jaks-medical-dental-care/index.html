@@ -1,0 +1,3050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, dental clinic orthodontist portfolio, family dentistry practice site, orthodontics care medical portal, dentist appointment schedule booking, oral hygiene care services list, cosmetic dentistry clinic website, pediatric dentist clinic template, modern dental lab portfolio, teeth whitening clinic portal">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/medical-dental-care">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danish Dental Care — Free Medical Template</title>
+  <meta name="description" content="Friendly and highly professional Scandinavian dental layout with responsive pricing structures and appointment schedules. MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Danish Dental Care — Free Medical Template">
+  <meta property="og:description" content="Friendly and highly professional Scandinavian dental layout with responsive pricing structures and appointment schedules. MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/medical_dental_care.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Danish Dental Care — Free Medical Template">
+  <meta name="twitter:description" content="Friendly and highly professional Scandinavian dental layout with responsive pricing structures and appointment schedules. MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/medical_dental_care.webp">
+  
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ----------------------------------------------------
+       PREMIUM COLOR PALETTE & CSS VARIABLES
+       ---------------------------------------------------- */
+    :root {
+      /* Soft sky blue, clean medical white, & slate tones */
+      --primary: hsl(200, 95%, 48%);
+      --primary-hover: hsl(200, 95%, 40%);
+      --primary-dark: hsl(202, 90%, 22%);
+      --primary-light: hsl(204, 100%, 96%);
+      --primary-translucent: rgba(14, 165, 233, 0.08);
+      
+      --accent-green: hsl(145, 63%, 45%);
+      --accent-green-light: hsl(145, 63%, 95%);
+      --accent-gold: hsl(42, 100%, 53%);
+      
+      --text-main: hsl(210, 24%, 16%);
+      --text-muted: hsl(210, 14%, 44%);
+      --text-light: hsl(210, 20%, 98%);
+      
+      --bg-white: hsl(0, 0%, 100%);
+      --bg-neutral: hsl(210, 40%, 98%);
+      --bg-soft-blue: hsl(204, 80%, 97%);
+      --border-color: hsl(210, 20%, 90%);
+      
+      /* Elevation Shadows */
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 10px 20px -3px rgba(14, 165, 233, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 20px 35px -5px rgba(14, 165, 233, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.03);
+      --shadow-xl: 0 25px 50px -12px rgba(14, 165, 233, 0.12);
+      
+      /* Radius & Transition */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-round: 50px;
+      
+      --font-outfit: 'Outfit', sans-serif;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ----------------------------------------------------
+       BASE STYLES & RESET
+       ---------------------------------------------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-outfit);
+      color: var(--text-main);
+      background-color: var(--bg-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Common Button Styling */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-outfit);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-round);
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--bg-white);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(14, 165, 233, 0.35);
+    }
+
+    .btn-secondary {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(14, 165, 233, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: var(--radius-round);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* ----------------------------------------------------
+       HEADER & NAVIGATION
+       ---------------------------------------------------- */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      padding: 10px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo Styling */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .logo-icon-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background-color: var(--primary-light);
+      border-radius: var(--radius-sm);
+      color: var(--primary);
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--primary-dark) 40%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-main);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Online Booking Indicator badge */
+    .booking-indicator-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent-green-light);
+      color: var(--accent-green);
+      padding: 6px 14px;
+      border-radius: var(--radius-round);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: indicator-pulse 2s infinite;
+    }
+
+    @keyframes indicator-pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Hamburger Menu Button */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary-dark);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ----------------------------------------------------
+       HERO SECTION
+       ---------------------------------------------------- */
+    .hero {
+      background: radial-gradient(circle at 85% 15%, var(--primary-light) 0%, var(--bg-white) 70%);
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative background shapes */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--primary-light);
+      filter: blur(80px);
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    .hero-shape-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero-shape-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -100px;
+      left: -100px;
+      background: var(--primary-translucent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-tagline {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    /* Google Reviews & Star Ratings */
+    .rating-widget {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: var(--bg-white);
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .stars {
+      display: flex;
+      color: var(--accent-gold);
+      gap: 2px;
+    }
+
+    .stars svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .rating-text {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .rating-text strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Live Clinic Schedule Card (Right Column) */
+    .hero-schedule-card {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid rgba(14, 165, 233, 0.1);
+      position: relative;
+    }
+
+    .schedule-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+    }
+
+    .schedule-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .schedule-title h3 {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .schedule-title p {
+      font-size: 0.85rem;
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .schedule-day {
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .schedule-hours {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .schedule-item.today {
+      background-color: var(--primary-light);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border-bottom: none;
+    }
+
+    .schedule-item.today .schedule-day {
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schedule-item.today .schedule-day::after {
+      content: 'TODAY';
+      font-size: 0.65rem;
+      background-color: var(--primary);
+      color: var(--bg-white);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .schedule-item.today .schedule-hours {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Live Next Slot Banner */
+    .next-slot-banner {
+      background-color: var(--accent-green-light);
+      border: 1px dashed rgba(34, 197, 94, 0.3);
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .next-slot-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .next-slot-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      animation: indicator-pulse 1.8s infinite;
+    }
+
+    .next-slot-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-green);
+    }
+
+    .next-slot-text strong {
+      color: var(--text-main);
+    }
+
+    .next-slot-btn {
+      font-size: 0.8rem;
+      background-color: var(--bg-white);
+      color: var(--accent-green);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      padding: 6px 12px;
+      border-radius: var(--radius-round);
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .next-slot-btn:hover {
+      background-color: var(--accent-green);
+      color: var(--bg-white);
+    }
+
+    /* ----------------------------------------------------
+       TRUST BADGES BANNER
+       ---------------------------------------------------- */
+    .trust-strip {
+      background-color: var(--bg-neutral);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 30px 0;
+    }
+
+    .trust-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1 1 220px;
+    }
+
+    .trust-icon-box {
+      width: 44px;
+      height: 44px;
+      background-color: var(--bg-white);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .trust-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 2px;
+    }
+
+    .trust-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ----------------------------------------------------
+       SERVICES SECTION & COMPARISON CHECKLISTS
+       ---------------------------------------------------- */
+    .services-section {
+      padding: 100px 0;
+      background-color: var(--bg-white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 60px;
+    }
+
+    .section-subtitle {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+    }
+
+    /* Services Pricing & Comparison Cards */
+    .service-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(14, 165, 233, 0.2);
+    }
+
+    .service-card.featured {
+      border: 2px solid var(--primary);
+      box-shadow: var(--shadow-md);
+      background-gradient: linear-gradient(180deg, var(--bg-white) 0%, var(--primary-light) 100%);
+    }
+
+    .service-card.featured::before {
+      content: 'PATIENT FAVORITE';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: var(--bg-white);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: var(--radius-round);
+      letter-spacing: 0.05em;
+    }
+
+    .service-icon-box {
+      width: 56px;
+      height: 56px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .service-card.featured .service-icon-box {
+      background-color: var(--primary);
+      color: var(--bg-white);
+    }
+
+    .service-name {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .service-price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .service-price {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .service-term {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .service-suitability {
+      font-size: 0.85rem;
+      background-color: var(--bg-neutral);
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 24px;
+      font-weight: 500;
+      border-left: 3px solid var(--primary);
+    }
+
+    .service-card.featured .service-suitability {
+      background-color: var(--primary-light);
+      border-left-color: var(--primary-dark);
+    }
+
+    /* Included Checklist */
+    .checklist-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .service-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .checklist-icon {
+      color: var(--accent-green);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .service-action-btn {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      border-radius: var(--radius-round);
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    /* ----------------------------------------------------
+       "BEFORE & AFTER" INTERACTIVE PHOTO GALLERY
+       ---------------------------------------------------- */
+    .gallery-section {
+      padding: 100px 0;
+      background-color: var(--bg-soft-blue);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .gallery-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .gallery-description {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-top: -45px;
+      margin-bottom: 40px;
+    }
+
+    /* Slide Switch Tabs */
+    .gallery-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      background-color: rgba(14, 165, 233, 0.05);
+      padding: 8px;
+      border-radius: var(--radius-round);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(14, 165, 233, 0.1);
+    }
+
+    .gallery-tab-btn {
+      padding: 10px 24px;
+      border-radius: var(--radius-round);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .gallery-tab-btn.active {
+      background-color: var(--bg-white);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Interactive Slide Viewport */
+    .slider-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10.5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 6px solid var(--bg-white);
+    }
+
+    .slider-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      --clip-pos: 50%;
+    }
+
+    .slider-item.active {
+      display: block;
+    }
+
+    /* Image layers containing the SVGs */
+    .image-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* 'After' is the base layer (fully visible) */
+    .image-after {
+      background: radial-gradient(circle at center, hsl(204, 100%, 97%) 0%, hsl(204, 90%, 93%) 100%);
+      z-index: 1;
+    }
+
+    /* 'Before' is the top layer (clipped horizontally based on slider-pos) */
+    .image-before {
+      background: radial-gradient(circle at center, hsl(204, 90%, 93%) 0%, hsl(204, 80%, 89%) 100%);
+      z-index: 2;
+      clip-path: polygon(0 0, var(--clip-pos) 0, var(--clip-pos) 100%, 0 100%);
+    }
+
+    .image-layer svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Comparison overlay slider control */
+    .comparison-range {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 5;
+      cursor: ew-resize;
+      -webkit-appearance: none;
+    }
+
+    .slider-bar {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--clip-pos);
+      width: 4px;
+      background-color: var(--bg-white);
+      z-index: 4;
+      pointer-events: none;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background-color: var(--bg-white);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .slider-handle svg {
+      width: 20px;
+      height: 20px;
+      transition: var(--transition);
+    }
+
+    .comparison-range:active + .slider-bar .slider-handle {
+      transform: translate(-50%, -50%) scale(1.12);
+      background-color: var(--primary-light);
+    }
+
+    /* HTML label overlays */
+    .label-tag {
+      position: absolute;
+      bottom: 20px;
+      z-index: 4;
+      padding: 6px 14px;
+      background-color: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      color: var(--bg-white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .label-before {
+      left: 20px;
+    }
+
+    .label-after {
+      right: 20px;
+    }
+
+    /* Info card beneath slider */
+    .slider-info-box {
+      margin-top: 24px;
+      background-color: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 24px 30px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .slider-info-content h4 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .slider-info-content p {
+      font-size: 0.9rem;
+    }
+
+    /* ----------------------------------------------------
+       FAQ ACCORDION SECTION
+       ---------------------------------------------------- */
+    .faq-section {
+      padding: 100px 0;
+      background-color: var(--bg-white);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: flex-start;
+    }
+
+    .faq-illustration {
+      background-color: var(--primary-light);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      border: 1px solid rgba(14, 165, 233, 0.1);
+      position: relative;
+    }
+
+    .faq-ill-badge {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background-color: var(--bg-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-ill-content {
+      margin-top: 40px;
+    }
+
+    .faq-ill-content h3 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .faq-ill-content p {
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    .faq-support-card {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .support-avatar-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .support-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 3px solid var(--bg-white);
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -12px;
+    }
+
+    .support-avatar:first-child {
+      margin-left: 0;
+    }
+
+    .support-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .support-text h5 {
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .support-text p {
+      font-size: 0.8rem;
+    }
+
+    /* Accordion Elements */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .accordion-item {
+      background-color: var(--bg-neutral);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .accordion-item:hover, .accordion-item.active {
+      border-color: rgba(14, 165, 233, 0.3);
+      background-color: var(--bg-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .accordion-header {
+      width: 100%;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .accordion-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      transition: var(--transition);
+    }
+
+    .accordion-header:hover .accordion-question {
+      color: var(--primary);
+    }
+
+    .accordion-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .accordion-item.active .accordion-icon-box {
+      background-color: var(--primary);
+      color: var(--bg-white);
+      border-color: var(--primary);
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accordion-content-inner {
+      padding: 0 24px 24px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      border-top: 1px dashed transparent;
+    }
+
+    .accordion-item.active .accordion-content-inner {
+      border-top-color: var(--border-color);
+    }
+
+    /* ----------------------------------------------------
+       INTERACTIVE APPOINTMENT BOOK FORM
+       ---------------------------------------------------- */
+    .appointment-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-soft-blue) 100%);
+      position: relative;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .booking-text-side h2 {
+      font-size: 2.75rem;
+      margin-bottom: 20px;
+    }
+
+    .booking-text-side p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature-point-icon {
+      width: 36px;
+      height: 36px;
+      background-color: var(--bg-white);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-point-text h5 {
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .feature-point-text p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    /* Booking Form Card */
+    .booking-card-wrapper {
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .booking-card {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid rgba(14, 165, 233, 0.1);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .booking-card-header {
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+
+    .booking-card-header h3 {
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+
+    .booking-card-header p {
+      font-size: 0.85rem;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-control {
+      font-family: var(--font-outfit);
+      font-size: 0.95rem;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-neutral);
+      color: var(--text-main);
+      transition: var(--transition);
+      width: 100%;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      background-color: var(--bg-white);
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.12);
+    }
+
+    /* Custom Radio Slots */
+    .radio-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .radio-slot-label {
+      cursor: pointer;
+      text-align: center;
+      background-color: var(--bg-neutral);
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      border-radius: var(--radius-md);
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition);
+      color: var(--text-muted);
+    }
+
+    .radio-slot-input {
+      display: none;
+    }
+
+    .radio-slot-input:checked + .radio-slot-label {
+      background-color: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 16px;
+      font-weight: 700;
+      margin-top: 10px;
+      border-radius: var(--radius-round);
+    }
+
+    /* Booking Confirmation Panel (Interactive success screen) */
+    .booking-success-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid rgba(34, 197, 94, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .booking-success-panel.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .success-icon-container {
+      width: 80px;
+      height: 80px;
+      background-color: var(--accent-green-light);
+      color: var(--accent-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+      position: relative;
+    }
+
+    .success-icon-container svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .success-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+
+    .booking-success-panel h4 {
+      font-size: 1.85rem;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .booking-success-panel p {
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      max-width: 380px;
+    }
+
+    /* Custom Receipt Box */
+    .receipt-card {
+      background-color: var(--bg-neutral);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .receipt-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .receipt-label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .receipt-value {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* ----------------------------------------------------
+       FOOTER
+       ---------------------------------------------------- */
+    .footer {
+      background-color: var(--primary-dark);
+      color: var(--text-light);
+      padding: 80px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer h4 {
+      color: var(--bg-white);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .footer h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand p {
+      color: rgba(241, 245, 249, 0.7);
+      font-size: 0.9rem;
+      margin-top: 20px;
+      margin-bottom: 24px;
+      max-width: 280px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-white);
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-link {
+      font-size: 0.9rem;
+      color: rgba(241, 245, 249, 0.7);
+      width: fit-content;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .footer-hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-hours-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: rgba(241, 245, 249, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 8px;
+    }
+
+    .footer-hours-item:last-child {
+      border-bottom: none;
+    }
+
+    .footer-hours-day {
+      font-weight: 600;
+      color: var(--bg-white);
+    }
+
+    /* Footer Map Mock */
+    .footer-map-container {
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-map-mock {
+      background-color: rgba(14, 165, 233, 0.05);
+      border-radius: var(--radius-sm);
+      height: 110px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Abstract map grid elements inside mock map */
+    .map-grid-line {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .map-grid-v {
+      width: 1px;
+      height: 100%;
+    }
+
+    .map-grid-h {
+      height: 1px;
+      width: 100%;
+    }
+
+    .map-pin {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map-pin svg {
+      width: 24px;
+      height: 24px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .map-pin-pulse {
+      position: absolute;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      animation: indicator-pulse 2s infinite;
+      z-index: -1;
+    }
+
+    .footer-contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: rgba(241, 245, 249, 0.7);
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 30px;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.85rem;
+      color: rgba(241, 245, 249, 0.5);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--primary);
+    }
+
+
+    /* ----------------------------------------------------
+       RESPONSIVE MEDIA QUERIES
+       ---------------------------------------------------- */
+    
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-content {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-description {
+        max-width: 100%;
+      }
+
+      .hero-ctas {
+        justify-content: center;
+      }
+
+      .rating-widget {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .booking-text-side {
+        text-align: center;
+      }
+
+      .features-list {
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .feature-point {
+        text-align: left;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none; /* In production, toggled on mobile */
+      }
+
+      .nav-actions {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2.75rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .form-group-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .radio-slots {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .slider-viewport {
+        aspect-ratio: 16/12;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.25rem;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .rating-widget {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .gallery-tabs {
+        flex-direction: column;
+        width: 100%;
+        border-radius: var(--radius-md);
+      }
+
+      .gallery-tab-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .slider-info-box {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .booking-card {
+        padding: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Danish Dental Care",
+    "description": "Friendly and highly professional Scandinavian dental layout with responsive pricing structures and appointment schedules. MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/medical-dental-care",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/medical-dental-care.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- ----------------------------------------------------
+       HEADER & NAVIGATION BAR
+       ---------------------------------------------------- -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <div class="logo-icon-wrapper">
+            <!-- Custom Dental Tooth SVG -->
+            <svg class="logo-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C9.5 2 7 4 7 7C7 9.5 8 10.5 8.5 12C9 13.5 8.5 16 9.5 18C10.5 20 11.5 21 12 22C12.5 21 13.5 20 14.5 18C15.5 16 15 13.5 15.5 12C16 10.5 17 9.5 17 7C17 4 14.5 2 12 2Z"/>
+            </svg>
+          </div>
+          <span>Pearl Dental</span>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li><a href="#services" class="nav-link">Dental Services</a></li>
+          <li><a href="#gallery" class="nav-link">Smile Gallery</a></li>
+          <li><a href="#faqs" class="nav-link">FAQs</a></li>
+        </ul>
+
+        <!-- Right Side Actions -->
+        <div class="nav-actions">
+          <!-- Pulse Online Booking Indicator -->
+          <div class="booking-indicator-badge">
+            <span class="pulse-dot"></span>
+            Online Booking Active
+          </div>
+          <a href="#book-appointment" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Book Online</a>
+        </div>
+
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-toggle" aria-label="Toggle Menu" onclick="alert('In a fully custom design, this opens the mobile drawer menu! We have kept the template clean and responsive.')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ----------------------------------------------------
+       HERO SECTION WITH RATINGS & LIVE WINDOWS
+       ---------------------------------------------------- -->
+  <section class="hero">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Copy Content (Left Column) -->
+        <div class="hero-content">
+          <span class="badge hero-tagline">
+            ✨ WELCOME TO GENTLE FAMILY DENTISTRY
+          </span>
+          <h1 class="hero-title">
+            Your Smile's <span>Brightest Chapter</span> Starts Here
+          </h1>
+          <p class="hero-description">
+            Experience premium, anxiety-free dental treatments in a warm, relaxing environment. Dr. Clara Sterling and her dental specialists utilize the latest pain-free technology to keep your teeth healthy, glowing, and pristine.
+          </p>
+          <div class="hero-ctas">
+            <a href="#book-appointment" class="btn btn-primary">Schedule Visit</a>
+            <a href="#services" class="btn btn-secondary">Explore Treatments</a>
+          </div>
+          
+          <!-- Ratings Widget -->
+          <div class="rating-widget">
+            <div class="stars">
+              <!-- Star 1 -->
+              <svg><polygon points="9.9, 1.1, 3.3, 21.7, 19.8, 9, 0, 9, 16.5, 21.7"/></svg>
+              <!-- Star 2 -->
+              <svg><polygon points="9.9, 1.1, 3.3, 21.7, 19.8, 9, 0, 9, 16.5, 21.7"/></svg>
+              <!-- Star 3 -->
+              <svg><polygon points="9.9, 1.1, 3.3, 21.7, 19.8, 9, 0, 9, 16.5, 21.7"/></svg>
+              <!-- Star 4 -->
+              <svg><polygon points="9.9, 1.1, 3.3, 21.7, 19.8, 9, 0, 9, 16.5, 21.7"/></svg>
+              <!-- Star 5 -->
+              <svg><polygon points="9.9, 1.1, 3.3, 21.7, 19.8, 9, 0, 9, 16.5, 21.7"/></svg>
+            </div>
+            <div class="rating-text">
+              <strong>4.9 / 5 Rating</strong> from 1,480+ happy patients on Google
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Clinic Schedule Card (Right Column) -->
+        <div class="hero-schedule-card">
+          <div class="schedule-header">
+            <div class="schedule-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="schedule-title">
+              <h3>Clinic Opening Hours</h3>
+              <p>● Staff Active & Sterilized</p>
+            </div>
+          </div>
+
+          <div class="schedule-list">
+            <div class="schedule-item today" id="monday-sched">
+              <span class="schedule-day">Mon - Fri</span>
+              <span class="schedule-hours">8:00 AM - 7:00 PM</span>
+            </div>
+            <div class="schedule-item">
+              <span class="schedule-day">Saturday</span>
+              <span class="schedule-hours">9:00 AM - 3:00 PM</span>
+            </div>
+            <div class="schedule-item">
+              <span class="schedule-day">Sunday</span>
+              <span class="schedule-hours" style="color: var(--primary-dark); font-weight: bold;">Closed (Emergency Line)</span>
+            </div>
+          </div>
+
+          <!-- Dynamic next slot reservation widget -->
+          <div class="next-slot-banner">
+            <div class="next-slot-info">
+              <span class="next-slot-dot"></span>
+              <div class="next-slot-text">
+                Next Opening: <strong>Today, 3:30 PM</strong>
+              </div>
+            </div>
+            <a href="#book-appointment" class="next-slot-btn">Claim Slot</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       CLINICAL TRUST FEATURES STRIP
+       ---------------------------------------------------- -->
+  <section class="trust-strip">
+    <div class="container trust-container">
+      <!-- Feature 1 -->
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="trust-info">
+          <h4>Gentle, Painless Tech</h4>
+          <p>Zero anxiety laser therapies</p>
+        </div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <line x1="12" y1="10" x2="12" y2="10"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <div class="trust-info">
+          <h4>Direct Billing</h4>
+          <p>We file with 90%+ PPO plans</p>
+        </div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="trust-info">
+          <h4>ADA Accredited</h4>
+          <p>Dr. Sterling is ADA/AACD certified</p>
+        </div>
+      </div>
+      <!-- Feature 4 -->
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="trust-info">
+          <h4>Emergency Care</h4>
+          <p>Guaranteed same-day bookings</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       SERVICES & PRICING COMPARISON CHECKLISTS
+       ---------------------------------------------------- -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Specializations</span>
+        <h2 class="section-title">Clean, Transparent Treatment Rates</h2>
+        <p>Compare standard inclusions and choose the path that best keeps your smile pristine. Absolutely no hidden fees.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service Card 1: Cleaning & Prevention -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+              <path d="M8 12L11 15L16 9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Hygiene Clean</h3>
+          <div class="service-price-block">
+            <span class="service-price">$99</span>
+            <span class="service-term">/ Routine Visit</span>
+          </div>
+          <div class="service-suitability">
+            For: Maintenance & scaling (Every 6 months)
+          </div>
+          
+          <h4 class="checklist-title">What's Included</h4>
+          <ul class="service-checklist">
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Therapeutic tartar scaling
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              High-gloss jet-polish finish
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Low-radiation digital X-rays
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Oral cancer screening scan
+            </li>
+          </ul>
+          <a href="#book-appointment" onclick="preselectService('Routine Cleaning')" class="btn btn-secondary service-action-btn">Book Cleaning</a>
+        </div>
+
+        <!-- Service Card 2: Professional Whitening (Featured) -->
+        <div class="service-card featured">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Laser Whitening</h3>
+          <div class="service-price-block">
+            <span class="service-price">$299</span>
+            <span class="service-term">/ Complete Kit</span>
+          </div>
+          <div class="service-suitability">
+            For: Removing coffee, tea, or smoking stains
+          </div>
+          
+          <h4 class="checklist-title">What's Included</h4>
+          <ul class="service-checklist">
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              8 shades lighter guarantee
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              1-hour dynamic office laser session
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Custom-fit take-home booster gel
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              De-sensitizing clinical shield
+            </li>
+          </ul>
+          <a href="#book-appointment" onclick="preselectService('Laser Whitening')" class="btn btn-primary service-action-btn">Book Whitening</a>
+        </div>
+
+        <!-- Service Card 3: Implants -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+              <line x1="4" y1="22" x2="4" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Dental Implants</h3>
+          <div class="service-price-block">
+            <span class="service-price">$1,499</span>
+            <span class="service-term">/ Starting Rate</span>
+          </div>
+          <div class="service-suitability">
+            For: Permanent cosmetic tooth replacements
+          </div>
+          
+          <h4 class="checklist-title">What's Included</h4>
+          <ul class="service-checklist">
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Titanium bio-compatible root
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Hand-shaded zirconia crown
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              3D CBCT digital diagnostics
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Lifetime structural guarantee
+            </li>
+          </ul>
+          <a href="#book-appointment" onclick="preselectService('Dental Implants')" class="btn btn-secondary service-action-btn">Request Consult</a>
+        </div>
+
+        <!-- Service Card 4: Aligners -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Clear Aligners</h3>
+          <div class="service-price-block">
+            <span class="service-price">$2,800</span>
+            <span class="service-term">/ Complete Plan</span>
+          </div>
+          <div class="service-suitability">
+            For: Aligning overlaps & straightening teeth
+          </div>
+          
+          <h4 class="checklist-title">What's Included</h4>
+          <ul class="service-checklist">
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Custom medical-grade aligners
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              3D virtual progress modeling
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              All orthotic checkups & trims
+            </li>
+            <li class="checklist-item">
+              <svg class="checklist-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Includes custom final retainers
+            </li>
+          </ul>
+          <a href="#book-appointment" onclick="preselectService('Clear Aligners')" class="btn btn-secondary service-action-btn">Request Scan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       "BEFORE & AFTER" INTERACTIVE SLIDER GALLERY
+       ---------------------------------------------------- -->
+  <section class="gallery-section" id="gallery">
+    <div class="container gallery-container">
+      <div class="section-header">
+        <span class="section-subtitle">Stunning Results</span>
+        <h2 class="section-title">See Our Transformations</h2>
+      </div>
+      <p class="gallery-description">Drag the slider horizontally over the dental charts below to reveal how our aesthetic dentistry reshapes patient smiles.</p>
+
+      <!-- Selection Tabs -->
+      <div class="gallery-tabs">
+        <button class="gallery-tab-btn active" onclick="switchActiveSlider(0)">Laser Whitening</button>
+        <button class="gallery-tab-btn" onclick="switchActiveSlider(1)">Clear Aligners</button>
+        <button class="gallery-tab-btn" onclick="switchActiveSlider(2)">Crown Restoration</button>
+      </div>
+
+      <!-- Slide Viewport -->
+      <div class="slider-viewport">
+        <!-- 1. Laser Whitening Slider -->
+        <div class="slider-item active" id="gallery-whitening">
+          <!-- After Image Layer (Pearly White) -->
+          <div class="image-layer image-after">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+              <!-- Dark interior cavity background -->
+              <path d="M 100 180 C 100 280, 500 280, 500 180 C 500 130, 100 130, 100 180 Z" fill="#3D1318" />
+              <!-- Gums -->
+              <path d="M 100 150 C 140 115, 460 115, 500 150 C 500 150, 460 135, 410 135 C 360 135, 330 145, 300 145 C 270 145, 240 135, 190 135 C 140 135, 100 150, 100 150 Z" fill="#F08A9B" />
+              <!-- Pristine White Teeth (Aesthetic Aligned) -->
+              <!-- Tooth 1: Canine Left -->
+              <path d="M 140 142 C 140 178, 175 188, 175 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Tooth 2: Lateral Left -->
+              <path d="M 175 140 C 175 182, 215 182, 215 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Tooth 3: Central Left -->
+              <path d="M 215 138 C 215 192, 260 192, 260 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Tooth 4: Central Right -->
+              <path d="M 260 138 C 260 192, 305 192, 305 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Tooth 5: Lateral Right -->
+              <path d="M 305 140 C 305 182, 345 182, 345 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Tooth 6: Canine Right -->
+              <path d="M 345 142 C 345 178, 380 178, 380 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              
+              <!-- Aesthetic Sparkles -->
+              <path d="M 230 160 Q 230 170, 240 170 Q 230 170, 230 180 Q 230 170, 220 170 Q 230 170, 230 160 Z" fill="#FFDF00" />
+              <path d="M 330 155 Q 330 162, 337 162 Q 330 162, 330 169 Q 330 162, 323 162 Q 330 162, 330 155 Z" fill="#FFDF00" />
+            </svg>
+          </div>
+          <!-- Before Image Layer (Cream Yellowish) -->
+          <div class="image-layer image-before">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 100 180 C 100 280, 500 280, 500 180 C 500 130, 100 130, 100 180 Z" fill="#3D1318" />
+              <path d="M 100 150 C 140 115, 460 115, 500 150 C 500 150, 460 135, 410 135 C 360 135, 330 145, 300 145 C 270 145, 240 135, 190 135 C 140 135, 100 150, 100 150 Z" fill="#F08A9B" />
+              <!-- Slightly Dull-Cream Stained Teeth -->
+              <path d="M 140 142 C 140 178, 175 188, 175 142 Z" fill="#ECD599" stroke="#D8C385" stroke-width="2"/>
+              <path d="M 175 140 C 175 182, 215 182, 215 140 Z" fill="#EAD194" stroke="#D8C385" stroke-width="2"/>
+              <path d="M 215 138 C 215 192, 260 192, 260 138 Z" fill="#E8CD89" stroke="#D3B875" stroke-width="2"/>
+              <path d="M 260 138 C 260 192, 305 192, 305 138 Z" fill="#E8CD89" stroke="#D3B875" stroke-width="2"/>
+              <path d="M 305 140 C 305 182, 345 182, 345 140 Z" fill="#EAD194" stroke="#D8C385" stroke-width="2"/>
+              <path d="M 345 142 C 345 178, 380 178, 380 142 Z" fill="#ECD599" stroke="#D8C385" stroke-width="2"/>
+            </svg>
+          </div>
+          <!-- Label Overlays -->
+          <div class="label-tag label-before">Stained (Before)</div>
+          <div class="label-tag label-after">White (After)</div>
+        </div>
+
+        <!-- 2. Clear Aligners Slider -->
+        <div class="slider-item" id="gallery-aligners">
+          <div class="image-layer image-after">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 100 180 C 100 280, 500 280, 500 180 C 500 130, 100 130, 100 180 Z" fill="#3D1318" />
+              <path d="M 100 150 C 140 115, 460 115, 500 150 C 500 150, 460 135, 410 135 C 360 135, 330 145, 300 145 C 270 145, 240 135, 190 135 C 140 135, 100 150, 100 150 Z" fill="#F08A9B" />
+              <!-- Straight Aligned Teeth -->
+              <path d="M 140 142 C 140 178, 175 188, 175 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 175 140 C 175 182, 215 182, 215 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 215 138 C 215 192, 260 192, 260 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 260 138 C 260 192, 305 192, 305 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 305 140 C 305 182, 345 182, 345 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 345 142 C 345 178, 380 178, 380 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="image-layer image-before">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 100 180 C 100 280, 500 280, 500 180 C 500 130, 100 130, 100 180 Z" fill="#3D1318" />
+              <path d="M 100 150 C 140 115, 460 115, 500 150 C 500 150, 460 135, 410 135 C 360 135, 330 145, 300 145 C 270 145, 240 135, 190 135 C 140 135, 100 150, 100 150 Z" fill="#F08A9B" />
+              <!-- Crooked Teeth: Rotated using SVG Transform matrix/rotations -->
+              <path d="M 140 142 C 140 178, 175 188, 175 142 Z" transform="rotate(7, 155, 142)" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 175 140 C 175 182, 215 182, 215 140 Z" transform="rotate(-6, 195, 140) translate(0, -3)" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 215 138 C 215 192, 260 192, 260 138 Z" transform="rotate(10, 238, 138) translate(0, -6)" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 260 138 C 260 192, 305 192, 305 138 Z" transform="rotate(-5, 282, 138)" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 305 140 C 305 182, 345 182, 345 140 Z" transform="rotate(8, 325, 140) translate(0, -2)" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 345 142 C 345 178, 380 178, 380 142 Z" transform="rotate(-7, 362, 142)" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="label-tag label-before">Crowded (Before)</div>
+          <div class="label-tag label-after">Aligned (After)</div>
+        </div>
+
+        <!-- 3. Crown Restoration Slider -->
+        <div class="slider-item" id="gallery-restoration">
+          <div class="image-layer image-after">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 100 180 C 100 280, 500 280, 500 180 C 500 130, 100 130, 100 180 Z" fill="#3D1318" />
+              <path d="M 100 150 C 140 115, 460 115, 500 150 C 500 150, 460 135, 410 135 C 360 135, 330 145, 300 145 C 270 145, 240 135, 190 135 C 140 135, 100 150, 100 150 Z" fill="#F08A9B" />
+              <!-- Restored Pristine Tooth -->
+              <path d="M 140 142 C 140 178, 175 188, 175 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 175 140 C 175 182, 215 182, 215 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Perfect Restored Left Central -->
+              <path d="M 215 138 C 215 192, 260 192, 260 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 260 138 C 260 192, 305 192, 305 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 305 140 C 305 182, 345 182, 345 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 345 142 C 345 178, 380 178, 380 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="image-layer image-before">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 100 180 C 100 280, 500 280, 500 180 C 500 130, 100 130, 100 180 Z" fill="#3D1318" />
+              <path d="M 100 150 C 140 115, 460 115, 500 150 C 500 150, 460 135, 410 135 C 360 135, 330 145, 300 145 C 270 145, 240 135, 190 135 C 140 135, 100 150, 100 150 Z" fill="#F08A9B" />
+              <path d="M 140 142 C 140 178, 175 188, 175 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 175 140 C 175 182, 215 182, 215 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <!-- Left Central Incisor with noticeble chip & cavity spot -->
+              <path d="M 215 138 C 215 182, 235 182, 238 174 L 243 170 L 247 176 L 260 176 C 260 152, 260 138, 260 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <circle cx="230" cy="155" r="4.5" fill="#5C4533" opacity="0.85"/>
+              
+              <path d="M 260 138 C 260 192, 305 192, 305 138 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 305 140 C 305 182, 345 182, 345 140 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+              <path d="M 345 142 C 345 178, 380 178, 380 142 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="label-tag label-before">Chipped (Before)</div>
+          <div class="label-tag label-after">Restored (After)</div>
+        </div>
+
+        <!-- Slider Bar Visual Handle -->
+        <input type="range" min="0" max="100" value="50" class="comparison-range" id="comparisonSliderInput" oninput="updateActiveSliderPos(this.value)">
+        <div class="slider-bar" id="comparisonSliderBar" style="--clip-pos: 50%;">
+          <div class="slider-handle">
+            <!-- Icon Arrows (← →) -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="7 8 3 12 7 16"></polyline>
+              <polyline points="17 8 21 12 17 16"></polyline>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informative bottom info block -->
+      <div class="slider-info-box">
+        <div class="slider-info-content">
+          <h4 id="slider-info-title">Laser Teeth Whitening</h4>
+          <p id="slider-info-text">Our non-invasive dental lasers activate biological gel formulations to dissolve persistent stains in under an hour.</p>
+        </div>
+        <a href="#book-appointment" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem; flex-shrink: 0;">Claim Smiling Rate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       FAQ ACCORDION SECTION
+       ---------------------------------------------------- -->
+  <section class="faq-section" id="faqs">
+    <div class="container">
+      <div class="faq-grid">
+        <!-- FAQ Side Callout Content (Left Column) -->
+        <div class="faq-illustration">
+          <span class="badge faq-ill-badge">🤝 ANXIETY-FREE DENTISTRY</span>
+          <div class="faq-ill-content">
+            <h3>Frequently Asked Inquiries</h3>
+            <p>Your oral comfort is our absolute priority. Find answers to common questions about coverage, procedures, and pain management.</p>
+          </div>
+
+          <!-- Doctor Contact Card -->
+          <div class="faq-support-card">
+            <div class="support-avatar-group">
+              <div class="support-avatar">
+                <!-- Simple SVG outline avatar -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="support-text">
+              <h5>Need instant assistance?</h5>
+              <p>Call our gentle emergency specialists directly at <strong>(555) 382-9011</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion (Right Column) -->
+        <div class="accordion-list">
+          <!-- Accordion Item 1 -->
+          <div class="accordion-item active">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span class="accordion-question">Do you accept my dental PPO insurance?</span>
+              <div class="accordion-icon-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content" style="max-height: 200px;">
+              <div class="accordion-content-inner">
+                Absolutely. We accept and file claims directly with over 90% of major dental PPO insurance providers, including Delta Dental, Aetna, Cigna, MetLife, and Blue Cross. Our team handles all the paperwork to maximize your benefits and minimize your out-of-pocket costs.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 2 -->
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span class="accordion-question">What should I expect during my first clinic visit?</span>
+              <div class="accordion-icon-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Your initial visit is a relaxed, comprehensive assessment. We will take low-radiation digital X-rays, perform a gentle cleaning, conduct an oral health scan, and sit down with you to discuss your dental goals. No lecturing, no judgment—just a warm, customized plan for your smile.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span class="accordion-question">Are treatments at Pearl Dental really pain-free?</span>
+              <div class="accordion-icon-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Yes! We specialize in anxiety-free dentistry. We utilize modern advancements such as computerized local anesthesia (which eliminates the 'bee sting' pinch), dental lasers, and offer gentle nitrous oxide (laughing gas) sedation options to ensure your absolute comfort.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 4 -->
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span class="accordion-question">How long does the Laser Whitening treatment take?</span>
+              <div class="accordion-icon-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Our in-office Laser Whitening takes approximately 45 to 60 minutes. You will walk out with teeth up to 8 shades brighter. We also provide custom-fitted take-home trays and sensitivity protection gel for long-lasting results.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 5 -->
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span class="accordion-question">What is your scheduling policy for tooth emergencies?</span>
+              <div class="accordion-icon-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                We reserve dedicated slots every day for dental emergencies. If you are experiencing severe pain, a broken tooth, or a lost crown, call us immediately. We guarantee same-day care to relieve your pain and restore your smile.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       INTERACTIVE APPOINTMENT BOOKING FORM
+       ---------------------------------------------------- -->
+  <section class="appointment-section" id="book-appointment">
+    <div class="container">
+      <div class="booking-grid">
+        <!-- Call to action points (Left Column) -->
+        <div class="booking-text-side">
+          <h2>Secure Your Next Gentle Smile Session</h2>
+          <p>Book online in under 60 seconds. Our scheduling staff will verify your appointment slot immediately via text.</p>
+
+          <div class="features-list">
+            <!-- Feature Point 1 -->
+            <div class="feature-point">
+              <div class="feature-point-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="feature-point-text">
+                <h5>Immediate Text Confirmation</h5>
+                <p>We'll text details and directions right to your phone.</p>
+              </div>
+            </div>
+            <!-- Feature Point 2 -->
+            <div class="feature-point">
+              <div class="feature-point-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="feature-point-text">
+                <h5>Flexible No-Fee Rescheduling</h5>
+                <p>Cancel or shift your appointment for free up to 24 hours prior.</p>
+              </div>
+            </div>
+            <!-- Feature Point 3 -->
+            <div class="feature-point">
+              <div class="feature-point-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="feature-point-text">
+                <h5>Painless Laser Equipment Setup</h5>
+                <p>Advanced diagnostic lasers prepared before arrival.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointment Form Container -->
+        <div class="booking-card-wrapper">
+          <!-- Main Form Card -->
+          <div class="booking-card" id="mainBookingCard">
+            <div class="booking-card-header">
+              <h3>Fast Online Scheduler</h3>
+              <p>Choose your clinical service and select Dr. Clara Sterling or Dr. Vance.</p>
+            </div>
+
+            <!-- Form Tag -->
+            <form id="dentalBookingForm" onsubmit="handleFormSubmission(event)">
+              <!-- Input: Name -->
+              <div class="form-group">
+                <label class="form-label" for="full-name">Full Name</label>
+                <input class="form-control" type="text" id="full-name" required placeholder="e.g. Eleanor Vance">
+              </div>
+
+              <!-- Input: Phone & Email row -->
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label class="form-label" for="phone-number">Mobile Phone</label>
+                  <input class="form-control" type="tel" id="phone-number" required placeholder="e.g. (555) 482-9011">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email-address">Email Address</label>
+                  <input class="form-control" type="email" id="email-address" required placeholder="e.g. eleanor@smile.com">
+                </div>
+              </div>
+
+              <!-- Selection row: Service & Doctor -->
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label class="form-label" for="dental-service">Select Service</label>
+                  <select class="form-control" id="dental-service" required>
+                    <option value="" disabled selected>-- Choose Service --</option>
+                    <option value="Routine Cleaning">Hygiene Routine Cleaning</option>
+                    <option value="Laser Whitening">Laser Teeth Whitening</option>
+                    <option value="Dental Implants">Premium Dental Implants</option>
+                    <option value="Clear Aligners">Clear Teeth Aligners</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="preferred-doctor">Preferred Dentist</label>
+                  <select class="form-control" id="preferred-doctor" required>
+                    <option value="Dr. Clara Sterling (DDS)">Dr. Clara Sterling (DDS)</option>
+                    <option value="Dr. Marcus Vance (DMD)">Dr. Marcus Vance (DMD)</option>
+                    <option value="No Preference">No Preference (First Available)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Select Appointment Date -->
+              <div class="form-group">
+                <label class="form-label" for="appointment-date">Preferred Date</label>
+                <input class="form-control" type="date" id="appointment-date" required>
+              </div>
+
+              <!-- Select Time Slot Custom Radios -->
+              <div class="form-group">
+                <label class="form-label">Preferred Time Window</label>
+                <div class="radio-slots">
+                  <div>
+                    <input type="radio" name="time-slot" id="slot-morning" value="Morning (8:00 AM - 12:00 PM)" class="radio-slot-input" checked>
+                    <label for="slot-morning" class="radio-slot-label">Morning</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="time-slot" id="slot-afternoon" value="Afternoon (12:00 PM - 4:00 PM)" class="radio-slot-input">
+                    <label for="slot-afternoon" class="radio-slot-label">Afternoon</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="time-slot" id="slot-evening" value="Evening (4:00 PM - 7:00 PM)" class="radio-slot-input">
+                    <label for="slot-evening" class="radio-slot-label">Evening</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button class="btn btn-primary form-submit-btn" type="submit">
+                Confirm Smile Slot
+              </button>
+            </form>
+          </div>
+
+          <!-- Dynamic Success Screen overlay -->
+          <div class="booking-success-panel" id="bookingSuccessPanel">
+            <div class="success-icon-container">
+              <!-- Custom Checkmark SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <!-- Spark particles -->
+              <div class="success-particle" style="top: 10px; left: 10px;"></div>
+              <div class="success-particle" style="bottom: 12px; right: 10px;"></div>
+            </div>
+            <h4>Appointment Confirmed!</h4>
+            <p>Dr. Clara Sterling has reserved your customized session. Here is your receipt receipt details:</p>
+            
+            <!-- Receipt Box -->
+            <div class="receipt-card">
+              <div class="receipt-row">
+                <span class="receipt-label">Patient Name</span>
+                <span class="receipt-value" id="receipt-patient-name">Eleanor Vance</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">Service</span>
+                <span class="receipt-value" id="receipt-service">Laser Teeth Whitening</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">Physician</span>
+                <span class="receipt-value" id="receipt-doctor">Dr. Clara Sterling (DDS)</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">Date Selected</span>
+                <span class="receipt-value" id="receipt-date">June 15, 2026</span>
+              </div>
+              <div class="receipt-row">
+                <span class="receipt-label">Time Window</span>
+                <span class="receipt-value" id="receipt-time">Afternoon slot</span>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary" onclick="resetBookingForm()" style="width: 100%;">
+              Book Another Session
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------
+       FOOTER
+       ---------------------------------------------------- -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-brand">
+          <a href="#" class="logo" style="color: var(--bg-white);">
+            <div class="logo-icon-wrapper" style="background-color: var(--primary); color: var(--bg-white);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 2C9.5 2 7 4 7 7C7 9.5 8 10.5 8.5 12C9 13.5 8.5 16 9.5 18C10.5 20 11.5 21 12 22C12.5 21 13.5 20 14.5 18C15.5 16 15 13.5 15.5 12C16 10.5 17 9.5 17 7C17 4 14.5 2 12 2Z"/>
+              </svg>
+            </div>
+            <span style="background: none; -webkit-text-fill-color: var(--bg-white); color: var(--bg-white);">Pearl Dental</span>
+          </a>
+          <p>Keeping smiles healthy and families vibrant. Experience premium clinical dentistry in our certified painless dental lounge.</p>
+          
+          <!-- Social Icons -->
+          <div class="footer-socials">
+            <a href="#" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div>
+          <h4>Services Menu</h4>
+          <ul class="footer-links">
+            <li><a href="#services" class="footer-link">Hygiene Routine Cleaning</a></li>
+            <li><a href="#services" class="footer-link">Laser Teeth Whitening</a></li>
+            <li><a href="#services" class="footer-link">Premium Dental Implants</a></li>
+            <li><a href="#services" class="footer-link">Invisalign Clear Aligners</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Hours Summary -->
+        <div>
+          <h4>Lounge Hours</h4>
+          <div class="footer-hours-list">
+            <div class="footer-hours-item">
+              <span class="footer-hours-day">Mon - Fri</span>
+              <span>8:00 AM - 7:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span class="footer-hours-day">Saturday</span>
+              <span>9:00 AM - 3:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span class="footer-hours-day">Sunday</span>
+              <span style="color: var(--primary);">Emergency Care</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4: Contact & Mock Map -->
+        <div class="footer-map-container">
+          <div class="footer-map-mock">
+            <!-- Decorative Map Lines representing street layouts -->
+            <div class="map-grid-line map-grid-v" style="left: 20%;"></div>
+            <div class="map-grid-line map-grid-v" style="left: 45%;"></div>
+            <div class="map-grid-line map-grid-v" style="left: 75%;"></div>
+            <div class="map-grid-line map-grid-h" style="top: 30%;"></div>
+            <div class="map-grid-line map-grid-h" style="top: 70%;"></div>
+            
+            <!-- Glowing Pin -->
+            <div class="map-pin">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="var(--primary)"></path>
+                <circle cx="12" cy="10" r="3" fill="#FFFFFF"></circle>
+              </svg>
+              <div class="map-pin-pulse"></div>
+            </div>
+          </div>
+
+          <div class="footer-contact-details">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              482 Pearl Boulevard, Suite 100
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (555) 382-9011 (Text Enabled)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Pearl Dental Clinic. All clinical rights reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Charter</a>
+          <a href="#">Billing Practices</a>
+          <a href="#">ADA ADA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ----------------------------------------------------
+       CORE JAVASCRIPT LOGIC
+       ---------------------------------------------------- -->
+  <script>
+    /* --------------------------------------------------
+       SCROLL SENSITIVE HEADER
+       -------------------------------------------------- */
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    /* --------------------------------------------------
+       DAY HIGHLIGHT IN HOURS CARD
+       -------------------------------------------------- */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Highlight Mon-Fri row if today is a weekday
+      const currentDay = new Date().getDay();
+      const sched = document.getElementById('monday-sched');
+      if (currentDay >= 1 && currentDay <= 5) {
+        sched.classList.add('today');
+      }
+      
+      // Auto-set the Date picker input minimum bounds to today
+      const dateInput = document.getElementById('appointment-date');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      dateInput.value = today;
+    });
+
+    /* --------------------------------------------------
+       BEFORE & AFTER INTERACTIVE SLIDER LOGIC
+       -------------------------------------------------- */
+    const galleryItems = [
+      {
+        title: "Laser Teeth Whitening",
+        text: "Our non-invasive dental lasers activate biological gel formulations to dissolve persistent stains in under an hour."
+      },
+      {
+        title: "Clear Aligner Straightening",
+        text: "Undergo custom virtual treatment tracking to perfectly align crooked or overlapping teeth without wire braces."
+      },
+      {
+        title: "Crown/Inlay Restoration",
+        text: "Chipped or cavity-prone front teeth are restored to organic health utilizing premium zirconium hand-shaded crowns."
+      }
+    ];
+
+    // Switch between the three treatment options
+    function switchActiveSlider(activeIndex) {
+      const tabs = document.querySelectorAll('.gallery-tab-btn');
+      const items = document.querySelectorAll('.slider-viewport .slider-item');
+      
+      // Update Tab state
+      tabs.forEach((tab, index) => {
+        if (index === activeIndex) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      // Update Slider Visibility
+      items.forEach((item, index) => {
+        if (index === activeIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // Reset horizontal position of newly selected item
+      const rangeInput = document.getElementById('comparisonSliderInput');
+      rangeInput.value = 50;
+      updateActiveSliderPos(50);
+
+      // Update description text card below
+      document.getElementById('slider-info-title').textContent = galleryItems[activeIndex].title;
+      document.getElementById('slider-info-text').textContent = galleryItems[activeIndex].text;
+    }
+
+    // Synchronize HTML element ranges with the CSS variables
+    function updateActiveSliderPos(value) {
+      const percentage = value + '%';
+      
+      // Find the active slider frame
+      const activeItem = document.querySelector('.slider-viewport .slider-item.active');
+      if (activeItem) {
+        activeItem.style.setProperty('--clip-pos', percentage);
+      }
+      
+      // Update the visual horizontal line position
+      const sliderBar = document.getElementById('comparisonSliderBar');
+      if (sliderBar) {
+        sliderBar.style.setProperty('--clip-pos', percentage);
+      }
+    }
+
+    /* --------------------------------------------------
+       FAQ ACCORDION COMPONENT
+       -------------------------------------------------- */
+    function toggleAccordion(button) {
+      const currentItem = button.closest('.accordion-item');
+      const allItems = document.querySelectorAll('.accordion-item');
+      const isAlreadyActive = currentItem.classList.contains('active');
+
+      // Close all other accordions
+      allItems.forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.accordion-content').style.maxHeight = null;
+      });
+
+      // Toggle current accordion
+      if (!isAlreadyActive) {
+        currentItem.classList.add('active');
+        const content = currentItem.querySelector('.accordion-content');
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    }
+
+    /* --------------------------------------------------
+       INTERACTIVE APPOINTMENT FORM CONTROLLER
+       -------------------------------------------------- */
+    
+    // Auto-select dropdown choices from pricing card links
+    function preselectService(serviceName) {
+      const selectElement = document.getElementById('dental-service');
+      selectElement.value = serviceName;
+    }
+
+    function handleFormSubmission(event) {
+      event.preventDefault(); // Stop standard redirect/refresh
+      
+      // Collect Patient Information
+      const patientName = document.getElementById('full-name').value;
+      const phoneNum = document.getElementById('phone-number').value;
+      const selectedServiceVal = document.getElementById('dental-service').value;
+      const preferredDocVal = document.getElementById('preferred-doctor').value;
+      const rawDate = document.getElementById('appointment-date').value;
+      const preferredTimeVal = document.querySelector('input[name="time-slot"]:checked').value;
+      
+      // Format Date string into something friendly (e.g. "Monday, May 25, 2026")
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDateString = new Date(rawDate).toLocaleDateString("en-US", dateOptions);
+
+      // Populate confirmation receipt values
+      document.getElementById('receipt-patient-name').textContent = patientName;
+      document.getElementById('receipt-service').textContent = selectedServiceVal;
+      document.getElementById('receipt-doctor').textContent = preferredDocVal;
+      document.getElementById('receipt-date').textContent = formattedDateString;
+      document.getElementById('receipt-time').textContent = preferredTimeVal;
+
+      // Smooth transition to Success view
+      const successPanel = document.getElementById('bookingSuccessPanel');
+      successPanel.classList.add('active');
+    }
+
+    function resetBookingForm() {
+      // Clear form
+      document.getElementById('dentalBookingForm').reset();
+      
+      // Restore date default
+      const dateInput = document.getElementById('appointment-date');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.value = today;
+
+      // Hide success panel
+      const successPanel = document.getElementById('bookingSuccessPanel');
+      successPanel.classList.remove('active');
+    }
+  </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/medical-health-clinic" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">medical</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Vienna Private Clinic</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/fitness-yoga" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">medical</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Oslo Yoga Studio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

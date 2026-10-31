@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "streak probability",
       "coin flip streak odds",
       "browser probability simulator",
-      "no signup probability lab",
+      "a free account for downloads probability lab",
       "probability demo tool"
     ],
   };

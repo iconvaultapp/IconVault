@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How do I export the diagram?", a: "Use the download buttons to export the rendered diagram as SVG (crisp vector, best for the web and print) or PNG (raster, best for slides and tools that do not accept SVG). You can also copy the SVG markup directly." },
       { q: "What happens if my syntax has an error?", a: "The editor shows an error indicator so you know the diagram failed to render. Check for common mistakes like unclosed brackets, missing arrows or unsupported keywords, and the preview returns as soon as the code is valid again." },
       { q: "Is my diagram code uploaded to a server?", a: "No. Rendering happens with the Mermaid library running locally in your browser, and your code never leaves your device." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "mermaid editor",
@@ -54,7 +54,7 @@ const seo: ToolSeo = {
       "architecture diagram text tool",
       "system design diagram maker",
       "free diagram maker online",
-      "online diagram tool no signup",
+      "online diagram tool a free account for downloads",
       "browser diagram editor",
       "vector diagram export",
       "svg diagram download",

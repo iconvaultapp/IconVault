@@ -15,7 +15,7 @@ const seo: ToolSeo = {
       { q: "What is the default file name?", a: "It is prefilled as pasted-image-YYYY-MM-DD-HHMM, and you can rename it before downloading." },
       { q: "Can I use drag-drop instead?", a: "Yes. Drop an image onto the page or click to browse your files." },
     ],
-    tags: ["paste image", "paste image to file", "clipboard to image", "save clipboard image", "paste screenshot", "ctrl v image", "clipboard image saver", "paste image online", "screenshot to png", "paste image free", "save pasted image", "clipboard to png", "paste to jpg", "image paste tool", "paste image download", "screenshot saver", "paste image no signup", "clipboard image download", "paste photo", "paste image private",
+    tags: ["paste image", "paste image to file", "clipboard to image", "save clipboard image", "paste screenshot", "ctrl v image", "clipboard image saver", "paste image online", "screenshot to png", "paste image free", "save pasted image", "clipboard to png", "paste to jpg", "image paste tool", "paste image download", "screenshot saver", "paste image a free account for downloads", "clipboard image download", "paste photo", "paste image private",
       "paste image online free",
       "paste image from clipboard",
       "paste and save image",

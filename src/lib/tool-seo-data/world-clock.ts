@@ -2,17 +2,17 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "World Clock - Free Online World Time Converter | IconVault",
-    metaDescription: "See live ticking clocks for world cities, add or remove time zones and switch 12/24h format. Free, instant, no signup.",
+    metaDescription: "See live ticking clocks for world cities, add or remove time zones and switch 12/24h format. Free, instant; downloads need a free account.",
     about: [
       "**IconVault**'s **World Clock** shows **live ticking clocks** for major world cities side by side, from New York and London to Dubai, Mumbai, Singapore, Tokyo and Sydney. Add or remove any **time zone**, toggle between **12-hour and 24-hour** format, and see at a glance who is awake, who is asleep, and whether your meeting time is sane for everyone invited.",
-      "It uses your browser's built-in **time zone data**, so times stay correct through daylight saving changes with no manual updates. It is **free**, runs entirely in your browser with no signup, and is perfect for remote teams, freelancers with global clients, travelers, and anyone scheduling across time zones."
+      "It uses your browser's built-in **time zone data**, so times stay correct through daylight saving changes with no manual updates. It is **free**, runs entirely in your browser with a free account for downloads, and is perfect for remote teams, freelancers with global clients, travelers, and anyone scheduling across time zones."
     ],
     faqs: [
       { q: "How do I add a city to the world clock?", a: "Use the add control to pick any time zone from the list. You can add as many as you like and remove any clock you no longer need." },
       { q: "Does it handle daylight saving time?", a: "Yes. Times come from your browser's built-in IANA time zone database, which applies daylight saving rules automatically." },
       { q: "Can I switch between 12 and 24 hour format?", a: "Yes. One toggle switches every clock between 12-hour (AM/PM) and 24-hour display." },
       { q: "Is the time accurate?", a: "Clocks tick from your device's system clock, so they are as accurate as your device. For scheduling purposes, that is the same time your calendar and alarms use." },
-      { q: "Do I need an account?", a: "No. The world clock is free and works instantly with no signup." },
+      { q: "Do I need an account?", a: "No. The world clock is free and works instantly with a free account for downloads." },
       { q: "Which cities are included?", a: "It starts with a spread of major cities across the Americas, Europe, Africa, Asia and Oceania, and you can add any other IANA time zone you need." }
     ],
     tags: [

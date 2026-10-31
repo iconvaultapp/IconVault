@@ -5,13 +5,13 @@ const seo: ToolSeo = {
     metaDescription: "Build a polished README.md with badges, sections and a license in minutes. Live rendered preview, copy or download. Free, runs 100% in your browser.",
     about: [
       "**IconVault**'s **README Generator** turns a handful of form fields into a **polished README.md** your project deserves. Fill in the project name, description, install steps, usage examples and API rows, toggle **sections and badges** on or off, pick a **license** from the built-in list, and watch a **live rendered preview** update as you type.",
-      "Everything is generated **100% in your browser**, so nothing you write leaves your device. It is **free** to use with no signup: when the document looks right, **copy it** or **download the markdown file** straight into your repo."
+      "Everything is generated **100% in your browser**, so nothing you write leaves your device. It is **free** to use; downloads need a free account: when the document looks right, **copy it** or **download the markdown file** straight into your repo."
     ],
     faqs: [
       { q: "How does the README Generator work?", a: "Fill in fields for your project name, description, install and usage sections, add API rows if you need them, and toggle badges and sections on or off. The tool composes valid markdown and shows a live rendered preview you can copy or download as README.md." },
       { q: "What badges and licenses are supported?", a: "You can toggle common project badges on and off, and choose from seven license options including MIT, Apache-2.0, GPL-3.0, BSD-3-Clause, ISC, MPL-2.0 and Unlicense." },
       { q: "Is the live preview accurate?", a: "The preview renders the same markdown you will get, sanitized for safe display. It is generated in the browser with a markdown parser, so what you see is what your README will contain." },
-      { q: "Does it work offline or without an account?", a: "It runs fully in your browser with no account needed. Once the page has loaded, the generation itself does not depend on any server." },
+      { q: "Does it work offline or without an account?", a: "It runs fully in your browser; downloads need a free account. Once the page has loaded, the generation itself does not depend on any server." },
       { q: "Is my project information private?", a: "Yes. Every field you type stays on your device. Nothing is uploaded, stored or sent to any server." },
       { q: "Can I edit the markdown after generating it?", a: "Absolutely. The output is plain markdown, so paste it into your README.md and tweak any section freely. Many developers use the generator as a starting skeleton and refine from there." }
     ],

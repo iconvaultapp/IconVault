@@ -6,7 +6,7 @@ const seo: ToolSeo = {
       "Convert text case free: UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case and kebab-case. Instant, in your browser.",
     about: [
       "**IconVault**'s **Case Converter** flips your **text** between every useful **case** in one click: **UPPERCASE**, lowercase, **Title Case**, **Sentence case**, **camelCase**, **PascalCase**, **snake_case**, **kebab-case**, aLtErNaTiNg and iNVERSE - for code, headlines and everything between.",
-      "Paste once, copy any variant. Smart Title Case respects small words (a, the, of). All client-side, free, no account needed.",
+      "Paste once, copy any variant. Smart Title Case respects small words (a, the, of). All client-side, free, downloads need a free account.",
     ],
     faqs: [
       {
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "code case converter",
       "identifier case converter",
       "convert case free",
-      "case converter no signup",
+      "case converter a free account for downloads",
       "online text transformer",
       "text style converter",
       "uppercase lower case tool",

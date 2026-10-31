@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "What is JSON Schema used for?", a: "JSON Schema describes the expected shape of JSON data: property types, required fields, allowed values, string formats and numeric ranges. APIs, config systems and data pipelines use it to catch malformed payloads early." },
       { q: "Which JSON Schema draft is supported?", a: "The validator follows the modern JSON Schema vocabulary for type checking, required properties, enums, patterns, formats, minimums and maximums, and nested object and array constraints." },
       { q: "Is my data uploaded anywhere?", a: "No. Validation runs entirely in your browser with JavaScript. Your JSON and schemas never leave your device, which makes it safe for proprietary payloads." },
-      { q: "Is the tool really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is the tool really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json schema validator",
@@ -52,7 +52,7 @@ const seo: ToolSeo = {
       "json validation errors",
       "json schema required field missing",
       "json schema type mismatch",
-      "json schema no signup",
+      "json schema a free account for downloads",
       "json schema validator free",
       "json schema private",
       "json schema without upload",

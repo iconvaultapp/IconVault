@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading, Stack, CheckList, FaqList, CTABand } from "@/components/kit";
 import { cn } from "@/lib/utils";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 import { sanitizeSvg } from "@/lib/sanitize-svg";
 
 export const Route = createLazyFileRoute("/upload")({
@@ -97,12 +98,8 @@ function Page() {
   );
 
   const download = (icon: CustomIcon) => {
-    const url = URL.createObjectURL(new Blob([icon.svg], { type: "image/svg+xml" }));
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = brandFilename(`${icon.name}.svg`);
-    a.click();
-    URL.revokeObjectURL(url);
+    // v55 download gate: parked + sign-in prompt when anonymous.
+    downloadWithGate(new Blob([icon.svg], { type: "image/svg+xml" }), brandFilename(`${icon.name}.svg`));
   };
 
   return (

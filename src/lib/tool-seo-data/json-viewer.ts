@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "How do I copy the JSONPath of a key?", a: "Just click any node in the tree. Its JSONPath, like $.store.books[0].title, is copied to your clipboard automatically." },
       { q: "Can it handle very large JSON files?", a: "It handles typical files fine, but very large files (10 MB and up) may render slowly because every node becomes a DOM element. For such files, the search box and collapse-all are the fastest way to find what you need." },
       { q: "What happens if my JSON is invalid?", a: "The tool shows an invalid JSON error with the parser's message instead of rendering, so you can fix the syntax and try again." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "json viewer",
@@ -71,7 +71,7 @@ const seo: ToolSeo = {
       "json tree collapse",
       "json outline viewer",
       "free json viewer",
-      "json viewer no signup",
+      "json viewer a free account for downloads",
       "json viewer free online",
       "json formatter no ads",
       "pretty json free tool",

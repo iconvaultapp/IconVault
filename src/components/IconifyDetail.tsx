@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { parseIconId, getIconSvgUrl, fetchIconSvg } from "@/lib/iconify";
 import { useFavourites } from "@/hooks/useFavourites";
 import { useCollections } from "@/hooks/useCollections";
-import { useRequireAuth } from "@/hooks/useRequireAuth";
+import { downloadWithGate } from "@/lib/download-guard";
 import { cn } from "@/lib/utils";
 import { brandFilename } from "@/lib/logo-builder";
 
@@ -66,7 +66,6 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
   const [tab, setTab] = useState<"copy" | "download" | "collections">("copy");
   const [newColName, setNewColName] = useState("");
   const { isFavourite, toggleFavourite } = useFavourites();
-  const { requireAuth } = useRequireAuth();
   const { collections, createCollection, addToCollection } = useCollections();
   const { prefix, name } = parseIconId(iconId);
   const fav = isFavourite(iconId);
@@ -118,8 +117,8 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
     setColoredSvg(colored);
   }, [svgContent, color, useOriginal]);
 
+  // v55: copy-to-clipboard is NOT gated (copy is not a download).
   const copyText = (text: string, label: string) => {
-    if (!requireAuth("copy icon code")) return;
     void navigator.clipboard.writeText(text);
     setCopied(label);
     toast.success(`Copied ${label}`);
@@ -160,20 +159,15 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
 
   const downloadSvg = () => {
     if (!coloredSvg) return;
-    if (!requireAuth("download this icon")) return;
-    const blob = new Blob([coloredSvg], { type: "image/svg+xml" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = brandFilename(`${name}.svg`);
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success("SVG downloaded");
+    // v55 download gate: anonymous users park the file + get the sign-in
+    // prompt; it resumes automatically after login.
+    if (downloadWithGate(new Blob([coloredSvg], { type: "image/svg+xml" }), brandFilename(`${name}.svg`))) {
+      toast.success("SVG downloaded");
+    }
   };
 
   const downloadPng = (px: number) => {
     if (!coloredSvg) return;
-    if (!requireAuth("download this icon")) return;
     const img = new Image();
     img.onload = () => {
       const canvas = document.createElement("canvas");
@@ -182,11 +176,12 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
       ctx.drawImage(img, 0, 0, px, px);
-      const a = document.createElement("a");
-      a.href = canvas.toDataURL("image/png");
-      a.download = brandFilename(`${name}-${px}.png`);
-      a.click();
-      toast.success(`PNG ${px}px downloaded`);
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        if (downloadWithGate(blob, brandFilename(`${name}-${px}.png`))) {
+          toast.success(`PNG ${px}px downloaded`);
+        }
+      }, "image/png");
     };
     img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(coloredSvg)}`;
   };

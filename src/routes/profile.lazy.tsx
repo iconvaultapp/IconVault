@@ -10,6 +10,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { submitTestimonial } from "@/lib/testimonial.functions";
 import { TESTIMONIAL_MAX_LENGTH } from "@/lib/user-testimonials";
 import { supabase } from "@/integrations/supabase/client";
+import { downloadWithGate } from "@/lib/download-guard";
 import { useAuth } from "@/hooks/useAuth";
 import { useFavourites } from "@/hooks/useFavourites";
 import { useCollections } from "@/hooks/useCollections";
@@ -1093,7 +1094,7 @@ function Page() {
                         ` · ${trialSummary.withUsesLeft} with free uses left`}
                     </>
                   ) : (
-                    `Every tool gives you ${TOOL_TRIAL_LIMIT} free uses on this device - no account needed.`
+                    `Every tool gives you ${TOOL_TRIAL_LIMIT} free uses on this device - downloads need a free account.`
                   )}
                 </p>
               </div>
@@ -1665,15 +1666,11 @@ function Page() {
                   const blob = new Blob([JSON.stringify(data, null, 2)], {
                     type: "application/json",
                   });
-                  const url = URL.createObjectURL(blob);
-                  const a = document.createElement("a");
-                  a.href = url;
-                  a.download = "iconvault-data-export.json";
-                  document.body.appendChild(a);
-                  a.click();
-                  a.remove();
-                  setTimeout(() => URL.revokeObjectURL(url), 4000);
-                  toast.success("Data exported");
+                  // v55 download gate (defense in depth: this page is for
+                  // signed-in users, but the gate keeps the rule site-wide).
+                  if (downloadWithGate(blob, "iconvault-data-export.json")) {
+                    toast.success("Data exported");
+                  }
                 } catch {
                   toast.error("Could not export your data. Please try again.");
                 } finally {

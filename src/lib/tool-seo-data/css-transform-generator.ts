@@ -4,13 +4,13 @@ const seo: ToolSeo = {
     title: "CSS Transform Generator - Free Online CSS Tool | IconVault",
     metaDescription: "Build CSS transforms visually with sliders for rotate, scale, skew and translate, plus a transform-origin picker and copy-ready code. Free, in-browser.",
     about: [ "**IconVault**'s **CSS Transform Generator** lets you build **CSS transforms** visually instead of guessing values by hand. Drag sliders for **translate**, **rotate**, **scale** and **skew**, pick the **transform-origin** on a 3x3 grid, choose a preset like Flip horizontal or Lift, and watch a **live preview** update in real time. The final **transform** line is generated for you, ready to paste into your stylesheet.",
-    "Everything runs **100% in your browser**: no sign-up, no uploads, no waiting. Copy the finished CSS to your clipboard in one click, tweak it endlessly without breaking anything, and use it for buttons, cards, animations or page layouts. It is free to use and every value it produces is plain, standards-based CSS that works in all modern browsers." ],
+    "Everything runs **100% in your browser**: a free account for downloads, no uploads, no waiting. Copy the finished CSS to your clipboard in one click, tweak it endlessly without breaking anything, and use it for buttons, cards, animations or page layouts. It is free to use and every value it produces is plain, standards-based CSS that works in all modern browsers." ],
     faqs: [
       { q: "What does the CSS Transform Generator do?", a: "It builds the CSS transform property for you. You adjust translate, rotate, scale and skew values with sliders, pick a transform origin, and get a ready-to-paste transform line with a live visual preview." },
       { q: "What is transform-origin and why does it matter?", a: "transform-origin sets the point that rotate and scale pivot around, like top left or center center. Changing it completely changes how a rotation or scale looks, so the tool gives you a visual 3x3 picker to set it precisely." },
       { q: "Can I combine rotate, scale and skew in one transform?", a: "Yes. The tool stacks translate, rotate, scaleX/scaleY and skewX/skewY into a single transform declaration in the correct order, and shows you the combined effect live." },
       { q: "Does the generated CSS work in all browsers?", a: "Yes. It outputs plain standard CSS transform syntax supported by all modern browsers. No vendor prefixes are needed in 2026." },
-      { q: "Is it free? Do I need an account?", a: "Yes, it is free, and no account is needed. Everything runs locally in your browser, so nothing you do is uploaded anywhere." },
+      { q: "Is it free? Do I need an account?", a: "Yes, it is free, and Downloads need a free account. Everything runs locally in your browser, so nothing you do is uploaded anywhere." },
       { q: "How do I copy the result?", a: "Click the copy button to copy the transform line (and transform-origin if set) to your clipboard, then paste it into your CSS." }
     ],
     tags: [

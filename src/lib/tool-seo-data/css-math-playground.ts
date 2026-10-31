@@ -2,7 +2,7 @@ import type { ToolSeo } from "../tool-seo";
 
 const seo: ToolSeo = {
     title: "CSS Math Playground - Free Online Tool | IconVault",
-    metaDescription: "Build calc(), min(), max(), clamp() and trig CSS functions visually with live preview. Free, no signup, runs in your browser.",
+    metaDescription: "Build calc(), min(), max(), clamp() and trig CSS functions visually with live preview. Free; downloads need a free account; runs in your browser.",
     about: [
       "**IconVault**'s **CSS Math Playground** is a visual builder for CSS math functions. Pick calc(), min(), max(), clamp() or a trig function like sin(), cos() and tan(), dial in the values with sliders and inputs, and watch a live preview update instantly while the tool writes clean CSS for you. It is free and runs fully in your browser, so nothing you type ever leaves your device.",
       "**CSS math functions** are the backbone of **fluid, responsive layouts**: **clamp()** gives you type that scales between a minimum and maximum, min() and max() pick boundaries, and the **trig functions** unlock genuinely dynamic effects like oscillation and circular motion without JavaScript. The playground shows you exactly what each expression does, which makes it perfect for learning the syntax or for prototyping values before pasting them into your stylesheet."

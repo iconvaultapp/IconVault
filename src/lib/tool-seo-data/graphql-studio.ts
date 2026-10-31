@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Paste a GraphQL SDL schema, explore its types, build queries with a visual field picker and generate matching mock responses. Free, fully in-browser.",
     about: [
       "**IconVault**'s **GraphQL Studio** turns a raw **GraphQL SDL schema** into an interactive playground. Paste your schema and the studio parses every **type, enum, input, scalar, interface and union**, letting you browse fields, arguments and relationships in a clean **type explorer**.",
-      "Then build queries with a **visual field picker** instead of writing them by hand, and generate a **realistic mock JSON response** that matches the query's shape, with sensible sample values per scalar. It is **free** with no signup and runs **fully in your browser**, nothing is uploaded. The honest caveat: the SDL parser handles standard schema syntax but not every exotic directive or extension, and mocks are fake data for testing, not a live server."
+      "Then build queries with a **visual field picker** instead of writing them by hand, and generate a **realistic mock JSON response** that matches the query's shape, with sensible sample values per scalar. It is **free** to use; downloads need a free account and runs **fully in your browser**, nothing is uploaded. The honest caveat: the SDL parser handles standard schema syntax but not every exotic directive or extension, and mocks are fake data for testing, not a live server."
     ],
     faqs: [
       { q: "What can I paste into GraphQL Studio?", a: "Any GraphQL schema written in SDL (type Query { ... }, enums, inputs, unions). The tool parses it and lists every type and field." },
@@ -67,7 +67,7 @@ const seo: ToolSeo = {
       "graphql nested query builder",
       "graphql query string generator",
       "free graphql tools",
-      "online graphql tools no signup",
+      "online graphql tools a free account for downloads",
       "graphql schema to json",
       "graphql json mock"
     ],

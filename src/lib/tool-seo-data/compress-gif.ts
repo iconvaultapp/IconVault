@@ -41,7 +41,7 @@ const seo: ToolSeo = {
       "gif optimizer free",
       "compress gif for email",
       "reduce gif file size online",
-      "gif compressor no signup",
+      "gif compressor a free account for downloads",
       "compress gif image",
       "gif size optimizer",
       "make gif file smaller",

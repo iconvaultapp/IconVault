@@ -59,7 +59,7 @@ const seo: ToolSeo = {
       "terraform online editor",
       "free terraform generator",
       "terraform generator free online",
-      "terraform config no signup",
+      "terraform config a free account for downloads",
       "terraform aws beginner template",
       "terraform multi cloud",
       "terraform resource picker",

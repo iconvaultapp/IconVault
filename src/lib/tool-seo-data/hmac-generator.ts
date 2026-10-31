@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Generate HMAC-SHA-256, SHA-384, SHA-512 and SHA-1 signatures with any secret key, in hex or Base64, and verify received tags. Free, in-browser.",
     about: [
       "**IconVault**'s **HMAC Generator** computes **Hash-based Message Authentication Codes** for any message and secret key, using your browser's **Web Crypto API**. Choose **HMAC-SHA-256, SHA-384, SHA-512 or SHA-1**, output the tag in **hex or Base64**, and use the built-in **compare mode** to check a received tag against the computed one, which is exactly how webhook signature verification works.",
-      "HMAC proves a message came from someone holding the **secret key** and was not altered in transit, which is why APIs use it to sign requests and webhooks. It is **free** with no signup and runs **fully in your browser**, so your key and message never leave your device. The honest caveats: SHA-1 is included only for **legacy compatibility**, pick SHA-256 or better for new work, and never paste a real production secret into any web tool, including this one; it is built for testing and development."
+      "HMAC proves a message came from someone holding the **secret key** and was not altered in transit, which is why APIs use it to sign requests and webhooks. It is **free** to use; downloads need a free account and runs **fully in your browser**, so your key and message never leave your device. The honest caveats: SHA-1 is included only for **legacy compatibility**, pick SHA-256 or better for new work, and never paste a real production secret into any web tool, including this one; it is built for testing and development."
     ],
     faqs: [
       { q: "What is HMAC?", a: "HMAC is a keyed hash: it combines a secret key with a hash function to produce a tag that proves both who sent a message and that it was not modified. Without the key, nobody can forge a valid tag." },
@@ -47,7 +47,7 @@ const seo: ToolSeo = {
       "webcrypto hmac",
       "browser hmac",
       "free hmac tool",
-      "hmac generator no signup",
+      "hmac generator a free account for downloads",
       "hmac signature online",
       "hmac digest calculator",
       "hmac for api auth",

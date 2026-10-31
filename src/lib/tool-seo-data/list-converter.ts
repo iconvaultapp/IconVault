@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Can I join lines with commas or another separator?", a: "Yes. Type any delimiter such as a comma, semicolon or pipe into the join field. Leave it empty for one item per line." },
       { q: "How do I remove duplicate lines?", a: "Keep the remove duplicates checkbox on. It keeps the first occurrence of each line and drops the rest." },
       { q: "Can I add quotes around every item?", a: "Yes. Choose single or double quotes and each line is wrapped, which is handy for building SQL IN clauses or JSON-style arrays." },
-      { q: "Is it really free?", a: "Yes, it is free to try with no signup. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
+      { q: "Is it really free?", a: "Yes, it is free to try; downloads need a free account. Heavy repeated use may prompt an upgrade to Pro, which unlocks unlimited use." }
     ],
     tags: [
       "list converter",
@@ -55,7 +55,7 @@ const seo: ToolSeo = {
       "list transformer",
       "transform list online",
       "free list converter",
-      "list converter no signup",
+      "list converter a free account for downloads",
       "list formatting tool",
       "prepare list for excel",
       "list for spreadsheet",

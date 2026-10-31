@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, yoga mindfulness sanctuary page, wellness studio zen layout, meditation therapy website template, pilates health fitness coaching, mindful yoga classes scheduler, holistic healing clinic portal, peaceful wellness retreat layout, spiritual yoga studio website, essential oils yoga wellness">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/fitness-yoga">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oslo Yoga Studio — Free Fitness Template</title>
+  <meta name="description" content="Tranquil Nordic mindfulness and yoga studio page with class descriptions, packages, and minimal Scandinavian design structure. MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Oslo Yoga Studio — Free Fitness Template">
+  <meta property="og:description" content="Tranquil Nordic mindfulness and yoga studio page with class descriptions, packages, and minimal Scandinavian design structure. MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/fitness_yoga.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oslo Yoga Studio — Free Fitness Template">
+  <meta name="twitter:description" content="Tranquil Nordic mindfulness and yoga studio page with class descriptions, packages, and minimal Scandinavian design structure. MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/fitness_yoga.webp">
+    <!-- Google Fonts: Outfit & Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern CSS Variables - Calming Zen Earth Tones */
+        :root {
+            --color-bg: #FCFAF6;        /* Serene soft warm cream */
+            --color-surface: #F4EFE6;   /* Soft sandy clay */
+            --color-surface-alt: #EBE5DA; /* Deeper sand tint for active cards */
+            --color-primary: #526E59;   /* Pure sage green */
+            --color-primary-dark: #2F3E33; /* Deep forest green */
+            --color-primary-light: #EAF0EB; /* Calming mint tint */
+            --color-accent: #D49D83;    /* Warm Terracotta blush */
+            --color-accent-light: #F7EAE3; /* Extremely soft terracotta blush */
+            --color-text-dark: #263329;  /* Dark warm charcoal slate */
+            --color-text-muted: #56685B; /* Sage grey for body copy */
+            --color-text-light: #FBF9F6; /* Cream/white text */
+            
+            --font-display: 'Lora', Georgia, serif;
+            --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            
+            --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --shadow-subtle: 0 10px 40px rgba(82, 110, 89, 0.05);
+            --shadow-medium: 0 20px 50px rgba(82, 110, 89, 0.1);
+            --shadow-floating: 0 30px 60px rgba(82, 110, 89, 0.15);
+            
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 28px;
+            --radius-xl: 48px;
+            --radius-full: 9999px;
+            
+            --container-max: 1200px;
+        }
+
+        /* Ambient Aura glow blobs background */
+        .ambient-glows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -2;
+        }
+        .glow-blob {
+            position: absolute;
+            border-radius: var(--radius-full);
+            filter: blur(140px);
+            opacity: 0.35;
+            mix-blend-mode: multiply;
+            animation: pulse-glow 12s infinite alternate ease-in-out;
+        }
+        .glow-1 {
+            top: -10%;
+            left: 10%;
+            width: 45vw;
+            height: 45vw;
+            background-color: var(--color-primary-light);
+        }
+        .glow-2 {
+            top: 40%;
+            right: -10%;
+            width: 40vw;
+            height: 40vw;
+            background-color: var(--color-accent-light);
+            animation-delay: -3s;
+        }
+        .glow-3 {
+            bottom: -5%;
+            left: 20%;
+            width: 35vw;
+            height: 35vw;
+            background-color: var(--color-primary-light);
+            animation-delay: -6s;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.15) translate(3%, 5%); }
+            100% { transform: scale(0.9) translate(-2%, -3%); }
+        }
+
+        /* Base Resets */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-dark);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            line-height: 1.25;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 1.1vw, 1.15rem);
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+            font-size: inherit;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        /* Reusable Components */
+        .section-padding {
+            padding: clamp(4rem, 10vw, 8rem) 0;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 650px;
+            margin-bottom: clamp(3rem, 6vw, 5rem);
+        }
+        
+        .section-header .tag {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .section-header .tag::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 1px;
+            background-color: var(--color-accent);
+        }
+
+        .section-header h2 {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Buttons & CTAs */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--color-primary-dark);
+            z-index: -1;
+            transition: var(--transition-smooth);
+            border-radius: var(--radius-full);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            box-shadow: 0 6px 20px rgba(82, 110, 89, 0.15);
+        }
+
+        .btn-primary:hover {
+            color: var(--color-text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(82, 110, 89, 0.25);
+        }
+
+        .btn-primary:hover::after {
+            height: 100%;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary-dark);
+            background-color: transparent;
+        }
+
+        .btn-secondary:hover {
+            color: var(--color-text-light);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary:hover::after {
+            height: 100%;
+            background-color: var(--color-primary);
+        }
+
+        /* 1. Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            padding: 0.9rem 0;
+            background-color: rgba(252, 250, 246, 0.85);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow-subtle);
+            border-bottom: 1px solid rgba(229, 222, 212, 0.4);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.35rem;
+            letter-spacing: 0.18em;
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            text-transform: uppercase;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--color-primary);
+            transition: var(--transition-bounce);
+        }
+
+        .logo:hover svg {
+            transform: rotate(45deg);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text-dark);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-item:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-icons-row {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .social-icon-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon-circle svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .social-icon-circle:hover {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Hamburger Menu Icon (Mobile) */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .mobile-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-primary-dark);
+            border-radius: var(--radius-full);
+            transition: var(--transition-smooth);
+        }
+
+        /* 2. Hero Section */
+        .hero {
+            padding: 10rem 0 5rem;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--color-accent);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .hero-content p {
+            max-width: 520px;
+            font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Complex SVG Mandala Illustration */
+        .mandala-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1;
+        }
+
+        .mandala-svg {
+            width: 100%;
+            height: 100%;
+            animation: slow-spin 60s infinite linear;
+        }
+
+        .mandala-center-shape {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 78%;
+            height: 78%;
+            background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-primary-light) 100%);
+            border-radius: var(--radius-full);
+            z-index: -1;
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(82, 110, 89, 0.2);
+        }
+
+        .yoga-figure {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -46%);
+            width: 60%;
+            height: 60%;
+            z-index: 2;
+            filter: drop-shadow(0 15px 30px rgba(82, 110, 89, 0.15));
+            animation: floating-yogi 6s infinite ease-in-out alternate;
+        }
+
+        @keyframes slow-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes floating-yogi {
+            0% { transform: translate(-50%, -46%) translateY(-5px) scale(0.98); }
+            100% { transform: translate(-50%, -46%) translateY(5px) scale(1.02); }
+        }
+
+        /* 3. Services / Styles Section */
+        .styles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .style-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+            transition: var(--transition-smooth);
+        }
+
+        .style-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--color-surface);
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .card-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: var(--radius-full);
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+        }
+
+        .card-badge.accent {
+            background-color: var(--color-accent-light);
+            color: var(--color-accent);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .style-card:hover .card-icon {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            transform: scale(1.1);
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .style-card h3 {
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .style-card p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: auto;
+        }
+
+        /* Hover overlay reveal features */
+        .style-card-overlay {
+            position: absolute;
+            left: 0;
+            bottom: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary-dark);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            z-index: 10;
+        }
+
+        .style-card:hover .style-card-overlay {
+            bottom: 0;
+        }
+
+        .style-card-overlay h4 {
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .style-card-overlay ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .style-card-overlay li {
+            color: var(--color-primary-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .style-card-overlay li svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .overlay-cta {
+            align-self: flex-start;
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overlay-cta svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            transition: var(--transition-bounce);
+        }
+
+        .overlay-cta:hover {
+            color: var(--color-text-light);
+        }
+
+        .overlay-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* 4. Trainer Bio Cards */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .trainer-card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .trainer-visual {
+            height: 300px;
+            background-color: var(--color-accent-light);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Beautiful Minimalist Avatar Vector in Card */
+        .trainer-avatar-svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.95;
+            transition: var(--transition-smooth);
+        }
+
+        .trainer-card:hover .trainer-avatar-svg {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .trainer-spirit-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            background-color: rgba(251, 249, 246, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(229, 222, 212, 0.4);
+            z-index: 2;
+        }
+
+        .trainer-spirit-badge svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .trainer-info {
+            padding: 2.2rem;
+            background-color: var(--color-surface);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .trainer-role {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .trainer-info h3 {
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .trainer-info p {
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+            flex-grow: 1;
+        }
+
+        .trainer-social {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--color-border);
+        }
+
+        .trainer-social a {
+            color: var(--color-text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .trainer-social a:hover {
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .trainer-social svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* 5. Dynamic Schedule Planner Section */
+        .schedule-section {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: clamp(3rem, 7vw, 6rem) 0;
+            box-shadow: var(--shadow-subtle);
+            margin: 2rem 0;
+        }
+
+        .scheduler-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+            background-color: var(--color-bg);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .control-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-primary-dark);
+            min-width: 110px;
+        }
+
+        .filter-btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .filter-btn {
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-full);
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary-dark);
+            background-color: var(--color-primary-light);
+        }
+
+        .filter-btn.active {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(82, 110, 89, 0.15);
+        }
+
+        /* Schedule Listing Grid */
+        .schedule-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .schedule-card {
+            background-color: var(--color-bg);
+            border-radius: var(--radius-md);
+            padding: 1.8rem 2.2rem;
+            border: 1px solid var(--color-border);
+            display: grid;
+            grid-template-columns: 180px 1fr 180px;
+            align-items: center;
+            gap: 2rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card.hiding {
+            opacity: 0;
+            transform: translateY(15px) scale(0.98);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+        }
+
+        .schedule-card.showing {
+            animation: fade-in-up 0.5s ease forwards;
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .schedule-card:hover {
+            transform: translateX(4px);
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Visual Style Side Accent */
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background-color: var(--color-primary);
+        }
+        .schedule-card.style-vinyasa::before { background-color: var(--color-accent); }
+        .schedule-card.style-hatha::before { background-color: var(--color-primary); }
+        .schedule-card.style-yin::before { background-color: #79668D; }
+        .schedule-card.style-nidra::before { background-color: #BFA572; }
+
+        .schedule-time-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .schedule-time {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            font-family: var(--font-sans);
+        }
+
+        .schedule-duration {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .schedule-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .schedule-title-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .schedule-title {
+            font-size: 1.3rem;
+            font-family: var(--font-display);
+            font-weight: 500;
+            color: var(--color-primary-dark);
+        }
+
+        .schedule-style-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.2rem 0.7rem;
+            border-radius: var(--radius-full);
+            background-color: var(--color-surface);
+            color: var(--color-text-muted);
+        }
+
+        .schedule-card.style-vinyasa .schedule-style-tag { background-color: var(--color-accent-light); color: var(--color-accent); }
+        .schedule-card.style-hatha .schedule-style-tag { background-color: var(--color-primary-light); color: var(--color-primary-dark); }
+        .schedule-card.style-yin .schedule-style-tag { background-color: #F1EFF5; color: #79668D; }
+        .schedule-card.style-nidra .schedule-style-tag { background-color: #FAF6EE; color: #9A7B40; }
+
+        .schedule-desc {
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .schedule-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--color-text-muted);
+        }
+
+        .schedule-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .schedule-meta-item svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .schedule-action-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .spots-left {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            letter-spacing: 0.05em;
+        }
+
+        .btn-schedule-book {
+            padding: 0.6rem 1.4rem;
+            font-size: 0.85rem;
+            border-radius: var(--radius-full);
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-schedule-book:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 157, 131, 0.25);
+        }
+
+        .schedule-empty {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: var(--color-bg);
+            border-radius: var(--radius-lg);
+            border: 1px dashed var(--color-border);
+        }
+
+        .schedule-empty.active {
+            display: flex;
+        }
+
+        .schedule-empty svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--color-text-muted);
+            opacity: 0.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule-empty h3 {
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 6. Contact & Footer Section */
+        .footer {
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+            padding: clamp(4rem, 8vw, 6rem) 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr 1.2fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(251, 249, 246, 0.1);
+            padding-bottom: 4rem;
+        }
+
+        .footer-about .logo-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.18em;
+            font-weight: 500;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+        }
+
+        .footer-about .logo-footer svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--color-accent);
+        }
+
+        .footer-about p {
+            color: rgba(251, 249, 246, 0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .footer-about-quote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            border-left: 2px solid var(--color-accent);
+            padding-left: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            margin-bottom: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footer-contact-item svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-accent);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: rgba(251, 249, 246, 0.75);
+            line-height: 1.5;
+        }
+
+        .footer-newsletter p {
+            font-size: 0.95rem;
+            color: rgba(251, 249, 246, 0.7);
+            margin-bottom: 1.8rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            position: relative;
+        }
+
+        .newsletter-input-wrap {
+            position: relative;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            background-color: rgba(251, 249, 246, 0.06);
+            border: 1px solid rgba(251, 249, 246, 0.15);
+            padding: 0.9rem 1.2rem;
+            border-radius: var(--radius-full);
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--color-accent);
+            background-color: rgba(251, 249, 246, 0.1);
+        }
+
+        .newsletter-btn {
+            background-color: var(--color-accent);
+            color: var(--color-primary-dark);
+            padding: 0.9rem 1.8rem;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(212, 157, 131, 0.25);
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--color-text-light);
+            color: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-success {
+            display: none;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: rgba(82, 110, 89, 0.2);
+            border: 1px solid var(--color-primary);
+            padding: 1rem 1.4rem;
+            border-radius: var(--radius-md);
+            margin-top: 1rem;
+            color: var(--color-primary-light);
+            animation: fade-in-up 0.5s ease forwards;
+        }
+
+        .newsletter-success svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--color-accent);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-copy {
+            font-size: 0.88rem;
+            color: rgba(251, 249, 246, 0.55);
+        }
+
+        .footer-closing {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-closing svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* 7. Interactive Booking Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(38, 51, 41, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background-color: var(--color-bg);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 540px;
+            box-shadow: var(--shadow-floating);
+            border: 1px solid var(--color-border);
+            padding: 3rem;
+            position: relative;
+            transform: scale(0.95) translateY(15px);
+            transition: var(--transition-bounce);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background-color: var(--color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--color-text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .modal-close:hover {
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+            transform: rotate(90deg);
+        }
+
+        .modal-close svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed var(--color-border);
+            padding-bottom: 1.5rem;
+        }
+
+        .modal-title-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .modal-header h3 {
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-class-details {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-sm);
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
+
+        .modal-class-details span strong {
+            color: var(--color-primary-dark);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: var(--color-surface-alt);
+            border: 1px solid var(--color-border);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-sm);
+            color: var(--color-text-dark);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-input:focus {
+            border-color: var(--color-primary);
+            background-color: var(--color-bg);
+            box-shadow: 0 0 0 3px rgba(82, 110, 89, 0.1);
+        }
+
+        .form-select {
+            appearance: none;
+            width: 100%;
+            background-color: var(--color-surface-alt);
+            border: 1px solid var(--color-border);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-sm);
+            color: var(--color-text-dark);
+            font-size: 0.95rem;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2356685B'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-select:focus {
+            border-color: var(--color-primary);
+            background-color: var(--color-bg);
+        }
+
+        .modal-success-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 0;
+            animation: fade-in-up 0.5s ease forwards;
+        }
+
+        .modal-success-screen.active {
+            display: flex;
+        }
+
+        .modal-success-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-full);
+            background-color: var(--color-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            margin-bottom: 1.8rem;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .modal-success-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: currentColor;
+        }
+
+        .modal-success-screen h3 {
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
+        }
+
+        .modal-success-screen p {
+            max-width: 360px;
+            margin-bottom: 2rem;
+        }
+
+        /* Mobile Drawer Menu (Sidebar) */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--color-bg);
+            box-shadow: var(--shadow-floating);
+            z-index: 105;
+            padding: 6rem 2.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .mobile-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(38, 51, 41, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 104;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-drawer .nav-links-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .mobile-drawer .nav-item {
+            font-size: 1.25rem;
+            font-family: var(--font-display);
+            font-style: italic;
+        }
+
+        .mobile-drawer .social-icons-row {
+            margin-top: auto;
+            border-top: 1px dashed var(--color-border);
+            padding-top: 2rem;
+        }
+
+        /* 8. Media Queries / Responsiveness */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 5rem;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .mandala-wrapper {
+                max-width: 380px;
+            }
+
+            .schedule-card {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .schedule-card::before {
+                width: 100%;
+                height: 6px;
+                left: 0;
+                top: 0;
+                bottom: auto;
+            }
+
+            .schedule-action-box {
+                align-items: center;
+                margin-top: 1rem;
+            }
+
+            .btn-schedule-book {
+                width: auto;
+                min-width: 180px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .header-actions {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Oslo Yoga Studio",
+    "description": "Tranquil Nordic mindfulness and yoga studio page with class descriptions, packages, and minimal Scandinavian design structure. MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/fitness-yoga",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/fitness-yoga.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- Ambient Aura Backdrop Blobs -->
+    <div class="ambient-glows">
+        <div class="glow-blob glow-1"></div>
+        <div class="glow-blob glow-2"></div>
+        <div class="glow-blob glow-3"></div>
+    </div>
+
+    <!-- 1. Zen Minimalist Header -->
+    <header class="header" id="mainHeader">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Logo with beautiful Lotus Icon -->
+                <a href="#" class="logo">
+                    <svg viewBox="0 0 100 100">
+                        <!-- Custom Sacred Lotus SVG Path -->
+                        <path d="M50 15 C45 35 25 45 15 55 C25 65 45 65 50 85 C55 65 75 65 85 55 C75 45 55 35 50 15 Z" />
+                        <path d="M50 30 C47 45 35 52 28 58 C37 63 47 62 50 74 C53 62 63 63 72 58 C65 52 53 45 50 30 Z" opacity="0.7" fill="#D49D83" />
+                        <circle cx="50" cy="53" r="5" fill="#FCFAF6" />
+                    </svg>
+                    <span>Soma Studio</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="nav-links">
+                    <a href="#" class="nav-item">Home</a>
+                    <a href="#styles" class="nav-item">Our Styles</a>
+                    <a href="#teachers" class="nav-item">Our Guides</a>
+                    <a href="#schedule" class="nav-item">Schedule</a>
+                    <a href="#footer" class="nav-item">About</a>
+                </nav>
+
+                <!-- Desktop Action Items -->
+                <div class="header-actions">
+                    <div class="social-icons-row">
+                        <a href="https://instagram.com" target="_blank" class="social-icon-circle" aria-label="Instagram Profile">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        </a>
+                        <a href="https://pinterest.com" target="_blank" class="social-icon-circle" aria-label="Pinterest Profile">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.167-2.914 1.02 0 1.512.765 1.512 1.682 0 1.025-.653 2.561-.99 3.981-.281 1.19.599 2.161 1.771 2.161 2.128 0 3.765-2.244 3.765-5.479 0-2.862-2.061-4.869-5.002-4.869-3.407 0-5.405 2.556-5.405 5.193 0 1.029.397 2.134.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.162 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                    <a href="#schedule" class="btn btn-primary" style="padding: 0.7rem 1.6rem; font-size: 0.88rem;">Book a Class</a>
+                </div>
+
+                <!-- Hamburger mobile button -->
+                <div class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu" role="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu (Sidebar) -->
+    <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <nav class="nav-links-mobile">
+            <a href="#" class="nav-item drawer-close-link">Home</a>
+            <a href="#styles" class="nav-item drawer-close-link">Our Styles</a>
+            <a href="#teachers" class="nav-item drawer-close-link">Our Guides</a>
+            <a href="#schedule" class="nav-item drawer-close-link">Schedule</a>
+            <a href="#footer" class="nav-item drawer-close-link">About</a>
+        </nav>
+        
+        <a href="#schedule" class="btn btn-primary drawer-close-link" style="width: 100%;">Book a Class</a>
+
+        <div class="social-icons-row" style="justify-content: center;">
+            <a href="https://instagram.com" class="social-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="https://pinterest.com" class="social-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.167-2.914 1.02 0 1.512.765 1.512 1.682 0 1.025-.653 2.561-.99 3.981-.281 1.19.599 2.161 1.771 2.161 2.128 0 3.765-2.244 3.765-5.479 0-2.862-2.061-4.869-5.002-4.869-3.407 0-5.405 2.556-5.405 5.193 0 1.029.397 2.134.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.162 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+        </div>
+    </div>
+
+    <!-- 2. Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Text Content -->
+                <div class="hero-content">
+                    <span class="hero-tagline">Welcome to Soma Studio</span>
+                    <h1>Inhale peace, exhale strength.</h1>
+                    <p>A sacred nature-aligned sanctuary for body, mind, and spirit. Join our heart-centered community to slow down, anchor presence, and restore your natural state of peace and balance.</p>
+                    <div class="hero-btns">
+                        <a href="#schedule" class="btn btn-primary">View Schedule</a>
+                        <a href="#styles" class="btn btn-secondary">Explore Styles</a>
+                    </div>
+                </div>
+
+                <!-- Artistic Self-Contained SVG Mandala & Silhouette Representation -->
+                <div class="hero-visual">
+                    <div class="mandala-wrapper">
+                        <!-- Complex elegant geometric concentric flower of life & moon elements -->
+                        <svg class="mandala-svg" viewBox="0 0 200 200">
+                            <!-- Outermost thin dotted circle -->
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="#526E59" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.4" />
+                            <!-- Outer solid line with leaf markers -->
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="#526E59" stroke-width="0.75" opacity="0.5" />
+                            <!-- Concentric alignment circles representing sound waves or ripples -->
+                            <circle cx="100" cy="100" r="65" fill="none" stroke="#D49D83" stroke-width="0.75" opacity="0.6" />
+                            <circle cx="100" cy="100" r="50" fill="none" stroke="#526E59" stroke-width="0.5" stroke-dasharray="5,2" opacity="0.5" />
+                            <!-- Elegant Mandala Leaf structures (concentric rotation paths) -->
+                            <g stroke="#526E59" stroke-width="0.5" fill="none" opacity="0.6">
+                                <path d="M100,20 C108,45 100,60 100,80 C100,60 92,45 100,20 Z" />
+                                <path d="M100,180 C108,155 100,140 100,120 C100,140 92,155 100,180 Z" />
+                                <path d="M20,100 C45,108 60,100 80,100 C60,100 45,92 20,100 Z" />
+                                <path d="M180,100 C155,108 140,100 120,100 C140,100 155,92 180,100 Z" />
+                                <!-- Diagonal Leafs -->
+                                <path d="M43,43 C61,53 68,68 82,82 C68,68 53,61 43,43 Z" />
+                                <path d="M157,157 C139,147 132,132 118,118 C132,132 147,139 157,157 Z" />
+                                <path d="M157,43 C139,53 132,68 118,82 C132,68 147,53 157,43 Z" />
+                                <path d="M43,157 C61,147 68,132 82,118 C68,132 53,147 43,157 Z" />
+                            </g>
+                            <!-- Elegant Crescent Moon representing evening Yin / balance -->
+                            <path d="M100,45 A 55 55 0 0 1 155,100 A 55 55 0 0 0 100,45 Z" fill="#D49D83" opacity="0.15" />
+                        </svg>
+
+                        <!-- Central glow circle for deep visual quality -->
+                        <div class="mandala-center-shape"></div>
+
+                        <!-- Beautiful Silhouette of an elegant yoga tree posture inside the mandala -->
+                        <svg class="yoga-figure" viewBox="0 0 100 100">
+                            <!-- Silhouette styled organically to look highly professional -->
+                            <path d="M50,15 C52,15 53.5,17 53.5,19 C53.5,21 52,22.5 50,22.5 C48,22.5 46.5,21 46.5,19 C46.5,17 48,15 50,15 Z" fill="#2F3E33" />
+                            <!-- Torso and branches representation -->
+                            <path d="M50,23 C50,23 52,25 54,30 C56,35 60,34 65,33 C67,32.5 67,34.5 65.5,35.5 C60.5,39 55.5,37 53.5,42 C51.5,47 51,58 51,66 L59,85 C59.5,86 58.5,87 57.5,87 L48.5,70 L48.5,86.5 C48.5,87 47.5,87 47.5,86.5 L47.5,65 C47.5,58 48.5,47 46.5,42 C44.5,37 39.5,39 34.5,35.5 C33,34.5 33,32.5 35,33 C40,34 44,35 46,30 C48,25 50,23 50,23 Z" fill="#2F3E33" />
+                            <!-- Bent leg representing Tree Pose (Vrksasana) -->
+                            <path d="M48.5,50 C48.5,50 43,53 43,58 C43,63 48.5,65 48.5,65" stroke="#2F3E33" stroke-width="2" fill="none" stroke-linecap="round" />
+                            <!-- Lotus flower in open palms over the head -->
+                            <path d="M50,11 C49.5,13 50,14 50,14 C50,14 50.5,13 50,11 Z" fill="#D49D83" />
+                            <path d="M48,12 C48.5,13.5 49.5,14 49.5,14 C49.5,14 49,13 48.2,12 Z" fill="#D49D83" opacity="0.8" />
+                            <path d="M52,12 C51.5,13.5 50.5,14 50.5,14 C50.5,14 51,13 51.8,12 Z" fill="#D49D83" opacity="0.8" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services / Styles Section -->
+    <section class="section-padding" id="styles">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Our Offerings</span>
+                <h2>Discover Your Personal Path to Mindfulness</h2>
+                <p>We believe there is no single path to wellness. SOMA offers specialized yoga lineages tailored to harmonize your structural alignment, neural patterns, and energy systems.</p>
+            </div>
+
+            <!-- Styles Card Grid -->
+            <div class="styles-grid">
+                <!-- Card 1: Vinyasa Flow -->
+                <div class="style-card">
+                    <div class="card-meta">
+                        <span class="card-badge">Moderate</span>
+                        <div class="card-icon" aria-hidden="true">
+                            <!-- Wind/Prana Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M2 13h16a3.5 3.5 0 0 0 0-7h-1.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H18a1.5 1.5 0 0 1 0 3H2a1 1 0 0 0 0 2zm20-2H8a1.5 1.5 0 0 1 0-3h1.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H8a3.5 3.5 0 0 0 0 7h14a1 1 0 0 0 0-2zm-4 4H4a3.5 3.5 0 0 0 0 7h1.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H4a1.5 1.5 0 0 1 0-3h14a1 1 0 0 0 0-2z"/></svg>
+                        </div>
+                    </div>
+                    <h3>Vinyasa Flow</h3>
+                    <p>Synchronize intentional breath with fluid, dynamic movements. A moving meditation designed to build physical strength, heat, spatial awareness, and structural integration.</p>
+                    
+                    <!-- Hover Overlay Detail Card -->
+                    <div class="style-card-overlay">
+                        <h4>Vinyasa Practice</h4>
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Temp: Warm 78°F
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Focus: Strength & Breath
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Levels: All Levels Welcome
+                            </li>
+                        </ul>
+                        <a href="#schedule" class="overlay-cta">
+                            <span>View Schedule</span>
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Gentle Hatha -->
+                <div class="style-card">
+                    <div class="card-meta">
+                        <span class="card-badge">Gentle</span>
+                        <div class="card-icon" aria-hidden="true">
+                            <!-- Sun & Moon Balance Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 12 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14v12c3.31 0 6-2.69 6-6s-2.69-6-6-6z"/></svg>
+                        </div>
+                    </div>
+                    <h3>Gentle Hatha</h3>
+                    <p>A foundational, deliberate alignment practice focusing on classical posture holding, spinal integration, and refinement. Ideal for grounding and clarifying somatic presence.</p>
+                    
+                    <!-- Hover Overlay Detail Card -->
+                    <div class="style-card-overlay">
+                        <h4>Hatha Practice</h4>
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Temp: Studio 72°F
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Focus: Posture & Alignment
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Levels: Perfect for Beginners
+                            </li>
+                        </ul>
+                        <a href="#schedule" class="overlay-cta">
+                            <span>View Schedule</span>
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Restorative Yin -->
+                <div class="style-card">
+                    <div class="card-meta">
+                        <span class="card-badge accent">Deep Rest</span>
+                        <div class="card-icon" aria-hidden="true">
+                            <!-- Water Wave Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                        </div>
+                    </div>
+                    <h3>Restorative Yin</h3>
+                    <p>Deep passive floor postures held for extended periods. Focuses on releasing deep connective tissue, ligaments, and fascia, promoting parasympathetic regulation.</p>
+                    
+                    <!-- Hover Overlay Detail Card -->
+                    <div class="style-card-overlay">
+                        <h4>Yin Practice</h4>
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Temp: Cozy 75°F
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Focus: Fascia & Inner Calm
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Levels: Restorative (All levels)
+                            </li>
+                        </ul>
+                        <a href="#schedule" class="overlay-cta">
+                            <span>View Schedule</span>
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Yoga Nidra -->
+                <div class="style-card">
+                    <div class="card-meta">
+                        <span class="card-badge accent">Meditation</span>
+                        <div class="card-icon" aria-hidden="true">
+                            <!-- Third Eye/Cosmic Eye Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                        </div>
+                    </div>
+                    <h3>Yoga Nidra</h3>
+                    <p>Known as 'yogic sleep', this guided systematic meditation invites absolute physical relaxation while maintaining lucid inner awareness to reset the nervous system.</p>
+                    
+                    <!-- Hover Overlay Detail Card -->
+                    <div class="style-card-overlay">
+                        <h4>Nidra Meditation</h4>
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Temp: Ambient 70°F
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Focus: Nervous System Reset
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Levels: Mental Stillness (All levels)
+                            </li>
+                        </ul>
+                        <a href="#schedule" class="overlay-cta">
+                            <span>View Schedule</span>
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Trainer Bio Cards Section -->
+    <section class="section-padding" id="teachers" style="background-color: rgba(244, 239, 230, 0.4);">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Our Guides</span>
+                <h2>Anchoring Wisdom & Somatic Awareness</h2>
+                <p>Our teachers are long-term somatic practitioners dedicated to preserving traditional lineages while honoring functional contemporary biomechanics and neurological safety.</p>
+            </div>
+
+            <!-- Guides Grid -->
+            <div class="trainers-grid">
+                <!-- Guide 1 -->
+                <div class="trainer-card">
+                    <div class="trainer-visual">
+                        <!-- Custom beautiful abstract vector representation of Aria (minimalist outline + colors) -->
+                        <svg class="trainer-avatar-svg" viewBox="0 0 200 200" fill="none">
+                            <rect width="200" height="200" fill="#E4ECE6" />
+                            <circle cx="100" cy="90" r="50" fill="#FCFAF6" />
+                            <path d="M50 170 C50 120 150 120 150 170" fill="#526E59" opacity="0.8" />
+                            <!-- Elegant Abstract Leaf Silhouette Overlay -->
+                            <path d="M100 40 C120 70 100 100 100 120 C100 100 80 70 100 40 Z" fill="#D49D83" opacity="0.3" />
+                        </svg>
+                        <div class="trainer-spirit-badge" title="Lotus — Symbol of Heart Awakening">
+                            <!-- Lotus Symbol -->
+                            <svg viewBox="0 0 24 24"><path d="M12 2s-3 6-3 9 3 4 3 4 3-1 3-4-3-9-3-9zm-2 10.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S12.33 12 11.5 12 10 11.33 10 10.5z"/></svg>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <span class="trainer-role">Lead Vinyasa & Prana Guide</span>
+                        <h3>Aria Vance</h3>
+                        <p>With over 12 years of formal training across Rishikesh and Mysore, Aria integrates traditional spiritual philosophy, fluid sequencing, and poetry in motion to awaken heart consciousness.</p>
+                        <div class="trainer-social">
+                            <a href="#" aria-label="Aria's Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+                            <a href="#" aria-label="Aria's Spotify Playlist"><svg viewBox="0 0 24 24"><path d="M12 .007c-6.627 0-12 5.371-12 12s5.373 12 12 12 12-5.371 12-12-5.373-12-12-12zm5.49 17.31c-.22.36-.685.48-1.045.26-2.9-1.775-6.555-2.175-10.86-1.19-.41.09-.82-.165-.91-.575-.09-.41.165-.82.575-.91 4.715-1.08 8.73-.62 11.98 1.37.36.22.48.685.26 1.045zm1.47-3.26c-.275.445-.865.59-1.31.32-3.32-2.04-8.38-2.63-12.29-1.44-.5.15-1.025-.13-1.175-.63-.15-.5.13-1.025.63-1.175 4.47-1.36 10.05-.7 13.82 1.62.44.27.59.86.32 1.31zm.105-3.395c-3.98-2.36-10.55-2.58-14.35-1.43-.61.185-1.255-.17-1.44-.78-.185-.61.17-1.255.78-1.44 4.36-1.325 11.6-1.075 16.19 1.65.55.325.73 1.035.4 1.585-.32.55-1.03.73-1.58.4z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="trainer-card">
+                    <div class="trainer-visual">
+                        <!-- Custom beautiful abstract vector representation of Kaelen -->
+                        <svg class="trainer-avatar-svg" viewBox="0 0 200 200" fill="none">
+                            <rect width="200" height="200" fill="#F7EAE3" />
+                            <circle cx="100" cy="90" r="50" fill="#FCFAF6" />
+                            <path d="M50 170 C50 120 150 120 150 170" fill="#D49D83" opacity="0.8" />
+                            <!-- Golden sun rings overlay -->
+                            <circle cx="100" cy="90" r="62" stroke="#526E59" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5" />
+                        </svg>
+                        <div class="trainer-spirit-badge" title="Unalome — Path to Enlightenment">
+                            <!-- Unalome / Spirals representing paths -->
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 12 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <span class="trainer-role">Hatha & Biomechanics Specialist</span>
+                        <h3>Kaelen Reed</h3>
+                        <p>Kaelen combines classical alignment-based yoga with modern clinical biomechanics. His classes empower students to master postural integrity and prevent repetitive strain.</p>
+                        <div class="trainer-social">
+                            <a href="#" aria-label="Kaelen's Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+                            <a href="#" aria-label="Kaelen's Spotify Playlist"><svg viewBox="0 0 24 24"><path d="M12 .007c-6.627 0-12 5.371-12 12s5.373 12 12 12 12-5.371 12-12-5.373-12-12-12zm5.49 17.31c-.22.36-.685.48-1.045.26-2.9-1.775-6.555-2.175-10.86-1.19-.41.09-.82-.165-.91-.575-.09-.41.165-.82.575-.91 4.715-1.08 8.73-.62 11.98 1.37.36.22.48.685.26 1.045zm1.47-3.26c-.275.445-.865.59-1.31.32-3.32-2.04-8.38-2.63-12.29-1.44-.5.15-1.025-.13-1.175-.63-.15-.5.13-1.025.63-1.175 4.47-1.36 10.05-.7 13.82 1.62.44.27.59.86.32 1.31zm.105-3.395c-3.98-2.36-10.55-2.58-14.35-1.43-.61.185-1.255-.17-1.44-.78-.185-.61.17-1.255.78-1.44 4.36-1.325 11.6-1.075 16.19 1.65.55.325.73 1.035.4 1.585-.32.55-1.03.73-1.58.4z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guide 3 -->
+                <div class="trainer-card">
+                    <div class="trainer-visual">
+                        <!-- Custom beautiful abstract vector representation of Elena -->
+                        <svg class="trainer-avatar-svg" viewBox="0 0 200 200" fill="none">
+                            <rect width="200" height="200" fill="#EBE5DA" />
+                            <circle cx="100" cy="90" r="50" fill="#FCFAF6" />
+                            <path d="M50 170 C50 120 150 120 150 170" fill="#2F3E33" opacity="0.8" />
+                            <!-- Sound waves radiating background overlay -->
+                            <path d="M30 90 A 70 70 0 0 1 170 90" stroke="#D49D83" stroke-width="0.75" fill="none" opacity="0.4" />
+                        </svg>
+                        <div class="trainer-spirit-badge" title="Crescent Moon — Symbol of Yin & Subconscious">
+                            <!-- Moon Symbol -->
+                            <svg viewBox="0 0 24 24"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10S6.7 2 12.2 2c.5 0 .9.3 1.1.7s0 .9-.3 1.2c-2.3 2.1-3.6 5-3.6 8.1 0 3.1 1.3 6 3.6 8.1.3.3.4.8.3 1.2-.2.4-.6.7-1 .7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <span class="trainer-role">Yin & Sound Therapist</span>
+                        <h3>Elena Rostova</h3>
+                        <p>A former classical modern dancer, Elena integrates neural-restorative Yin practices with quartz crystal and alchemy sound bath frequencies to facilitate profound cell-level somatic release.</p>
+                        <div class="trainer-social">
+                            <a href="#" aria-label="Elena's Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+                            <a href="#" aria-label="Elena's Spotify Playlist"><svg viewBox="0 0 24 24"><path d="M12 .007c-6.627 0-12 5.371-12 12s5.373 12 12 12 12-5.371 12-12-5.373-12-12-12zm5.49 17.31c-.22.36-.685.48-1.045.26-2.9-1.775-6.555-2.175-10.86-1.19-.41.09-.82-.165-.91-.575-.09-.41.165-.82.575-.91 4.715-1.08 8.73-.62 11.98 1.37.36.22.48.685.26 1.045zm1.47-3.26c-.275.445-.865.59-1.31.32-3.32-2.04-8.38-2.63-12.29-1.44-.5.15-1.025-.13-1.175-.63-.15-.5.13-1.025.63-1.175 4.47-1.36 10.05-.7 13.82 1.62.44.27.59.86.32 1.31zm.105-3.395c-3.98-2.36-10.55-2.58-14.35-1.43-.61.185-1.255-.17-1.44-.78-.185-.61.17-1.255.78-1.44 4.36-1.325 11.6-1.075 16.19 1.65.55.325.73 1.035.4 1.585-.32.55-1.03.73-1.58.4z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Dynamic Interactive Class Scheduler Planner -->
+    <section class="section-padding container" id="schedule">
+        <div class="schedule-section">
+            <div style="padding: 0 3.5rem;">
+                <div class="section-header">
+                    <span class="tag">Live Planner</span>
+                    <h2>Studio Class Schedule</h2>
+                    <p>Filter our real-time calendar by Day or Practice Style. Secure your spot in advance to preserve the intimate space limit of our physical shala.</p>
+                </div>
+
+                <!-- Interactive Filters Panel -->
+                <div class="scheduler-controls">
+                    <!-- Day Selection Buttons -->
+                    <div class="control-group">
+                        <span class="control-label">Select Day</span>
+                        <div class="filter-btn-group" id="dayFilters">
+                            <button class="filter-btn active" data-day="all">All Days</button>
+                            <button class="filter-btn" data-day="Monday">Monday</button>
+                            <button class="filter-btn" data-day="Wednesday">Wednesday</button>
+                            <button class="filter-btn" data-day="Friday">Friday</button>
+                            <button class="filter-btn" data-day="Saturday">Saturday</button>
+                        </div>
+                    </div>
+
+                    <!-- Style Selection Buttons -->
+                    <div class="control-group">
+                        <span class="control-label">Select Style</span>
+                        <div class="filter-btn-group" id="styleFilters">
+                            <button class="filter-btn active" data-style="all">All Styles</button>
+                            <button class="filter-btn" data-style="Vinyasa">Vinyasa</button>
+                            <button class="filter-btn" data-style="Hatha">Hatha</button>
+                            <button class="filter-btn" data-style="Yin">Yin</button>
+                            <button class="filter-btn" data-style="Nidra">Yoga Nidra</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Schedule Container -->
+                <div class="schedule-grid" id="scheduleListings">
+                    <!-- Rendered Dynamically via JS -->
+                </div>
+
+                <!-- Scheduler Empty State (If filters yield zero matching classes) -->
+                <div class="schedule-empty" id="scheduleEmpty">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 12 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <h3>No Classes Found</h3>
+                    <p>There are no classes scheduled that match your combined Day and Style filter criteria. Try resetting filters.</p>
+                    <button class="btn btn-secondary" id="resetFiltersBtn" style="margin-top: 1rem; padding: 0.5rem 1.5rem; font-size: 0.85rem;">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Cozy Contact & Footer Section -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Studio Info -->
+                <div class="footer-about">
+                    <div class="logo-footer">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M50 15 C45 35 25 45 15 55 C25 65 45 65 50 85 C55 65 75 65 85 55 C75 45 55 35 50 15 Z" />
+                            <circle cx="50" cy="53" r="5" fill="#FCFAF6" />
+                        </svg>
+                        <span>Soma Studio</span>
+                    </div>
+                    <p>Soma Studio is a peaceful sanctuary dedicated to the anchoring of deep mental presence, physiological balance, and heart-centered community connection. May your practice support your healing journey.</p>
+                    <div class="footer-about-quote">
+                        "Yoga is not about self-improvement; it is about self-acceptance."
+                    </div>
+                </div>
+
+                <!-- Column 2: Detailed Contact Details -->
+                <div>
+                    <h3 class="footer-title">Contact & Space</h3>
+                    <div class="footer-contact-list">
+                        <!-- Location -->
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <p><strong>Soma Sanctuary</strong><br>108 Serenity Lane, Oak Glen<br>California, CA 91024</p>
+                        </div>
+                        <!-- Phone -->
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.58c0-.57-.46-1.04-1-.04z"/></svg>
+                            <p><strong>Call or Text Us</strong><br>+1 (555) 762-9642</p>
+                        </div>
+                        <!-- Email -->
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <p><strong>Direct Inquiries</strong><br>hello@somayogastudio.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Beautiful Dynamic Newsletter Signup -->
+                <div class="footer-newsletter">
+                    <h3 class="footer-title">Join our Sanctuary Circles</h3>
+                    <p>Receive bi-monthly lunar guidance, meditation scripts, details on upcoming acoustic sound bath ceremonies, and community updates directly in your inbox.</p>
+                    <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+                        <div class="newsletter-input-wrap">
+                            <input type="email" placeholder="Your sacred email address..." class="newsletter-input" required id="newsletterEmail">
+                        </div>
+                        <button type="submit" class="newsletter-btn">Subscribe to Guidance</button>
+                    </form>
+                    <!-- Newsletter Success Message -->
+                    <div class="newsletter-success" id="newsletterSuccess">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 12 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <span>Namaste. Welcome to our sanctuary newsletter circle.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Row -->
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    &copy; 2026 Soma Yoga Studio. Dedicated to conscious slow living.
+                </div>
+                <!-- Ohm/Lotus symbol footer center -->
+                <div class="footer-closing" title="May all beings be peaceful and free.">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M50 15 C45 35 25 45 15 55 C25 65 45 65 50 85 C55 65 75 65 85 55 C75 45 55 35 50 15 Z" />
+                    </svg>
+                    <span>May all beings be happy, healthy, and free. Namaste.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 7. Interactive Class Booking Modal Overlay -->
+    <div class="modal-overlay" id="bookingModalOverlay">
+        <div class="modal-box">
+            <!-- Close trigger -->
+            <div class="modal-close" id="modalCloseBtn" role="button" aria-label="Close Booking Dialog">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </div>
+
+            <!-- Modal Active Booking View -->
+            <div id="modalFormContainer">
+                <div class="modal-header">
+                    <span class="modal-title-tag">Reserve Spot</span>
+                    <h3>Reserve Your Studio Class</h3>
+                    <div class="modal-class-details">
+                        <span id="modalClassTitle">Sunrise Vinyasa Flow</span>
+                        <span><strong id="modalClassTime">07:30 AM</strong> (<span id="modalClassTeacher">Aria</span>)</span>
+                    </div>
+                </div>
+
+                <!-- Registration Form -->
+                <form class="modal-form" id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                    <!-- Name Input -->
+                    <div class="form-group">
+                        <label for="bookingName" class="form-label">Full Name</label>
+                        <input type="text" id="bookingName" class="form-input" placeholder="e.g. Elena Rostova" required>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <label for="bookingEmail" class="form-label">Email Address</label>
+                        <input type="email" id="bookingEmail" class="form-input" placeholder="e.g. elena@peaceful.com" required>
+                    </div>
+
+                    <!-- Experience Level -->
+                    <div class="form-group">
+                        <label for="bookingLevel" class="form-label">Your Yoga Practice Level</label>
+                        <select id="bookingLevel" class="form-select">
+                            <option value="Beginner">First time / Beginner</option>
+                            <option value="Intermediate" selected>Intermediate Practitioner</option>
+                            <option value="Advanced">Advanced / Instructor</option>
+                        </select>
+                    </div>
+
+                    <!-- Special Requests -->
+                    <div class="form-group">
+                        <label for="bookingNotes" class="form-label">Injuries or Special Somatic Needs</label>
+                        <input type="text" id="bookingNotes" class="form-input" placeholder="e.g. Lower back stiffness, pregnancy, none...">
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Confirm Spot Reservation</button>
+                </form>
+            </div>
+
+            <!-- Modal Successful Reservation View -->
+            <div class="modal-success-screen" id="modalSuccessContainer">
+                <div class="modal-success-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <h3>Spot Reserved!</h3>
+                <p>Namaste, <strong id="successCustomerName">Elena</strong>. Your spot in <strong id="successClassName">Sunrise Vinyasa Flow</strong> at <strong id="successClassTime">07:30 AM</strong> has been secured.</p>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted);">A calendar invitation and safety check guidelines have been dispatched to your email address.</p>
+                <button class="btn btn-primary" onclick="closeBookingModal()">Return to Schedule</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Interactive Scripts: Mobile Nav, Class Scheduler Filters, Modal Booking -->
+    <script>
+        // --- 1. Sticky Header Animation & Color Shifting on Scroll ---
+        const headerEl = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                headerEl.classList.add('scrolled');
+            } else {
+                headerEl.classList.remove('scrolled');
+            }
+        });
+
+        // --- 2. Mobile Sidebar Toggle Drawer Navigation ---
+        const menuToggleBtn = document.getElementById('menuToggle');
+        const mobileDrawerEl = document.getElementById('mobileDrawer');
+        const drawerOverlayEl = document.getElementById('drawerOverlay');
+        const drawerCloseLinks = document.querySelectorAll('.drawer-close-link');
+
+        function toggleMobileMenu() {
+            menuToggleBtn.classList.toggle('active');
+            mobileDrawerEl.classList.toggle('active');
+            drawerOverlayEl.classList.toggle('active');
+        }
+
+        menuToggleBtn.addEventListener('click', toggleMobileMenu);
+        drawerOverlayEl.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile drawer when clicking navigations
+        drawerCloseLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggleBtn.classList.remove('active');
+                mobileDrawerEl.classList.remove('active');
+                drawerOverlayEl.classList.remove('active');
+            });
+        });
+
+        // --- 3. Dynamic Interactive Schedule System Data & Logic ---
+        const yogaClasses = [
+            {
+                id: 1,
+                name: "Sunrise Vinyasa Flow",
+                day: "Monday",
+                style: "Vinyasa",
+                time: "07:30 AM",
+                duration: "60 Mins",
+                level: "All Levels welcome",
+                space: "12 spaces remaining",
+                teacher: "Aria Vance",
+                desc: "Awaken your physical vessel and expand life energy (Prana) through creative fluid flow connected directly to mindful respiratory waves.",
+                intensity: "Moderate"
+            },
+            {
+                id: 2,
+                name: "Foundations of Gentle Hatha",
+                day: "Monday",
+                style: "Hatha",
+                time: "09:30 AM",
+                duration: "75 Mins",
+                level: "Beginner Friendly",
+                space: "8 spaces remaining",
+                teacher: "Kaelen Reed",
+                desc: "A deliberate slow refinement of foundational structures. Perfect for aligning skeletal junctions and settling physical restlessness.",
+                intensity: "Gentle"
+            },
+            {
+                id: 3,
+                name: "Restorative Yin & Healing Sound",
+                day: "Wednesday",
+                style: "Yin",
+                time: "04:30 PM",
+                duration: "75 Mins",
+                level: "Therapeutic & Relaxing",
+                space: "6 spaces remaining",
+                teacher: "Elena Rostova",
+                desc: "Slow down and rest deeply in meditative passive floor poses. Combined with resonant quartz sound bath bowls for high somatic restoration.",
+                intensity: "Deep Rest"
+            },
+            {
+                id: 4,
+                name: "Cosmic Yoga Nidra Meditation",
+                day: "Wednesday",
+                style: "Nidra",
+                time: "06:30 PM",
+                duration: "60 Mins",
+                level: "No experience needed",
+                space: "15 spaces remaining",
+                teacher: "Elena Rostova",
+                desc: "Journey systematically through physical, energetic, emotional, and cognitive layers to enter the deep state of restorative yogic sleep.",
+                intensity: "Deep Stillness"
+            },
+            {
+                id: 5,
+                name: "Heart Awakening Vinyasa Flow",
+                day: "Friday",
+                style: "Vinyasa",
+                time: "08:00 AM",
+                duration: "60 Mins",
+                level: "Intermediate Experience",
+                space: "10 spaces remaining",
+                teacher: "Aria Vance",
+                desc: "A rhythmic movement sequence honoring expansion, heart-openers, backbends, and dynamic inversions to raise energetic frequencies.",
+                intensity: "Dynamic"
+            },
+            {
+                id: 6,
+                name: "Lunchtime Structural Hatha Align",
+                day: "Friday",
+                style: "Hatha",
+                time: "12:00 PM",
+                duration: "45 Mins",
+                level: "All Levels welcome",
+                space: "14 spaces remaining",
+                teacher: "Kaelen Reed",
+                desc: "A midday spinal alignment, breathing release, and core stabilization reset to reverse desk posture stiffness.",
+                intensity: "Gentle"
+            },
+            {
+                id: 7,
+                name: "Flow & Deep Restore Weekend Circle",
+                day: "Saturday",
+                style: "Vinyasa",
+                time: "09:00 AM",
+                duration: "90 Mins",
+                level: "Special practice (All levels)",
+                space: "4 spaces remaining",
+                teacher: "Aria Vance & Elena Rostova",
+                desc: "A extended 90-minute immersion beginning with a warm creative somatic flow and concluding in long restorative Yin holds and sound bowls.",
+                intensity: "Dynamic & Rest"
+            },
+            {
+                id: 8,
+                name: "Weekly Integration Yin & Fascial Release",
+                day: "Saturday",
+                style: "Yin",
+                time: "04:00 PM",
+                duration: "75 Mins",
+                level: "Deep restorative",
+                space: "9 spaces remaining",
+                teacher: "Elena Rostova",
+                desc: "Conclude your week by targeting deep physical layers. Focus on hip, lower back, and shoulder joints using therapeutic props.",
+                intensity: "Deep Rest"
+            }
+        ];
+
+        let selectedDayFilter = "all";
+        let selectedStyleFilter = "all";
+
+        const scheduleGridEl = document.getElementById('scheduleListings');
+        const emptyStateEl = document.getElementById('scheduleEmpty');
+
+        // Dynamic Scheduler Renderer Function
+        function renderSchedule() {
+            // Filter logic
+            const filteredClasses = yogaClasses.filter(c => {
+                const dayMatch = (selectedDayFilter === "all" || c.day === selectedDayFilter);
+                const styleMatch = (selectedStyleFilter === "all" || c.style === selectedStyleFilter);
+                return dayMatch && styleMatch;
+            });
+
+            // Clean Grid first
+            scheduleGridEl.innerHTML = "";
+
+            if (filteredClasses.length === 0) {
+                emptyStateEl.classList.add('active');
+            } else {
+                emptyStateEl.classList.remove('active');
+
+                filteredClasses.forEach(c => {
+                    const card = document.createElement('div');
+                    card.className = `schedule-card style-${c.style.toLowerCase()} showing`;
+                    
+                    card.innerHTML = `
+                        <!-- Left Info Time Box -->
+                        <div class="schedule-time-box">
+                            <span class="schedule-time">${c.time}</span>
+                            <span class="schedule-duration">${c.duration} (${c.day})</span>
+                        </div>
+                        
+                        <!-- Middle Info Title Box -->
+                        <div class="schedule-info-box">
+                            <div class="schedule-title-row">
+                                <h3 class="schedule-title">${c.name}</h3>
+                                <span class="schedule-style-tag">${c.style}</span>
+                            </div>
+                            <p class="schedule-desc">${c.desc}</p>
+                            <div class="schedule-meta-row">
+                                <div class="schedule-meta-item">
+                                    <!-- Teacher Icon -->
+                                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                    <span>Guide: <strong>${c.teacher}</strong></span>
+                                </div>
+                                <div class="schedule-meta-item">
+                                    <!-- Level/Intensity Icon -->
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 12 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                                    <span>${c.level}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Booking Actions Box -->
+                        <div class="schedule-action-box">
+                            <span class="spots-left">${c.space}</span>
+                            <button class="btn-schedule-book" onclick="openBookingModal(${c.id})">Book Now</button>
+                        </div>
+                    `;
+                    
+                    scheduleGridEl.appendChild(card);
+                });
+            }
+        }
+
+        // Initialize Rendering
+        renderSchedule();
+
+        // Wire Up Filter Interaction
+        const dayFilterBtns = document.querySelectorAll('#dayFilters .filter-btn');
+        dayFilterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                dayFilterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedDayFilter = btn.getAttribute('data-day');
+                renderSchedule();
+            });
+        });
+
+        const styleFilterBtns = document.querySelectorAll('#styleFilters .filter-btn');
+        styleFilterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                styleFilterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedStyleFilter = btn.getAttribute('data-style');
+                renderSchedule();
+            });
+        });
+
+        // Reset Filter Trigger
+        document.getElementById('resetFiltersBtn').addEventListener('click', () => {
+            dayFilterBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector('#dayFilters .filter-btn[data-day="all"]').classList.add('active');
+            
+            styleFilterBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector('#styleFilters .filter-btn[data-style="all"]').classList.add('active');
+
+            selectedDayFilter = "all";
+            selectedStyleFilter = "all";
+            renderSchedule();
+        });
+
+        // --- 4. Interactive Booking Modal Logic & Pre-fill Class details ---
+        const modalOverlay = document.getElementById('bookingModalOverlay');
+        const modalFormContainer = document.getElementById('modalFormContainer');
+        const modalSuccessContainer = document.getElementById('modalSuccessContainer');
+        
+        // Modal state details
+        const modalClassTitleText = document.getElementById('modalClassTitle');
+        const modalClassTimeText = document.getElementById('modalClassTime');
+        const modalClassTeacherText = document.getElementById('modalClassTeacher');
+
+        // Success state details
+        const successCustomerName = document.getElementById('successCustomerName');
+        const successClassName = document.getElementById('successClassName');
+        const successClassTime = document.getElementById('successClassTime');
+
+        let targetedClass = null;
+
+        function openBookingModal(classId) {
+            targetedClass = yogaClasses.find(c => c.id === classId);
+            if (!targetedClass) return;
+
+            // Pre-fill class details in Modal Header
+            modalClassTitleText.textContent = targetedClass.name;
+            modalClassTimeText.textContent = `${targetedClass.time} (${targetedClass.day})`;
+            modalClassTeacherText.textContent = targetedClass.teacher;
+
+            // Reset view to Form
+            modalFormContainer.style.display = "block";
+            modalSuccessContainer.classList.remove('active');
+            
+            // Open Modal
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = "hidden"; // disable background scrolling
+        }
+
+        function closeBookingModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ""; // restore background scrolling
+            // Clear inputs
+            document.getElementById('bookingForm').reset();
+        }
+
+        // Close triggers
+        document.getElementById('modalCloseBtn').addEventListener('click', closeBookingModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeBookingModal();
+        });
+
+        // Form Submit Handler
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const customerName = document.getElementById('bookingName').value;
+            const customerEmail = document.getElementById('bookingEmail').value;
+
+            // Simulate Booking Success State
+            successCustomerName.textContent = customerName;
+            successClassName.textContent = targetedClass.name;
+            successClassTime.textContent = `${targetedClass.time} on ${targetedClass.day}`;
+
+            // Transition from Form to Success view
+            modalFormContainer.style.display = "none";
+            modalSuccessContainer.classList.add('active');
+        }
+
+        // --- 5. Beautiful Cozy Footer Newsletter Integration ---
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            const newsletterForm = document.getElementById('newsletterForm');
+            const successEl = document.getElementById('newsletterSuccess');
+
+            // Hide Form, show gorgeous green success check
+            newsletterForm.style.display = "none";
+            successEl.style.display = "flex";
+        }
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/fitness-gym" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">fitness</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Berlin Gym</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/medical-health-clinic" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">fitness</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Vienna Private Clinic</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

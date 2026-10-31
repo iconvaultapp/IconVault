@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Analyze any GitHub profile: repos, stars, followers, top languages and a repo creation timeline. Free, in your browser.",
     about: [
       "**IconVault**'s **GitHub Profile Stats** turns any GitHub username into a visual **profile dashboard**. You get the **avatar, bio and join date**, totals for **public repos, followers and following**, the **total star count** across all repos, the **top 8 languages** by repository count with a color breakdown, and a **repo-creation timeline** showing activity year by year.",
-      "All data comes from the **public GitHub API** and is rendered **fully in your browser**: no login, no token, no signup. It is **free** to use. The honest caveat: anonymous API calls are capped at **60 per hour** per IP, so very active profiles or back-to-back lookups can trigger a rate limit. Private repositories are never visible through this API."
+      "All data comes from the **public GitHub API** and is rendered **fully in your browser**: no login, no token; downloads need a free account. It is **free** to use. The honest caveat: anonymous API calls are capped at **60 per hour** per IP, so very active profiles or back-to-back lookups can trigger a rate limit. Private repositories are never visible through this API."
     ],
     faqs: [
       { q: "What stats does the dashboard show?", a: "Profile basics (avatar, name, bio, join date), public repo count, follower and following counts, total stars across all public repos, top 8 languages by repo count and a year-by-year repo creation timeline." },
@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Why did I hit a rate limit?", a: "GitHub allows 60 anonymous API requests per hour per IP. A profile lookup uses two requests, so the cap only bites during heavy use. Wait a while and retry." },
       { q: "Are private repositories included?", a: "No. Only public repositories and public profile data are visible through the anonymous API, so private work never appears." },
       { q: "What if the username does not exist?", a: "You will see a clear not-found error. Usernames are case-insensitive, so double-check the spelling." },
-      { q: "Is it really free?", a: "Yes. Unlimited profile lookups within GitHub's anonymous rate limit, no account, no signup." }
+      { q: "Is it really free?", a: "Yes. Unlimited profile lookups within GitHub's anonymous rate limit, no account; downloads need a free account." }
     ],
     tags: [
       "github profile stats",

@@ -13,7 +13,7 @@ const seo: ToolSeo = {
       { q: "Does it work with Tailwind v4?", a: "The default palette (shade names and hex values) is the same in Tailwind v3 and v4, so the matches apply to both versions." },
       { q: "What colors are in the palette?", a: "Black, white, and the full 50 to 950 ramps for slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink and rose." },
       { q: "Can I copy the class name directly?", a: "Yes. Each result has a copy button for the class name and the hex value, so you can paste them straight into your markup." },
-      { q: "Is it really free?", a: "Yes, lookups are free to try with no signup. Heavier repeated use may prompt an upgrade to Pro for unlimited lookups." }
+      { q: "Is it really free?", a: "Yes, lookups are free to try; downloads need a free account. Heavier repeated use may prompt an upgrade to Pro for unlimited lookups." }
     ],
     tags: [
       "tailwind color finder",

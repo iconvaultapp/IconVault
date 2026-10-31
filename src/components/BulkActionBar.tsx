@@ -3,9 +3,10 @@ import { Link } from "@tanstack/react-router";
 import { Copy, FileArchive, ImageDown, Loader2, X, Crown } from "lucide-react";
 import { toast } from "sonner";
 import { parseIconId, fetchIconSvg } from "@/lib/iconify";
-import { useRequireAuth } from "@/hooks/useRequireAuth";
+import { isGateAuthed, storePendingAction } from "@/lib/download-guard";
 import { usePlan, LIFETIME_PRICE } from "@/hooks/usePlan";
 import { brandFilename } from "@/lib/logo-builder";
+import { downloadWithGate } from "@/lib/download-guard";
 
 interface BulkActionBarProps {
   selected: Set<string>;
@@ -32,30 +33,32 @@ const svgToPngBlob = (svg: string, px: number) =>
   });
 
 const saveBlob = (blob: Blob, filename: string) => {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = brandFilename(filename);
-  a.click();
-  URL.revokeObjectURL(url);
+  // v55 download gate (defense in depth: exportZip already checks, but this
+  // keeps any other caller gated too).
+  downloadWithGate(blob, brandFilename(filename));
 };
 
 export const BulkActionBar = ({ selected, onClear, onSelectAll }: BulkActionBarProps) => {
   const [busy, setBusy] = useState<string | null>(null);
   const [pngSize, setPngSize] = useState(256);
-  const { requireAuth } = useRequireAuth();
   const { isPro, bulkRemaining, canBulkDownload, recordBulkDownload } = usePlan();
   const ids = [...selected];
   const unlimited = isPro;
 
+  // v55: copying icon names is NOT gated (copy is not a download).
   const copyNames = () => {
-    if (!requireAuth("copy icons")) return;
     void navigator.clipboard.writeText(ids.join("\n"));
     toast.success(`Copied ${ids.length} icon names`);
   };
 
   const exportZip = async (mode: "svg" | "png") => {
-    if (!requireAuth(`download ${ids.length} icons`)) return;
+    // v55 download gate: anonymous users park the export parameters + get
+    // the sign-in prompt; the listener rebuilds the export after login and
+    // only then consumes bulk quota.
+    if (!isGateAuthed()) {
+      storePendingAction({ kind: "bulk", ids, mode, pngSize });
+      return;
+    }
     if (!canBulkDownload) {
       toast.error("Free plan limit reached", {
         description: `You've used all 7 free bulk downloads. Go Lifetime ($${LIFETIME_PRICE} one-time) for unlimited bulk downloads.`,

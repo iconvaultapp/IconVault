@@ -5,7 +5,7 @@ const seo: ToolSeo = {
     metaDescription: "Compress text or files to .gz and decompress gzip data back to text, with before/after sizes and ratio. Free, uses native browser compression.",
     about: [
       "**IconVault**'s **Gzip Tool** compresses and decompresses right in the tab. **Paste text** or **drop a file** to compress it with real **gzip** via the browser-native **CompressionStream API**, and see the **before and after sizes** plus the exact **compression ratio** before you download the **.gz** file or copy it as **base64**.",
-      "Flip to the **decompress** tab to expand a **.gz file** or **base64 gzip data** back to text. It is **free** with no signup and runs **fully in your browser**, your files never leave your device. The honest caveat: compression uses your browser's built-in gzip, so very old browsers without CompressionStream cannot run it, and already-compressed files like JPEGs or ZIPs will barely shrink."
+      "Flip to the **decompress** tab to expand a **.gz file** or **base64 gzip data** back to text. It is **free** to use; downloads need a free account and runs **fully in your browser**, your files never leave your device. The honest caveat: compression uses your browser's built-in gzip, so very old browsers without CompressionStream cannot run it, and already-compressed files like JPEGs or ZIPs will barely shrink."
     ],
     faqs: [
       { q: "How do I compress text with gzip online?", a: "Paste the text, click Compress, and download the .gz file. The tool shows the original size, compressed size and ratio." },
@@ -32,7 +32,7 @@ const seo: ToolSeo = {
       "gzip file size",
       "gzip compressor free",
       "online gzip utility",
-      "no signup gzip tool",
+      "a free account for downloads gzip tool",
       "gzip json online",
       "compress json gzip",
       "gzip html file",

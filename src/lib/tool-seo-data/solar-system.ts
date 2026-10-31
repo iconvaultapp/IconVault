@@ -12,7 +12,7 @@ const seo: ToolSeo = {
       { q: "Is the simulation accurate?", a: "Orbital periods and the displayed planet data are real. Planet sizes scale with the log of their diameter and distances are log-compressed so Neptune stays on screen, so do not treat the geometry as to-scale." },
       { q: "Can I copy planet facts for homework?", a: "Yes. Select a planet and press Copy facts to get a formatted summary of its distance, orbital period, diameter, moons, day length and fun fact, ready to paste into notes or slides." },
       { q: "Does it work on phones?", a: "Yes. The canvas animation and planet buttons are fully clickable on touch devices, and the layout stacks the facts panel below the animation on small screens." },
-      { q: "Does it need the internet after loading?", a: "No. Once the page loads, the animation and all planet data run locally in your browser. It is free with no signup." },
+      { q: "Does it need the internet after loading?", a: "No. Once the page loads, the animation and all planet data run locally in your browser. It is free to use; downloads need a free account." },
       { q: "Why is Pluto missing?", a: "Pluto is classified as a dwarf planet. The simulator shows the eight official planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune." }
     ],
     tags: [
@@ -64,7 +64,7 @@ const seo: ToolSeo = {
       "biggest planet in solar system",
       "smallest planet in solar system",
       "free online planet simulator",
-      "no signup astronomy tool",
+      "a free account for downloads astronomy tool",
       "classroom astronomy tool",
       "solar system homework help"
     ],

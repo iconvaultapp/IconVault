@@ -62,7 +62,7 @@ const seo: ToolSeo = {
       "title text shadow",
       "button text shadow css",
       "free text shadow generator",
-      "text shadow generator no signup",
+      "text shadow generator a free account for downloads",
       "css generator text shadow",
       "text-shadow property generator",
       "css text shadow playground",
