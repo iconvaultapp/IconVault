@@ -114,7 +114,7 @@ export const V56Home = () => {
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
             Free to browse, with downloads behind a free account, like the rest of the site.
-            Pro $19 covers premium templates and animations bundles only.
+            Pro $19 covers premium template and animated-icon downloads only.
           </p>
         </div>
       </Reveal>

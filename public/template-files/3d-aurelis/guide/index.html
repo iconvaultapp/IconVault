@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AURELIS — Guide · How this was built</title>
+<meta name="description" content="How the AURELIS site was designed and built with Formwork: a fluid-noise WebGL shader, GSAP motion, and GitHub Pages." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#0a0710;--ink:#f4eefb;--dim:#b9adcb;--faint:#6f6683;--accent:#f5c14b;--line:rgba(244,238,251,.12)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(28px,6vw,80px) clamp(20px,5vw,32px)}
+  .top{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:clamp(40px,8vh,90px)}
+  .top a{color:var(--dim)}
+  .brand{font-family:"Cormorant Garamond",serif;font-size:1.3rem;letter-spacing:.22em;color:var(--ink)}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:1.2rem}
+  h1 em{color:var(--accent);font-style:italic}
+  .lede{font-size:clamp(1.1rem,2.2vw,1.35rem);color:var(--dim);max-width:56ch;margin-bottom:3.4rem}
+  h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(1.7rem,4vw,2.5rem);margin:3rem 0 1rem;letter-spacing:-.01em}
+  p{color:var(--dim);margin:0 0 1.1rem;max-width:64ch}
+  .tag{display:inline-block;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:1.4rem}
+  ul,ol{color:var(--dim);margin:0 0 1.2rem 1.2rem}
+  li{margin:.4rem 0}
+  strong{color:var(--ink);font-weight:500}
+  code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:rgba(255,255,255,.06);padding:.12em .4em;border-radius:3px;color:var(--ink)}
+  pre{background:#120c1c;border:1px solid var(--line);border-radius:6px;padding:18px 20px;overflow-x:auto;margin:0 0 1.4rem;font-size:.82rem;line-height:1.6}
+  pre code{background:none;padding:0;color:var(--dim)}
+  .rule{height:1px;background:var(--line);margin:3rem 0}
+  .stack{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:2px}
+  .stack li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .stack b{color:var(--ink);font-weight:500;min-width:130px;display:inline-block}
+  footer{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="../">AURELIS</a>
+    <a href="../">← Back to site</a>
+  </div>
+
+  <span class="tag">Build guide · Site 01 of 25</span>
+  <h1>A fragrance house, rendered as <em>living light</em>.</h1>
+  <p class="lede">AURELIS is one of 25 sites designed and built by Formwork to demonstrate
+    web design, motion, and taste. Here's exactly how this one was made — and how you can do the same.</p>
+
+  <h2>The idea</h2>
+  <p>The brief was "fragrance as light." Rather than photograph flowers, the hero is a
+    <strong>continuously evolving aurora</strong> — a fluid field of indigo, magenta and gold that
+    never repeats. Everything else (type, spacing, restraint) exists to let that field breathe.</p>
+
+  <h2>The stack</h2>
+  <ul class="stack">
+    <li><b>Hero visual</b> A hand-written GLSL fragment shader running on raw WebGL — no 3D library.</li>
+    <li><b>Motion</b> GSAP + ScrollTrigger for reveals, the masked title, and the composition line.</li>
+    <li><b>Type</b> Cormorant Garamond (display) paired with Space Grotesk (interface).</li>
+    <li><b>Build</b> Plain HTML/CSS/JS — no bundler, no framework. It just runs.</li>
+    <li><b>Host</b> GitHub Pages, served straight from the repo's <code>main</code> branch.</li>
+  </ul>
+
+  <h2>The hero: a fluid-noise shader</h2>
+  <p>The aurora is a single full-screen triangle with a fragment shader run for every pixel.
+    The motion comes from <strong>domain-warped fractal noise (fBm)</strong>: noise is sampled,
+    used to distort the coordinates, sampled again, and again — so the field folds into itself
+    like smoke. The result is mapped through a three-stop palette and shaped into ribbons.</p>
+  <pre><code>vec2 q = vec2(fbm(p + t), fbm(p - t));
+vec2 r = vec2(fbm(p + 1.7*q + 1.7), fbm(p + 1.7*q + 8.3));
+float f = fbm(p + 2.2*r);          // twice-warped field
+vec3 col = mix(indigo, magenta, f);
+col = mix(col, gold, f*1.1 + uv.y); // gold blooms upward</code></pre>
+  <p>Two details keep it looking expensive: a tiny <strong>dither</strong> added per pixel to kill
+    colour banding, and a device-pixel-ratio cap so it stays smooth on high-density screens.</p>
+
+  <h2>Details that matter</h2>
+  <ul>
+    <li><strong>Masked title reveal</strong> — each line sits in an <code>overflow:hidden</code> box and slides up on load.</li>
+    <li><strong>Custom cursor</strong> — a ring that lerps toward the pointer and swells over interactive elements, using <code>mix-blend-mode: difference</code>.</li>
+    <li><strong>Reduced motion</strong> — with <code>prefers-reduced-motion</code> the shader renders one still frame and all animation is disabled.</li>
+    <li><strong>Grain</strong> — an animated SVG-noise overlay at 5% opacity adds analog texture.</li>
+  </ul>
+
+  <h2>Ship it on GitHub Pages</h2>
+  <p>Every site here is static, so hosting is three commands:</p>
+  <pre><code>git init -b main && git add -A && git commit -m "ship"
+gh repo create formwork-aurelis --public --source=. --push
+gh api --method POST /repos/OWNER/formwork-aurelis/pages \
+  -f 'source[branch]=main' -f 'source[path]=/'</code></pre>
+  <p>Use <strong>relative paths</strong> (<code>./main.js</code>, not <code>/main.js</code>) because project
+    Pages live under <code>/repo-name/</code>. Add an empty <code>.nojekyll</code> file so every asset serves verbatim.</p>
+
+  <div class="rule"></div>
+  <p>That's the whole recipe: one shader, a little motion, strong type, and static hosting.
+    The other 24 sites each swap the central technique — particles, raymarching, isometric 3D,
+    audio-reactive gradients — but the discipline is the same.</p>
+
+  <footer>Designed &amp; built by <strong>Formwork</strong> · Part of a 25-site showcase · <a href="../">Return to AURELIS →</a></footer>
+</div>
+</body>
+</html>

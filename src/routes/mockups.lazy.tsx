@@ -7,9 +7,9 @@
 
 import { useMemo, useRef, useState } from "react";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { Download, Image as ImageIcon, Search, Upload } from "lucide-react";
+import { Download, Search, Upload } from "lucide-react";
 import PageShell from "@/components/PageShell";
-import { ZipDownloadButton } from "@/components/V55Download";
+import { PremiumGate, ZipDownloadButton } from "@/components/V55Download";
 import { MockupDeviceFrame, exportMockupPng, loadImage } from "@/components/mockup-device-frame";
 import { BG_PRESETS, type BgPreset } from "@/lib/mockup-frames";
 import {
@@ -379,8 +379,13 @@ function Page() {
               return (
                 <article key={t.slug} className="flex flex-col rounded-2xl border border-border bg-card p-5">
                   {t.category === "branding" ? (
-                    <div className="flex h-72 items-center justify-center rounded-xl bg-surface-2 text-muted-foreground">
-                      <ImageIcon className="h-8 w-8" />
+                    <div className="h-72 overflow-hidden rounded-xl border border-border bg-surface-2">
+                      <iframe
+                        title={`${t.title} preview`}
+                        src={`/mockups/${t.slug}/${t.entry}`}
+                        loading="lazy"
+                        style={{ width: "200%", height: "200%", border: 0, transform: "scale(0.5)", transformOrigin: "top left" }}
+                      />
                     </div>
                   ) : (
                     <div className="flex h-72 items-center justify-center overflow-hidden rounded-xl bg-surface-2">
@@ -401,7 +406,9 @@ function Page() {
                     >
                       Open full preview
                     </a>
-                    <ZipDownloadButton slug={t.slug} files={t.files} basePath="/mockups" label="Download .zip" />
+                    <PremiumGate premium={t.premium} label={t.title}>
+                      <ZipDownloadButton slug={t.slug} files={t.files} basePath="/mockups" label="Download .zip" />
+                    </PremiumGate>
                   </div>
                 </article>
               );

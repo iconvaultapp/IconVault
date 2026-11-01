@@ -3,6 +3,7 @@ import PageShell from "@/components/PageShell";
 import RouteError from "@/components/RouteError";
 import { TEMPLATES } from "@/lib/templates-data";
 import { PremiumGate, ProPickBadge, ZipDownloadButton } from "@/components/V55Download";
+import { usePlan } from "@/hooks/usePlan";
 
 export const Route = createLazyFileRoute("/templates_/$slug")({
   component: Page,
@@ -27,6 +28,13 @@ function Page() {
 
   const isHugo = t.type.startsWith("hugo-theme");
   const isAdminLte = t.slug === "adminlte-dashboard";
+  const { isPro } = usePlan();
+  // Preview policy (audit G4, recorded explicitly): the live iframe preview
+  // stays free for every template — viewing is free, per the v55 rule. Only
+  // TAKING files is gated for Pro picks: the zip, the file links below, and
+  // the full-preview links. Static files are public by hosting design, so a
+  // single-file premium template can technically be saved via view-source;
+  // the gate removes every one-click path to it.
 
   return (
     <PageShell
@@ -84,24 +92,28 @@ function Page() {
             <ZipDownloadButton slug={t.slug} files={t.files} basePath="/template-files" />
           </PremiumGate>
           {!isHugo && (
-            <a
-              href={`/template-files/${t.slug}/${t.entry}`}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
-            >
-              Open full preview
-            </a>
+            <PremiumGate premium={t.premium} label={t.title}>
+              <a
+                href={`/template-files/${t.slug}/${t.entry}`}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
+              >
+                Open full preview
+              </a>
+            </PremiumGate>
           )}
           {isAdminLte && (
-            <a
-              href="/template-files/adminlte-dashboard/users.html"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
-            >
-              Open users page
-            </a>
+            <PremiumGate premium={t.premium} label={t.title}>
+              <a
+                href="/template-files/adminlte-dashboard/users.html"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
+              >
+                Open users page
+              </a>
+            </PremiumGate>
           )}
         </section>
 
@@ -110,12 +122,21 @@ function Page() {
           <ul className="mt-3 grid gap-1 text-sm text-muted-foreground sm:grid-cols-2">
             {t.files.map((f) => (
               <li key={f}>
-                <a href={`/template-files/${t.slug}/${f}`} target="_blank" rel="noreferrer" className="hover:underline">
-                  {f}
-                </a>
+                {!t.premium || isPro ? (
+                  <a href={`/template-files/${t.slug}/${f}`} target="_blank" rel="noreferrer" className="hover:underline">
+                    {f}
+                  </a>
+                ) : (
+                  <span>{f}</span>
+                )}
               </li>
             ))}
           </ul>
+          {t.premium && !isPro && (
+            <p className="mt-3 text-xs text-muted-foreground">
+              File links unlock with Pro — this is a curated Pro pick, so individual files open only after upgrading.
+            </p>
+          )}
           <p className="mt-4 text-xs text-muted-foreground">
             License: {t.license} — see the LICENSE file in the download for the full text and
             attribution requirements. Original source: {t.source}.

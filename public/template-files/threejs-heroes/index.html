@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>threejs-hero-collection — drop-in animated hero backgrounds</title>
+<style>
+  /* ------------------------------------------------------------------
+     Gallery / landing page. Pure CSS — the Three.js scenes live in the
+     individual hero pages, each one a self-contained HTML file.
+     ------------------------------------------------------------------ */
+  :root {
+    --bg: #0A0D14;
+    --surface: #0F1626;
+    --border: #1E293B;
+    --accent: #2563EB;
+    --accent-2: #38BDF8;
+    --text: #F1F5F9;
+    --body: #94A3B8;
+    --muted: #64748B;
+    --mono: 'Cascadia Code', Consolas, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: -apple-system, 'Segoe UI', Inter, Roboto, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header ---------------------------------------------------------- */
+  header { padding: 64px 0 40px; border-bottom: 1px solid var(--border); }
+  .brand {
+    font-family: var(--mono);
+    font-size: 1.6rem;
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .tagline { margin-top: 10px; max-width: 640px; color: var(--body); }
+  .header-links { margin-top: 18px; display: flex; gap: 18px; flex-wrap: wrap; }
+  .header-links a { color: var(--accent-2); text-decoration: none; font-size: 0.95rem; }
+  .header-links a:hover { text-decoration: underline; }
+
+  /* Card grid ------------------------------------------------------- */
+  main { padding: 48px 0 32px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  /* Each card gets a small CSS-only "preview" that hints at the scene.
+     No images, no canvases — just gradients. */
+  .preview { height: 140px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+
+  .preview.particles {
+    background:
+      radial-gradient(2px 2px at 18% 30%, #38BDF8 50%, transparent 51%),
+      radial-gradient(2px 2px at 42% 68%, #2563EB 50%, transparent 51%),
+      radial-gradient(2px 2px at 63% 22%, #38BDF8 50%, transparent 51%),
+      radial-gradient(3px 3px at 78% 55%, #2563EB 50%, transparent 51%),
+      radial-gradient(2px 2px at 30% 82%, #38BDF8 50%, transparent 51%),
+      radial-gradient(2px 2px at 88% 78%, #38BDF8 50%, transparent 51%),
+      radial-gradient(2px 2px at 55% 45%, #2563EB 50%, transparent 51%),
+      radial-gradient(3px 3px at 8% 60%, #2563EB 50%, transparent 51%),
+      #0A0D14;
+  }
+  .preview.waves {
+    background:
+      repeating-linear-gradient(175deg, transparent 0 14px, rgba(37, 99, 235, 0.45) 14px 15px),
+      linear-gradient(180deg, #0A0D14 30%, #0D1B33 100%);
+  }
+  .preview.aurora {
+    background:
+      radial-gradient(60% 90% at 30% 10%, rgba(56, 189, 248, 0.35), transparent 70%),
+      radial-gradient(50% 80% at 70% 0%, rgba(37, 99, 235, 0.45), transparent 70%),
+      #0A0D14;
+  }
+  .preview.terrain {
+    background:
+      linear-gradient(transparent 0 60%, rgba(37, 99, 235, 0.10) 60%),
+      repeating-linear-gradient(90deg, transparent 0 28px, rgba(37, 99, 235, 0.35) 28px 29px),
+      repeating-linear-gradient(0deg, transparent 0 18px, rgba(37, 99, 235, 0.30) 18px 19px),
+      radial-gradient(80% 40% at 50% 58%, rgba(56, 189, 248, 0.25), transparent 70%),
+      #0A0D14;
+  }
+  .preview.orb {
+    background:
+      radial-gradient(circle 46px at 50% 52%, #16233F 60%, rgba(56, 189, 248, 0.5) 74%, transparent 78%),
+      radial-gradient(circle 70px at 50% 52%, rgba(37, 99, 235, 0.18), transparent 75%),
+      #0A0D14;
+  }
+
+  .card-body { padding: 18px 20px 20px; }
+  .card-body h2 { font-family: var(--mono); font-size: 1.05rem; color: var(--text); font-weight: 600; }
+  .card-body p { margin-top: 8px; font-size: 0.9rem; color: var(--body); }
+  .open { margin-top: 12px; display: inline-block; font-size: 0.85rem; color: var(--accent-2); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0 48px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  footer a { color: var(--accent-2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Respect users who prefer less motion: drop the hover lift. */
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: none; }
+    .card:hover { transform: none; }
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 44px 0 32px; }
+    .brand { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">threejs-hero-collection</a>
+    <p class="tagline">Drop-in animated hero backgrounds built with Three.js — particles, waves, aurora, terrain and orb scenes, each a single HTML file.</p>
+    <div class="header-links">
+      <a href="https://github.com/AleBrito124356/threejs-hero-collection">GitHub repo</a>
+      <a href="https://github.com/AleBrito124356/threejs-hero-collection#performance-notes">Performance notes</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+    <a class="card" href="particles.html">
+      <div class="preview particles" aria-hidden="true"></div>
+      <div class="card-body">
+        <h2>particles.html</h2>
+        <p>A field of ~2,000 drifting points with subtle mouse parallax. Optional O(n&sup2;) connection lines, off by default.</p>
+        <span class="open">Open demo &rarr;</span>
+      </div>
+    </a>
+
+    <a class="card" href="waves.html">
+      <div class="preview waves" aria-hidden="true"></div>
+      <div class="card-body">
+        <h2>waves.html</h2>
+        <p>A wireframe plane displaced by superposed sine waves, colored by crest height. Calm and mathematical.</p>
+        <span class="open">Open demo &rarr;</span>
+      </div>
+    </a>
+
+    <a class="card" href="aurora.html">
+      <div class="preview aurora" aria-hidden="true"></div>
+      <div class="card-body">
+        <h2>aurora.html</h2>
+        <p>A fullscreen fragment shader painting aurora curtains with fbm noise. No textures, no assets — just GLSL.</p>
+        <span class="open">Open demo &rarr;</span>
+      </div>
+    </a>
+
+    <a class="card" href="terrain.html">
+      <div class="preview terrain" aria-hidden="true"></div>
+      <div class="card-body">
+        <h2>terrain.html</h2>
+        <p>A retro-futurist wireframe terrain scrolling toward the camera, with procedural value-noise heights and a glowing horizon.</p>
+        <span class="open">Open demo &rarr;</span>
+      </div>
+    </a>
+
+    <a class="card" href="orb.html">
+      <div class="preview orb" aria-hidden="true"></div>
+      <div class="card-body">
+        <h2>orb.html</h2>
+        <p>A physical-material sphere lit by an orbiting point light, wrapped in an additive fresnel glow shell.</p>
+        <span class="open">Open demo &rarr;</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    MIT licensed. Built by <a href="https://github.com/AleBrito124356">Alejandro Brito</a>.
+    The only external dependency is <code>three@0.170.0</code>, pinned via import map — see the
+    <a href="https://github.com/AleBrito124356/threejs-hero-collection#usage">README</a> to self-host it.
+  </div>
+</footer>
+</body>
+</html>

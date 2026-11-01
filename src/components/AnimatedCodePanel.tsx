@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Check, Copy } from "lucide-react";
 import type { AnimatedIconEntry } from "@/lib/animated-icons-data";
 
 // Side code panel for animated-icon detail pages: preview stays on the left,
 // the reusable code sits on the right, so users can copy it without downloading.
 // Code is fetched from the same static files the Download buttons serve, so the
-// bundle stays metadata-only (see animated-icons-data.ts). Copy is ungated;
-// downloads keep their existing signup/Premium gate.
+// bundle stays metadata-only (see animated-icons-data.ts). Copy is ungated for
+// free items; Pro picks show an upgrade prompt instead of code, matching their
+// gated downloads — otherwise the panel would give Pro content away for free.
 
 interface Tab {
   id: string;
@@ -54,7 +56,8 @@ function tabsFor(item: AnimatedIconEntry): Tab[] {
     ];
   }
   // svg-smil / svg-static (Meteocons, SVG-Loaders): the SVG markup itself is
-  // the use code. Lottie JSON stays download-only (too large for a panel).
+  // the use code. Lottie JSON is never shown as copyable code (too large for a
+  // panel); the Play button streams it for preview playback only.
   const svgFile = item.files.find((f) => f.endsWith(".svg"));
   if (svgFile) {
     return [
@@ -89,7 +92,7 @@ export function AnimatedCodePanel({ item }: { item: AnimatedIconEntry }) {
   }, [item.slug]);
 
   useEffect(() => {
-    if (!active) return undefined;
+    if (!active || item.premium) return undefined;
     if (active.text !== undefined) {
       setTexts((prev) => (prev[active.id] === undefined ? { ...prev, [active.id]: active.text as string } : prev));
       return undefined;
@@ -117,6 +120,25 @@ export function AnimatedCodePanel({ item }: { item: AnimatedIconEntry }) {
   }, [active, item.format, texts, failed]);
 
   if (tabs.length === 0 || !active) return null;
+
+  // Pro picks: no code on the page at all — not even fetched. The preview above
+  // stays visible (previews are free); only the code + copy are Pro-gated.
+  if (item.premium) {
+    return (
+      <section className="flex flex-col rounded-2xl border border-border bg-card p-5">
+        <h2 className="text-base font-semibold">Code</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          This is a curated Pro pick — upgrade to Pro to view and copy the code.
+        </p>
+        <Link
+          to="/pro"
+          className="mt-4 inline-flex w-fit items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+        >
+          Upgrade to Pro
+        </Link>
+      </section>
+    );
+  }
 
   const content = texts[active.id];
   const isFailed = failed[active.id] === true;

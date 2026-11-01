@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sine-wave plane hero — threejs-hero-collection</title>
+<style>
+  :root {
+    --bg: #0A0D14;
+    --border: #1E293B;
+    --accent: #2563EB;
+    --accent-2: #38BDF8;
+    --text: #F1F5F9;
+    --body: #94A3B8;
+    --muted: #64748B;
+    --mono: 'Cascadia Code', Consolas, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: -apple-system, 'Segoe UI', Inter, Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 14px 24px;
+    background: rgba(10, 13, 20, 0.72);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .repo { font-family: var(--mono); color: var(--accent-2); text-decoration: none; font-weight: 600; }
+  .site-header .tag { color: var(--muted); font-size: 0.85rem; flex: 1; min-width: 0;
+                      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .site-header nav { display: flex; gap: 14px; }
+  .site-header nav a { color: var(--body); text-decoration: none; font-size: 0.85rem; }
+  .site-header nav a:hover { color: var(--accent-2); }
+
+  .hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 96px 24px 64px;
+  }
+  .hero h1 {
+    color: var(--text);
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+    max-width: 720px;
+    text-shadow: 0 2px 24px rgba(10, 13, 20, 0.8);
+  }
+  .hero p {
+    margin-top: 18px; max-width: 560px; font-size: 1.05rem;
+    text-shadow: 0 1px 12px rgba(10, 13, 20, 0.8);
+  }
+  .cta {
+    margin-top: 32px; display: inline-block;
+    padding: 12px 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+  .cta:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta { transition: none; }
+    .cta:hover { transform: none; }
+  }
+  @media (max-width: 480px) {
+    .site-header .tag { display: none; }
+  }
+</style>
+
+<!-- The ONLY external dependency of this repo: three.js, pinned to 0.170.0.
+     To self-host, download three.module.js and point this import map at it. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.170.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="repo" href="index.html">threejs-hero-collection</a>
+  <span class="tag">Drop-in animated hero backgrounds built with Three.js</span>
+  <nav aria-label="Repository links">
+    <a href="index.html">All heroes</a>
+    <a href="https://github.com/AleBrito124356/threejs-hero-collection">GitHub</a>
+  </nav>
+</header>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<main class="hero">
+  <h1>Ride the signal</h1>
+  <p>Three superposed sine waves displace a wireframe plane in real time — a calm, mathematical backdrop that never repeats exactly.</p>
+  <a class="cta" href="https://github.com/AleBrito124356/threejs-hero-collection">View on GitHub</a>
+</main>
+
+<script type="module">
+import * as THREE from 'three';
+
+/* =============================== customize =============================== */
+const COLORS = {
+  background: '#0A0D14',
+  wire:       '#2563EB',   // wireframe in the troughs
+  crest:      '#38BDF8',   // wireframe on the crests
+};
+const GRID = { size: 36, segments: 110 };  // plane extent and resolution
+
+/* The whole animation is this table. Each entry is one traveling sine wave;
+   the surface height is simply their sum (superposition). Different
+   frequencies and speeds guarantee the pattern never visibly loops.       */
+const WAVES = [
+  { amp: 0.55, freqX: 0.45, freqZ: 0.00, speed: 0.7, phase: 0.0 },  // long swell along X
+  { amp: 0.35, freqX: 0.00, freqZ: 0.60, speed: 1.1, phase: 1.3 },  // cross swell along Z
+  { amp: 0.20, freqX: 0.35, freqZ: 0.35, speed: 1.7, phase: 4.2 },  // diagonal ripple
+];
+/* ========================================================================= */
+
+const canvas = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+// DPR cap: see README "Performance notes".
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(COLORS.background);
+// Fog fades the far edge of the plane into the background color, hiding
+// the hard geometric boundary and creating an infinite-ocean illusion.
+scene.fog = new THREE.Fog(COLORS.background, 9, 26);
+
+const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 60);
+camera.position.set(0, 3.4, 9.5);
+camera.lookAt(0, 0.3, 0);
+
+/* --- Displaced plane -----------------------------------------------------
+   PlaneGeometry starts in the XY plane; rotating the GEOMETRY (not the
+   mesh) once puts it in XZ so that Y is simply "up" — which keeps the
+   per-frame displacement code trivial: write heights into attribute Y.  */
+const geometry = new THREE.PlaneGeometry(GRID.size, GRID.size, GRID.segments, GRID.segments);
+geometry.rotateX(-Math.PI / 2);
+
+const positionAttr = geometry.attributes.position;
+const vertexCount = positionAttr.count;
+
+// Keep the flat base coordinates: displacement is a pure function of
+// (baseX, baseZ, time), so there is no error accumulation over hours.
+const baseX = new Float32Array(vertexCount);
+const baseZ = new Float32Array(vertexCount);
+for (let i = 0; i < vertexCount; i++) {
+  baseX[i] = positionAttr.getX(i);
+  baseZ[i] = positionAttr.getZ(i);
+}
+
+// A color attribute lets the wireframe brighten on crests: we lerp between
+// the two brand blues by normalized height, every frame, on the CPU.
+const colorAttr = new THREE.BufferAttribute(new Float32Array(vertexCount * 3), 3);
+geometry.setAttribute('color', colorAttr);
+
+const wireColor = new THREE.Color(COLORS.wire);
+const crestColor = new THREE.Color(COLORS.crest);
+const tmpColor = new THREE.Color();
+
+const material = new THREE.MeshBasicMaterial({
+  wireframe: true,
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.85
+});
+scene.add(new THREE.Mesh(geometry, material));
+
+// Total possible amplitude — used to normalize heights into 0..1 for color.
+const MAX_AMP = WAVES.reduce((sum, w) => sum + w.amp, 0);
+
+function heightAt(x, z, t) {
+  let y = 0;
+  for (const w of WAVES) {
+    y += w.amp * Math.sin(x * w.freqX + z * w.freqZ + t * w.speed + w.phase);
+  }
+  return y;
+}
+
+function update(delta, elapsed) {
+  for (let i = 0; i < vertexCount; i++) {
+    const y = heightAt(baseX[i], baseZ[i], elapsed);
+    positionAttr.setY(i, y);
+
+    // Normalized crest factor 0..1 drives the blue-to-cyan gradient.
+    const crest = (y / MAX_AMP) * 0.5 + 0.5;
+    tmpColor.copy(wireColor).lerp(crestColor, crest * crest); // squared = crests pop
+    colorAttr.setXYZ(i, tmpColor.r, tmpColor.g, tmpColor.b);
+  }
+  positionAttr.needsUpdate = true;
+  colorAttr.needsUpdate = true;
+  // No normals to recompute: MeshBasicMaterial is unlit, which is exactly
+  // why it is the cheapest choice for a wireframe.
+}
+
+/* --- Render loop: DPR-capped, pauses when hidden, static under
+       prefers-reduced-motion. This block is identical in every hero. ------ */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let rafId = null;
+let last = null;
+let elapsed = 0;
+
+function frame(now) {
+  if (last === null) last = now;
+  const delta = Math.min((now - last) / 1000, 0.1);
+  last = now;
+  elapsed += delta;
+
+  update(delta, elapsed);
+  renderer.render(scene, camera);
+  rafId = requestAnimationFrame(frame);
+}
+
+function start() {
+  if (rafId === null && !reducedMotion.matches && !document.hidden) {
+    last = null;
+    rafId = requestAnimationFrame(frame);
+  }
+}
+function stop() {
+  if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+}
+
+// Reduced motion: one frozen frame, mid-swell so the surface still reads
+// as waves rather than a flat grid.
+function renderStatic() {
+  update(0, 1.8);
+  renderer.render(scene, camera);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stop(); else start();
+});
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) { stop(); renderStatic(); } else { start(); }
+});
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  if (reducedMotion.matches) renderStatic();
+});
+
+/* SPA embedding? Dispose on unmount:
+   geometry.dispose(); material.dispose(); renderer.dispose();            */
+
+if (reducedMotion.matches) renderStatic(); else start();
+</script>
+</body>
+</html>

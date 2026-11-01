@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Particle field hero — threejs-hero-collection</title>
+<style>
+  :root {
+    --bg: #0A0D14;
+    --border: #1E293B;
+    --accent: #2563EB;
+    --accent-2: #38BDF8;
+    --text: #F1F5F9;
+    --body: #94A3B8;
+    --muted: #64748B;
+    --mono: 'Cascadia Code', Consolas, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: -apple-system, 'Segoe UI', Inter, Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* The WebGL canvas sits behind everything. */
+  #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+
+  /* Slim repo header, translucent so the scene shows through. */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 14px 24px;
+    background: rgba(10, 13, 20, 0.72);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .repo { font-family: var(--mono); color: var(--accent-2); text-decoration: none; font-weight: 600; }
+  .site-header .tag { color: var(--muted); font-size: 0.85rem; flex: 1; min-width: 0;
+                      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .site-header nav { display: flex; gap: 14px; }
+  .site-header nav a { color: var(--body); text-decoration: none; font-size: 0.85rem; }
+  .site-header nav a:hover { color: var(--accent-2); }
+
+  /* Hero copy on top of the canvas. */
+  .hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 96px 24px 64px;
+  }
+  .hero h1 {
+    color: var(--text);
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+    max-width: 720px;
+    text-shadow: 0 2px 24px rgba(10, 13, 20, 0.8);
+  }
+  .hero p {
+    margin-top: 18px; max-width: 560px; font-size: 1.05rem;
+    text-shadow: 0 1px 12px rgba(10, 13, 20, 0.8);
+  }
+  .cta {
+    margin-top: 32px; display: inline-block;
+    padding: 12px 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+  .cta:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+
+  /* Users who prefer reduced motion get a static frame (handled in JS)
+     and no CSS movement either. */
+  @media (prefers-reduced-motion: reduce) {
+    .cta { transition: none; }
+    .cta:hover { transform: none; }
+  }
+
+  @media (max-width: 480px) {
+    .site-header .tag { display: none; }
+  }
+</style>
+
+<!-- The ONLY external dependency of this repo: three.js, pinned to 0.170.0.
+     To self-host, download three.module.js and point this import map at it.
+     See README "Usage" for details. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.170.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="repo" href="index.html">threejs-hero-collection</a>
+  <span class="tag">Drop-in animated hero backgrounds built with Three.js</span>
+  <nav aria-label="Repository links">
+    <a href="index.html">All heroes</a>
+    <a href="https://github.com/AleBrito124356/threejs-hero-collection">GitHub</a>
+  </nav>
+</header>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<main class="hero">
+  <h1>Build products that feel alive</h1>
+  <p>A drifting field of 2,000 particles with subtle mouse parallax — running at 60 fps behind this copy. Replace the text, keep the depth.</p>
+  <a class="cta" href="https://github.com/AleBrito124356/threejs-hero-collection">Get the source</a>
+</main>
+
+<script type="module">
+import * as THREE from 'three';
+
+/* =============================== customize ===============================
+   Everything you are likely to tweak lives here.                          */
+const COLORS = {
+  background:   '#0A0D14',
+  particleNear: '#38BDF8',   // particles closest to the camera
+  particleFar:  '#2563EB',   // particles deepest in the field
+  connection:   '#1E3A8A',   // only used when SHOW_CONNECTIONS is true
+};
+const PARTICLE_COUNT = 2000;
+const FIELD = { width: 24, height: 14, depth: 14 };  // bounding box of the field
+const DRIFT_SPEED = 0.22;      // world units per second (max)
+const PARALLAX = 0.6;          // how far the camera leans toward the pointer
+const PARTICLE_SIZE = 0.055;
+
+/* Connection lines are OFF by default: pairing every particle against every
+   other is O(n^2) — 2,000 particles means ~2 million distance checks per
+   frame. If you enable them, drop PARTICLE_COUNT to ~300. See README. */
+const SHOW_CONNECTIONS = false;
+const CONNECTION_DISTANCE = 1.4;   // max distance for a line to appear
+const MAX_CONNECTIONS = 4000;      // hard cap on line segments per frame
+/* ========================================================================= */
+
+const canvas = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+// Cap the device pixel ratio at 2: retina phones report DPR 3+, which
+// quadruples the fragment workload for no visible gain on a background.
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(COLORS.background);
+
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 60);
+camera.position.set(0, 0, 11);
+
+/* --- Particle geometry ---------------------------------------------------
+   One BufferGeometry holds every particle: a position attribute the GPU
+   draws as points, plus a color attribute for a near/far depth gradient.
+   Velocities stay CPU-side — we integrate them ourselves each frame.     */
+const positions = new Float32Array(PARTICLE_COUNT * 3);
+const colors = new Float32Array(PARTICLE_COUNT * 3);
+const velocities = new Float32Array(PARTICLE_COUNT * 3);
+
+const near = new THREE.Color(COLORS.particleNear);
+const far = new THREE.Color(COLORS.particleFar);
+const tmp = new THREE.Color();
+
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  const i3 = i * 3;
+  positions[i3]     = (Math.random() - 0.5) * FIELD.width;
+  positions[i3 + 1] = (Math.random() - 0.5) * FIELD.height;
+  positions[i3 + 2] = (Math.random() - 0.5) * FIELD.depth;
+
+  // Random drift direction, scaled so the field feels like slow dust.
+  velocities[i3]     = (Math.random() - 0.5) * DRIFT_SPEED;
+  velocities[i3 + 1] = (Math.random() - 0.5) * DRIFT_SPEED;
+  velocities[i3 + 2] = (Math.random() - 0.5) * DRIFT_SPEED;
+
+  // Depth cue: front particles lean cyan, back particles lean blue.
+  const depth = (positions[i3 + 2] / FIELD.depth) + 0.5;  // 0 (back) .. 1 (front)
+  tmp.copy(far).lerp(near, depth);
+  colors[i3] = tmp.r; colors[i3 + 1] = tmp.g; colors[i3 + 2] = tmp.b;
+}
+
+const geometry = new THREE.BufferGeometry();
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+const material = new THREE.PointsMaterial({
+  size: PARTICLE_SIZE,
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.85,
+  depthWrite: false,               // avoids sorting artifacts between points
+  blending: THREE.AdditiveBlending // overlapping particles glow slightly
+});
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+
+/* --- Optional connection lines (OFF by default) --------------------------
+   A preallocated LineSegments buffer; each frame we brute-force nearby
+   pairs and write segment endpoints into it, then draw only what we used
+   via setDrawRange. This is the O(n^2) part — see the README for why.   */
+let linePositions = null;
+let lineSegments = null;
+if (SHOW_CONNECTIONS) {
+  linePositions = new Float32Array(MAX_CONNECTIONS * 6); // 2 endpoints * xyz
+  const lineGeometry = new THREE.BufferGeometry();
+  lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+  const lineMaterial = new THREE.LineBasicMaterial({
+    color: new THREE.Color(COLORS.connection),
+    transparent: true,
+    opacity: 0.35
+  });
+  lineSegments = new THREE.LineSegments(lineGeometry, lineMaterial);
+  scene.add(lineSegments);
+}
+
+function updateConnections() {
+  const maxDistSq = CONNECTION_DISTANCE * CONNECTION_DISTANCE;
+  let segment = 0;
+  outer:
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const i3 = i * 3;
+    for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+      const j3 = j * 3;
+      const dx = positions[i3] - positions[j3];
+      const dy = positions[i3 + 1] - positions[j3 + 1];
+      const dz = positions[i3 + 2] - positions[j3 + 2];
+      if (dx * dx + dy * dy + dz * dz < maxDistSq) {
+        const s6 = segment * 6;
+        linePositions[s6]     = positions[i3];
+        linePositions[s6 + 1] = positions[i3 + 1];
+        linePositions[s6 + 2] = positions[i3 + 2];
+        linePositions[s6 + 3] = positions[j3];
+        linePositions[s6 + 4] = positions[j3 + 1];
+        linePositions[s6 + 5] = positions[j3 + 2];
+        if (++segment >= MAX_CONNECTIONS) break outer;
+      }
+    }
+  }
+  lineSegments.geometry.setDrawRange(0, segment * 2); // 2 vertices per segment
+  lineSegments.geometry.attributes.position.needsUpdate = true;
+}
+
+/* --- Mouse parallax ------------------------------------------------------
+   We never move the particles toward the pointer — we lean the CAMERA.
+   The pointer position becomes a target; the camera eases toward it every
+   frame (exponential smoothing), so motion stays soft even on jumpy input. */
+const pointerTarget = { x: 0, y: 0 };
+window.addEventListener('pointermove', (event) => {
+  pointerTarget.x = (event.clientX / window.innerWidth) * 2 - 1;   // -1 .. 1
+  pointerTarget.y = -((event.clientY / window.innerHeight) * 2 - 1);
+});
+
+/* --- Simulation ---------------------------------------------------------- */
+const HALF = { x: FIELD.width / 2, y: FIELD.height / 2, z: FIELD.depth / 2 };
+
+function update(delta, elapsed) {
+  // Integrate velocities; wrap particles that leave the box to the opposite
+  // side so the field density stays constant forever (a torus topology).
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const i3 = i * 3;
+    positions[i3]     += velocities[i3] * delta;
+    positions[i3 + 1] += velocities[i3 + 1] * delta;
+    positions[i3 + 2] += velocities[i3 + 2] * delta;
+
+    if (positions[i3] > HALF.x) positions[i3] = -HALF.x;
+    else if (positions[i3] < -HALF.x) positions[i3] = HALF.x;
+    if (positions[i3 + 1] > HALF.y) positions[i3 + 1] = -HALF.y;
+    else if (positions[i3 + 1] < -HALF.y) positions[i3 + 1] = HALF.y;
+    if (positions[i3 + 2] > HALF.z) positions[i3 + 2] = -HALF.z;
+    else if (positions[i3 + 2] < -HALF.z) positions[i3 + 2] = HALF.z;
+  }
+  geometry.attributes.position.needsUpdate = true;
+
+  // A whisper of global rotation keeps the scene alive even without input.
+  points.rotation.y = elapsed * 0.02;
+
+  // Ease the camera toward the pointer target (frame-rate independent).
+  const ease = 1 - Math.exp(-3 * delta);
+  camera.position.x += (pointerTarget.x * PARALLAX - camera.position.x) * ease;
+  camera.position.y += (pointerTarget.y * PARALLAX * 0.6 - camera.position.y) * ease;
+  camera.lookAt(0, 0, 0);
+
+  if (SHOW_CONNECTIONS) updateConnections();
+}
+
+/* --- Render loop: DPR-capped, pauses when hidden, static under
+       prefers-reduced-motion. This block is identical in every hero. ------ */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let rafId = null;
+let last = null;      // timestamp of the previous frame
+let elapsed = 0;      // accumulated animation time in seconds
+
+function frame(now) {
+  if (last === null) last = now;
+  // Clamp delta so a long pause (tab switch, breakpoint) cannot make the
+  // simulation leap forward in one giant step.
+  const delta = Math.min((now - last) / 1000, 0.1);
+  last = now;
+  elapsed += delta;
+
+  update(delta, elapsed);
+  renderer.render(scene, camera);
+  rafId = requestAnimationFrame(frame);
+}
+
+function start() {
+  if (rafId === null && !reducedMotion.matches && !document.hidden) {
+    last = null; // forget stale timestamps so delta stays small on resume
+    rafId = requestAnimationFrame(frame);
+  }
+}
+function stop() {
+  if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+}
+
+// Render exactly one frame — the reduced-motion path. The scene still looks
+// designed (particles + depth gradient), it just does not move.
+function renderStatic() {
+  update(0, 0);
+  renderer.render(scene, camera);
+}
+
+// Pause the loop while the tab is hidden: rAF already throttles, but
+// stopping outright drops CPU/GPU usage to zero in background tabs.
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stop(); else start();
+});
+
+// React if the user flips the OS-level motion preference while the page is open.
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) { stop(); renderStatic(); } else { start(); }
+});
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  if (reducedMotion.matches) renderStatic(); // keep the static frame crisp
+});
+
+/* If you embed this in a SPA, dispose GPU resources on unmount:
+   geometry.dispose(); material.dispose(); renderer.dispose();            */
+
+if (reducedMotion.matches) renderStatic(); else start();
+</script>
+</body>
+</html>

@@ -55,8 +55,8 @@ export default function AnimatedIconsHome() {
           Icons that move, live in your browser
         </h2>
         <p className="mt-4 text-muted-foreground">
-          {ANIMATED_TOTAL} free MIT-licensed animated icons — weather, loaders and spinners that
-          preview live right here. Click any one for its detail page and download.
+          {ANIMATED_TOTAL} MIT-licensed animated icons — weather, loaders and spinners that
+          preview live right here. Click any one for its detail page and download (Pro picks need Pro).
         </p>
       </Reveal>
 

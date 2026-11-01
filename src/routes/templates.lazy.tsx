@@ -84,7 +84,7 @@ function Page() {
                 {t.source} · {t.license} · {t.category}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                {t.type === "hugo-theme"
+                {t.type.startsWith("hugo-theme")
                   ? "Hugo theme download — not a static preview."
                   : `${t.files.length} file${t.files.length === 1 ? "" : "s"} · live preview on the detail page.`}
               </p>
@@ -94,7 +94,7 @@ function Page() {
                   params={{ slug: t.slug }}
                   className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
                 >
-                  {t.type === "hugo-theme" ? "View download" : "Preview"}
+                  {t.type.startsWith("hugo-theme") ? "View download" : "Preview"}
                 </Link>
                 <PremiumGate premium={t.premium} label={t.title}>
                   <ZipDownloadButton slug={t.slug} files={t.files} basePath="/template-files" label="Download .zip" />

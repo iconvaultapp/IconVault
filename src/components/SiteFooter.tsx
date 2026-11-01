@@ -6,7 +6,8 @@ import { ToolIcon } from "@/components/ToolIcon";
 import { openCookieSettings } from "@/lib/cookie-consent";
 
 // Real profile URLs supplied by Sameer 2026-10-22 (X, Instagram, YouTube).
-// GitHub and LinkedIn stay "#" until he shares those profiles.
+// GitHub and LinkedIn stay "#" until he shares those profiles — the render
+// filters "#" out, so no dead icon shows in the meantime.
 const SOCIALS = [
   { icon: Twitter, label: "IconVault on X", href: "https://x.com/Dev_codr" },
   { icon: Github, label: "IconVault on GitHub", href: "#" },
@@ -75,7 +76,7 @@ export const SiteFooter = () => {
               format your codebase already speaks.
             </p>
             <div className="mt-6 flex gap-2">
-              {SOCIALS.map((s) => (
+              {SOCIALS.filter((s) => s.href !== "#").map((s) => (
                 <a
                   key={s.label}
                   href={s.href}

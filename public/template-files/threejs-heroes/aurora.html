@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurora shader hero — threejs-hero-collection</title>
+<style>
+  :root {
+    --bg: #0A0D14;
+    --border: #1E293B;
+    --accent: #2563EB;
+    --accent-2: #38BDF8;
+    --text: #F1F5F9;
+    --body: #94A3B8;
+    --muted: #64748B;
+    --mono: 'Cascadia Code', Consolas, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: -apple-system, 'Segoe UI', Inter, Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 14px 24px;
+    background: rgba(10, 13, 20, 0.72);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .repo { font-family: var(--mono); color: var(--accent-2); text-decoration: none; font-weight: 600; }
+  .site-header .tag { color: var(--muted); font-size: 0.85rem; flex: 1; min-width: 0;
+                      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .site-header nav { display: flex; gap: 14px; }
+  .site-header nav a { color: var(--body); text-decoration: none; font-size: 0.85rem; }
+  .site-header nav a:hover { color: var(--accent-2); }
+
+  .hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 96px 24px 64px;
+  }
+  .hero h1 {
+    color: var(--text);
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+    max-width: 720px;
+    text-shadow: 0 2px 24px rgba(10, 13, 20, 0.8);
+  }
+  .hero p {
+    margin-top: 18px; max-width: 560px; font-size: 1.05rem;
+    text-shadow: 0 1px 12px rgba(10, 13, 20, 0.8);
+  }
+  .cta {
+    margin-top: 32px; display: inline-block;
+    padding: 12px 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+  .cta:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta { transition: none; }
+    .cta:hover { transform: none; }
+  }
+  @media (max-width: 480px) {
+    .site-header .tag { display: none; }
+  }
+</style>
+
+<!-- The ONLY external dependency of this repo: three.js, pinned to 0.170.0.
+     To self-host, download three.module.js and point this import map at it. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.170.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="repo" href="index.html">threejs-hero-collection</a>
+  <span class="tag">Drop-in animated hero backgrounds built with Three.js</span>
+  <nav aria-label="Repository links">
+    <a href="index.html">All heroes</a>
+    <a href="https://github.com/AleBrito124356/threejs-hero-collection">GitHub</a>
+  </nav>
+</header>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<main class="hero">
+  <h1>Northern lights, on demand</h1>
+  <p>An aurora painted entirely in a fragment shader — layered fbm noise, no textures, no assets, just GLSL and two brand blues.</p>
+  <a class="cta" href="https://github.com/AleBrito124356/threejs-hero-collection">Read the shader</a>
+</main>
+
+<script type="module">
+import * as THREE from 'three';
+
+/* =============================== customize ===============================
+   The palette is passed to the shader as uniforms, so tweaking these three
+   values restyles the whole aurora without touching any GLSL.             */
+const COLORS = {
+  deep: '#0A0D14',   // night sky base (matches the page background)
+  blue: '#2563EB',   // main curtain color
+  cyan: '#38BDF8',   // hot core of the brightest curtains
+};
+const SPEED = 1.0;   // global time multiplier (0.5 = half speed)
+/* ========================================================================= */
+
+const canvas = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: false });
+// DPR cap matters MOST here: this is a full-screen fragment shader, so cost
+// scales with pixel count. DPR 3 would mean 2.25x the work of DPR 2.
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+/* --- Fullscreen quad technique -------------------------------------------
+   A 2x2 plane whose vertex shader writes clip-space coordinates DIRECTLY
+   (gl_Position = vec4(position.xy, ...)), bypassing all camera math. The
+   camera below is a formality — three.js requires one to call render().  */
+const scene = new THREE.Scene();
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+const uniforms = {
+  uTime:       { value: 0 },
+  uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+  uDeep:       { value: new THREE.Color(COLORS.deep) },
+  uBlue:       { value: new THREE.Color(COLORS.blue) },
+  uCyan:       { value: new THREE.Color(COLORS.cyan) },
+};
+
+const material = new THREE.ShaderMaterial({
+  uniforms,
+  vertexShader: /* glsl */`
+    void main() {
+      // Pass the quad straight through to clip space: no projection,
+      // no model-view. The quad IS the screen.
+      gl_Position = vec4(position.xy, 0.0, 1.0);
+    }
+  `,
+  fragmentShader: /* glsl */`
+    precision highp float;
+
+    uniform float uTime;
+    uniform vec2  uResolution;
+    uniform vec3  uDeep;
+    uniform vec3  uBlue;
+    uniform vec3  uCyan;
+
+    // --- Classic value-noise stack, inlined so the file stays standalone ---
+    // hash: deterministic pseudo-random from a 2D coordinate.
+    float hash(vec2 p) {
+      return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+    }
+
+    // Value noise: random values at integer lattice points, smoothly
+    // interpolated between them (smoothstep weights kill grid artifacts).
+    float noise(vec2 p) {
+      vec2 i = floor(p);
+      vec2 f = fract(p);
+      vec2 u = f * f * (3.0 - 2.0 * f);
+      return mix(
+        mix(hash(i),                 hash(i + vec2(1.0, 0.0)), u.x),
+        mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+        u.y
+      );
+    }
+
+    // fbm (fractal Brownian motion): octaves of noise, each twice the
+    // frequency and half the amplitude — small detail on large structure.
+    float fbm(vec2 p) {
+      float value = 0.0;
+      float amplitude = 0.5;
+      for (int i = 0; i < 5; i++) {
+        value += amplitude * noise(p);
+        p = p * 2.03 + 17.13;  // offset decorrelates the octaves
+        amplitude *= 0.5;
+      }
+      return value;
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / uResolution.xy;      // 0..1 screen coords
+      vec2 p = uv;
+      p.x *= uResolution.x / uResolution.y;            // aspect correction
+
+      float t = uTime * 0.05;
+
+      // Domain warping: one fbm field distorts the coordinates fed into the
+      // next. This is what turns flat noise into flowing aurora curtains.
+      float warp = fbm(vec2(p.x * 1.6 + t, p.y * 0.7 - t * 0.6));
+      float curtain = fbm(vec2(p.x * 3.0 - t * 1.4, warp * 2.2 + t * 0.4));
+
+      // Vertical rays: high-frequency noise in x only, stretched along y.
+      float rays = fbm(vec2(p.x * 6.0 + warp, t * 0.8));
+
+      // Shape the light: curtains gated to the upper half of the screen,
+      // rays multiplied in for that streaked aurora texture.
+      float glow = smoothstep(0.35, 0.95, curtain * (0.7 + 0.5 * rays));
+      glow *= smoothstep(1.05, 0.15, uv.y);            // fade toward bottom
+
+      // Palette: deep night -> brand blue -> cyan core. The pow() keeps
+      // cyan reserved for only the brightest spots (no neon soup).
+      vec3 color = uDeep;
+      color = mix(color, uBlue, glow * 0.85);
+      color = mix(color, uCyan, pow(glow, 3.0) * 0.9);
+
+      // Gentle vignette grounds the corners and keeps overlay text legible.
+      float vignette = smoothstep(1.3, 0.4, length(uv - vec2(0.5, 0.45)));
+      color *= mix(0.72, 1.0, vignette);
+
+      gl_FragColor = vec4(color, 1.0);
+    }
+  `
+});
+
+scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
+
+function update(delta, elapsed) {
+  uniforms.uTime.value = elapsed * SPEED;
+}
+
+/* --- Render loop: DPR-capped, pauses when hidden, static under
+       prefers-reduced-motion. This block is identical in every hero. ------ */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let rafId = null;
+let last = null;
+let elapsed = 0;
+
+function frame(now) {
+  if (last === null) last = now;
+  const delta = Math.min((now - last) / 1000, 0.1);
+  last = now;
+  elapsed += delta;
+
+  update(delta, elapsed);
+  renderer.render(scene, camera);
+  rafId = requestAnimationFrame(frame);
+}
+
+function start() {
+  if (rafId === null && !reducedMotion.matches && !document.hidden) {
+    last = null;
+    rafId = requestAnimationFrame(frame);
+  }
+}
+function stop() {
+  if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+}
+
+// Reduced motion: freeze the aurora at a photogenic moment.
+function renderStatic() {
+  update(0, 40);
+  renderer.render(scene, camera);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stop(); else start();
+});
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) { stop(); renderStatic(); } else { start(); }
+});
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+  // The orthographic camera needs no aspect update: the vertex shader
+  // ignores it entirely and the fragment shader corrects aspect itself.
+  if (reducedMotion.matches) renderStatic();
+});
+
+/* SPA embedding? Dispose on unmount:
+   material.dispose(); renderer.dispose(); and the plane geometry.        */
+
+if (reducedMotion.matches) renderStatic(); else start();
+</script>
+</body>
+</html>

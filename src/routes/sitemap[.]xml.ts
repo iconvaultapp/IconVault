@@ -165,6 +165,7 @@ const getEntries = (): SitemapEntry[] => [
   // v61 (founder decision) and have no entries here.
   { path: "/mockups", changefreq: "weekly", priority: "0.8" },
   { path: "/animated-backgrounds", changefreq: "monthly", priority: "0.7" },
+  { path: "/templates/3d-aurelis", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/adminlte-dashboard", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/hugo-papermod", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/jaks-agency-digital", changefreq: "monthly", priority: "0.6" },
@@ -199,6 +200,7 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/templates/startbootstrap-agency", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/startbootstrap-creative", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/startbootstrap-freelancer", changefreq: "monthly", priority: "0.6" },
+  { path: "/templates/threejs-heroes", changefreq: "monthly", priority: "0.6" },
   // Every icon pack gets its own SEO page (about, FAQs, tags).
   ...Object.keys(collectionsData as Record<string, unknown>).map((prefix) => ({
     path: `/packs/${prefix}`,
