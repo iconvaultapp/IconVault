@@ -20,6 +20,51 @@ const PACK_LABELS: Record<string, string> = {
   "epic-spinners": "Epic Spinners",
 };
 
+// v63 cloud-last classifier: a Meteocons icon counts as cloud-type when its
+// slug names a cloud-bearing weather phenomenon (Thunderstorms included).
+// Verified against the actual SVG group ids / Lottie layer names where the
+// name alone was ambiguous: rainbow, lightning-bolt, snowman, snowflake,
+// raindrop and wind-dust carry no cloud shape, so they stay out (snowman /
+// snowflake / raindrop* / wind-dust / flag-hurricane-warning /
+// thermometer-raindrop are explicit exclusions, not keyword misses).
+// Result on the 625-entry gallery: 316 cloud icons sort last, 309 first.
+const CLOUD_KEYWORDS = [
+  "cloud",
+  "overcast",
+  "drizzle",
+  "rain",
+  "snow",
+  "hail",
+  "sleet",
+  "fog",
+  "haze",
+  "smoke",
+  "dust",
+  "thunderstorm",
+  "mist",
+  "tornado",
+  "hurricane",
+  "extreme",
+];
+const CLOUD_EXCLUSIONS = new Set([
+  "meteocons-fill-snowman",
+  "meteocons-fill-snowflake",
+  "meteocons-fill-raindrop",
+  "meteocons-fill-raindrop-measure",
+  "meteocons-fill-raindrops",
+  "meteocons-fill-wind-dust",
+  "meteocons-fill-flag-hurricane-warning",
+  "meteocons-fill-thermometer-raindrop",
+]);
+
+function isCloudAnimated(a: { pack: string; slug: string }): boolean {
+  return (
+    a.pack === "meteocons" &&
+    CLOUD_KEYWORDS.some((k) => a.slug.includes(k)) &&
+    !CLOUD_EXCLUSIONS.has(a.slug)
+  );
+}
+
 function Page() {
   const [query, setQuery] = useState("");
   const [pack, setPack] = useState("all");
@@ -35,11 +80,18 @@ function Page() {
       if (q && !(a.title + " " + a.slug + " " + a.packName).toLowerCase().includes(q)) return false;
       return true;
     });
-    // v60 premium-first: the 12 Meteocons Pro picks lead, in their current
-    // relative order, then everything else in current order. Gallery-local
-    // stable sort only — the data file itself is never reordered, so the
-    // detail pages and counts are untouched.
-    const ordered = [...list].sort((a, b) => Number(b.premium) - Number(a.premium));
+    // v63 cloud-last: cloud-type Meteocons (Thunderstorms and every other
+    // cloud-bearing weather icon) sort to the end of the gallery, so the
+    // first screens are loaders/spinners and non-cloud weather. Premium-first
+    // still applies inside each group (the 3 non-cloud Pro picks —
+    // clear-day, clear-night, wind — still lead). Gallery-local stable sort
+    // only — the data file itself is never reordered, so the detail pages
+    // and counts are untouched.
+    const ordered = [...list].sort(
+      (a, b) =>
+        Number(isCloudAnimated(a)) - Number(isCloudAnimated(b)) ||
+        Number(b.premium) - Number(a.premium),
+    );
     return ordered;
   }, [query, pack]);
 
