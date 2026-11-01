@@ -381,8 +381,13 @@ export function AnimatedPreview({
   // (svg-loaders) are unaffected via the files[0] fallback. The data
   // file order is intentionally untouched: the detail page's Lottie
   // lookup and download buttons assume the current order.
+  // v67 FIX (preview-only, downloads untouched): SVG-Loaders are drawn
+  // with WHITE strokes (#fff, the author's dark-background design), so
+  // on the site's light cards they animate invisibly — white on white.
+  // They render on a dark tile here so the animation is actually seen.
+  // Meteocons SVGs are coloured artwork and keep the plain <img>.
   const svgFile = item.files.find((f) => f.endsWith(".svg")) ?? item.files[0];
-  return (
+  const img = (
     <img
       src={`/animated-icons/${item.slug}/${svgFile}`}
       alt={item.title}
@@ -397,6 +402,26 @@ export function AnimatedPreview({
       }}
     />
   );
+  if (item.pack === "svg-loaders") {
+    return (
+      <div
+        style={{
+          width: size,
+          height: size,
+          background: "#0f172a",
+          borderRadius: 12,
+          display: "grid",
+          placeItems: "center",
+          overflow: "hidden",
+          pointerEvents: interactive ? undefined : "none",
+        }}
+        aria-label={item.title}
+      >
+        {img}
+      </div>
+    );
+  }
+  return img;
 }
 
 /** Lottie player: lottie-web is imported dynamically ONLY when this renders. */
