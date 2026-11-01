@@ -43,7 +43,7 @@ const BlogTeaser = lazy(() => import("@/components/home/BlogTeaser"));
 // scrolling. (ToolsTeaser / CodeShowcaseCard / WaitlistForm were extracted
 // from this file into components/home/ for the same reason.)
 const StyleChips = lazy(() => import("@/components/home/StyleChips"));
-// v56: templates, animated icons, customizer, showcase, originals,
+// v56: templates, animated icons, showcase, originals,
 // wallpapers, mockups and animated backgrounds. Lazy like the sections
 // below it: the cards carry no images, only Lucide icons, and the section
 // sits below the fold, so it stays out of the entry chunk.
@@ -385,7 +385,7 @@ function Landing() {
         {/* Free UI components showcase, like Illustrations above (Sameer 2026-10-26) */}
         <ComponentsHome />
 
-        {/* New in v56: templates, animated icons, customizer, showcase,
+        {/* New in v56: templates, animated icons, showcase,
             original collections, wallpapers, mockups, animated backgrounds */}
         <Suspense fallback={null}>
           <div className="cv-auto">

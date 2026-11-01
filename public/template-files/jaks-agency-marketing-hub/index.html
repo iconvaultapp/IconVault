@@ -1,0 +1,2809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, marketing hub ad agency, SEO marketing consultant site, digital marketing hub html, advertising studio landing page, social media marketing agency, marketing analytics platform UI, SEO agency template free, growth marketing consultant portfolio, brand strategy agency template">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/agency-marketing-hub">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amsterdam Marketing Hub — Free Agency Template</title>
+  <meta name="description" content="Conversion-first B2B marketing hub detailing client ROI models, performance advertising statistics, and interactive quotes gener... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amsterdam Marketing Hub — Free Agency Template">
+  <meta property="og:description" content="Conversion-first B2B marketing hub detailing client ROI models, performance advertising statistics, and interactive quotes gener... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/agency_marketing_hub.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amsterdam Marketing Hub — Free Agency Template">
+  <meta name="twitter:description" content="Conversion-first B2B marketing hub detailing client ROI models, performance advertising statistics, and interactive quotes gener... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/agency_marketing_hub.webp">
+  
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       GLOBAL RESETS & VARIABLE SETTINGS
+       ========================================== */
+    :root {
+      /* Colors */
+      --primary-orange: hsl(15, 100%, 58%);
+      --primary-orange-hover: hsl(15, 100%, 50%);
+      --secondary-blue: hsl(215, 90%, 52%);
+      --secondary-blue-hover: hsl(215, 90%, 42%);
+      --accent-cyan: hsl(185, 90%, 48%);
+      
+      --bg-dark: hsl(222, 47%, 9%);
+      --bg-dark-card: hsl(222, 40%, 15%);
+      --bg-light: hsl(210, 40%, 98%);
+      --bg-white: hsl(0, 0%, 100%);
+      
+      --text-dark: hsl(222, 47%, 15%);
+      --text-muted: hsl(215, 16%, 47%);
+      --text-light: hsl(210, 40%, 98%);
+      --text-white: hsl(0, 0%, 100%);
+      
+      --border-color: hsl(214, 32%, 91%);
+      --border-color-dark: hsl(222, 30%, 20%);
+      
+      /* Gradients */
+      --gradient-orange: linear-gradient(135deg, hsl(15, 100%, 58%) 0%, hsl(35, 100%, 52%) 100%);
+      --gradient-blue: linear-gradient(135deg, hsl(215, 90%, 52%) 0%, hsl(200, 95%, 48%) 100%);
+      --gradient-hybrid: linear-gradient(135deg, hsl(15, 100%, 58%) 0%, hsl(215, 90%, 52%) 100%);
+      --gradient-dark: linear-gradient(145deg, hsl(222, 47%, 9%) 0%, hsl(222, 47%, 16%) 100%);
+      --gradient-light-gray: linear-gradient(135deg, hsl(210, 40%, 98%) 0%, hsl(210, 30%, 95%) 100%);
+      
+      /* Typography */
+      --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      
+      /* Shadow & Borders */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(10, 17, 40, 0.12);
+      --shadow-glow-orange: 0 8px 24px rgba(255, 111, 61, 0.35);
+      --shadow-glow-blue: 0 8px 24px rgba(15, 82, 186, 0.25);
+      --border-radius-sm: 8px;
+      --border-radius-md: 16px;
+      --border-radius-lg: 24px;
+      --border-radius-full: 9999px;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      font-family: var(--font-family);
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+    }
+
+    /* ==========================================
+       TYPOGRAPHY & UTILITIES
+       ========================================== */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--border-radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-orange {
+      background-color: hsl(15, 100%, 94%);
+      color: var(--primary-orange);
+      border: 1px solid hsl(15, 100%, 88%);
+    }
+
+    .badge-blue {
+      background-color: hsl(215, 90%, 94%);
+      color: var(--secondary-blue);
+      border: 1px solid hsl(215, 90%, 88%);
+    }
+
+    .text-gradient-hybrid {
+      background: var(--gradient-hybrid);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-orange {
+      background: var(--gradient-orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-padding {
+      padding: 8rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .section-header h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      gap: 0.5rem;
+    }
+
+    .btn-orange {
+      background: var(--gradient-orange);
+      color: var(--text-white);
+      box-shadow: var(--shadow-glow-orange);
+    }
+
+    .btn-orange:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 111, 61, 0.5);
+    }
+
+    .btn-blue {
+      background: var(--gradient-blue);
+      color: var(--text-white);
+      box-shadow: var(--shadow-glow-blue);
+    }
+
+    .btn-blue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 82, 186, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--border-color);
+      color: var(--text-dark);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary-orange);
+      color: var(--primary-orange);
+      background: rgba(255, 111, 61, 0.03);
+    }
+
+    .btn-sm {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      border-radius: var(--border-radius-sm);
+    }
+
+    /* ==========================================
+       HEADER / NAVIGATION
+       ========================================== */
+    .header-nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .header-nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+    }
+
+    /* Logo Brand styling */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-hybrid);
+      border-radius: 10px;
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 4px 10px rgba(15, 82, 186, 0.2);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: var(--gradient-orange);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-orange);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Mobile toggle button */
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      cursor: pointer;
+      z-index: 1010;
+    }
+
+    .mobile-nav-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: var(--text-dark);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .mobile-nav-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+      background-color: var(--primary-orange);
+    }
+
+    .mobile-nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-nav-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+      background-color: var(--primary-orange);
+    }
+
+    /* ==========================================
+       HERO SECTION
+       ========================================== */
+    .hero-section {
+      position: relative;
+      background-color: var(--bg-white);
+      overflow: hidden;
+      padding: 6rem 2rem 8rem 2rem;
+    }
+
+    /* Background blobs */
+    .hero-bg-blobs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .blob-1 {
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      width: 50%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(15, 82, 186, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+      filter: blur(50px);
+    }
+
+    .blob-2 {
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 60%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(255, 111, 61, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+      filter: blur(50px);
+    }
+
+    .hero-container {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 3.8rem;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    /* Dynamic Growth Chart Visualization CSS/SVG */
+    .hero-chart-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-chart-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-chart-legend {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .legend-dot.orange { background: var(--primary-orange); }
+    .legend-dot.blue { background: var(--secondary-blue); }
+
+    /* SVG line chart setup */
+    .svg-chart-container {
+      width: 100%;
+      height: 160px;
+      position: relative;
+    }
+
+    .svg-chart-container svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Animated SVG line paths */
+    .chart-line-blue {
+      stroke: var(--secondary-blue);
+      stroke-width: 3;
+      fill: none;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: drawChart 2.5s ease-out forwards;
+    }
+
+    .chart-line-orange {
+      stroke: var(--primary-orange);
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: drawChart 2s ease-out forwards 0.3s;
+    }
+
+    @keyframes drawChart {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Pulse dot elements */
+    .chart-pulse-dot {
+      fill: var(--primary-orange);
+      stroke: #fff;
+      stroke-width: 3px;
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        r: 6px;
+        filter: drop-shadow(0 0 2px rgba(255,111,61,0.6));
+      }
+      50% {
+        r: 9px;
+        filter: drop-shadow(0 0 8px rgba(255,111,61,0.9));
+      }
+      100% {
+        r: 6px;
+        filter: drop-shadow(0 0 2px rgba(255,111,61,0.6));
+      }
+    }
+
+    /* Hero Form Block */
+    .hero-form-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .hero-form-card::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: var(--gradient-hybrid);
+      border-radius: calc(var(--border-radius-lg) + 3px);
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .hero-form-card h3 {
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-form-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius-md);
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      border-color: var(--primary-orange);
+      background: var(--bg-white);
+      box-shadow: 0 0 15px rgba(255, 111, 61, 0.1);
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius-md);
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      transition: var(--transition);
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C677D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      background-size: 1.2rem;
+    }
+
+    .form-select:focus {
+      border-color: var(--primary-orange);
+      background-color: var(--bg-white);
+      box-shadow: 0 0 15px rgba(255, 111, 61, 0.1);
+    }
+
+    .hero-form-card .btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .form-disclaimer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    /* Form success screen state */
+    .form-success-state {
+      display: none;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .success-icon-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(15, 82, 186, 0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary-blue);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .form-success-state h4 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .form-success-state p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ==========================================
+       CORE SERVICES SECTION WITH DYNAMIC TABS
+       ========================================== */
+    .services-section {
+      background-color: var(--bg-light);
+    }
+
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+      background: var(--bg-white);
+      padding: 0.6rem;
+      border-radius: var(--border-radius-full);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tab-trigger {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius-full);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .tab-trigger svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .tab-trigger:hover {
+      color: var(--primary-orange);
+    }
+
+    .tab-trigger.active {
+      background: var(--gradient-orange);
+      color: var(--text-white);
+      box-shadow: var(--shadow-glow-orange);
+    }
+
+    /* Tab content area container */
+    .tabs-viewport {
+      position: relative;
+      min-height: 480px;
+    }
+
+    .tab-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: var(--bg-white);
+      border-radius: var(--border-radius-lg);
+      padding: 4rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tab-content.active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0s;
+    }
+
+    .tab-left h3 {
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .tab-left h3 svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--primary-orange);
+    }
+
+    .tab-left .service-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .benefits-checklist {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .benefit-item svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--secondary-blue);
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .tab-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-light-gray);
+      border-radius: var(--border-radius-md);
+      padding: 3rem;
+      text-align: center;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      position: relative;
+    }
+
+    .stat-circle-display {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .stat-circle-display svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .stat-bg-circle {
+      fill: none;
+      stroke: var(--border-color);
+      stroke-width: 10;
+    }
+
+    .stat-progress-circle {
+      fill: none;
+      stroke: var(--gradient-orange); /* fallbacks handled via SVG element styles */
+      stroke-width: 12;
+      stroke-linecap: round;
+      stroke-dasharray: 502;
+      stroke-dashoffset: 502;
+      transition: stroke-dashoffset 1.5s ease-out;
+    }
+
+    .stat-number-label {
+      position: absolute;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.1;
+    }
+
+    .stat-number-label span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-explanation h4 {
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-explanation p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================
+       CASE STUDIES TIMELINE SECTION
+       ========================================== */
+    .timeline-section {
+      background-color: var(--bg-white);
+      position: relative;
+    }
+
+    .timeline-wrapper {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Timeline center-line */
+    .timeline-wrapper::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--border-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      padding: 2rem 0;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item-left {
+      left: 0;
+      padding-right: 3rem;
+    }
+
+    .timeline-item-right {
+      left: 50%;
+      padding-left: 3rem;
+    }
+
+    /* Node dots on timeline */
+    .timeline-node {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: -12px;
+      top: 2.8rem;
+      border-radius: 50%;
+      background: var(--bg-white);
+      border: 4px solid var(--primary-orange);
+      z-index: 10;
+      box-shadow: 0 0 0 6px rgba(255, 111, 61, 0.15);
+      transition: var(--transition);
+    }
+
+    .timeline-item-right .timeline-node {
+      left: -12px;
+      right: auto;
+      border-color: var(--secondary-blue);
+      box-shadow: 0 0 0 6px rgba(15, 82, 186, 0.15);
+    }
+
+    .timeline-item:hover .timeline-node {
+      transform: scale(1.2);
+    }
+
+    .timeline-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-orange);
+    }
+
+    .timeline-item-right .timeline-card:hover {
+      border-color: var(--secondary-blue);
+    }
+
+    .timeline-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary-orange);
+    }
+
+    .timeline-item-right .timeline-tag {
+      color: var(--secondary-blue);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .timeline-card h3 {
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Key results visualization */
+    .timeline-results {
+      background: var(--bg-white);
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .timeline-results h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+    }
+
+    .result-row {
+      margin-bottom: 1.2rem;
+    }
+
+    .result-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .result-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .result-label {
+      color: var(--text-dark);
+    }
+
+    .result-value {
+      color: var(--primary-orange);
+    }
+
+    .timeline-item-right .result-value {
+      color: var(--secondary-blue);
+    }
+
+    /* Animated progress bars inside case study card */
+    .progress-bar-track {
+      height: 8px;
+      width: 100%;
+      background: var(--border-color);
+      border-radius: var(--border-radius-full);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0; /* Animated dynamically with JS */
+      background: var(--gradient-orange);
+      border-radius: var(--border-radius-full);
+      transition: width 1.8s cubic-bezier(0.1, 0.8, 0.2, 1);
+    }
+
+    .timeline-item-right .progress-bar-fill {
+      background: var(--gradient-blue);
+    }
+
+    /* ==========================================
+       INTERACTIVE ROI / QUOTE CALCULATOR
+       ========================================== */
+    .calculator-section {
+      background-color: var(--bg-light);
+      position: relative;
+    }
+
+    .calculator-container {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: stretch;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .calculator-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: var(--gradient-hybrid);
+    }
+
+    .calc-inputs-pane h3 {
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .calc-inputs-pane p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-control-group {
+      margin-bottom: 2.2rem;
+    }
+
+    .calc-control-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .calc-value-display {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-orange);
+    }
+
+    /* Custom range input slider */
+    .range-slider {
+      width: 100%;
+      height: 8px;
+      background: var(--border-color);
+      border-radius: var(--border-radius-full);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-orange);
+      border: 4px solid var(--bg-white);
+      box-shadow: var(--shadow-glow-orange);
+      transition: transform 0.1s ease;
+    }
+
+    .range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    /* Service Type Radio Select Cards */
+    .service-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .service-radio-card {
+      position: relative;
+      background: var(--bg-light);
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .service-radio-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .service-radio-card:hover {
+      border-color: var(--primary-orange);
+      background: var(--bg-white);
+    }
+
+    .service-radio-card.selected {
+      border-color: var(--primary-orange);
+      background: var(--bg-white);
+      box-shadow: 0 4px 15px rgba(255, 111, 61, 0.08);
+    }
+
+    .service-radio-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      background: var(--primary-orange);
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .service-radio-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .service-radio-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Number field custom wrapper */
+    .number-field-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .number-field-wrapper span {
+      position: absolute;
+      left: 1.2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .number-field-input {
+      width: 100%;
+      padding: 0.9rem 1.2rem 0.9rem 2.2rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius-md);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      transition: var(--transition);
+    }
+
+    .number-field-input:focus {
+      border-color: var(--primary-orange);
+      background: var(--bg-white);
+      box-shadow: 0 0 15px rgba(255, 111, 61, 0.1);
+    }
+
+    /* Projection Output Dashboard Side */
+    .calc-results-pane {
+      background: var(--gradient-dark);
+      border-radius: var(--border-radius-lg);
+      padding: 3rem;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .calc-results-pane h4 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-cyan);
+      margin-bottom: 2rem;
+    }
+
+    .metric-display-box {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color-dark);
+      padding-bottom: 2rem;
+    }
+
+    .metric-display-box:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .metric-label-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .metric-label-group label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: hsl(215, 20%, 75%);
+    }
+
+    .metric-info-tooltip {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .metric-big-value {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      transition: var(--transition);
+    }
+
+    .metric-big-value.highlight-orange {
+      color: var(--primary-orange);
+    }
+
+    /* ROI Badge and Visual dynamic progress bar */
+    .roi-visualizer-container {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .roi-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .roi-badge-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .roi-multiplier-tag {
+      background: var(--gradient-orange);
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--border-radius-full);
+      font-size: 0.85rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-glow-orange);
+    }
+
+    .roi-growth-bar-track {
+      height: 8px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-full);
+      overflow: hidden;
+    }
+
+    .roi-growth-bar-fill {
+      height: 100%;
+      width: 65%; /* Adjusted programmatically via JS */
+      background: var(--gradient-hybrid);
+      border-radius: var(--border-radius-full);
+      transition: width 0.5s ease-out;
+    }
+
+    .calc-results-pane .btn {
+      width: 100%;
+      margin-top: 2.5rem;
+    }
+
+    /* ==========================================
+       ELEGANT NEWSLETTER FOOTER
+       ========================================== */
+    .footer-wrapper {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      border-top: 1px solid var(--border-color-dark);
+      padding-top: 6rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer-about .logo-container {
+      color: var(--text-white);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-about p {
+      font-size: 0.95rem;
+      color: hsl(215, 20%, 70%);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .footer-social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .social-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .social-icon-btn:hover {
+      background: var(--gradient-orange);
+      color: var(--text-white);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow-orange);
+    }
+
+    .footer-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .footer-links-list {
+      list-style: none;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links-list a {
+      font-size: 0.95rem;
+      color: hsl(215, 20%, 70%);
+      transition: var(--transition);
+    }
+
+    .footer-links-list a:hover {
+      color: var(--primary-orange);
+      padding-left: 5px;
+    }
+
+    /* Newsletter sub layout */
+    .newsletter-form-wrapper h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form-wrapper p {
+      font-size: 0.9rem;
+      color: hsl(215, 20%, 70%);
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .newsletter-input-group {
+      display: flex;
+      position: relative;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid var(--border-color-dark);
+      border-radius: var(--border-radius-md);
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-white);
+      width: 100%;
+      transition: var(--transition);
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--primary-orange);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .newsletter-submit-btn {
+      background: var(--gradient-orange);
+      color: var(--text-white);
+      padding: 0.9rem 1.5rem;
+      border-radius: var(--border-radius-md);
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-glow-orange);
+    }
+
+    .newsletter-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 111, 61, 0.5);
+    }
+
+    .newsletter-success {
+      display: none;
+      font-size: 0.9rem;
+      color: var(--accent-cyan);
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color-dark);
+      padding-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: hsl(215, 15%, 55%);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--text-white);
+    }
+
+    /* ==========================================
+       RESPONSIVE MEDIA QUERIES
+       ========================================== */
+    @media (max-width: 1100px) {
+      .section-padding {
+        padding: 6rem 2rem;
+      }
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: center;
+      }
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-chart-card {
+        max-width: 600px;
+        margin: 2.5rem auto 0 auto;
+      }
+      .hero-form-card {
+        max-width: 550px;
+        margin: 0 auto;
+      }
+      .tab-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem;
+      }
+      .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 3rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 3rem;
+      }
+      .footer-grid > div:last-child {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-header h2 {
+        font-size: 2.2rem;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .header-nav {
+        padding: 0.5rem 0;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--bg-white);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 4rem 2rem;
+        gap: 2rem;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        transition: var(--transition);
+        z-index: 999;
+      }
+      .nav-menu.open {
+        left: 0;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+      }
+      .nav-cta {
+        display: none; /* Let mobile menu handle it or hide for cleaner nav */
+      }
+      .tabs-nav {
+        flex-wrap: wrap;
+        border-radius: var(--border-radius-md);
+        padding: 0.8rem;
+      }
+      .tab-trigger {
+        flex: 1 1 45%;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+      .timeline-wrapper::after {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 0;
+      }
+      .timeline-item-left {
+        left: 0;
+      }
+      .timeline-item-right {
+        left: 0;
+      }
+      .timeline-node {
+        left: 8px !important;
+        right: auto !important;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .footer-grid > div {
+        grid-column: span 1 !important;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .benefits-checklist {
+        grid-template-columns: 1fr;
+      }
+      .calc-results-pane {
+        padding: 2rem;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Amsterdam Marketing Hub",
+    "description": "Conversion-first B2B marketing hub detailing client ROI models, performance advertising statistics, and interactive quotes gener... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/agency-marketing-hub",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/agency-marketing-hub.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HEADER SECTION
+       ========================================== -->
+  <header class="header-nav" id="headerNav">
+    <div class="nav-container">
+      <a href="#" class="logo-container">
+        <div class="logo-icon">M</div>
+        <span>Marketing<span class="text-gradient-orange">Hub</span></span>
+      </a>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#timeline" class="nav-link">Case Studies</a></li>
+        <li><a href="#calculator" class="nav-link">ROI Calculator</a></li>
+        <li><a href="#about" class="nav-link">Why Us</a></li>
+        <li class="mobile-cta-li" style="display: none; width: 100%; margin-top: 1.5rem;">
+          <a href="#calculator" class="btn btn-orange" style="width: 100%;">Request Quote</a>
+        </li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#calculator" class="btn btn-outline btn-sm">Interactive Calculator</a>
+        <a href="#calculator" class="btn btn-orange btn-sm">Request Quote</a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section class="hero-section" id="about">
+    <div class="hero-bg-blobs">
+      <div class="blob-1"></div>
+      <div class="blob-2"></div>
+    </div>
+    
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="badge badge-orange">🏆 Premium Growth Agency</span>
+        <h1>We Convert Traffic Into <span class="text-gradient-hybrid">Transformed Revenue</span></h1>
+        <p>Forget vanity metrics. We construct precision acquisition funnels utilizing high-velocity SEO, conversion-focused paid media, and intelligent automation built specifically to scale your business bottom-line.</p>
+        
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#calculator" class="btn btn-orange">Calculate Your Potential ROI</a>
+          <a href="#services" class="btn btn-outline">Explore Tactical Services</a>
+        </div>
+
+        <!-- Growth Chart Visualization -->
+        <div class="hero-chart-card">
+          <div class="hero-chart-header">
+            <div class="hero-chart-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-gradient-orange" style="stroke: var(--primary-orange);"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              Conversion Growth (MoM)
+            </div>
+            <div class="hero-chart-legend">
+              <div class="legend-item"><span class="legend-dot blue"></span> Organic Search</div>
+              <div class="legend-item"><span class="legend-dot orange"></span> Direct Conversion Value</div>
+            </div>
+          </div>
+          
+          <div class="svg-chart-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="0" y1="30" x2="500" y2="30" stroke="#f1f5f9" stroke-width="1" />
+              <line x1="0" y1="70" x2="500" y2="70" stroke="#f1f5f9" stroke-width="1" />
+              <line x1="0" y1="110" x2="500" y2="110" stroke="#f1f5f9" stroke-width="1" />
+              
+              <!-- Blue line (Organic Search) -->
+              <path class="chart-line-blue" d="M 0,130 Q 100,120 200,90 T 400,60 T 500,25" />
+              
+              <!-- Orange line (Conversion Value) -->
+              <path class="chart-line-orange" d="M 0,140 C 120,135 180,95 280,50 C 380,10 420,35 500,10" />
+              
+              <!-- SVG marker points -->
+              <circle class="chart-pulse-dot" cx="500" cy="10" r="8" />
+              <circle cx="280" cy="50" r="5" fill="var(--primary-orange)" stroke="#fff" stroke-width="2" />
+              <circle cx="200" cy="90" r="4" fill="var(--secondary-blue)" stroke="#fff" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lead Capture Form -->
+      <div>
+        <div class="hero-form-card" id="leadCaptureCard">
+          <div class="form-content-state" id="formContentState">
+            <h3>Accelerate Your Growth</h3>
+            <p>Schedule a live 1-on-1 tactics session with a conversion architect. We'll map your opportunities in 15 minutes.</p>
+            
+            <form id="heroLeadForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="heroName">Your Full Name</label>
+                <input class="form-input" type="text" id="heroName" placeholder="Alex Morgan" required>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="heroEmail">Work Email</label>
+                <input class="form-input" type="email" id="heroEmail" placeholder="alex@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="heroBudget">Current Monthly Marketing Budget</label>
+                <select class="form-select" id="heroBudget" required>
+                  <option value="" disabled selected>Select budget range</option>
+                  <option value="1000-5000">$1,000 - $5,000 /mo</option>
+                  <option value="5000-15000">$5,000 - $15,000 /mo</option>
+                  <option value="15000-30000">$15,000 - $30,000 /mo</option>
+                  <option value="30000+">$30,000+ /mo</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-orange">Launch Free Growth Audit</button>
+              <span class="form-disclaimer">🔒 100% confidential. No spam guarantee.</span>
+            </form>
+          </div>
+
+          <!-- Success state hidden initially -->
+          <div class="form-success-state" id="formSuccessState">
+            <div class="success-icon-container">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h4>Audit Launch Activated!</h4>
+            <p>We are analyzing your industry competitors. One of our Senior Growth Strategists will email you within 2 business hours with calendar options.</p>
+            <button onclick="resetFormState()" class="btn btn-outline btn-sm">Submit Another Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CORE SERVICES SECTION WITH DYNAMIC TABS
+       ========================================== -->
+  <section class="services-section section-padding" id="services">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge badge-blue">What We Excel At</span>
+        <h2>Services Built For Conversion</h2>
+        <p>We deploy high-impact, channel-specific methodologies that convert browsers into buyers, systematically increasing customer lifetime value.</p>
+      </div>
+
+      <!-- Tab triggers row -->
+      <div class="tabs-nav">
+        <button class="tab-trigger active" onclick="switchTab(event, 'seoTab')">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          SEO Engine
+        </button>
+        <button class="tab-trigger" onclick="switchTab(event, 'ppcTab')">
+          <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1.5 6h-6v3h6V9zm-6 4.5h6V17h-6v-3.5zm-1.5 4h-6V9h6v8.5z"/></svg>
+          Precision PPC
+        </button>
+        <button class="tab-trigger" onclick="switchTab(event, 'socialTab')">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Social Commerce
+        </button>
+        <button class="tab-trigger" onclick="switchTab(event, 'emailTab')">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email & CRM
+        </button>
+      </div>
+
+      <!-- Tab viewports -->
+      <div class="tabs-viewport">
+        
+        <!-- Tab Content 1: SEO -->
+        <div class="tab-content active" id="seoTab">
+          <div class="tab-left">
+            <h3>
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              High-Intent Search Engine Optimization
+            </h3>
+            <p class="service-desc">We structure organic SEO architecture focused on customer transaction terms, not simple informational search queries. We dominate search results by fixing technical layout systems and building rapid content clusters.</p>
+            
+            <ul class="benefits-checklist">
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Keyword Intent Mapping
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Semantic Content Clusters
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Technical Speed Audits
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Authority Link Campaigns
+              </li>
+            </ul>
+            
+            <a href="#calculator" class="btn btn-orange">Estimate Your SEO Traffic Potential</a>
+          </div>
+          
+          <div class="tab-right">
+            <div class="stat-circle-display">
+              <svg>
+                <circle class="stat-bg-circle" cx="90" cy="90" r="80"></circle>
+                <!-- 340% is offset visually with dashoffset -->
+                <circle class="stat-progress-circle" id="seoCircle" cx="90" cy="90" r="80" style="stroke: var(--primary-orange); stroke-dashoffset: 100;"></circle>
+              </svg>
+              <div class="stat-number-label">
+                +340%
+                <span>Avg Traffic Lift</span>
+              </div>
+            </div>
+            
+            <div class="stat-explanation">
+              <h4>Compounding Asset</h4>
+              <p>Our average client observes a 340% increase in organic transaction clicks within their initial 6-month engine rollout.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content 2: PPC -->
+        <div class="tab-content" id="ppcTab">
+          <div class="tab-left">
+            <h3>
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Hyper-Targeted Paid Search & Display
+            </h3>
+            <p class="service-desc">We control your ad spend meticulously. By utilizing advanced negative bidding systems, automated dynamic creative suites, and behavioral landing page testing, we capture hot demand instantly.</p>
+            
+            <ul class="benefits-checklist">
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Google & Bing Search Ads
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Behavioral Retargeting
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Negative Bid Optimization
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                High-Conversion LPs
+              </li>
+            </ul>
+            
+            <a href="#calculator" class="btn btn-blue">Calculate Google Ads ROAS</a>
+          </div>
+          
+          <div class="tab-right">
+            <div class="stat-circle-display">
+              <svg>
+                <circle class="stat-bg-circle" cx="90" cy="90" r="80"></circle>
+                <circle class="stat-progress-circle" id="ppcCircle" cx="90" cy="90" r="80" style="stroke: var(--secondary-blue); stroke-dashoffset: 502;"></circle>
+              </svg>
+              <div class="stat-number-label">
+                4.2x
+                <span>Target ROAS</span>
+              </div>
+            </div>
+            
+            <div class="stat-explanation">
+              <h4>Immediate Scaling</h4>
+              <p>Achieve a predictable stream of customer acquisitions. Scaled systems maintain a consistent 4.2x return on ad spend.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content 3: Social -->
+        <div class="tab-content" id="socialTab">
+          <div class="tab-left">
+            <h3>
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Paid Social & Retargeting Commerce
+            </h3>
+            <p class="service-desc">We engineer custom social content hooks that interrupt user feeds and turn passive scrolling into direct purchases. We execute full-funnel TikTok, Meta, and LinkedIn brand initiatives.</p>
+            
+            <ul class="benefits-checklist">
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Short-Form Creative Production
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Lookalike Audience Targeting
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                UGC Creative Directing
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                LinkedIn Account-Based Ads
+              </li>
+            </ul>
+            
+            <a href="#calculator" class="btn btn-orange">Model Social CPA Rates</a>
+          </div>
+          
+          <div class="tab-right">
+            <div class="stat-circle-display">
+              <svg>
+                <circle class="stat-bg-circle" cx="90" cy="90" r="80"></circle>
+                <circle class="stat-progress-circle" id="socialCircle" cx="90" cy="90" r="80" style="stroke: var(--primary-orange); stroke-dashoffset: 502;"></circle>
+              </svg>
+              <div class="stat-number-label">
+                -38%
+                <span>CPA Reduction</span>
+              </div>
+            </div>
+            
+            <div class="stat-explanation">
+              <h4>Ad Creative Domination</h4>
+              <p>User-generated creatives built by our production team consistently lower acquisition cost limits by up to 38%.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content 4: Email -->
+        <div class="tab-content" id="emailTab">
+          <div class="tab-left">
+            <h3>
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Conversion-First Email & Lifecycle Flows
+            </h3>
+            <p class="service-desc">We unlock passive revenue locked within your current database list. We implement smart cart abandonment automation, VIP segments, post-purchase feedback loops, and educational newsletters.</p>
+            
+            <ul class="benefits-checklist">
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Automated Cart Recovery
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Dynamic Personalization Blocks
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Database Segmentation
+              </li>
+              <li class="benefit-item">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                A/B Subject Line Analysis
+              </li>
+            </ul>
+            
+            <a href="#calculator" class="btn btn-blue">Estimate Email List Value</a>
+          </div>
+          
+          <div class="tab-right">
+            <div class="stat-circle-display">
+              <svg>
+                <circle class="stat-bg-circle" cx="90" cy="90" r="80"></circle>
+                <circle class="stat-progress-circle" id="emailCircle" cx="90" cy="90" r="80" style="stroke: var(--secondary-blue); stroke-dashoffset: 502;"></circle>
+              </svg>
+              <div class="stat-number-label">
+                +48%
+                <span>LTV Multiplier</span>
+              </div>
+            </div>
+            
+            <div class="stat-explanation">
+              <h4>Retention Engine</h4>
+              <p>Re-engage silent contacts. Lifecycle optimizations increase standard customer repeat transaction frequencies by 48%.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CASE STUDIES TIMELINE SECTION
+       ========================================== -->
+  <section class="timeline-section section-padding" id="timeline">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge badge-orange">Proven Success Stories</span>
+        <h2>Milestones of Real Growth</h2>
+        <p>No hand-waving metrics. Here are real client breakdowns of how our digital growth engines drove concrete financial gains.</p>
+      </div>
+
+      <div class="timeline-wrapper">
+        
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item timeline-item-left">
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-tag">B2B SaaS Scale-Up</span>
+              <span class="timeline-date">Q1 2026 Success</span>
+            </div>
+            <h3>SaaS Platform Enterprise Growth</h3>
+            <p>We revamped a complex B2B SaaS trial-to-paid acquisition funnel, prioritizing high-authority semantic clusters and localized organic search intent over low-conversion landing pages.</p>
+            
+            <div class="timeline-results">
+              <h4>Campaign Performance Metrics</h4>
+              
+              <div class="result-row">
+                <div class="result-info">
+                  <span class="result-label">Conversion Rate Lift</span>
+                  <span class="result-value" id="val1">88%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" data-progress="88%"></div>
+                </div>
+              </div>
+
+              <div class="result-row">
+                <div class="result-info">
+                  <span class="result-label">Return on Ad Spend (ROAS)</span>
+                  <span class="result-value" id="val1-sub">420%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" data-progress="78%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item timeline-item-right">
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-tag">E-Commerce Retailing</span>
+              <span class="timeline-date">Q2 2026 Success</span>
+            </div>
+            <h3>Direct-to-Consumer Brand Launch</h3>
+            <p>Designed a responsive, conversion-centered checkout flow coupled with high-speed dynamic paid social UGC retargeting to maximize cart recovery and drive secondary retention value.</p>
+            
+            <div class="timeline-results">
+              <h4>Campaign Performance Metrics</h4>
+              
+              <div class="result-row">
+                <div class="result-info">
+                  <span class="result-label">Customer Retention Rate</span>
+                  <span class="result-value" id="val2">94%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" data-progress="94%"></div>
+                </div>
+              </div>
+
+              <div class="result-row">
+                <div class="result-info">
+                  <span class="result-label">Monthly Gross Revenue</span>
+                  <span class="result-value" id="val2-sub">$1.2M</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" data-progress="85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item timeline-item-left">
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-tag">Local Services Network</span>
+              <span class="timeline-date">Q3 2026 Success</span>
+            </div>
+            <h3>Local Franchise Acquisition Engine</h3>
+            <p>Implemented an omnichannel localized Google Ads bidding matrix with custom phone call-tracking configurations across 45 unique regional service locations.</p>
+            
+            <div class="timeline-results">
+              <h4>Campaign Performance Metrics</h4>
+              
+              <div class="result-row">
+                <div class="result-info">
+                  <span class="result-label">Customer Acquisition Cost Reduction</span>
+                  <span class="result-value" id="val3">75%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" data-progress="75%"></div>
+                </div>
+              </div>
+
+              <div class="result-row">
+                <div class="result-info">
+                  <span class="result-label">Lead Phone Call Volume</span>
+                  <span class="result-value" id="val3-sub">5.4x Lift</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" data-progress="90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INTERACTIVE ROI / QUOTE CALCULATOR
+       ========================================== -->
+  <section class="calculator-section section-padding" id="calculator">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge badge-blue">Precision ROI Planning</span>
+        <h2>Estimate Your Growth Potential</h2>
+        <p>Use our dynamic simulation dashboard to calculate expected organic/paid traffic, conversion volumes, and estimated ROI revenue output in real-time.</p>
+      </div>
+
+      <div class="calculator-container">
+        
+        <!-- Input controls pane -->
+        <div class="calc-inputs-pane">
+          <h3>Simulate Your Strategy</h3>
+          <p>Adjust the sliders and parameters below to structure your proposed campaign footprint.</p>
+          
+          <!-- Control 1: Monthly Budget Slider -->
+          <div class="calc-control-group">
+            <div class="calc-control-label">
+              <span>Proposed Monthly Budget</span>
+              <span class="calc-value-display" id="budgetDisplay">$12,000</span>
+            </div>
+            <input type="range" class="range-slider" id="calcBudget" min="1000" max="50000" step="500" value="12000" oninput="calculateROI()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">
+              <span>$1,000 /mo</span>
+              <span>$50,000 /mo</span>
+            </div>
+          </div>
+
+          <!-- Control 2: Service Focus Type (Radio Grid) -->
+          <div class="calc-control-group">
+            <div class="calc-control-label">
+              <span>Primary Service Focus</span>
+            </div>
+            <div class="service-cards-grid">
+              <label class="service-radio-card selected" id="card-seo">
+                <input type="radio" name="calcService" value="seo" checked onchange="handleServiceChange('seo')">
+                <span class="service-radio-title">SEO Engine</span>
+                <span class="service-radio-meta">2.8% Conversion</span>
+              </label>
+
+              <label class="service-radio-card" id="card-ppc">
+                <input type="radio" name="calcService" value="ppc" onchange="handleServiceChange('ppc')">
+                <span class="service-radio-title">Precision PPC</span>
+                <span class="service-radio-meta">3.5% Conversion</span>
+              </label>
+
+              <label class="service-radio-card" id="card-social">
+                <input type="radio" name="calcService" value="social" onchange="handleServiceChange('social')">
+                <span class="service-radio-title">Social Commerce</span>
+                <span class="service-radio-meta">2.2% Conversion</span>
+              </label>
+
+              <label class="service-radio-card" id="card-email">
+                <input type="radio" name="calcService" value="email" onchange="handleServiceChange('email')">
+                <span class="service-radio-title">Email Lifecycle</span>
+                <span class="service-radio-meta">4.8% Conversion</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Control 3: Avg Order Value / Lifetime Customer Value Input -->
+          <div class="calc-control-group">
+            <div class="calc-control-label">
+              <span>Avg. Customer Order Value (AOV)</span>
+            </div>
+            <div class="number-field-wrapper">
+              <span>$</span>
+              <input type="number" class="number-field-input" id="calcAOV" min="5" max="10000" value="150" oninput="calculateROI()">
+            </div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.4rem;">Specify average customer value or lifetime conversion value.</span>
+          </div>
+        </div>
+
+        <!-- Calculated Output Dashboard Pane -->
+        <div class="calc-results-pane">
+          <div>
+            <h4>Expected Monthly Outputs</h4>
+            
+            <!-- Metric 1: Monthly Traffic -->
+            <div class="metric-display-box">
+              <div class="metric-row">
+                <div class="metric-label-group">
+                  <label>Estimated Monthly Traffic</label>
+                  <span class="metric-info-tooltip" id="trafficSubLabel">Equivalent clicks based on CPC factors</span>
+                </div>
+                <span class="metric-big-value" id="resTraffic">10,000</span>
+              </div>
+            </div>
+
+            <!-- Metric 2: Monthly Conversions -->
+            <div class="metric-display-box">
+              <div class="metric-row">
+                <div class="metric-label-group">
+                  <label>Projected Customer Conversions</label>
+                  <span class="metric-info-tooltip" id="conversionSubLabel">Based on 2.80% Conversion Rate</span>
+                </div>
+                <span class="metric-big-value highlight-orange" id="resConversions">280</span>
+              </div>
+            </div>
+
+            <!-- Metric 3: Projected Monthly Revenue -->
+            <div class="metric-display-box">
+              <div class="metric-row">
+                <div class="metric-label-group">
+                  <label>Estimated Sales Value / Revenue</label>
+                  <span class="metric-info-tooltip">Calculated value generated from conversions</span>
+                </div>
+                <span class="metric-big-value" id="resRevenue">$42,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROI Multiplier and Visual Bar -->
+          <div>
+            <div class="roi-visualizer-container">
+              <div class="roi-badge-row">
+                <span class="roi-badge-text">Projected Ad Value Ratio</span>
+                <span class="roi-multiplier-tag" id="resROIBadge">3.50x ROAS</span>
+              </div>
+              <div class="roi-growth-bar-track">
+                <div class="roi-growth-bar-fill" id="roiProgressFill"></div>
+              </div>
+            </div>
+            
+            <a href="#leadCaptureCard" class="btn btn-orange" onclick="prefillFormFromCalculator()">Lock In & Claim Growth Strategy</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ELEGANT NEWSLETTER FOOTER
+       ========================================== -->
+  <footer class="footer-wrapper">
+    <div class="container footer-grid">
+      
+      <!-- Column 1: Brand details -->
+      <div class="footer-about">
+        <a href="#" class="logo-container">
+          <div class="logo-icon">M</div>
+          <span>Marketing<span style="color: var(--primary-orange);">Hub</span></span>
+        </a>
+        <p>A full-funnel digital marketing agency focused on performance metrics, conversion optimization, and measurable balance sheet scaling.</p>
+        
+        <div class="footer-social-links">
+          <a href="#" class="social-icon-btn" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.108C19.53 3.54 12 3.54 12 3.54s-7.53 0-9.388.515A3.001 3.001 0 00.5 6.163C0 8.024 0 12 0 12s0 3.976.502 5.837a3.003 3.003 0 002.11 2.108C4.47 20.46 12 20.46 12 20.46s7.53 0 9.388-.515a3.001 3.001 0 002.11-2.108C24 15.976 24 12 24 12s0-3.976-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Solutions -->
+      <div>
+        <h4 class="footer-title">Growth Solutions</h4>
+        <ul class="footer-links-list">
+          <li><a href="#services">Search Optimization Engine</a></li>
+          <li><a href="#services">Pay-Per-Click Advertising</a></li>
+          <li><a href="#services">UGC Social Commerce</a></li>
+          <li><a href="#services">Database Email Automation</a></li>
+          <li><a href="#calculator">ROI Simulation Tool</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Links -->
+      <div>
+        <h4 class="footer-title">Company Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="#about">Performance Audits</a></li>
+          <li><a href="#timeline">Case Studies</a></li>
+          <li><a href="#calculator">Request Proposal</a></li>
+          <li><a href="#">Security Matrix</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Newsletter Box -->
+      <div class="newsletter-form-wrapper">
+        <h4 class="footer-title">Get Growth Strategies</h4>
+        <p>No sales puffery. Only raw, actionable breakdowns of high-converting campaigns delivered weekly.</p>
+        
+        <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+          <div class="newsletter-input-group">
+            <input class="newsletter-input" type="email" id="newsletterEmail" placeholder="yourname@domain.com" required aria-label="Email Address">
+          </div>
+          <button type="submit" class="newsletter-submit-btn">Subscribe To Strategies</button>
+          <div class="newsletter-success" id="newsletterSuccess">✓ Success! You are subscribed to growth insights.</div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom metadata line -->
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Marketing Hub Agency. All rights reserved. Built for Conversion & Scaled Growth.</span>
+      
+      <div class="footer-bottom-links">
+        <a href="#">Terms of Deployment</a>
+        <a href="#">System Integrity Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       INTERACTIVE JAVASCRIPT SYSTEM
+       ========================================== -->
+  <script>
+    /* ==========================================
+       MOBILE RESPONSIVE NAV MENU SYSTEM
+       ========================================== */
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileNavToggle.addEventListener('click', () => {
+      mobileNavToggle.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+
+    // Close menu when clicking outside or on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // Header sticky scroll dynamic highlight
+    const headerNav = document.getElementById('headerNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        headerNav.classList.add('scrolled');
+      } else {
+        headerNav.classList.remove('scrolled');
+      }
+    });
+
+    /* ==========================================
+       DYNAMIC TABS SELECTION SYSTEM
+       ========================================== */
+    // SVG DashOffset variables mapped for easy tab transitions
+    const circleDashOffsets = {
+      'seoTab': 100,      // (340% is high, let's offset to ~100 of 502 total path)
+      'ppcTab': 150,      // 4.2x = ~150 of 502
+      'socialTab': 250,   // -38% CPA = ~250
+      'emailTab': 180     // +48% LTV = ~180
+    };
+
+    function switchTab(event, tabId) {
+      // Deactivate all triggers
+      document.querySelectorAll('.tab-trigger').forEach(trigger => {
+        trigger.classList.remove('active');
+      });
+      // Deactivate all contents
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Activate clicked trigger and associated tab content
+      event.currentTarget.classList.add('active');
+      const targetTab = document.getElementById(tabId);
+      targetTab.classList.add('active');
+
+      // Trigger unique SVG radial animation reset on selection change
+      const progressRing = targetTab.querySelector('.stat-progress-circle');
+      if (progressRing) {
+        progressRing.style.strokeDashoffset = '502'; // reset
+        setTimeout(() => {
+          progressRing.style.strokeDashoffset = circleDashOffsets[tabId] || '0';
+        }, 100);
+      }
+    }
+
+    // Trigger primary load animations for the active tab's SVG ring
+    window.addEventListener('DOMContentLoaded', () => {
+      const activeRing = document.getElementById('seoCircle');
+      if (activeRing) {
+        activeRing.style.strokeDashoffset = '502';
+        setTimeout(() => {
+          activeRing.style.strokeDashoffset = '100';
+        }, 300);
+      }
+      
+      // Calculate first iteration of ROI parameters on load
+      calculateROI();
+    });
+
+    /* ==========================================
+       CASE STUDIES TIMELINE INTERSECTION ANIMATION
+       ========================================== */
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const timelineObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Animate inner linear progress bars
+          const progressFills = entry.target.querySelectorAll('.progress-bar-fill');
+          progressFills.forEach(fill => {
+            const targetWidth = fill.getAttribute('data-progress');
+            fill.style.width = targetWidth;
+          });
+          
+          // Unobserve after firing animation once
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    timelineItems.forEach(item => {
+      timelineObserver.observe(item);
+    });
+
+    /* ==========================================
+       INTERACTIVE ROI / ESTIMATOR CALCULATOR
+       ========================================== */
+    // Conversion factors matrix for services
+    const serviceMatrix = {
+      'seo': {
+        cpc: 1.25,        // Estimated cost-per-click equivalent value
+        cr: 0.028,        // 2.80% Conversion Rate
+        crText: "2.80% Conversion Rate (Organics)",
+        subtext: "Traffic estimate based on long-tail keyword cluster organic CTR assets."
+      },
+      'ppc': {
+        cpc: 2.45,        // Paid Ad CPC
+        cr: 0.035,        // 3.50% Conversion Rate
+        crText: "3.50% Conversion Rate (Paid Search)",
+        subtext: "Traffic calculated against regional negative keywords & intent search volume."
+      },
+      'social': {
+        cpc: 1.60,        // Social CPM to Click equivalent
+        cr: 0.022,        // 2.20% Conversion Rate
+        crText: "2.20% Conversion Rate (Social Feeds)",
+        subtext: "Traffic projected using average UGC click-through variables on Meta/TikTok."
+      },
+      'email': {
+        cpc: 0.45,        // Extreme low cost per contact click
+        cr: 0.048,        // 4.80% Conversion Rate
+        crText: "4.80% Conversion Rate (Lifecycle)",
+        subtext: "Traffic computed via existing list segmented drip-campaign triggers."
+      }
+    };
+
+    let selectedService = 'seo';
+
+    function handleServiceChange(serviceKey) {
+      selectedService = serviceKey;
+      
+      // Update selected class styling on radio visual cards
+      document.querySelectorAll('.service-radio-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      document.getElementById(`card-${serviceKey}`).classList.add('selected');
+      
+      calculateROI();
+    }
+
+    function animateNumber(element, start, end, duration, prefix = '', suffix = '') {
+      if (start === end) return;
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const currentValue = Math.floor(progress * (end - start) + start);
+        
+        // Format nicely
+        let formattedValue = currentValue.toLocaleString('en-US');
+        element.innerHTML = prefix + formattedValue + suffix;
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          element.innerHTML = prefix + end.toLocaleString('en-US') + suffix;
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Keep track of old values to animate from
+    let prevTraffic = 0;
+    let prevConversions = 0;
+    let prevRevenue = 0;
+
+    function calculateROI() {
+      // 1. Get raw inputs
+      const budget = parseFloat(document.getElementById('calcBudget').value);
+      const aov = parseFloat(document.getElementById('calcAOV').value) || 0;
+      
+      // Update Budget Visual text element
+      document.getElementById('budgetDisplay').innerHTML = "$" + budget.toLocaleString('en-US');
+
+      // 2. Load service configuration factors
+      const config = serviceMatrix[selectedService];
+      
+      // 3. Compute variables
+      const traffic = Math.floor(budget / config.cpc);
+      const conversions = Math.floor(traffic * config.cr);
+      const revenue = Math.floor(conversions * aov);
+      
+      // 4. Compute ROI multiple
+      const roiRatio = budget > 0 ? (revenue / budget) : 0;
+      const roasLabel = roiRatio.toFixed(2) + "x ROAS";
+
+      // 5. Update descriptions
+      document.getElementById('trafficSubLabel').innerHTML = config.subtext;
+      document.getElementById('conversionSubLabel').innerHTML = `Based on ${config.crText}`;
+
+      // 6. Animate counting on output results
+      const resTraffic = document.getElementById('resTraffic');
+      const resConversions = document.getElementById('resConversions');
+      const resRevenue = document.getElementById('resRevenue');
+      
+      animateNumber(resTraffic, prevTraffic, traffic, 400);
+      animateNumber(resConversions, prevConversions, conversions, 400);
+      animateNumber(resRevenue, prevRevenue, revenue, 400, '$');
+
+      // Update stored metrics for the next movement animation frame
+      prevTraffic = traffic;
+      prevConversions = conversions;
+      prevRevenue = revenue;
+
+      // Update ROAS badges and dynamic visual growth bar
+      document.getElementById('resROIBadge').innerHTML = roasLabel;
+      
+      // Calculate growth bar percentage (limit at 10x max for visual containment)
+      const visualPercent = Math.min((roiRatio / 8) * 100, 100);
+      document.getElementById('roiProgressFill').style.width = visualPercent + "%";
+    }
+
+    // Connect prefill values from calculator directly back up to the lead form budget select
+    function prefillFormFromCalculator() {
+      const budgetVal = parseFloat(document.getElementById('calcBudget').value);
+      const selectFormInput = document.getElementById('heroBudget');
+      
+      if (budgetVal < 5000) {
+        selectFormInput.value = '1000-5000';
+      } else if (budgetVal < 15000) {
+        selectFormInput.value = '5000-15000';
+      } else if (budgetVal < 30000) {
+        selectFormInput.value = '15000-30000';
+      } else {
+        selectFormInput.value = '30000+';
+      }
+    }
+
+    /* ==========================================
+       LEAD FORM CAPTURE AND SUBMISSION SYSTEM
+       ========================================== */
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      // Simulate API submit delay and validation
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      submitButton.innerHTML = 'Analyzing Competitors...';
+      submitButton.disabled = true;
+
+      setTimeout(() => {
+        // Toggle view from form input layout state to success confirm screen state
+        document.getElementById('formContentState').style.display = 'none';
+        document.getElementById('formSuccessState').style.display = 'block';
+      }, 1200);
+    }
+
+    function resetFormState() {
+      // Restore standard form setup values
+      const leadForm = document.getElementById('heroLeadForm');
+      leadForm.reset();
+      
+      const submitButton = leadForm.querySelector('button[type="submit"]');
+      submitButton.innerHTML = 'Launch Free Growth Audit';
+      submitButton.disabled = false;
+
+      document.getElementById('formSuccessState').style.display = 'none';
+      document.getElementById('formContentState').style.display = 'block';
+    }
+
+    /* ==========================================
+       ELEGANT NEWSLETTER SUBMISSION SIMULATION
+       ========================================== */
+    function handleNewsletterSubmit(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('newsletterEmail');
+      const submitBtn = event.target.querySelector('.newsletter-submit-btn');
+      const successMsg = document.getElementById('newsletterSuccess');
+
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        emailInput.value = '';
+        submitBtn.style.display = 'none';
+        emailInput.style.display = 'none';
+        successMsg.style.display = 'block';
+      }, 1000);
+    }
+  </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/agency-digital" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">agency</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">London Digital Agency</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/business-corporate-pro" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">agency</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Zurich Corporate Pro</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

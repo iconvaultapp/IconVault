@@ -74,7 +74,7 @@ function Page() {
                 />
               </Link>
               <div className="flex flex-1 flex-col p-5">
-                <h2 className="text-base font-semibold">
+                <h2 className="text-base font-semibold text-foreground">
                   <Link to="/wallpapers/$slug" params={{ slug: w.slug }} className="hover:underline">
                     {w.title}
                   </Link>

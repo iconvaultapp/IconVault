@@ -1,5 +1,5 @@
 // Homepage "New in v56" section (v56, lazy-loaded below the fold).
-// Cards and links for /templates, /animated-icons, /customizer, /showcase,
+// Cards and links for /templates, /animated-icons, /showcase,
 // the original collections, /wallpapers (including 3D-look designs),
 // /mockups and /animated-backgrounds, following the IllustrationsHome
 // pattern: a centred header, a surface-card grid, no images at all, only
@@ -17,7 +17,7 @@
 // empty state is honest by design, so no entries are faked here either.
 //
 // Pro note, kept narrow on purpose: Pro $19 is mentioned only for premium
-// templates and animations bundles. Customizer, showcase browsing,
+// templates and animations bundles. Showcase browsing,
 // original collections browsing and basic wallpaper downloads are free.
 
 import { Link } from "@tanstack/react-router";
@@ -29,7 +29,6 @@ import {
   Palette,
   Sparkles,
   Users,
-  Wand2,
   Waves,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
@@ -82,13 +81,6 @@ const CARDS: V56Card[] = [
     badge: `${ANIMATED_TOTAL} icons`,
     desc: "Weather, loaders and spinners that move. Preview free, copy the code free.",
     to: "/animated-icons",
-  },
-  {
-    icon: Wand2,
-    title: "Icon customizer",
-    badge: "Free",
-    desc: "Recolor, resize and share any icon with a link that restores your exact settings.",
-    to: "/customizer",
   },
   {
     icon: Users,

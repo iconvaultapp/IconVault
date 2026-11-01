@@ -1,0 +1,3630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, commercial real estate listings, apartments rentals properties directory, property listings broker search, realtor agency listings catalog, office space lease portal, interactive property locator search, realty broker platform directory, house listings rentals catalog, agent properties listing site">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/realestate-property-listings">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iberian Property Listings — Free Real Estate Template</title>
+  <meta name="description" content="Dynamic housing search portal tailored for Spanish and Portuguese estates, featuring metric system specifications and Euro valua... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Iberian Property Listings — Free Real Estate Template">
+  <meta property="og:description" content="Dynamic housing search portal tailored for Spanish and Portuguese estates, featuring metric system specifications and Euro valua... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/realestate_property_listings.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Iberian Property Listings — Free Real Estate Template">
+  <meta name="twitter:description" content="Dynamic housing search portal tailored for Spanish and Portuguese estates, featuring metric system specifications and Euro valua... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/realestate_property_listings.webp">
+    <!-- Outfit & Playfair Display Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS variables for consistent luxury branding */
+        :root {
+            --primary: #0A2218;         /* Deep Forest Green Base */
+            --primary-light: #123C2A;   /* Forest Green Light */
+            --primary-dark: #05140E;    /* Shadow Forest Green */
+            --accent: #C5A059;          /* Premium Warm Gold */
+            --accent-hover: #D4AF37;    /* Bright Gold */
+            --accent-light: #F7F5F0;    /* Warm Champagne Off-White */
+            --text-dark: #1A2420;       /* Rich Charcoal Green Text */
+            --text-muted: #5E6E66;      /* Slate Olive Muted Text */
+            --bg-light: #FAF9F6;        /* Luxurious Cream Background */
+            --bg-card: #FFFFFF;         /* White Card Base */
+            --border: #E5EAE7;          /* Soft Sage-Gray Border */
+            --shadow-sm: 0 4px 12px rgba(10, 34, 24, 0.03);
+            --shadow-md: 0 12px 32px rgba(10, 34, 24, 0.06);
+            --shadow-lg: 0 20px 48px rgba(10, 34, 24, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --font-main: 'Outfit', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Base & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        button, select, input {
+            font-family: inherit;
+            outline: none;
+            border: none;
+            background: none;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Containers & Layouts */
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 56px auto;
+        }
+
+        .section-header span {
+            font-family: var(--font-main);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Header Style */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            z-index: 100;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        header.scrolled {
+            height: 75px;
+            background-color: rgba(10, 34, 24, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        header.scrolled .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        header.scrolled .logo h1 {
+            color: #FFF;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-symbol {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #E5C384);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);
+        }
+
+        .logo h1 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: #FFF;
+            letter-spacing: 0.5px;
+        }
+
+        .logo h1 span {
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-client {
+            font-size: 14px;
+            font-weight: 500;
+            color: #FFF;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .btn-client:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #FFF;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #B59049);
+            color: var(--primary-dark);
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+            background: linear-gradient(135deg, #D4AF37, var(--accent));
+        }
+
+        .mobile-toggle {
+            display: none;
+            cursor: pointer;
+            color: #FFF;
+        }
+
+        /* Hero & Search Console */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(rgba(10, 34, 24, 0.8), rgba(5, 20, 14, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230A2218"/><circle cx="50" cy="50" r="40" stroke="%23123C2A" stroke-width="0.5" fill="none"/></svg>') repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 130px;
+            padding-bottom: 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(18, 60, 42, 0.3) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #FFF;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero p.lead {
+            font-size: clamp(16px, 2vw, 20px);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto 48px auto;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        /* Multi-Tab Search Console */
+        .search-console {
+            background-color: #FFF;
+            border-radius: var(--radius-lg);
+            padding: 8px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .console-tabs {
+            display: flex;
+            gap: 6px;
+            border-bottom: 1px solid var(--border);
+            padding: 8px 16px;
+        }
+
+        .console-tab {
+            padding: 10px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .console-tab:hover {
+            color: var(--primary);
+            background-color: rgba(18, 60, 42, 0.05);
+        }
+
+        .console-tab.active {
+            color: #FFF;
+            background-color: var(--primary);
+        }
+
+        .console-panels {
+            padding: 20px 16px 12px 16px;
+        }
+
+        .search-panel {
+            display: none;
+            grid-template-columns: repeat(4, 1fr) auto;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .search-panel.active {
+            display: grid;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            border-right: 1px solid var(--border);
+            padding-right: 16px;
+        }
+
+        .input-group:nth-child(4) {
+            border-right: none;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .input-group select, .input-group input {
+            color: var(--text-dark);
+            font-size: 15px;
+            font-weight: 500;
+            width: 100%;
+            background: transparent;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+
+        .input-group select option {
+            background-color: #FFF;
+            color: var(--text-dark);
+        }
+
+        /* Valuation (Sell) Panel specifically */
+        .valuation-panel {
+            grid-template-columns: 2fr 1fr 1fr auto !important;
+        }
+
+        .valuation-panel input[type="text"] {
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .btn-search {
+            height: 52px;
+            padding: 0 28px;
+            background: linear-gradient(135deg, var(--accent), #B59049);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+            transition: var(--transition);
+        }
+
+        .btn-search:hover {
+            background: linear-gradient(135deg, #D4AF37, var(--accent));
+            color: var(--primary-dark);
+            box-shadow: 0 6px 18px rgba(197, 160, 89, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* Listing Grid Section */
+        .listings-section {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .category-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .category-pill {
+            padding: 8px 20px;
+            background-color: #FFF;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-pill:hover, .category-pill.active {
+            background-color: var(--primary);
+            color: #FFF;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .results-count {
+            font-size: 15px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .results-count span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
+            transition: opacity 0.3s ease;
+        }
+
+        .property-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .property-card.highlight {
+            animation: highlightGlow 2s ease;
+            border-color: var(--accent);
+        }
+
+        @keyframes highlightGlow {
+            0% { box-shadow: 0 0 0 0px rgba(197, 160, 89, 0.8); }
+            50% { box-shadow: 0 0 0 8px rgba(197, 160, 89, 0.4); }
+            100% { box-shadow: var(--shadow-md); }
+        }
+
+        .property-image-wrapper {
+            position: relative;
+            height: 240px;
+            background-color: var(--primary-dark);
+            overflow: hidden;
+        }
+
+        .property-image-wrapper svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .property-card:hover .property-image-wrapper svg {
+            transform: scale(1.05);
+        }
+
+        .price-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+            border-left: 3px solid var(--accent);
+        }
+
+        .tag-purpose {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background-color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tag-category {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-favorite {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 38px;
+            height: 38px;
+            background-color: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .btn-favorite:hover {
+            background-color: #FFF;
+            color: #E24C4C;
+            transform: scale(1.1);
+        }
+
+        .btn-favorite.favorited {
+            color: #E24C4C;
+            background-color: #FFF;
+        }
+
+        .btn-favorite.favorited svg {
+            fill: #E24C4C;
+        }
+
+        .property-details {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .property-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .property-location {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .property-location svg {
+            color: var(--accent);
+        }
+
+        .property-specs {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            margin-bottom: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 13px;
+        }
+
+        .spec-item span.label {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-item span.value {
+            font-weight: 600;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .spec-item svg {
+            color: var(--accent);
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .btn-card-details {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+            cursor: pointer;
+        }
+
+        .btn-card-details:hover {
+            color: var(--accent);
+            border-color: var(--primary);
+        }
+
+        /* No results styled card */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 40px;
+            background-color: #FFF;
+            border-radius: var(--radius-md);
+            border: 1px dashed var(--border);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .no-results svg {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .no-results h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .no-results p {
+            color: var(--text-muted);
+            max-width: 400px;
+            margin-bottom: 12px;
+        }
+
+        /* Map Section styles */
+        .map-section {
+            padding: 100px 0;
+            background-color: #FFF;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .map-split-container {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .map-wrapper {
+            position: relative;
+            background-color: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            height: 480px;
+        }
+
+        .map-svg-bg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Pin interactive overlays */
+        .map-pin {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background-color: var(--accent);
+            border: 3px solid #FFF;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.8);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulse 2s infinite;
+        }
+
+        .map-pin:hover, .map-pin.active {
+            transform: translate(-50%, -50%) scale(1.3);
+            background-color: var(--primary);
+            border-color: var(--accent);
+            z-index: 20;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        /* Map Pin Tooltip Overlay inside Map Container */
+        .map-tooltip {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background-color: rgba(10, 34, 24, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 16px;
+            color: #FFF;
+            display: none;
+            align-items: center;
+            gap: 16px;
+            box-shadow: var(--shadow-lg);
+            z-index: 30;
+            animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .map-tooltip-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .map-tooltip-close:hover {
+            color: var(--accent);
+        }
+
+        .map-tooltip-thumb {
+            width: 80px;
+            height: 60px;
+            border-radius: 4px;
+            background-color: var(--primary-dark);
+            overflow: hidden;
+        }
+
+        .map-tooltip-thumb svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-tooltip-content {
+            flex-grow: 1;
+        }
+
+        .map-tooltip-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .map-tooltip-price {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .map-tooltip-action {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .map-tooltip-action:hover {
+            color: #FFF;
+        }
+
+        /* Map Info Panel */
+        .map-info-panel span.badge {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .map-info-panel h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .map-info-panel p {
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            font-weight: 300;
+        }
+
+        .district-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .district-option {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .district-option:hover, .district-option.active {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+        }
+
+        .district-option-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .district-option-title svg {
+            color: var(--accent);
+        }
+
+        .district-option-count {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            background-color: rgba(197, 160, 89, 0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* Agents Section */
+        .agents-section {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .agent-card {
+            background-color: #FFF;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .agent-avatar-wrapper {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 24px auto;
+            border: 3px solid var(--accent);
+            padding: 4px;
+            background-color: #FFF;
+            position: relative;
+        }
+
+        .agent-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .agent-avatar svg {
+            width: 70px;
+            height: 70px;
+            color: var(--accent);
+            opacity: 0.85;
+        }
+
+        .agent-card h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .agent-role {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .agent-specialty {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .agent-socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+        }
+
+        .agent-social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .agent-social-btn:hover {
+            background-color: var(--primary);
+            color: #FFF;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Inquiry Section & Form */
+        .inquiry-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(10, 34, 24, 0.95), rgba(5, 20, 14, 0.98)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230A2218"/><circle cx="50" cy="50" r="40" stroke="%23123C2A" stroke-width="0.5" fill="none"/></svg>') repeat;
+            color: #FFF;
+            position: relative;
+        }
+
+        .inquiry-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .inquiry-details h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .inquiry-details p {
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            margin-bottom: 40px;
+            font-size: 17px;
+        }
+
+        .inquiry-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .contact-text span {
+            display: block;
+        }
+
+        .contact-text span.label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-text span.value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Form styling */
+        .inquiry-form-container {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            backdrop-filter: blur(12px);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            color: #FFF;
+            font-size: 15px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
+        }
+
+        .form-group select option {
+            background-color: var(--primary);
+            color: #FFF;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent), #B59049);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #D4AF37, var(--accent));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Inquiry success container */
+        .inquiry-success {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .inquiry-success svg {
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .inquiry-success h3 {
+            font-family: var(--font-display);
+            font-size: 26px;
+            color: #FFF;
+            margin-bottom: 12px;
+        }
+
+        .inquiry-success p {
+            color: rgba(255,255,255,0.7);
+            max-width: 320px;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 60px 0 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo-panel h2 {
+            font-family: var(--font-display);
+            color: #FFF;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-panel p {
+            max-width: 280px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .footer-column h4 {
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-legal-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        /* Modals and Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(5, 20, 14, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-container {
+            background-color: #FFF;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: zoomIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background-color: var(--primary);
+            color: #FFF;
+        }
+
+        .modal-header-bg {
+            height: 320px;
+            background-color: var(--primary-dark);
+            position: relative;
+        }
+
+        .modal-header-bg svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .modal-title-group h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .modal-title-group p {
+            color: var(--text-muted);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .modal-title-group p svg {
+            color: var(--accent);
+        }
+
+        .modal-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            background-color: var(--primary-dark);
+            padding: 10px 24px;
+            border-radius: var(--radius-sm);
+        }
+
+        .modal-specs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            margin-bottom: 30px;
+        }
+
+        .modal-spec-card {
+            background-color: var(--bg-light);
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .modal-spec-card span.label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .modal-spec-card span.value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-spec-card svg {
+            color: var(--accent);
+        }
+
+        .modal-desc-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+        }
+
+        .modal-desc-col h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .modal-desc-col p {
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .modal-amenities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .amenity-item {
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+        }
+
+        .amenity-item svg {
+            color: var(--accent);
+        }
+
+        .modal-contact-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            height: fit-content;
+        }
+
+        .modal-contact-card h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        /* Sell Valuation calculation output styling inside search panel modal */
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .valuation-number {
+            font-family: var(--font-display);
+            font-size: 40px;
+            color: var(--accent);
+            font-weight: 700;
+            margin: 16px 0;
+            letter-spacing: 0.5px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Mobile Responsive adjustments */
+        @media (max-width: 1024px) {
+            .search-panel {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .btn-search {
+                grid-column: span 2;
+            }
+            .map-split-container {
+                grid-template-columns: 1fr;
+            }
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                background-color: var(--primary-dark);
+                height: 80px;
+            }
+            .nav-links, .nav-actions {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero {
+                padding-top: 100px;
+            }
+            .search-panel {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .input-group {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 12px;
+            }
+            .btn-search {
+                grid-column: span 1;
+            }
+            .inquiry-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .modal-desc-row {
+                grid-template-columns: 1fr;
+            }
+            .modal-specs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Drawer style */
+        .mobile-menu-drawer {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--primary-dark);
+            z-index: 150;
+            padding: 40px 24px;
+            box-shadow: var(--shadow-lg);
+            border-left: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-drawer.open {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            align-self: flex-end;
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent);
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Iberian Property Listings",
+    "description": "Dynamic housing search portal tailored for Spanish and Portuguese estates, featuring metric system specifications and Euro valua... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/realestate-property-listings",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/realestate-property-listings.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- Header Section -->
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-symbol">S</div>
+                <h1>STERLING<span>CREST</span></h1>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#listings" class="nav-link">Residences</a></li>
+                    <li><a href="#map" class="nav-link">Map Portal</a></li>
+                    <li><a href="#agents" class="nav-link">The Brokerage</a></li>
+                    <li><a href="#inquiry" class="nav-link">Inquiry</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#client-modal" class="btn-client" onclick="toggleClientModal(true)">Client Portal</a>
+                <a href="#inquiry" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    Request Briefing
+                </a>
+            </div>
+
+            <!-- Hamburger for responsive layout -->
+            <div class="mobile-toggle" onclick="toggleMobileMenu(true)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+        <div class="mobile-menu-close" onclick="toggleMobileMenu(false)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#" class="mobile-nav-link" onclick="toggleMobileMenu(false)">Home</a></li>
+            <li><a href="#listings" class="mobile-nav-link" onclick="toggleMobileMenu(false)">Residences</a></li>
+            <li><a href="#map" class="mobile-nav-link" onclick="toggleMobileMenu(false)">Map Portal</a></li>
+            <li><a href="#agents" class="mobile-nav-link" onclick="toggleMobileMenu(false)">The Brokerage</a></li>
+            <li><a href="#inquiry" class="mobile-nav-link" onclick="toggleMobileMenu(false)">Inquiry</a></li>
+        </ul>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: auto;">
+            <button class="btn-client" onclick="toggleClientModal(true); toggleMobileMenu(false);">Client Portal</button>
+            <a href="#inquiry" class="btn-primary" style="text-align: center; justify-content: center;" onclick="toggleMobileMenu(false)">Request Briefing</a>
+        </div>
+    </div>
+
+    <!-- Hero Section with Multi-Tab Search Console -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                The Elite Collection
+            </div>
+            <h2>Refined Living,<br>Exceptional Spaces.</h2>
+            <p class="lead">An exclusive portfolio of premium properties crafted for the discerning few. Explore legendary estates in paramount locations.</p>
+            
+            <!-- Dynamic Search Console -->
+            <div class="search-console">
+                <div class="console-tabs">
+                    <button class="console-tab active" data-tab="buy" onclick="switchConsoleTab('buy')">Buy</button>
+                    <button class="console-tab" data-tab="rent" onclick="switchConsoleTab('rent')">Rent</button>
+                    <button class="console-tab" data-tab="sell" onclick="switchConsoleTab('sell')">Sell Your Estate</button>
+                </div>
+                <div class="console-panels">
+                    <!-- Buy Search Panel -->
+                    <div class="search-panel active" id="panel-buy">
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Location
+                            </label>
+                            <select id="buy-location">
+                                <option value="Any">All Destinations</option>
+                                <option value="Aspen">Aspen, CO</option>
+                                <option value="Miami">Miami, FL</option>
+                                <option value="New York">New York, NY</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                Beds
+                            </label>
+                            <select id="buy-beds">
+                                <option value="Any">Any Beds</option>
+                                <option value="2">2+ Beds</option>
+                                <option value="3">3+ Beds</option>
+                                <option value="4">4+ Beds</option>
+                                <option value="5">5+ Beds</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                Baths
+                            </label>
+                            <select id="buy-baths">
+                                <option value="Any">Any Baths</option>
+                                <option value="2">2+ Baths</option>
+                                <option value="3">3+ Baths</option>
+                                <option value="4">4+ Baths</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                Max Price
+                            </label>
+                            <select id="buy-price">
+                                <option value="Any">Any Price</option>
+                                <option value="2000000">$2,000,000</option>
+                                <option value="3500000">$3,500,000</option>
+                                <option value="5000000">$5,000,000</option>
+                            </select>
+                        </div>
+                        <button class="btn-search" onclick="executeFilter('buy')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            Search
+                        </button>
+                    </div>
+
+                    <!-- Rent Search Panel -->
+                    <div class="search-panel" id="panel-rent">
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Location
+                            </label>
+                            <select id="rent-location">
+                                <option value="Any">All Destinations</option>
+                                <option value="Aspen">Aspen, CO</option>
+                                <option value="Miami">Miami, FL</option>
+                                <option value="New York">New York, NY</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                Beds
+                            </label>
+                            <select id="rent-beds">
+                                <option value="Any">Any Beds</option>
+                                <option value="1">1+ Beds</option>
+                                <option value="2">2+ Beds</option>
+                                <option value="3">3+ Beds</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                Baths
+                            </label>
+                            <select id="rent-baths">
+                                <option value="Any">Any Baths</option>
+                                <option value="1">1+ Baths</option>
+                                <option value="2">2+ Baths</option>
+                                <option value="3">3+ Baths</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                Max Monthly
+                            </label>
+                            <select id="rent-price">
+                                <option value="Any">Any Price</option>
+                                <option value="7000">$7,000 / mo</option>
+                                <option value="10000">$10,000 / mo</option>
+                                <option value="15000">$15,000 / mo</option>
+                            </select>
+                        </div>
+                        <button class="btn-search" onclick="executeFilter('rent')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            Search
+                        </button>
+                    </div>
+
+                    <!-- Valuation / Sell Panel -->
+                    <div class="search-panel valuation-panel" id="panel-sell">
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                Estate Address
+                            </label>
+                            <input type="text" id="sell-address" placeholder="Enter your property address..." />
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+                                Style
+                            </label>
+                            <select id="sell-style">
+                                <option value="Chalet">Alpine Chalet</option>
+                                <option value="Villa">Coastal Villa</option>
+                                <option value="Penthouse">City Penthouse</option>
+                                <option value="Loft">Industrial Loft</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                Est. Sq Ft
+                            </label>
+                            <input type="number" id="sell-sqft" placeholder="e.g. 4500" min="500" max="30000" />
+                        </div>
+                        <button class="btn-search" onclick="calculateValuation()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            Valuate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Listings Section -->
+    <section class="listings-section" id="listings">
+        <div class="container">
+            <div class="section-header">
+                <span>The Portfolio</span>
+                <h2>Paramount Residences</h2>
+                <p>An exquisite range of custom structural masterpieces curated globally. Refine your lookup using our discrete filters below.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-bar">
+                <div class="category-pills">
+                    <button class="category-pill active" data-filter="All" onclick="filterByQuickTag('All')">All Domains</button>
+                    <button class="category-pill" data-filter="Aspen" onclick="filterByQuickTag('Aspen')">Aspen District</button>
+                    <button class="category-pill" data-filter="Miami" onclick="filterByQuickTag('Miami')">Miami Coast</button>
+                    <button class="category-pill" data-filter="New York" onclick="filterByQuickTag('New York')">New York Heights</button>
+                </div>
+                <div class="results-count">
+                    Showing <span id="current-count">6</span> of <span id="total-count">6</span> Exclusive Properties
+                </div>
+            </div>
+
+            <!-- Listings Grid -->
+            <div class="listings-grid" id="properties-grid">
+                
+                <!-- Property 1 -->
+                <div class="property-card" data-purpose="buy" data-location="Aspen" data-beds="5" data-baths="6" data-price="4850000" id="property-1">
+                    <div class="property-image-wrapper">
+                        <span class="tag-purpose">For Sale</span>
+                        <span class="tag-category">Luxury Estate</span>
+                        <!-- SVG Illustration for Emerald Crest Manor -->
+                        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#071913"/>
+                                    <stop offset="100%" stop-color="#123C2A"/>
+                                </linearGradient>
+                                <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#C5A059"/>
+                                    <stop offset="100%" stop-color="#F2D492"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="240" fill="url(#sky1)"/>
+                            <!-- Mountain peaks -->
+                            <polygon points="50,200 150,80 250,200" fill="#0A251C" opacity="0.6"/>
+                            <polygon points="180,200 280,60 380,200" fill="#05140E"/>
+                            <polygon points="110,200 200,100 290,200" fill="#0D2E21" opacity="0.8"/>
+                            <!-- Moon and Stars -->
+                            <circle cx="340" cy="50" r="16" fill="url(#gold-grad)"/>
+                            <circle cx="80" cy="40" r="1" fill="#FFF" opacity="0.8"/>
+                            <circle cx="120" cy="60" r="1" fill="#FFF" opacity="0.5"/>
+                            <circle cx="280" cy="35" r="1.5" fill="#FFF" opacity="0.9"/>
+                            <!-- Pines -->
+                            <polygon points="30,210 40,170 50,210" fill="#0A2218"/>
+                            <polygon points="40,210 48,160 56,210" fill="#123C2A"/>
+                            <polygon points="340,215 350,180 360,215" fill="#123C2A"/>
+                            <!-- Sleek chalet layout -->
+                            <polygon points="120,200 170,120 280,200" fill="#05120D" stroke="url(#gold-grad)" stroke-width="1.5"/>
+                            <polygon points="170,120 280,120 280,200" fill="#091C14" opacity="0.9"/>
+                            <!-- Golden glowing luxury glass window -->
+                            <rect x="185" y="140" width="35" height="40" fill="#FCEECA" opacity="0.8" rx="2"/>
+                            <line x1="202.5" y1="140" x2="202.5" y2="180" stroke="#05120D" stroke-width="1"/>
+                            <line x1="185" y1="160" x2="220" y2="160" stroke="#05120D" stroke-width="1"/>
+                            <rect x="235" y="150" width="30" height="30" fill="#FCEECA" opacity="0.7" rx="2"/>
+                            <!-- Balcony deck line -->
+                            <line x1="160" y1="180" x2="280" y2="180" stroke="url(#gold-grad)" stroke-width="2"/>
+                            <!-- Snow/Ground line -->
+                            <rect y="200" width="400" height="40" fill="#0A2218"/>
+                        </svg>
+                        <button class="btn-favorite" onclick="toggleFavorite(this, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <div class="price-badge">$4,850,000</div>
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">The Emerald Crest Manor</h3>
+                        <div class="property-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Aspen Heights, CO
+                        </div>
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <span class="label">Beds</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                    5
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Baths</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                    6
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Area</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                    6,200 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="btn-card-details" onclick="openDetailsModal(1)">View Dossier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card" data-purpose="buy" data-location="Miami" data-beds="4" data-baths="4" data-price="3200000" id="property-2">
+                    <div class="property-image-wrapper">
+                        <span class="tag-purpose">For Sale</span>
+                        <span class="tag-category">Waterfront</span>
+                        <!-- SVG Illustration for Serene Water Vista Villa -->
+                        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0F243E"/>
+                                    <stop offset="60%" stop-color="#1E3E5B"/>
+                                    <stop offset="100%" stop-color="#C5A059"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="240" fill="url(#sky2)"/>
+                            <!-- Ocean horizon -->
+                            <rect y="160" width="400" height="80" fill="#0C1B2A"/>
+                            <!-- Distant Yacht -->
+                            <polygon points="310,157 325,157 320,150" fill="#FFF" opacity="0.6"/>
+                            <rect x="305" y="157" width="20" height="4" fill="#FFF" opacity="0.7"/>
+                            <!-- Pool reflection -->
+                            <ellipse cx="200" cy="210" rx="140" ry="25" fill="#1C5E78" opacity="0.7"/>
+                            <!-- Sleek flat villa design -->
+                            <rect x="60" y="80" width="200" height="80" fill="#081421" stroke="#C5A059" stroke-width="1.5"/>
+                            <rect x="180" y="60" width="90" height="40" fill="#112538" stroke="#C5A059" stroke-width="1" opacity="0.9"/>
+                            <!-- Palm silhouettes -->
+                            <path d="M340,200 Q330,140 300,100" stroke="#050C14" stroke-width="4" fill="none"/>
+                            <path d="M300,100 Q280,100 260,110" stroke="#050C14" stroke-width="2.5" fill="none"/>
+                            <path d="M300,100 Q310,80 330,85" stroke="#050C14" stroke-width="2.5" fill="none"/>
+                            <path d="M300,100 Q320,110 335,120" stroke="#050C14" stroke-width="2.5" fill="none"/>
+                            <!-- Elegant illuminated windows -->
+                            <rect x="80" y="100" width="60" height="40" fill="#FFE8AA" opacity="0.85"/>
+                            <rect x="190" y="100" width="50" height="40" fill="#FFE8AA" opacity="0.75"/>
+                            <line x1="110" y1="100" x2="110" y2="140" stroke="#081421" stroke-width="1.5"/>
+                            <line x1="215" y1="100" x2="215" y2="140" stroke="#081421" stroke-width="1.5"/>
+                            <!-- Villa pillar shadows -->
+                            <rect x="50" y="80" width="10" height="90" fill="#C5A059"/>
+                            <rect x="259" y="80" width="10" height="90" fill="#C5A059"/>
+                        </svg>
+                        <button class="btn-favorite" onclick="toggleFavorite(this, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <div class="price-badge">$3,200,000</div>
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">Serene Water Vista Villa</h3>
+                        <div class="property-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Miami Marina, FL
+                        </div>
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <span class="label">Beds</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                    4
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Baths</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                    4
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Area</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                    4,800 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="btn-card-details" onclick="openDetailsModal(2)">View Dossier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card" data-purpose="rent" data-location="New York" data-beds="3" data-baths="3" data-price="12500" id="property-3">
+                    <div class="property-image-wrapper">
+                        <span class="tag-purpose">For Rent</span>
+                        <span class="tag-category">Penthouse</span>
+                        <!-- SVG Illustration for Obsidian Penthouse -->
+                        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#020813"/>
+                                    <stop offset="100%" stop-color="#0A1D37"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="240" fill="url(#sky3)"/>
+                            <!-- Background skyscrapers -->
+                            <rect x="30" y="80" width="60" height="160" fill="#050E1A"/>
+                            <rect x="70" y="110" width="50" height="130" fill="#081425" opacity="0.8"/>
+                            <rect x="290" y="60" width="80" height="180" fill="#040B15"/>
+                            <!-- Midground Penthouse building top -->
+                            <rect x="110" y="90" width="160" height="150" fill="#061224" stroke="#C5A059" stroke-width="1.5"/>
+                            <!-- Modern terrace glass railings -->
+                            <rect x="100" y="75" width="180" height="15" fill="#1C5E78" opacity="0.4" stroke="#C5A059" stroke-width="0.5"/>
+                            <!-- Balcony door glow -->
+                            <rect x="130" y="110" width="50" height="70" fill="#FFF2CC" opacity="0.8"/>
+                            <rect x="200" y="110" width="50" height="70" fill="#FFF2CC" opacity="0.8"/>
+                            <line x1="155" y1="110" x2="155" y2="180" stroke="#061224" stroke-width="1.5"/>
+                            <line x1="225" y1="110" x2="225" y2="180" stroke="#061224" stroke-width="1.5"/>
+                            <!-- Stars and glowing dots -->
+                            <circle cx="320" cy="40" r="1.5" fill="#FFF" opacity="0.9"/>
+                            <circle cx="50" cy="50" r="1" fill="#FFF" opacity="0.6"/>
+                            <!-- Sky lights -->
+                            <polygon points="150,110 130,0 180,0" fill="#FFF" opacity="0.06"/>
+                            <polygon points="220,110 240,0 290,0" fill="#FFF" opacity="0.04"/>
+                        </svg>
+                        <button class="btn-favorite" onclick="toggleFavorite(this, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <div class="price-badge">$12,500 / mo</div>
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">The Obsidian Penthouse</h3>
+                        <div class="property-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Park Avenue, NY
+                        </div>
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <span class="label">Beds</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                    3
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Baths</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                    3
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Area</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                    3,100 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="btn-card-details" onclick="openDetailsModal(3)">View Dossier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card" data-purpose="buy" data-location="Aspen" data-beds="3" data-baths="2" data-price="1950000" id="property-4">
+                    <div class="property-image-wrapper">
+                        <span class="tag-purpose">For Sale</span>
+                        <span class="tag-category">Chalet</span>
+                        <!-- SVG Illustration for Whispering Pines Residence -->
+                        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#05161A"/>
+                                    <stop offset="100%" stop-color="#0D2E30"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="240" fill="url(#sky4)"/>
+                            <!-- Mountain peaks in background -->
+                            <polygon points="20,200 120,60 220,200" fill="#082024" opacity="0.6"/>
+                            <polygon points="140,200 250,50 360,200" fill="#041216" opacity="0.8"/>
+                            <!-- Modern A frame chalet -->
+                            <polygon points="120,200 200,60 280,200" fill="#030C0E" stroke="#C5A059" stroke-width="2"/>
+                            <!-- Illuminated front windows forming dynamic layout -->
+                            <polygon points="135,190 200,80 265,190" fill="#FFEAA5" opacity="0.85"/>
+                            <line x1="200" y1="80" x2="200" y2="190" stroke="#030C0E" stroke-width="2.5"/>
+                            <line x1="167" y1="135" x2="233" y2="135" stroke="#030C0E" stroke-width="1.5"/>
+                            <!-- Ground layout and small warm fireplace chimney -->
+                            <rect x="250" y="110" width="12" height="30" fill="#041216"/>
+                            <path d="M256,110 Q260,95 254,80 Q258,65 252,50" stroke="#C5A059" stroke-width="1.5" fill="none" opacity="0.5"/>
+                            <rect y="200" width="400" height="40" fill="#05181C"/>
+                        </svg>
+                        <button class="btn-favorite" onclick="toggleFavorite(this, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <div class="price-badge">$1,950,000</div>
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">Whispering Pines Chalet</h3>
+                        <div class="property-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Aspen Village, CO
+                        </div>
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <span class="label">Beds</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                    3
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Baths</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                    2.5
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Area</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                    3,400 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="btn-card-details" onclick="openDetailsModal(4)">View Dossier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card" data-purpose="rent" data-location="Miami" data-beds="2" data-baths="2" data-price="8500" id="property-5">
+                    <div class="property-image-wrapper">
+                        <span class="tag-purpose">For Rent</span>
+                        <span class="tag-category">Beachfront</span>
+                        <!-- SVG Illustration for Azure Coastal Hideaway -->
+                        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky5" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0E2333"/>
+                                    <stop offset="50%" stop-color="#194056"/>
+                                    <stop offset="100%" stop-color="#DC9E65"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="240" fill="url(#sky5)"/>
+                            <!-- Golden sun reflection on sea -->
+                            <rect y="150" width="400" height="90" fill="#0C1B2A"/>
+                            <ellipse cx="200" cy="150" rx="60" ry="2" fill="#DC9E65" opacity="0.7"/>
+                            <!-- Beach shore slope -->
+                            <polygon points="0,240 180,180 400,240" fill="#182A3A"/>
+                            <!-- Modern cantilever pavilion home -->
+                            <rect x="80" y="80" width="160" height="70" fill="#081421" stroke="#C5A059" stroke-width="1.5" rx="3"/>
+                            <!-- Glass railings & glowing windows -->
+                            <rect x="90" y="95" width="140" height="40" fill="#FFF2CC" opacity="0.8"/>
+                            <line x1="125" y1="95" x2="125" y2="135" stroke="#081421" stroke-width="1"/>
+                            <line x1="160" y1="95" x2="160" y2="135" stroke="#081421" stroke-width="1"/>
+                            <line x1="195" y1="95" x2="195" y2="135" stroke="#081421" stroke-width="1"/>
+                            <!-- Palm Tree -->
+                            <path d="M50,220 Q60,150 90,110" stroke="#050C14" stroke-width="3" fill="none"/>
+                            <path d="M90,110 Q70,110 50,115" stroke="#050C14" stroke-width="2" fill="none"/>
+                            <path d="M90,110 Q105,95 120,105" stroke="#050C14" stroke-width="2" fill="none"/>
+                        </svg>
+                        <button class="btn-favorite" onclick="toggleFavorite(this, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <div class="price-badge">$8,500 / mo</div>
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">Azure Coastal Hideaway</h3>
+                        <div class="property-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Key Biscayne, FL
+                        </div>
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <span class="label">Beds</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                    2
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Baths</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                    2
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Area</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                    1,900 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="btn-card-details" onclick="openDetailsModal(5)">View Dossier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card" data-purpose="rent" data-location="New York" data-beds="1" data-baths="1" data-price="6000" id="property-6">
+                    <div class="property-image-wrapper">
+                        <span class="tag-purpose">For Rent</span>
+                        <span class="tag-category">Urban Loft</span>
+                        <!-- SVG Illustration for The Lumina Loft -->
+                        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky6" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0F1012"/>
+                                    <stop offset="100%" stop-color="#241E1C"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="240" fill="url(#sky6)"/>
+                            <!-- Industrial Grid Window -->
+                            <rect x="60" y="40" width="280" height="160" fill="#FFEAA5" opacity="0.15" stroke="#C5A059" stroke-width="2"/>
+                            <!-- Window grids -->
+                            <line x1="153" y1="40" x2="153" y2="200" stroke="#C5A059" stroke-width="1.5"/>
+                            <line x1="246" y1="40" x2="246" y2="200" stroke="#C5A059" stroke-width="1.5"/>
+                            <line x1="60" y1="93" x2="340" y2="93" stroke="#C5A059" stroke-width="1.5"/>
+                            <line x1="60" y1="146" x2="340" y2="146" stroke="#C5A059" stroke-width="1.5"/>
+                            <!-- Hanging loft lamps -->
+                            <line x1="120" y1="40" x2="120" y2="90" stroke="#C5A059" stroke-width="1"/>
+                            <circle cx="120" cy="95" r="5" fill="#FFEAA5" opacity="0.9"/>
+                            <line x1="280" y1="40" x2="280" y2="110" stroke="#C5A059" stroke-width="1"/>
+                            <circle cx="280" cy="115" r="5" fill="#FFEAA5" opacity="0.9"/>
+                            <!-- Modern Chair silhouette inside -->
+                            <path d="M180,200 L185,170 L220,170 L225,200" stroke="#121315" stroke-width="3" fill="none"/>
+                            <rect x="180" y="150" width="45" height="20" fill="#121315" rx="3"/>
+                            <!-- Ground / Wall divider -->
+                            <rect y="200" width="400" height="40" fill="#0D0E10"/>
+                        </svg>
+                        <button class="btn-favorite" onclick="toggleFavorite(this, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <div class="price-badge">$6,000 / mo</div>
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">The Lumina Loft</h3>
+                        <div class="property-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            SoHo District, NY
+                        </div>
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <span class="label">Beds</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                                    1
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Baths</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                                    1
+                                </span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="label">Area</span>
+                                <span class="value">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                                    1,200 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="btn-card-details" onclick="openDetailsModal(6)">View Dossier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State Element -->
+                <div class="no-results" id="no-listings-indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    <h3>No Matching Estates Found</h3>
+                    <p>Your highly exclusive criteria did not match our current listings. Try broadening your selectors or contact our advisory office for pocket listings.</p>
+                    <button class="btn-primary" onclick="resetFilters()">Reset Filter Criteria</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="map-section" id="map">
+        <div class="container map-split-container">
+            <!-- Custom CSS/SVG Interactive Map -->
+            <div class="map-wrapper" id="estateMap">
+                <!-- Gorgeous detailed styling map background -->
+                <svg class="map-svg-bg" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="mapGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FDFDFB"/>
+                            <stop offset="100%" stop-color="#ECEAE3"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="600" height="480" fill="url(#mapGrad)"/>
+                    
+                    <!-- Stylized winding river -->
+                    <path d="M-50,300 Q150,220 280,320 T650,280" fill="none" stroke="#B8D7E3" stroke-width="48" stroke-linecap="round" opacity="0.8"/>
+                    <path d="M-50,300 Q150,220 280,320 T650,280" fill="none" stroke="#D1E9F2" stroke-width="40" stroke-linecap="round" opacity="0.9"/>
+                    
+                    <!-- Neighborhood Roads Grid (Gold-tinted paths) -->
+                    <path d="M 80,0 L 80,480" fill="none" stroke="#DCD9D0" stroke-width="8"/>
+                    <path d="M 520,0 L 520,480" fill="none" stroke="#DCD9D0" stroke-width="8"/>
+                    <path d="M 0,120 L 600,120" fill="none" stroke="#DCD9D0" stroke-width="8"/>
+                    <path d="M 0,380 L 600,380" fill="none" stroke="#DCD9D0" stroke-width="8"/>
+                    
+                    <!-- Custom Golden Avenue -->
+                    <path d="M 300,0 L 300,480" fill="none" stroke="#C5A059" stroke-width="4" opacity="0.3"/>
+                    <path d="M 0,240 L 600,240" fill="none" stroke="#C5A059" stroke-width="4" opacity="0.3"/>
+
+                    <!-- Abstract plots of land -->
+                    <rect x="110" y="20" width="160" height="80" rx="8" fill="#E2EFE7" opacity="0.6"/>
+                    <rect x="330" y="20" width="160" height="80" rx="8" fill="#E2EFE7" opacity="0.6"/>
+                    <rect x="110" y="140" width="160" height="80" rx="8" fill="#E8EBE9" opacity="0.8"/>
+                    <rect x="330" y="140" width="160" height="80" rx="8" fill="#E2EFE7" opacity="0.6"/>
+                    <rect x="110" y="395" width="160" height="70" rx="8" fill="#E2EFE7" opacity="0.6"/>
+                    
+                    <!-- Map Typography -->
+                    <text x="312" y="20" fill="#C5A059" font-size="9" font-weight="700" letter-spacing="1">STERLING BOULEVARD</text>
+                    <text x="12" y="235" fill="#C5A059" font-size="9" font-weight="700" letter-spacing="1">CREST AVENUE</text>
+                    <text x="210" y="285" fill="#71A0B5" font-size="10" font-weight="600" letter-spacing="1.5">CREST BAY</text>
+
+                    <!-- Compass Rose in bottom right -->
+                    <g transform="translate(530, 420)">
+                        <circle cx="0" cy="0" r="30" fill="#FFF" stroke="#C5A059" stroke-width="1"/>
+                        <polygon points="0,-25 5,0 0,-2" fill="#0A2218"/>
+                        <polygon points="0,-25 -5,0 0,-2" fill="#C5A059"/>
+                        <polygon points="0,25 5,0 0,2" fill="#C5A059"/>
+                        <polygon points="0,25 -5,0 0,2" fill="#0A2218"/>
+                        <polygon points="25,0 0,5 2,0" fill="#0A2218"/>
+                        <polygon points="25,0 0,-5 2,0" fill="#C5A059"/>
+                        <polygon points="-25,0 0,5 -2,0" fill="#C5A059"/>
+                        <polygon points="-25,0 0,-5 -2,0" fill="#0A2218"/>
+                        <text x="-4" y="-28" fill="#0A2218" font-size="9" font-weight="700">N</text>
+                    </g>
+                </svg>
+
+                <!-- Dynamic Glowing Map Pins (Absolute HTML layers over SVG coordinate) -->
+                <!-- Pin 1: Aspen Lodge (Top Left) -->
+                <div class="map-pin" style="top: 15%; left: 25%;" data-property="1" onclick="openMapTooltip(1)"></div>
+                <!-- Pin 2: Miami Villa (Bottom Right) -->
+                <div class="map-pin" style="top: 78%; left: 70%;" data-property="2" onclick="openMapTooltip(2)"></div>
+                <!-- Pin 3: NYC Penthouse (Center-ish) -->
+                <div class="map-pin" style="top: 38%; left: 52%;" data-property="3" onclick="openMapTooltip(3)"></div>
+                <!-- Pin 4: Whispering Pines (Top Right) -->
+                <div class="map-pin" style="top: 25%; left: 82%;" data-property="4" onclick="openMapTooltip(4)"></div>
+                <!-- Pin 5: Coastal Hideaway (Bottom Left) -->
+                <div class="map-pin" style="top: 68%; left: 28%;" data-property="5" onclick="openMapTooltip(5)"></div>
+                <!-- Pin 6: Lumina Loft (Center Left) -->
+                <div class="map-pin" style="top: 48%; left: 18%;" data-property="6" onclick="openMapTooltip(6)"></div>
+
+                <!-- Rich Map Tooltip Element overlaying map dynamically -->
+                <div class="map-tooltip" id="map-tooltip">
+                    <span class="map-tooltip-close" onclick="closeMapTooltip()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </span>
+                    <div class="map-tooltip-thumb" id="tooltip-svg-container"></div>
+                    <div class="map-tooltip-content">
+                        <div class="map-tooltip-title" id="tooltip-title">The Emerald Crest Manor</div>
+                        <div class="map-tooltip-price" id="tooltip-price">$4,850,000</div>
+                        <div class="map-tooltip-action" id="tooltip-action" onclick="scrollToHighlightedCard()">
+                            Inspect Domain 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Descriptive Informational Panel -->
+            <div class="map-info-panel">
+                <span class="badge">VIP Cartography</span>
+                <h2>Private Geographic Portfolio</h2>
+                <p>Explore exclusive spatial insights. Our proprietary mapping software charts absolute asset dispersion, facilitating perfect site inspections for private equity allocators and sovereign wealth advisors.</p>
+                
+                <div class="district-selector">
+                    <div class="district-option active" id="district-all" onclick="focusDistrict('All')">
+                        <div class="district-option-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                            Global Portfolio
+                        </div>
+                        <span class="district-option-count">6 Sites</span>
+                    </div>
+                    <div class="district-option" id="district-aspen" onclick="focusDistrict('Aspen')">
+                        <div class="district-option-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Aspen District
+                        </div>
+                        <span class="district-option-count">2 Sites</span>
+                    </div>
+                    <div class="district-option" id="district-miami" onclick="focusDistrict('Miami')">
+                        <div class="district-option-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Miami Marina District
+                        </div>
+                        <span class="district-option-count">2 Sites</span>
+                    </div>
+                    <div class="district-option" id="district-ny" onclick="focusDistrict('New York')">
+                        <div class="district-option-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            New York Heights
+                        </div>
+                        <span class="district-option-count">2 Sites</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Agents Section -->
+    <section class="agents-section" id="agents">
+        <div class="container">
+            <div class="section-header">
+                <span>The Advisors</span>
+                <h2>The Brokerage Board</h2>
+                <p>Meet our premier wealth management consultants dedicated to facilitating absolute sovereign residential procurement.</p>
+            </div>
+
+            <div class="agents-grid">
+                <!-- Agent 1 -->
+                <div class="agent-card">
+                    <div class="agent-avatar-wrapper">
+                        <div class="agent-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                    </div>
+                    <h3>Victoria Sterling</h3>
+                    <div class="agent-role">Principal &amp; Senior Partner</div>
+                    <div class="agent-specialty">Waterfront Estates, Sovereign Wealth Portfolios</div>
+                    <div class="agent-socials">
+                        <a href="mailto:victoria@sterlingcrest.com" class="agent-social-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="tel:+15550192831" class="agent-social-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Agent 2 -->
+                <div class="agent-card">
+                    <div class="agent-avatar-wrapper">
+                        <div class="agent-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                    </div>
+                    <h3>Alexander Montgomery</h3>
+                    <div class="agent-role">Managing Director</div>
+                    <div class="agent-specialty">Alpine chalets, Modern Manhattan Penthouses</div>
+                    <div class="agent-socials">
+                        <a href="mailto:alexander@sterlingcrest.com" class="agent-social-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="tel:+15550194820" class="agent-social-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Agent 3 -->
+                <div class="agent-card">
+                    <div class="agent-avatar-wrapper">
+                        <div class="agent-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                    </div>
+                    <h3>Elena Rostova</h3>
+                    <div class="agent-role">Director of Global Accounts</div>
+                    <div class="agent-specialty">International Hideaways, Modernist Architecture</div>
+                    <div class="agent-socials">
+                        <a href="mailto:elena@sterlingcrest.com" class="agent-social-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="tel:+15550199041" class="agent-social-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry / Contact Footer Section -->
+    <section class="inquiry-section" id="inquiry">
+        <div class="container inquiry-grid">
+            <div class="inquiry-details">
+                <h2>Acquire Your Sanctuary.</h2>
+                <p>Allow our dedicated private advisory board to compile a tailor-made prospectus for your wealth division. Request a secure offline portfolio review or private viewing.</p>
+                
+                <div class="inquiry-contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="label">Secure Phone Line</span>
+                            <span class="value">+1 (555) 018-0900</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="label">Encrypted Dispatch</span>
+                            <span class="value">concierge@sterlingcrest.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <span class="label">Principal Office</span>
+                            <span class="value">640 Fifth Avenue, New York, NY 10019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiry Form Container -->
+            <div class="inquiry-form-container">
+                <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+                    <div class="form-group">
+                        <label for="iq-name">Full Legal Name</label>
+                        <input type="text" id="iq-name" required placeholder="e.g. Baron Christopher Vance">
+                    </div>
+                    <div class="form-group">
+                        <label for="iq-email">Secure Email</label>
+                        <input type="email" id="iq-email" required placeholder="e.g. cvance@vanceholdings.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="iq-asset">Target Domain Portfolio</label>
+                        <select id="iq-asset">
+                            <option value="None">Direct Client Inquiry</option>
+                            <option value="Emerald Crest">The Emerald Crest Manor - $4.85M</option>
+                            <option value="Water Vista">Serene Water Vista Villa - $3.20M</option>
+                            <option value="Obsidian Penthouse">The Obsidian Penthouse - $12.5K/mo</option>
+                            <option value="Whispering Pines">Whispering Pines Chalet - $1.95M</option>
+                            <option value="Azure Coastal">Azure Coastal Hideaway - $8.5K/mo</option>
+                            <option value="Lumina Loft">The Lumina Loft - $6K/mo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="iq-message">Accompanying Directives</label>
+                        <textarea id="iq-message" rows="4" placeholder="Outline specific privacy metrics or scheduling agendas..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Initiate Secure Connection
+                    </button>
+                </form>
+
+                <!-- Success Screen -->
+                <div class="inquiry-success" id="inquiry-success-panel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <h3>Briefing Received</h3>
+                    <p id="success-custom-text">Your inquiry has bypassed public channels and resides in our elite advisory log. A Senior Director will execute contact within 2 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Links and Legalities -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-logo-panel">
+                <h2>STERLING<span>CREST</span></h2>
+                <p>Private architectural directory specializing in residential heritage asset collection. Established in 1998, managing premier portfolios globally.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Domains</h4>
+                <ul class="footer-links">
+                    <li><a href="#listings" class="footer-link" onclick="filterByQuickTag('Aspen')">Aspen Chalets</a></li>
+                    <li><a href="#listings" class="footer-link" onclick="filterByQuickTag('Miami')">Miami Waterfronts</a></li>
+                    <li><a href="#listings" class="footer-link" onclick="filterByQuickTag('New York')">New York Heights</a></li>
+                    <li><a href="#listings" class="footer-link">Private Pocket Listings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>The Firm</h4>
+                <ul class="footer-links">
+                    <li><a href="#agents" class="footer-link">The Brokerage Board</a></li>
+                    <li><a href="#" class="footer-link">Heritage Trust Fund</a></li>
+                    <li><a href="#" class="footer-link">Capital Advisory</a></li>
+                    <li><a href="#" class="footer-link">Press Briefings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Regulations</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">NDA Agreements</a></li>
+                    <li><a href="#" class="footer-link">Strict Privacy Charter</a></li>
+                    <li><a href="#" class="footer-link">Compliance Protocols</a></li>
+                    <li><a href="#" class="footer-link">Disclosures</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Sterling Crest Group. All Privileges Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#">Privacy Agreement</a>
+                <a href="#">Security Directive</a>
+                <a href="#">Terms of Investment</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Details Modal Overlay -->
+    <div class="modal-overlay" id="detailsModalOverlay">
+        <div class="modal-container">
+            <span class="modal-close" onclick="closeDetailsModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <div class="modal-header-bg" id="modal-image-wrapper">
+                <!-- SVG dynamically loaded here -->
+            </div>
+            <div class="modal-body">
+                <div class="modal-title-row">
+                    <div class="modal-title-group">
+                        <h2 id="modal-title">Emerald Crest Manor</h2>
+                        <p id="modal-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Aspen Heights, CO
+                        </p>
+                    </div>
+                    <div class="modal-price" id="modal-price">$4,850,000</div>
+                </div>
+
+                <div class="modal-specs">
+                    <div class="modal-spec-card">
+                        <span class="label">Beds</span>
+                        <span class="value" id="modal-beds">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                            5 Beds
+                        </span>
+                    </div>
+                    <div class="modal-spec-card">
+                        <span class="label">Baths</span>
+                        <span class="value" id="modal-baths">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                            6 Baths
+                        </span>
+                    </div>
+                    <div class="modal-spec-card">
+                        <span class="label">Est. Area</span>
+                        <span class="value" id="modal-area">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                            6,200 sqft
+                        </span>
+                    </div>
+                    <div class="modal-spec-card">
+                        <span class="label">Asset Status</span>
+                        <span class="value" id="modal-status">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Verified
+                        </span>
+                    </div>
+                </div>
+
+                <div class="modal-desc-row">
+                    <div class="modal-desc-col">
+                        <h3>Estate Narrative</h3>
+                        <p id="modal-description">This iconic structural triumph features masterful integration of organic resources and futuristic elements. Hand-cut local timber structures hold double-height triple-glazed window panels framing alpine heights. Experience ultimate relaxation with smart integrated thermal baths, biometric floor security portals, and discrete vehicle elevators leading to sub-level private vault domains.</p>
+                        <h3>Premium Attributes</h3>
+                        <div class="modal-amenities" id="modal-amenities">
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Infinity Pool Complex
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Geothermal Climate Core
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Crypt-Class Secured Vaults
+                            </div>
+                            <div class="amenity-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Biometric Vault Controls
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-contact-card">
+                        <h4>Reserve Viewing</h4>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">This listing demands verified proof of liquid funds. Contact listing supervisor to negotiate scheduling protocols.</p>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <a href="#inquiry" class="btn-primary" style="text-align: center; justify-content: center; width: 100%;" onclick="closeDetailsModal(); populateTargetAssetInquiry();">Private Briefing Request</a>
+                            <a href="tel:+15550180900" class="btn-client" style="text-align: center; justify-content: center; border-color: var(--primary); color: var(--primary);">Secure Call</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Portal Modal Overlay -->
+    <div class="modal-overlay" id="clientModalOverlay">
+        <div class="modal-container" style="max-width: 480px;">
+            <span class="modal-close" onclick="toggleClientModal(false)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <div class="modal-body" style="padding: 40px;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div class="logo-symbol" style="margin: 0 auto 16px auto; width: 44px; height: 44px; font-size: 22px;">S</div>
+                    <h3 style="font-family: var(--font-display); font-size: 26px; color: var(--primary); margin-bottom: 8px;">Private Ledger Access</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; font-weight: 300;">Enter your cryptographic client clearance credentials below to inspect offline asset transactions.</p>
+                </div>
+                <form onsubmit="handleMockLogin(event)">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="color: var(--primary);">Crypto Key ID</label>
+                        <input type="text" required placeholder="SC-894-XXXX-XXXX" style="background-color: var(--bg-light); border-color: var(--border); color: var(--text-dark);" />
+                    </div>
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label style="color: var(--primary);">Passphrase</label>
+                        <input type="password" required placeholder="••••••••••••••" style="background-color: var(--bg-light); border-color: var(--border); color: var(--text-dark);" />
+                    </div>
+                    <button type="submit" class="btn-submit" style="width: 100%;">De-Encrypt Ledger</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sell Valuation Estimate Modal -->
+    <div class="modal-overlay" id="valuationModalOverlay">
+        <div class="modal-container" style="max-width: 520px;">
+            <span class="modal-close" onclick="toggleValuationModal(false)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <div class="modal-body valuation-result" style="padding: 40px;">
+                <div class="logo-symbol" style="margin: 0 auto 16px auto; width: 44px; height: 44px; font-size: 22px; background: var(--primary); color: var(--accent);">E</div>
+                <h3 style="font-family: var(--font-display); font-size: 26px; color: var(--primary); margin-bottom: 8px;">Valuation Certificate</h3>
+                <p style="color: var(--text-muted); font-size: 14px; font-weight: 300; max-width: 360px; margin: 0 auto;" id="val-address-label">Private Domain Plot</p>
+                
+                <div class="valuation-number" id="calculated-value">$0</div>
+                
+                <p style="color: var(--text-dark); font-size: 14px; font-weight: 500; margin-bottom: 24px;">
+                    Calculated average valuation basis: <span style="color: var(--accent);" id="val-basis-sqft">$1,450 / sqft</span>
+                </p>
+                <p style="color: var(--text-muted); font-size: 13px; font-weight: 300; margin-bottom: 30px; line-height: 1.6;">
+                    *This estimate represents an algorithmically modeled premium spatial index pricing, reflecting current ultra-high-net-worth real estate market velocity. An offline physical appraisal is required to issue secure bank-grade transaction credentials.
+                </p>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <button class="btn-primary" onclick="toggleValuationModal(false); scrollToInquiry('valuation-prospectus')">Request On-Site Appraisal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Block for UI Interactivity and Deep Filter Scripting -->
+    <script>
+        // Global Property Object Database to populate modals dynamically
+        const propertyDatabase = {
+            1: {
+                title: "The Emerald Crest Manor",
+                location: "Aspen Heights, CO",
+                price: "$4,850,000",
+                beds: "5 Beds",
+                baths: "6 Baths",
+                area: "6,200 sqft",
+                status: "Verified Owner Listing",
+                description: "This iconic alpine monument stands atop Aspen's paramount peak. Hand-cut cedar trusses support massive floor-to-ceiling glass expanses framing absolute snowy mountain panoramas. The master wing hosts a discrete automated oxygenation chamber, a biometric secured panic vault, and a private vehicle elevator accessing sub-surface parking structures.",
+                amenities: ["Double-Height Wine Cave", "Infinity Spa & Cascade Pool", "Vehicle Elevator & Underpass", "Biometric Vault Room", "Discrete Helicopter Pad", "State-Of-The-Art Geothermal Core"],
+                svgId: "sky1"
+            },
+            2: {
+                title: "Serene Water Vista Villa",
+                location: "Miami Marina, FL",
+                price: "$3,200,000",
+                beds: "4 Beds",
+                baths: "4 Baths",
+                area: "4,800 sqft",
+                status: "Pre-Leased Option Available",
+                description: "A breathtaking modernist oasis situated along Florida's premier harbor limits. White monolithic concrete pillars hold expansive cantilevered structural spaces hovering over an engineered glass-bottom swimming pool. The yacht deck features integrated automatic gangways, bespoke lighting grids, and deep-draft slip limits for vessels up to 120 feet.",
+                amenities: ["Integrated Private Yacht Dock", "Glass-Bottom Lagoon Pool", "Outdoor Teak Kitchen Deck", "Smart Glass Privacy Portals", "Private Guard Post Box", "Underwater Architectural Lights"],
+                svgId: "sky2"
+            },
+            3: {
+                title: "The Obsidian Penthouse",
+                location: "Park Avenue, NY",
+                price: "$12,500 / mo",
+                beds: "3 Beds",
+                baths: "3 Baths",
+                area: "3,100 sqft",
+                status: "Ready for Occupancy",
+                description: "Occupying the absolute summit of one of Manhattan's legendary architectural high-rises. Custom Obsidian marble countertops meet rare walnut parquetry in a flawless open floor layout. Features double-height glass terrace railings presenting unobstructed 360-degree metropolitan panoramas, private elevator vestibules, and custom vault security controls.",
+                amenities: ["360 Degree City Panorama", "Direct Private Elevator Access", "Obsidian Kitchen Island", "Climate-Controlled Cigar Box", "Discrete Staff Service Port", "Biometric Terminal Entry"],
+                svgId: "sky3"
+            },
+            4: {
+                title: "Whispering Pines Chalet",
+                location: "Aspen Village, CO",
+                price: "$1,950,000",
+                beds: "3 Beds",
+                baths: "2.5 Baths",
+                area: "3,400 sqft",
+                status: "Immediate Handover",
+                description: "A gorgeous luxury geometric A-frame chalet situated amongst private old-growth spruce woodlands. Boasts floor-to-ceiling triple-glazed high-efficiency glass panes, warm hand-treated oak planking, and an grand absolute copper fireplace block. Fully automated remote climate control systems ensure a seamless, warm transition from absolute winter slopes.",
+                amenities: ["Grand Central Copper Fireplace", "Smart Hydrothermal Spa Tub", "Automated Ambient Heating", "Custom Timber Millwork", "Private Mountain Trail Access", "Sub-Level Multi-Car Vault"],
+                svgId: "sky4"
+            },
+            5: {
+                title: "Azure Coastal Hideaway",
+                location: "Key Biscayne, FL",
+                price: "$8,500 / mo",
+                beds: "2 Beds",
+                baths: "2 Baths",
+                area: "1,900 sqft",
+                status: "Verified Lease Portfolio",
+                description: "A sanctuary of absolute coastal minimalism. Crafted with micro-cement textures and premium tropical teak, this cantilevered masterpiece offers dynamic floor layouts merging into a pristine private white-sand beach. Wake up to direct sunrise views reflected perfectly in the custom salt-water plunge pool structure.",
+                amenities: ["Direct White-Sand Beach Front", "Teak Pavilion Cantilevers", "Saltwater Plunge Pool Core", "Smart Home Voice Integrations", "Security Intrusion Mesh", "Outdoor Copper Rainforest Shower"],
+                svgId: "sky5"
+            },
+            6: {
+                title: "The Lumina Loft",
+                location: "SoHo District, NY",
+                price: "$6,000 / mo",
+                beds: "1 Bed",
+                baths: "1.5 Baths",
+                area: "1,200 sqft",
+                status: "Fully Furnished Core",
+                description: "A premium modern homage to historical SoHo industrialism. Features double-height classic exposed terracotta brickwork, large structural iron columns, and expansive custom steel grid windows filtering glorious natural amber light. Handpicked modernist furnishings from elite European designers create an unparalleled urban sanctuary.",
+                amenities: ["Exposed Historical Terracotta", "Structural Cast Iron Accents", "Bespoke Italian Lighting Layout", "Private Indoor Garden Nook", "Fully Integrated Sound System", "Premium Gaggenau Culinary Suite"],
+                svgId: "sky6"
+            }
+        };
+
+        // Scroll listener for Header resizing and transparency changes
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Toggle state of Mobile Navigation menu drawer
+        function toggleMobileMenu(isOpen) {
+            const drawer = document.getElementById('mobileDrawer');
+            if (isOpen) {
+                drawer.classList.add('open');
+            } else {
+                drawer.classList.remove('open');
+            }
+        }
+
+        // Toggle client cryptographic portal modal
+        function toggleClientModal(isOpen) {
+            const overlay = document.getElementById('clientModalOverlay');
+            overlay.style.display = isOpen ? 'flex' : 'none';
+        }
+
+        // Handle a mock cryptographic login submission
+        function handleMockLogin(event) {
+            event.preventDefault();
+            alert("Cryptographic handshake validated. Accessing Private Ledger...");
+            toggleClientModal(false);
+        }
+
+        // Multi-Tab Search Console controller
+        function switchConsoleTab(tabName) {
+            // Remove active classes
+            document.querySelectorAll('.console-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.search-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Add active class to clicked tab
+            const targetTab = document.querySelector(`.console-tab[data-tab="${tabName}"]`);
+            if (targetTab) targetTab.classList.add('active');
+
+            // Add active class to corresponding panel
+            const targetPanel = document.getElementById(`panel-${tabName}`);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                if (tabName === 'sell') {
+                    targetPanel.style.display = 'grid';
+                } else {
+                    targetPanel.style.display = 'grid';
+                }
+            }
+        }
+
+        // Real Estate Valuation (Sell tab) pricing calculator logic
+        function calculateValuation() {
+            const address = document.getElementById('sell-address').value.trim();
+            const style = document.getElementById('sell-style').value;
+            const sqft = parseFloat(document.getElementById('sell-sqft').value);
+
+            if (!address) {
+                alert("Please provide an estate address to compute the valuation.");
+                return;
+            }
+            if (!sqft || sqft <= 0) {
+                alert("Please provide an estimated square footage.");
+                return;
+            }
+
+            // Custom pricing metrics per architectural style
+            let rate = 1100; // Base rate
+            if (style === 'Chalet') rate = 1200;
+            if (style === 'Villa') rate = 1450;
+            if (style === 'Penthouse') rate = 1800;
+            if (style === 'Loft') rate = 950;
+
+            const valuation = sqft * rate;
+            const formattedValuation = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(valuation);
+
+            const formattedRate = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(rate);
+
+            // Populate valuation modal fields
+            document.getElementById('calculated-value').innerText = formattedValuation;
+            document.getElementById('val-address-label').innerText = `${address} (${style})`;
+            document.getElementById('val-basis-sqft').innerText = `${formattedRate} / sqft`;
+
+            // Open valuation modal
+            toggleValuationModal(true);
+        }
+
+        function toggleValuationModal(isOpen) {
+            const overlay = document.getElementById('valuationModalOverlay');
+            overlay.style.display = isOpen ? 'flex' : 'none';
+        }
+
+        // Direct scroll to Inquiry section and auto-populate interest field
+        function scrollToInquiry(purpose) {
+            const section = document.getElementById('inquiry');
+            section.scrollIntoView({ behavior: 'smooth' });
+            
+            const assetSelect = document.getElementById('iq-asset');
+            if (purpose === 'valuation-prospectus') {
+                // Pre-populate with custom valuation request
+                assetSelect.value = "None";
+                document.getElementById('iq-message').value = "I am requesting an offline premium physical appraisal for my estate as calculated by your valuation system.";
+            }
+        }
+
+        // Fully Operational Search Filtering Logic
+        // Integrates inputs from the search console and quick-tags straight into the listing grid!
+        function executeFilter(mode) {
+            let selectedLoc = "Any";
+            let selectedBeds = "Any";
+            let selectedBaths = "Any";
+            let maxPriceVal = "Any";
+
+            // Identify panel source inputs
+            if (mode === 'buy') {
+                selectedLoc = document.getElementById('buy-location').value;
+                selectedBeds = document.getElementById('buy-beds').value;
+                selectedBaths = document.getElementById('buy-baths').value;
+                maxPriceVal = document.getElementById('buy-price').value;
+            } else if (mode === 'rent') {
+                selectedLoc = document.getElementById('rent-location').value;
+                selectedBeds = document.getElementById('rent-beds').value;
+                selectedBaths = document.getElementById('rent-baths').value;
+                maxPriceVal = document.getElementById('rent-price').value;
+            }
+
+            // Animate grid fade transition
+            const grid = document.getElementById('properties-grid');
+            grid.style.opacity = '0.3';
+
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.property-card');
+                let countVisible = 0;
+
+                cards.forEach(card => {
+                    const purpose = card.getAttribute('data-purpose');
+                    const location = card.getAttribute('data-location');
+                    const beds = parseFloat(card.getAttribute('data-beds'));
+                    const baths = parseFloat(card.getAttribute('data-baths'));
+                    const price = parseFloat(card.getAttribute('data-price'));
+
+                    let show = true;
+
+                    // Match Buy vs Rent tab
+                    if (purpose !== mode) {
+                        show = false;
+                    }
+
+                    // Match Location
+                    if (selectedLoc !== "Any" && location !== selectedLoc) {
+                        show = false;
+                    }
+
+                    // Match Beds (>= requirement)
+                    if (selectedBeds !== "Any" && beds < parseFloat(selectedBeds)) {
+                        show = false;
+                    }
+
+                    // Match Baths (>= requirement)
+                    if (selectedBaths !== "Any" && baths < parseFloat(selectedBaths)) {
+                        show = false;
+                    }
+
+                    // Match Max Price (<= price limit)
+                    if (maxPriceVal !== "Any" && price > parseFloat(maxPriceVal)) {
+                        show = false;
+                    }
+
+                    // Toggle card visibility
+                    if (show) {
+                        card.style.display = 'flex';
+                        countVisible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update count trackers
+                document.getElementById('current-count').innerText = countVisible;
+                
+                // Show/hide empty state
+                const noResults = document.getElementById('no-listings-indicator');
+                if (countVisible === 0) {
+                    noResults.style.display = 'flex';
+                } else {
+                    noResults.style.display = 'none';
+                }
+
+                // Smoothly restore grid opacity
+                grid.style.opacity = '1';
+
+                // Synchronize quick filter active state
+                document.querySelectorAll('.category-pill').forEach(pill => {
+                    pill.classList.remove('active');
+                });
+                
+                // Highlight the specific destination pill if selected in console
+                if (selectedLoc !== "Any") {
+                    const targetPill = document.querySelector(`.category-pill[data-filter="${selectedLoc}"]`);
+                    if (targetPill) targetPill.classList.add('active');
+                } else {
+                    document.querySelector('.category-pill[data-filter="All"]').classList.add('active');
+                }
+
+                // Highlight corresponding Pins on the map
+                highlightMapPins(mode, selectedLoc);
+
+                // Smooth scroll to listings section if executing from hero search
+                document.getElementById('listings').scrollIntoView({ behavior: 'smooth' });
+
+            }, 300);
+        }
+
+        // Quick Category Tag filtering
+        function filterByQuickTag(districtName) {
+            // Adjust quick tab highlights
+            document.querySelectorAll('.category-pill').forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.getAttribute('data-filter') === districtName) {
+                    pill.classList.add('active');
+                }
+            });
+
+            // Adjust search console selectors to match the clicked district
+            const buyLocSelect = document.getElementById('buy-location');
+            const rentLocSelect = document.getElementById('rent-location');
+            buyLocSelect.value = districtName;
+            rentLocSelect.value = districtName;
+
+            const grid = document.getElementById('properties-grid');
+            grid.style.opacity = '0.3';
+
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.property-card');
+                let countVisible = 0;
+
+                cards.forEach(card => {
+                    const location = card.getAttribute('data-location');
+                    
+                    let show = true;
+                    if (districtName !== "All" && location !== districtName) {
+                        show = false;
+                    }
+
+                    if (show) {
+                        card.style.display = 'flex';
+                        countVisible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                document.getElementById('current-count').innerText = countVisible;
+
+                const noResults = document.getElementById('no-listings-indicator');
+                if (countVisible === 0) {
+                    noResults.style.display = 'flex';
+                } else {
+                    noResults.style.display = 'none';
+                }
+
+                grid.style.opacity = '1';
+
+                // Sync map district selection as well
+                focusDistrict(districtName);
+
+            }, 300);
+        }
+
+        // Completely reset all search console parameters
+        function resetFilters() {
+            document.getElementById('buy-location').value = 'Any';
+            document.getElementById('buy-beds').value = 'Any';
+            document.getElementById('buy-baths').value = 'Any';
+            document.getElementById('buy-price').value = 'Any';
+
+            document.getElementById('rent-location').value = 'Any';
+            document.getElementById('rent-beds').value = 'Any';
+            document.getElementById('rent-baths').value = 'Any';
+            document.getElementById('rent-price').value = 'Any';
+
+            // Reset tabs to default Buy
+            switchConsoleTab('buy');
+
+            // Display all cards
+            const cards = document.querySelectorAll('.property-card');
+            cards.forEach(card => {
+                card.style.display = 'flex';
+            });
+
+            document.getElementById('current-count').innerText = cards.length - 1; // excluding indicator
+            document.getElementById('no-listings-indicator').style.display = 'none';
+
+            // Sync selectors
+            document.querySelectorAll('.category-pill').forEach(pill => {
+                pill.classList.remove('active');
+            });
+            document.querySelector('.category-pill[data-filter="All"]').classList.add('active');
+
+            // Reset Map selector
+            focusDistrict('All');
+        }
+
+        // Toggle Favorite status (Interactive Heart Buttons)
+        function toggleFavorite(buttonElement, event) {
+            event.stopPropagation(); // Avoid triggering card details click
+            buttonElement.classList.toggle('favorited');
+            
+            // Premium scale pop effect
+            buttonElement.style.transform = 'scale(1.25)';
+            setTimeout(() => {
+                buttonElement.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Details Modal Actions
+        function openDetailsModal(propertyId) {
+            const data = propertyDatabase[propertyId];
+            if (!data) return;
+
+            // Retrieve related card's SVG vector artwork
+            const cardElement = document.getElementById(`property-${propertyId}`);
+            const originalSvg = cardElement.querySelector('.property-image-wrapper svg').cloneNode(true);
+            
+            // Strip structural overlays like tags, absolute prices
+            const wrapper = document.getElementById('modal-image-wrapper');
+            wrapper.innerHTML = '';
+            wrapper.appendChild(originalSvg);
+
+            // Populate text parameters
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-location').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                ${data.location}
+            `;
+            document.getElementById('modal-price').innerText = data.price;
+            
+            document.getElementById('modal-beds').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h20M2 12h20M22 4v16M18 12v4M6 12v4M10 8h4"/></svg>
+                ${data.beds}
+            `;
+            document.getElementById('modal-baths').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M2 21h20M3 19h18a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+                ${data.baths}
+            `;
+            document.getElementById('modal-area').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h6v6M20 10h-6V4M14 10l6-6M10 14l-6 6"/></svg>
+                ${data.area}
+            `;
+            document.getElementById('modal-status').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                ${data.status}
+            `;
+
+            document.getElementById('modal-description').innerText = data.description;
+
+            // Generate premium amenity lists
+            const amenitiesContainer = document.getElementById('modal-amenities');
+            amenitiesContainer.innerHTML = '';
+            data.amenities.forEach(item => {
+                const element = document.createElement('div');
+                element.className = 'amenity-item';
+                element.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    ${item}
+                `;
+                amenitiesContainer.appendChild(element);
+            });
+
+            // Display overlay
+            document.getElementById('detailsModalOverlay').style.display = 'flex';
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModalOverlay').style.display = 'none';
+        }
+
+        // Auto-select listing asset target in footer inquiry form when requesting dossier from modal
+        function populateTargetAssetInquiry() {
+            const select = document.getElementById('iq-asset');
+            const title = document.getElementById('modal-title').innerText;
+
+            if (title.includes("Emerald Crest")) select.value = "Emerald Crest";
+            else if (title.includes("Water Vista")) select.value = "Water Vista";
+            else if (title.includes("Obsidian")) select.value = "Obsidian Penthouse";
+            else if (title.includes("Whispering Pines")) select.value = "Whispering Pines";
+            else if (title.includes("Azure Coastal")) select.value = "Azure Coastal";
+            else if (title.includes("Lumina Loft")) select.value = "Lumina Loft";
+        }
+
+        // Map Interaction Scripting
+        let currentlyHighlightedProperty = null;
+
+        // Opens custom themed tooltips on map clicking pins
+        function openMapTooltip(propertyId) {
+            const data = propertyDatabase[propertyId];
+            if (!data) return;
+
+            // Style and highlight the clicked Pin
+            document.querySelectorAll('.map-pin').forEach(pin => {
+                pin.classList.remove('active');
+            });
+            const selectedPin = document.querySelector(`.map-pin[data-property="${propertyId}"]`);
+            if (selectedPin) selectedPin.classList.add('active');
+
+            // Render matching SVG thumbnail in tooltip
+            const cardElement = document.getElementById(`property-${propertyId}`);
+            const originalSvg = cardElement.querySelector('.property-image-wrapper svg').cloneNode(true);
+            const container = document.getElementById('tooltip-svg-container');
+            container.innerHTML = '';
+            container.appendChild(originalSvg);
+
+            // Populate tooltip text
+            document.getElementById('tooltip-title').innerText = data.title;
+            document.getElementById('tooltip-price').innerText = data.price;
+
+            // Record selected ID for scroll anchor links
+            currentlyHighlightedProperty = propertyId;
+
+            // Display tooltip panel inside map container
+            const tooltip = document.getElementById('map-tooltip');
+            tooltip.style.display = 'flex';
+        }
+
+        function closeMapTooltip() {
+            document.getElementById('map-tooltip').style.display = 'none';
+            document.querySelectorAll('.map-pin').forEach(pin => {
+                pin.classList.remove('active');
+            });
+            currentlyHighlightedProperty = null;
+        }
+
+        // Scrolls to the property card related to map selection & adds gorgeous highlight pulsing
+        function scrollToHighlightedCard() {
+            if (!currentlyHighlightedProperty) return;
+
+            const card = document.getElementById(`property-${currentlyHighlightedProperty}`);
+            if (card) {
+                closeMapTooltip();
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Add luxury pulse glow styling
+                card.classList.add('highlight');
+                setTimeout(() => {
+                    card.classList.remove('highlight');
+                }, 2200);
+            }
+        }
+
+        // Focus map and highlight pins belonging to specified districts
+        function focusDistrict(districtName) {
+            // Update active district indicator styles
+            document.querySelectorAll('.district-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+
+            let optionId = 'district-all';
+            if (districtName === 'Aspen') optionId = 'district-aspen';
+            if (districtName === 'Miami') optionId = 'district-miami';
+            if (districtName === 'New York') optionId = 'district-ny';
+
+            const activeOption = document.getElementById(optionId);
+            if (activeOption) activeOption.classList.add('active');
+
+            // Highlight or fade out Pins dynamically depending on district selector
+            const pins = document.querySelectorAll('.map-pin');
+            pins.forEach(pin => {
+                const propertyId = pin.getAttribute('data-property');
+                const data = propertyDatabase[propertyId];
+                
+                if (districtName === 'All' || data.location.includes(districtName)) {
+                    pin.style.opacity = '1';
+                    pin.style.pointerEvents = 'auto';
+                } else {
+                    pin.style.opacity = '0.15';
+                    pin.style.pointerEvents = 'none';
+                }
+            });
+
+            closeMapTooltip();
+        }
+
+        // Dynamically filters map pins when user filters cards from Search console!
+        function highlightMapPins(mode, location) {
+            const pins = document.querySelectorAll('.map-pin');
+            pins.forEach(pin => {
+                const propertyId = pin.getAttribute('data-property');
+                const data = propertyDatabase[propertyId];
+                const card = document.getElementById(`property-${propertyId}`);
+                
+                // Pin is only visible if corresponding listing card is actively shown!
+                if (card && card.style.display !== 'none') {
+                    pin.style.opacity = '1';
+                    pin.style.pointerEvents = 'auto';
+                } else {
+                    pin.style.opacity = '0.15';
+                    pin.style.pointerEvents = 'none';
+                }
+            });
+            closeMapTooltip();
+        }
+
+        // Form submission intercepting and success animating
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('iq-name').value;
+            const assetSelect = document.getElementById('iq-asset');
+            const assetName = assetSelect.options[assetSelect.selectedIndex].text;
+
+            const form = document.getElementById('inquiryForm');
+            const successPanel = document.getElementById('inquiry-success-panel');
+
+            // Hide the active form layout
+            form.style.display = 'none';
+
+            // Customize success notification depending on selection
+            if (assetSelect.value !== 'None') {
+                document.getElementById('success-custom-text').innerText = `Greetings, ${name}. Your request for the confidential portfolio dossier regarding "${assetName}" has bypassed public logs. An estate concierge advisor will contact you within 2 hours.`;
+            } else {
+                document.getElementById('success-custom-text').innerText = `Greetings, ${name}. Your direct briefing request is secure. An elite advisory officer will connect via secure channels inside of 2 hours.`;
+            }
+
+            // Display beautiful animated success panel
+            successPanel.style.display = 'flex';
+        }
+
+        // Initial launch configuration
+        window.addEventListener('DOMContentLoaded', () => {
+            // Count total listings initially available (excluding the no results box)
+            const count = document.querySelectorAll('.property-card').length - 1;
+            document.getElementById('total-count').innerText = count;
+            document.getElementById('current-count').innerText = count;
+        });
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/realestate-luxury-homes" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">realestate</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Riviera Luxury Homes</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/business-corporate-pro" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">realestate</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Zurich Corporate Pro</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

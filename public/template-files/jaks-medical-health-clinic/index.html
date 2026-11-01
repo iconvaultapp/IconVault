@@ -1,0 +1,3091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, health clinic medical diagnostics site, primary care doctors hospital portal, pediatric healthcare clinic theme, online doctor appointment booking, specialist clinic consultation page, medical center diagnostic lab, cardiology orthopedic clinic template, preventative care medical brochure, family health clinic site">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/medical-health-clinic">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vienna Private Clinic — Free Medical Template</title>
+  <meta name="description" content="Trustworthy private healthcare clinic layout showcasing services, appointment bookings, and EU medical certificates support. MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vienna Private Clinic — Free Medical Template">
+  <meta property="og:description" content="Trustworthy private healthcare clinic layout showcasing services, appointment bookings, and EU medical certificates support. MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/medical_health_clinic.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vienna Private Clinic — Free Medical Template">
+  <meta name="twitter:description" content="Trustworthy private healthcare clinic layout showcasing services, appointment bookings, and EU medical certificates support. MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/medical_health_clinic.webp">
+    <!-- Google Fonts: Outfit (Headings) and Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Clean Clinical Color Palette */
+        :root {
+            --primary: #0d9488;          /* Soft Teal Green */
+            --primary-hover: #0f766e;    /* Darker Teal */
+            --primary-light: #ecfdf5;    /* Very Soft Mint */
+            --secondary: #06b6d4;        /* Trust Cyan Blue */
+            --secondary-hover: #0891b2;  /* Darker Cyan */
+            --secondary-light: #ecfeff;  /* Soft Cyan Light */
+            --dark: #0f172a;             /* Slate 900 */
+            --dark-light: #1e293b;       /* Slate 800 */
+            --gray: #64748b;             /* Slate 500 */
+            --gray-light: #f8fafc;       /* Slate 50 */
+            --gray-border: #e2e8f0;      /* Slate 200 */
+            --emergency: #dc2626;        /* Alert/Emergency Red */
+            --emergency-hover: #b91c1c;  /* Darker Emergency Red */
+            --emergency-light: #fef2f2;  /* Soft Red Light */
+            --success: #10b981;          /* Success Green */
+            --white: #ffffff;
+            
+            --font-headings: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+            --shadow-xl: 0 20px 25px -5px rgba(13, 148, 136, 0.1), 0 8px 10px -6px rgba(13, 148, 136, 0.05);
+        }
+
+        /* Base Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--white);
+            color: var(--dark-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-headings);
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button, select, input, textarea {
+            font-family: inherit;
+            font-size: inherit;
+            border: none;
+            outline: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons & Badges */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(13, 148, 136, 0.35);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-light);
+            color: var(--secondary-hover);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background-color: var(--emergency);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+        }
+
+        .btn-danger:hover {
+            background-color: var(--emergency-hover);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-primary {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .badge-cyan {
+            background-color: var(--secondary-light);
+            color: var(--secondary-hover);
+        }
+
+        /* Top Notification/Emergency Bar */
+        .top-bar {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .top-bar-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-bar-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--secondary);
+        }
+
+        .top-bar-emergency {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--emergency-light);
+            color: var(--emergency);
+            font-weight: 700;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            transition: var(--transition-smooth);
+        }
+
+        .top-bar-emergency:hover {
+            background-color: var(--emergency);
+            color: var(--white);
+        }
+
+        .top-bar-emergency svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        /* Navigation Header */
+        header.main-header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        header.main-header.scrolled {
+            box-shadow: var(--shadow-lg);
+            padding: 0.2rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.45rem;
+            font-family: var(--font-headings);
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark-light);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .mobile-toggle svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 4.5rem 0;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 35%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(13,148,136,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-badge {
+            align-self: flex-start;
+            background-color: rgba(13, 148, 136, 0.1);
+            color: var(--primary-hover);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            letter-spacing: -0.02em;
+            color: var(--dark);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 540px;
+        }
+
+        .hero-trust-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-light);
+            background-color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(13, 148, 136, 0.08);
+        }
+
+        .trust-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        /* Booking Form Card Widget */
+        .booking-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 2.25rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-border);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .booking-card.focus-pulse {
+            animation: pulse-border 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                box-shadow: var(--shadow-xl), 0 0 0 0px rgba(13, 148, 136, 0.4);
+            }
+            100% {
+                box-shadow: var(--shadow-xl), 0 0 0 10px rgba(13, 148, 136, 0.15);
+            }
+        }
+
+        .booking-card-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .booking-card-title {
+            font-size: 1.45rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .booking-card-subtitle {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            position: relative;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-light);
+        }
+
+        .input-icon-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon-wrapper svg {
+            position: absolute;
+            left: 1rem;
+            width: 18px;
+            height: 18px;
+            color: var(--gray);
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 10px;
+            border: 1.5px solid var(--gray-border);
+            color: var(--dark);
+            font-size: 0.9rem;
+            background-color: var(--gray-light);
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+        }
+
+        .form-control:focus + svg {
+            color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-error {
+            color: var(--emergency);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 0.2rem;
+            display: none;
+        }
+
+        .form-group.has-error .form-control {
+            border-color: var(--emergency);
+            background-color: var(--emergency-light);
+        }
+
+        .form-group.has-error .form-error {
+            display: block;
+        }
+
+        /* Trust Stats Section */
+        .stats-section {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-family: var(--font-headings);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        /* Core Services Section */
+        .services-section {
+            background-color: var(--gray-light);
+        }
+
+        .section-header {
+            max-width: 600px;
+            margin: 0 auto 3.5rem auto;
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon-box {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .service-icon-box svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .service-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .service-link {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: auto;
+        }
+
+        .service-link svg {
+            width: 14px;
+            height: 14px;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-link svg {
+            transform: translateX(3px);
+        }
+
+        /* Why Choose Us Portal Intro */
+        .choose-section {
+            background-color: var(--white);
+        }
+
+        .choose-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .choose-illustration {
+            position: relative;
+            background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-light) 100%);
+            border-radius: 30px;
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            border: 1px solid var(--gray-border);
+        }
+
+        .choose-illustration::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(var(--primary) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+
+        .choose-illustration svg {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .choose-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .choose-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .choose-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .choose-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background-color: var(--secondary-light);
+            color: var(--secondary-hover);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .choose-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .choose-text h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+
+        .choose-text p {
+            font-size: 0.88rem;
+            color: var(--gray);
+        }
+
+        /* Doctors Section */
+        .doctors-section {
+            background-color: var(--gray-light);
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.75rem;
+        }
+
+        .doctor-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(13, 148, 136, 0.2);
+        }
+
+        .doctor-image-wrapper {
+            position: relative;
+            height: 260px;
+            background-color: #f1f5f9;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .doctor-image-wrapper svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-available {
+            background-color: #ecfdf5;
+            color: #047857;
+        }
+
+        .status-available::before {
+            background-color: #10b981;
+        }
+
+        .status-tomorrow {
+            background-color: #fffbeb;
+            color: #b45309;
+        }
+
+        .status-tomorrow::before {
+            background-color: #f59e0b;
+        }
+
+        .status-booked {
+            background-color: #fef2f2;
+            color: #b91c1c;
+        }
+
+        .status-booked::before {
+            background-color: #ef4444;
+        }
+
+        .doctor-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .doctor-dept {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .doctor-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .doctor-credentials {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .doctor-meta-list {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            border-top: 1px solid var(--gray-border);
+            padding-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .doctor-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--dark-light);
+        }
+
+        .doctor-meta svg {
+            width: 14px;
+            height: 14px;
+            color: var(--primary);
+        }
+
+        .doctor-btn {
+            width: 100%;
+            margin-top: auto;
+            border-radius: 10px;
+            padding: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Testimonials / Feedback Section */
+        .feedback-section {
+            background-color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--gray-light);
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            border: 1px solid var(--gray-border);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 32px;
+            height: 32px;
+            color: rgba(13, 148, 136, 0.1);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .rating-stars svg {
+            width: 16px;
+            height: 16px;
+            fill: #fbbf24;
+            color: #fbbf24;
+        }
+
+        .testimonial-text {
+            font-size: 0.92rem;
+            color: var(--dark-light);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .testimonial-patient {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: auto;
+            border-top: 1px solid var(--gray-border);
+            padding-top: 1rem;
+        }
+
+        .patient-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .patient-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .patient-verified {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .patient-verified svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Accordion FAQs Section */
+        .faq-section {
+            background-color: var(--gray-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-border);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--dark);
+            gap: 1rem;
+        }
+
+        .faq-header svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            background-color: var(--white);
+        }
+
+        .faq-body {
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-item.active .faq-header svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 1000px; /* arbitrary high value for smooth auto expansion */
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .faq-item.active .faq-body {
+            border-color: var(--gray-light);
+        }
+
+        /* News Section */
+        .news-section {
+            background-color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(13, 148, 136, 0.2);
+        }
+
+        .news-image-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(13, 148, 136, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .news-image-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.75;
+        }
+
+        .news-category-badge {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background-color: var(--white);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+            text-transform: uppercase;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-grow: 1;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .news-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .news-meta-item svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .news-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .news-title a:hover {
+            color: var(--primary);
+        }
+
+        .news-excerpt {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .news-read-more {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            padding-top: 0.5rem;
+        }
+
+        .news-read-more svg {
+            width: 14px;
+            height: 14px;
+            transition: var(--transition-smooth);
+        }
+
+        .news-card:hover .news-read-more svg {
+            transform: translateX(4px);
+        }
+
+        /* Banner CTA Callout */
+        .cta-callout-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary-hover) 100%);
+            color: var(--white);
+            padding: 4.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-callout-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .cta-callout-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .cta-callout-content h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-callout-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer Section */
+        footer.main-footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-top {
+            padding: 5rem 0 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo svg {
+            width: 32px;
+            height: 32px;
+            color: var(--secondary);
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-about-text {
+            line-height: 1.6;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-badge-icon {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-badge-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(3px);
+        }
+
+        .footer-links a::before {
+            content: '→';
+            font-weight: 700;
+            opacity: 0;
+            width: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            width: 10px;
+        }
+
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .footer-contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--secondary);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .footer-contact-text h5 {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .footer-newsletter p {
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .newsletter-input-wrapper {
+            position: relative;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--white);
+            font-size: 0.88rem;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--secondary);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--secondary-hover);
+        }
+
+        .footer-bottom {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Interactive Notification Alert Overlay (Success Modal) */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 520px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--gray-border);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background-color: var(--primary-light);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(13, 148, 136, 0.1);
+            position: relative;
+        }
+
+        .modal-success-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--success);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .modal-success-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .modal-header h3 {
+            color: var(--primary-hover);
+            font-size: 1.5rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .appointment-ticket {
+            background-color: var(--gray-light);
+            border: 1.5px dashed var(--gray-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .ticket-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            padding-bottom: 0.5rem;
+        }
+
+        .ticket-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .ticket-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .ticket-value {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .ticket-id-badge {
+            background-color: var(--secondary-light);
+            color: var(--secondary-hover);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        .modal-instructions {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .modal-footer {
+            padding: 0 2rem 2rem 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-close-btn {
+            width: 100%;
+        }
+
+        /* Responsive Layouts */
+        @media (max-width: 1100px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .doctors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .choose-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .choose-illustration {
+                order: 2;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .stat-item {
+                border-right: none;
+            }
+            .stat-item:nth-child(odd) {
+                border-right: 1px solid rgba(255,255,255,0.15);
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-info {
+                justify-content: center;
+                width: 100%;
+            }
+            .top-bar-emergency {
+                margin: 0.2rem auto;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 2.5rem 1.5rem;
+                gap: 1.75rem;
+                transition: var(--transition-smooth);
+                box-shadow: var(--shadow-lg);
+                z-index: 99;
+                border-top: 1px solid var(--gray-border);
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .header-actions {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 580px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .doctors-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .stat-item {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                padding-bottom: 1rem;
+            }
+            .stat-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            .hero-trust-list {
+                flex-direction: column;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.15rem;
+            }
+            .cta-callout-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Vienna Private Clinic",
+    "description": "Trustworthy private healthcare clinic layout showcasing services, appointment bookings, and EU medical certificates support. MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/medical-health-clinic",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/medical-health-clinic.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- Emergency Notification & Fast Info Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <div class="top-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>General Inquiries: <strong>(555) 019-2834</strong></span>
+                </div>
+                <div class="top-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Hours: <strong>Mon - Sat: 7:00 AM - 8:00 PM</strong></span>
+                </div>
+            </div>
+            
+            <a href="tel:911" class="top-bar-emergency">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <span>24/7 ER HOTLINE: 1-800-555-0199</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header" id="main-header">
+        <div class="container nav-container">
+            <!-- Clinic Logo -->
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+                Health<span>Clinic</span>
+            </a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="active" onclick="toggleMenuLink(this)">Home</a></li>
+                <li><a href="#services" onclick="toggleMenuLink(this)">Services</a></li>
+                <li><a href="#about" onclick="toggleMenuLink(this)">About Clinic</a></li>
+                <li><a href="#doctors" onclick="toggleMenuLink(this)">Specialists</a></li>
+                <li><a href="#reviews" onclick="toggleMenuLink(this)">Patient Reviews</a></li>
+                <li><a href="#faq" onclick="toggleMenuLink(this)">FAQs</a></li>
+                <li><a href="#news" onclick="toggleMenuLink(this)">News</a></li>
+            </ul>
+
+            <!-- Header Action CTAs -->
+            <div class="header-actions">
+                <a href="#portal" class="btn btn-secondary" onclick="alert('Redirecting to the Patient Portal...\nSecure login is loading.')">
+                    <svg style="width:16px; height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Patient Portal
+                </a>
+                <a href="#book-appointment" class="btn btn-primary">Book Checkup</a>
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Booking Form -->
+    <section class="hero-section" id="home">
+        <div class="container hero-grid">
+            
+            <!-- Left: Clinical Core Values & Hero Title -->
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Joint Commission International Accredited
+                </div>
+                <h1 class="hero-title">Compassionate Care, <br><span>Advanced Medicine</span></h1>
+                <p class="hero-desc">
+                    At HealthClinic, we combine world-class medical expertise with state-of-the-art diagnostic technology to deliver outstanding clinical outcomes. Your wellness is our lifetime commitment.
+                </p>
+                
+                <!-- Trust Values Badges List -->
+                <div class="hero-trust-list">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        50+ Top Specialists
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Zero-Wait-Time Guarantee
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Modern Diagnostic Labs
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        All Insurances Accepted
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Booking Card Widget -->
+            <div class="booking-card" id="book-appointment">
+                <div class="booking-card-header">
+                    <h3 class="booking-card-title">Quick Checkup Booking</h3>
+                    <p class="booking-card-subtitle">Fill in details for a priority scheduled callback</p>
+                </div>
+                
+                <form class="booking-form" id="appointmentForm" novalidate>
+                    <!-- Patient Full Name -->
+                    <div class="form-group" id="group-name">
+                        <label for="patientName">Patient Full Name</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="patientName" class="form-control" placeholder="e.g. Johnathan Doe" required>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <span class="form-error">Please enter the patient's full name.</span>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group" id="group-phone">
+                        <label for="patientPhone">Contact Phone Number</label>
+                        <div class="input-icon-wrapper">
+                            <input type="tel" id="patientPhone" class="form-control" placeholder="e.g. (555) 000-0000" required>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <span class="form-error">Please provide a valid callback phone number.</span>
+                    </div>
+
+                    <!-- Row: Department & Doctor selection -->
+                    <div class="form-row">
+                        <!-- Department -->
+                        <div class="form-group" id="group-department">
+                            <label for="medicalDept">Department</label>
+                            <div class="input-icon-wrapper">
+                                <select id="medicalDept" class="form-control" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="Orthopedics">Orthopedics</option>
+                                    <option value="Dental">Dental Care</option>
+                                    <option value="General">General Medicine</option>
+                                </select>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                            </div>
+                            <span class="form-error">Choose a clinical department.</span>
+                        </div>
+
+                        <!-- Preferred Doctor -->
+                        <div class="form-group" id="group-doctor">
+                            <label for="preferredDoctor">Preferred Specialist</label>
+                            <div class="input-icon-wrapper">
+                                <select id="preferredDoctor" class="form-control" required disabled>
+                                    <option value="" disabled selected>Choose dept first...</option>
+                                </select>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <span class="form-error">Please select a specialist.</span>
+                        </div>
+                    </div>
+
+                    <!-- Row: Date & Time slot -->
+                    <div class="form-row">
+                        <!-- Preferred Date -->
+                        <div class="form-group" id="group-date">
+                            <label for="appointmentDate">Appointment Date</label>
+                            <div class="input-icon-wrapper">
+                                <input type="date" id="appointmentDate" class="form-control" required>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <span class="form-error">Select a valid future date.</span>
+                        </div>
+
+                        <!-- Preferred Time -->
+                        <div class="form-group" id="group-time">
+                            <label for="appointmentTime">Preferred Time</label>
+                            <div class="input-icon-wrapper">
+                                <select id="appointmentTime" class="form-control" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Morning (08:00 AM - 11:30 AM)">Morning (08:00 AM - 11:30 AM)</option>
+                                    <option value="Midday (12:00 PM - 02:30 PM)">Midday (12:00 PM - 02:30 PM)</option>
+                                    <option value="Late Afternoon (03:00 PM - 06:30 PM)">Late Afternoon (03:00 PM - 06:30 PM)</option>
+                                </select>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <span class="form-error">Select a preferred schedule window.</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Appointment -->
+                    <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem; width: 100%;">
+                        <svg style="width:18px; height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                        Request Priority Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Statistics Strip -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" id="stat-satisfaction">99.4%</span>
+                <span class="stat-label">Patient Satisfaction Rating</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-cases">18,500+</span>
+                <span class="stat-label">Successful Annual Surgeries</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-doctors">45+</span>
+                <span class="stat-label">Senior Specialized Doctors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="stat-wait">0 Mins</span>
+                <span class="stat-label">Emergency Wait Room Average</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Clinical Services Section -->
+    <section class="services-section section-padding" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Clinical Excellence</span>
+                <h2 class="section-title">Core Specialties & Services</h2>
+                <p class="section-desc">Our multi-specialty clinical departments are staffed by nationally recognized experts using the most advanced diagnostic and therapeutic innovations.</p>
+            </div>
+
+            <div class="services-grid">
+                
+                <!-- Cardiology -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <!-- Heartbeat/Cardiology SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Cardiology</h3>
+                    <p class="service-desc">Comprehensive cardiovascular screening, high-tech ECG telemetry, preventative heart hygiene, and coronary therapies.</p>
+                    <a href="#book-appointment" onclick="quickFillForm('Cardiology', 'Dr. Evelyn Harper, MD')" class="service-link">
+                        Book Cardiology
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+
+                <!-- Pediatrics -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <!-- Stethoscope/Pediatrics SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.82 4.82A10 10 0 0 1 18 18"/>
+                            <path d="M19.82 19.82a10 10 0 0 1-13.64-1.18"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v6"/>
+                            <path d="M12 16v6"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Pediatrics</h3>
+                    <p class="service-desc">Newborn milestone monitoring, painless immunizations, pediatric urgent care, and specialized youth health advocacy.</p>
+                    <a href="#book-appointment" onclick="quickFillForm('Pediatrics', 'Dr. Sarah Jenkins, MD')" class="service-link">
+                        Book Pediatrics
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+
+                <!-- Orthopedics -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <!-- Bone/Orthopedic joint SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2c-.83 0-1.5.67-1.5 1.5v3c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5h-1zM8 8.5C8 7.67 7.33 7 6.5 7h-1C4.67 7 4 7.67 4 8.5v11c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5v-11zM14.5 14c-.83 0-1.5.67-1.5 1.5v5c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5h-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Orthopedics</h3>
+                    <p class="service-desc">Advanced joint reconstruction, spine alignment therapies, complex fracture management, and physical rehabilitation.</p>
+                    <a href="#book-appointment" onclick="quickFillForm('Orthopedics', 'Dr. Adrian Sterling, MD')" class="service-link">
+                        Book Orthopedics
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+
+                <!-- Dental Care -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <!-- Tooth SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2C8 2 8 8 4 8v2c0 5.25 4.5 9.5 8 12 3.5-2.5 8-6.75 8-12V8c-4 0-4-6-8-6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Dental Care</h3>
+                    <p class="service-desc">Painless decay restorations, precision orthodontics, cosmetic teeth whitening, and complete oral surgical implants.</p>
+                    <a href="#book-appointment" onclick="quickFillForm('Dental', 'Dr. Marcus Vance, DDS')" class="service-link">
+                        Book Dental
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+
+                <!-- General Medicine -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <!-- Stethoscope tool SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5M12 2a4 4 0 1 0 0 8 4 4 0 1 0 0-8zm-8 8.5C4 13.54 6.46 16 9.5 16h5c3.04 0 5.5-2.46 5.5-5.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">General Medicine</h3>
+                    <p class="service-desc">Routine executive checkups, chronic health care, active diagnostic screening, and customized vitality consulting.</p>
+                    <a href="#book-appointment" onclick="quickFillForm('General', 'Dr. Julian Mercer, MD')" class="service-link">
+                        Book General
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Portal Intro -->
+    <section class="choose-section section-padding" id="about">
+        <div class="container choose-grid">
+            
+            <!-- Styled SVG Medical Portal Illustration (High Visual trust) -->
+            <div class="choose-illustration">
+                <svg viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Base Clinical Server Console/Portal Frame -->
+                    <rect x="50" y="40" width="300" height="270" rx="16" fill="white" stroke="#e2e8f0" stroke-width="4"/>
+                    <!-- Header Bar -->
+                    <rect x="50" y="40" width="300" height="48" rx="16" fill="#0d9488"/>
+                    <rect x="50" y="70" width="300" height="18" fill="#0d9488"/>
+                    <!-- Console Lights -->
+                    <circle cx="80" cy="64" r="6" fill="#fff" opacity="0.8"/>
+                    <circle cx="100" cy="64" r="6" fill="#06b6d4"/>
+                    <circle cx="120" cy="64" r="6" fill="#34d399"/>
+                    
+                    <!-- Inner Grid Layout representation -->
+                    <rect x="75" y="110" width="100" height="70" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+                    <rect x="190" y="110" width="135" height="18" rx="4" fill="#f1f5f9"/>
+                    <rect x="190" y="136" width="135" height="10" rx="2" fill="#e2e8f0"/>
+                    <rect x="190" y="152" width="100" height="10" rx="2" fill="#e2e8f0"/>
+                    <rect x="190" y="168" width="120" height="12" rx="4" fill="#ecfeff"/>
+                    
+                    <!-- Graphic heartbeat chart -->
+                    <path d="M85 155h20l5-15 8 35 7-45 5 30h20" stroke="#0d9488" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Lower Section Layout -->
+                    <rect x="75" y="200" width="250" height="78" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="1.5"/>
+                    
+                    <circle cx="105" cy="239" r="20" fill="white" stroke="#06b6d4" stroke-width="2"/>
+                    <!-- Doctor outline icon -->
+                    <path d="M105 227a6 6 0 100 12 6 6 0 000-12zm-10 20a10 10 0 0120 0" stroke="#0d9488" stroke-width="1.5"/>
+                    
+                    <!-- Secure Portal text mock -->
+                    <rect x="140" y="215" width="120" height="14" rx="4" fill="#0f172a"/>
+                    <rect x="140" y="235" width="160" height="8" rx="2" fill="#64748b"/>
+                    <rect x="140" y="248" width="140" height="8" rx="2" fill="#64748b"/>
+                    
+                    <!-- Shield emblem overlay for high trust -->
+                    <g transform="translate(300, 20)">
+                        <circle cx="25" cy="25" r="30" fill="#dc2626" opacity="0.08"/>
+                        <circle cx="25" cy="25" r="22" fill="#10b981"/>
+                        <path d="M25 15l-8 3v5c0 5 8 9 8 9s8-4 8-9v-5l-8-3zm-2 11.5l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z" fill="white"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Trust Text Copy and Value Columns -->
+            <div class="choose-content">
+                <span class="section-tag">High-Trust Guarantee</span>
+                <h2 class="section-title" style="font-size: 2.15rem;">Premium Clinical Care Engineered Around Your Comfort</h2>
+                <p class="section-desc">We recognize that visiting the doctor can be stressful. HealthClinic prioritizes streamlined, compassionate checkups built on safety, empathy, and absolute scheduling integrity.</p>
+                
+                <div class="choose-list">
+                    <!-- Value 1 -->
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="choose-text">
+                            <h4>Ultra-Secure Patient Portals</h4>
+                            <p>HIPAA-compliant data encryptions ensure your laboratory assessments, historical reports, and telehealth logs are completely protected.</p>
+                        </div>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="choose-text">
+                            <h4>Zero-Wait Room Assurance</h4>
+                            <p>We respect your busy life. If your pre-booked appointment doesn't commence within 15 minutes of your arrival time, your general consultation is free.</p>
+                        </div>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <div class="choose-text">
+                            <h4>Instant Telehealth Transition</h4>
+                            <p>Need follow-ups but can't visit in-person? Smoothly convert your calendar slot into an interactive high-definition virtual screening card with one click.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Doctors & Specialists Profiles Section -->
+    <section class="doctors-section section-padding" id="doctors">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Medical Board certified</span>
+                <h2 class="section-title">Our Chief Medical Directors</h2>
+                <p class="section-desc">Consult with world-renowned specialists holding clinical accreditations from Ivy League academic hospitals.</p>
+            </div>
+
+            <div class="doctors-grid">
+                
+                <!-- Doctor 1 -->
+                <div class="doctor-card" data-doctor="Dr. Evelyn Harper, MD" data-dept="Cardiology">
+                    <div class="doctor-image-wrapper">
+                        <!-- Abstract Vector Portrait SVG -->
+                        <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="260" fill="#e0f2fe"/>
+                            <circle cx="100" cy="95" r="45" fill="#bae6fd"/>
+                            <!-- Abstract Hair & Glasses -->
+                            <circle cx="100" cy="90" r="40" fill="#0f172a"/>
+                            <rect x="75" y="80" width="50" height="22" rx="4" fill="#38bdf8"/>
+                            <rect x="80" y="85" width="16" height="10" rx="2" fill="#fff"/>
+                            <rect x="104" y="85" width="16" height="10" rx="2" fill="#fff"/>
+                            <!-- Doctor Coat / Scrub -->
+                            <path d="M45 220C45 180 70 150 100 150S155 180 155 220V260H45V220Z" fill="#f8fafc"/>
+                            <path d="M100 150L75 220H125L100 150Z" fill="#0d9488"/>
+                            <path d="M100 170v50" stroke="#bae6fd" stroke-width="3"/>
+                            <!-- Stethoscope -->
+                            <path d="M78 150v20c0 15 44 15 44 0v-20" stroke="#64748b" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span class="status-badge status-available">Available Today</span>
+                    </div>
+                    <div class="doctor-info">
+                        <span class="doctor-dept">Cardiology</span>
+                        <h3 class="doctor-name">Dr. Evelyn Harper, MD</h3>
+                        <p class="doctor-credentials">Chief of Cardiovascular Medicine</p>
+                        
+                        <div class="doctor-meta-list">
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                <span>Harvard Medical School (15 yrs exp)</span>
+                            </div>
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Mon - Wed, 08:00 AM - 02:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="#book-appointment" onclick="quickFillForm('Cardiology', 'Dr. Evelyn Harper, MD')" class="btn btn-outline doctor-btn">Schedule Consultation</a>
+                    </div>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="doctor-card" data-doctor="Dr. Sarah Jenkins, MD" data-dept="Pediatrics">
+                    <div class="doctor-image-wrapper">
+                        <!-- Abstract Vector Portrait SVG -->
+                        <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="260" fill="#fdf2f8"/>
+                            <circle cx="100" cy="95" r="45" fill="#fbcfe8"/>
+                            <!-- Abstract Hair -->
+                            <path d="M55 95c0-30 20-45 45-45s45 15 45 45c0 20-5 35-15 35s-15-15-15-15H85s-5 15-15 15-15-15-15-35z" fill="#b45309"/>
+                            <!-- Face Base & Smile -->
+                            <circle cx="100" cy="95" r="35" fill="#fed7aa"/>
+                            <path d="M92 105c3 4 13 4 16 0" stroke="#b45309" stroke-width="2" stroke-linecap="round" fill="none"/>
+                            <!-- Doctor Coat / Scrub -->
+                            <path d="M45 220C45 180 70 150 100 150S155 180 155 220V260H45V220Z" fill="#f8fafc"/>
+                            <path d="M100 150L75 210H125L100 150Z" fill="#06b6d4"/>
+                            <path d="M100 170v50" stroke="#bae6fd" stroke-width="3"/>
+                        </svg>
+                        <span class="status-badge status-available">Available Today</span>
+                    </div>
+                    <div class="doctor-info">
+                        <span class="doctor-dept">Pediatrics</span>
+                        <h3 class="doctor-name">Dr. Sarah Jenkins, MD</h3>
+                        <p class="doctor-credentials">Director of Pediatric Health</p>
+                        
+                        <div class="doctor-meta-list">
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                <span>Johns Hopkins Medical (10 yrs exp)</span>
+                            </div>
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Tue - Fri, 09:00 AM - 04:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="#book-appointment" onclick="quickFillForm('Pediatrics', 'Dr. Sarah Jenkins, MD')" class="btn btn-outline doctor-btn">Schedule Consultation</a>
+                    </div>
+                </div>
+
+                <!-- Doctor 3 -->
+                <div class="doctor-card" data-doctor="Dr. Adrian Sterling, MD" data-dept="Orthopedics">
+                    <div class="doctor-image-wrapper">
+                        <!-- Abstract Vector Portrait SVG -->
+                        <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="260" fill="#ecfdf5"/>
+                            <circle cx="100" cy="95" r="45" fill="#a7f3d0"/>
+                            <!-- Abstract Hair & Features -->
+                            <rect x="65" y="55" width="70" height="35" rx="10" fill="#475569"/>
+                            <circle cx="100" cy="98" r="35" fill="#f1f5f9"/>
+                            <rect x="70" y="80" width="60" height="6" fill="#475569" rx="3"/>
+                            <!-- Doctor Coat / Scrub -->
+                            <path d="M45 220C45 180 70 150 100 150S155 180 155 220V260H45V220Z" fill="#f8fafc"/>
+                            <path d="M100 150L75 215H125L100 150Z" fill="#0f766e"/>
+                        </svg>
+                        <span class="status-badge status-booked">Fully Booked</span>
+                    </div>
+                    <div class="doctor-info">
+                        <span class="doctor-dept">Orthopedics</span>
+                        <h3 class="doctor-name">Dr. Adrian Sterling, MD</h3>
+                        <p class="doctor-credentials">Lead Reconstructive Orthopedist</p>
+                        
+                        <div class="doctor-meta-list">
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                <span>Stanford University Hospital (18 yrs exp)</span>
+                            </div>
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Wed - Sat, 10:00 AM - 05:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="#book-appointment" onclick="quickFillForm('Orthopedics', 'Dr. Adrian Sterling, MD')" class="btn btn-outline doctor-btn">Schedule Consultation</a>
+                    </div>
+                </div>
+
+                <!-- Doctor 4 -->
+                <div class="doctor-card" data-doctor="Dr. Marcus Vance, DDS" data-dept="Dental">
+                    <div class="doctor-image-wrapper">
+                        <!-- Abstract Vector Portrait SVG -->
+                        <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="260" fill="#f0fdfa"/>
+                            <circle cx="100" cy="95" r="45" fill="#ccfbf1"/>
+                            <!-- Abstract Hair & Glasses -->
+                            <rect x="68" y="52" width="64" height="40" rx="14" fill="#7c2d12"/>
+                            <circle cx="100" cy="98" r="35" fill="#ffedd5"/>
+                            <rect x="76" y="86" width="48" height="15" rx="3" fill="#1e293b"/>
+                            <!-- Doctor Coat / Scrub -->
+                            <path d="M45 220C45 180 70 150 100 150S155 180 155 220V260H45V220Z" fill="#f8fafc"/>
+                            <path d="M100 150L75 220H125L100 150Z" fill="#14b8a6"/>
+                        </svg>
+                        <span class="status-badge status-tomorrow">Available Tomorrow</span>
+                    </div>
+                    <div class="doctor-info">
+                        <span class="doctor-dept">Dental Care</span>
+                        <h3 class="doctor-name">Dr. Marcus Vance, DDS</h3>
+                        <p class="doctor-credentials">Chief Dental & Implant Surgeon</p>
+                        
+                        <div class="doctor-meta-list">
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                <span>Columbia University Dental (12 yrs exp)</span>
+                            </div>
+                            <div class="doctor-meta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Mon - Thu, 09:30 AM - 03:30 PM</span>
+                            </div>
+                        </div>
+                        <a href="#book-appointment" onclick="quickFillForm('Dental', 'Dr. Marcus Vance, DDS')" class="btn btn-outline doctor-btn">Schedule Consultation</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Feedback Section (Testimonials) -->
+    <section class="feedback-section section-padding" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Verified Patient Voice</span>
+                <h2 class="section-title">What Our Patients Say</h2>
+                <p class="section-desc">We measure our success through the smiles, safety, and long-term health improvements of those we serve.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                
+                <!-- Review 1 -->
+                <div class="testimonial-card">
+                    <!-- Quote SVG -->
+                    <svg class="quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    
+                    <div class="rating-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <p class="testimonial-text">
+                        "I was highly anxious about my chronic heart palpitations. Dr. Harper's clinical rigor and incredibly calm explanation put my mind at complete ease. Plus, I didn't spend even 5 minutes in the wait room!"
+                    </p>
+
+                    <div class="testimonial-patient">
+                        <div class="patient-avatar">MH</div>
+                        <div class="patient-info">
+                            <h4>Margaret Hall</h4>
+                            <span class="patient-verified">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verified Cardiology Patient
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="testimonial-card">
+                    <!-- Quote SVG -->
+                    <svg class="quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    
+                    <div class="rating-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <p class="testimonial-text">
+                        "Finding a pediatrician who actually listens to children is incredibly rare. Dr. Jenkins was spectacular with my 6-year-old daughter. She made the checkup feel like a fun game!"
+                    </p>
+
+                    <div class="testimonial-patient">
+                        <div class="patient-avatar">DL</div>
+                        <div class="patient-info">
+                            <h4>David L.</h4>
+                            <span class="patient-verified">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verified Parent (Pediatrics)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="testimonial-card">
+                    <!-- Quote SVG -->
+                    <svg class="quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    
+                    <div class="rating-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <p class="testimonial-text">
+                        "Outstanding clinic database integration. I scheduled an appointment with Dr. Vance, pre-filled my insurance documentation online, walked in, had my wisdom tooth extracted, and was home in under 2 hours!"
+                    </p>
+
+                    <div class="testimonial-patient">
+                        <div class="patient-avatar">RM</div>
+                        <div class="patient-info">
+                            <h4>Richard M.</h4>
+                            <span class="patient-verified">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verified Dental Surgeon Patient
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Accordion FAQs Section -->
+    <section class="faq-section section-padding" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Answering Concerns</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Get quick answers regarding insurance integrations, consultation protocols, and telehealth availability.</p>
+            </div>
+
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        What forms of insurance are accepted at HealthClinic?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-body">
+                            We accept almost all major national and international healthcare insurance providers, including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, and Humana. Our administrative desk handles direct billing automatically so you only pay your specific co-pay on-site.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        What should I bring to my first diagnostic checkup?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-body">
+                            Please bring a valid photo government identification card, your physical medical insurance card, and any historical laboratory results, imaging files (X-Rays/CTs), or current pharmaceutical prescriptions you are actively taking. Arrive 10 minutes early to complete initial electronic registration templates.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        How long does it take to receive blood work and imaging results?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-body">
+                            Thanks to our on-site modern diagnostic laboratory, standard blood counts and metabolic panels are processed within 4 to 6 hours. Advanced genetic screens or complex pathology cultures may require up to 48 hours. All results are securely pushed instantly to your HIPAA-secured Patient Portal.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        Can I cancel or reschedule my pre-booked appointment?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-body">
+                            Yes, absolutely. You can reschedule or cancel your appointment free of charge up to 2 hours before your scheduled time slot. You can do this easily through the secure Patient Portal link or by calling our active support line at (555) 019-2834.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic News & Articles Section -->
+    <section class="news-section section-padding" id="news">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Clinical Knowledge</span>
+                <h2 class="section-title">Latest Medical & Wellness News</h2>
+                <p class="section-desc">Stay informed with the latest diagnostic breakthroughs, pediatric parenting tips, and preventative cardiology advice written by our doctors.</p>
+            </div>
+
+            <div class="news-grid">
+                
+                <!-- News 1 -->
+                <div class="news-card">
+                    <div class="news-image-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span class="news-category-badge">Cardiology</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                May 18, 2026
+                            </span>
+                            <span class="news-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                Dr. Evelyn Harper
+                            </span>
+                        </div>
+                        <h3 class="news-title"><a href="#news" onclick="alert('Viewing Article: 5 Essential Daily Habits for High-Trust Cardiovascular Health')">5 Essential Habits for Cardiovascular Vitality</a></h3>
+                        <p class="news-excerpt">Discover how low-impact interval cardio training combined with specific leafy dietary intakes drastically lowers arterial inflammation indices.</p>
+                        <a href="#news" onclick="alert('Viewing Article: 5 Essential Daily Habits for High-Trust Cardiovascular Health')" class="news-read-more">
+                            Read Full Article
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News 2 -->
+                <div class="news-card">
+                    <div class="news-image-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        <span class="news-category-badge">Pediatrics</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                May 12, 2026
+                            </span>
+                            <span class="news-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                Dr. Sarah Jenkins
+                            </span>
+                        </div>
+                        <h3 class="news-title"><a href="#news" onclick="alert('Viewing Article: Deconstructing Child Sleep Patterns & Circadian Rhythms')">Deconstructing Childhood Sleep Patterns</a></h3>
+                        <p class="news-excerpt">How modern digital screens disrupt standard melatonin production in toddlers, and practical evening templates to fix it.</p>
+                        <a href="#news" onclick="alert('Viewing Article: Deconstructing Child Sleep Patterns & Circadian Rhythms')" class="news-read-more">
+                            Read Full Article
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News 3 -->
+                <div class="news-card">
+                    <div class="news-image-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                        <span class="news-category-badge">Dental Care</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                April 29, 2026
+                            </span>
+                            <span class="news-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                Dr. Marcus Vance
+                            </span>
+                        </div>
+                        <h3 class="news-title"><a href="#news" onclick="alert('Viewing Article: The Link Between Gum Health and Systemic Well-being')">Gum Health Link to Systemic Wellness</a></h3>
+                        <p class="news-excerpt">Emerging clinical studies show periodontal bacteria colonies directly impact general arterial elasticity and longevity.</p>
+                        <a href="#news" onclick="alert('Viewing Article: The Link Between Gum Health and Systemic Well-being')" class="news-read-more">
+                            Read Full Article
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Hotline Banner CTA -->
+    <section class="cta-callout-section">
+        <div class="container cta-callout-content">
+            <h2>Do You Require Immediate Clinical Advice?</h2>
+            <p>Our standby nurses and certified trauma practitioners are on-call 24 hours a day to assist you with medical queries or guide you through immediate symptoms.</p>
+            <div class="cta-buttons">
+                <a href="tel:18005550199" class="btn btn-danger">
+                    <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call Toll Free: 1-800-555-0199
+                </a>
+                <a href="#book-appointment" class="btn btn-secondary" style="background-color: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.25);">
+                    Online Diagnostics Scheduling
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rich Clinic Footer -->
+    <footer class="main-footer">
+        <div class="container footer-top">
+            <div class="footer-grid">
+                
+                <!-- Col 1: About Brand -->
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                        Health<span>Clinic</span>
+                    </a>
+                    <p class="footer-about-text">
+                        Delivering world-class clinical expertise, advanced diagnostics, and compassionate healthcare to families since 2011.
+                    </p>
+                    <div class="footer-badges">
+                        <div class="footer-badge-icon" title="Joint Commission Accredited">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="footer-badge-icon" title="HIPAA Encrypted Secure Portal">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <div class="footer-badge-icon" title="100% Medical Board Approved">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services Quick links -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Clinical Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" onclick="quickFillForm('Cardiology', 'Dr. Evelyn Harper, MD')">Cardiology</a></li>
+                        <li><a href="#services" onclick="quickFillForm('Pediatrics', 'Dr. Sarah Jenkins, MD')">Pediatrics Clinic</a></li>
+                        <li><a href="#services" onclick="quickFillForm('Orthopedics', 'Dr. Adrian Sterling, MD')">Orthopedic Surgery</a></li>
+                        <li><a href="#services" onclick="quickFillForm('Dental', 'Dr. Marcus Vance, DDS')">Dental & Esthetics</a></li>
+                        <li><a href="#services" onclick="quickFillForm('General', 'Dr. Julian Mercer, MD')">General Wellness</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Info -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Clinic Contacts</h4>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div class="footer-contact-text">
+                                <h5>Physical Address</h5>
+                                <p>750 Medical Plaza Parkway, Suite B, San Francisco, CA 94115</p>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div class="footer-contact-text">
+                                <h5>Secure Direct Mail</h5>
+                                <p>admissions@healthclinic-portal.org</p>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <div class="footer-contact-text">
+                                <h5>Priority Clinic Line</h5>
+                                <p>(555) 019-2834 (Callback in 15m)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div class="footer-col footer-newsletter">
+                    <h4 class="footer-title">Wellness Articles</h4>
+                    <p>Subscribe to receive monthly medical research papers and preventative health guides written by our senior specialists.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Your monthly health digest has been registered.')">
+                        <div class="newsletter-input-wrapper">
+                            <input type="email" class="newsletter-input" placeholder="Enter secure email address" required>
+                        </div>
+                        <button type="submit" class="newsletter-btn">Register Email</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <span>&copy; 2026 HealthClinic Inc. Medical Board approved. All Rights Reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="#privacy" onclick="alert('Viewing HIPAA Privacy Policy guidelines...')">HIPAA Privacy Policy</a>
+                    <a href="#terms" onclick="alert('Viewing Healthcare Terms & Patient Rights of Service...')">Terms of Service</a>
+                    <a href="#insurance" onclick="alert('Loading Comprehensive Medical Insurances list...')">Insurance Matrix</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SUCCESS MODAL DIALOG OVERLAY -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <h3>Appointment Request Logged!</h3>
+                <p style="font-size:0.85rem; color: var(--gray); margin-top:0.25rem;">Medical ticket has been generated securely</p>
+            </div>
+            <div class="modal-body">
+                <div class="appointment-ticket">
+                    <!-- Ticket ID -->
+                    <div class="ticket-row">
+                        <span class="ticket-label">Secure Ticket ID</span>
+                        <span class="ticket-value"><strong class="ticket-id-badge" id="modalTicketId">HC-90428-2026</strong></span>
+                    </div>
+                    <!-- Patient Name -->
+                    <div class="ticket-row">
+                        <span class="ticket-label">Patient Name</span>
+                        <span class="ticket-value" id="modalPatientName">Johnathan Doe</span>
+                    </div>
+                    <!-- Clinical Department -->
+                    <div class="ticket-row">
+                        <span class="ticket-label">Clinical Dept.</span>
+                        <span class="ticket-value" id="modalDepartment">Cardiology Division</span>
+                    </div>
+                    <!-- Doctor -->
+                    <div class="ticket-row">
+                        <span class="ticket-label">Specialist Consultant</span>
+                        <span class="ticket-value" id="modalDoctor">Dr. Evelyn Harper, MD</span>
+                    </div>
+                    <!-- Schedule -->
+                    <div class="ticket-row">
+                        <span class="ticket-label">Preferred Time Slot</span>
+                        <span class="ticket-value" id="modalSchedule">May 25, 2026 | Morning</span>
+                    </div>
+                    <!-- Status -->
+                    <div class="ticket-row">
+                        <span class="ticket-label">Callback Window</span>
+                        <span class="ticket-value" style="color:var(--success)">Within 15 minutes</span>
+                    </div>
+                </div>
+
+                <p class="modal-instructions">
+                    A clinical registrar is actively reviewing your health record and will call you on your contact phone number to confirm validation within 15 minutes.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close-btn" onclick="closeSuccessModal()">Acknowledge Ticket</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Block containing all interactive logics -->
+    <script>
+        // Dictionary linking clinical departments to specific certified doctors
+        const departmentDoctors = {
+            "Cardiology": [
+                "Dr. Evelyn Harper, MD",
+                "Dr. Robert Chen, MD"
+            ],
+            "Pediatrics": [
+                "Dr. Sarah Jenkins, MD",
+                "Dr. Liam Patel, MD"
+            ],
+            "Orthopedics": [
+                "Dr. Adrian Sterling, MD",
+                "Dr. Amanda Ross, MD"
+            ],
+            "Dental": [
+                "Dr. Marcus Vance, DDS",
+                "Dr. Chloe Kim, DDS"
+            ],
+            "General": [
+                "Dr. Julian Mercer, MD",
+                "Dr. Sophia Martinez, MD"
+            ]
+        };
+
+        // DOM elements
+        const header = document.getElementById('main-header');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const medicalDeptSelect = document.getElementById('medicalDept');
+        const doctorSelect = document.getElementById('preferredDoctor');
+        const appointmentForm = document.getElementById('appointmentForm');
+        
+        // Modal DOM elements
+        const successModal = document.getElementById('successModal');
+        const modalTicketId = document.getElementById('modalTicketId');
+        const modalPatientName = document.getElementById('modalPatientName');
+        const modalDepartment = document.getElementById('modalDepartment');
+        const modalDoctor = document.getElementById('modalDoctor');
+        const modalSchedule = document.getElementById('modalSchedule');
+
+        // 1. Sticky Navigation Shadow on Scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Mobile Nav Menu Toggle
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking link in mobile view
+        function toggleMenuLink(link) {
+            // Remove active classes
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+            navLinks.classList.remove('active');
+        }
+
+        // 3. Dynamic Doctor Population depending on chosen Department
+        medicalDeptSelect.addEventListener('change', function() {
+            const dept = this.value;
+            
+            // Clear existing options
+            doctorSelect.innerHTML = '<option value="" disabled selected>Select Specialist...</option>';
+            doctorSelect.disabled = false;
+
+            if (departmentDoctors[dept]) {
+                departmentDoctors[dept].forEach(docName => {
+                    const option = document.createElement('option');
+                    option.value = docName;
+                    option.textContent = docName;
+                    doctorSelect.appendChild(option);
+                });
+            } else {
+                doctorSelect.disabled = true;
+                doctorSelect.innerHTML = '<option value="" disabled selected>Choose dept first...</option>';
+            }
+        });
+
+        // 4. Quick Booking Autocomplete Trigger from other sections
+        function quickFillForm(department, doctorName) {
+            // Locate booking card widget
+            const bookingWidget = document.getElementById('book-appointment');
+            
+            // Populate department
+            medicalDeptSelect.value = department;
+            
+            // Trigger dynamic update event for doctor
+            const event = new Event('change');
+            medicalDeptSelect.dispatchEvent(event);
+            
+            // Set doctor selection
+            doctorSelect.value = doctorName;
+            
+            // Add pulse focus animation to the card for immediate visual feedback
+            bookingWidget.classList.add('focus-pulse');
+            setTimeout(() => {
+                bookingWidget.classList.remove('focus-pulse');
+            }, 3000);
+
+            // Smooth scroll to the widget
+            bookingWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Set minimum booking date to today
+        const dateInput = document.getElementById('appointmentDate');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+
+        // 5. Booking Form Request Handler (Validation + Interactive Dialog alerts)
+        appointmentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Validate all input fields
+            const nameInput = document.getElementById('patientName');
+            const phoneInput = document.getElementById('patientPhone');
+            const deptSelect = document.getElementById('medicalDept');
+            const docSelect = document.getElementById('preferredDoctor');
+            const timeSelect = document.getElementById('appointmentTime');
+
+            let isFormValid = true;
+
+            // Simple validation helper
+            function validateField(element, errorGroupId) {
+                const parent = document.getElementById(errorGroupId);
+                if (!element.value || element.value.trim() === "") {
+                    parent.classList.add('has-error');
+                    isFormValid = false;
+                } else {
+                    parent.classList.remove('has-error');
+                }
+            }
+
+            validateField(nameInput, 'group-name');
+            validateField(phoneInput, 'group-phone');
+            validateField(deptSelect, 'group-department');
+            validateField(docSelect, 'group-doctor');
+            validateField(dateInput, 'group-date');
+            validateField(timeSelect, 'group-time');
+
+            // Phone verification formatting check
+            if (phoneInput.value && phoneInput.value.trim().length < 7) {
+                document.getElementById('group-phone').classList.add('has-error');
+                isFormValid = false;
+            }
+
+            if (isFormValid) {
+                // Generate a premium random ticket number
+                const randTicketNum = Math.floor(10000 + Math.random() * 90000);
+                const ticketId = `HC-${randTicketNum}-2026`;
+
+                // Set modal texts
+                modalTicketId.textContent = ticketId;
+                modalPatientName.textContent = nameInput.value;
+                modalDepartment.textContent = `${deptSelect.value} Clinic`;
+                modalDoctor.textContent = docSelect.value;
+                modalSchedule.textContent = `${dateInput.value} | ${timeSelect.value}`;
+
+                // Reveal success overlay
+                successModal.classList.add('active');
+            } else {
+                // Play subtle shake effect on form card
+                const bookingCard = document.querySelector('.booking-card');
+                bookingCard.style.animation = 'shake 0.4s ease';
+                setTimeout(() => {
+                    bookingCard.style.animation = '';
+                }, 400);
+            }
+        });
+
+        // Add shake keyframe styling dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-6px); }
+                75% { transform: translateX(6px); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Close Success Modal
+        function closeSuccessModal() {
+            successModal.classList.remove('active');
+            // Reset booking form entirely
+            appointmentForm.reset();
+            // Disable doctors dropdown till department selected again
+            doctorSelect.innerHTML = '<option value="" disabled selected>Choose dept first...</option>';
+            doctorSelect.disabled = true;
+        }
+
+        // 6. Interactive FAQs Accordion Toggle Logic
+        function toggleFaq(headerButton) {
+            const faqItem = headerButton.parentElement;
+            
+            // Check if active
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current if it was not active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/medical-dental-care" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">medical</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Danish Dental Care</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/fitness-yoga" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">medical</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Oslo Yoga Studio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

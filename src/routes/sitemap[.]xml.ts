@@ -155,7 +155,6 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/about", changefreq: "yearly", priority: "0.5" },
   { path: "/templates", changefreq: "weekly", priority: "0.8" },
   { path: "/animated-icons", changefreq: "weekly", priority: "0.8" },
-  { path: "/customizer", changefreq: "monthly", priority: "0.7" },
   { path: "/showcase", changefreq: "weekly", priority: "0.7" },
   { path: "/original", changefreq: "weekly", priority: "0.8" },
   { path: "/original/ai-tools", changefreq: "monthly", priority: "0.7" },

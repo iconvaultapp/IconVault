@@ -1,0 +1,3817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, modern news portal html, digital editorial blog layout, lifestyle magazine template, tech news blog responsive, interactive content publishing theme, grid layout modern magazine, rich media blogging site, multipurpose web blog template, developer writing space html">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/blog-modern">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brussels Modern Press — Free Blog Template</title>
+  <meta name="description" content="Polished multi-column content hub for journalists, publishers, and European Union policy analysts. Features clean RSS and newsle... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Brussels Modern Press — Free Blog Template">
+  <meta property="og:description" content="Polished multi-column content hub for journalists, publishers, and European Union policy analysts. Features clean RSS and newsle... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/blog_modern.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brussels Modern Press — Free Blog Template">
+  <meta name="twitter:description" content="Polished multi-column content hub for journalists, publishers, and European Union policy analysts. Features clean RSS and newsle... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/blog_modern.webp">
+    
+    <!-- Google Fonts: Outfit (Headings) and Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           1. CSS CUSTOM PROPERTIES (LIGHT/DARK)
+           ========================================== */
+        :root {
+            /* Fonts */
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Layout & Spacing */
+            --max-width: 1280px;
+            --border-radius-sm: 6px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 20px;
+            --border-radius-full: 9999px;
+            
+            /* Light Theme Palette (Default) */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent: #6d28d9;
+            --accent-rgb: 109, 40, 217;
+            --accent-hover: #5b21b6;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 8px -1px rgba(15, 23, 42, 0.04);
+            --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.08), 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+            --card-bg: #ffffff;
+            --badge-bg: rgba(109, 40, 217, 0.07);
+            --badge-text: #6d28d9;
+            
+            --glow-opacity: 0.15;
+            --selection-bg: rgba(109, 40, 217, 0.15);
+        }
+
+        body.dark-theme {
+            /* Dark Theme Palette */
+            --bg-primary: #080c14;
+            --bg-secondary: #0e1321;
+            --bg-tertiary: #161c2d;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent: #8b5cf6;
+            --accent-rgb: 139, 92, 246;
+            --accent-hover: #a78bfa;
+            --border: #1e293b;
+            --border-hover: #334155;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
+            --card-bg: #0d121f;
+            --badge-bg: rgba(139, 92, 246, 0.15);
+            --badge-text: #c084fc;
+            
+            --glow-opacity: 0.35;
+            --selection-bg: rgba(139, 92, 246, 0.25);
+        }
+
+        /* ==========================================
+           2. CORE RESET & BASE STYLES
+           ========================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        ::selection {
+            background-color: var(--selection-bg);
+            color: var(--text-primary);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button, input, textarea {
+            font-family: inherit;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: var(--border-radius-full);
+            border: 2px solid var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* ==========================================
+           3. FLOATING TOP PROGRESS BAR & HEADER
+           ========================================== */
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 1001;
+            background: rgba(var(--accent-rgb), 0.1);
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            transition: width 0.1s ease-out;
+        }
+
+        /* ==========================================
+           4. TOP HEADER BAR
+           ========================================== */
+        .top-bar {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            font-weight: 500;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .date-display {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+
+        .trending-ticker-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow: hidden;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .ticker-label {
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 10px;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-window {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .ticker-list {
+            display: inline-block;
+            animation: tickerSlide 25s linear infinite;
+            padding-left: 100%;
+        }
+        
+        .ticker-list:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            margin-right: 32px;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+        .ticker-item:hover {
+            color: var(--accent);
+        }
+
+        @keyframes tickerSlide {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-right: 1px solid var(--border);
+            padding-right: 16px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: var(--border-radius-full);
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .social-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Elegant Toggle Switch */
+        .theme-toggle-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            width: 42px;
+            height: 42px;
+            border-radius: var(--border-radius-full);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent);
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            position: absolute;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-toggle-btn .sun-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .theme-toggle-btn .moon-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        body.dark-theme .theme-toggle-btn .sun-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        body.dark-theme .theme-toggle-btn .moon-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ==========================================
+           5. MAIN HEADER & NAVIGATION
+           ========================================== */
+        .main-header {
+            background-color: rgba(var(--bg-primary), 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: padding 0.3s ease;
+        }
+
+        .main-header.shrink {
+            padding: 8px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-grid {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Logo Branding */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #d8b4fe);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        /* Navigation Links */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-secondary);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+            border-radius: var(--border-radius-full);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Search & Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 200px;
+            padding: 10px 16px 10px 40px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-full);
+            font-size: 14px;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            width: 260px;
+            background: var(--bg-primary);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            color: var(--text-muted);
+            pointer-events: none;
+            width: 16px;
+            height: 16px;
+            transition: var(--transition);
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--accent);
+        }
+
+        .newsletter-cta-btn {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 13.5px;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: var(--border-radius-full);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.25);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .newsletter-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.35);
+            filter: brightness(1.05);
+        }
+
+        /* Responsive Menu Trigger (Hamburger) */
+        .mobile-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .mobile-hamburger span {
+            display: block;
+            width: 100%;
+            height: 2.5px;
+            background-color: var(--text-primary);
+            border-radius: var(--border-radius-full);
+            transition: var(--transition);
+        }
+
+        /* Open states for hamburger */
+        .mobile-hamburger.open span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        .mobile-hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        .mobile-hamburger.open span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        /* Mobile Slide Out Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--bg-primary);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: var(--transition-slow);
+            padding: 80px 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            border-left: 1px solid var(--border);
+        }
+
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        .mobile-drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .mobile-drawer-link {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+
+        .mobile-drawer-link:hover, .mobile-drawer-link.active {
+            color: var(--accent);
+            padding-left: 8px;
+        }
+
+        /* Drawer Overlay */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ==========================================
+           6. HERO FEATURED POST BANNER
+           ========================================== */
+        .hero-section {
+            padding: 40px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 32px;
+        }
+
+        /* Main Featured Post Card */
+        .featured-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            transition: var(--transition-slow);
+            cursor: pointer;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .featured-image-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: var(--bg-tertiary);
+        }
+
+        .card-svg-container {
+            width: 100%;
+            height: 100%;
+            transition: var(--transition-slow);
+        }
+
+        .featured-card:hover .card-svg-container {
+            transform: scale(1.05);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            border-radius: var(--border-radius-full);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(var(--accent-rgb), 0.15);
+            z-index: 10;
+        }
+
+        .featured-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .meta-dot {
+            width: 4px;
+            height: 4px;
+            background-color: var(--border-hover);
+            border-radius: var(--border-radius-full);
+        }
+
+        .featured-title {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .featured-card:hover .featured-title {
+            color: var(--accent);
+        }
+
+        .featured-excerpt {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 24px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-author-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--accent), #d8b4fe);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.2);
+        }
+
+        .author-meta h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .author-meta p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .read-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 13.5px;
+            color: var(--accent);
+        }
+
+        .read-action-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover .read-action-btn svg {
+            transform: translateX(4px);
+        }
+
+        /* Secondary Grid Column Stack */
+        .hero-secondary-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .secondary-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            height: calc(50% - 12px);
+            transition: var(--transition-slow);
+            cursor: pointer;
+        }
+
+        .secondary-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .secondary-image-box {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            background: var(--bg-tertiary);
+        }
+
+        .secondary-card:hover .card-svg-container {
+            transform: scale(1.05);
+        }
+
+        .secondary-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .secondary-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .secondary-card:hover .secondary-title {
+            color: var(--accent);
+        }
+
+        /* ==========================================
+           7. CATEGORY FILTER NAVIGATION
+           ========================================== */
+        .filter-section {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            background: var(--bg-secondary);
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .filter-pills {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .filter-pills::-webkit-scrollbar {
+            display: none; /* Safari/Chrome */
+        }
+
+        .filter-pill {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: var(--border-radius-full);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .filter-pill:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .filter-pill.active {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+        }
+
+        .feed-info-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .feed-info-text span {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* ==========================================
+           8. MAIN EDITORIAL CONTENT SPLIT
+           ========================================== */
+        .main-feed-section {
+            padding: 48px 0;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Left Column: Post Grid */
+        .posts-grid-wrapper {
+            position: relative;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            transition: var(--transition);
+        }
+
+        /* No Results Placeholder */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 60px 24px;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-lg);
+            border: 2px dashed var(--border);
+            width: 100%;
+            grid-column: 1 / -1;
+        }
+
+        .no-results svg {
+            width: 48px;
+            height: 48px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .no-results h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .no-results p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Post Card Item */
+        .post-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .post-card.fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .post-card.hidden {
+            display: none !important;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .post-image-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: var(--bg-tertiary);
+        }
+
+        .post-card:hover .card-svg-container {
+            transform: scale(1.05);
+        }
+
+        .post-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .post-title {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            transition: var(--transition);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-card:hover .post-title {
+            color: var(--accent);
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        /* Right Column: Authoritative Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 40px;
+            height: 2.5px;
+            background-color: var(--accent);
+            border-radius: var(--border-radius-full);
+        }
+
+        /* Editorial About Module */
+        .about-widget-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .about-sig-logo {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        
+        .about-sig-logo span {
+            color: var(--accent);
+        }
+
+        .about-widget-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .editor-signature {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-left: 2px solid var(--accent);
+            padding-left: 10px;
+            margin-top: 4px;
+        }
+
+        /* Popular Posts widget */
+        .popular-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .popular-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            cursor: pointer;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .popular-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .popular-num {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 900;
+            color: rgba(var(--accent-rgb), 0.25);
+            line-height: 1;
+            transition: var(--transition);
+        }
+
+        .popular-item:hover .popular-num {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .popular-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .popular-title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .popular-item:hover .popular-title {
+            color: var(--accent);
+        }
+
+        .popular-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Sidebar Newsletter Box Widget */
+        .newsletter-widget {
+            background: linear-gradient(135deg, #1e1b4b, #2e1065);
+            color: #ffffff;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(109, 40, 217, 0.2);
+        }
+        
+        body.dark-theme .newsletter-widget {
+            background: linear-gradient(135deg, #0f1021, #210d3d);
+        }
+
+        /* Visual glowing circles for background */
+        .newsletter-widget::before, .newsletter-widget::after {
+            content: '';
+            position: absolute;
+            border-radius: var(--border-radius-full);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .newsletter-widget::before {
+            width: 250px;
+            height: 250px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .newsletter-widget::after {
+            width: 180px;
+            height: 180px;
+            bottom: -80px;
+            left: -80px;
+        }
+
+        .newsletter-widget .widget-title {
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .newsletter-widget .widget-title::after {
+            background-color: #a78bfa;
+        }
+
+        .newsletter-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-md);
+            font-size: 14px;
+            color: #ffffff;
+            transition: var(--transition);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #a78bfa;
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25);
+        }
+
+        .newsletter-mail-icon {
+            position: absolute;
+            left: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            width: 16px;
+            height: 16px;
+        }
+
+        .newsletter-input:focus + .newsletter-mail-icon {
+            color: #a78bfa;
+        }
+
+        .newsletter-submit-btn {
+            width: 100%;
+            background-color: #ffffff;
+            color: #2e1065;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 12px;
+            border-radius: var(--border-radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-submit-btn:hover {
+            background-color: #a78bfa;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Topics Explorer widget */
+        .topics-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .topic-pill {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-full);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .topic-pill:hover {
+            background: var(--bg-primary);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .topic-pill span {
+            background: var(--border);
+            font-size: 10px;
+            color: var(--text-muted);
+            padding: 2px 6px;
+            border-radius: var(--border-radius-full);
+            transition: var(--transition);
+        }
+
+        .topic-pill:hover span {
+            background: var(--badge-bg);
+            color: var(--accent);
+        }
+
+        /* ==========================================
+           9. PREMIUM DYNAMIC TOAST NOTIFICATIONS
+           ========================================== */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1010;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+        }
+
+        .toast-alert {
+            pointer-events: auto;
+            width: 320px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            gap: 12px;
+            transform: translateX(120%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toast-alert.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            color: var(--accent);
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        .toast-body {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .toast-title {
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .toast-text {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+        }
+
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            width: 100%;
+        }
+
+        /* ==========================================
+           10. ARTICLE DETAIL MODAL (MOCK READER)
+           ========================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1005;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window {
+            background-color: var(--bg-primary);
+            width: 100%;
+            max-width: 960px;
+            height: 90vh;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .modal-overlay.open .modal-window {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Modal Header (Sticky) */
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 28px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+            z-index: 10;
+        }
+
+        .modal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-breadcrumbs {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .breadcrumbs-arrow {
+            width: 12px;
+            height: 12px;
+        }
+
+        .breadcrumbs-current {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--border-radius-full);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--bg-primary);
+        }
+
+        .modal-action-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .modal-close-btn {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            border: none;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        /* Modal Scrollable Body */
+        .modal-scrollable-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .modal-layout-grid {
+            display: grid;
+            grid-template-columns: 2.1fr 0.9fr;
+            gap: 40px;
+        }
+
+        /* Modal Main Column */
+        .modal-article-header {
+            margin-bottom: 28px;
+        }
+
+        .modal-article-title {
+            font-size: clamp(26px, 4.5vw, 40px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            letter-spacing: -0.8px;
+        }
+
+        .modal-visual-cover {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        /* Detailed HTML Typographical styles */
+        .modal-rich-text {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .modal-rich-text p {
+            margin-bottom: 20px;
+        }
+
+        .modal-rich-text p.lead {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .modal-rich-text h3 {
+            font-size: 22px;
+            margin: 36px 0 16px 0;
+            color: var(--text-primary);
+        }
+
+        .modal-rich-text .article-quote {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .modal-rich-text pre {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 20px;
+            border-radius: var(--border-radius-md);
+            overflow-x: auto;
+            margin: 28px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .modal-rich-text code {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: var(--border-radius-sm);
+            font-size: 14px;
+        }
+
+        .modal-rich-text ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+
+        .modal-rich-text li {
+            margin-bottom: 8px;
+        }
+
+        /* Modal Side Column */
+        .modal-side-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .modal-side-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+        }
+
+        .modal-side-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .meta-author-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .meta-author-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--accent), #d8b4fe);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+        }
+
+        .meta-author-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .meta-author-role {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .share-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .share-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-sm);
+            background: var(--bg-primary);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .share-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--badge-bg);
+        }
+
+        .share-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Modal Sub-Section: Interactive Comments */
+        .comments-section {
+            border-top: 1px solid var(--border);
+            padding-top: 36px;
+            margin-top: 40px;
+        }
+
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .comments-count-title {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .comments-thread {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .comment-node {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            animation: commentFadeIn 0.5s ease;
+        }
+
+        @keyframes commentFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-family: var(--font-heading);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .comment-main {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) var(--border-radius-md);
+            padding: 16px;
+            flex-grow: 1;
+        }
+
+        .comment-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .comment-author-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .comment-time {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .comment-text {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Comment Submission Form */
+        .comment-form-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-md);
+            padding: 24px;
+        }
+
+        .comment-form-box h4 {
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comment-form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .comment-form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--border-radius-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 13.5px;
+            transition: var(--transition);
+        }
+
+        .comment-form-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+        }
+
+        .comment-form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--border-radius-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 13.5px;
+            resize: vertical;
+            min-height: 100px;
+            transition: var(--transition);
+        }
+
+        .comment-form-textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+        }
+
+        .comment-submit-btn {
+            background-color: var(--accent);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 12px 24px;
+            font-size: 13.5px;
+            border-radius: var(--border-radius-full);
+            align-self: flex-start;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
+        }
+
+        .comment-submit-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(var(--accent-rgb), 0.25);
+        }
+
+        /* ==========================================
+           11. DETAILED FOOTER SECTION
+           ========================================== */
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 72px 0 24px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr 0.8fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 320px;
+        }
+
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--border-radius-full);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-social-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-col-title {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            padding-left: 4px;
+        }
+
+        .footer-newsletter-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-newsletter-text {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .footer-newsletter-input {
+            flex-grow: 1;
+            padding: 10px 14px;
+            border-radius: var(--border-radius-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 13.5px;
+            transition: var(--transition);
+        }
+
+        .footer-newsletter-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+        }
+
+        .footer-newsletter-submit {
+            background-color: var(--accent);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 18px;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .footer-newsletter-submit:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Legal & Sub-footer */
+        .sub-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .legal-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .legal-link:hover {
+            color: var(--accent);
+        }
+
+        .back-to-top-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .back-to-top-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ==========================================
+           12. RESPONSIVE MEDIA QUERIES
+           ========================================== */
+        @media (max-width: 1024px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                margin-top: 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-grid {
+                grid-template-columns: auto 1fr;
+            }
+            .nav-menu, .header-actions .newsletter-cta-btn {
+                display: none;
+            }
+            .mobile-hamburger {
+                display: flex;
+                margin-left: auto;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-secondary-column {
+                flex-direction: row;
+            }
+            .secondary-card {
+                width: 50%;
+                height: auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-left .trending-ticker-container {
+                display: none;
+            }
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-secondary-column {
+                flex-direction: column;
+            }
+            .secondary-card {
+                width: 100%;
+            }
+            .modal-layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-side-meta {
+                order: -1;
+            }
+            .modal-scrollable-body {
+                padding: 24px;
+            }
+            .sub-footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .top-bar-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .social-links {
+                border-right: none;
+                padding-right: 0;
+            }
+            .featured-content {
+                padding: 20px;
+            }
+            .featured-excerpt {
+                display: none;
+            }
+            .card-author-bar {
+                margin-top: 16px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Brussels Modern Press",
+    "description": "Polished multi-column content hub for journalists, publishers, and European Union policy analysts. Features clean RSS and newsletter integrations. MIT licens...",
+    "url": "https://templates.jack-codes.com/templates/blog-modern",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/blog-modern.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="pageProgressBar"></div>
+    </div>
+
+    <!-- 1. TOP BAR -->
+    <header class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <span class="date-display" id="currentDate">Saturday, May 23, 2026</span>
+                <div class="trending-ticker-container">
+                    <span class="ticker-label">Trending</span>
+                    <div class="ticker-window">
+                        <div class="ticker-list">
+                            <a href="#" class="ticker-item" onclick="openArticle('featured-1')">Generative UI Frameworks Rise</a>
+                            <a href="#" class="ticker-item" onclick="openArticle('post-1')">Spatial Computing ergonomics</a>
+                            <a href="#" class="ticker-item" onclick="openArticle('post-3')">DAO Legal Structures 2026</a>
+                            <a href="#" class="ticker-item" onclick="openArticle('post-4')">Synaptic Chips Outperform Silicon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Follow us on LinkedIn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Follow us on GitHub">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                </div>
+                <!-- Theme switcher -->
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme Mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. STICKY MAIN HEADER -->
+    <header class="main-header" id="stickyHeader">
+        <div class="container header-grid">
+            <!-- Brand Logo -->
+            <a href="#" class="logo-box">
+                <div class="logo-icon">C</div>
+                <h1 class="logo-text">Chronicle<span>.</span></h1>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active" data-nav-filter="all">All Journals</a></li>
+                    <li><a href="#" class="nav-link" data-nav-filter="tech">Technology</a></li>
+                    <li><a href="#" class="nav-link" data-nav-filter="design">Design</a></li>
+                    <li><a href="#" class="nav-link" data-nav-filter="lifestyle">Lifestyle</a></li>
+                    <li><a href="#" class="nav-link" data-nav-filter="business">Business</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions Bar -->
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" class="search-input" id="headerSearch" placeholder="Search insights...">
+                    <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <button class="newsletter-cta-btn" onclick="triggerNewsletterPopup()">Subscribe</button>
+                
+                <!-- Mobile Hamburger Menu Trigger -->
+                <div class="mobile-hamburger" id="hamburgerBtn" aria-label="Toggle Navigation Drawer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Drawer Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul class="mobile-drawer-nav">
+            <li><a href="#" class="mobile-drawer-link active" data-drawer-filter="all">All Journals</a></li>
+            <li><a href="#" class="mobile-drawer-link" data-drawer-filter="tech">Technology</a></li>
+            <li><a href="#" class="mobile-drawer-link" data-drawer-filter="design">Design</a></li>
+            <li><a href="#" class="mobile-drawer-link" data-drawer-filter="lifestyle">Lifestyle</a></li>
+            <li><a href="#" class="mobile-drawer-link" data-drawer-filter="business">Business</a></li>
+        </ul>
+        <button class="newsletter-cta-btn" onclick="triggerNewsletterPopup()" style="width: 100%; text-align: center;">Subscribe to Chronicle</button>
+    </div>
+
+    <!-- 3. HERO SECTION (Featured Article Editorial Showcase) -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <!-- Left Large Featured Post Card -->
+            <div class="featured-card" onclick="openArticle('featured-1')">
+                <div class="featured-image-box">
+                    <span class="category-badge">Technology</span>
+                    <!-- Inline High-Quality Abstract SVG vector Art -->
+                    <div class="card-svg-container">
+                        <svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="featured-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#4f46e5" />
+                                    <stop offset="50%" stop-color="#9333ea" />
+                                    <stop offset="100%" stop-color="#db2777" />
+                                </linearGradient>
+                                <radialGradient id="featured-glow" cx="40%" cy="40%" r="60%">
+                                    <stop offset="0%" stop-color="#1e1e38" />
+                                    <stop offset="100%" stop-color="#070710" />
+                                </radialGradient>
+                                <pattern id="hero-grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#featured-glow)" />
+                            <rect width="100%" height="100%" fill="url(#hero-grid-pattern)" />
+                            
+                            <!-- Glowing abstract neural vector path elements -->
+                            <circle cx="400" cy="225" r="140" fill="none" stroke="url(#featured-grad)" stroke-width="2" opacity="0.3" stroke-dasharray="10 5" />
+                            <circle cx="400" cy="225" r="90" fill="none" stroke="url(#featured-grad)" stroke-width="1" opacity="0.5" />
+                            
+                            <!-- Mesh lines -->
+                            <path d="M 150,225 C 250,100 550,350 650,225" fill="none" stroke="url(#featured-grad)" stroke-width="3" opacity="0.8" />
+                            <path d="M 150,150 Q 400,320 650,150" fill="none" stroke="url(#featured-grad)" stroke-width="1.5" opacity="0.4" />
+                            
+                            <!-- Floating nodes -->
+                            <circle cx="280" cy="180" r="6" fill="#8b5cf6" />
+                            <circle cx="520" cy="270" r="8" fill="#ec4899" />
+                            <circle cx="400" cy="225" r="5" fill="#10b981" />
+                            <circle cx="330" cy="290" r="4" fill="#6366f1" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="featured-content">
+                    <div>
+                        <div class="card-meta">
+                            <span class="card-date">May 24, 2026</span>
+                            <span class="meta-dot"></span>
+                            <span class="card-read-time">7 min read</span>
+                        </div>
+                        <h2 class="featured-title">The Future of Generative UI: Adapting to User Context in Real-Time</h2>
+                        <p class="featured-excerpt">Interfaces are transitioning from rigid, pre-compiled patterns into fluid, real-time generated layouts tailored exactly to individual cognitive loads and device postures. Explore how Gen-UI will shape the next decade of user experience design.</p>
+                    </div>
+                    <div class="card-author-bar">
+                        <div class="author-info">
+                            <div class="author-avatar">MV</div>
+                            <div class="author-meta">
+                                <h4>Marcus Vance</h4>
+                                <p>Lead Interface Anthropologist</p>
+                            </div>
+                        </div>
+                        <span class="read-action-btn">
+                            Read Featured 
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column Two Mini Featured Cards Stacked -->
+            <div class="hero-secondary-column">
+                <!-- Secondary Card 1 -->
+                <div class="secondary-card" onclick="openArticle('post-1')">
+                    <div class="secondary-image-box">
+                        <span class="category-badge">Design</span>
+                        <div class="card-svg-container">
+                            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="sec-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#f59e0b" />
+                                        <stop offset="100%" stop-color="#ea580c" />
+                                    </linearGradient>
+                                    <radialGradient id="sec-glow-1" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#2c1e18" />
+                                        <stop offset="100%" stop-color="#0a0705" />
+                                    </radialGradient>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#sec-glow-1)" />
+                                <!-- Geometric isometric circles -->
+                                <circle cx="200" cy="100" r="60" fill="none" stroke="url(#sec-grad-1)" stroke-width="2" opacity="0.6"/>
+                                <ellipse cx="200" cy="100" rx="90" ry="30" fill="none" stroke="url(#sec-grad-1)" stroke-width="1" opacity="0.4"/>
+                                <ellipse cx="200" cy="100" rx="30" ry="70" fill="none" stroke="url(#sec-grad-1)" stroke-width="1.5" opacity="0.3"/>
+                                <circle cx="200" cy="100" r="10" fill="url(#sec-grad-1)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="secondary-content">
+                        <div>
+                            <div class="card-meta">
+                                <span>May 22, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="secondary-title">Designing for the Spatial Web: Key Principles for AR & VR Interfaces</h3>
+                        </div>
+                        <div class="card-author-bar" style="padding-top: 12px; border-top: none;">
+                            <div class="author-info">
+                                <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">ER</div>
+                                <div class="author-meta">
+                                    <h4 style="font-size:12.5px;">Elena Rostova</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Card 2 -->
+                <div class="secondary-card" onclick="openArticle('post-2')">
+                    <div class="secondary-image-box">
+                        <span class="category-badge">Lifestyle</span>
+                        <div class="card-svg-container">
+                            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="sec-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#10b981" />
+                                        <stop offset="100%" stop-color="#059669" />
+                                    </linearGradient>
+                                    <radialGradient id="sec-glow-2" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#0c231a" />
+                                        <stop offset="100%" stop-color="#030906" />
+                                    </radialGradient>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#sec-glow-2)" />
+                                <!-- Modern floral abstract arches -->
+                                <path d="M 120,200 C 120,100 280,100 280,200" fill="none" stroke="url(#sec-grad-2)" stroke-width="3" opacity="0.6"/>
+                                <path d="M 150,200 C 150,130 250,130 250,200" fill="none" stroke="url(#sec-grad-2)" stroke-width="1.5" opacity="0.4"/>
+                                <circle cx="200" cy="110" r="15" fill="#f59e0b" opacity="0.8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="secondary-content">
+                        <div>
+                            <div class="card-meta">
+                                <span>May 20, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="secondary-title">The Slow-Living Revolution: Reclaiming Focus in a Hyper-Connected World</h3>
+                        </div>
+                        <div class="card-author-bar" style="padding-top: 12px; border-top: none;">
+                            <div class="author-info">
+                                <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">JC</div>
+                                <div class="author-meta">
+                                    <h4 style="font-size:12.5px;">Julian Cross</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DYNAMIC FILTER BAR -->
+    <nav class="filter-section">
+        <div class="container filter-bar">
+            <div class="filter-pills" id="mainFilterBar">
+                <button class="filter-pill active" data-filter="all">All Channels</button>
+                <button class="filter-pill" data-filter="tech">Technology</button>
+                <button class="filter-pill" data-filter="design">Design</button>
+                <button class="filter-pill" data-filter="lifestyle">Lifestyle</button>
+                <button class="filter-pill" data-filter="business">Business</button>
+            </div>
+            <div class="feed-info-text">
+                Showing <span id="visibleArticlesCount">7</span> of 7 publications
+            </div>
+        </div>
+    </nav>
+
+    <!-- 5. MAIN FEED SPLIT LAYOUT -->
+    <main class="main-feed-section">
+        <div class="container split-layout">
+            <!-- Left Column: Articles Grid Feed -->
+            <div class="posts-grid-wrapper">
+                <div class="posts-grid" id="postsGrid">
+                    
+                    <!-- Post 1 (Spatial Web) -->
+                    <article class="post-card" data-article-id="post-1" data-category="design">
+                        <div class="post-image-box">
+                            <span class="category-badge">Design</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#2c1e18" />
+                                    <circle cx="200" cy="125" r="70" fill="none" stroke="#ea580c" stroke-width="2" opacity="0.6"/>
+                                    <ellipse cx="200" cy="125" rx="100" ry="35" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+                                    <circle cx="200" cy="125" r="12" fill="#ea580c" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 22, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="post-title">Designing for the Spatial Web: Key Principles for AR & VR Interfaces</h3>
+                            <p class="post-excerpt">As spatial computing matures, the classic flat-screen paradigms are failing. We define the essential guidelines for handling spatial depth, tactile interfaces, and ocular strain.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">ER</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Elena Rostova</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 (Slow Living) -->
+                    <article class="post-card" data-article-id="post-2" data-category="lifestyle">
+                        <div class="post-image-box">
+                            <span class="category-badge">Lifestyle</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#0c231a" />
+                                    <path d="M 120,250 C 120,130 280,130 280,250" fill="none" stroke="#10b981" stroke-width="3" opacity="0.6"/>
+                                    <circle cx="200" cy="140" r="15" fill="#f59e0b" opacity="0.8"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 20, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="post-title">The Slow-Living Revolution: Reclaiming Focus in a Hyper-Connected World</h3>
+                            <p class="post-excerpt">With the rise of instant notifications and ambient tracking, our cognitive focus has become a highly scarce asset. A movement towards conscious disconnected living gains ground.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">JC</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Julian Cross</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 (DAOs Reshaping Governance) -->
+                    <article class="post-card" data-article-id="post-3" data-category="business">
+                        <div class="post-image-box">
+                            <span class="category-badge">Business</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#0a192f" />
+                                    <!-- Dynamic hexagon blueprint -->
+                                    <polygon points="200,60 270,100 270,180 200,220 130,180 130,100" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.6"/>
+                                    <line x1="200" y1="60" x2="200" y2="220" stroke="#00f2fe" stroke-width="1" opacity="0.3"/>
+                                    <line x1="130" y1="100" x2="270" y2="180" stroke="#00f2fe" stroke-width="1" opacity="0.3"/>
+                                    <circle cx="200" cy="140" r="18" fill="none" stroke="#4facfe" stroke-width="2"/>
+                                    <circle cx="200" cy="60" r="6" fill="#00f2fe"/>
+                                    <circle cx="270" cy="100" r="6" fill="#00f2fe"/>
+                                    <circle cx="130" cy="180" r="6" fill="#00f2fe"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 18, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>8 min read</span>
+                            </div>
+                            <h3 class="post-title">Decentralized Autonomy: How DAOs are Reshaping Governance</h3>
+                            <p class="post-excerpt">Traditional corporate hierarchies are increasingly challenged by smart contract-driven entities. We explore the structural realities and coordination frictions of global organizations.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">SV</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Sasha Vance</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 (Neuromorphic) -->
+                    <article class="post-card" data-article-id="post-4" data-category="tech">
+                        <div class="post-image-box">
+                            <span class="category-badge">Technology</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#0a0a16" />
+                                    <!-- Synthesizer circuit lines -->
+                                    <path d="M 80,125 H 320 M 200,40 V 210" stroke="#8b5cf6" stroke-width="1.5" opacity="0.4"/>
+                                    <circle cx="200" cy="125" r="40" fill="none" stroke="#ec4899" stroke-width="2.5"/>
+                                    <line x1="200" y1="125" x2="250" y2="75" stroke="#ec4899" stroke-width="2" />
+                                    <circle cx="250" cy="75" r="5" fill="#34d399"/>
+                                    <circle cx="150" cy="175" r="4" fill="#60a5fa"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 15, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>9 min read</span>
+                            </div>
+                            <h3 class="post-title">Neuromorphic Computing: Processors That Mimic the Human Brain</h3>
+                            <p class="post-excerpt">As traditional silicon microchips hit physical scaling limits, neuromorphic computing steps in, emulating human synaptic pathways to achieve energy-efficiency.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">AL</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Dr. Arthur Lin</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 5 (Typography in AI Era) -->
+                    <article class="post-card" data-article-id="post-5" data-category="design">
+                        <div class="post-image-box">
+                            <span class="category-badge">Design</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#111827" />
+                                    <!-- Typography outlines -->
+                                    <text x="50%" y="60%" font-family="Outfit" font-weight="900" font-size="110" fill="none" stroke="url(#text-glow-grad)" stroke-width="2.5" text-anchor="middle" dominant-baseline="middle">AI</text>
+                                    <defs>
+                                        <linearGradient id="text-glow-grad" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#ec4899"/>
+                                            <stop offset="100%" stop-color="#8b5cf6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 12, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="post-title">Typography in the AI Era: Crafting Unique Digital Voices</h3>
+                            <p class="post-excerpt">With text content increasingly generated by language models, typography has become the final frontier for digital brand differentiation and credibility.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">GM</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Genevieve Moreau</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 6 (Micro Habits) -->
+                    <article class="post-card" data-article-id="post-6" data-category="lifestyle">
+                        <div class="post-image-box">
+                            <span class="category-badge">Lifestyle</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#0a1215" />
+                                    <!-- Spiral compounding curves -->
+                                    <path d="M 200,125 A 10,10 0 0 1 210,125 A 20,20 0 0 1 190,125 A 40,40 0 0 1 230,125 A 60,60 0 0 1 170,125" fill="none" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                                    <circle cx="170" cy="125" r="6" fill="#f59e0b"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 10, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3 class="post-title">The Rise of Micro-Habits: Small Daily Shifts with Compounding Returns</h3>
+                            <p class="post-excerpt">Ditch the massive goals. Cognitive science suggests that reducing habits to atomic, micro-actions that require minimal willpower triggers reliable lifestyle change.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">JC</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Julian Cross</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 7 (Post-SaaS Models) -->
+                    <article class="post-card" data-article-id="post-7" data-category="business">
+                        <div class="post-image-box">
+                            <span class="category-badge">Business</span>
+                            <div class="card-svg-container">
+                                <svg viewBox="0 0 400 250" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#1a1125" />
+                                    <!-- Ascending staggered bar nodes -->
+                                    <rect x="80" y="150" width="40" height="50" rx="4" fill="#a78bfa" opacity="0.4"/>
+                                    <rect x="140" y="110" width="40" height="90" rx="4" fill="#a78bfa" opacity="0.6"/>
+                                    <rect x="200" y="80" width="40" height="120" rx="4" fill="#a78bfa" opacity="0.8"/>
+                                    <rect x="260" y="50" width="40" height="150" rx="4" fill="#c084fc" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="card-meta">
+                                <span>May 08, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span>7 min read</span>
+                            </div>
+                            <h3 class="post-title">Navigating the Post-SaaS Landscape: New Models for Indie Creators</h3>
+                            <p class="post-excerpt">With software subscription saturation setting in, customers are pushing back. We analyze the return of pay-once software, micro-credits, and open-core structures.</p>
+                            <div class="card-author-bar">
+                                <div class="author-info">
+                                    <div class="author-avatar" style="width:30px; height:30px; font-size:11px;">SV</div>
+                                    <div class="author-meta">
+                                        <h4 style="font-size:13px;">Sasha Vance</h4>
+                                    </div>
+                                </div>
+                                <span class="read-action-btn" style="font-size:12px;">Read <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- No Results Placeholder Element -->
+                <div class="no-results" id="noResultsBox">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                    <h3>No articles match your query</h3>
+                    <p>Try refining your search terms or selecting a different category channel.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                
+                <!-- Sidebar Widget 1: Editorial Note -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">The Chronicle</h3>
+                    <div class="about-widget-profile">
+                        <div class="about-sig-logo">Chronicle<span>.</span></div>
+                        <p class="about-widget-text">We are an independent, reader-supported publication cataloging breakthroughs in technology interface structures, spatial ergonomics, decentralized systems, and culture-shaping paradigms.</p>
+                        <p class="editor-signature">Genevieve Moreau, Editor-in-Chief</p>
+                    </div>
+                </div>
+
+                <!-- Sidebar Widget 2: Popular Articles -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Popular Insights</h3>
+                    <div class="popular-list">
+                        <!-- Popular item 1 -->
+                        <div class="popular-item" onclick="openArticle('featured-1')">
+                            <span class="popular-num">01</span>
+                            <div class="popular-details">
+                                <h4 class="popular-title">The Future of Generative UI: Real-Time Layouts</h4>
+                                <span class="popular-meta">Technology &bull; 7 min read</span>
+                            </div>
+                        </div>
+                        <!-- Popular item 2 -->
+                        <div class="popular-item" onclick="openArticle('post-1')">
+                            <span class="popular-num">02</span>
+                            <div class="popular-details">
+                                <h4 class="popular-title">Designing for Spatial Web AR & VR Systems</h4>
+                                <span class="popular-meta">Design &bull; 5 min read</span>
+                            </div>
+                        </div>
+                        <!-- Popular item 3 -->
+                        <div class="popular-item" onclick="openArticle('post-3')">
+                            <span class="popular-num">03</span>
+                            <div class="popular-details">
+                                <h4 class="popular-title">Voter Fatigue and Execution Realities in DAOs</h4>
+                                <span class="popular-meta">Business &bull; 8 min read</span>
+                            </div>
+                        </div>
+                        <!-- Popular item 4 -->
+                        <div class="popular-item" onclick="openArticle('post-6')">
+                            <span class="popular-num">04</span>
+                            <div class="popular-details">
+                                <h4 class="popular-title">Micro-Habits: Small Shifts, Compounding Returns</h4>
+                                <span class="popular-meta">Lifestyle &bull; 4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Widget 3: Newsletter Box -->
+                <div class="sidebar-widget newsletter-widget">
+                    <h3 class="widget-title">Chronicle Dispatch</h3>
+                    <p class="newsletter-desc">Join 48,000+ technology leaders and designers receiving our curated, twice-weekly analysis of systemic shifts.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, this)">
+                        <div class="newsletter-input-wrapper">
+                            <input type="email" class="newsletter-input" placeholder="Your corporate email..." required>
+                            <svg class="newsletter-mail-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path></svg>
+                        </div>
+                        <button type="submit" class="newsletter-submit-btn">Subscribe To Dispatch</button>
+                    </form>
+                </div>
+
+                <!-- Sidebar Widget 4: Topic Tag Cloud -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Topic Explorer</h3>
+                    <div class="topics-cloud">
+                        <button class="topic-pill" onclick="filterByTag('tech')">AI & Hardware <span>2</span></button>
+                        <button class="topic-pill" onclick="filterByTag('design')">Spatial UX <span>2</span></button>
+                        <button class="topic-pill" onclick="filterByTag('lifestyle')">Minimalism <span>2</span></button>
+                        <button class="topic-pill" onclick="filterByTag('business')">Governance <span>2</span></button>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- 6. DETAILED MULTI-COLUMN FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo-box">
+                    <div class="logo-icon">C</div>
+                    <div class="logo-text">Chronicle<span>.</span></div>
+                </a>
+                <p class="footer-desc">An elite catalog of critical analysis charting the future vectors of digital software systems, immersive design, autonomous corporations, and digital culture.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Follow on Twitter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                    </a>
+                    <a href="#" class="footer-social-link" aria-label="Follow on LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer categories -->
+            <div>
+                <h4 class="footer-col-title">Publications</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link" onclick="filterByCategory('tech')">Technology</a></li>
+                    <li><a href="#" class="footer-link" onclick="filterByCategory('design')">Spatial Design</a></li>
+                    <li><a href="#" class="footer-link" onclick="filterByCategory('lifestyle')">Slow Culture</a></li>
+                    <li><a href="#" class="footer-link" onclick="filterByCategory('business')">Modern Business</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Company -->
+            <div>
+                <h4 class="footer-col-title">Journal</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Editorial Staff</a></li>
+                    <li><a href="#" class="footer-link">Press Kit</a></li>
+                    <li><a href="#" class="footer-link">Ad Specifications</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer newsletter signup -->
+            <div class="footer-newsletter-box">
+                <h4 class="footer-col-title">Join The Inner Circle</h4>
+                <p class="footer-newsletter-text">Access behind-the-scenes research briefs, interviews, and internal drafts directly from the editors.</p>
+                <form class="footer-newsletter-form" onsubmit="handleNewsletterSubmit(event, this)">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email address..." required>
+                    <button type="submit" class="footer-newsletter-submit">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container sub-footer">
+            <p>&copy; 2026 Chronicle Inc. Crafted with precision. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#" class="legal-link">Privacy Policy</a>
+                <a href="#" class="legal-link">Terms of Service</a>
+                <a href="#" class="legal-link">Editorial Guidelines</a>
+            </div>
+            <button class="back-to-top-btn" id="backToTop" aria-label="Scroll Back To Top">
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+       13. ARTICLE READER INTERACTIVE MODAL (MOCK)
+       ========================================== -->
+    <div class="modal-overlay" id="articleModal">
+        <div class="modal-window">
+            
+            <!-- Sticky Modal Header -->
+            <header class="modal-header">
+                <div class="modal-header-left">
+                    <div class="modal-breadcrumbs">
+                        <span>Chronicle</span>
+                        <svg class="breadcrumbs-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        <span class="breadcrumbs-current" id="modalBreadcrumbCategory">Technology</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-action-btn" id="modalShareBtn" aria-label="Copy Article Link">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"></path></svg>
+                    </button>
+                    <button class="modal-action-btn modal-close-btn" id="modalCloseBtn" aria-label="Close Article Reader">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Scrollable Modal Main Area -->
+            <div class="modal-scrollable-body" id="modalScrollBody">
+                <div class="modal-layout-grid">
+                    
+                    <!-- Main Reading Content Column -->
+                    <article>
+                        <div class="modal-article-header">
+                            <div class="card-meta">
+                                <span id="modalDate">May 24, 2026</span>
+                                <span class="meta-dot"></span>
+                                <span id="modalReadTime">7 min read</span>
+                            </div>
+                            <h2 class="modal-article-title" id="modalTitle">The Future of Generative UI: Adapting to User Context in Real-Time</h2>
+                        </div>
+                        
+                        <!-- Dynamic SVG Cover -->
+                        <div class="modal-visual-cover" id="modalCoverContainer">
+                            <!-- Injected SVG graphics go here -->
+                        </div>
+
+                        <!-- Rich Article HTML content -->
+                        <div class="modal-rich-text" id="modalRichContent">
+                            <!-- Injected structured paragraphs go here -->
+                        </div>
+
+                        <!-- Interactive Comments block -->
+                        <section class="comments-section">
+                            <div class="comments-header">
+                                <h3 class="comments-count-title">Discussions (<span id="modalCommentsCount">2</span>)</h3>
+                            </div>
+                            
+                            <div class="comments-thread" id="modalCommentsThread">
+                                <!-- Pre-baked Comments will render dynamically -->
+                            </div>
+
+                            <!-- Comment Submission Form -->
+                            <div class="comment-form-box">
+                                <h4>Contribute to the Dialogue</h4>
+                                <form class="comment-form" onsubmit="handleCommentSubmit(event)">
+                                    <div class="comment-form-grid">
+                                        <input type="text" class="comment-form-input" id="commentAuthor" placeholder="Your name (e.g. Alexis Carter)..." required>
+                                    </div>
+                                    <textarea class="comment-form-textarea" id="commentText" placeholder="Provide your constructive contribution..." required></textarea>
+                                    <button type="submit" class="comment-submit-btn">Post Contribution</button>
+                                </form>
+                            </div>
+                        </section>
+                    </article>
+
+                    <!-- Side Meta Column -->
+                    <div class="modal-side-meta">
+                        <!-- Profile Card -->
+                        <div class="modal-side-block">
+                            <h4 class="modal-side-title">Author Profile</h4>
+                            <div class="meta-author-profile">
+                                <div class="meta-author-avatar" id="modalAuthorAvatar">MV</div>
+                                <div class="meta-author-name" id="modalAuthorName">Marcus Vance</h4>
+                                <div class="meta-author-role" id="modalAuthorRole">Lead Interface Anthropologist</div>
+                            </div>
+                        </div>
+
+                        <!-- Sharing Widget -->
+                        <div class="modal-side-block">
+                            <h4 class="modal-side-title">Share Article</h4>
+                            <div class="share-grid">
+                                <button class="share-btn" onclick="triggerToast('Shared!', 'Successfully shared to Twitter.')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    Twitter
+                                </button>
+                                <button class="share-btn" onclick="triggerToast('Shared!', 'Successfully shared to LinkedIn.')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    LinkedIn
+                                </button>
+                                <button class="share-btn" onclick="copyArticleLink()">
+                                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"></path></svg>
+                                    Copy Link
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Legal Citation -->
+                        <div class="modal-side-block" style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+                            <h4 class="modal-side-title">Citation</h4>
+                            <p><strong>Published:</strong> Chronicle Editorial Board</p>
+                            <p style="margin-top: 4px;">For republication requests or syndication inquiries, reach out to our legal clearing desk.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ==========================================
+       14. JAVASCRIPT: DATA & INTERACTIVITY ENGINE
+       ========================================== -->
+    <script>
+        /* ==========================================
+           ARTICLE CONTENT DATA REGISTRY
+           ========================================== */
+        const ARTICLES = {
+            "featured-1": {
+                id: "featured-1",
+                title: "The Future of Generative UI: Adapting to User Context in Real-Time",
+                category: "Technology",
+                tag: "tech",
+                date: "May 24, 2026",
+                readTime: "7 min read",
+                author: {
+                    name: "Marcus Vance",
+                    avatar: "MV",
+                    role: "Lead Interface Anthropologist"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#070710" />
+                    <circle cx="400" cy="225" r="140" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.3" stroke-dasharray="10 5" />
+                    <path d="M 150,225 C 250,100 550,350 650,225" fill="none" stroke="#ec4899" stroke-width="3" opacity="0.8" />
+                    <circle cx="280" cy="180" r="6" fill="#8b5cf6" />
+                    <circle cx="520" cy="270" r="8" fill="#ec4899" />
+                    <circle cx="400" cy="225" r="5" fill="#10b981" />
+                </svg>`,
+                content: `
+                    <p class="lead">For decades, software development has operated under a single, fundamental constraint: the layout must be pre-compiled. Designers construct static wireframes, developers code specific containers, and compilers lock the pixels into place. But the interface of the future is dynamic, organic, and generated in real-time by intelligent design systems.</p>
+                    
+                    <h3>The Paradigm of Contextual UI</h3>
+                    <p>Generative UI represents the absolute dissolution of the hardcoded container. Instead of rendering a static dashboard, a generative interface analyzes the user’s real-time behavioral vectors, their current ambient lighting, device posture, and cognitive attention levels to compile an interface layout specifically for that micro-moment.</p>
+                    
+                    <div class="article-quote">
+                        "We are moving from a world where humans learn software interfaces, to a world where software interfaces learn human context in real-time."
+                    </div>
+                    
+                    <p>Imagine using a finance application while running through a crowded airport. Instead of displaying a dense grid of stock charts and transaction lists, the application’s generative engine automatically simplifies the viewport. It displays only two high-contrast, oversized interactive panels for emergency currency exchange and flight tracking, dynamically utilizing larger typography that adapts to screen vibration and movement.</p>
+                    
+                    <h3>The Technical Engine Behind Real-Time Layouts</h3>
+                    <p>Implementing generative interfaces requires a combination of real-time client analytics, structural JSON layouts, and tiny generative models operating locally on the client's neural engine. Rather than producing arbitrary pixels, models assemble pre-verified, secure component libraries with dynamic atomic utility tokens:</p>
+                    
+                    <pre><code>// Dynamic interface compilation request
+{
+  "context": {
+    "user_attention": "fragmented",
+    "velocity_ms": 2.4,
+    "viewport_vibration": "high",
+    "ambient_light_lux": 820
+  },
+  "intent": "quick_balance_check",
+  "compile": "atomic-glassmorphic-card"
+}</code></pre>
+                    
+                    <h3>Designing for the Unpredictable</h3>
+                    <p>This shifts the designer's primary role. Instead of drawing static pages, designers now define system constraints, design boundaries, and emotional scale guidelines. They design the atomic nodes, variables, and boundaries, teaching the generative agent how to blend color schemes, spacing hierarchies, and structural balance, ensuring accessibility and branding values remain uncompromised.</p>
+                `,
+                comments: [
+                    { author: "Kaelen Drake", text: "This is a radical paradigm shift. System integrity and security are definitely going to be the major bottlenecks for client-side layout compilation.", time: "2 hours ago" },
+                    { author: "Zara Vance", text: "As a product designer, teaching constraint boundaries to an agent sounds infinitely more satisfying than redrawing 40 viewports manually.", time: "1 hour ago" }
+                ]
+            },
+            "post-1": {
+                id: "post-1",
+                title: "Designing for the Spatial Web: Key Principles for AR & VR Interfaces",
+                category: "Design",
+                tag: "design",
+                date: "May 22, 2026",
+                readTime: "5 min read",
+                author: {
+                    name: "Elena Rostova",
+                    avatar: "ER",
+                    role: "Spatial Experience Director"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#2c1e18" />
+                    <circle cx="400" cy="225" r="120" fill="none" stroke="#ea580c" stroke-width="2" opacity="0.6"/>
+                    <ellipse cx="400" cy="225" rx="180" ry="60" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+                    <circle cx="400" cy="225" r="20" fill="#ea580c" />
+                </svg>`,
+                content: `
+                    <p class="lead">Spatial computing has broken free from screen borders, taking over the physical volume around us. However, placing 2D flat windows floating in a 3D volume is only a bridge phase. Designing native spatial web experiences demands a complete reinvention of our spatial grids, tactile responses, and visual focus anchors.</p>
+                    
+                    <h3>1. Depth Hierarchy and the Ergonomic Zone</h3>
+                    <p>In spatial environments, interactive panels must stay within the user's natural comfortable physical reach. Placing actionable elements further than 1.5 meters forces users to strain their eyes, while placing items closer than 0.5 meters triggers the visual accommodation-vergence conflict, causing immediate fatigue.</p>
+                    
+                    <div class="article-quote">
+                        "Physical interface layouts are no longer bounded by screen dimensions, but by the physical limits of human eyes, necks, and hands."
+                    </div>
+                    
+                    <h3>2. Adaptive Glassmorphic Materials</h3>
+                    <p>UI cards in 3D volumes must respond dynamically to the physical light in the environment. Glassmorphism is not just an aesthetic trend; it serves a crucial spatial function. Translucent backdrops allow the user's real-world environment to show through, maintaining visual continuity and preventing disorientation.</p>
+                    
+                    <h3>3. Eyes as the Primary Pointer</h3>
+                    <p>When eye-tracking replaces the mouse cursor, dynamic feedback must be exceptionally subtle. Simply looking at an element should trigger a gentle, volumetric glow rather than an aggressive scale animation. Interactive components must utilize predictive gaze metrics to determine intent before fingers pinch to confirm an action.</p>
+                `,
+                comments: [
+                    { author: "Liam Chen", text: "The ergonomic details are spot on. Vergence conflict is a very real barrier that most designers ignore.", time: "Yesterday" }
+                ]
+            },
+            "post-2": {
+                id: "post-2",
+                title: "The Slow-Living Revolution: Reclaiming Focus in a Hyper-Connected World",
+                category: "Lifestyle",
+                tag: "lifestyle",
+                date: "May 20, 2026",
+                readTime: "6 min read",
+                author: {
+                    name: "Julian Cross",
+                    avatar: "JC",
+                    role: "Mindfulness and Culture Critic"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#0c231a" />
+                    <path d="M 250,450 C 250,200 550,200 550,450" fill="none" stroke="#10b981" stroke-width="4" opacity="0.6"/>
+                    <circle cx="400" cy="220" r="30" fill="#f59e0b" opacity="0.8"/>
+                </svg>`,
+                content: `
+                    <p class="lead">We are living in an era of continuous partial attention. Notification pings, smart watches, and algorithmic feeds are designed to capture our biological dopamine pathways. The slow-living revolution is not a rejection of technology, but a systematic approach to regaining control of our mental bandwidth.</p>
+                    
+                    <h3>The Price of Ubiquitous Connectivity</h3>
+                    <p>Every time a device pings, our brain suffers a minor cognitive context switch. Research suggests it takes an average of 23 minutes and 15 seconds to return to a deep focus state after a single distraction. In a typical workday, most professionals never achieve deep flow due to this fragmented attention economy.</p>
+                    
+                    <div class="article-quote">
+                        "Conscious focus is the ultimate currency of the digital age. Those who control their attention control their destiny."
+                    </div>
+                    
+                    <h3>Tactical Digital Minimalism</h3>
+                    <p>To resist these cognitive traps, a slow-living approach recommends implementing structural silence into our routines:</p>
+                    <ul>
+                        <li><strong>Intentional Offline Zones:</strong> Banning screens from bedrooms and dining tables to restore clean sleeping patterns and true face-to-face dialogue.</li>
+                        <li><strong>The 24-Hour Analog Shift:</strong> Dedicating one day a week entirely to screen-free activities, physical books, nature, and manual crafts.</li>
+                        <li><strong>Aggressive Focus Filtration:</strong> Restricting active notifications strictly to human-to-human communications, while silencing all automated updates.</li>
+                    </ul>
+                `,
+                comments: []
+            },
+            "post-3": {
+                id: "post-3",
+                title: "Decentralized Autonomy: How DAOs are Reshaping Governance",
+                category: "Business",
+                tag: "business",
+                date: "May 18, 2026",
+                readTime: "8 min read",
+                author: {
+                    name: "Sasha Vance",
+                    avatar: "SV",
+                    role: "Decentralized Finance Analyst"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#0a192f" />
+                    <polygon points="400,100 520,170 520,310 400,380 280,310 280,170" fill="none" stroke="#00f2fe" stroke-width="3" opacity="0.6"/>
+                    <circle cx="400" cy="240" r="30" fill="none" stroke="#4facfe" stroke-width="3.5"/>
+                    <circle cx="400" cy="100" r="10" fill="#00f2fe"/>
+                    <circle cx="520" cy="170" r="10" fill="#00f2fe"/>
+                </div>`,
+                content: `
+                    <p class="lead">Corporations have structured themselves around top-down hierarchies since the Industrial Revolution. However, the rise of globally distributed, trustless smart contracts has enabled a completely new organizational entity: the Decentralized Autonomous Organization (DAO).</p>
+                    
+                    <h3>The Architecture of Trustless Collaboration</h3>
+                    <p>DAOs run on smart contract code, replacing physical boardrooms, complex legal filings, and trusted intermediaries. Financial resources are held in a secure treasury controlled directly by cryptographic token-based voting. Every project initiative, salary distribution, and product pivot is proposed, discussed, and voted on directly by community stakeholders.</p>
+                    
+                    <div class="article-quote">
+                        "DAOs eliminate corporate gatekeepers, giving every global contributor direct equity and governance power based strictly on their value contribution."
+                    </div>
+                    
+                    <h3>The Practical Pitfalls of Total Decentralization</h3>
+                    <p>While the ideals are revolutionary, practical implementation has revealed significant bottlenecks:</p>
+                    <ul>
+                        <li><strong>Voter Fatigue:</strong> Asking token holders to vote on every micro-decision leads to very low participation rates, often leaving decisions to a small pool of active voters.</li>
+                        <li><strong>Security and Exploits:</strong> Because code governs resources, bugs inside a governance smart contract can lead to immediate, irreversible multi-million dollar treasury losses.</li>
+                    </ul>
+                `,
+                comments: []
+            },
+            "post-4": {
+                id: "post-4",
+                title: "Neuromorphic Computing: Processors That Mimic the Human Brain",
+                category: "Technology",
+                tag: "tech",
+                date: "May 15, 2026",
+                readTime: "9 min read",
+                author: {
+                    name: "Dr. Arthur Lin",
+                    avatar: "AL",
+                    role: "Quantum & Neuromorphic Researcher"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#0a0a16" />
+                    <circle cx="400" cy="225" r="70" fill="none" stroke="#ec4899" stroke-width="3"/>
+                    <line x1="400" y1="225" x2="480" y2="145" stroke="#ec4899" stroke-width="2.5" />
+                    <circle cx="480" cy="145" r="8" fill="#34d399"/>
+                </svg>`,
+                content: `
+                    <p class="lead">Silicon-based computing is approaching a hard physical wall. As transistors reach atomic scales, quantum tunneling effects interfere with traditional logic gates. Neuromorphic computing solves this by abandoning classical Von Neumann architecture entirely, building silicon neural paths that replicate biological brains.</p>
+                    
+                    <h3>Synaptic Hardware Connections</h3>
+                    <p>Traditional computers constant move data back and forth between a separate central processor (CPU) and working memory (RAM), creating a major energy bottleneck. Neuromorphic chips combine processing and storage in a single physical node, exactly like biological neurons. They communicate using sparse electrical spikes, consuming power only when active.</p>
+                    
+                    <div class="article-quote">
+                        "Neuromorphic chips process complex sensory streams using a fraction of the energy consumed by traditional deep learning server farms."
+                    </div>
+                `,
+                comments: []
+            },
+            "post-5": {
+                id: "post-5",
+                title: "Typography in the AI Era: Crafting Unique Digital Voices",
+                category: "Design",
+                tag: "design",
+                date: "May 12, 2026",
+                readTime: "6 min read",
+                author: {
+                    name: "Genevieve Moreau",
+                    avatar: "GM",
+                    role: "Lead Font Specialist & Visual Designer"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#111827" />
+                    <text x="50%" y="55%" font-family="Outfit" font-weight="900" font-size="200" fill="none" stroke="url(#text-modal-grad)" stroke-width="3" text-anchor="middle" dominant-baseline="middle">AI</text>
+                    <defs>
+                        <linearGradient id="text-modal-grad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#ec4899"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>`,
+                content: `
+                    <p class="lead">As language models make text generation effortless, digital channels are flooded with homogeneous, AI-written articles. In this landscape of uniform content, typography has emerged as the most critical tool for digital brands to command attention and convey unique character.</p>
+                    
+                    <h3>Typography is the Aesthetic Interface</h3>
+                    <p>When text is abundant, the visual styling of that text dictates its credibility. Premium editorial layout, careful word spacing, custom margins, and custom-designed variable fonts are the primary elements that establish instant trust. Readers recognize brand authenticity in the visual balance of the page before they read a single sentence.</p>
+                `,
+                comments: []
+            },
+            "post-6": {
+                id: "post-6",
+                title: "The Rise of Micro-Habits: Small Daily Shifts with Compounding Returns",
+                category: "Lifestyle",
+                tag: "lifestyle",
+                date: "May 10, 2026",
+                readTime: "4 min read",
+                author: {
+                    name: "Julian Cross",
+                    avatar: "JC",
+                    role: "Mindfulness and Culture Critic"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#0a1215" />
+                    <path d="M 400,225 A 20,20 0 0 1 420,225 A 40,40 0 0 1 380,225 A 80,80 0 0 1 460,225" fill="none" stroke="#14b8a6" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                    <circle cx="340" cy="225" r="10" fill="#f59e0b"/>
+                </svg>`,
+                content: `
+                    <p class="lead">Most people fail to reach their goals not from a lack of desire, but because their goals are too big. Making sudden, massive changes to your lifestyle requires heavy willpower, which naturally drains when you are stressed, tired, or busy. The solution lies in the power of micro-habits.</p>
+                    
+                    <h3>The Compounding Power of 1% Daily Improvements</h3>
+                    <p>If you improve by just 1% every day, the mathematical compounding effect makes you 37 times better over a year. Micro-habits exploit this principle by shrinking actions to a scale that is almost impossible to fail. Instead of trying to write for an hour a day, commit to writing just one sentence. Instead of attempting a full workout, start with just two push-ups.</p>
+                `,
+                comments: []
+            },
+            "post-7": {
+                id: "post-7",
+                title: "Navigating the Post-SaaS Landscape: New Models for Indie Creators",
+                category: "Business",
+                tag: "business",
+                date: "May 08, 2026",
+                readTime: "7 min read",
+                author: {
+                    name: "Sasha Vance",
+                    avatar: "SV",
+                    role: "Decentralized Finance Analyst"
+                },
+                coverSvg: `<svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#1a1125" />
+                    <rect x="160" y="300" width="80" height="100" rx="8" fill="#a78bfa" opacity="0.4"/>
+                    <rect x="280" y="220" width="80" height="180" rx="8" fill="#a78bfa" opacity="0.6"/>
+                    <rect x="400" y="160" width="80" height="240" rx="8" fill="#a78bfa" opacity="0.8"/>
+                    <rect x="520" y="100" width="80" height="300" rx="8" fill="#c084fc" />
+                </svg>`,
+                content: `
+                    <p class="lead">For the past decade, Software-as-a-Service (SaaS) has been the gold standard for digital builders. However, subscription fatigue has officially set in. Customers are tired of recurring monthly fees for minor tools, opening up opportunities for creators to leverage alternative models.</p>
+                    
+                    <h3>The Pay-Once Renaissance</h3>
+                    <p>Consumers are actively seeking out standalone software that they can purchase once and own forever. Indie creators are successfully capturing this audience by offering transparent, lifetime licenses. Without the continuous overhead of running heavy servers, desktop and offline-first mobile apps are highly profitable, self-sustaining businesses.</p>
+                `,
+                comments: []
+            }
+        };
+
+        /* ==========================================
+           1. INITIALIZATION & CURRENT DATE
+           ========================================== */
+        document.addEventListener("DOMContentLoaded", () => {
+            initDate();
+            initTheme();
+            initHeaderScroll();
+            initNavFilters();
+            initSidebarFilters();
+            initSearch();
+            initMobileMenu();
+            initModalEvents();
+            initBackToTop();
+        });
+
+        // Set realistic formatted date
+        function initDate() {
+            const dateEl = document.getElementById("currentDate");
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date();
+            // Match localized layout in the additional metadata context if matching year 2026
+            const customDate = new Date("2026-05-23T14:54:42+01:00");
+            dateEl.textContent = customDate.toLocaleDateString('en-US', options);
+        }
+
+        /* ==========================================
+           2. LIGHT / DARK THEME SYSTEM
+           ========================================== */
+        function initTheme() {
+            const toggleBtn = document.getElementById("themeToggleBtn");
+            
+            // Check local storage or match system preferences
+            const savedTheme = localStorage.getItem("chronicle-theme");
+            if (savedTheme === "dark") {
+                document.body.classList.add("dark-theme");
+            } else if (savedTheme === "light") {
+                document.body.classList.remove("dark-theme");
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add("dark-theme");
+            }
+
+            toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-theme");
+                const isDark = document.body.classList.contains("dark-theme");
+                localStorage.setItem("chronicle-theme", isDark ? "dark" : "light");
+                triggerToast(isDark ? "Dark Theme Active" : "Light Theme Active", "Theme style successfully transitioned.");
+            });
+        }
+
+        /* ==========================================
+           3. FLOATING PROGRESS & HEADER SHRINK
+           ========================================== */
+        function initHeaderScroll() {
+            const header = document.getElementById("stickyHeader");
+            const progressBar = document.getElementById("pageProgressBar");
+
+            window.addEventListener("scroll", () => {
+                // Progress fill
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+
+                // Shrink header
+                if (winScroll > 60) {
+                    header.classList.add("shrink");
+                } else {
+                    header.classList.remove("shrink");
+                }
+            });
+        }
+
+        /* ==========================================
+           4. MOBILE NAVIGATION MENU (HAMBURGER / DRAWER)
+           ========================================== */
+        function initMobileMenu() {
+            const hamburger = document.getElementById("hamburgerBtn");
+            const drawer = document.getElementById("mobileDrawer");
+            const overlay = document.getElementById("drawerOverlay");
+            const drawerLinks = document.querySelectorAll(".mobile-drawer-link");
+
+            function toggleMenu() {
+                hamburger.classList.toggle("open");
+                drawer.classList.toggle("open");
+                overlay.classList.toggle("active");
+                document.body.style.overflow = drawer.classList.contains("open") ? "hidden" : "";
+            }
+
+            hamburger.addEventListener("click", toggleMenu);
+            overlay.addEventListener("click", toggleMenu);
+
+            drawerLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    
+                    // Activate link UI
+                    drawerLinks.forEach(l => l.classList.remove("active"));
+                    link.classList.add("active");
+                    
+                    // Trigger active filtering
+                    const filterValue = link.dataset.drawerFilter;
+                    filterFeed(filterValue);
+                    
+                    // Update main navigation UI to match
+                    const matchingMainNav = document.querySelector(`[data-nav-filter="${filterValue}"]`);
+                    if (matchingMainNav) {
+                        document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
+                        matchingMainNav.classList.add("active");
+                    }
+
+                    // Close menu
+                    toggleMenu();
+                });
+            });
+        }
+
+        /* ==========================================
+           5. FEED DYNAMIC FILTERING & LIVE SEARCH
+           ========================================== */
+        let currentFilter = "all";
+        let searchQuery = "";
+
+        function initNavFilters() {
+            const navLinks = document.querySelectorAll(".nav-link");
+            const pills = document.querySelectorAll(".filter-pill");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove("active"));
+                    link.classList.add("active");
+                    
+                    const filterVal = link.dataset.navFilter;
+                    
+                    // Sync category pills
+                    pills.forEach(p => {
+                        p.classList.remove("active");
+                        if (p.dataset.filter === filterVal) p.classList.add("active");
+                    });
+
+                    filterFeed(filterVal);
+                });
+            });
+
+            // Initialize Main Category Pills
+            pills.forEach(pill => {
+                pill.addEventListener("click", () => {
+                    pills.forEach(p => p.classList.remove("active"));
+                    pill.classList.add("active");
+
+                    const filterVal = pill.dataset.filter;
+
+                    // Sync Main Nav bar items
+                    navLinks.forEach(l => {
+                        l.classList.remove("active");
+                        if (l.dataset.navFilter === filterVal) l.classList.add("active");
+                    });
+
+                    filterFeed(filterVal);
+                });
+            });
+        }
+
+        function initSidebarFilters() {
+            // Topic tags explorer cloud handles filtering
+            window.filterByTag = function(tag) {
+                const navLinks = document.querySelectorAll(".nav-link");
+                const pills = document.querySelectorAll(".filter-pill");
+
+                // Sync UI
+                navLinks.forEach(l => {
+                    l.classList.remove("active");
+                    if (l.dataset.navFilter === tag) l.classList.add("active");
+                });
+
+                pills.forEach(p => {
+                    p.classList.remove("active");
+                    if (p.dataset.filter === tag) p.classList.add("active");
+                });
+
+                filterFeed(tag);
+                document.getElementById("postsGrid").scrollIntoView({ behavior: "smooth", block: "center" });
+            };
+
+            window.filterByCategory = function(category) {
+                filterByTag(category);
+            };
+        }
+
+        function initSearch() {
+            const searchInput = document.getElementById("headerSearch");
+            searchInput.addEventListener("input", (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                applyFilterAndSearch();
+            });
+        }
+
+        function filterFeed(filterVal) {
+            currentFilter = filterVal;
+            applyFilterAndSearch();
+        }
+
+        function applyFilterAndSearch() {
+            const cards = document.querySelectorAll("#postsGrid .post-card");
+            const noResults = document.getElementById("noResultsBox");
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const category = card.dataset.category;
+                const title = card.querySelector(".post-title").textContent.toLowerCase();
+                const excerpt = card.querySelector(".post-excerpt").textContent.toLowerCase();
+                
+                const matchesFilter = (currentFilter === "all" || category === currentFilter);
+                const matchesSearch = (title.includes(searchQuery) || excerpt.includes(searchQuery) || category.includes(searchQuery));
+
+                if (matchesFilter && matchesSearch) {
+                    card.classList.remove("hidden");
+                    card.classList.remove("fade-out");
+                    visibleCount++;
+                } else {
+                    card.classList.add("fade-out");
+                    card.classList.add("hidden");
+                }
+            });
+
+            // Update statistics text
+            document.getElementById("visibleArticlesCount").textContent = visibleCount;
+
+            // Handle empty results display
+            if (visibleCount === 0) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
+        }
+
+        /* ==========================================
+           6. ARTICLE INTERACTIVE MODAL READER
+           ========================================= */
+        let activeArticleId = null;
+
+        function initModalEvents() {
+            const modal = document.getElementById("articleModal");
+            const closeBtn = document.getElementById("modalCloseBtn");
+            const shareBtn = document.getElementById("modalShareBtn");
+            
+            closeBtn.addEventListener("click", closeModal);
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Listen for ESC key
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && modal.classList.contains("open")) {
+                    closeModal();
+                }
+            });
+
+            shareBtn.addEventListener("click", copyArticleLink);
+        }
+
+        window.openArticle = function(articleId) {
+            const article = ARTICLES[articleId];
+            if (!article) return;
+
+            activeArticleId = articleId;
+            const modal = document.getElementById("articleModal");
+            
+            // Populate Modal Headers
+            document.getElementById("modalBreadcrumbCategory").textContent = article.category;
+            document.getElementById("modalDate").textContent = article.date;
+            document.getElementById("modalReadTime").textContent = article.readTime;
+            document.getElementById("modalTitle").textContent = article.title;
+            document.getElementById("modalCoverContainer").innerHTML = article.coverSvg;
+            document.getElementById("modalRichContent").innerHTML = article.content;
+
+            // Populate Author Meta
+            document.getElementById("modalAuthorAvatar").textContent = article.author.avatar;
+            document.getElementById("modalAuthorName").textContent = article.author.name;
+            document.getElementById("modalAuthorRole").textContent = article.author.role;
+
+            // Populate Comments Thread
+            renderComments(article.comments);
+
+            // Open Modal
+            modal.classList.add("open");
+            document.body.style.overflow = "hidden"; // Freeze backdrop scrolling
+            document.getElementById("modalScrollBody").scrollTop = 0; // Scroll modal to top
+
+            triggerToast("Loading Editorial", `Displaying "${article.title}" reader layout.`);
+        };
+
+        function closeModal() {
+            const modal = document.getElementById("articleModal");
+            modal.classList.remove("open");
+            document.body.style.overflow = ""; // Restore scrolling
+        }
+
+        /* ==========================================
+           7. COMMENT THREAD CONTROLLER
+           ========================================== */
+        function renderComments(commentsList) {
+            const thread = document.getElementById("modalCommentsThread");
+            const countEl = document.getElementById("modalCommentsCount");
+
+            countEl.textContent = commentsList.length;
+
+            if (commentsList.length === 0) {
+                thread.innerHTML = `<p style="font-size:14px; color:var(--text-muted); text-align:center; padding: 20px 0;">No comments contributed yet. Be the first to start the discussion!</p>`;
+                return;
+            }
+
+            thread.innerHTML = commentsList.map(comment => {
+                const initial = comment.author.substring(0, 2).toUpperCase();
+                return `
+                    <div class="comment-node">
+                        <div class="comment-avatar">${initial}</div>
+                        <div class="comment-main">
+                            <div class="comment-top-bar">
+                                <span class="comment-author-name">${comment.author}</span>
+                                <span class="comment-time">${comment.time}</span>
+                            </div>
+                            <p class="comment-text">${comment.text}</p>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        window.handleCommentSubmit = function(e) {
+            e.preventDefault();
+            
+            const authorInput = document.getElementById("commentAuthor");
+            const textInput = document.getElementById("commentText");
+            
+            const author = authorInput.value.trim();
+            const text = textInput.value.trim();
+
+            if (!author || !text || !activeArticleId) return;
+
+            // Add local comment
+            const newComment = {
+                author: author,
+                text: text,
+                time: "Just now"
+            };
+
+            ARTICLES[activeArticleId].comments.push(newComment);
+            
+            // Re-render
+            renderComments(ARTICLES[activeArticleId].comments);
+
+            // Reset Form Fields
+            authorInput.value = "";
+            textInput.value = "";
+
+            triggerToast("Comment Posted", "Thank you! Your contribution has been added.");
+        };
+
+        /* ==========================================
+           8. TOAST NOTIFICATIONS & SUBSCRIPTIONS
+           ========================================== */
+        window.triggerToast = function(title, message) {
+            const container = document.getElementById("toastContainer");
+            
+            const toast = document.createElement("div");
+            toast.className = "toast-alert";
+            toast.innerHTML = `
+                <svg class="toast-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="toast-body">
+                    <span class="toast-title">${title}</span>
+                    <span class="toast-text">${message}</span>
+                </div>
+                <div class="toast-progress"></div>
+            `;
+
+            container.appendChild(toast);
+
+            // Trigger animation frame
+            setTimeout(() => {
+                toast.classList.add("show");
+            }, 50);
+
+            // Animate progress line shrink
+            const progress = toast.querySelector(".toast-progress");
+            progress.style.transition = "width 3.5s linear";
+            setTimeout(() => {
+                progress.style.width = "0%";
+            }, 100);
+
+            // Auto dismiss toast after 3.8 seconds
+            setTimeout(() => {
+                toast.classList.remove("show");
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 3800);
+        };
+
+        window.handleNewsletterSubmit = function(e, formEl) {
+            e.preventDefault();
+            const input = formEl.querySelector("input[type='email']");
+            const email = input.value.trim();
+            
+            if (!email) return;
+
+            // Success feedback
+            input.value = "";
+            triggerToast("Subscribed Successfully", `Welcome to Chronicle dispatch! Confirmation sent to ${email}.`);
+        };
+
+        window.triggerNewsletterPopup = function() {
+            // Proactive prompt trigger helper
+            const email = prompt("Subscribe to Chronicle Dispatch.\nEnter your corporate email address:", "");
+            if (email && email.includes("@")) {
+                triggerToast("Subscribed Successfully", `Welcome to Chronicle dispatch! Verified ${email}.`);
+            } else if (email) {
+                alert("Please enter a valid email address.");
+            }
+        };
+
+        window.copyArticleLink = function() {
+            const mockUrl = window.location.href + "#" + activeArticleId;
+            navigator.clipboard.writeText(mockUrl).then(() => {
+                triggerToast("Link Copied", "Article shortcut link copied to clipboard.");
+            }).catch(() => {
+                alert("Could not copy link. Standard text: " + mockUrl);
+            });
+        };
+
+        /* ==========================================
+           9. BACK TO TOP SCROLLER
+           ========================================== */
+        function initBackToTop() {
+            const btn = document.getElementById("backToTop");
+            
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    btn.style.opacity = "1";
+                    btn.style.pointerEvents = "auto";
+                } else {
+                    btn.style.opacity = "0";
+                    btn.style.pointerEvents = "none";
+                }
+            });
+
+            btn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/blog-minimal-journal" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">blog</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Copenhagen Journal</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/portfolio-developer" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">blog</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Stockholm Dev Portfolio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

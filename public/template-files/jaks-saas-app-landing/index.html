@@ -1,0 +1,2881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, saas product app landing page, mobile app app store landing, startup software solution promo page, tech software product landing, conversion optimized saas homepage, cloud service pricing landing, digital product mobile application, responsive landing page builder, app launch pitch website">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/saas-app-landing">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EuroPay App Landing — Free SaaS Template</title>
+  <meta name="description" content="Fintech mobile payment promotional landing page featuring hyper-realistic European smartphone viewport frames and SEPA integrati... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EuroPay App Landing — Free SaaS Template">
+  <meta property="og:description" content="Fintech mobile payment promotional landing page featuring hyper-realistic European smartphone viewport frames and SEPA integrati... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/saas_app_landing.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EuroPay App Landing — Free SaaS Template">
+  <meta name="twitter:description" content="Fintech mobile payment promotional landing page featuring hyper-realistic European smartphone viewport frames and SEPA integrati... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/saas_app_landing.webp">
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       1. GLOBAL STYLES & CURATED PALETTE
+       ========================================== */
+    :root {
+      --bg-dark: #07070a;
+      --bg-card: rgba(16, 17, 27, 0.7);
+      --bg-card-hover: rgba(22, 23, 38, 0.9);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      
+      /* Vibrant High-Energy Colors (HSL for gradients & filters) */
+      --primary: #8b5cf6;       /* Vibrant Violet */
+      --primary-rgb: 139, 92, 246;
+      --secondary: #06b6d4;     /* Electric Cyan */
+      --secondary-rgb: 6, 182, 212;
+      --accent: #ec4899;        /* Hot Pink / Magenta */
+      --accent-rgb: 236, 72, 153;
+      
+      --grad-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+      --grad-accent: linear-gradient(135deg, var(--accent), var(--primary));
+      --grad-glow: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.15));
+      --grad-dark: linear-gradient(180deg, #0d0e15 0%, #07070a 100%);
+      
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 30%, #a78bfa 70%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-neon {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    /* ==========================================
+       2. HEADER & NAVIGATION
+       ========================================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7, 7, 10, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+
+    header.scrolled {
+      padding: 12px 0;
+      background: rgba(7, 7, 10, 0.85);
+      border-bottom-color: rgba(139, 92, 246, 0.2);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      transition: var(--transition-smooth);
+    }
+
+    header.scrolled .nav-container {
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+      display: inline-block;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--grad-primary);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-header {
+      background: var(--grad-primary);
+      color: var(--text-main);
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5), 0 0 15px rgba(6, 182, 212, 0.3);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--text-main);
+      transition: var(--transition-smooth);
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* ==========================================
+       3. HERO SECTION
+       ========================================== */
+    .hero {
+      padding-top: 180px;
+      padding-bottom: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-promo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      color: #c084fc;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.1);
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-weight: 300;
+      max-width: 540px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .btn-download {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 12px 28px;
+      border-radius: 16px;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .btn-download:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+    }
+
+    .btn-download.primary {
+      background: var(--grad-primary);
+      border: none;
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn-download.primary:hover {
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
+    }
+
+    .btn-download-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .btn-download-text span:first-child {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-download-text span:last-child {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 32px;
+      max-width: 500px;
+    }
+
+    .stat-item h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      background: linear-gradient(135deg, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================
+       4. MOBILE PHONE MOCKUP (INTERACTIVE / ANIMATED)
+       ========================================== */
+    .hero-mockup-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .glow-circle {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.45;
+    }
+
+    .glow-1 {
+      background: var(--primary);
+      top: -50px;
+      left: -50px;
+      animation: floatGlow 8s ease-in-out infinite alternate;
+    }
+
+    .glow-2 {
+      background: var(--secondary);
+      bottom: -50px;
+      right: -50px;
+      animation: floatGlow 12s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 20px) scale(1.1); }
+    }
+
+    /* Premium Sleek CSS Phone Frame */
+    .phone-frame {
+      position: relative;
+      width: 300px;
+      height: 610px;
+      background: #0f1016;
+      border-radius: 46px;
+      padding: 12px;
+      box-shadow: 
+        0px 25px 50px -12px rgba(0, 0, 0, 0.7),
+        inset 0 0 3px rgba(255, 255, 255, 0.2),
+        0 0 0 4px #262938,
+        0 0 25px rgba(139, 92, 246, 0.2);
+    }
+
+    .phone-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #090a0f;
+      border-radius: 36px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .island-camera {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #111;
+      box-shadow: inset 0 0 2px rgba(255,255,255,0.4);
+    }
+
+    .island-sensor {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #111;
+    }
+
+    /* Screen UI Header */
+    .phone-header {
+      padding: 24px 20px 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #090a0f;
+      z-index: 90;
+    }
+
+    .phone-logo {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .phone-profile {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Custom App Scroll Feed */
+    .phone-content-scroll {
+      flex: 1;
+      padding: 0 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Infinite scroll track */
+    .scroll-track {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: infiniteScroll 25s linear infinite;
+    }
+
+    @keyframes infiniteScroll {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    /* App Cards inside phone */
+    .app-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    .app-card-title {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .app-card-val {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .app-card-graph {
+      height: 40px;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .app-notification {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .app-tx {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.02);
+      padding: 8px 12px;
+      border-radius: 12px;
+    }
+
+    .app-tx-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .app-tx-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .app-tx-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .app-tx-amount {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .app-tx-amount.neg {
+      color: #ef4444;
+    }
+
+    /* Floating indicators around the hero phone mockup */
+    .floating-badge {
+      position: absolute;
+      background: rgba(16, 17, 27, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.6);
+      animation: floatBadge 4s ease-in-out infinite alternate;
+      z-index: 10;
+    }
+
+    .floating-badge.badge-left {
+      left: -40px;
+      top: 120px;
+      animation-delay: 0.5s;
+    }
+
+    .floating-badge.badge-right {
+      right: -40px;
+      bottom: 120px;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes floatBadge {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-15px) rotate(1.5deg); }
+    }
+
+    .f-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .f-icon-success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+    }
+
+    .f-icon-warning {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+    }
+
+    .f-text h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .f-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================
+       5. "HOW IT WORKS" STEP TIMELINE
+       ========================================== */
+    .how-it-works {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .timeline-container {
+      position: relative;
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 35px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+      z-index: 1;
+      opacity: 0.3;
+    }
+
+    .timeline-step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .timeline-node {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #0f1016;
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      position: relative;
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .timeline-step:hover .timeline-node {
+      border-color: var(--primary);
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+      transform: scale(1.08);
+      background: var(--grad-dark);
+    }
+
+    .timeline-node-glow {
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-step:hover .timeline-node-glow {
+      opacity: 1;
+    }
+
+    .timeline-step-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .timeline-step-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 300;
+      max-width: 320px;
+    }
+
+    /* ==========================================
+       6. INTERACTIVE FEATURES SLIDER / TABS
+       ========================================== */
+    .features-section {
+      padding: 120px 0;
+      background: linear-gradient(180deg, rgba(7,7,10,0) 0%, rgba(13,14,21,0.6) 50%, rgba(7,7,10,0) 100%);
+      position: relative;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .features-tabs-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feature-tab {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 24px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .feature-tab:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+    }
+
+    .feature-tab.active {
+      background: rgba(139, 92, 246, 0.05);
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.15);
+    }
+
+    .feature-tab.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: var(--grad-primary);
+    }
+
+    .feature-tab-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .feature-tab.active .feature-tab-icon {
+      background: var(--grad-primary);
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.25);
+    }
+
+    .feature-tab-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .feature-tab.active .feature-tab-title {
+      color: #ffffff;
+    }
+
+    .feature-tab-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* Screen changer inside the interactive mockup */
+    .interactive-mockup-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .interactive-phone {
+      width: 290px;
+      height: 590px;
+      background: #0f1016;
+      border-radius: 44px;
+      padding: 11px;
+      box-shadow: 
+        0px 25px 50px -12px rgba(0, 0, 0, 0.7),
+        0 0 0 4px #262938,
+        0 0 35px rgba(6, 182, 212, 0.15);
+    }
+
+    .interactive-phone-inner {
+      width: 100%;
+      height: 100%;
+      background: #090a0f;
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .screen-content {
+      position: absolute;
+      inset: 0;
+      padding: 36px 20px 20px 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen-content.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* SCREEN 1: Budgeting UI */
+    .budget-circle-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .budget-chart {
+      width: 140px;
+      height: 140px;
+      transform: rotate(-90deg);
+    }
+
+    .budget-chart circle {
+      fill: none;
+      stroke-width: 12;
+      stroke-linecap: round;
+    }
+
+    .budget-chart .bg-ring {
+      stroke: rgba(255, 255, 255, 0.03);
+    }
+
+    .budget-chart .fill-ring-violet {
+      stroke: var(--primary);
+      stroke-dasharray: 440;
+      stroke-dashoffset: 110; /* 75% */
+      animation: drawCircle 1.5s ease-out forwards;
+    }
+
+    .budget-chart .fill-ring-cyan {
+      stroke: var(--secondary);
+      stroke-dasharray: 440;
+      stroke-dashoffset: 220; /* 50% */
+      animation: drawCircle 1.5s ease-out forwards 0.2s;
+    }
+
+    @keyframes drawCircle {
+      from { stroke-dashoffset: 440; }
+    }
+
+    .budget-center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .budget-center-text span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .budget-center-text h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .budget-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .budget-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .budget-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .budget-bar-bg {
+      height: 6px;
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .budget-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: var(--grad-primary);
+      width: 0;
+      transition: width 1s ease-out;
+    }
+
+    .screen-content.active .budget-bar-fill.bar-1 { width: 75%; }
+    .screen-content.active .budget-bar-fill.bar-2 { width: 45%; }
+    .screen-content.active .budget-bar-fill.bar-3 { width: 60%; }
+
+    /* SCREEN 2: AI Advisor UI (Chat style) */
+    .ai-chat-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 16px;
+    }
+
+    .ai-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      box-shadow: 0 0 10px rgba(139,92,246,0.3);
+    }
+
+    .ai-status {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ai-status h5 {
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .ai-status span {
+      font-size: 0.65rem;
+      color: #10b981;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ai-status span::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    .chat-bubble {
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      max-width: 85%;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .chat-bubble.user {
+      align-self: flex-end;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-bottom-right-radius: 4px;
+      color: #fff;
+    }
+
+    .chat-bubble.ai {
+      align-self: flex-start;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-bottom-left-radius: 4px;
+      color: #e2e8f0;
+      position: relative;
+    }
+
+    .chat-typing {
+      display: flex;
+      gap: 4px;
+      padding: 4px 0;
+    }
+
+    .chat-typing span {
+      width: 5px;
+      height: 5px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: typeDot 1s infinite alternate;
+    }
+
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typeDot {
+      0% { transform: translateY(0); opacity: 0.4; }
+      100% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* SCREEN 3: Quantum Calendars UI */
+    .cal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .cal-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 12px;
+    }
+
+    .cal-day-label {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .cal-day-num {
+      font-size: 0.7rem;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cal-day-num.active {
+      background: var(--grad-primary);
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(139,92,246,0.3);
+    }
+
+    .cal-events {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cal-event-card {
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 3px solid var(--secondary);
+      padding: 10px 12px;
+      border-radius: 0 12px 12px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cal-event-card.resolved {
+      background: rgba(16, 185, 129, 0.08);
+      border-left-color: #10b981;
+    }
+
+    .cal-event-info h6 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .cal-event-info span {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .cal-event-status {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.15);
+      padding: 2px 6px;
+      border-radius: 100px;
+    }
+
+    /* SCREEN 4: Instant Transfers UI */
+    .card-slider {
+      background: linear-gradient(135deg, #1e1b4b, #311042);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-slider::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 70%);
+      filter: blur(10px);
+    }
+
+    .card-slider h5 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 12px;
+    }
+
+    .card-slider-num {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    .card-slider-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+
+    .transfer-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .transfer-input-wrap {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .transfer-input-wrap span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .transfer-input-wrap h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .btn-transfer {
+      background: var(--grad-primary);
+      border: none;
+      color: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-transfer:hover {
+      box-shadow: 0 5px 15px rgba(139,92,246,0.3);
+    }
+
+    /* Success overlay inside interactive phone */
+    .transfer-success-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(9, 10, 15, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .transfer-success-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .success-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.1);
+      border: 2px solid #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #10b981;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+      transform: scale(0.7);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .transfer-success-overlay.show .success-icon-wrap {
+      transform: scale(1);
+    }
+
+    /* ==========================================
+       7. TESTIMONIALS SECTION
+       ========================================== */
+    .testimonials {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 36px;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .testimonial-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(139, 92, 246, 0.25);
+      transform: translateY(-8px);
+      box-shadow: 
+        0 20px 40px -15px rgba(0,0,0,0.5),
+        0 0 25px rgba(139, 92, 246, 0.05);
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      color: #f59e0b;
+    }
+
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .user-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.05);
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .user-info h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .user-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================
+       8. DOWNLOAD CALL-TO-ACTION (CTA) BLOCK
+       ========================================== */
+    .download-cta {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, rgba(15, 16, 25, 0.9) 0%, rgba(7, 7, 10, 0.95) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 40px;
+      padding: 80px 60px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 
+        0 30px 60px -20px rgba(0,0,0,0.8),
+        0 0 50px rgba(139, 92, 246, 0.1);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Blur shapes in CTA background */
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 500px;
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .ticker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .ticker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      animation: pulseGreen 1.5s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .ticker-count {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .cta-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .qr-container {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 32px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 20px 45px -15px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      max-width: 260px;
+    }
+
+    .qr-code {
+      width: 160px;
+      height: 160px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-code svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .qr-container p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================
+       9. DETAILED FOOTER
+       ========================================== */
+    footer {
+      background: #040406;
+      border-top: 1px solid var(--border-color);
+      padding: 80px 0 40px 0;
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 0.8fr) 1.1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .social-btn:hover {
+      background: var(--grad-primary);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.25);
+    }
+
+    .footer-col h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-col a {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .footer-col a:hover {
+      color: var(--text-main);
+      padding-left: 4px;
+    }
+
+    .footer-col.newsletter h4 {
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .footer-col.newsletter p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 6px;
+      border-radius: 14px;
+    }
+
+    .newsletter-form input {
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      flex: 1;
+    }
+
+    .newsletter-form button {
+      background: var(--grad-primary);
+      border: none;
+      outline: none;
+      color: #fff;
+      padding: 0 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .newsletter-form button:hover {
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+      transform: scale(1.02);
+    }
+
+    .newsletter-msg {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #10b981;
+      display: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* ==========================================
+       10. RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================== */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+      .cta-card {
+        grid-template-columns: 1.1fr 0.9fr;
+        padding: 60px 40px;
+      }
+    }
+
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-desc {
+        max-width: 600px;
+      }
+      .hero-cta {
+        justify-content: center;
+      }
+      .hero-stats {
+        justify-content: center;
+        max-width: 100%;
+      }
+      .floating-badge.badge-left {
+        left: -20px;
+      }
+      .floating-badge.badge-right {
+        right: -20px;
+      }
+      
+      .timeline-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-top: 60px;
+      }
+      .timeline-line {
+        top: 0;
+        bottom: 0;
+        left: 36px;
+        right: auto;
+        width: 2px;
+        height: 80%;
+      }
+      .timeline-step {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .timeline-node {
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+      .timeline-step-desc {
+        max-width: 100%;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .interactive-mockup-wrapper {
+        order: -1;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 60px 30px;
+      }
+      .cta-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-buttons {
+        justify-content: center;
+      }
+      .cta-desc {
+        max-width: 600px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.5fr repeat(3, 1fr);
+      }
+      .footer-col.newsletter {
+        grid-column: span 4;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: #07070a;
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 30px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-top: 1px solid var(--border-color);
+      }
+
+      header.scrolled .nav-menu {
+        top: 64px;
+        height: calc(100vh - 64px);
+      }
+
+      .nav-menu.active {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .btn-header {
+        display: none; /* Hide in mobile navbar, let user use CTA badges */
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-col.newsletter {
+        grid-column: span 1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .floating-badge {
+        display: none;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "EuroPay App Landing",
+    "description": "Fintech mobile payment promotional landing page featuring hyper-realistic European smartphone viewport frames and SEPA integrati... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/saas-app-landing",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/saas-app-landing.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       1. HEADER & NAVIGATION
+       ========================================== -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-dot"></span>
+        <span>Pulse.AI</span>
+      </a>
+      
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#download" class="nav-link">Download</a></li>
+      </ul>
+
+      <a href="#download" class="btn-header">
+        <span>Download Now</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. HERO SECTION WITH SCROLLING PHONE MOCKUP
+       ========================================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-promo">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Version 2.0 has landed
+        </div>
+        <h1 class="hero-title">Your Entire Life,<br><span class="text-gradient">Accelerated by AI.</span></h1>
+        <p class="hero-desc">
+          Pulse AI is a secure local cognitive environment. Sync your assets, automate scheduling, and receive bank-grade security recommendations in real-time. Uncompromised privacy. Infinite power.
+        </p>
+        
+        <div class="hero-cta">
+          <a href="#download" class="btn-download primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C3.79 16.3 3.03 9.73 7.28 9.54c1.43.06 2.3.94 3.14.94.83 0 1.98-.94 3.56-.87 1.63.07 2.87.67 3.55 1.68-3.26 1.96-2.73 6.14.33 7.39-.62 1.58-1.43 3.19-2.81 4.6zM12.03 9.25c-.15-2.83 2.2-5.15 4.91-5.25.26 3.18-3.03 5.4-4.91 5.25z"/>
+            </svg>
+            <div class="btn-download-text">
+              <span>Download on the</span>
+              <span>App Store</span>
+            </div>
+          </a>
+          <a href="#download" class="btn-download">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5.22 3c-.18.18-.32.47-.32.86v16.29c0 .38.14.67.32.85l.08.08L15.35 11.9v-.16L5.3 3.08l-.08-.08zM18.71 8.55l-3.36 3.35v.17l3.36 3.36.08-.05 3.97-2.26c1.13-.64 1.13-1.7 0-2.35l-3.97-2.27-.08.05zM15.35 11.83L5.3 1.78c-.37-.37-.99-.37-1.36 0l11.41 10.05zM15.35 11.99l-11.41 10c.37.37.99.37 1.36 0l10.05-10z"/>
+            </svg>
+            <div class="btn-download-text">
+              <span>Get it on</span>
+              <span>Google Play</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>4.9★</h3>
+            <p>App Rating</p>
+          </div>
+          <div class="stat-item">
+            <h3>2.4M+</h3>
+            <p>Active Users</p>
+          </div>
+          <div class="stat-item">
+            <h3>$1.2B+</h3>
+            <p>Assets Managed</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE APP PREVIEW MOCKUP -->
+      <div class="hero-mockup-wrapper">
+        <div class="glow-circle glow-1"></div>
+        <div class="glow-circle glow-2"></div>
+
+        <!-- Floating Cards -->
+        <div class="floating-badge badge-left">
+          <div class="f-icon f-icon-success">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="f-text">
+            <h4>Vault Active</h4>
+            <p>100% Encrypted</p>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-right">
+          <div class="f-icon f-icon-warning">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="f-text">
+            <h4>+$4,892.40</h4>
+            <p>Net Profit Today</p>
+          </div>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-inner">
+            <!-- Dynamic Island -->
+            <div class="dynamic-island">
+              <span class="island-camera"></span>
+              <span class="island-sensor"></span>
+            </div>
+
+            <!-- Phone Screen Header -->
+            <div class="phone-header">
+              <div class="phone-logo">
+                <span class="logo-dot" style="width:6px; height:6px;"></span> Pulse
+              </div>
+              <div class="phone-profile">JD</div>
+            </div>
+
+            <!-- Scrolling Content -->
+            <div class="phone-content-scroll">
+              <div class="scroll-track">
+                
+                <!-- Card 1: Balance -->
+                <div class="app-card">
+                  <div class="app-card-title">Total Net Worth</div>
+                  <div class="app-card-val">$148,290.40</div>
+                  <div class="app-card-graph">
+                    <svg viewBox="0 0 100 30" width="100%" height="100%">
+                      <defs>
+                        <linearGradient id="glowGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="var(--secondary)" stop-opacity="0.3"/>
+                          <stop offset="100%" stop-color="var(--secondary)" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 25 C10 20, 20 10, 30 18 C40 25, 50 5, 60 12 C70 20, 80 2, 100 5 L100 30 L0 30 Z" fill="url(#glowGrad)"/>
+                      <path d="M0 25 C10 20, 20 10, 30 18 C40 25, 50 5, 60 12 C70 20, 80 2, 100 5" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Card 2: AI Notification -->
+                <div class="app-notification">
+                  💡 <strong>Pulse Advisor:</strong> Net worth increased by 4.2% today. Recommend moving $1,200 from checking to AI yield.
+                </div>
+
+                <!-- Card 3: Live Transactions -->
+                <div class="app-card" style="padding: 10px 14px;">
+                  <div class="app-card-title" style="margin-bottom: 6px;">Live Transactions</div>
+                  <div class="app-tx">
+                    <div class="app-tx-info">
+                      <span class="app-tx-icon">⚡</span>
+                      <span class="app-tx-name">Stripe Settlement</span>
+                    </div>
+                    <span class="app-tx-amount">+$1,420.00</span>
+                  </div>
+                  <div class="app-tx">
+                    <div class="app-tx-info">
+                      <span class="app-tx-icon">☕</span>
+                      <span class="app-tx-name">Blue Bottle Coffee</span>
+                    </div>
+                    <span class="app-tx-amount neg">-$6.40</span>
+                  </div>
+                </div>
+
+                <!-- Card 4: Crypto Portfolio -->
+                <div class="app-card">
+                  <div class="app-card-title">Crypto Assets</div>
+                  <div class="app-card-val">$42,910.15</div>
+                  <div class="app-card-graph">
+                    <svg viewBox="0 0 100 30" width="100%" height="100%">
+                      <defs>
+                        <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.3"/>
+                          <stop offset="100%" stop-color="var(--primary)" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 15 C20 18, 40 5, 60 20 C80 32, 90 2, 100 5 L100 30 L0 30 Z" fill="url(#purpleGrad)"/>
+                      <path d="M0 15 C20 18, 40 5, 60 20 C80 32, 90 2, 100 5" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Card 5: Task Automation -->
+                <div class="app-notification" style="background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2);">
+                  📅 <strong>Quantum Calendar:</strong> Successfully merged 3 conflict events. Rescheduled "SynapseSync" to 4:00 PM.
+                </div>
+
+                <!-- DUPLICATED CARDS FOR SEAMLESS SCROLL LOOP -->
+                <div class="app-card">
+                  <div class="app-card-title">Total Net Worth</div>
+                  <div class="app-card-val">$148,290.40</div>
+                  <div class="app-card-graph">
+                    <svg viewBox="0 0 100 30" width="100%" height="100%">
+                      <path d="M0 25 C10 20, 20 10, 30 18 C40 25, 50 5, 60 12 C70 20, 80 2, 100 5 L100 30 L0 30 Z" fill="url(#glowGrad)"/>
+                      <path d="M0 25 C10 20, 20 10, 30 18 C40 25, 50 5, 60 12 C70 20, 80 2, 100 5" fill="none" stroke="var(--secondary)" stroke-width="2"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="app-notification">
+                  💡 <strong>Pulse Advisor:</strong> Net worth increased by 4.2% today. Recommend moving $1,200 from checking to AI yield.
+                </div>
+
+                <div class="app-card" style="padding: 10px 14px;">
+                  <div class="app-card-title" style="margin-bottom: 6px;">Live Transactions</div>
+                  <div class="app-tx">
+                    <div class="app-tx-info">
+                      <span class="app-tx-icon">⚡</span>
+                      <span class="app-tx-name">Stripe Settlement</span>
+                    </div>
+                    <span class="app-tx-amount">+$1,420.00</span>
+                  </div>
+                  <div class="app-tx">
+                    <div class="app-tx-info">
+                      <span class="app-tx-icon">☕</span>
+                      <span class="app-tx-name">Blue Bottle Coffee</span>
+                    </div>
+                    <span class="app-tx-amount neg">-$6.40</span>
+                  </div>
+                </div>
+
+                <div class="app-card">
+                  <div class="app-card-title">Crypto Assets</div>
+                  <div class="app-card-val">$42,910.15</div>
+                  <div class="app-card-graph">
+                    <svg viewBox="0 0 100 30" width="100%" height="100%">
+                      <path d="M0 15 C20 18, 40 5, 60 20 C80 32, 90 2, 100 5 L100 30 L0 30 Z" fill="url(#purpleGrad)"/>
+                      <path d="M0 15 C20 18, 40 5, 60 20 C80 32, 90 2, 100 5" fill="none" stroke="var(--primary)" stroke-width="2"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="app-notification" style="background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2);">
+                  📅 <strong>Quantum Calendar:</strong> Successfully merged 3 conflict events. Rescheduled "SynapseSync" to 4:00 PM.
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. HOW IT WORKS (TIMELINE)
+       ========================================== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How Pulse Works</h2>
+      <p class="section-subtitle">Take control of your entire lifestyle dashboard in three simple, security-first steps.</p>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-step">
+          <div class="timeline-node">
+            <span class="timeline-node-glow"></span>
+            1
+          </div>
+          <h3 class="timeline-step-title">Sync Assets</h3>
+          <p class="timeline-step-desc">Connect bank accounts, crypto wallets, and SaaS work tools in 20 seconds. 100% locally encrypted.</p>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-node">
+            <span class="timeline-node-glow"></span>
+            2
+          </div>
+          <h3 class="timeline-step-title">Train Local AI</h3>
+          <p class="timeline-step-desc">Our sandboxed cognitive models process your habits, schedules, and holdings. Zero cloud leaks.</p>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-node">
+            <span class="timeline-node-glow"></span>
+            3
+          </div>
+          <h3 class="timeline-step-title">Unleash Flow</h3>
+          <p class="timeline-step-desc">Watch schedules self-resolve, investments automatically re-balance, and your digital footprint optimize.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. INTERACTIVE FEATURES SECTION (TABS + PHONE SCREEN SYNC)
+       ========================================== -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <h2 class="section-title">Engineered to Perfect Your Flow</h2>
+      <p class="section-subtitle">Explore the high-fidelity features driving the next wave of individual digital dominance.</p>
+
+      <div class="features-grid">
+        <!-- Interactive List of Tabs -->
+        <div class="features-tabs-stack">
+          
+          <div class="feature-tab active" data-target="screen-budget">
+            <div class="feature-tab-icon">📊</div>
+            <div>
+              <h3 class="feature-tab-title">Smart Budgeting</h3>
+              <p class="feature-tab-desc">Auto-allocate assets to yield pools and track cross-currency portfolios instantly.</p>
+            </div>
+          </div>
+
+          <div class="feature-tab" data-target="screen-advisor">
+            <div class="feature-tab-icon">🧠</div>
+            <div>
+              <h3 class="feature-tab-title">Cognitive Advisor</h3>
+              <p class="feature-tab-desc">Get instant answers, smart reminders, and financial audit updates in natural language.</p>
+            </div>
+          </div>
+
+          <div class="feature-tab" data-target="screen-cal">
+            <div class="feature-tab-icon">📅</div>
+            <div>
+              <h3 class="feature-tab-title">Quantum Calendars</h3>
+              <p class="feature-tab-desc">Automatic conflict resolutions, multi-timezone planning, and proactive event syncs.</p>
+            </div>
+          </div>
+
+          <div class="feature-tab" data-target="screen-transfer">
+            <div class="feature-tab-icon">💸</div>
+            <div>
+              <h3 class="feature-tab-title">Instant Transfers</h3>
+              <p class="feature-tab-desc">Make cross-chain or international settlements in milliseconds with zero transaction fees.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Phone Mockup that dynamically updates -->
+        <div class="interactive-mockup-wrapper">
+          <div class="glow-circle glow-1" style="background: var(--accent);"></div>
+          
+          <div class="interactive-phone">
+            <div class="interactive-phone-inner">
+              
+              <!-- Phone notch/dynamic island -->
+              <div class="dynamic-island">
+                <span class="island-camera"></span>
+                <span class="island-sensor"></span>
+              </div>
+
+              <!-- SCREEN 1: SMART BUDGETING -->
+              <div class="screen-content active" id="screen-budget">
+                <div class="phone-header" style="padding: 10px 0;">
+                  <div class="phone-logo">📊 Pulse Budget</div>
+                  <div class="phone-profile" style="background:var(--accent);">JD</div>
+                </div>
+                
+                <div class="budget-circle-wrap">
+                  <svg class="budget-chart">
+                    <circle class="bg-ring" cx="70" cy="70" r="55"></circle>
+                    <circle class="fill-ring-violet" cx="70" cy="70" r="55"></circle>
+                    <circle class="fill-ring-cyan" cx="70" cy="70" r="55"></circle>
+                  </svg>
+                  <div class="budget-center-text">
+                    <span>Active Net</span>
+                    <h4>$124,590</h4>
+                  </div>
+                </div>
+
+                <div class="budget-items">
+                  <div class="budget-bar-item">
+                    <div class="budget-bar-label">
+                      <span>Index Investments</span>
+                      <span>75%</span>
+                    </div>
+                    <div class="budget-bar-bg">
+                      <div class="budget-bar-fill bar-1"></div>
+                    </div>
+                  </div>
+                  <div class="budget-bar-item">
+                    <div class="budget-bar-label">
+                      <span>Crypto Pools</span>
+                      <span>45%</span>
+                    </div>
+                    <div class="budget-bar-bg">
+                      <div class="budget-bar-fill bar-2"></div>
+                    </div>
+                  </div>
+                  <div class="budget-bar-item">
+                    <div class="budget-bar-label">
+                      <span>Automated Savings</span>
+                      <span>60%</span>
+                    </div>
+                    <div class="budget-bar-bg">
+                      <div class="budget-bar-fill bar-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SCREEN 2: COGNITIVE ADVISOR -->
+              <div class="screen-content" id="screen-advisor">
+                <div class="ai-chat-header">
+                  <div class="ai-avatar">🧠</div>
+                  <div class="ai-status">
+                    <h5>Pulse Advisor</h5>
+                    <span>Online & Secure</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; flex:1; justify-content:flex-end;">
+                  <div class="chat-bubble user">
+                    Analyze my active tech subscriptions for this month.
+                  </div>
+                  <div class="chat-bubble ai">
+                    <div class="chat-typing" id="advisor-typing">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div id="advisor-text" style="display:none;">
+                      Analysis complete. Identified 3 unused development accounts costing <strong>$129/mo</strong>. Would you like to terminate?
+                    </div>
+                  </div>
+                  <button class="btn-transfer" style="padding:8px; font-size:0.75rem; margin-top:5px; background:var(--grad-accent);" onclick="approveAdvisorAction()">
+                    Approve Cancellation
+                  </button>
+                </div>
+
+                <!-- Overlay success for simulation -->
+                <div class="transfer-success-overlay" id="advisor-success">
+                  <div class="success-icon-wrap">✓</div>
+                  <h4 style="color:#fff; margin-bottom:8px;">Sub-plans Cancelled</h4>
+                  <p style="color:var(--text-muted); font-size:0.75rem;">$129/mo redirected to automated portfolio</p>
+                </div>
+              </div>
+
+              <!-- SCREEN 3: QUANTUM CALENDARS -->
+              <div class="screen-content" id="screen-cal">
+                <div class="cal-header">
+                  <div class="cal-title">📅 Quantum Schedule</div>
+                  <div class="cal-title text-gradient-neon" style="font-size:0.75rem;">Oct 2026</div>
+                </div>
+
+                <div class="cal-grid">
+                  <span class="cal-day-label">M</span>
+                  <span class="cal-day-label">T</span>
+                  <span class="cal-day-label">W</span>
+                  <span class="cal-day-label">T</span>
+                  <span class="cal-day-label">F</span>
+                  <span class="cal-day-label">S</span>
+                  <span class="cal-day-label">S</span>
+
+                  <span class="cal-day-num">12</span>
+                  <span class="cal-day-num">13</span>
+                  <span class="cal-day-num active">14</span>
+                  <span class="cal-day-num">15</span>
+                  <span class="cal-day-num">16</span>
+                  <span class="cal-day-num">17</span>
+                  <span class="cal-day-num">18</span>
+                </div>
+
+                <div class="cal-events">
+                  <div class="cal-event-card">
+                    <div class="cal-event-info">
+                      <h6>Weekly Sync: Synapse</h6>
+                      <span>10:00 AM - 11:30 AM</span>
+                    </div>
+                  </div>
+                  <div class="cal-event-card resolved">
+                    <div class="cal-event-info">
+                      <h6>Calendar Conflict Resolved</h6>
+                      <span>AI auto-moved sync to 4:00 PM</span>
+                    </div>
+                    <span class="cal-event-status">Fixed</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SCREEN 4: INSTANT TRANSFERS -->
+              <div class="screen-content" id="screen-transfer">
+                <div class="phone-header" style="padding: 10px 0;">
+                  <div class="phone-logo">💸 Rapid Send</div>
+                </div>
+
+                <div class="card-slider">
+                  <h5>Global Titanium Node</h5>
+                  <div class="card-slider-num">•••• •••• •••• 8492</div>
+                  <div class="card-slider-footer">
+                    <span>Pulse Pay</span>
+                    <span>10/29</span>
+                  </div>
+                </div>
+
+                <div class="transfer-form">
+                  <div class="transfer-input-wrap">
+                    <span>Send Amount</span>
+                    <h4>$250.00</h4>
+                  </div>
+                  <button class="btn-transfer" onclick="simulateTransfer()">
+                    <span>Verify & Execute</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </button>
+                </div>
+
+                <!-- Success Overlay -->
+                <div class="transfer-success-overlay" id="transfer-success">
+                  <div class="success-icon-wrap">✓</div>
+                  <h4 style="color:#fff; margin-bottom:8px;">Transfer Executed</h4>
+                  <p style="color:var(--text-muted); font-size:0.75rem;">Funds sent globally via secure blockchain rails.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. TESTIMONIAL CARDS
+       ========================================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Endorsed by Visionaries</h2>
+      <p class="section-subtitle">Read how industry-leading builders leverage Pulse AI to optimize their capital and focus.</p>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="testimonial-text">
+              "Pulse AI completely redesigned my administrative lifestyle. The automated schedule merges have saved me dozens of booking conflicts, and the sandboxed local model ensures our company data never leaks."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar" style="background:#8b5cf6;">AG</div>
+            <div class="user-info">
+              <h5>Alexia Geller</h5>
+              <p>Founder, NeuraForm</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="testimonial-text">
+              "The smart budget yield routing is fantastic. Pulse AI watches gas fees and pool interest rates in real-time, safely shifting my capital to optimize yield. It paid for itself in less than two weeks."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar" style="background:#06b6d4;">ML</div>
+            <div class="user-info">
+              <h5>Marcus Lind</h5>
+              <p>Quantitative Architect</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="testimonial-text">
+              "Being able to execute cross-chain micro-settlements and schedule updates instantly through one dashboard is insane. Pulse's UI is incredibly snappy, fluid, and visually stunning. Absolute gold star."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar" style="background:#ec4899;">SC</div>
+            <div class="user-info">
+              <h5>Sean Chen</h5>
+              <p>Creator, QuantumStudio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. DOWNLOAD CALL-TO-ACTION (CTA)
+       ========================================== -->
+  <section class="download-cta" id="download">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2 class="cta-title">Unlock Your Digital Power Centers</h2>
+          <p class="cta-desc">Download Pulse AI today. Connect all digital interfaces, assets, and workflows. Zero-setup fee, no account locking, completely self-hosted.</p>
+          
+          <div class="cta-buttons">
+            <a href="#" class="btn-download primary">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C3.79 16.3 3.03 9.73 7.28 9.54c1.43.06 2.3.94 3.14.94.83 0 1.98-.94 3.56-.87 1.63.07 2.87.67 3.55 1.68-3.26 1.96-2.73 6.14.33 7.39-.62 1.58-1.43 3.19-2.81 4.6zM12.03 9.25c-.15-2.83 2.2-5.15 4.91-5.25.26 3.18-3.03 5.4-4.91 5.25z"/>
+              </svg>
+              <div class="btn-download-text">
+                <span>Download on the</span>
+                <span>App Store</span>
+              </div>
+            </a>
+            <a href="#" class="btn-download">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5.22 3c-.18.18-.32.47-.32.86v16.29c0 .38.14.67.32.85l.08.08L15.35 11.9v-.16L5.3 3.08l-.08-.08zM18.71 8.55l-3.36 3.35v.17l3.36 3.36.08-.05 3.97-2.26c1.13-.64 1.13-1.7 0-2.35l-3.97-2.27-.08.05zM15.35 11.83L5.3 1.78c-.37-.37-.99-.37-1.36 0l11.41 10.05zM15.35 11.99l-11.41 10c.37.37.99.37 1.36 0l10.05-10z"/>
+              </svg>
+              <div class="btn-download-text">
+                <span>Get it on</span>
+                <span>Google Play</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="ticker-wrap">
+            <span class="ticker-dot"></span>
+            <span>Live Ticker: <span class="ticker-count" id="ticker-count">2,491,302</span> downloads and counting</span>
+          </div>
+        </div>
+
+        <div class="cta-visual">
+          <div class="qr-container">
+            <div class="qr-code">
+              <!-- Premium custom vector QR Code -->
+              <svg viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#ffffff"/>
+                <!-- Outer anchors -->
+                <rect x="5" y="5" width="20" height="20" fill="#07070a"/>
+                <rect x="9" y="9" width="12" height="12" fill="#ffffff"/>
+                <rect x="12" y="12" width="6" height="6" fill="#07070a"/>
+                
+                <rect x="75" y="5" width="20" height="20" fill="#07070a"/>
+                <rect x="79" y="9" width="12" height="12" fill="#ffffff"/>
+                <rect x="82" y="12" width="6" height="6" fill="#07070a"/>
+
+                <rect x="5" y="75" width="20" height="20" fill="#07070a"/>
+                <rect x="9" y="79" width="12" height="12" fill="#ffffff"/>
+                <rect x="12" y="82" width="6" height="6" fill="#07070a"/>
+
+                <!-- Micro structures -->
+                <rect x="35" y="5" width="6" height="12" fill="#07070a"/>
+                <rect x="45" y="15" width="12" height="6" fill="#07070a"/>
+                <rect x="30" y="30" width="10" height="10" fill="#07070a"/>
+                <rect x="45" y="35" width="10" height="15" fill="#07070a"/>
+                <rect x="60" y="30" width="15" height="10" fill="#07070a"/>
+                
+                <rect x="75" y="45" width="6" height="12" fill="#07070a"/>
+                <rect x="85" y="60" width="10" height="6" fill="#07070a"/>
+                
+                <rect x="35" y="75" width="12" height="6" fill="#07070a"/>
+                <rect x="40" y="85" width="15" height="10" fill="#07070a"/>
+                <rect x="60" y="75" width="20" height="20" fill="#07070a"/>
+                <rect x="65" y="80" width="10" height="10" fill="#ffffff"/>
+              </svg>
+            </div>
+            <p>Scan to Install</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. DETAILED FOOTER
+       ========================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-dot"></span>
+            <span>Pulse.AI</span>
+          </a>
+          <p>The ultimate personal cognitive workspace. Manage funds, automate routines, and secure transactions through zero-trust AI environments.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Twitter">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="GitHub">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Discord">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011 13.41 13.41 0 0 0 11.944 0 .075.075 0 0 1 .078.012c.12.097.246.194.373.287a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">AI Engine</a></li>
+            <li><a href="#features">Smart Yield</a></li>
+            <li><a href="#features">Local Sync</a></li>
+            <li><a href="#download">Pricing Plan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Developer API</a></li>
+            <li><a href="#">Security Audits</a></li>
+            <li><a href="#">Whitepaper</a></li>
+            <li><a href="#">Knowledge Base</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Pledge</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col newsletter">
+          <h4>Stay Optimized</h4>
+          <p>Get bi-weekly briefings on system optimization, gas rates, and productivity workflows.</p>
+          <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="Enter email address" required id="newsletter-email">
+            <button type="submit">Sync</button>
+          </form>
+          <div class="newsletter-msg" id="newsletter-msg">Securely subscribed to Pulse updates.</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Pulse Labs Inc. All rights reserved. Self-hosted license. Bank-grade local encryption active.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Use</a>
+          <a href="#">Privacy Agreement</a>
+          <a href="#">EULA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       11. INTERACTIVE JS SCRIPT
+       ========================================== -->
+  <script>
+    // Navbar Scroll class addition
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Navigation Menu Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Features Tabs Changer
+    const tabs = document.querySelectorAll('.feature-tab');
+    const screens = document.querySelectorAll('.screen-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Deactivate all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        // Activate clicked tab
+        tab.classList.add('active');
+
+        // Deactivate all screens
+        screens.forEach(s => s.classList.remove('active'));
+        // Activate corresponding screen
+        const targetId = tab.getAttribute('data-target');
+        const targetScreen = document.getElementById(targetId);
+        targetScreen.classList.add('active');
+
+        // Special dynamic states reset or trigger
+        if (targetId === 'screen-advisor') {
+          triggerAdvisorTyping();
+        } else {
+          resetAdvisorTyping();
+        }
+
+        // Auto-remove overlays from other tabs
+        document.getElementById('transfer-success').classList.remove('show');
+        document.getElementById('advisor-success').classList.remove('show');
+      });
+    });
+
+    // Advisor Tab Simulated Dialogue
+    function triggerAdvisorTyping() {
+      const typingIndicator = document.getElementById('advisor-typing');
+      const textResponse = document.getElementById('advisor-text');
+      
+      typingIndicator.style.display = 'flex';
+      textResponse.style.display = 'none';
+
+      setTimeout(() => {
+        typingIndicator.style.display = 'none';
+        textResponse.style.display = 'block';
+      }, 1800);
+    }
+
+    function resetAdvisorTyping() {
+      document.getElementById('advisor-typing').style.display = 'flex';
+      document.getElementById('advisor-text').style.display = 'none';
+    }
+
+    function approveAdvisorAction() {
+      const successOverlay = document.getElementById('advisor-success');
+      successOverlay.classList.add('show');
+    }
+
+    // Instant Transfer Simulation
+    function simulateTransfer() {
+      const successOverlay = document.getElementById('transfer-success');
+      successOverlay.classList.add('show');
+      
+      // Auto close after 3.5 seconds
+      setTimeout(() => {
+        successOverlay.classList.remove('show');
+      }, 3500);
+    }
+
+    // Newsletter Form Action
+    function handleNewsletter(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('newsletter-email');
+      const msg = document.getElementById('newsletter-msg');
+      if (emailInput.value) {
+        msg.style.display = 'block';
+        emailInput.value = '';
+        setTimeout(() => {
+          msg.style.opacity = '0';
+          setTimeout(() => {
+            msg.style.display = 'none';
+            msg.style.opacity = '1';
+          }, 500);
+        }, 4000);
+      }
+    }
+
+    // Live Download Counter Ticker Animation
+    let count = 2491302;
+    const counterElement = document.getElementById('ticker-count');
+    
+    function updateCounter() {
+      // Simulate new downloads arriving at varying frequencies
+      const randomInc = Math.floor(Math.random() * 3) + 1; // Increment by 1-3
+      count += randomInc;
+      
+      // Format number with commas
+      counterElement.textContent = count.toLocaleString('en-US');
+      
+      // Call again in 1.5s to 3s
+      const delay = Math.random() * 1500 + 1500;
+      setTimeout(updateCounter, delay);
+    }
+    
+    // Start ticker
+    updateCounter();
+  </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/saas-cloud-dashboard" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">saas</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Munich Cloud Dashboard</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/business-startup-launch" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">saas</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Berlin Tech Launch</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

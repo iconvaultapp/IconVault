@@ -1,9 +1,12 @@
-// /customizer - route definition (head only). UI lives in customizer.lazy.tsx.
-// Share links encode the full customization state in URL params (icon, color,
-// size, stroke, bg); the canonical URL stays the base /customizer, and the
-// params are read client-side so opening a shared link restores the icon.
+// /customizer - HIDDEN (founder decision, IconVault v60, 2026-11-01):
+// the whole page redirects to the homepage, including old ?icon= share
+// links. Route/component files are deliberately NOT deleted: an
+// extract-over deploy would keep deploying them from the founder's repo
+// anyway, and deleting them here would only confuse. Revert = remove the
+// beforeLoad redirect below. UI lives in customizer.lazy.tsx (never
+// renders while the redirect is in place).
 
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 const safeColor = (v: unknown): string | undefined => {
   if (typeof v !== "string") return undefined;
@@ -16,6 +19,10 @@ const safeNum = (v: unknown, min: number, max: number): number | undefined => {
 };
 
 export const Route = createFileRoute("/customizer")({
+  // v60: hide the whole customizer page — every visit lands on home.
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   validateSearch: (search: Record<string, unknown>) => ({
     icon: typeof search["icon"] === "string" && search["icon"].includes(":") ? search["icon"] : undefined,
     color: safeColor(search["color"]),

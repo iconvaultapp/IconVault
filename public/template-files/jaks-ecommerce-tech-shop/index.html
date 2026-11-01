@@ -1,0 +1,2881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, tech gadgets shop frontend, electronics storefront ecommerce, smartphone computer store html, consumer electronics retail site, product listing details checkout, modern tech store mockup, gaming hardware shop template, responsive ecommerce webshop theme, smart devices catalog layout">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/ecommerce-tech-shop">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munich Tech Shop — Free E-commerce Template</title>
+  <meta name="description" content="Feature-rich consumer electronics storefront featuring robust technical spec tables, a clean industrial tech design, and full Eu... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Munich Tech Shop — Free E-commerce Template">
+  <meta property="og:description" content="Feature-rich consumer electronics storefront featuring robust technical spec tables, a clean industrial tech design, and full Eu... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/tech_shop.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Munich Tech Shop — Free E-commerce Template">
+  <meta name="twitter:description" content="Feature-rich consumer electronics storefront featuring robust technical spec tables, a clean industrial tech design, and full Eu... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/tech_shop.webp">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #06040d;
+            --bg-grid: #0d091a;
+            --card-bg: rgba(13, 9, 26, 0.45);
+            --card-border-purple: rgba(171, 32, 253, 0.25);
+            --card-border-cyan: rgba(0, 240, 255, 0.25);
+            --cyber-purple: #ab20fd;
+            --cyber-purple-glow: rgba(171, 32, 253, 0.5);
+            --cyber-cyan: #00f0ff;
+            --cyber-cyan-glow: rgba(0, 240, 255, 0.5);
+            --cyber-pink: #ff007f;
+            --cyber-pink-glow: rgba(255, 0, 127, 0.5);
+            --text-primary: #f0f0f5;
+            --text-secondary: #a09cb0;
+            --text-muted: #676378;
+            --glass-blur: blur(16px);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Base Resets & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(13, 9, 26, 0.7) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(13, 9, 26, 0.7) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Scanline Overlay for Cyber Aesthetic */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* Utility Styles */
+        h1, h2, h3, h4, .cyber-font {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Neon Glowing Elements & Badges */
+        .neon-glow-cyan {
+            text-shadow: 0 0 8px var(--cyber-cyan-glow), 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .neon-glow-purple {
+            text-shadow: 0 0 8px var(--cyber-purple-glow), 0 0 20px rgba(171, 32, 253, 0.2);
+        }
+
+        .neon-border-cyan {
+            border: 1px solid var(--cyber-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.1);
+        }
+
+        .neon-border-purple {
+            border: 1px solid var(--cyber-purple);
+            box-shadow: 0 0 10px rgba(171, 32, 253, 0.2), inset 0 0 10px rgba(171, 32, 253, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .badge-cyan {
+            background: rgba(0, 240, 255, 0.15);
+            color: var(--cyber-cyan);
+            border: 1px solid var(--cyber-cyan);
+        }
+
+        .badge-purple {
+            background: rgba(171, 32, 253, 0.15);
+            color: var(--cyber-purple);
+            border: 1px solid var(--cyber-purple);
+        }
+
+        .badge-pink {
+            background: rgba(255, 0, 127, 0.15);
+            color: var(--cyber-pink);
+            border: 1px solid var(--cyber-pink);
+        }
+
+        /* Buttons styling */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+
+        .btn-cyan {
+            background: transparent;
+            color: var(--cyber-cyan);
+            border: 1px solid var(--cyber-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+        }
+
+        .btn-cyan::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-cyan:hover::before {
+            left: 100%;
+        }
+
+        .btn-cyan:hover {
+            background: var(--cyber-cyan);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-purple {
+            background: transparent;
+            color: var(--cyber-purple);
+            border: 1px solid var(--cyber-purple);
+            box-shadow: 0 0 10px rgba(171, 32, 253, 0.1);
+        }
+
+        .btn-purple:hover {
+            background: var(--cyber-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(171, 32, 253, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-pink {
+            background: linear-gradient(135deg, var(--cyber-pink), var(--cyber-purple));
+            color: white;
+            border: none;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+        }
+
+        .btn-pink:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* -------------------------------------------------------------
+           HEADER SECTION
+        ------------------------------------------------------------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(6, 4, 13, 0.85);
+            backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid rgba(171, 32, 253, 0.15);
+            padding: 1rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--cyber-cyan);
+            box-shadow: 0 5px 25px rgba(0, 240, 255, 0.1);
+        }
+
+        .header-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--cyber-cyan);
+        }
+
+        .logo-slash {
+            color: var(--cyber-pink);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Nav Menu & Dropdowns */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: 0.5rem 0;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-link:hover {
+            color: var(--cyber-cyan);
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 0; height: 1px;
+            background-color: var(--cyber-cyan);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-item:hover .nav-link::after {
+            width: 100%;
+        }
+
+        /* Styled Dropdown Matrix */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background: rgba(10, 8, 22, 0.95);
+            border: 1px solid var(--card-border-purple);
+            border-top: 2px solid var(--cyber-purple);
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-width: 280px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(171, 32, 253, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(5px);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.6rem 0.8rem;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            font-size: 0.85rem;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(0, 240, 255, 0.08);
+            color: var(--cyber-cyan);
+            transform: translateX(5px);
+        }
+
+        .dropdown-item i {
+            color: var(--cyber-purple);
+            transition: var(--transition-smooth);
+        }
+
+        .dropdown-item:hover i {
+            color: var(--cyber-cyan);
+            transform: scale(1.1);
+        }
+
+        /* Search Bar & Interactive Tools */
+        .search-box {
+            position: relative;
+            max-width: 250px;
+        }
+
+        .search-input {
+            background: rgba(20, 16, 38, 0.6);
+            border: 1px solid var(--card-border-purple);
+            border-radius: 20px;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            color: white;
+            font-family: inherit;
+            font-size: 0.85rem;
+            width: 100%;
+            transition: var(--transition-smooth);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+            width: 280px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .search-input:focus + i {
+            color: var(--cyber-cyan);
+        }
+
+        /* Header Actions (Cart, Notifications) */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .header-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem;
+            transition: var(--transition-smooth);
+            border-radius: 50%;
+        }
+
+        .header-btn:hover {
+            color: var(--cyber-cyan);
+            background: rgba(0, 240, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .cart-counter {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: var(--cyber-pink);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 10px var(--cyber-pink-glow);
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px var(--cyber-pink-glow); }
+            50% { box-shadow: 0 0 15px var(--cyber-pink-glow); }
+            100% { box-shadow: 0 0 5px var(--cyber-pink-glow); }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* -------------------------------------------------------------
+           HOT DEALS HERO SECTION
+        ------------------------------------------------------------- */
+        .hero {
+            padding: 5rem 0 6rem;
+            position: relative;
+            background: radial-gradient(circle at 80% 50%, rgba(171, 32, 253, 0.12), transparent 45%);
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 100px;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            display: block;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-purple), var(--cyber-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .hero-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        /* Specs Ribbon */
+        .hero-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            background: rgba(13, 9, 26, 0.4);
+            border: 1px solid var(--card-border-purple);
+            padding: 1.2rem;
+            border-radius: 8px;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .hero-spec-item {
+            text-align: center;
+            border-right: 1px solid rgba(160, 156, 176, 0.15);
+        }
+
+        .hero-spec-item:last-child {
+            border-right: none;
+        }
+
+        .hero-spec-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .hero-spec-val {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--cyber-cyan);
+            font-weight: 700;
+        }
+
+        /* Showcase Card Slider */
+        .hero-showcase {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(171, 32, 253, 0.15) 50%, transparent 70%);
+            filter: blur(40px);
+            z-index: 1;
+            animation: float-glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes float-glow {
+            0% { transform: translateY(-20px) scale(0.95); opacity: 0.8; }
+            100% { transform: translateY(20px) scale(1.05); opacity: 1; }
+        }
+
+        .hero-card {
+            background: rgba(18, 12, 36, 0.5);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 240, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 440px;
+            backdrop-filter: var(--glass-blur);
+            position: relative;
+            z-index: 2;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-card:hover {
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 240, 255, 0.25);
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-purple));
+            border-radius: 16px 16px 0 0;
+        }
+
+        /* SVG Illustrative Artwork */
+        .hero-art-container {
+            width: 100%;
+            height: 220px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .hero-card-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .hero-card-price span {
+            font-size: 0.9rem;
+            color: var(--cyber-pink);
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+            font-weight: 400;
+        }
+
+        /* -------------------------------------------------------------
+           PRODUCTS GRID SECTION
+        ------------------------------------------------------------- */
+        .products-section {
+            padding: 6rem 0;
+            background-color: var(--bg-grid);
+            border-top: 1px solid rgba(171, 32, 253, 0.15);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 25%; width: 50%; height: 2px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-purple));
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Controls */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background: rgba(6, 4, 13, 0.6);
+            border: 1px solid var(--card-border-purple);
+            color: var(--text-secondary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-tab:hover {
+            color: var(--cyber-cyan);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+        }
+
+        .filter-tab.active {
+            color: #000;
+            background: var(--cyber-cyan);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 15px var(--cyber-cyan-glow);
+            font-weight: 700;
+        }
+
+        /* Product Cards Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.15), 0 0 15px rgba(171, 32, 253, 0.1);
+        }
+
+        /* Scanline Overlay on specific card hover */
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(transparent 50%, rgba(0, 240, 255, 0.05) 50%);
+            background-size: 100% 4px;
+            opacity: 0;
+            transition: var(--transition-smooth);
+            pointer-events: none;
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle, rgba(171, 32, 253, 0.08), transparent 70%);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .product-art {
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-art {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-title:hover {
+            color: var(--cyber-cyan);
+        }
+
+        /* Checklist / Specs */
+        .product-specs {
+            margin: 1rem 0;
+            border-top: 1px solid rgba(160, 156, 176, 0.15);
+            border-bottom: 1px solid rgba(160, 156, 176, 0.15);
+            padding: 0.8rem 0;
+        }
+
+        .spec-checklist-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .spec-checklist {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem;
+        }
+
+        .spec-check-item {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .spec-check-item i {
+            color: var(--cyber-cyan);
+            width: 12px;
+            height: 12px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .product-price::before {
+            content: 'N$ ';
+            color: var(--cyber-cyan);
+            font-size: 0.9rem;
+            margin-right: 2px;
+        }
+
+        /* -------------------------------------------------------------
+           SIDE-BY-SIDE SPEC COMPARISON TABLE TOOL
+        ------------------------------------------------------------- */
+        .comparison-section {
+            padding: 6rem 0;
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-color), rgba(13, 9, 26, 0.9), var(--bg-color));
+        }
+
+        .comparison-panel {
+            background: rgba(18, 12, 36, 0.4);
+            border: 1px solid var(--card-border-purple);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            backdrop-filter: var(--glass-blur);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .comparison-selectors {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1.5fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(160, 156, 176, 0.15);
+            padding-bottom: 2rem;
+        }
+
+        .comparison-intro h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-intro p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .compare-dropdown-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .compare-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .compare-select {
+            background: rgba(6, 4, 13, 0.9);
+            border: 1px solid var(--card-border-purple);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 0.8rem 1rem;
+            outline: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            width: 100%;
+        }
+
+        .compare-select:focus {
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+        }
+
+        /* Matrix Table */
+        .comparison-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .comparison-matrix th, .comparison-matrix td {
+            padding: 1.2rem;
+            border-bottom: 1px solid rgba(160, 156, 176, 0.08);
+            vertical-align: middle;
+        }
+
+        .comparison-matrix th {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 25%;
+        }
+
+        .comparison-matrix td {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            width: 37.5%;
+        }
+
+        .comp-prod-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.15rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .comp-prod-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--cyber-cyan);
+            font-weight: 800;
+        }
+
+        .comp-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--cyber-purple);
+            font-weight: 700;
+            background: rgba(171, 32, 253, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid var(--cyber-purple);
+            display: inline-block;
+        }
+
+        .comp-btn {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            font-size: 0.75rem;
+        }
+
+        .specs-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .specs-indicator i {
+            color: var(--cyber-cyan);
+        }
+
+        /* -------------------------------------------------------------
+           INTERACTIVE CART PANEL
+        ------------------------------------------------------------- */
+        .cart-overlay {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: rgba(6, 4, 13, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0; right: -450px; bottom: 0;
+            width: 100%;
+            max-width: 440px;
+            background: rgba(10, 8, 22, 0.98);
+            border-left: 2px solid var(--cyber-cyan);
+            z-index: 2001;
+            box-shadow: -10px 0 35px rgba(0, 0, 0, 0.8), -5px 0 20px rgba(0, 240, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(25px);
+        }
+
+        .cart-panel.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(171, 32, 253, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .cart-title i {
+            color: var(--cyber-cyan);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .close-cart:hover {
+            color: var(--cyber-pink);
+            transform: rotate(90deg);
+        }
+
+        .cart-items-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        /* Cart Item Card */
+        .cart-item {
+            background: rgba(18, 12, 36, 0.5);
+            border: 1px solid rgba(160, 156, 176, 0.12);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        .cart-item:hover {
+            border-color: rgba(171, 32, 253, 0.4);
+            box-shadow: 0 0 10px rgba(171, 32, 253, 0.1);
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            background: rgba(6, 4, 13, 0.6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.2rem;
+        }
+
+        .cart-item-price {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyber-cyan);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.4rem;
+        }
+
+        .qty-btn {
+            background: rgba(6, 4, 13, 0.8);
+            border: 1px solid var(--card-border-purple);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .qty-btn:hover {
+            border-color: var(--cyber-cyan);
+            color: var(--cyber-cyan);
+        }
+
+        .qty-val {
+            font-size: 0.85rem;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .remove-item-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            padding: 0.25rem;
+        }
+
+        .remove-item-btn:hover {
+            color: var(--cyber-pink);
+            transform: scale(1.1);
+        }
+
+        /* Cart Footer / Checkout Module */
+        .cart-summary {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(171, 32, 253, 0.2);
+            background: rgba(6, 4, 13, 0.9);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .summary-total {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: white;
+            border-top: 1px dashed rgba(160, 156, 176, 0.2);
+            padding-top: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .summary-total .total-price {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyber-cyan);
+            font-size: 1.35rem;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Promocode block */
+        .promo-block {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .promo-input {
+            background: rgba(6, 4, 13, 0.8);
+            border: 1px solid rgba(171, 32, 253, 0.3);
+            border-radius: 4px;
+            padding: 0.5rem;
+            color: white;
+            font-family: inherit;
+            font-size: 0.8rem;
+            flex-grow: 1;
+        }
+
+        .promo-input:focus {
+            outline: none;
+            border-color: var(--cyber-cyan);
+        }
+
+        .cart-empty-message {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+
+        .cart-empty-message i {
+            display: block;
+            font-size: 2.5rem;
+            color: rgba(171, 32, 253, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        /* -------------------------------------------------------------
+           CHECKOUT-READY CTA BLOCK (SECURE PROTOCOL)
+        ------------------------------------------------------------- */
+        .checkout-cta {
+            padding: 6rem 0;
+            position: relative;
+            background: radial-gradient(circle at 10% 50%, rgba(0, 240, 255, 0.08), transparent 45%);
+        }
+
+        .cta-container {
+            background: linear-gradient(135deg, rgba(13, 9, 26, 0.9) 0%, rgba(18, 12, 36, 0.7) 100%);
+            border: 1px solid var(--card-border-cyan);
+            border-radius: 16px;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 240, 255, 0.1);
+        }
+
+        .cta-container::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%; width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(171, 32, 253, 0.2), transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            z-index: 2;
+        }
+
+        .cta-badge {
+            margin-bottom: 1rem;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .cta-title span {
+            color: var(--cyber-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .cta-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .cta-benefits {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .cta-benefit-item {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-benefit-item i {
+            color: var(--cyber-purple);
+        }
+
+        /* Interactive Newsletter/Terminal block inside CTA */
+        .cta-interactive {
+            z-index: 2;
+            background: rgba(6, 4, 13, 0.85);
+            border: 1px solid var(--card-border-purple);
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .cta-interactive::before {
+            content: 'TERMINAL_SESSION_ACTIVE';
+            position: absolute;
+            top: -10px; left: 1rem;
+            background: #06040d;
+            padding: 0 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--cyber-purple);
+            letter-spacing: 1px;
+            border: 1px solid var(--card-border-purple);
+            border-radius: 4px;
+        }
+
+        .terminal-text {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #39ff14; /* Matrix green */
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            height: 80px;
+            overflow: hidden;
+        }
+
+        .terminal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .terminal-input {
+            background: rgba(13, 9, 26, 0.8);
+            border: 1px solid var(--card-border-purple);
+            border-radius: 4px;
+            padding: 0.7rem 1rem;
+            color: white;
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+
+        .terminal-input:focus {
+            outline: none;
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+        }
+
+        .terminal-btn {
+            font-size: 0.75rem;
+            padding: 0.7rem 1.2rem;
+        }
+
+        /* -------------------------------------------------------------
+           FOOTER SECTION
+        ------------------------------------------------------------- */
+        footer {
+            background: #030206;
+            border-top: 1px solid rgba(171, 32, 253, 0.2);
+            padding: 5rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .footer-logo-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(13, 9, 26, 0.6);
+            border: 1px solid var(--card-border-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-link:hover {
+            color: var(--cyber-cyan);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0; width: 30px; height: 1px;
+            background-color: var(--cyber-cyan);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-link:hover {
+            color: var(--cyber-cyan);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(160, 156, 176, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-protocols {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-protocols li {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer-protocols li i {
+            color: var(--cyber-cyan);
+        }
+
+        /* -------------------------------------------------------------
+           NOTIFICATION TOASTS
+        ------------------------------------------------------------- */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .toast {
+            background: rgba(10, 8, 22, 0.95);
+            border-left: 3px solid var(--cyber-cyan);
+            border-top: 1px solid var(--card-border-purple);
+            border-right: 1px solid var(--card-border-purple);
+            border-bottom: 1px solid var(--card-border-purple);
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateX(-120%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            max-width: 350px;
+        }
+
+        .toast.active {
+            transform: translateX(0);
+        }
+
+        .toast-icon {
+            color: var(--cyber-cyan);
+        }
+
+        .toast-content {
+            font-size: 0.85rem;
+        }
+
+        .toast-title {
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        /* -------------------------------------------------------------
+           RESPONSIVE MEDIA QUERIES
+        ------------------------------------------------------------- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-showcase {
+                order: -1;
+            }
+
+            .cta-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                padding: 3rem 2rem;
+            }
+
+            .comparison-selectors {
+                grid-template-columns: 1fr 1fr;
+            }
+            .comparison-intro {
+                grid-column: span 2;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            nav {
+                display: none; /* Mobile navigation toggle can be implemented */
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-selectors {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-intro {
+                grid-column: span 1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Munich Tech Shop",
+    "description": "Feature-rich consumer electronics storefront featuring robust technical spec tables, a clean industrial tech design, and full Euro currency support. MIT lice...",
+    "url": "https://templates.jack-codes.com/templates/ecommerce-tech-shop",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/ecommerce-tech-shop.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- ---------------------------------------------------------------
+       HEADER & NAVIGATION
+    ---------------------------------------------------------------- -->
+    <header id="main-header">
+        <div class="container header-wrap">
+            <a href="#" class="logo">
+                <span>NEON</span>_GRID <span class="logo-slash">//</span>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav id="desktop-nav">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#products-section" class="nav-link">
+                            Catalog <i data-lucide="chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#products-section" class="dropdown-item" data-filter="audio">
+                                <i data-lucide="headphones"></i> Neural Audio Gear
+                            </a>
+                            <a href="#products-section" class="dropdown-item" data-filter="laptops">
+                                <i data-lucide="laptop"></i> Quantum Rig Laptops
+                            </a>
+                            <a href="#products-section" class="dropdown-item" data-filter="implants">
+                                <i data-lucide="activity"></i> Bio-implant Interfaces
+                            </a>
+                            <a href="#products-section" class="dropdown-item" data-filter="peripherals">
+                                <i data-lucide="keyboard"></i> Mech Peripherals
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#comparison-section" class="nav-link">Spec Compare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#checkout-cta" class="nav-link">Secure Nodes</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Header Interaction Items -->
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" class="search-input" id="db-search" placeholder="Search database...">
+                    <i data-lucide="search"></i>
+                </div>
+
+                <button class="header-btn" id="open-cart-btn" aria-label="Open Cyber Cart">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-counter" id="cart-counter">0</span>
+                </button>
+
+                <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ---------------------------------------------------------------
+       HOT DEALS HERO SECTION
+    ---------------------------------------------------------------- -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="badge badge-pink">CYBERPUNK PROTOCOL v4.2</span>
+                    <span class="badge badge-cyan">HOT DEAL DETECTED</span>
+                </div>
+                <h1 class="hero-title">
+                    UPGRADE YOUR NEURAL <span>QUANTUM INTERFACE</span>
+                </h1>
+                <p class="hero-desc">
+                    High-end biometric and computational implants direct from orbital fabricators. Equipped with military-grade shielding, ultra-low latency bio-bridges, and full sensory feedback loops.
+                </p>
+
+                <!-- Dynamic/Real Spec Listing for Hero item -->
+                <div class="hero-specs">
+                    <div class="hero-spec-item">
+                        <span class="hero-spec-label">Audio Drivers</span>
+                        <span class="hero-spec-val">9D Sub-Dermal</span>
+                    </div>
+                    <div class="hero-spec-item">
+                        <span class="hero-spec-label">Chroma Shield</span>
+                        <span class="hero-spec-val">100% EMP Immune</span>
+                    </div>
+                    <div class="hero-spec-item">
+                        <span class="hero-spec-label">Neural Latency</span>
+                        <span class="hero-spec-val">&lt; 0.12 ms</span>
+                    </div>
+                </div>
+
+                <div style="display:flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-pink" id="hero-buy-btn">
+                        Deploy System <i data-lucide="zap"></i>
+                    </button>
+                    <a href="#products-section" class="btn btn-cyan">
+                        Access Matrix <i data-lucide="database"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Showcase Hero Card -->
+            <div class="hero-showcase">
+                <div class="glow-orb"></div>
+                <div class="hero-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <span class="badge badge-cyan">Top-Tier Audio</span>
+                        <span style="color: #39ff14; font-size: 0.8rem; font-family: monospace;">// IN_STOCK</span>
+                    </div>
+                    
+                    <!-- Beautiful CSS/SVG Illustrative Graphics -->
+                    <div class="hero-art-container">
+                        <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Inner Glowing Pulsing Orb -->
+                            <circle cx="100" cy="100" r="50" fill="url(#purpleGlow)" opacity="0.6">
+                                <animate attributeName="r" values="45;55;45" dur="4s" repeatCount="indefinite" />
+                            </circle>
+                            <!-- Elegant futuristic headset silhouette outline -->
+                            <path d="M50 110C50 70 70 50 100 50C130 50 150 70 150 110" stroke="#00f0ff" stroke-width="6" stroke-linecap="round" filter="url(#cyanGlowShadow)"/>
+                            <rect x="35" y="100" width="20" height="40" rx="6" fill="#ab20fd" stroke="#00f0ff" stroke-width="2"/>
+                            <rect x="145" y="100" width="20" height="40" rx="6" fill="#ab20fd" stroke="#00f0ff" stroke-width="2"/>
+                            <!-- Wave lines -->
+                            <path d="M70 120Q85 110 100 120T130 120" stroke="#ff007f" stroke-width="2" fill="none">
+                                <animate attributeName="d" values="M70 120Q85 110 100 120T130 120; M70 120Q85 130 100 120T130 120; M70 120Q85 110 100 120T130 120" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            <!-- Defs -->
+                            <defs>
+                                <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#ab20fd" />
+                                    <stop offset="100%" stop-color="#06040d" stop-opacity="0" />
+                                </radialGradient>
+                                <filter id="cyanGlowShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="8" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <h3 class="cyber-font" style="font-size:1.3rem; margin-bottom: 0.5rem;">NOVA-X NEURAL AUDIO</h3>
+                    <p style="color: var(--text-secondary); font-size:0.85rem; line-height: 1.5;">
+                        Direct cranial link with 9D sub-dermal acoustic feedback grids. Includes biometric self-calibration framework.
+                    </p>
+
+                    <div class="hero-card-meta">
+                        <div>
+                            <span style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Price</span>
+                            <div class="hero-card-price">N$ 349.00 <span>N$ 499.00</span></div>
+                        </div>
+                        <button class="btn btn-cyan btn-add-cart" data-id="1" data-name="Nova-X Pro Neural Headset" data-price="349.00" data-img="headset" style="padding: 0.6rem 1.2rem; font-size: 0.75rem;">
+                            Add to Rig
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+       INTERACTIVE GRID OF PRODUCTS
+    ---------------------------------------------------------------- -->
+    <section class="products-section" id="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title neon-glow-cyan">Quantum Hardware Matrix</h2>
+                <p class="section-desc">Filter catalog items, inspect military-grade specifications, and deploy them directly into your shopping buffer grid.</p>
+            </div>
+
+            <!-- Interactive Filters -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">ALL GEAR</button>
+                <button class="filter-tab" data-category="audio">Neural Audio</button>
+                <button class="filter-tab" data-category="laptops">Quantum Rigs</button>
+                <button class="filter-tab" data-category="implants">Bio-Implants</button>
+                <button class="filter-tab" data-category="peripherals">Mech Gear</button>
+            </div>
+
+            <!-- Dynamic Products Grid -->
+            <div class="products-grid" id="catalog-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="audio">
+                    <div class="card-top">
+                        <span class="badge badge-pink">BESTSELLER</span>
+                        <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; color:#ffd700;">
+                            <i data-lucide="star" style="width:14px; height:14px; fill:#ffd700;"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="product-img-wrapper">
+                        <svg class="product-art" width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#ab20fd" stroke-width="2" stroke-dasharray="4 4" />
+                            <path d="M30 60C30 35 40 25 50 25C60 25 70 35 70 60" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="22" y="55" width="10" height="20" rx="3" fill="#ff007f"/>
+                            <rect x="68" y="55" width="10" height="20" rx="3" fill="#ff007f"/>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Nova-X Pro Neural Headset</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Direct neural sync headset with synthetic acoustic feedback networks and active bio-mesh sound insulation.
+                        </p>
+                        
+                        <div class="product-specs">
+                            <span class="spec-checklist-title">Shielded specs checklist:</span>
+                            <ul class="spec-checklist">
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 9D Sub-dermal Haptics</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 120hr Liquid Cell</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> ANC Mk-IV</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Cyber-Link v4</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-footer">
+                            <span class="product-price">349.00</span>
+                            <button class="btn btn-cyan btn-add-cart" data-id="1" data-name="Nova-X Pro Neural Headset" data-price="349.00" data-img="headset">
+                                Add to Rig <i data-lucide="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="laptops">
+                    <div class="card-top">
+                        <span class="badge badge-cyan">PREMIUM</span>
+                        <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; color:#ffd700;">
+                            <i data-lucide="star" style="width:14px; height:14px; fill:#ffd700;"></i> 5.0
+                        </div>
+                    </div>
+                    <div class="product-img-wrapper">
+                        <svg class="product-art" width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="30" width="60" height="35" rx="3" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                            <line x1="15" y1="70" x2="85" y2="70" stroke="#ab20fd" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="30" y1="72" x2="70" y2="72" stroke="#ff007f" stroke-width="2"/>
+                            <path d="M50 30V20" stroke="#00f0ff" stroke-width="2" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">CyberBlade 17 Pro Laptop</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Liquid-metal cooled quantum rig designed to execute heavy decrypt commands and real-time hologram projections.
+                        </p>
+                        
+                        <div class="product-specs">
+                            <span class="spec-checklist-title">Shielded specs checklist:</span>
+                            <ul class="spec-checklist">
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 16-Core Quantum-CPU</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> RT-Neon GPU v8</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 64GB Bio-RAM</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 4TB Holo-SSD</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-footer">
+                            <span class="product-price">2499.00</span>
+                            <button class="btn btn-cyan btn-add-cart" data-id="2" data-name="CyberBlade 17 Pro Laptop" data-price="2499.00" data-img="laptop">
+                                Add to Rig <i data-lucide="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="implants">
+                    <div class="card-top">
+                        <span class="badge badge-purple">CYBERWARE</span>
+                        <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; color:#ffd700;">
+                            <i data-lucide="star" style="width:14px; height:14px; fill:#ffd700;"></i> 4.7
+                        </div>
+                    </div>
+                    <div class="product-img-wrapper">
+                        <svg class="product-art" width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 20C35 20 25 35 25 50C25 70 50 85 50 85C50 85 75 70 75 50C75 35 65 20 50 20Z" fill="none" stroke="#ff007f" stroke-width="3"/>
+                            <path d="M40 50H60M50 40V60" stroke="#00f0ff" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="12" stroke="#ab20fd" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Aegis V2 Sub-dermal Shield</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Sub-dermal grid injection offering instant localized electrostatic repellers and dynamic projectile dampeners.
+                        </p>
+                        
+                        <div class="product-specs">
+                            <span class="spec-checklist-title">Shielded specs checklist:</span>
+                            <ul class="spec-checklist">
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Nano-repair Matrix</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 2000V shock discharge</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Bio-mesh coating</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Ultra Lightweight (45g)</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-footer">
+                            <span class="product-price">899.00</span>
+                            <button class="btn btn-cyan btn-add-cart" data-id="3" data-name="Aegis V2 Sub-dermal Shield" data-price="899.00" data-img="shield">
+                                Add to Rig <i data-lucide="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="peripherals">
+                    <div class="card-top">
+                        <span class="badge badge-cyan">LIMITED</span>
+                        <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; color:#ffd700;">
+                            <i data-lucide="star" style="width:14px; height:14px; fill:#ffd700;"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="product-img-wrapper">
+                        <svg class="product-art" width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="15" y="40" width="70" height="25" rx="3" fill="none" stroke="#ab20fd" stroke-width="3"/>
+                            <rect x="22" y="46" width="6" height="5" fill="#00f0ff"/>
+                            <rect x="32" y="46" width="6" height="5" fill="#00f0ff"/>
+                            <rect x="42" y="46" width="16" height="5" fill="#ff007f"/>
+                            <rect x="62" y="46" width="6" height="5" fill="#00f0ff"/>
+                            <rect x="72" y="46" width="6" height="5" fill="#00f0ff"/>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Spectra-Grid Mech Keyboard</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Opto-magnetic switches with holographic projection capabilities. Zero debounce delays.
+                        </p>
+                        
+                        <div class="product-specs">
+                            <span class="spec-checklist-title">Shielded specs checklist:</span>
+                            <ul class="spec-checklist">
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Opto-magnetic Switches</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Holographic RGB</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 0.1ms Polling speed</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 100M click lifespan</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-footer">
+                            <span class="product-price">199.00</span>
+                            <button class="btn btn-cyan btn-add-cart" data-id="4" data-name="Spectra-Grid Mech Keyboard" data-price="199.00" data-img="keyboard">
+                                Add to Rig <i data-lucide="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-category="audio">
+                    <div class="card-top">
+                        <span class="badge badge-pink">NEW</span>
+                        <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; color:#ffd700;">
+                            <i data-lucide="star" style="width:14px; height:14px; fill:#ffd700;"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="product-img-wrapper">
+                        <svg class="product-art" width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="35" width="60" height="30" rx="10" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                            <line x1="20" y1="50" x2="80" y2="50" stroke="#ff007f" stroke-width="2"/>
+                            <ellipse cx="35" cy="50" rx="8" ry="12" fill="#ab20fd"/>
+                            <ellipse cx="65" cy="50" rx="8" ry="12" fill="#ab20fd"/>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Aero-Holo VR Visor</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Direct cerebral neural mapping visual interface. Seamless virtual grid deployment.
+                        </p>
+                        
+                        <div class="product-specs">
+                            <span class="spec-checklist-title">Shielded specs checklist:</span>
+                            <ul class="spec-checklist">
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 8K Dual Micro-OLED</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 144Hz Refresh rate</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Mind-Link integration</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Eye-tracking v3</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-footer">
+                            <span class="product-price">1299.00</span>
+                            <button class="btn btn-cyan btn-add-cart" data-id="5" data-name="Aero-Holo VR Visor" data-price="1299.00" data-img="visor">
+                                Add to Rig <i data-lucide="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-category="peripherals">
+                    <div class="card-top">
+                        <span class="badge badge-purple">PRO SPEED</span>
+                        <div style="display:flex; align-items:center; gap:0.25rem; font-size:0.8rem; color:#ffd700;">
+                            <i data-lucide="star" style="width:14px; height:14px; fill:#ffd700;"></i> 4.6
+                        </div>
+                    </div>
+                    <div class="product-img-wrapper">
+                        <svg class="product-art" width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 25C40 25 35 35 35 50C35 65 40 75 50 75C60 75 65 65 65 50C65 35 60 25 50 25Z" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                            <line x1="50" y1="25" x2="50" y2="45" stroke="#ff007f" stroke-width="2"/>
+                            <circle cx="50" cy="55" r="4" fill="#ab20fd"/>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Apex-Grip Kinetic Mouse</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Carbon-fiber lattice construction featuring wireless quantum link nodes and frictionless magnetic skates.
+                        </p>
+                        
+                        <div class="product-specs">
+                            <span class="spec-checklist-title">Shielded specs checklist:</span>
+                            <ul class="spec-checklist">
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 36,000 DPI Sensor</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Carbon-Fiber Shell</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> Wireless-Quantum link</li>
+                                <li class="spec-check-item"><i data-lucide="check-circle-2"></i> 50G acceleration</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-footer">
+                            <span class="product-price">149.00</span>
+                            <button class="btn btn-cyan btn-add-cart" data-id="6" data-name="Apex-Grip Kinetic Mouse" data-price="149.00" data-img="mouse">
+                                Add to Rig <i data-lucide="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+       SIDE-BY-SIDE SPEC COMPARISON TABLE TOOL
+    ---------------------------------------------------------------- -->
+    <section class="comparison-section" id="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title neon-glow-purple">Rig Sync Comparison Matrix</h2>
+                <p class="section-desc">Verify biometric compatibility and compare system benchmarks across quantum cores.</p>
+            </div>
+
+            <div class="comparison-panel">
+                <!-- Dropdown Selectors -->
+                <div class="comparison-selectors">
+                    <div class="comparison-intro">
+                        <h3>Select Decoders</h3>
+                        <p>Analyze parallel technical data streams concurrently in real time.</p>
+                    </div>
+                    <div class="compare-dropdown-wrap">
+                        <label class="compare-label" for="compare-1">COMPARE RIG A</label>
+                        <select class="compare-select" id="compare-1">
+                            <!-- JS populated -->
+                        </select>
+                    </div>
+                    <div class="compare-dropdown-wrap">
+                        <label class="compare-label" for="compare-2">COMPARE RIG B</label>
+                        <select class="compare-select" id="compare-2">
+                            <!-- JS populated -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Responsive Specs Table -->
+                <div style="overflow-x: auto;">
+                    <table class="comparison-matrix" id="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tech Class</th>
+                                <th id="comp-header-1" class="comp-prod-title">Rig Alpha</th>
+                                <th id="comp-header-2" class="comp-prod-title">Rig Beta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Base Pricing</th>
+                                <td id="comp-price-1" class="comp-prod-price">N$ 0.00</td>
+                                <td id="comp-price-2" class="comp-prod-price">N$ 0.00</td>
+                            </tr>
+                            <tr>
+                                <th>Category</th>
+                                <td id="comp-cat-1"><span class="comp-badge">CLASSIFIED</span></td>
+                                <td id="comp-cat-2"><span class="comp-badge">CLASSIFIED</span></td>
+                            </tr>
+                            <tr>
+                                <th>Core Interface Spec 1</th>
+                                <td id="comp-spec1-1" class="specs-indicator"><i data-lucide="cpu"></i> Loading...</td>
+                                <td id="comp-spec1-2" class="specs-indicator"><i data-lucide="cpu"></i> Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Storage / Battery Spec 2</th>
+                                <td id="comp-spec2-1" class="specs-indicator"><i data-lucide="database"></i> Loading...</td>
+                                <td id="comp-spec2-2" class="specs-indicator"><i data-lucide="database"></i> Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Coating / Shielding Spec 3</th>
+                                <td id="comp-spec3-1" class="specs-indicator"><i data-lucide="shield"></i> Loading...</td>
+                                <td id="comp-spec3-2" class="specs-indicator"><i data-lucide="shield"></i> Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Cerebral Sync Spec 4</th>
+                                <td id="comp-spec4-1" class="specs-indicator"><i data-lucide="zap"></i> Loading...</td>
+                                <td id="comp-spec4-2" class="specs-indicator"><i data-lucide="zap"></i> Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Quality Benchmark</th>
+                                <td id="comp-rating-1">Loading...</td>
+                                <td id="comp-rating-2">Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Matrix Integration</th>
+                                <td>
+                                    <button class="btn btn-cyan comp-btn" id="comp-add-1">Deploy Rig A</button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-purple comp-btn" id="comp-add-2">Deploy Rig B</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+       CHECKOUT-READY CTA BLOCK
+    ---------------------------------------------------------------- -->
+    <section class="checkout-cta" id="checkout-cta">
+        <div class="container">
+            <div class="cta-container">
+                <div class="cta-content">
+                    <span class="badge badge-pink cta-badge">ENCRYPTED COURIER NETWORK</span>
+                    <h2 class="cta-title">SECURE YOUR SYSTEM <span>CHASSIS PROTOCOLS</span></h2>
+                    <p class="cta-desc">
+                        Order now to secure direct quantum-encrypted transport vectors. Deliveries executed within 3 hours via sub-orbital drone nets. All gear is protected by our lifetime firmware insurance logic.
+                    </p>
+                    
+                    <ul class="cta-benefits">
+                        <li class="cta-benefit-item"><i data-lucide="shield-check"></i> TLS v1.4 Encrypted Nodes</li>
+                        <li class="cta-benefit-item"><i data-lucide="clock"></i> Zero-Downtime Bio-bridge Setup</li>
+                        <li class="cta-benefit-item"><i data-lucide="plane"></i> Sub-Orbital Drone Drops</li>
+                        <li class="cta-benefit-item"><i data-lucide="refresh-cw"></i> 30-Day Neurological Return Logic</li>
+                    </ul>
+                </div>
+
+                <!-- Interactive Newsletter / Terminal Subscription Box -->
+                <div class="cta-interactive">
+                    <div class="terminal-text" id="terminal-feed">
+                        &gt; INITIALIZING ENCRYPTED TERMINAL LINK...<br>
+                        &gt; SECURING HANDSHAKE WITH PORT 8849...<br>
+                        &gt; INPUT IDENTITY TO SUBSCRIBE TO MATRIX DROPS...
+                    </div>
+                    <form class="terminal-form" id="terminal-sub-form">
+                        <input type="email" class="terminal-input" id="terminal-email" placeholder="enter.identity@grid.net" required>
+                        <button type="submit" class="btn btn-pink terminal-btn">
+                            Link Neural Comm <i data-lucide="radio"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+       INTERACTIVE CART OVERLAY & SLIDER PANEL
+    ---------------------------------------------------------------- -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <div class="cart-title">
+                <i data-lucide="shopping-cart"></i>
+                <h3 class="cyber-font">QUANTUM_BUFFER</h3>
+            </div>
+            <button class="close-cart" id="close-cart-btn" aria-label="Close Cart">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <!-- Dynamic Cart Items Buffer -->
+        <div class="cart-items-container" id="cart-items-buffer">
+            <!-- Dynamically Rendered by JS -->
+            <div class="cart-empty-message">
+                <i data-lucide="inbox"></i>
+                <span>Buffer Empty. Deploy hardware assets.</span>
+            </div>
+        </div>
+
+        <!-- Cart Check-out Ready Summary Block -->
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Sub-Total Stream</span>
+                <span id="cart-subtotal">N$ 0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Direct Drone Freight</span>
+                <span id="cart-freight" style="color: var(--cyber-cyan);">FREE</span>
+            </div>
+            <div class="summary-row" id="discount-row" style="display: none; color: var(--cyber-pink);">
+                <span>Discount (NEON20)</span>
+                <span id="cart-discount">-N$ 0.00</span>
+            </div>
+
+            <!-- Interactive Coupon Injection -->
+            <div class="promo-block">
+                <input type="text" class="promo-input" id="promo-code-input" placeholder="DECRYPT PROMOCODE">
+                <button class="btn btn-cyan" id="apply-promo-btn" style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+                    Decipher
+                </button>
+            </div>
+
+            <div class="summary-row summary-total">
+                <span>TOTAL COST</span>
+                <span class="total-price" id="cart-total">N$ 0.00</span>
+            </div>
+
+            <button class="btn btn-pink" id="checkout-trigger-btn" style="width: 100%; margin-top: 1rem;">
+                Initiate Secure Payment Protocol <i data-lucide="shield-check"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------
+       FOOTER
+    ---------------------------------------------------------------- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo-block">
+                    <a href="#" class="logo">
+                        <span>NEON</span>_GRID <span class="logo-slash">//</span>
+                    </a>
+                    <p class="footer-logo-desc">
+                        Constructing high-fidelity neural interface chips and sub-dermal hardware components since the Great Re-Grid of 2088.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="Github Node"><i data-lucide="github"></i></a>
+                        <a href="#" class="social-link" aria-label="Terminal Radio"><i data-lucide="radio"></i></a>
+                        <a href="#" class="social-link" aria-label="Terminal Twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Terminal CPU"><i data-lucide="cpu"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Node Directory</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products-section" class="footer-link">Hardware Catalog</a></li>
+                        <li><a href="#comparison-section" class="footer-link">Comparison Matrix</a></li>
+                        <li><a href="#checkout-cta" class="footer-link">Drone Vector Status</a></li>
+                        <li><a href="#" class="footer-link">Security Certificates</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Protocol API</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">SDK Integration</a></li>
+                        <li><a href="#" class="footer-link">Neural Interface Docs</a></li>
+                        <li><a href="#" class="footer-link">Drone Freight Ports</a></li>
+                        <li><a href="#" class="footer-link">Biometric Legal Codes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Secure Vectors</h4>
+                    <p style="font-size:0.8rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                        Terminal: Node //N-342<br>
+                        Location: Low-Orbit Fabricator G-9
+                    </p>
+                    <div class="badge badge-cyan" style="font-size:0.65rem;">System Shield: Active</div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2089 NEON_GRID CORP. ALL ASSETS SECURED. BYPASSING WILL TRIGGER ICE.
+                </p>
+                <ul class="footer-protocols">
+                    <li><i data-lucide="shield"></i> AES-8192 Quantum Link</li>
+                    <li><i data-lucide="check-square"></i> Bio-Verified Nodes</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toasts notifications box -->
+    <div class="toast-container" id="toast-bin"></div>
+
+    <!-- ---------------------------------------------------------------
+       INTERACTIVE JAVASCRIPT REAL LOGIC
+    ---------------------------------------------------------------- -->
+    <script>
+        // Database of real product structures matching the HTML elements exactly
+        const productsDB = [
+            {
+                id: 1,
+                name: "Nova-X Pro Neural Headset",
+                price: 349.00,
+                category: "audio",
+                rating: "4.9 / 5.0",
+                spec1: "9D Sub-dermal Haptics",
+                spec2: "120hr Liquid Battery",
+                spec3: "ANC Mk-IV Shielding",
+                spec4: "Cyber-Link v4 Intercept"
+            },
+            {
+                id: 2,
+                name: "CyberBlade 17 Pro Laptop",
+                price: 2499.00,
+                category: "laptops",
+                rating: "5.0 / 5.0",
+                spec1: "16-Core Quantum-CPU",
+                spec2: "4TB Holo-SSD Array",
+                spec3: "RT-Neon GPU v8 Shield",
+                spec4: "64GB Biometric RAM"
+            },
+            {
+                id: 3,
+                name: "Aegis V2 Sub-dermal Shield",
+                price: 899.00,
+                category: "implants",
+                rating: "4.7 / 5.0",
+                spec1: "Nano-repair Matrix core",
+                spec2: "Biometric Power Shield",
+                spec3: "2000V shock discharge",
+                spec4: "Frictionless Bioskin v2"
+            },
+            {
+                id: 4,
+                name: "Spectra-Grid Mech Keyboard",
+                price: 199.00,
+                category: "peripherals",
+                rating: "4.8 / 5.0",
+                spec1: "Opto-magnetic Switches",
+                spec2: "Holographic Key Injector",
+                spec3: "0.1ms Polling speed core",
+                spec4: "100M keystroke durability"
+            },
+            {
+                id: 5,
+                name: "Aero-Holo VR Visor",
+                price: 1299.00,
+                category: "audio",
+                rating: "4.9 / 5.0",
+                spec1: "8K Dual Micro-OLED Grid",
+                spec2: "Mind-Link neuro-bridge",
+                spec3: "144Hz Quantum Refresh",
+                spec4: "Ultra-low Latency v3"
+            },
+            {
+                id: 6,
+                name: "Apex-Grip Kinetic Mouse",
+                price: 149.00,
+                category: "peripherals",
+                rating: "4.6 / 5.0",
+                spec1: "36,000 DPI Laser Engine",
+                spec2: "Wireless-Quantum radio",
+                spec3: "Carbon-Fiber Lattice base",
+                spec4: "50G kinetic acceleration"
+            }
+        ];
+
+        // System state holding interactive elements
+        let cart = [];
+        let appliedPromo = false;
+        const discountRate = 0.20; // 20% discount on promotional code
+
+        // Select DOM Nodes
+        const header = document.getElementById('main-header');
+        const cartCounter = document.getElementById('cart-counter');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartPanel = document.getElementById('cart-panel');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsBuffer = document.getElementById('cart-items-buffer');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const discountRow = document.getElementById('discount-row');
+        const cartDiscount = document.getElementById('cart-discount');
+        const cartTotal = document.getElementById('cart-total');
+        const promoInput = document.getElementById('promo-code-input');
+        const applyPromoBtn = document.getElementById('apply-promo-btn');
+        const checkoutTriggerBtn = document.getElementById('checkout-trigger-btn');
+        const catalogGrid = document.getElementById('catalog-grid');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const searchInput = document.getElementById('db-search');
+        const toastBin = document.getElementById('toast-bin');
+
+        // Dynamic Comparison Nodes
+        const selectCompare1 = document.getElementById('compare-1');
+        const selectCompare2 = document.getElementById('compare-2');
+
+        // Initial setup for comparative table select options
+        function initializeCompareDropdowns() {
+            selectCompare1.innerHTML = '';
+            selectCompare2.innerHTML = '';
+            
+            productsDB.forEach((p, idx) => {
+                const opt1 = document.createElement('option');
+                opt1.value = p.id;
+                opt1.textContent = p.name;
+                if(idx === 0) opt1.selected = true;
+                selectCompare1.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = p.id;
+                opt2.textContent = p.name;
+                if(idx === 1) opt2.selected = true;
+                selectCompare2.appendChild(opt2);
+            });
+            
+            updateComparisonMatrix();
+        }
+
+        // Logic to dynamically generate spec records in the table rows
+        function updateComparisonMatrix() {
+            const p1 = productsDB.find(p => p.id == selectCompare1.value);
+            const p2 = productsDB.find(p => p.id == selectCompare2.value);
+
+            if (!p1 || !p2) return;
+
+            // Fill Product A Column
+            document.getElementById('comp-header-1').innerText = p1.name;
+            document.getElementById('comp-price-1').innerText = `N$ ${p1.price.toFixed(2)}`;
+            document.getElementById('comp-cat-1').innerHTML = `<span class="comp-badge">${p1.category.toUpperCase()}</span>`;
+            document.getElementById('comp-spec1-1').innerHTML = `<i data-lucide="cpu"></i> ${p1.spec1}`;
+            document.getElementById('comp-spec2-1').innerHTML = `<i data-lucide="database"></i> ${p1.spec2}`;
+            document.getElementById('comp-spec3-1').innerHTML = `<i data-lucide="shield"></i> ${p1.spec3}`;
+            document.getElementById('comp-spec4-1').innerHTML = `<i data-lucide="zap"></i> ${p1.spec4}`;
+            document.getElementById('comp-rating-1').innerText = p1.rating;
+
+            // Add action behavior to button A
+            const btn1 = document.getElementById('comp-add-1');
+            btn1.onclick = () => { addToCart(p1.id); };
+
+            // Fill Product B Column
+            document.getElementById('comp-header-2').innerText = p2.name;
+            document.getElementById('comp-price-2').innerText = `N$ ${p2.price.toFixed(2)}`;
+            document.getElementById('comp-cat-2').innerHTML = `<span class="comp-badge">${p2.category.toUpperCase()}</span>`;
+            document.getElementById('comp-spec1-2').innerHTML = `<i data-lucide="cpu"></i> ${p2.spec1}`;
+            document.getElementById('comp-spec2-2').innerHTML = `<i data-lucide="database"></i> ${p2.spec2}`;
+            document.getElementById('comp-spec3-2').innerHTML = `<i data-lucide="shield"></i> ${p2.spec3}`;
+            document.getElementById('comp-spec4-2').innerHTML = `<i data-lucide="zap"></i> ${p2.spec4}`;
+            document.getElementById('comp-rating-2').innerText = p2.rating;
+
+            // Add action behavior to button B
+            const btn2 = document.getElementById('comp-add-2');
+            btn2.onclick = () => { addToCart(p2.id); };
+
+            // Re-render Lucide icons dynamically injected
+            lucide.createIcons();
+        }
+
+        // Search engine logic filtering nodes
+        function handleCatalogSearch(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const cards = catalogGrid.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').innerText.toLowerCase();
+                const desc = card.querySelector('p').innerText.toLowerCase();
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Category filter toggling logic
+        function handleCategoryFilter(e) {
+            const selectedCategory = e.target.getAttribute('data-category');
+            
+            filterTabs.forEach(tab => tab.classList.remove('active'));
+            e.target.classList.add('active');
+
+            const cards = catalogGrid.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Cart Drawer Control
+        function toggleCart(isOpen) {
+            if (isOpen) {
+                cartOverlay.classList.add('active');
+                cartPanel.classList.add('active');
+            } else {
+                cartOverlay.classList.remove('active');
+                cartPanel.classList.remove('active');
+            }
+        }
+
+        // Show elegant Glowing System Notification Toast
+        function showNotification(title, message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i data-lucide="terminal" class="toast-icon"></i>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div>${message}</div>
+                </div>
+            `;
+            toastBin.appendChild(toast);
+            
+            // Re-render Lucide Icons for toast
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('active');
+            }, 50);
+
+            // Automatically clean up toast after delay
+            setTimeout(() => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 4000);
+        }
+
+        // Cart manipulation functions
+        function addToCart(productId) {
+            const prod = productsDB.find(p => p.id === productId);
+            if (!prod) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    id: prod.id,
+                    name: prod.name,
+                    price: prod.price,
+                    qty: 1
+                });
+            }
+
+            updateCartDisplay();
+            showNotification("Buffer Updated //", `${prod.name} injected successfully.`);
+        }
+
+        function updateCartQty(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+
+            item.qty += change;
+
+            if (item.qty <= 0) {
+                cart = cart.filter(p => p.id !== productId);
+            }
+
+            updateCartDisplay();
+        }
+
+        function removeFromCart(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+            cart = cart.filter(p => p.id !== productId);
+            updateCartDisplay();
+            showNotification("Vector Cleared", `${item.name} removed from buffer.`);
+        }
+
+        // Calculate and Draw Cart elements
+        function updateCartDisplay() {
+            // Counter Calculation
+            const totalQty = cart.reduce((acc, val) => acc + val.qty, 0);
+            cartCounter.innerText = totalQty;
+
+            if (cart.length === 0) {
+                cartItemsBuffer.innerHTML = `
+                    <div class="cart-empty-message">
+                        <i data-lucide="inbox"></i>
+                        <span>Buffer Empty. Deploy hardware assets.</span>
+                    </div>
+                `;
+                lucide.createIcons();
+                cartSubtotal.innerText = "N$ 0.00";
+                cartTotal.innerText = "N$ 0.00";
+                discountRow.style.display = "none";
+                return;
+            }
+
+            // Draw Items List
+            cartItemsBuffer.innerHTML = '';
+            cart.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="cart-item-img">
+                        <i data-lucide="cpu" style="color:var(--cyber-cyan); width:28px; height:28px;"></i>
+                    </div>
+                    <div class="cart-item-info">
+                        <h4 class="cart-item-title">${item.name}</h4>
+                        <span class="cart-item-price">N$ ${(item.price * item.qty).toFixed(2)}</span>
+                        <div class="cart-item-qty">
+                            <button class="qty-btn" onclick="updateCartQty(${item.id}, -1)">-</button>
+                            <span class="qty-val">${item.qty}</span>
+                            <button class="qty-btn" onclick="updateCartQty(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item-btn" onclick="removeFromCart(${item.id})" aria-label="Remove item">
+                        <i data-lucide="trash-2" style="width:16px; height:16px;"></i>
+                    </button>
+                `;
+                cartItemsBuffer.appendChild(div);
+            });
+
+            // Math Calculation
+            const subtotal = cart.reduce((acc, val) => acc + (val.price * val.qty), 0);
+            cartSubtotal.innerText = `N$ ${subtotal.toFixed(2)}`;
+
+            let discount = 0;
+            if (appliedPromo) {
+                discount = subtotal * discountRate;
+                discountRow.style.display = "flex";
+                cartDiscount.innerText = `-N$ ${discount.toFixed(2)}`;
+            } else {
+                discountRow.style.display = "none";
+            }
+
+            const grandTotal = subtotal - discount;
+            cartTotal.innerText = `N$ ${grandTotal.toFixed(2)}`;
+
+            lucide.createIcons();
+        }
+
+        // Apply dynamic promotion code promo logic
+        function applyCoupon() {
+            const promoText = promoInput.value.trim().toUpperCase();
+            if (promoText === "NEON20") {
+                if (appliedPromo) {
+                    showNotification("Protocol Loop //", "Decoder already executed.");
+                    return;
+                }
+                appliedPromo = true;
+                updateCartDisplay();
+                showNotification("Decrypt Success //", "20% off protocol fully activated.");
+            } else {
+                showNotification("Error //", "Invalid Decryption Code.");
+            }
+        }
+
+        // Fake active system interactive typing inside CTA terminal block
+        function startTerminalLogger() {
+            const logs = [
+                "> INITIALIZING ENCRYPTED TERMINAL LINK...",
+                "> SECURING HANDSHAKE WITH PORT 8849...",
+                "> DEPLOYING ANTI-ICE DECRYPT ENGINES...",
+                "> SECURE SHELL ESTABLISHED...",
+                "> ENTER SUBSCRIBER ADDRESS FOR DECRYPT DROPS...",
+                "> WAITING FOR NEURAL IDENTITY ADDRESS..."
+            ];
+
+            const feed = document.getElementById('terminal-feed');
+            let logIndex = 0;
+
+            setInterval(() => {
+                if (logIndex < logs.length) {
+                    feed.innerHTML += `<br>&gt; ${logs[logIndex]}`;
+                    feed.scrollTop = feed.scrollHeight;
+                    logIndex++;
+                } else {
+                    // Inject heartbeat status lines
+                    const seconds = new Date().getSeconds();
+                    feed.innerHTML += `<br>&gt; heartbeat: pulse verified at sec_${seconds}.`;
+                    feed.scrollTop = feed.scrollHeight;
+                }
+            }, 3000);
+        }
+
+        // Event Handlers Setup & Registration
+        function registerHandlers() {
+            // Scroll Glow Header Effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Cart Toggles
+            openCartBtn.addEventListener('click', () => toggleCart(true));
+            closeCartBtn.addEventListener('click', () => toggleCart(false));
+            cartOverlay.addEventListener('click', () => toggleCart(false));
+
+            // Checkout triggers action
+            checkoutTriggerBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    showNotification("Action Error //", "Cart empty. Load assets before checkout.");
+                    return;
+                }
+                showNotification("Checkout Sequence //", "Encrypted payment portal initialized. Awaiting secure terminal handshake...");
+            });
+
+            // Apply promocode
+            applyPromoBtn.addEventListener('click', applyCoupon);
+
+            // Add listener for CTA buys
+            document.getElementById('hero-buy-btn').addEventListener('click', () => {
+                addToCart(1); // Auto-deploy Nova-X
+                toggleCart(true);
+            });
+
+            // Categories Filter Setup
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', handleCategoryFilter);
+            });
+
+            // Search logic register
+            searchInput.addEventListener('input', handleCatalogSearch);
+
+            // Sync Dropdown Selectors
+            selectCompare1.addEventListener('change', updateComparisonMatrix);
+            selectCompare2.addEventListener('change', updateComparisonMatrix);
+
+            // Handle dropdown catalog clicks in nav menu
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const filterValue = item.getAttribute('data-filter');
+                    const targetTab = Array.from(filterTabs).find(tab => tab.getAttribute('data-category') === filterValue);
+                    if (targetTab) {
+                        targetTab.click();
+                    }
+                    // Smooth scroll down to catalog area
+                    document.getElementById('products-section').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Newsletter Terminal Form action
+            document.getElementById('terminal-sub-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const mail = document.getElementById('terminal-email').value;
+                showNotification("Comm Linked //", `${mail} added to subnet broadcast.`);
+                document.getElementById('terminal-email').value = '';
+            });
+
+            // Add dynamic actions to all grid catalog elements inside cart
+            document.querySelectorAll('.btn-add-cart').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = parseInt(btn.getAttribute('data-id'));
+                    addToCart(id);
+                });
+            });
+        }
+
+        // Initialize Web Application Code
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initializeCompareDropdowns();
+            registerHandlers();
+            startTerminalLogger();
+            
+            // Initial Notification
+            showNotification("Security Protocol //", "Encrypted session handshake complete. Welcome.");
+        });
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/ecommerce-fashion-store" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">ecommerce</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Milan Fashion Store</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/ecommerce-boutique-store" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">ecommerce</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Amara Boutique</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/ecommerce-perfume-store" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">ecommerce</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">L'Élixir Perfume</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

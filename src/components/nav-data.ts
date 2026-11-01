@@ -62,7 +62,6 @@ export const navSections: NavSection[] = [
       { icon: ImageIcon, label: "Illustrations", path: "/illustrations", desc: "386 free SVG illustrations" },
       { icon: LayoutTemplate, label: "Templates", path: "/templates", desc: "34 free website templates" },
       { icon: Sparkles, label: "Animated Icons", path: "/animated-icons", desc: "625 free animated icons" },
-      { icon: Wand2, label: "Icon Customizer", path: "/customizer", desc: "Recolor, resize & share any icon" },
       { icon: Users, label: "Community Showcase", path: "/showcase", desc: "Projects built with IconVault" },
       { icon: Palette, label: "Original Collections", path: "/original", desc: "60 original AI, Diwali & Desi icons" },
       { icon: Wallpaper, label: "Wallpapers", path: "/wallpapers", desc: "Desktop and mobile wallpapers" },

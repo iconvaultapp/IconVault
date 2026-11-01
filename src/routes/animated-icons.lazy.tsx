@@ -30,11 +30,17 @@ function Page() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return ANIMATED_ICONS.filter((a) => {
+    const list = ANIMATED_ICONS.filter((a) => {
       if (pack !== "all" && a.pack !== pack) return false;
       if (q && !(a.title + " " + a.slug + " " + a.packName).toLowerCase().includes(q)) return false;
       return true;
     });
+    // v60 premium-first: the 12 Meteocons Pro picks lead, in their current
+    // relative order, then everything else in current order. Gallery-local
+    // stable sort only — the data file itself is never reordered, so the
+    // detail pages and counts are untouched.
+    const ordered = [...list].sort((a, b) => Number(b.premium) - Number(a.premium));
+    return ordered;
   }, [query, pack]);
 
   const visible = filtered.slice(0, visibleCount);
@@ -159,9 +165,23 @@ function Page() {
             more icons remain, so scrolling never dead-ends; the loading
             line below it holds layout steady (no jumps). */}
         {hasMore && (
-          <div ref={sentinelRef} className="py-2 text-center text-sm text-muted-foreground" aria-live="polite">
-            Loading more icons…
-          </div>
+          <>
+            <div ref={sentinelRef} className="py-2 text-center text-sm text-muted-foreground" aria-live="polite">
+              Loading more icons…
+            </div>
+            {/* v60 manual fallback for the same append: if the observer
+                never fires (e.g. a stale live chunk), this button still
+                loads the next 60. The sentinel above is untouched. */}
+            <div className="pb-2 text-center">
+              <button
+                type="button"
+                onClick={() => setVisibleCount((n) => Math.min(n + PAGE_SIZE, filtered.length))}
+                className="rounded-full border border-border px-5 py-2 text-sm font-medium hover:bg-accent"
+              >
+                Load more icons
+              </button>
+            </div>
+          </>
         )}
         {!hasMore && filtered.length > 0 && (
           <p className="py-2 text-center text-sm text-muted-foreground">

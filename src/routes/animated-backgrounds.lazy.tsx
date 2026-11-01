@@ -50,9 +50,13 @@ const EFFECT_LOADERS = {
 type VantaInstance = { destroy: () => void };
 
 function webglAvailable(): boolean {
+  // v60: three 0.187's WebGLRenderer hardcodes WebGL2 with no WebGL1
+  // fallback, so a WebGL1-only check would pass the gate and then throw
+  // inside the effect init. Require WebGL2 here so the gate and the
+  // renderer agree; the gate failure gets its own distinct note below.
   try {
     const canvas = document.createElement("canvas");
-    return Boolean(canvas.getContext("webgl") ?? canvas.getContext("experimental-webgl"));
+    return Boolean(canvas.getContext("webgl2"));
   } catch {
     return false;
   }
@@ -86,7 +90,7 @@ function Page() {
     }
     if (!webglAvailable()) {
       setStatus("fallback");
-      setFallbackNote("WebGL is unavailable in this browser, so this demo shows a static gradient instead of a live effect.");
+      setFallbackNote("WebGL2 is unavailable in this browser, so this demo shows a static gradient instead of a live effect.");
       return;
     }
 
@@ -100,9 +104,16 @@ function Page() {
         const effectModule = await EFFECT_LOADERS[effect]();
         if (cancelled || !stageRef.current) return;
         const factory = effectModule.default;
+        // v60: vanta's bundled GPUComputationRenderer destructures
+        // PlaneBufferGeometry, renamed PlaneGeometry in three r125 and
+        // undefined in three 0.187, so Birds init throws. Hand vanta a
+        // spread copy with the old name aliased — never mutate the
+        // frozen module namespace. Waves/Fog are unaffected but share
+        // the same THREE object for consistency.
+        const threeForVanta = { ...threeModule, PlaneBufferGeometry: threeModule.PlaneGeometry };
         const common = {
           el: stageRef.current,
-          THREE: threeModule,
+          THREE: threeForVanta,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
@@ -141,8 +152,9 @@ function Page() {
                 };
         effectRef.current = factory(options);
         if (!cancelled) setStatus("live");
-      } catch {
+      } catch (err) {
         if (!cancelled) {
+          console.error("Animated background failed to load:", err);
           setStatus("fallback");
           setFallbackNote("The live effect failed to load, so this demo shows a static gradient instead.");
         }

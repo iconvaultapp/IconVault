@@ -51,7 +51,7 @@ import { Route as UiComponentsRouteImport } from './routes/ui-components'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as UsageStatsRouteImport } from './routes/usage-stats'
 import { Route as WallpapersRouteImport } from './routes/wallpapers'
-import { Route as AnimatedIconsSlugRouteImport } from './routes/animated-icons.$slug'
+import { Route as AnimatedIconsSlugRouteImport } from './routes/animated-icons_.$slug'
 import { Route as ApiIconsRouteImport } from './routes/api.icons'
 import { Route as ApiLogErrorRouteImport } from './routes/api.log-error'
 import { Route as ApiVideoProxyRouteImport } from './routes/api.video-proxy'
@@ -60,9 +60,9 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CategoriesIndexRouteImport } from './routes/categories.index'
 import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
-import { Route as OriginalCollectionRouteImport } from './routes/original.$collection'
+import { Route as OriginalCollectionRouteImport } from './routes/original_.$collection'
 import { Route as PacksPrefixRouteImport } from './routes/packs.$prefix'
-import { Route as TemplatesSlugRouteImport } from './routes/templates.$slug'
+import { Route as TemplatesSlugRouteImport } from './routes/templates_.$slug'
 import { Route as ToolsA11yContrastGridRouteImport } from './routes/tools_.a11y-contrast-grid'
 import { Route as ToolsA11yScannerRouteImport } from './routes/tools_.a11y-scanner'
 import { Route as ToolsAbortSignalPlaygroundRouteImport } from './routes/tools_.abort-signal-playground'
@@ -639,7 +639,7 @@ import { Route as ToolsXsdValidatorRouteImport } from './routes/tools_.xsd-valid
 import { Route as ToolsYamlFormatterRouteImport } from './routes/tools_.yaml-formatter'
 import { Route as ToolsYamlJsonConverterRouteImport } from './routes/tools_.yaml-json-converter'
 import { Route as ToolsZipExplorerRouteImport } from './routes/tools_.zip-explorer'
-import { Route as WallpapersSlugRouteImport } from './routes/wallpapers.$slug'
+import { Route as WallpapersSlugRouteImport } from './routes/wallpapers_.$slug'
 import { Route as ApiBillingCheckoutRouteImport } from './routes/api.billing.checkout'
 import { Route as ApiBillingLifetimeCountRouteImport } from './routes/api.billing.lifetime-count'
 import { Route as ApiBillingWebhookRouteImport } from './routes/api.billing.webhook'
@@ -868,11 +868,11 @@ const WallpapersRoute = WallpapersRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/wallpapers.lazy').then((d) => d.Route))
 const AnimatedIconsSlugRoute = AnimatedIconsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => AnimatedIconsRoute,
+  id: '/animated-icons_/$slug',
+  path: '/animated-icons/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/animated-icons.$slug.lazy').then((d) => d.Route),
+  import('./routes/animated-icons_.$slug.lazy').then((d) => d.Route),
 )
 const ApiIconsRoute = ApiIconsRouteImport.update({
   id: '/api/icons',
@@ -921,11 +921,11 @@ const CategoriesSlugRoute = CategoriesSlugRouteImport.update({
   import('./routes/categories.$slug.lazy').then((d) => d.Route),
 )
 const OriginalCollectionRoute = OriginalCollectionRouteImport.update({
-  id: '/$collection',
-  path: '/$collection',
-  getParentRoute: () => OriginalRoute,
+  id: '/original_/$collection',
+  path: '/original/$collection',
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/original.$collection.lazy').then((d) => d.Route),
+  import('./routes/original_.$collection.lazy').then((d) => d.Route),
 )
 const PacksPrefixRoute = PacksPrefixRouteImport.update({
   id: '/packs/$prefix',
@@ -933,11 +933,11 @@ const PacksPrefixRoute = PacksPrefixRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/packs.$prefix.lazy').then((d) => d.Route))
 const TemplatesSlugRoute = TemplatesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => TemplatesRoute,
+  id: '/templates_/$slug',
+  path: '/templates/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/templates.$slug.lazy').then((d) => d.Route),
+  import('./routes/templates_.$slug.lazy').then((d) => d.Route),
 )
 const ToolsA11yContrastGridRoute = ToolsA11yContrastGridRouteImport.update({
   id: '/tools_/a11y-contrast-grid',
@@ -5190,11 +5190,11 @@ const ToolsZipExplorerRoute = ToolsZipExplorerRouteImport.update({
   import('./routes/tools_.zip-explorer.lazy').then((d) => d.Route),
 )
 const WallpapersSlugRoute = WallpapersSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => WallpapersRoute,
+  id: '/wallpapers_/$slug',
+  path: '/wallpapers/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/wallpapers.$slug.lazy').then((d) => d.Route),
+  import('./routes/wallpapers_.$slug.lazy').then((d) => d.Route),
 )
 const ApiBillingCheckoutRoute = ApiBillingCheckoutRouteImport.update({
   id: '/api/billing/checkout',
@@ -5245,7 +5245,7 @@ export interface FileRoutesByFullPath {
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
   '/animated-backgrounds': typeof AnimatedBackgroundsRoute
-  '/animated-icons': typeof AnimatedIconsRouteWithChildren
+  '/animated-icons': typeof AnimatedIconsRoute
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
@@ -5264,7 +5264,7 @@ export interface FileRoutesByFullPath {
   '/libraries': typeof LibrariesRoute
   '/mockups': typeof MockupsRoute
   '/notifications': typeof NotificationsRoute
-  '/original': typeof OriginalRouteWithChildren
+  '/original': typeof OriginalRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
@@ -5274,13 +5274,13 @@ export interface FileRoutesByFullPath {
   '/showcase': typeof ShowcaseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
-  '/templates': typeof TemplatesRouteWithChildren
+  '/templates': typeof TemplatesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
-  '/wallpapers': typeof WallpapersRouteWithChildren
+  '/wallpapers': typeof WallpapersRoute
   '/animated-icons/$slug': typeof AnimatedIconsSlugRoute
   '/api/icons': typeof ApiIconsRoute
   '/api/log-error': typeof ApiLogErrorRoute
@@ -5886,7 +5886,7 @@ export interface FileRoutesByTo {
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
   '/animated-backgrounds': typeof AnimatedBackgroundsRoute
-  '/animated-icons': typeof AnimatedIconsRouteWithChildren
+  '/animated-icons': typeof AnimatedIconsRoute
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
@@ -5905,7 +5905,7 @@ export interface FileRoutesByTo {
   '/libraries': typeof LibrariesRoute
   '/mockups': typeof MockupsRoute
   '/notifications': typeof NotificationsRoute
-  '/original': typeof OriginalRouteWithChildren
+  '/original': typeof OriginalRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
@@ -5915,13 +5915,13 @@ export interface FileRoutesByTo {
   '/showcase': typeof ShowcaseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
-  '/templates': typeof TemplatesRouteWithChildren
+  '/templates': typeof TemplatesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
-  '/wallpapers': typeof WallpapersRouteWithChildren
+  '/wallpapers': typeof WallpapersRoute
   '/animated-icons/$slug': typeof AnimatedIconsSlugRoute
   '/api/icons': typeof ApiIconsRoute
   '/api/log-error': typeof ApiLogErrorRoute
@@ -6528,7 +6528,7 @@ export interface FileRoutesById {
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
   '/animated-backgrounds': typeof AnimatedBackgroundsRoute
-  '/animated-icons': typeof AnimatedIconsRouteWithChildren
+  '/animated-icons': typeof AnimatedIconsRoute
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
   '/auth': typeof AuthRoute
@@ -6547,7 +6547,7 @@ export interface FileRoutesById {
   '/libraries': typeof LibrariesRoute
   '/mockups': typeof MockupsRoute
   '/notifications': typeof NotificationsRoute
-  '/original': typeof OriginalRouteWithChildren
+  '/original': typeof OriginalRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/pro': typeof ProRoute
@@ -6557,23 +6557,23 @@ export interface FileRoutesById {
   '/showcase': typeof ShowcaseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
-  '/templates': typeof TemplatesRouteWithChildren
+  '/templates': typeof TemplatesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/ui-components': typeof UiComponentsRoute
   '/upload': typeof UploadRoute
   '/usage-stats': typeof UsageStatsRoute
-  '/wallpapers': typeof WallpapersRouteWithChildren
-  '/animated-icons/$slug': typeof AnimatedIconsSlugRoute
+  '/wallpapers': typeof WallpapersRoute
+  '/animated-icons_/$slug': typeof AnimatedIconsSlugRoute
   '/api/icons': typeof ApiIconsRoute
   '/api/log-error': typeof ApiLogErrorRoute
   '/api/video-proxy': typeof ApiVideoProxyRoute
   '/billing/success': typeof BillingSuccessRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/categories/$slug': typeof CategoriesSlugRoute
-  '/original/$collection': typeof OriginalCollectionRoute
+  '/original_/$collection': typeof OriginalCollectionRoute
   '/packs/$prefix': typeof PacksPrefixRoute
-  '/templates/$slug': typeof TemplatesSlugRoute
+  '/templates_/$slug': typeof TemplatesSlugRoute
   '/tools_/a11y-contrast-grid': typeof ToolsA11yContrastGridRoute
   '/tools_/a11y-scanner': typeof ToolsA11yScannerRoute
   '/tools_/abort-signal-playground': typeof ToolsAbortSignalPlaygroundRoute
@@ -7150,7 +7150,7 @@ export interface FileRoutesById {
   '/tools_/yaml-formatter': typeof ToolsYamlFormatterRoute
   '/tools_/yaml-json-converter': typeof ToolsYamlJsonConverterRoute
   '/tools_/zip-explorer': typeof ToolsZipExplorerRoute
-  '/wallpapers/$slug': typeof WallpapersSlugRoute
+  '/wallpapers_/$slug': typeof WallpapersSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/categories/': typeof CategoriesIndexRoute
   '/api/billing/checkout': typeof ApiBillingCheckoutRoute
@@ -8489,16 +8489,16 @@ export interface FileRouteTypes {
     | '/upload'
     | '/usage-stats'
     | '/wallpapers'
-    | '/animated-icons/$slug'
+    | '/animated-icons_/$slug'
     | '/api/icons'
     | '/api/log-error'
     | '/api/video-proxy'
     | '/billing/success'
     | '/blog/$slug'
     | '/categories/$slug'
-    | '/original/$collection'
+    | '/original_/$collection'
     | '/packs/$prefix'
-    | '/templates/$slug'
+    | '/templates_/$slug'
     | '/tools_/a11y-contrast-grid'
     | '/tools_/a11y-scanner'
     | '/tools_/abort-signal-playground'
@@ -9075,7 +9075,7 @@ export interface FileRouteTypes {
     | '/tools_/yaml-formatter'
     | '/tools_/yaml-json-converter'
     | '/tools_/zip-explorer'
-    | '/wallpapers/$slug'
+    | '/wallpapers_/$slug'
     | '/blog/'
     | '/categories/'
     | '/api/billing/checkout'
@@ -9095,7 +9095,7 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   AiSearchRoute: typeof AiSearchRoute
   AnimatedBackgroundsRoute: typeof AnimatedBackgroundsRoute
-  AnimatedIconsRoute: typeof AnimatedIconsRouteWithChildren
+  AnimatedIconsRoute: typeof AnimatedIconsRoute
   ApiAccessRoute: typeof ApiAccessRoute
   AppRoute: typeof AppRoute
   AuthRoute: typeof AuthRoute
@@ -9114,7 +9114,7 @@ export interface RootRouteChildren {
   LibrariesRoute: typeof LibrariesRoute
   MockupsRoute: typeof MockupsRoute
   NotificationsRoute: typeof NotificationsRoute
-  OriginalRoute: typeof OriginalRouteWithChildren
+  OriginalRoute: typeof OriginalRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProRoute: typeof ProRoute
@@ -9124,20 +9124,23 @@ export interface RootRouteChildren {
   ShowcaseRoute: typeof ShowcaseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
-  TemplatesRoute: typeof TemplatesRouteWithChildren
+  TemplatesRoute: typeof TemplatesRoute
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRoute
   UiComponentsRoute: typeof UiComponentsRoute
   UploadRoute: typeof UploadRoute
   UsageStatsRoute: typeof UsageStatsRoute
-  WallpapersRoute: typeof WallpapersRouteWithChildren
+  WallpapersRoute: typeof WallpapersRoute
+  AnimatedIconsSlugRoute: typeof AnimatedIconsSlugRoute
   ApiIconsRoute: typeof ApiIconsRoute
   ApiLogErrorRoute: typeof ApiLogErrorRoute
   ApiVideoProxyRoute: typeof ApiVideoProxyRoute
   BillingSuccessRoute: typeof BillingSuccessRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CategoriesSlugRoute: typeof CategoriesSlugRoute
+  OriginalCollectionRoute: typeof OriginalCollectionRoute
   PacksPrefixRoute: typeof PacksPrefixRoute
+  TemplatesSlugRoute: typeof TemplatesSlugRoute
   ToolsA11yContrastGridRoute: typeof ToolsA11yContrastGridRoute
   ToolsA11yScannerRoute: typeof ToolsA11yScannerRoute
   ToolsAbortSignalPlaygroundRoute: typeof ToolsAbortSignalPlaygroundRoute
@@ -9714,6 +9717,7 @@ export interface RootRouteChildren {
   ToolsYamlFormatterRoute: typeof ToolsYamlFormatterRoute
   ToolsYamlJsonConverterRoute: typeof ToolsYamlJsonConverterRoute
   ToolsZipExplorerRoute: typeof ToolsZipExplorerRoute
+  WallpapersSlugRoute: typeof WallpapersSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   CategoriesIndexRoute: typeof CategoriesIndexRoute
   ApiBillingCheckoutRoute: typeof ApiBillingCheckoutRoute
@@ -10022,12 +10026,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WallpapersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/animated-icons/$slug': {
-      id: '/animated-icons/$slug'
-      path: '/$slug'
+    '/animated-icons_/$slug': {
+      id: '/animated-icons_/$slug'
+      path: '/animated-icons/$slug'
       fullPath: '/animated-icons/$slug'
       preLoaderRoute: typeof AnimatedIconsSlugRouteImport
-      parentRoute: typeof AnimatedIconsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/api/icons': {
       id: '/api/icons'
@@ -10085,12 +10089,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/original/$collection': {
-      id: '/original/$collection'
-      path: '/$collection'
+    '/original_/$collection': {
+      id: '/original_/$collection'
+      path: '/original/$collection'
       fullPath: '/original/$collection'
       preLoaderRoute: typeof OriginalCollectionRouteImport
-      parentRoute: typeof OriginalRoute
+      parentRoute: typeof rootRouteImport
     }
     '/packs/$prefix': {
       id: '/packs/$prefix'
@@ -10099,12 +10103,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PacksPrefixRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/templates/$slug': {
-      id: '/templates/$slug'
-      path: '/$slug'
+    '/templates_/$slug': {
+      id: '/templates_/$slug'
+      path: '/templates/$slug'
       fullPath: '/templates/$slug'
       preLoaderRoute: typeof TemplatesSlugRouteImport
-      parentRoute: typeof TemplatesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/tools_/a11y-contrast-grid': {
       id: '/tools_/a11y-contrast-grid'
@@ -14138,12 +14142,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsZipExplorerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/wallpapers/$slug': {
-      id: '/wallpapers/$slug'
-      path: '/$slug'
+    '/wallpapers_/$slug': {
+      id: '/wallpapers_/$slug'
+      path: '/wallpapers/$slug'
       fullPath: '/wallpapers/$slug'
       preLoaderRoute: typeof WallpapersSlugRouteImport
-      parentRoute: typeof WallpapersRoute
+      parentRoute: typeof rootRouteImport
     }
     '/api/billing/checkout': {
       id: '/api/billing/checkout'
@@ -14204,54 +14208,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AnimatedIconsRouteChildren {
-  AnimatedIconsSlugRoute: typeof AnimatedIconsSlugRoute
-}
-
-const AnimatedIconsRouteChildren: AnimatedIconsRouteChildren = {
-  AnimatedIconsSlugRoute: AnimatedIconsSlugRoute,
-}
-
-const AnimatedIconsRouteWithChildren = AnimatedIconsRoute._addFileChildren(
-  AnimatedIconsRouteChildren,
-)
-
-interface OriginalRouteChildren {
-  OriginalCollectionRoute: typeof OriginalCollectionRoute
-}
-
-const OriginalRouteChildren: OriginalRouteChildren = {
-  OriginalCollectionRoute: OriginalCollectionRoute,
-}
-
-const OriginalRouteWithChildren = OriginalRoute._addFileChildren(
-  OriginalRouteChildren,
-)
-
-interface TemplatesRouteChildren {
-  TemplatesSlugRoute: typeof TemplatesSlugRoute
-}
-
-const TemplatesRouteChildren: TemplatesRouteChildren = {
-  TemplatesSlugRoute: TemplatesSlugRoute,
-}
-
-const TemplatesRouteWithChildren = TemplatesRoute._addFileChildren(
-  TemplatesRouteChildren,
-)
-
-interface WallpapersRouteChildren {
-  WallpapersSlugRoute: typeof WallpapersSlugRoute
-}
-
-const WallpapersRouteChildren: WallpapersRouteChildren = {
-  WallpapersSlugRoute: WallpapersSlugRoute,
-}
-
-const WallpapersRouteWithChildren = WallpapersRoute._addFileChildren(
-  WallpapersRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -14259,7 +14215,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   AiSearchRoute: AiSearchRoute,
   AnimatedBackgroundsRoute: AnimatedBackgroundsRoute,
-  AnimatedIconsRoute: AnimatedIconsRouteWithChildren,
+  AnimatedIconsRoute: AnimatedIconsRoute,
   ApiAccessRoute: ApiAccessRoute,
   AppRoute: AppRoute,
   AuthRoute: AuthRoute,
@@ -14278,7 +14234,7 @@ const rootRouteChildren: RootRouteChildren = {
   LibrariesRoute: LibrariesRoute,
   MockupsRoute: MockupsRoute,
   NotificationsRoute: NotificationsRoute,
-  OriginalRoute: OriginalRouteWithChildren,
+  OriginalRoute: OriginalRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProRoute: ProRoute,
@@ -14288,20 +14244,23 @@ const rootRouteChildren: RootRouteChildren = {
   ShowcaseRoute: ShowcaseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
-  TemplatesRoute: TemplatesRouteWithChildren,
+  TemplatesRoute: TemplatesRoute,
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRoute,
   UiComponentsRoute: UiComponentsRoute,
   UploadRoute: UploadRoute,
   UsageStatsRoute: UsageStatsRoute,
-  WallpapersRoute: WallpapersRouteWithChildren,
+  WallpapersRoute: WallpapersRoute,
+  AnimatedIconsSlugRoute: AnimatedIconsSlugRoute,
   ApiIconsRoute: ApiIconsRoute,
   ApiLogErrorRoute: ApiLogErrorRoute,
   ApiVideoProxyRoute: ApiVideoProxyRoute,
   BillingSuccessRoute: BillingSuccessRoute,
   BlogSlugRoute: BlogSlugRoute,
   CategoriesSlugRoute: CategoriesSlugRoute,
+  OriginalCollectionRoute: OriginalCollectionRoute,
   PacksPrefixRoute: PacksPrefixRoute,
+  TemplatesSlugRoute: TemplatesSlugRoute,
   ToolsA11yContrastGridRoute: ToolsA11yContrastGridRoute,
   ToolsA11yScannerRoute: ToolsA11yScannerRoute,
   ToolsAbortSignalPlaygroundRoute: ToolsAbortSignalPlaygroundRoute,
@@ -14881,6 +14840,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsYamlFormatterRoute: ToolsYamlFormatterRoute,
   ToolsYamlJsonConverterRoute: ToolsYamlJsonConverterRoute,
   ToolsZipExplorerRoute: ToolsZipExplorerRoute,
+  WallpapersSlugRoute: WallpapersSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   CategoriesIndexRoute: CategoriesIndexRoute,
   ApiBillingCheckoutRoute: ApiBillingCheckoutRoute,

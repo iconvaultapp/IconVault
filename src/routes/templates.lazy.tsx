@@ -97,7 +97,7 @@ function Page() {
                   {t.type === "hugo-theme" ? "View download" : "Preview"}
                 </Link>
                 <PremiumGate premium={t.premium} label={t.title}>
-                  <ZipDownloadButton slug={t.slug} files={t.files} basePath="/templates" label="Download .zip" />
+                  <ZipDownloadButton slug={t.slug} files={t.files} basePath="/template-files" label="Download .zip" />
                 </PremiumGate>
               </div>
             </article>

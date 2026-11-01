@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, cloud analytics dashboard control plane, serverless cloud platform admin UI, microservices telemetry console site, database health monitoring platform, devops telemetry analytics dashboard, cloud host serverless control console, saas database diagnostic interface, network status panel ui console, developer cluster control plane">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/saas-cloud-dashboard">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Munich Cloud Dashboard — Free SaaS Template</title>
+  <meta name="description" content="Next-gen enterprise software landing page featuring interactive Euro subscription matrices, German data hosting standards, and F... MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Munich Cloud Dashboard — Free SaaS Template">
+  <meta property="og:description" content="Next-gen enterprise software landing page featuring interactive Euro subscription matrices, German data hosting standards, and F... MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/saas_cloud_dashboard.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Munich Cloud Dashboard — Free SaaS Template">
+  <meta name="twitter:description" content="Next-gen enterprise software landing page featuring interactive Euro subscription matrices, German data hosting standards, and F... MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/saas_cloud_dashboard.webp">
+  
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       CSS VARIABLES & RESET
+       ========================================== */
+    :root {
+      --primary: #8b5cf6;       /* Violet */
+      --secondary: #06b6d4;     /* Cyan/Turquoise */
+      --accent: #d946ef;        /* Pink/Magenta */
+      --bg-dark: #080914;       /* Pitch Black-Blue */
+      --bg-card: rgba(13, 15, 33, 0.7);
+      --bg-input: rgba(15, 17, 36, 0.9);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(139, 92, 246, 0.3);
+      --text-main: #f3f4f6;     /* White/Light Gray */
+      --text-muted: #9ca3af;    /* Slate Gray */
+      --text-dark: #1f2937;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* Grid overlay background effect */
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    /* Glowing decorative background shapes */
+    .glow-sphere {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .glow-1 {
+      top: 5%;
+      left: 10%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    }
+    .glow-2 {
+      top: 35%;
+      right: 5%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+    }
+    .glow-3 {
+      bottom: 15%;
+      left: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    }
+
+    /* Custom Sleek Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, 0.3);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(139, 92, 246, 0.5);
+    }
+
+    /* ==========================================
+       TYPOGRAPHY & UTILITIES
+       ========================================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: rgba(139, 92, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c084fc;
+      margin-bottom: 1.5rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #c084fc 10%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==========================================
+       FLOATING GLASS HEADER
+       ========================================== */
+    header {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      z-index: 1000;
+      background: rgba(10, 12, 28, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      padding: 0.6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    nav a:hover {
+      color: var(--text-main);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-signin {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      padding: 0.5rem 1rem;
+    }
+    .btn-signin:hover {
+      color: var(--text-main);
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile Overlay Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(6, 7, 18, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transition: right 0.4s ease-in-out;
+    }
+    .mobile-menu.active {
+      right: 0;
+    }
+    .mobile-menu a {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .mobile-menu a:hover {
+      color: var(--text-main);
+    }
+
+    /* ==========================================
+       HERO SECTION WITH PREMIUM MOCKUP
+       ========================================== */
+    .hero-section {
+      padding-top: 10rem;
+      padding-bottom: 6rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto 4.5rem auto;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
+    .hero-title span {
+      display: inline-block;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    /* PREMIUM INTERACTIVE DASHBOARD PREVIEW */
+    .dashboard-preview-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .dashboard-preview-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      border-radius: 18px;
+      z-index: -1;
+      opacity: 0.4;
+      filter: blur(15px);
+    }
+
+    .dashboard-mock {
+      background: #0b0d1e;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      display: flex;
+      height: 620px;
+      text-align: left;
+    }
+
+    /* Mock Sidebar */
+    .mock-sidebar {
+      width: 220px;
+      background: rgba(8, 9, 21, 0.85);
+      border-right: 1px solid var(--border-color);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mock-sidebar-top {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .mock-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mock-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mock-nav-item:hover, .mock-nav-item.active {
+      color: var(--text-main);
+      background: rgba(139, 92, 246, 0.15);
+    }
+
+    .mock-nav-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .mock-sidebar-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .profile-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+    .profile-info {
+      font-size: 0.75rem;
+    }
+    .profile-name {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .profile-role {
+      color: var(--text-muted);
+    }
+
+    /* Mock Main Content */
+    .mock-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: rgba(11, 13, 30, 0.5);
+    }
+
+    .mock-header {
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mock-search {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      width: 220px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mock-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Live status badge */
+    .live-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #10b981;
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    .mock-body {
+      padding: 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    /* Top Stats Grid */
+    .mock-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .mock-stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock-stat-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0.5;
+    }
+
+    .mock-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .mock-stat-value {
+      font-size: 1.8rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+    .mock-stat-change {
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .change-positive { color: #10b981; }
+    .change-negative { color: #ef4444; }
+
+    /* Interactive mock dashboard views */
+    .mock-view {
+      display: none;
+    }
+    .mock-view.active {
+      display: block;
+    }
+
+    /* Overview Chart Panel */
+    .mock-chart-panel {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .mock-chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .mock-chart-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .mock-chart-tabs {
+      display: flex;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.25rem;
+      border-radius: 8px;
+    }
+
+    .mock-chart-tab {
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .mock-chart-tab.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Beautiful Glowing SVG line chart */
+    .svg-chart-container {
+      width: 100%;
+      height: 200px;
+    }
+
+    /* Tasks list view */
+    .mock-tasks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .mock-task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+    .task-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .task-status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .status-deploying { background-color: var(--secondary); box-shadow: 0 0 8px var(--secondary); }
+    .status-completed { background-color: #10b981; box-shadow: 0 0 8px #10b981; }
+    .status-failed { background-color: #ef4444; box-shadow: 0 0 8px #ef4444; }
+
+    .task-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .task-time {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .task-tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* DB Health Panel mockup */
+    .db-health-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .db-metric-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .radial-progress-svg {
+      width: 100px;
+      height: 100px;
+      transform: rotate(-90deg);
+    }
+    .radial-bg {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.05);
+      stroke-width: 8;
+    }
+    .radial-fill {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    /* ==========================================
+       FEATURES SECTION WITH HOVER BORDER GLOW
+       ========================================== */
+    .features-section {
+      padding: 8rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    /* Border Glow Effect using linear gradients */
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, transparent, transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+
+    .feature-card:hover::before {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+      background: rgba(16, 18, 41, 0.85);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(139, 92, 246, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+      transform: scale(1.05);
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      color: var(--text-main);
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================
+       INTERACTIVE PRICING SECTION
+       ========================================== */
+    .pricing-section {
+      padding: 8rem 0;
+      background: rgba(8, 9, 21, 0.4);
+      position: relative;
+    }
+
+    .toggle-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .toggle-label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .toggle-label.active {
+      color: var(--text-main);
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 60px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .toggle-switch-slider {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    input[type="checkbox"]:checked + .toggle-switch .toggle-switch-slider {
+      transform: translateX(28px);
+    }
+
+    .discount-badge {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--secondary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-left: 0.5rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 3rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .pricing-card.popular {
+      border: 2px solid var(--primary);
+      box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
+      transform: scale(1.03);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: 0;
+      right: 2rem;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      transform: translateY(-5px);
+    }
+    .pricing-card.popular:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.35);
+    }
+
+    .pricing-card-top h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .plan-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .price-value-container {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      margin-bottom: 2rem;
+    }
+    .price-currency {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+    }
+    .price-value {
+      font-size: 3.2rem;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      letter-spacing: -0.03em;
+      transition: var(--transition);
+    }
+    .price-period {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .plan-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .plan-features-list svg {
+      width: 18px;
+      height: 18px;
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+    }
+
+    /* ==========================================
+       INTERACTIVE FAQ ACCORDION WIDGETS
+       ========================================== */
+    .faq-section {
+      padding: 8rem 0;
+      position: relative;
+    }
+
+    .faq-accordion-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: rgba(139, 92, 246, 0.25);
+      background: rgba(16, 18, 41, 0.8);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      gap: 1.5rem;
+    }
+
+    .faq-question-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-answer-inner {
+      padding: 0 2rem 1.8rem 2rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Opened state classes */
+    .faq-item.active {
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.1);
+    }
+    .faq-item.active .faq-question-btn svg {
+      transform: rotate(45deg);
+      color: var(--accent);
+    }
+
+    /* ==========================================
+       FULLY STYLED RICH FOOTER
+       ========================================== */
+    footer {
+      background: #04050d;
+      border-top: 1px solid var(--border-color);
+      padding: 5rem 0 3rem 0;
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr 2fr;
+      gap: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: var(--text-muted);
+    }
+    .social-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    }
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .footer-column h4 {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .footer-links a:hover {
+      color: var(--text-main);
+      transform: translateX(3px);
+      display: inline-block;
+    }
+
+    .footer-newsletter h4 {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .newsletter-input-group {
+      display: flex;
+      border: 1px solid var(--border-color);
+      background: var(--bg-input);
+      border-radius: 50px;
+      padding: 0.3rem;
+      transition: var(--transition);
+    }
+    .newsletter-input-group:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
+    }
+    .newsletter-input {
+      background: transparent;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      flex: 1;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      outline: none;
+    }
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .newsletter-form .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    /* ==========================================
+       RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================== */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+      }
+      .pricing-card.popular {
+        transform: scale(1);
+      }
+      .pricing-card.popular:hover {
+        transform: translateY(-5px);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+      }
+      .footer-brand, .footer-newsletter {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        width: 95%;
+        padding: 0.5rem 1.5rem;
+      }
+      nav, .header-actions {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-desc {
+        font-size: 1.05rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      /* Dashboard Mock Responsive adjustments */
+      .dashboard-mock {
+        flex-direction: column;
+        height: auto;
+      }
+      .mock-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+      }
+      .mock-sidebar-top {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .mock-nav {
+        flex-direction: row;
+      }
+      .mock-sidebar-profile {
+        display: none;
+      }
+      .mock-stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .db-health-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-brand, .footer-newsletter {
+        grid-column: span 1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Munich Cloud Dashboard",
+    "description": "Next-gen enterprise software landing page featuring interactive Euro subscription matrices, German data hosting standards, and F... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/saas-cloud-dashboard",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/saas-cloud-dashboard.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+  <!-- Background glows -->
+  <div class="glow-sphere glow-1"></div>
+  <div class="glow-sphere glow-2"></div>
+  <div class="glow-sphere glow-3"></div>
+
+  <!-- FLOATING HEADER -->
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-icon"></div>
+      <span>OmniCloud</span>
+    </a>
+    
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#dashboard">Platform</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn-signin">Sign In</button>
+      <a href="#pricing" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Get Started</a>
+    </div>
+
+    <!-- Burger menu trigger -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE OVERLAY MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" class="mobile-link">Features</a>
+    <a href="#dashboard" class="mobile-link">Platform</a>
+    <a href="#pricing" class="mobile-link">Pricing</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <div style="display: flex; flex-direction: column; gap: 1rem; width: 80%; margin-top: 1rem;">
+      <button class="btn btn-secondary" style="width: 100%;">Sign In</button>
+      <button class="btn btn-primary" style="width: 100%;">Get Started</button>
+    </div>
+  </div>
+
+  <!-- HERO SECTION WITH LIVE DEMO MOCKUP -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="badge">Next-Gen Cloud Automation</span>
+        <h1 class="hero-title">Deploy, Scale &amp; Monitor <br><span class="gradient-text">Without Friction.</span></h1>
+        <p class="hero-desc">The serverless orchestrator built for speed. OmniCloud unifies cluster metrics, database performance, and autoscaling containers into one beautiful, lightweight control plane.</p>
+        <div class="hero-buttons">
+          <a href="#pricing" class="btn btn-primary">
+            <span>Start Free Trial</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#dashboard" class="btn btn-secondary">Explore Demo Dashboard</a>
+        </div>
+      </div>
+
+      <!-- PREMIUM INTERACTIVE DASHBOARD UI MOCKUP -->
+      <div class="dashboard-preview-wrapper" id="dashboard">
+        <div class="dashboard-mock">
+          
+          <!-- Mock Sidebar -->
+          <div class="mock-sidebar">
+            <div class="mock-sidebar-top">
+              <div class="logo" style="font-size: 1.1rem;">
+                <div class="logo-icon" style="width:26px; height:26px;"></div>
+                <span>OmniConsole</span>
+              </div>
+              <div class="mock-nav">
+                <div class="mock-nav-item active" data-view="overview">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                  <span>Overview</span>
+                </div>
+                <div class="mock-nav-item" data-view="tasks">
+                  <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  <span>Live Clusters</span>
+                </div>
+                <div class="mock-nav-item" data-view="db">
+                  <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+                  <span>ScyllaDB Status</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mock-sidebar-profile">
+              <div class="profile-avatar"></div>
+              <div class="profile-info">
+                <div class="profile-name">Alex Rivera</div>
+                <div class="profile-role">Admin Account</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mock Main Body -->
+          <div class="mock-main">
+            <!-- Header bar -->
+            <div class="mock-header">
+              <div class="mock-search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Search nodes, clusters...</span>
+              </div>
+              <div class="mock-header-actions">
+                <div class="live-status">
+                  <span class="pulse-dot"></span>
+                  <span>US-East Active</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Body -->
+            <div class="mock-body">
+              
+              <!-- Core Dynamic Stats Grid -->
+              <div class="mock-stats-grid">
+                <div class="mock-stat-card">
+                  <span class="mock-stat-label">Active Nodes</span>
+                  <span class="mock-stat-value" id="statNodes">14,892</span>
+                  <div class="mock-stat-change change-positive">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    <span>+12.4% this hr</span>
+                  </div>
+                </div>
+                <div class="mock-stat-card">
+                  <span class="mock-stat-label">Memory Util.</span>
+                  <span class="mock-stat-value" id="statMemory">42.8%</span>
+                  <div class="mock-stat-change change-positive">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    <span>Stable load</span>
+                  </div>
+                </div>
+                <div class="mock-stat-card">
+                  <span class="mock-stat-label">Data Outflow</span>
+                  <span class="mock-stat-value" id="statOutflow">2.4 GB/s</span>
+                  <div class="mock-stat-change change-negative">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <span>-1.8% latency</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 1: OVERVIEW -->
+              <div class="mock-view active" id="view-overview">
+                <div class="mock-chart-panel">
+                  <div class="mock-chart-header">
+                    <span class="mock-chart-title">Real-time Stream Capacity (Req/s)</span>
+                    <div class="mock-chart-tabs">
+                      <span class="mock-chart-tab active" data-chart-period="1h">1H</span>
+                      <span class="mock-chart-tab" data-chart-period="24h">24H</span>
+                    </div>
+                  </div>
+                  <!-- Beautiful Glowing Line Chart -->
+                  <div class="svg-chart-container">
+                    <svg viewBox="0 0 500 200" width="100%" height="100%">
+                      <defs>
+                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="var(--secondary)" stop-opacity="0.4"/>
+                          <stop offset="100%" stop-color="var(--primary)" stop-opacity="0.0"/>
+                        </linearGradient>
+                        <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="var(--primary)"/>
+                          <stop offset="50%" stop-color="var(--secondary)"/>
+                          <stop offset="100%" stop-color="var(--accent)"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M 0,150 Q 50,110 100,130 T 200,60 T 300,110 T 400,30 T 500,45" fill="none" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round"></path>
+                      <path d="M 0,150 Q 50,110 100,130 T 200,60 T 300,110 T 400,30 T 500,45 L 500,200 L 0,200 Z" fill="url(#chartGradient)"></path>
+                      <!-- Points -->
+                      <circle cx="200" cy="60" r="5" fill="var(--secondary)" stroke="#fff" stroke-width="1.5"></circle>
+                      <circle cx="400" cy="30" r="5" fill="var(--accent)" stroke="#fff" stroke-width="1.5"></circle>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 2: LIVE CLUSTERS (TASKS) -->
+              <div class="mock-view" id="view-tasks">
+                <div class="mock-tasks-list">
+                  <div class="mock-task-item">
+                    <div class="task-meta">
+                      <span class="task-status-indicator status-deploying"></span>
+                      <div>
+                        <div class="task-title">kubernetes-node-east-01</div>
+                        <div class="task-time">Auto-scaling cluster container replica</div>
+                      </div>
+                    </div>
+                    <span class="task-tag">PROVISIONING</span>
+                  </div>
+                  <div class="mock-task-item">
+                    <div class="task-meta">
+                      <span class="task-status-indicator status-completed"></span>
+                      <div>
+                        <div class="task-title">redis-cache-shard-08</div>
+                        <div class="task-time">Active health probe ping: 2ms</div>
+                      </div>
+                    </div>
+                    <span class="task-tag">HEALTHY</span>
+                  </div>
+                  <div class="mock-task-item">
+                    <div class="task-meta">
+                      <span class="task-status-indicator status-completed"></span>
+                      <div>
+                        <div class="task-title">ingress-load-balancer-v2</div>
+                        <div class="task-time">Directing traffic to US-East-1</div>
+                      </div>
+                    </div>
+                    <span class="task-tag">ROUTING</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 3: DATABASE HEALTH -->
+              <div class="mock-view" id="view-db">
+                <div class="db-health-grid">
+                  <div class="db-metric-card">
+                    <span class="mock-stat-label">Scylla Read Latency</span>
+                    <svg class="radial-progress-svg">
+                      <circle class="radial-bg" cx="50" cy="50" r="40"></circle>
+                      <circle class="radial-fill" cx="50" cy="50" r="40" stroke="var(--secondary)" stroke-dasharray="251.2" stroke-dashoffset="50.2"></circle>
+                    </svg>
+                    <span class="mock-stat-value" style="font-size: 1.3rem;">0.84 ms</span>
+                  </div>
+                  <div class="db-metric-card">
+                    <span class="mock-stat-label">Write Throughput</span>
+                    <svg class="radial-progress-svg">
+                      <circle class="radial-bg" cx="50" cy="50" r="40"></circle>
+                      <circle class="radial-fill" cx="50" cy="50" r="40" stroke="var(--primary)" stroke-dasharray="251.2" stroke-dashoffset="75.3"></circle>
+                    </svg>
+                    <span class="mock-stat-value" style="font-size: 1.3rem;">94.2k ops/s</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES GRID SECTION -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Platform Engine</span>
+        <h2 class="section-title">Engineered For Ultra-High Workloads</h2>
+        <p>OmniCloud unifies critical system pipelines, bringing visual performance metrics and effortless cloud orchestration to modern development squads.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <h3>Real-time Stream Intelligence</h3>
+          <p>Extract, transform, and pipe millions of container telemetry logs inside an instantly visual graphical terminal dashboard.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3>Zero-Trust Edge Security</h3>
+          <p>Enforce cryptographic credential handshakes instantly across Kubernetes node segments with no external gateway configurations.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <h3>Multi-Tenant Cloud Workspace</h3>
+          <p>Isolate micro-service environments, manage developer cluster access, and distribute unified operational pipelines under one master dashboard.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3>Autonomic Scale Adjustments</h3>
+          <p>Our telemetry layers detect real-time high concurrent requests and automatically spawn serverless node pools in milliseconds.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3>99.999% SLA Scylla Integration</h3>
+          <p>Supercharge read/write request transactions utilizing high-speed distributed database clusters running active health checks.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3>Single Command Deployments</h3>
+          <p>Connect your GitHub repository and watch continuous integration compile, run tests, and deploy live using our fast global CDN.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PRICING SECTION -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Pricing Plans</span>
+        <h2 class="section-title">Scale Gracefully, Pay Fairly</h2>
+        <p>Simple, predictable plans designed for startups, fast-growing tech agencies, and large enterprise scaling operations.</p>
+      </div>
+
+      <!-- Billing Toggle Switch -->
+      <div class="toggle-wrapper">
+        <span class="toggle-label active" id="billingMonthly">Billed Monthly</span>
+        <label>
+          <input type="checkbox" id="billingToggle">
+          <div class="toggle-switch">
+            <div class="toggle-switch-slider"></div>
+          </div>
+        </label>
+        <span class="toggle-label" id="billingAnnually">Billed Annually <span class="discount-badge">Save 20%</span></span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan 1: Starter -->
+        <div class="pricing-card">
+          <div class="pricing-card-top">
+            <h3>Starter</h3>
+            <p class="plan-desc">For developers and small team experiments starting out.</p>
+            <div class="price-value-container">
+              <span class="price-currency">$</span>
+              <span class="price-value" id="priceStarter">19</span>
+              <span class="price-period">/ mo</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>5 Dedicated Active Clusters</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>200 GB Fast Data Storage</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>3 Days Telemetry Retention</span>
+              </li>
+              <li style="opacity: 0.5;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Advanced Zero-Trust Gateways</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary">Choose Starter</button>
+        </div>
+
+        <!-- Plan 2: Pro Business (Popular) -->
+        <div class="pricing-card popular">
+          <div class="popular-tag">MOST POPULAR</div>
+          <div class="pricing-card-top">
+            <h3>Pro Business</h3>
+            <p class="plan-desc">Perfect for scaling apps, active teams, and APIs.</p>
+            <div class="price-value-container">
+              <span class="price-currency">$</span>
+              <span class="price-value" id="pricePro">49</span>
+              <span class="price-period">/ mo</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>50 Dedicated Active Clusters</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>2.5 TB Distributed DB Storage</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>30 Days Deep Log Retention</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Advanced Zero-Trust Gateways</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>24/7 Dedicated Server Engineers</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary">Start Pro Free Trial</button>
+        </div>
+
+        <!-- Plan 3: Enterprise -->
+        <div class="pricing-card">
+          <div class="pricing-card-top">
+            <h3>Enterprise</h3>
+            <p class="plan-desc">For large corporate infrastructure requiring strict SLAs.</p>
+            <div class="price-value-container">
+              <span class="price-value" style="font-size: 2.5rem; letter-spacing: 0;">Custom</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Unlimited Autoscaling Clusters</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Fully Isolated DB Networks</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Custom Backup Retention Policy</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>SLA 99.999% Guarantee</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dedicated Architecture Advisor</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary">Contact Sales Team</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE FAQ ACCORDION SECTION -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Knowledge Hub</span>
+        <h2 class="section-title">Frequently Answered Queries</h2>
+        <p>Everything you need to know about setting up, autoscaling clusters, billing thresholds, and database encryption.</p>
+      </div>
+
+      <div class="faq-accordion-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>How does the 14-day Pro Trial work?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our 14-day trial grants unrestricted access to our Pro Business package. There are no platform quotas, meaning you can provision up to 50 server nodes, configure Scylla DB shards, and experiment with real-time log ingestion. You can cancel with a single button in settings prior to billing activation.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Can I easily migrate active pipelines from AWS or GCP?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes, OmniCloud is constructed to serve as a high-fidelity abstraction layer. We support seamless integrations with AWS EKS, Google Cloud GKE, and on-premises server stacks. Simply connect your existing cloud credentials inside your dashboard workspace and run our import assistant.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>What database engines are natively supported?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We provide first-class native performance dashboards and scaling for ScyllaDB, PostgreSQL, Redis, and MongoDB cluster environments. Additionally, our Zero-Trust gateway manages connection keys, automated encryption protocols, and latency checks under the hood.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>What happens if my microservice bandwidth surges?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our telemetry continuously observes inflow metrics. When system workloads touch 80% capability thresholds, our autoscaling engine executes to instantly initialize additional server containers. You will only pay for the exact compute runtime utilized down to the millisecond.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STYLED MODERN FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon"></div>
+            <span>OmniCloud</span>
+          </a>
+          <p class="footer-desc">The high-tech cloud telemetry, container scaling, and zero-trust orchestration pipeline for enterprise developer teams.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links Col 1 -->
+        <div class="footer-column">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#dashboard">Live Terminal</a></li>
+            <li><a href="#pricing">Billing Tiers</a></li>
+            <li><a href="#">ScyllaDB Shards</a></li>
+            <li><a href="#">Kubernetes Engine</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 2 -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#">Telemetry Docs</a></li>
+            <li><a href="#">API Integrations</a></li>
+            <li><a href="#">Security Audits</a></li>
+            <li><a href="#">Developer Forum</a></li>
+            <li><a href="#">System Status</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 3 -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Workspace</a></li>
+            <li><a href="#">Career Openings</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Brand Assets</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter block -->
+        <div class="footer-newsletter">
+          <h4>Receive Live Cloud Logs</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;">Get early announcements, framework updates, and cluster security optimization guidebooks.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to logs!');">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Enter engineering email..." class="newsletter-input" required>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Credits -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 OmniCloud Technologies Inc. All operating nodes active.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Agreement</a>
+          <a href="#">Telemetry Agreement</a>
+          <a href="#">Trust &amp; Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT FUNCTIONALITY
+       ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- MOBILE HAMBURGER MENU TOGGLE ---
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      menuToggle.addEventListener('click', () => {
+        const isActive = mobileMenu.classList.toggle('active');
+        // Transform hamburger lines to X
+        const spans = menuToggle.querySelectorAll('span');
+        if (isActive) {
+          spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+        } else {
+          spans[0].style.transform = 'none';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'none';
+        }
+      });
+
+      // Close mobile menu on links click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          const spans = menuToggle.querySelectorAll('span');
+          spans[0].style.transform = 'none';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'none';
+        });
+      });
+
+
+      // --- PREMIUM INTERACTIVE DASHBOARD VIEWS TRIGGER ---
+      const mockNavItems = document.querySelectorAll('.mock-nav-item');
+      const mockViews = document.querySelectorAll('.mock-view');
+
+      // Live Stats to animate when user clicks different tabs
+      const statNodes = document.getElementById('statNodes');
+      const statMemory = document.getElementById('statMemory');
+      const statOutflow = document.getElementById('statOutflow');
+
+      mockNavItems.forEach(item => {
+        item.addEventListener('click', () => {
+          // Switch active class on sidebar items
+          mockNavItems.forEach(nav => nav.classList.remove('active'));
+          item.classList.add('active');
+
+          // Switch active view panel
+          const targetView = item.getAttribute('data-view');
+          mockViews.forEach(view => view.classList.remove('active'));
+          document.getElementById(`view-${targetView}`).classList.add('active');
+
+          // Dynamically animate numeric values to represent different view details
+          if (targetView === 'overview') {
+            animateValue(statNodes, 12000, 14892, 600);
+            animateValue(statMemory, 35.1, 42.8, 600, '%');
+            statOutflow.textContent = '2.4 GB/s';
+          } else if (targetView === 'tasks') {
+            animateValue(statNodes, 14892, 18451, 600);
+            animateValue(statMemory, 42.8, 68.4, 600, '%');
+            statOutflow.textContent = '3.8 GB/s';
+          } else if (targetView === 'db') {
+            animateValue(statNodes, 18451, 1202, 600);
+            animateValue(statMemory, 68.4, 18.5, 600, '%');
+            statOutflow.textContent = '8.9 GB/s';
+          }
+        });
+      });
+
+      // Number counter helper function
+      function animateValue(obj, start, end, duration, suffix = '') {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const currentVal = (progress * (end - start)) + start;
+          if (Number.isInteger(end)) {
+            obj.innerHTML = Math.floor(currentVal).toLocaleString() + suffix;
+          } else {
+            obj.innerHTML = currentVal.toFixed(1) + suffix;
+          }
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+
+      // --- MOCK CHART INTERACTIVE TIMEFRAMES ---
+      const chartTabs = document.querySelectorAll('.mock-chart-tab');
+      const chartPath = document.querySelector('.svg-chart-container svg path:nth-of-type(1)');
+      const chartFill = document.querySelector('.svg-chart-container svg path:nth-of-type(2)');
+
+      chartTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          chartTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const period = tab.getAttribute('data-chart-period');
+          // Smoothly transform chart path to look dynamic
+          if (period === '24h') {
+            chartPath.setAttribute('d', 'M 0,180 Q 80,140 160,90 T 320,130 T 400,60 T 500,20');
+            chartFill.setAttribute('d', 'M 0,180 Q 80,140 160,90 T 320,130 T 400,60 T 500,20 L 500,200 L 0,200 Z');
+          } else {
+            chartPath.setAttribute('d', 'M 0,150 Q 50,110 100,130 T 200,60 T 300,110 T 400,30 T 500,45');
+            chartFill.setAttribute('d', 'M 0,150 Q 50,110 100,130 T 200,60 T 300,110 T 400,30 T 500,45 L 500,200 L 0,200 Z');
+          }
+        });
+      });
+
+
+      // --- PRICING TOGGLE SYSTEM (MONTHLY / ANNUALLY) ---
+      const billingToggle = document.getElementById('billingToggle');
+      const priceStarter = document.getElementById('priceStarter');
+      const pricePro = document.getElementById('pricePro');
+      const billingMonthlyLabel = document.getElementById('billingMonthly');
+      const billingAnnuallyLabel = document.getElementById('billingAnnually');
+
+      billingToggle.addEventListener('change', () => {
+        const isAnnual = billingToggle.checked;
+        
+        if (isAnnual) {
+          billingAnnuallyLabel.classList.add('active');
+          billingMonthlyLabel.classList.remove('active');
+          
+          // Animate and switch prices to represent 20% discount
+          animatePrice(priceStarter, 19, 15, 300);
+          animatePrice(pricePro, 49, 39, 300);
+        } else {
+          billingMonthlyLabel.classList.add('active');
+          billingAnnuallyLabel.classList.remove('active');
+          
+          animatePrice(priceStarter, 15, 19, 300);
+          animatePrice(pricePro, 39, 49, 300);
+        }
+      });
+
+      // Label Click handlers
+      billingMonthlyLabel.addEventListener('click', () => {
+        if (billingToggle.checked) {
+          billingToggle.checked = false;
+          billingToggle.dispatchEvent(new Event('change'));
+        }
+      });
+      billingAnnuallyLabel.addEventListener('click', () => {
+        if (!billingToggle.checked) {
+          billingToggle.checked = true;
+          billingToggle.dispatchEvent(new Event('change'));
+        }
+      });
+
+      function animatePrice(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          element.innerHTML = Math.floor(progress * (end - start) + start);
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+
+      // --- FAQ ACCORDION WIDGET W/ SMOOTH TRANSITION ---
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const button = item.querySelector('.faq-question-btn');
+        const answer = item.querySelector('.faq-answer');
+
+        button.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Close all open FAQs
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-answer').style.maxHeight = '0';
+          });
+
+          // Toggle clicked FAQ
+          if (!isActive) {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+
+    });
+  </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/saas-app-landing" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">saas</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">EuroPay App Landing</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/business-startup-launch" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">saas</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Berlin Tech Launch</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

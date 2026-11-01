@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, online boutique template, women fashion store, saree shop website, indian ethnic wear website, kerala boutique, designer clothing html template">
+    <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/ecommerce-boutique-store">
+    <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <title>Amara Designer Boutique — Free E-commerce Template</title>
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/ecommerce-boutique-store.webp">
+  <meta name="twitter:description" content="Full-featured Indian ethnic fashion boutique with hero slider, interactive product grid, slide-out cart drawer, size guide, quic... MIT licensed, free download.">
+  <meta name="twitter:title" content="Amara Designer Boutique — Free E-commerce Template">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+    <meta name="description" content="Full-featured Indian ethnic fashion boutique with hero slider, interactive product grid, slide-out cart drawer, size guide, quic... MIT licensed, free download.">
+    <meta property="og:title" content="Amara Designer Boutique — Free E-commerce Template">
+    <meta property="og:description" content="Full-featured Indian ethnic fashion boutique with hero slider, interactive product grid, slide-out cart drawer, size guide, quic... MIT licensed, free download.">
+    <meta property="og:image" content="https://templates.jack-codes.com/images/ecommerce-boutique-store.webp">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+/* Vault overlay offset */
+body { padding-top: 50px !important; margin-top: 0 !important; }
+
+/* ==========================================================================
+   AMARA DESIGNER HUB - LUXURY REVAMP STYLESHEET (VANILLA CSS)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+:root {
+    --color-primary-dark: #1E1C1A;
+    --color-primary-light: #FAF8F5;
+    --color-accent-gold: #D4AF37;
+    --color-accent-terracotta: #C58B70;
+    --color-text-dark: #2D2926;
+    --color-text-muted: #7E7873;
+    --color-bg-white: #FFFFFF;
+    --color-bg-card: #FAF9F6;
+    --color-border: #E8E2D9;
+    --color-error: #B22222;
+    --color-success: #2E8B57;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --shadow-sm: 0 4px 6px -1px rgba(30,28,26,0.05);
+    --shadow-md: 0 10px 15px -3px rgba(30,28,26,0.08), 0 4px 6px -2px rgba(30,28,26,0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(30,28,26,0.1), 0 10px 10px -5px rgba(30,28,26,0.04);
+    --shadow-glass: 0 8px 32px 0 rgba(30,28,26,0.08);
+    --transition-smooth: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
+    --transition-fast: all 0.2s cubic-bezier(0.25,0.8,0.25,1);
+    --header-height: 80px;
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{background-color:var(--color-primary-light);color:var(--color-text-dark);font-family:var(--font-sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-serif);font-weight:600;color:var(--color-primary-dark);line-height:1.25}
+p{font-size:0.95rem;color:var(--color-text-dark)}
+a{color:inherit;text-decoration:none;transition:var(--transition-fast)}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+button{font-family:var(--font-sans);background:none;border:none;cursor:pointer;transition:var(--transition-fast);outline:none}
+ul,ol{list-style:none}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--color-primary-light)}
+::-webkit-scrollbar-thumb{background:var(--color-border);border-radius:var(--radius-full)}
+::-webkit-scrollbar-thumb:hover{background:var(--color-accent-terracotta)}
+.container{width:100%;max-width:1400px;margin:0 auto;padding:0 2rem}
+.section-padding{padding:6rem 0}
+.luxury-title-wrap{text-align:center;margin-bottom:4rem}
+.luxury-title-wrap span{font-family:var(--font-sans);font-size:0.85rem;letter-spacing:0.25rem;text-transform:uppercase;color:var(--color-accent-terracotta);display:block;margin-bottom:0.75rem;font-weight:600}
+.luxury-title-wrap h2{font-size:2.75rem;font-weight:500;letter-spacing:-0.02rem;position:relative;display:inline-block;padding-bottom:1.5rem}
+.luxury-title-wrap h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background-color:var(--color-accent-gold)}
+.btn-primary{background-color:var(--color-primary-dark);color:var(--color-bg-white);padding:1rem 2.25rem;font-size:0.9rem;font-weight:500;letter-spacing:0.1rem;text-transform:uppercase;border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);display:inline-flex;align-items:center;justify-content:center;gap:0.75rem;border:1px solid var(--color-primary-dark)}
+.btn-primary:hover{background-color:transparent;color:var(--color-primary-dark);box-shadow:var(--shadow-md)}
+.btn-outline{background-color:transparent;color:var(--color-primary-dark);border:1px solid var(--color-border);padding:0.8rem 1.8rem;font-size:0.85rem;font-weight:500;letter-spacing:0.08rem;text-transform:uppercase;border-radius:var(--radius-sm);display:inline-flex;align-items:center;justify-content:center;gap:0.5rem}
+.btn-outline:hover{border-color:var(--color-primary-dark);background-color:var(--color-primary-dark);color:var(--color-bg-white)}
+.glass-panel{background:rgba(255,255,255,0.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.4);box-shadow:var(--shadow-glass)}
+.glass-header{background:rgba(250,248,245,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,226,217,0.4)}
+.promo-bar{background-color:var(--color-primary-dark);color:var(--color-primary-light);font-size:0.75rem;font-weight:500;letter-spacing:0.15rem;text-transform:uppercase;padding:0.6rem 0;text-align:center;position:relative;z-index:1001}
+.promo-bar span{color:var(--color-accent-gold)}
+.header-main{height:var(--header-height);position:sticky;top:50px;z-index:1000;transition:var(--transition-smooth)}
+.header-main.scrolled{height:70px;box-shadow:var(--shadow-md)}
+.header-container{height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo-wrap{font-family:var(--font-serif);font-size:1.8rem;font-weight:700;color:var(--color-primary-dark);letter-spacing:0.05rem;display:flex;align-items:center;gap:0.5rem}
+.logo-icon{font-size:2rem;color:var(--color-accent-gold);animation:pulse 3s infinite}
+.nav-menu{display:flex;align-items:center;gap:2.25rem}
+.nav-link{font-size:0.85rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1rem;color:var(--color-text-dark);position:relative;padding:0.5rem 0}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background-color:var(--color-accent-terracotta);transition:var(--transition-fast)}
+.nav-link:hover{color:var(--color-accent-terracotta)}
+.nav-link:hover::after{width:100%}
+.has-dropdown{position:relative}
+.dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);width:260px;background-color:var(--color-bg-white);border:1px solid var(--color-border);border-radius:var(--radius-sm);box-shadow:var(--shadow-lg);padding:1.25rem;opacity:0;visibility:hidden;transition:var(--transition-fast)}
+.has-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dropdown-item{font-size:0.85rem;padding:0.6rem 0.8rem;border-radius:var(--radius-sm);display:block;color:var(--color-text-dark);font-weight:400}
+.dropdown-item:hover{background-color:var(--color-primary-light);color:var(--color-accent-terracotta);padding-left:1.25rem}
+.header-actions{display:flex;align-items:center;gap:1.5rem}
+.action-btn{font-size:1.15rem;color:var(--color-primary-dark);position:relative}
+.action-btn:hover{color:var(--color-accent-terracotta);transform:translateY(-2px)}
+.cart-badge-wrap{position:relative}
+.cart-count{position:absolute;top:-6px;right:-8px;background-color:var(--color-accent-terracotta);color:var(--color-bg-white);font-size:0.65rem;font-weight:600;width:16px;height:16px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;border:1px solid var(--color-primary-light)}
+.mobile-toggle{display:none;font-size:1.4rem}
+.hero-slider-section{height:80vh;min-height:550px;position:relative;overflow:hidden}
+.slide-track{width:100%;height:100%;display:flex;transition:transform 0.8s cubic-bezier(0.77,0,0.175,1)}
+.hero-slide{min-width:100%;height:100%;background-size:cover;background-position:center;position:relative;display:flex;align-items:center}
+.hero-slide::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(30,28,26,0.65) 0%,rgba(30,28,26,0.2) 100%)}
+.hero-content{position:relative;z-index:10;max-width:650px;color:var(--color-bg-white);opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(0.25,0.8,0.25,1)}
+.hero-slide.active .hero-content{opacity:1;transform:translateY(0)}
+.hero-content span{font-size:0.9rem;font-weight:600;letter-spacing:0.3rem;text-transform:uppercase;color:var(--color-accent-gold);display:block;margin-bottom:1.25rem}
+.hero-content h1{color:var(--color-bg-white);font-size:4rem;font-weight:500;line-height:1.15;margin-bottom:2rem}
+.hero-content p{color:rgba(255,255,255,0.9);font-size:1.1rem;font-weight:300;margin-bottom:2.5rem}
+.slider-control-btn{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:var(--radius-full);background-color:rgba(255,255,255,0.15);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:var(--color-bg-white);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.25);z-index:20}
+.slider-control-btn:hover{background-color:var(--color-accent-gold);border-color:var(--color-accent-gold);color:var(--color-primary-dark)}
+.slider-prev{left:2.5rem}.slider-next{right:2.5rem}
+.slider-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:0.75rem;z-index:20}
+.slider-dot{width:10px;height:10px;border-radius:var(--radius-full);background-color:rgba(255,255,255,0.4);border:none;transition:var(--transition-fast)}
+.slider-dot.active{background-color:var(--color-accent-gold);transform:scale(1.3)}
+.categories-slider-section{padding:5rem 0;background-color:var(--color-bg-white);border-bottom:1px solid var(--color-border)}
+.categories-track-container{overflow-x:auto;scrollbar-width:none;display:flex;gap:2.5rem;padding:1rem 0}
+.categories-track-container::-webkit-scrollbar{display:none}
+.category-bubble{display:flex;flex-direction:column;align-items:center;gap:1rem;min-width:120px;cursor:pointer}
+.bubble-image-wrap{width:110px;height:110px;border-radius:var(--radius-full);overflow:hidden;border:2px solid var(--color-border);transition:var(--transition-smooth);padding:4px;box-shadow:var(--shadow-sm)}
+.bubble-image-wrap img{width:100%;height:100%;border-radius:var(--radius-full);object-fit:cover}
+.category-bubble span{font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08rem;color:var(--color-text-dark);transition:var(--transition-fast)}
+.category-bubble:hover .bubble-image-wrap{border-color:var(--color-accent-gold);transform:scale(1.08) translateY(-4px);box-shadow:var(--shadow-md)}
+.category-bubble:hover span{color:var(--color-accent-terracotta)}
+.category-bubble.active .bubble-image-wrap{border-color:var(--color-accent-terracotta);box-shadow:0 0 0 4px rgba(197,139,112,0.2)}
+.category-bubble.active span{color:var(--color-accent-terracotta);font-weight:700}
+.shop-floor-container{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start}
+.filters-sidebar{position:sticky;top:calc(var(--header-height) + 2rem);padding:2.25rem;border-radius:var(--radius-md)}
+.filter-group{margin-bottom:2.5rem}
+.filter-group:last-child{margin-bottom:0}
+.filter-group-title{font-family:var(--font-sans);font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1rem;color:var(--color-primary-dark);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
+.price-slider-wrap{padding:0.5rem 0}
+.price-slider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:var(--radius-full);background:var(--color-border);outline:none;margin:1.25rem 0}
+.price-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:var(--radius-full);background:var(--color-accent-terracotta);cursor:pointer;box-shadow:var(--shadow-sm);transition:var(--transition-fast)}
+.price-slider::-webkit-slider-thumb:hover{transform:scale(1.2);background:var(--color-primary-dark)}
+.price-values{display:flex;justify-content:space-between;font-size:0.85rem;font-weight:500;color:var(--color-text-muted)}
+.price-values span{font-weight:600;color:var(--color-text-dark)}
+.filter-list{display:flex;flex-direction:column;gap:0.75rem}
+.filter-checkbox-label{display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;color:var(--color-text-dark);cursor:pointer}
+.filter-checkbox-label input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1px solid var(--color-border);border-radius:var(--radius-sm);outline:none;transition:var(--transition-fast);display:flex;align-items:center;justify-content:center;background-color:var(--color-bg-white)}
+.filter-checkbox-label input:checked{background-color:var(--color-accent-terracotta);border-color:var(--color-accent-terracotta)}
+.size-filter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem}
+.size-btn{height:40px;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-size:0.8rem;font-weight:500;color:var(--color-text-dark);display:flex;align-items:center;justify-content:center;background:var(--color-bg-white)}
+.size-btn:hover,.size-btn.active{border-color:var(--color-primary-dark);background-color:var(--color-primary-dark);color:var(--color-bg-white)}
+.shop-controls-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;gap:1.5rem}
+.search-input-wrap{position:relative;flex-grow:1;max-width:450px}
+.search-input-wrap input{width:100%;padding:0.9rem 1.25rem 0.9rem 3rem;border-radius:var(--radius-sm);border:1px solid var(--color-border);background-color:var(--color-bg-white);font-family:var(--font-sans);font-size:0.9rem;outline:none;transition:var(--transition-fast)}
+.search-input-wrap input:focus{border-color:var(--color-accent-terracotta);box-shadow:var(--shadow-sm)}
+.search-input-wrap i{position:absolute;left:1.25rem;top:50%;transform:translateY(-50%);color:var(--color-text-muted);font-size:1rem}
+.shop-sort-wrap{display:flex;align-items:center;gap:0.75rem}
+.shop-sort-wrap span{font-size:0.85rem;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.05rem;font-weight:500}
+.luxury-select{padding:0.85rem 2rem 0.85rem 1rem;border:1px solid var(--color-border);background-color:var(--color-bg-white);border-radius:var(--radius-sm);font-family:var(--font-sans);font-size:0.85rem;font-weight:500;color:var(--color-text-dark);outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%232D2926' stroke-width='1.5' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2.5rem 2rem}
+.product-card{background-color:var(--color-bg-white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--transition-smooth);border:1px solid var(--color-border);display:flex;flex-direction:column;position:relative}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--color-accent-gold)}
+.product-image-container{position:relative;aspect-ratio:3/4;overflow:hidden;background-color:var(--color-primary-light)}
+.product-img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.25,0.8,0.25,1)}
+.product-img-secondary{position:absolute;top:0;left:0;opacity:0}
+.product-card:hover .product-img{transform:scale(1.06)}
+.product-card:hover .product-img-secondary{opacity:1}
+.product-badge{position:absolute;top:1rem;left:1rem;background-color:var(--color-accent-terracotta);color:var(--color-bg-white);font-size:0.7rem;font-weight:600;letter-spacing:0.08rem;padding:0.35rem 0.75rem;text-transform:uppercase;border-radius:var(--radius-sm);z-index:2}
+.product-wishlist-btn{position:absolute;top:1rem;right:1rem;width:38px;height:38px;border-radius:var(--radius-full);background-color:rgba(255,255,255,0.85);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:var(--color-primary-dark);display:flex;align-items:center;justify-content:center;font-size:0.95rem;z-index:2;box-shadow:var(--shadow-sm)}
+.product-wishlist-btn:hover{background-color:var(--color-bg-white);color:var(--color-error)}
+.product-overlay-actions{position:absolute;bottom:-60px;left:0;width:100%;padding:1.25rem;display:flex;gap:0.75rem;z-index:5;transition:var(--transition-smooth);background:linear-gradient(180deg,rgba(30,28,26,0) 0%,rgba(30,28,26,0.75) 100%)}
+.product-card:hover .product-overlay-actions{bottom:0}
+.overlay-btn{flex-grow:1;background-color:var(--color-bg-white);color:var(--color-primary-dark);padding:0.75rem;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05rem;display:flex;align-items:center;justify-content:center;gap:0.5rem;box-shadow:var(--shadow-sm)}
+.overlay-btn:hover{background-color:var(--color-accent-gold);color:var(--color-primary-dark)}
+.product-details{padding:1.5rem;flex-grow:1;display:flex;flex-direction:column}
+.product-category-tag{font-size:0.75rem;font-weight:500;letter-spacing:0.05rem;color:var(--color-accent-terracotta);text-transform:uppercase;margin-bottom:0.5rem}
+.product-title{font-size:1.05rem;font-weight:600;color:var(--color-primary-dark);margin-bottom:0.65rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:2.7rem}
+.product-rating{display:flex;align-items:center;gap:0.25rem;font-size:0.75rem;color:var(--color-accent-gold);margin-bottom:1rem}
+.product-rating span{color:var(--color-text-muted);margin-left:0.25rem}
+.product-footer-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1rem;border-top:1px dashed var(--color-border)}
+.product-price{font-size:1.2rem;font-weight:700;color:var(--color-primary-dark);font-family:var(--font-sans)}
+.product-quick-add{width:36px;height:36px;border-radius:var(--radius-full);background-color:var(--color-primary-light);color:var(--color-primary-dark);display:flex;align-items:center;justify-content:center;border:1px solid var(--color-border)}
+.product-quick-add:hover{background-color:var(--color-primary-dark);color:var(--color-bg-white);border-color:var(--color-primary-dark)}
+.no-results{grid-column:1/-1;text-align:center;padding:6rem 0}
+.no-results i{font-size:3.5rem;color:var(--color-text-muted);margin-bottom:1.5rem}
+.no-results h3{font-size:1.5rem;font-weight:500;margin-bottom:0.5rem}
+.no-results p{color:var(--color-text-muted)}
+.atelier-banner-section{background:linear-gradient(135deg,#1E1C1A 0%,#36322E 100%);color:var(--color-bg-white);position:relative;overflow:hidden}
+.atelier-banner-section::before{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;border-radius:var(--radius-full);background:radial-gradient(circle,rgba(212,175,55,0.1) 0%,transparent 70%)}
+.atelier-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center}
+.atelier-content span{font-size:0.85rem;font-weight:600;letter-spacing:0.25rem;text-transform:uppercase;color:var(--color-accent-gold);display:block;margin-bottom:1rem}
+.atelier-content h2{color:var(--color-bg-white);font-size:3rem;font-weight:500;margin-bottom:1.5rem;line-height:1.2}
+.atelier-content p{color:rgba(255,255,255,0.85);font-size:1.05rem;margin-bottom:2.5rem;font-weight:300}
+.atelier-features{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem}
+.atelier-feature-item{display:flex;gap:1rem}
+.atelier-feature-item i{font-size:1.5rem;color:var(--color-accent-gold);margin-top:0.2rem}
+.atelier-feature-item h4{color:var(--color-bg-white);font-size:1.1rem;margin-bottom:0.5rem}
+.atelier-feature-item p{font-size:0.85rem;color:rgba(255,255,255,0.7);margin-bottom:0}
+.atelier-consult-btn-wrap{display:flex;gap:1rem}
+.atelier-image-card{position:relative;border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(212,175,55,0.2);box-shadow:var(--shadow-lg)}
+.atelier-image-card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.atelier-floating-badge{position:absolute;bottom:2rem;left:2rem;background:rgba(30,28,26,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(212,175,55,0.3);padding:1rem 1.5rem;border-radius:var(--radius-sm);color:var(--color-bg-white)}
+.atelier-floating-badge h5{color:var(--color-accent-gold);font-size:1.05rem;margin-bottom:0.25rem}
+.atelier-floating-badge p{font-size:0.8rem;margin:0;color:rgba(255,255,255,0.8)}
+.testimonials-section{background-color:var(--color-bg-card);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
+.testimonial-slider-wrap{max-width:850px;margin:0 auto;position:relative;text-align:center}
+.testimonial-track{display:flex;overflow:hidden;position:relative}
+.testimonial-slide{min-width:100%;opacity:0;transition:opacity 0.5s ease-in-out;display:none}
+.testimonial-slide.active{opacity:1;display:block}
+.testimonial-quote-icon{font-size:3rem;color:rgba(197,139,112,0.2);margin-bottom:1.5rem}
+.testimonial-slide blockquote{font-family:var(--font-serif);font-size:1.6rem;font-style:italic;color:var(--color-primary-dark);line-height:1.6;margin-bottom:2rem}
+.testimonial-stars{font-size:0.9rem;color:var(--color-accent-gold);margin-bottom:1rem;display:flex;justify-content:center;gap:0.25rem}
+.testimonial-client{font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15rem;color:var(--color-text-dark)}
+.testimonial-client span{font-weight:500;color:var(--color-accent-terracotta);text-transform:none;letter-spacing:0;font-family:var(--font-serif);margin-left:0.5rem}
+.testimonial-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:var(--radius-full);border:1px solid var(--color-border);color:var(--color-primary-dark);background-color:var(--color-bg-white);display:flex;align-items:center;justify-content:center}
+.testimonial-nav-btn:hover{background-color:var(--color-primary-dark);color:var(--color-bg-white);border-color:var(--color-primary-dark)}
+.testimonial-prev{left:-5rem}.testimonial-next{right:-5rem}
+.cart-drawer-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:rgba(30,28,26,0.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:2000;opacity:0;visibility:hidden;transition:var(--transition-smooth)}
+.cart-drawer-overlay.active{opacity:1;visibility:visible}
+.cart-drawer{position:fixed;top:0;right:0;width:460px;max-width:100%;height:100vh;background-color:var(--color-bg-white);z-index:2001;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;transform:translate3d(100%,0,0);transition:transform 0.5s cubic-bezier(0.25,0.8,0.25,1)}
+.cart-drawer-overlay.active .cart-drawer{transform:translate3d(0,0,0)}
+.cart-drawer-header{padding:1.5rem 2rem;border-bottom:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between}
+.cart-drawer-header h3{font-size:1.4rem;font-weight:600}
+.cart-close-btn{font-size:1.3rem;color:var(--color-primary-dark)}
+.cart-close-btn:hover{color:var(--color-accent-terracotta)}
+.cart-items-container{flex-grow:1;overflow-y:auto;padding:2rem;display:flex;flex-direction:column;gap:1.5rem}
+.cart-item{display:flex;gap:1.25rem;padding-bottom:1.5rem;border-bottom:1px solid var(--color-border)}
+.cart-item:last-child{border-bottom:none}
+.cart-item-img-wrap{width:80px;height:105px;border-radius:var(--radius-sm);overflow:hidden;background-color:var(--color-primary-light);flex-shrink:0}
+.cart-item-img-wrap img{width:100%;height:100%;object-fit:cover}
+.cart-item-details{flex-grow:1;display:flex;flex-direction:column}
+.cart-item-title{font-size:0.95rem;font-weight:600;color:var(--color-primary-dark);margin-bottom:0.35rem;line-height:1.3}
+.cart-item-meta{font-size:0.8rem;color:var(--color-text-muted);margin-bottom:0.75rem;display:flex;gap:0.75rem}
+.cart-item-meta span{font-weight:500;color:var(--color-text-dark)}
+.cart-item-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.qty-widget{display:flex;align-items:center;border:1px solid var(--color-border);border-radius:var(--radius-sm);overflow:hidden;height:32px}
+.qty-btn{width:32px;height:100%;background-color:var(--color-primary-light);color:var(--color-primary-dark);display:flex;align-items:center;justify-content:center;font-size:0.8rem}
+.qty-btn:hover{background-color:var(--color-border)}
+.qty-input{width:36px;height:100%;text-align:center;font-size:0.85rem;font-weight:600;border:none;outline:none;background:transparent;color:var(--color-primary-dark);-moz-appearance:textfield}
+.qty-input::-webkit-outer-spin-button,.qty-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cart-item-price{font-size:1rem;font-weight:700;color:var(--color-primary-dark)}
+.cart-item-remove-btn{color:var(--color-text-muted);font-size:0.85rem;text-decoration:underline}
+.cart-item-remove-btn:hover{color:var(--color-error)}
+.cart-empty-state{text-align:center;padding:4rem 2rem;margin:auto 0}
+.cart-empty-state i{font-size:4rem;color:var(--color-border);margin-bottom:1.5rem}
+.cart-empty-state h4{font-size:1.25rem;margin-bottom:0.5rem}
+.cart-empty-state p{color:var(--color-text-muted);font-size:0.9rem;margin-bottom:2rem}
+.cart-drawer-footer{padding:2rem;border-top:1px solid var(--color-border);background-color:var(--color-primary-light)}
+.cart-promo-section{display:flex;gap:0.5rem;margin-bottom:1.5rem}
+.cart-promo-section input{flex-grow:1;padding:0.75rem 1rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:var(--font-sans);font-size:0.85rem;outline:none;text-transform:uppercase}
+.cart-promo-section input:focus{border-color:var(--color-primary-dark)}
+.cart-summary-row{display:flex;justify-content:space-between;font-size:0.95rem;margin-bottom:0.75rem}
+.cart-summary-row span:first-child{color:var(--color-text-muted)}
+.cart-summary-row span:last-child{font-weight:600;color:var(--color-text-dark)}
+.cart-total-row{display:flex;justify-content:space-between;font-size:1.25rem;font-weight:700;color:var(--color-primary-dark);margin:1rem 0 2rem 0;padding-top:1rem;border-top:1px solid var(--color-border)}
+.btn-checkout{width:100%;padding:1.1rem}
+.modal-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:rgba(30,28,26,0.4);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:var(--transition-smooth);padding:2rem}
+.modal-overlay.active{opacity:1;visibility:visible}
+.modal-content{background-color:var(--color-bg-white);border-radius:var(--radius-md);width:100%;max-width:950px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:var(--shadow-lg);border:1px solid var(--color-border);transform:scale(0.95);transition:var(--transition-smooth)}
+.modal-overlay.active .modal-content{transform:scale(1)}
+.modal-close-btn{position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--color-primary-dark);z-index:10;width:40px;height:40px;border-radius:var(--radius-full);background-color:var(--color-primary-light);display:flex;align-items:center;justify-content:center}
+.modal-close-btn:hover{background-color:var(--color-accent-terracotta);color:var(--color-bg-white)}
+.quickview-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;padding:3rem}
+.quickview-images-panel{display:flex;flex-direction:column;gap:1rem}
+.quickview-main-image{aspect-ratio:3/4;border-radius:var(--radius-sm);overflow:hidden;background-color:var(--color-primary-light)}
+.quickview-main-image img{width:100%;height:100%;object-fit:cover}
+.quickview-details-panel{display:flex;flex-direction:column}
+.quickview-meta-tag{font-size:0.8rem;font-weight:600;color:var(--color-accent-terracotta);text-transform:uppercase;letter-spacing:0.08rem;margin-bottom:0.5rem}
+.quickview-title{font-size:1.75rem;font-weight:500;line-height:1.3;margin-bottom:0.75rem}
+.quickview-price-row{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem}
+.quickview-price{font-size:1.75rem;font-weight:700;color:var(--color-primary-dark)}
+.quickview-stock{font-size:0.8rem;font-weight:600;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:var(--radius-sm)}
+.quickview-stock.in-stock{background-color:rgba(46,139,87,0.1);color:var(--color-success)}
+.quickview-description{font-size:0.95rem;color:var(--color-text-dark);margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--color-border)}
+.quickview-option-title{font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05rem;color:var(--color-primary-dark);margin-bottom:0.75rem;display:flex;justify-content:space-between}
+.quickview-option-title button{text-transform:none;text-decoration:underline;font-weight:500;color:var(--color-accent-terracotta)}
+.quickview-sizes{display:flex;gap:0.75rem;margin-bottom:2rem}
+.quickview-size-bubble{width:44px;height:44px;border:1px solid var(--color-border);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:600;color:var(--color-text-dark)}
+.quickview-size-bubble:hover,.quickview-size-bubble.active{border-color:var(--color-primary-dark);background-color:var(--color-primary-dark);color:var(--color-bg-white)}
+.quickview-actions{display:flex;gap:1.25rem;margin-bottom:2rem}
+.quickview-actions .qty-widget{height:52px}
+.quickview-actions .qty-btn{width:44px}
+.quickview-actions .qty-input{width:48px}
+.quickview-add-cart-btn{flex-grow:1;height:52px}
+.quickview-extra-info{display:flex;flex-direction:column;gap:0.75rem;padding-top:1.5rem;border-top:1px solid var(--color-border);font-size:0.85rem;color:var(--color-text-muted)}
+.quickview-extra-info span strong{color:var(--color-text-dark)}
+.consultation-modal-box{max-width:600px;padding:3rem}
+.consultation-modal-box h2{font-size:2rem;text-align:center;margin-bottom:1rem}
+.consultation-modal-box p{text-align:center;color:var(--color-text-muted);margin-bottom:2.5rem}
+.consultation-form{display:flex;flex-direction:column;gap:1.5rem}
+.form-row-double{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.5rem}
+.form-group label{font-size:0.85rem;font-weight:600;color:var(--color-primary-dark)}
+.form-group input,.form-group select,.form-group textarea{padding:0.85rem 1rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:var(--font-sans);font-size:0.9rem;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--color-accent-terracotta)}
+.form-group textarea{resize:vertical;min-height:100px}
+.consultation-form-btn{height:52px;margin-top:1rem}
+.size-guide-modal-box{max-width:550px;padding:3rem}
+.size-guide-modal-box h2{font-size:2rem;margin-bottom:1.5rem;text-align:center}
+.size-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+.size-table th,.size-table td{padding:0.75rem 1rem;text-align:center;border-bottom:1px solid var(--color-border)}
+.size-table th{background-color:var(--color-primary-light);font-weight:600}
+.size-table tr:hover{background-color:rgba(212,175,55,0.05)}
+.toast-container{position:fixed;bottom:2rem;right:2rem;display:flex;flex-direction:column;gap:0.75rem;z-index:9999}
+.toast{min-width:320px;padding:1.25rem 1.5rem;border-radius:var(--radius-sm);color:var(--color-bg-white);display:flex;align-items:center;gap:1rem;box-shadow:var(--shadow-lg);transform:translateY(20px);opacity:0;animation:toast-fade-in 0.4s cubic-bezier(0.25,0.8,0.25,1) forwards}
+.toast.toast-success{background-color:var(--color-success)}
+.toast.toast-error{background-color:var(--color-error)}
+.toast.toast-info{background-color:var(--color-primary-dark);border:1px solid rgba(212,175,55,0.3)}
+.toast i{font-size:1.2rem}
+.toast-content{flex-grow:1}
+.toast-title{font-weight:600;font-size:0.9rem;margin-bottom:0.15rem}
+.toast-message{font-size:0.8rem;opacity:0.9}
+.toast-close{cursor:pointer;font-size:0.85rem;opacity:0.7}
+.toast-close:hover{opacity:1}
+.footer{background-color:var(--color-primary-dark);color:rgba(255,255,255,0.7);padding:6rem 0 3rem 0;border-top:1px solid rgba(212,175,55,0.1)}
+.footer h3,.footer h4{color:var(--color-bg-white)}
+.footer-top-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:4rem;margin-bottom:4rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand h3{font-size:1.75rem;margin-bottom:1.5rem;color:var(--color-bg-white)}
+.footer-brand h3 span{color:var(--color-accent-gold)}
+.footer-brand p{font-size:0.9rem;margin-bottom:2rem;line-height:1.7;color:rgba(255,255,255,0.6)}
+.social-links{display:flex;gap:1rem}
+.social-icon{width:40px;height:40px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.15);color:var(--color-bg-white);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.social-icon:hover{background-color:var(--color-accent-gold);border-color:var(--color-accent-gold);color:var(--color-primary-dark);transform:translateY(-3px)}
+.footer-links h4{font-size:1rem;text-transform:uppercase;letter-spacing:0.1rem;margin-bottom:1.75rem}
+.footer-link-list{display:flex;flex-direction:column;gap:1rem;font-size:0.9rem}
+.footer-link-list a:hover{color:var(--color-accent-gold);padding-left:0.5rem}
+.footer-newsletter h4{font-size:1rem;text-transform:uppercase;letter-spacing:0.1rem;margin-bottom:1.25rem}
+.footer-newsletter p{font-size:0.9rem;margin-bottom:1.75rem;color:rgba(255,255,255,0.6)}
+.newsletter-form{display:flex;gap:0.5rem}
+.newsletter-form input{flex-grow:1;padding:0.85rem 1.25rem;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,0.15);background-color:rgba(255,255,255,0.05);color:var(--color-bg-white);font-family:var(--font-sans);font-size:0.9rem;outline:none}
+.newsletter-form input:focus{border-color:var(--color-accent-gold)}
+.newsletter-form button{background-color:var(--color-accent-gold);color:var(--color-primary-dark);width:52px;height:52px;border-radius:var(--radius-sm);font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+.newsletter-form button:hover{background-color:var(--color-bg-white);color:var(--color-primary-dark)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:rgba(255,255,255,0.4)}
+.footer-payments{display:flex;gap:0.75rem;font-size:1.5rem}
+.floating-actions-wrap{position:fixed;right:1.5rem;bottom:1.5rem;z-index:1000;display:flex;flex-direction:column;gap:0.75rem}
+.floating-action-btn{width:56px;height:56px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:var(--shadow-lg);position:relative;cursor:pointer}
+.floating-whatsapp{background-color:#25D366;color:var(--color-bg-white);animation:bounce 4s infinite}
+.floating-whatsapp:hover{transform:scale(1.1)}
+.floating-backtotop{background-color:var(--color-primary-dark);color:var(--color-bg-white);border:1px solid rgba(212,175,55,0.2);font-size:1.2rem;opacity:0;visibility:hidden;transform:translateY(20px);transition:var(--transition-smooth)}
+.floating-backtotop.active{opacity:1;visibility:visible;transform:translateY(0)}
+.floating-backtotop:hover{background-color:var(--color-accent-gold);color:var(--color-primary-dark)}
+@keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:0.85}100%{transform:scale(1);opacity:1}}
+@keyframes toast-fade-in{to{transform:translateY(0);opacity:1}}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}60%{transform:translateY(-5px)}}
+@media(max-width:1200px){.container{padding:0 1.5rem}.hero-content h1{font-size:3.25rem}.footer-top-grid{grid-template-columns:1fr 1fr;gap:3rem}.shop-floor-container{grid-template-columns:1fr;gap:2.5rem}.filters-sidebar{position:static;width:100%;padding:1.5rem}}
+@media(max-width:992px){.nav-menu{display:none}.mobile-toggle{display:block}.hero-slider-section{height:70vh}.atelier-grid{grid-template-columns:1fr;gap:3rem}.atelier-image-card{order:-1}.quickview-grid{grid-template-columns:1fr;gap:2rem;padding:2rem}.testimonial-prev{left:-1.5rem}.testimonial-next{right:-1.5rem}}
+@media(max-width:768px){html{font-size:15px}.section-padding{padding:4rem 0}.luxury-title-wrap h2{font-size:2rem}.hero-content h1{font-size:2.5rem}.hero-content p{font-size:0.95rem}.slider-control-btn{width:40px;height:40px}.shop-controls-bar{flex-direction:column;align-items:stretch}.search-input-wrap{max-width:100%}.footer-top-grid{grid-template-columns:1fr;gap:2.5rem}.footer-bottom{flex-direction:column;gap:1.5rem;text-align:center}.quickview-actions{flex-direction:column;align-items:stretch}.quickview-actions .qty-widget{justify-content:center}.form-row-double{grid-template-columns:1fr}}
+@media(max-width:480px){.container{padding:0 1rem}.hero-content h1{font-size:2rem}.categories-track-container{gap:1.5rem}.category-bubble{min-width:90px}.bubble-image-wrap{width:85px;height:85px}.products-grid{grid-template-columns:1fr}.cart-drawer{width:100%}}
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Amara Designer Boutique",
+    "description": "Full-featured Indian ethnic fashion boutique with hero slider, interactive product grid, slide-out cart drawer, size guide, quic... MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/ecommerce-boutique-store",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- JAKS.dev Vault Overlay Bar -->
+  <div id="jaksShowcaseBar" style="position:fixed;top:0;left:0;right:0;height:50px;background:rgba(8,8,13,0.95);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:999999;font-family:'Inter',sans-serif;box-sizing:border-box;color:#e8e8f0;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+        <div style="width:24px;height:24px;border-radius:6px;background:#4F46E5;display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <span style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;color:#fff;letter-spacing:-0.02em;">JAKS<span style="color:#8b5cf6;">.dev</span> <span style="font-weight:800;color:#f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display:inline-block;padding:2px 8px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:100px;font-size:0.7rem;font-weight:600;color:#a5b4fc;margin-left:6px;">FREE TEMPLATE</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="/" style="font-size:0.8rem;font-weight:500;color:#8888a8;text-decoration:none;padding:6px 12px;border-radius:4px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);font-family:inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255,255,255,0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size:0.8rem;font-weight:500;color:#8888a8;text-decoration:none;padding:6px 12px;border-radius:4px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);font-family:inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255,255,255,0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/ecommerce-boutique-store.html" target="_blank" style="font-size:0.8rem;font-weight:600;color:#fff;text-decoration:none;background:#4F46E5;padding:6px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 4px 15px rgba(79,70,229,0.3);display:inline-flex;align-items:center;gap:6px;font-family:inherit;" onmouseover="this.style.background='#4338ca'" onmouseout="this.style.background='#4F46E5'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- 1. TOP UTILITY ANNOUNCEMENT BAR -->
+    <div class="promo-bar" id="promo-banner-top">
+        <span>FESTIVE SALE</span>: Use code <strong>FESTIVE25</strong> for 25% off on orders above ₹2000! <span>✨ FREE DELIVERY ON ORDERS OVER ₹3000</span>
+    </div>
+
+    <!-- 2. STICKY HEADER & NAVIGATION -->
+    <header class="header-main glass-header" id="header-main">
+        <div class="container header-container">
+            <button class="mobile-toggle action-btn" id="mobile-menu-open" aria-label="Open navigation menu"><i class="fas fa-bars"></i></button>
+            <a href="#" class="logo-wrap" id="brand-logo-main">
+                <i class="fas fa-gem logo-icon"></i>
+                <span>AMARA</span>
+            </a>
+            <nav class="nav-menu" id="nav-menu-desktop">
+                <a href="#" class="nav-link" onclick="setCategory('all'); return false;">Home</a>
+                <div class="has-dropdown">
+                    <a href="#" class="nav-link" onclick="return false;">Shop By Category <i class="fas fa-chevron-down" style="font-size:0.75rem;margin-left:0.25rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="setCategory('sarees'); return false;">Sarees</a>
+                        <a href="#" class="dropdown-item" onclick="setCategory('tops'); return false;">Tops &amp; Kurtis</a>
+                        <a href="#" class="dropdown-item" onclick="setCategory('gown'); return false;">Flared Gowns</a>
+                        <a href="#" class="dropdown-item" onclick="setCategory('lehenga'); return false;">Bridal Lehengas</a>
+                        <a href="#" class="dropdown-item" onclick="setCategory('material'); return false;">Stitching Materials</a>
+                        <a href="#" class="dropdown-item" onclick="setCategory('personalized'); return false;">Tailored Customs</a>
+                    </div>
+                </div>
+                <a href="#shop-floor" class="nav-link" onclick="setCategory('tops'); return false;">New Arrivals</a>
+                <a href="#shop-floor" class="nav-link" onclick="setCategory('sarees'); return false;">Most Selling</a>
+                <a href="#" class="nav-link" onclick="openConsultationModal(); return false;">Custom Boutique</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#shop-floor" class="action-btn" aria-label="Search" onclick="document.getElementById('ID_search_input')?.focus();"><i class="fas fa-search"></i></a>
+                <a href="#" class="action-btn" aria-label="Account" onclick="showToast('Boutique Account','Secure login gateway initialized.','info'); return false;"><i class="far fa-user"></i></a>
+                <button class="action-btn cart-badge-wrap" id="cart-trigger-btn" aria-label="Cart" onclick="openCartDrawer()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-badge-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SLIDER -->
+    <section class="hero-slider-section" id="cinematic-hero-slider">
+        <div class="slide-track">
+            <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1920&q=80');">
+                <div class="container"><div class="hero-content">
+                    <span>Royal Splendors</span>
+                    <h1>Elegance Woven in Every Thread</h1>
+                    <p>Immerse yourself in our premium royal Banarasi silk sarees and bespoke bridal lehengas curated exclusively for the luxury festive season.</p>
+                    <div class="hero-actions-wrap"><a href="#shop-floor" class="btn-primary" onclick="setCategory('sarees')">Explore Sarees <i class="fas fa-arrow-right"></i></a></div>
+                </div></div>
+            </div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1920&q=80');">
+                <div class="container"><div class="hero-content">
+                    <span>Contemporary Charm</span>
+                    <h2>Modern Fusion Trends</h2>
+                    <p>Explore gorgeous contemporary co-ord sets, stylish kurtis, and designer flared tops that blend modern cuts with traditional craftsmanship.</p>
+                    <div class="hero-actions-wrap"><a href="#shop-floor" class="btn-primary" onclick="setCategory('tops')">Explore Tops <i class="fas fa-arrow-right"></i></a></div>
+                </div></div>
+            </div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1920&q=80');">
+                <div class="container"><div class="hero-content">
+                    <span>Atelier Experience</span>
+                    <h2>Bespoke Stitching &amp; Styling</h2>
+                    <p>Submit your measurements online and consult with our master stylists to stitch the perfect custom blouse of your dreams.</p>
+                    <div class="hero-actions-wrap"><button class="btn-primary" onclick="openConsultationModal()">Book Stylist <i class="fas fa-paper-plane"></i></button></div>
+                </div></div>
+            </div>
+        </div>
+        <button class="slider-control-btn slider-prev" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-control-btn slider-next" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-dots"></div>
+    </section>
+
+    <!-- 4. CATEGORIES CAROUSEL -->
+    <section class="categories-slider-section" id="luxury-categories">
+        <div class="container"><div class="categories-track-container">
+            <div class="category-bubble active" onclick="setCategory('all',this)" id="cat-bubble-all"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=150&q=80" alt="All"></div><span>All Store</span></div>
+            <div class="category-bubble" onclick="setCategory('sarees',this)" id="cat-bubble-sarees"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=150&q=80" alt="Sarees"></div><span>Sarees</span></div>
+            <div class="category-bubble" onclick="setCategory('tops',this)" id="cat-bubble-tops"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=150&q=80" alt="Tops"></div><span>Tops</span></div>
+            <div class="category-bubble" onclick="setCategory('gown',this)" id="cat-bubble-gown"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=150&q=80" alt="Gown"></div><span>Gown</span></div>
+            <div class="category-bubble" onclick="setCategory('lehenga',this)" id="cat-bubble-lehenga"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=150&q=80" alt="Lehenga"></div><span>Lehenga</span></div>
+            <div class="category-bubble" onclick="setCategory('material',this)" id="cat-bubble-material"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=150&q=80" alt="Material"></div><span>Material</span></div>
+            <div class="category-bubble" onclick="setCategory('personalized',this)" id="cat-bubble-personalized"><div class="bubble-image-wrap"><img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=150&q=80" alt="Customized"></div><span>Customized</span></div>
+        </div></div>
+    </section>
+
+    <!-- 5. SHOP FLOOR -->
+    <section class="section-padding container" id="shop-floor">
+        <div class="luxury-title-wrap"><span>Boutique Wardrobe</span><h2>Our Designer Collection</h2></div>
+        <div class="shop-floor-container">
+            <aside class="filters-sidebar glass-panel" id="shop-filters-sidebar">
+                <div class="filter-group">
+                    <div class="filter-group-title"><span>Selected Category</span><i class="fas fa-sliders-h"></i></div>
+                    <div class="filter-list">
+                        <label class="filter-checkbox-label" onclick="setCategory('all',document.getElementById('cat-bubble-all'))"><input type="radio" name="shop-cat" checked> All Collections</label>
+                        <label class="filter-checkbox-label" onclick="setCategory('sarees',document.getElementById('cat-bubble-sarees'))"><input type="radio" name="shop-cat"> Designer Sarees</label>
+                        <label class="filter-checkbox-label" onclick="setCategory('tops',document.getElementById('cat-bubble-tops'))"><input type="radio" name="shop-cat"> Tops &amp; Kurtis</label>
+                        <label class="filter-checkbox-label" onclick="setCategory('gown',document.getElementById('cat-bubble-gown'))"><input type="radio" name="shop-cat"> Anarkali Gowns</label>
+                        <label class="filter-checkbox-label" onclick="setCategory('lehenga',document.getElementById('cat-bubble-lehenga'))"><input type="radio" name="shop-cat"> Bridal Lehenga</label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-group-title"><span>Price Limit</span></div>
+                    <div class="price-slider-wrap">
+                        <input type="range" id="price-range-slider" class="price-slider" min="500" max="5000" step="100" value="5000">
+                        <div class="price-values"><span>Min: ₹500</span><span>Max: <strong id="price-slider-value">₹5000</strong></span></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-group-title"><span>Bespoke Sizing</span></div>
+                    <div class="size-filter-grid">
+                        <button class="size-btn" onclick="toggleSizeFilter('S',this)">S</button>
+                        <button class="size-btn" onclick="toggleSizeFilter('M',this)">M</button>
+                        <button class="size-btn" onclick="toggleSizeFilter('L',this)">L</button>
+                        <button class="size-btn" onclick="toggleSizeFilter('XL',this)">XL</button>
+                        <button class="size-btn" onclick="toggleSizeFilter('XXL',this)">XXL</button>
+                        <button class="size-btn" onclick="toggleSizeFilter('3XL',this)">3XL</button>
+                        <button class="size-btn" style="grid-column:span 2;" onclick="toggleSizeFilter('Free Size',this)">Free Size</button>
+                    </div>
+                </div>
+                <div class="filter-group" style="padding-top:1.5rem;border-top:1px solid var(--color-border);text-align:center;">
+                    <i class="fas fa-ruler-combined" style="font-size:1.5rem;color:var(--color-accent-gold);margin-bottom:0.75rem;"></i>
+                    <h4 style="font-size:0.95rem;margin-bottom:0.5rem;">Need Custom Fits?</h4>
+                    <p style="font-size:0.75rem;color:var(--color-text-muted);margin-bottom:1.25rem;">Our tailor masters can sew blouses and skirts to your exact dimensions.</p>
+                    <button class="btn-outline" style="width:100%;font-size:0.75rem;" onclick="openConsultationModal()">Consult Stylist</button>
+                </div>
+            </aside>
+            <main class="shop-grid-area">
+                <div class="shop-controls-bar">
+                    <div class="search-input-wrap"><i class="fas fa-search"></i><input type="text" id="ID_search_input" placeholder="Search sarees, kurtis, lehengas..."></div>
+                    <div class="shop-sort-wrap"><span>Sort By:</span>
+                        <select class="luxury-select" id="sort-select">
+                            <option value="default">Default curation</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Customer Rating</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-grid" id="products-grid"></div>
+            </main>
+        </div>
+    </section>
+
+    <!-- 6. ATELIER BANNER -->
+    <section class="section-padding atelier-banner-section" id="boutique-atelier">
+        <div class="container"><div class="atelier-grid">
+            <div class="atelier-content">
+                <span>Exclusive Services</span>
+                <h2>Tailored To Perfection</h2>
+                <p>At Amara Designer Hub, we celebrate unique bodies. Our master designers and stitching tailors are on stand-by to build custom necklines, sleeve embellishments, and exact bodily sizing fits for you.</p>
+                <div class="atelier-features">
+                    <div class="atelier-feature-item"><i class="fas fa-video"></i><div><h4>Virtual Consultation</h4><p>Book a live video session with our boutique designers to select neck patterns, zardozi works, or fabrics.</p></div></div>
+                    <div class="atelier-feature-item"><i class="fas fa-truck-fast"></i><div><h4>Fast Kerala Tailoring</h4><p>Custom stitched blouses are tailored and shipped within 3-5 days across India and globally.</p></div></div>
+                </div>
+                <div class="atelier-consult-btn-wrap">
+                    <button class="btn-primary" onclick="openConsultationModal()">Book Virtual Consultation <i class="fas fa-calendar-alt"></i></button>
+                    <a href="https://api.whatsapp.com/send?phone=919800000000" target="_blank" class="btn-outline" style="border-color:rgba(255,255,255,0.3);color:white;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+            </div>
+            <div class="atelier-image-card">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Master Tailoring at Amara Hub">
+                <div class="atelier-floating-badge"><h5>5000+ Happy Fits</h5><p>Hand-crafted with heritage embroidery skills in Kollam, Kerala.</p></div>
+            </div>
+        </div></div>
+    </section>
+
+    <!-- 7. TESTIMONIALS -->
+    <section class="section-padding testimonials-section" id="testimonials-carousel">
+        <div class="container">
+            <div class="luxury-title-wrap"><span>Testimonials</span><h2>Client Stories</h2></div>
+            <div class="testimonial-slider-wrap">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide active">
+                        <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                        <blockquote>"I ordered my custom stitched wedding reception lehenga from Amara, and the fit was absolutely flawless! The boutique designers conducted a detailed video measurement session. Exquisite work!"</blockquote>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-client">Anjali Nair <span>Kochi, Kerala</span></div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                        <blockquote>"The Banarasi semi-silk sarees from Amara represent outstanding quality at very reasonable prices. Fabric is incredibly soft and drapes like a dream."</blockquote>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="testimonial-client">Meera Krishnan <span>Trivandrum, KL</span></div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                        <blockquote>"Absolutely loving their co-ord sets! Highly breathable organic cotton fabrics styled with elegant contemporary floral prints. Excellent boutique shop interface."</blockquote>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div class="testimonial-client">Sandra Mathew <span>Bangalore, KA</span></div>
+                    </div>
+                </div>
+                <button class="testimonial-nav-btn testimonial-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-nav-btn testimonial-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="footer" id="main-footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-brand">
+                    <h3>AMARA <span>Boutique</span></h3>
+                    <p>Kerala's premium online fashion atelier for modern women, hand-crafting beautiful Banarasi Sarees, custom salwar kameez sets, and bespoke tailor stitched clothing.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=919800000000" target="_blank" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>Collections</h4>
+                    <div class="footer-link-list">
+                        <a href="#shop-floor" onclick="setCategory('sarees')">Banarasi Sarees</a>
+                        <a href="#shop-floor" onclick="setCategory('tops')">Kurtis &amp; Tunics</a>
+                        <a href="#shop-floor" onclick="setCategory('gown')">Flared Anarkalis</a>
+                        <a href="#shop-floor" onclick="setCategory('lehenga')">Bridal Lehengas</a>
+                        <a href="#shop-floor" onclick="setCategory('material')">Unstitched Salwars</a>
+                        <a href="#" onclick="openConsultationModal()">Bespoke Stitching</a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>Boutique Care</h4>
+                    <div class="footer-link-list">
+                        <a href="#" onclick="showToast('Order Tracking','DTDC tracking active.','info'); return false;">Track Your Shipment</a>
+                        <a href="#" onclick="openSizeGuide(); return false;">Sizing Standard Chart</a>
+                        <a href="#" onclick="showToast('Returns','Custom clothes covered under fit guarantee.','info'); return false;">Bespoke Warranty</a>
+                        <a href="#" onclick="showToast('Contact Us','Kollam, Kerala. Hotline: +91 98000 00000.','info'); return false;">Contact Us</a>
+                    </div>
+                </div>
+                <div class="footer-newsletter"><h4>Subscribe Atelier</h4>
+                    <p>Subscribe for early access to weekly handcrafted design launches and premium discount coupons.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed!','Welcome to our inner boutique guild!','success'); this.reset();">
+                        <input type="email" placeholder="Your Luxury Email..." required>
+                        <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Amara Designer Hub. Free template by <a href="https://jack-codes.com/" target="_blank" style="color:var(--color-accent-gold);">jack-codes.com</a></p>
+                <div class="footer-payments"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-apple-pay"></i><i class="fab fa-cc-stripe"></i></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="if(event.target===this) closeCartDrawer();">
+        <div class="cart-drawer" id="cart-drawer-panel">
+            <div class="cart-drawer-header"><h3>Shopping Bag</h3><button class="cart-close-btn" onclick="closeCartDrawer()"><i class="fas fa-times"></i></button></div>
+            <div class="cart-items-container" id="cart-items-container"></div>
+            <div class="cart-drawer-footer" id="cart-drawer-footer">
+                <div class="cart-promo-section"><input type="text" id="promo-code-input" placeholder="Promotional Coupon..."><button class="btn-outline" style="padding:0 1.25rem;" onclick="applyPromoCode()">Apply</button></div>
+                <div class="cart-summary-row"><span>Subtotal</span><span id="cart-subtotal">₹0.00</span></div>
+                <div class="cart-summary-row" id="cart-discount-row" style="display:none;"><span>Voucher Discount</span><span id="cart-discount" style="color:var(--color-error);">-₹0.00</span></div>
+                <div class="cart-summary-row"><span>Delivery Charge</span><span id="cart-shipping">₹100.00</span></div>
+                <div class="cart-total-row"><span>Order Total</span><span id="cart-grand-total">₹0.00</span></div>
+                <button class="btn-primary btn-checkout" onclick="checkoutOrder()">Secure Luxury Checkout <i class="fas fa-lock"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. QUICK VIEW MODAL -->
+    <div class="modal-overlay" id="quickview-modal" onclick="if(event.target===this) closeQuickView();">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeQuickView()"><i class="fas fa-times"></i></button>
+            <div class="quickview-grid">
+                <div class="quickview-images-panel"><div class="quickview-main-image"><img src="" alt="Detailed view"></div></div>
+                <div class="quickview-details-panel">
+                    <span class="quickview-meta-tag">Sarees</span>
+                    <h2 class="quickview-title">Banarasi Soft Silk Saree</h2>
+                    <div class="quickview-price-row"><span class="quickview-price">₹2450.00</span><span class="quickview-stock in-stock">In Stock</span></div>
+                    <p class="quickview-description">Intricately woven with delicate zari thread work.</p>
+                    <div class="quickview-option-title"><span>Select Sizing</span><button onclick="openSizeGuide(); return false;">Sizing Guide</button></div>
+                    <div class="quickview-sizes" id="quick-sizes-list"></div>
+                    <div class="quickview-actions">
+                        <div class="qty-widget"><button class="qty-btn" onclick="adjustQuickViewQty(-1)"><i class="fas fa-minus"></i></button><input class="qty-input" type="number" readonly value="1"><button class="qty-btn" onclick="adjustQuickViewQty(1)"><i class="fas fa-plus"></i></button></div>
+                        <button class="btn-primary quickview-add-cart-btn" onclick="submitQuickViewAdd()">Add to Shopping Bag <i class="fas fa-shopping-bag"></i></button>
+                    </div>
+                    <div class="quickview-extra-info">
+                        <span><i class="fas fa-shield-alt" style="margin-right:0.5rem;color:var(--color-accent-gold);"></i> Handloom Mark: <strong>100% Certified Authentic</strong></span>
+                        <span><i class="fas fa-ruler-combined" style="margin-right:0.5rem;color:var(--color-accent-gold);"></i> Custom Stitching: <strong>Available upon request</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. CONSULTATION MODAL -->
+    <div class="modal-overlay" id="consultation-modal" onclick="if(event.target===this) closeConsultationModal();">
+        <div class="modal-content consultation-modal-box">
+            <button class="modal-close-btn" onclick="closeConsultationModal()"><i class="fas fa-times"></i></button>
+            <h2>Personal Designer Atelier</h2>
+            <p>Fill out your measurements below. Our head designer in Kollam, Kerala will contact you on WhatsApp to design your dream fit.</p>
+            <form class="consultation-form" onsubmit="submitConsultation(event)">
+                <div class="form-row-double">
+                    <div class="form-group"><label for="consult-name">Full Name *</label><input type="text" id="consult-name" required placeholder="Your full name..."></div>
+                    <div class="form-group"><label for="consult-whatsapp">WhatsApp Contact *</label><input type="tel" id="consult-whatsapp" required placeholder="With country code..."></div>
+                </div>
+                <div class="form-row-double">
+                    <div class="form-group"><label for="consult-clothing">Type of Custom Design *</label>
+                        <select id="consult-clothing" required>
+                            <option value="blouse">Bespoke Designer Blouse</option>
+                            <option value="lehenga">Bespoke Heavy Lehenga</option>
+                            <option value="gown">Tailored Flared Anarkali Gown</option>
+                            <option value="salwar">Stitched Salwar Dupatta Suit</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label for="consult-neckline">Preferred Neckline</label>
+                        <select id="consult-neckline">
+                            <option value="sweetheart">Sweetheart Neck</option>
+                            <option value="boat">Boat Neck</option>
+                            <option value="deep-v">Deep V-Neck</option>
+                            <option value="keyhole">Keyhole Back</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Measurements (Inches)</label>
+                    <div class="form-row-double" style="gap:0.75rem;">
+                        <input type="number" step="0.5" placeholder="Bust Size...">
+                        <input type="number" step="0.5" placeholder="Waist Size...">
+                        <input type="number" step="0.5" placeholder="Shoulders Width...">
+                        <input type="number" step="0.5" placeholder="Sleeve Length...">
+                    </div>
+                </div>
+                <div class="form-group"><label for="consult-notes">Design Notes</label><textarea id="consult-notes" placeholder="Specify design works (puff sleeves, back tassels, color matches...)..."></textarea></div>
+                <button type="submit" class="btn-primary consultation-form-btn">Submit Design File to Master Tailor <i class="fab fa-whatsapp" style="margin-left:0.5rem;"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 12. SIZE GUIDE MODAL -->
+    <div class="modal-overlay" id="sizeguide-modal" onclick="if(event.target===this) closeSizeGuide();">
+        <div class="modal-content size-guide-modal-box">
+            <button class="modal-close-btn" onclick="closeSizeGuide()"><i class="fas fa-times"></i></button>
+            <h2>Indian Ethnic Sizing Chart</h2>
+            <p>Refer to our standard dimensions before selecting your designer tops or kurtis.</p>
+            <table class="size-table">
+                <thead><tr><th>Size</th><th>Bust (in)</th><th>Waist (in)</th><th>Shoulder (in)</th><th>Hip (in)</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>S</strong></td><td>36"</td><td>30"</td><td>14.0"</td><td>38"</td></tr>
+                    <tr><td><strong>M</strong></td><td>38"</td><td>32"</td><td>14.5"</td><td>40"</td></tr>
+                    <tr><td><strong>L</strong></td><td>40"</td><td>34"</td><td>15.0"</td><td>42"</td></tr>
+                    <tr><td><strong>XL</strong></td><td>42"</td><td>36"</td><td>15.5"</td><td>44"</td></tr>
+                    <tr><td><strong>XXL</strong></td><td>44"</td><td>38"</td><td>16.0"</td><td>46"</td></tr>
+                    <tr><td><strong>3XL</strong></td><td>46"</td><td>40"</td><td>16.5"</td><td>48"</td></tr>
+                    <tr><td><strong>Free Size</strong></td><td colspan="4">Semi-stitched allowing alterations up to 3XL</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 13. TOASTS -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- 14. FLOATING ACTIONS -->
+    <div class="floating-actions-wrap">
+        <a href="https://api.whatsapp.com/send?phone=919800000000" target="_blank" class="floating-action-btn floating-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <button class="floating-action-btn floating-backtotop" id="floating-backtotop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <script>
+const MOCK_PRODUCTS=[{id:1,title:"Ethereal Banarasi Soft Semi-Silk Saree",category:"sarees",price:2450.00,rating:4.8,reviewsCount:34,badge:"Most Selling",sizes:["Free Size"],image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80",description:"Intricately woven with delicate zari thread work, this soft semi-silk Banarasi saree brings timeless elegance to any festive or celebratory occasion. Includes matching unstitched blouse material."},{id:2,title:"Pure Georgette Pastel Floral Kurti Set",category:"tops",price:1280.00,rating:4.5,reviewsCount:22,badge:"New Arrival",sizes:["M","L","XL","XXL"],image:"https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1608748010899-18f300247112?auto=format&fit=crop&w=600&q=80",description:"Adorned with elegant watercolor floral prints, this premium georgette top boasts a relaxed, flattering fit with soft inner lining and delicate hand-embellished bead neck borders."},{id:3,title:"Ornate Hand-Embroidered Churidhar Material",category:"material",price:1680.00,rating:4.9,reviewsCount:41,badge:"Exclusive",sizes:["Free Size"],image:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1583391265517-35bbadd01209?auto=format&fit=crop&w=600&q=80",description:"Premium unstitched salwar kameez material featuring traditional chikankari embroidery on pure cotton fabric, complemented by a soft georgette dupatta with golden lace borders."},{id:4,title:"Emerald Silk Anarkali Gown with Dupatta",category:"gown",price:3890.00,rating:4.7,reviewsCount:18,badge:"Luxe Boutique",sizes:["S","M","L","XL"],image:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80",description:"Breathe majestic luxury with this full-flared emerald green silk Anarkali gown embellished with heavy zardozi embroidery. Includes matching net dupatta and silk pants."},{id:5,title:"Personalized Custom Stitch Blouse Material",category:"personalized",price:1100.00,rating:5.0,reviewsCount:56,badge:"Tailored Fit",sizes:["Free Size"],image:"https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1583391265517-35bbadd01209?auto=format&fit=crop&w=600&q=80",description:"High-grade brocade silk material perfect for customized wedding blouses. Get direct video styling consultation with our in-house designers to customize your neckline and embroidery."},{id:6,title:"Stunning Royal Velvet Lehenga Choli",category:"lehenga",price:4999.00,rating:4.9,reviewsCount:15,badge:"Bridal Wear",sizes:["Free Size"],image:"https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80",description:"Crafted in deep navy blue velvet, embellished with thousands of glittering gold sequins, pearls, and zari. Comes with matching dupatta and semi-stitched heavy skirt."},{id:7,title:"Casual Contemporary Cotton Co-ord Set",category:"tops",price:1480.00,rating:4.4,reviewsCount:29,badge:"New Trend",sizes:["S","M","L","XL","XXL"],image:"https://images.unsplash.com/photo-1608748010899-18f300247112?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80",description:"Elevate your daily wear with this chic breathable cotton co-ord set featuring modern geometric patterns, premium button details, and comfortable utility side pockets."},{id:8,title:"Traditional Block-Print Cotton Sharara Suit",category:"material",price:2150.00,rating:4.6,reviewsCount:25,badge:"Festive Pick",sizes:["M","L","XL","XXL","3XL"],image:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80",imageSecondary:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",description:"Make a striking statement in this soft cotton block-printed sharara suit. Three-piece set with short kurti, heavily flared sharara bottoms, and lightweight chiffon dupatta."}];
+let state={cart:JSON.parse(localStorage.getItem('amara_cart'))||[],activeCategory:'all',searchKeyword:'',maxPrice:5000,selectedSizes:[],sortBy:'default',activePromo:null,discountAmount:0,shippingFee:100};
+let heroSlideIndex=0;
+const HERO_SLIDES=document.querySelectorAll('.hero-slide');
+const HERO_DOTS_CONTAINER=document.querySelector('.slider-dots');
+function initHeroSlider(){if(HERO_SLIDES.length===0)return;HERO_SLIDES.forEach((_,idx)=>{const dot=document.createElement('button');dot.classList.add('slider-dot');if(idx===0)dot.classList.add('active');dot.addEventListener('click',()=>showHeroSlide(idx));HERO_DOTS_CONTAINER.appendChild(dot);});setInterval(()=>{showHeroSlide((heroSlideIndex+1)%HERO_SLIDES.length);},6000);}
+function showHeroSlide(idx){const track=document.querySelector('.slide-track');const dots=document.querySelectorAll('.slider-dot');heroSlideIndex=idx;track.style.transform=`translateX(-${idx*100}%)`;HERO_SLIDES.forEach(s=>s.classList.remove('active'));HERO_SLIDES[idx].classList.add('active');dots.forEach(d=>d.classList.remove('active'));if(dots[idx])dots[idx].classList.add('active');}
+document.querySelector('.slider-prev')?.addEventListener('click',()=>showHeroSlide((heroSlideIndex-1+HERO_SLIDES.length)%HERO_SLIDES.length));
+document.querySelector('.slider-next')?.addEventListener('click',()=>showHeroSlide((heroSlideIndex+1)%HERO_SLIDES.length));
+let testimonialIndex=0;
+const TESTIMONIAL_SLIDES=document.querySelectorAll('.testimonial-slide');
+function initTestimonials(){if(TESTIMONIAL_SLIDES.length===0)return;showTestimonial(0);}
+function showTestimonial(idx){TESTIMONIAL_SLIDES.forEach(s=>{s.classList.remove('active');s.style.display='none';});testimonialIndex=(idx+TESTIMONIAL_SLIDES.length)%TESTIMONIAL_SLIDES.length;TESTIMONIAL_SLIDES[testimonialIndex].style.display='block';setTimeout(()=>TESTIMONIAL_SLIDES[testimonialIndex].classList.add('active'),50);}
+document.querySelector('.testimonial-prev')?.addEventListener('click',()=>showTestimonial(testimonialIndex-1));
+document.querySelector('.testimonial-next')?.addEventListener('click',()=>showTestimonial(testimonialIndex+1));
+function showToast(title,message,type='success'){const container=document.getElementById('toast-container');if(!container)return;const toast=document.createElement('div');toast.className=`toast toast-${type}`;let icon='fa-check-circle';if(type==='error')icon='fa-exclamation-circle';if(type==='info')icon='fa-info-circle';toast.innerHTML=`<i class="fas ${icon}"></i><div class="toast-content"><div class="toast-title">${title}</div><div class="toast-message">${message}</div></div><i class="fas fa-times toast-close" onclick="this.parentElement.remove()"></i>`;container.appendChild(toast);setTimeout(()=>{toast.style.animation='toast-fade-in 0.4s ease-out reverse';setTimeout(()=>toast.remove(),400);},4500);}
+function renderProducts(){const grid=document.getElementById('products-grid');if(!grid)return;let filtered=MOCK_PRODUCTS.filter(p=>{const matchesCat=(state.activeCategory==='all'||p.category===state.activeCategory);const matchesKey=p.title.toLowerCase().includes(state.searchKeyword.toLowerCase())||p.description.toLowerCase().includes(state.searchKeyword.toLowerCase());const matchesPrice=p.price<=state.maxPrice;const matchesSize=state.selectedSizes.length===0||p.sizes.some(s=>state.selectedSizes.includes(s));return matchesCat&&matchesKey&&matchesPrice&&matchesSize;});if(state.sortBy==='price-low')filtered.sort((a,b)=>a.price-b.price);else if(state.sortBy==='price-high')filtered.sort((a,b)=>b.price-a.price);else if(state.sortBy==='rating')filtered.sort((a,b)=>b.rating-a.rating);if(filtered.length===0){grid.innerHTML=`<div class="no-results"><i class="fas fa-search-minus"></i><h3>No Designer Items Found</h3><p>Try refining your filters or adjusting the price range.</p></div>`;return;}grid.innerHTML=filtered.map(p=>{const stars=Array(5).fill('').map((_,i)=>{if(i<Math.floor(p.rating))return'<i class="fas fa-star"></i>';if(i<p.rating)return'<i class="fas fa-star-half-alt"></i>';return'<i class="far fa-star"></i>';}).join('');return`<article class="product-card" data-id="${p.id}">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}<button class="product-wishlist-btn" onclick="toggleWishlist(${p.id},this)"><i class="far fa-heart"></i></button><div class="product-image-container"><img class="product-img" src="${p.image}" alt="${p.title}" loading="lazy"><img class="product-img product-img-secondary" src="${p.imageSecondary}" alt="${p.title}" loading="lazy"><div class="product-overlay-actions"><button class="overlay-btn" onclick="openQuickView(${p.id})"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="product-details"><span class="product-category-tag">${p.category}</span><h3 class="product-title"><a href="#" onclick="openQuickView(${p.id}); return false;">${p.title}</a></h3><div class="product-rating">${stars}<span>(${p.reviewsCount})</span></div><div class="product-footer-row"><span class="product-price">₹${p.price.toFixed(2)}</span><button class="product-quick-add" onclick="quickAdd(${p.id})"><i class="fas fa-shopping-bag"></i></button></div></div></article>`;}).join('');}
+function quickAdd(id){const p=MOCK_PRODUCTS.find(p=>p.id===id);if(!p)return;addToCart(id,p.sizes[0],1);}
+document.getElementById('ID_search_input')?.addEventListener('input',(e)=>{state.searchKeyword=e.target.value;renderProducts();});
+function setCategory(categoryName,element){state.activeCategory=categoryName;document.querySelectorAll('.category-bubble').forEach(el=>el.classList.remove('active'));element?.classList.add('active');document.getElementById('shop-floor')?.scrollIntoView({behavior:'smooth'});renderProducts();}
+document.getElementById('sort-select')?.addEventListener('change',(e)=>{state.sortBy=e.target.value;renderProducts();});
+const priceSlider=document.getElementById('price-range-slider');const priceSliderVal=document.getElementById('price-slider-value');
+if(priceSlider&&priceSliderVal){priceSlider.addEventListener('input',(e)=>{state.maxPrice=parseInt(e.target.value);priceSliderVal.textContent=`₹${state.maxPrice}`;renderProducts();});}
+function toggleSizeFilter(size,element){const idx=state.selectedSizes.indexOf(size);if(idx===-1){state.selectedSizes.push(size);element.classList.add('active');}else{state.selectedSizes.splice(idx,1);element.classList.remove('active');}renderProducts();}
+function toggleWishlist(id,element){const icon=element.querySelector('i');if(icon.classList.contains('far')){icon.classList.replace('far','fas');icon.style.color='#B22222';showToast("Added to Wishlist","Saved into your designer inspiration drawer.","info");}else{icon.classList.replace('fas','far');icon.style.color='';showToast("Removed from Wishlist","Removed from your saved drawer.","info");}}
+function addToCart(productId,size,qty=1){const product=MOCK_PRODUCTS.find(p=>p.id===productId);if(!product)return;if(!size){showToast("Selection Required","Please choose a size before adding to cart.","error");return;}const existingIndex=state.cart.findIndex(item=>item.productId===productId&&item.size===size);if(existingIndex>-1){state.cart[existingIndex].qty+=qty;}else{state.cart.push({productId,size,qty});}updateCartState();showToast("Added to Cart",`${product.title} (Size: ${size}) added.`,"success");openCartDrawer();}
+function removeFromCart(productId,size){state.cart=state.cart.filter(item=>!(item.productId===productId&&item.size===size));updateCartState();showToast("Item Removed","Product removed from your cart.","info");}
+function changeQty(productId,size,offset){const item=state.cart.find(item=>item.productId===productId&&item.size===size);if(!item)return;const newQty=item.qty+offset;if(newQty<1){removeFromCart(productId,size);}else{item.qty=newQty;updateCartState();}}
+function updateCartState(){localStorage.setItem('amara_cart',JSON.stringify(state.cart));renderCart();const totalItems=state.cart.reduce((sum,item)=>sum+item.qty,0);document.querySelectorAll('.cart-count').forEach(badge=>{badge.textContent=totalItems;badge.style.display=totalItems>0?'flex':'none';});}
+function renderCart(){const listContainer=document.getElementById('cart-items-container');const footerContainer=document.getElementById('cart-drawer-footer');if(!listContainer||!footerContainer)return;if(state.cart.length===0){listContainer.innerHTML=`<div class="cart-empty-state"><i class="fas fa-shopping-bag"></i><h4>Your Cart is Empty</h4><p>Explore our premium collections and add styles to your cart.</p><button class="btn-primary" onclick="closeCartDrawer()">Shop New Arrivals</button></div>`;footerContainer.style.display='none';return;}footerContainer.style.display='block';let subtotal=0;listContainer.innerHTML=state.cart.map(item=>{const product=MOCK_PRODUCTS.find(p=>p.id===item.productId);if(!product)return'';const itemTotal=product.price*item.qty;subtotal+=itemTotal;return`<div class="cart-item"><div class="cart-item-img-wrap"><img src="${product.image}" alt="${product.title}"></div><div class="cart-item-details"><h4 class="cart-item-title">${product.title}</h4><div class="cart-item-meta">Size: <span>${item.size}</span></div><div class="cart-item-bottom"><div class="qty-widget"><button class="qty-btn" onclick="changeQty(${product.id},'${item.size}',-1)"><i class="fas fa-minus"></i></button><input class="qty-input" type="number" readonly value="${item.qty}"><button class="qty-btn" onclick="changeQty(${product.id},'${item.size}',1)"><i class="fas fa-plus"></i></button></div><span class="cart-item-price">₹${itemTotal.toFixed(2)}</span></div><button class="cart-item-remove-btn" style="text-align:left;margin-top:0.5rem;" onclick="removeFromCart(${product.id},'${item.size}')">Remove</button></div></div>`;}).join('');state.discountAmount=0;if(state.activePromo==='AMARA10'){state.discountAmount=subtotal*0.1;}else if(state.activePromo==='FESTIVE25'&&subtotal>=2000){state.discountAmount=subtotal*0.25;}const shipping=subtotal>=3000?0:state.shippingFee;const finalTotal=subtotal-state.discountAmount+shipping;document.getElementById('cart-subtotal').textContent=`₹${subtotal.toFixed(2)}`;document.getElementById('cart-discount-row').style.display=state.discountAmount>0?'flex':'none';document.getElementById('cart-discount').textContent=`-₹${state.discountAmount.toFixed(2)}`;document.getElementById('cart-shipping').textContent=shipping===0?"FREE":`₹${shipping.toFixed(2)}`;document.getElementById('cart-grand-total').textContent=`₹${finalTotal.toFixed(2)}`;}
+function applyPromoCode(){const input=document.getElementById('promo-code-input');if(!input)return;const val=input.value.trim().toUpperCase();if(val==='AMARA10'){state.activePromo='AMARA10';showToast("Coupon Applied","10% off successfully applied.","success");updateCartState();}else if(val==='FESTIVE25'){const subtotal=state.cart.reduce((sum,item)=>{const product=MOCK_PRODUCTS.find(p=>p.id===item.productId);return sum+(product?product.price*item.qty:0);},0);if(subtotal>=2000){state.activePromo='FESTIVE25';showToast("Festive Discount Applied","25% mega discount applied.","success");updateCartState();}else{showToast("Ineligible Order","FESTIVE25 requires minimum order of ₹2000.","error");}}else if(val===''){showToast("Empty Field","Please enter a valid coupon.","error");}else{showToast("Invalid Coupon","Coupon is expired or incorrect.","error");}}
+function checkoutOrder(){closeCartDrawer();const overlay=document.createElement('div');overlay.className='modal-overlay active';overlay.style.zIndex='99999';overlay.innerHTML=`<div class="modal-content consultation-modal-box" style="max-width:500px;text-align:center;"><i class="fas fa-check-circle" style="font-size:5rem;color:var(--color-success);margin-bottom:1.5rem;display:inline-block;"></i><h2 style="font-size:2.25rem;">Order Placed!</h2><p style="margin-bottom:2rem;">Thank you for shopping at Amara. Our designers will begin custom packing your selection shortly.</p><button class="btn-primary" style="width:100%;" onclick="this.closest('.modal-overlay').remove()">Continue Shopping</button></div>`;document.body.appendChild(overlay);state.cart=[];state.activePromo=null;state.discountAmount=0;updateCartState();}
+function openCartDrawer(){document.getElementById('cart-drawer-overlay').classList.add('active');document.body.style.overflow='hidden';}
+function closeCartDrawer(){document.getElementById('cart-drawer-overlay').classList.remove('active');document.body.style.overflow='';}
+let currentQuickViewProduct=null;let selectedQuickViewSize=null;
+function openQuickView(id){const product=MOCK_PRODUCTS.find(p=>p.id===id);if(!product)return;currentQuickViewProduct=product;selectedQuickViewSize=product.sizes[0];const modal=document.getElementById('quickview-modal');modal.querySelector('.quickview-meta-tag').textContent=product.category;modal.querySelector('.quickview-title').textContent=product.title;modal.querySelector('.quickview-price').textContent=`₹${product.price.toFixed(2)}`;modal.querySelector('.quickview-description').textContent=product.description;const stockBadge=modal.querySelector('.quickview-stock');stockBadge.textContent="In Stock - Ships Tomorrow";stockBadge.className="quickview-stock in-stock";modal.querySelector('.quickview-main-image img').src=product.image;const sizeWrap=modal.querySelector('.quickview-sizes');sizeWrap.innerHTML=product.sizes.map(size=>`<button class="quickview-size-bubble ${size===selectedQuickViewSize?'active':''}" onclick="selectQuickViewSize('${size}',this)">${size}</button>`).join('');modal.querySelector('.qty-input').value=1;modal.classList.add('active');document.body.style.overflow='hidden';}
+function selectQuickViewSize(size,element){selectedQuickViewSize=size;document.querySelectorAll('.quickview-size-bubble').forEach(el=>el.classList.remove('active'));element.classList.add('active');}
+function closeQuickView(){document.getElementById('quickview-modal').classList.remove('active');document.body.style.overflow='';currentQuickViewProduct=null;selectedQuickViewSize=null;}
+function submitQuickViewAdd(){if(!currentQuickViewProduct||!selectedQuickViewSize)return;const qty=parseInt(document.querySelector('#quickview-modal .qty-input').value)||1;addToCart(currentQuickViewProduct.id,selectedQuickViewSize,qty);closeQuickView();}
+function adjustQuickViewQty(offset){const input=document.querySelector('#quickview-modal .qty-input');let val=parseInt(input.value)||1;val+=offset;if(val<1)val=1;input.value=val;}
+function openConsultationModal(){document.getElementById('consultation-modal').classList.add('active');document.body.style.overflow='hidden';}
+function closeConsultationModal(){document.getElementById('consultation-modal').classList.remove('active');document.body.style.overflow='';}
+function submitConsultation(e){e.preventDefault();showToast("Consultation Booked","We will contact you via WhatsApp for measurements and fabric customization.","success");closeConsultationModal();e.target.reset();}
+function openSizeGuide(){document.getElementById('sizeguide-modal').classList.add('active');}
+function closeSizeGuide(){document.getElementById('sizeguide-modal').classList.remove('active');}
+window.addEventListener('scroll',()=>{const header=document.getElementById('header-main');const backToTop=document.getElementById('floating-backtotop');if(window.scrollY>100)header?.classList.add('scrolled');else header?.classList.remove('scrolled');if(window.scrollY>600)backToTop?.classList.add('active');else backToTop?.classList.remove('active');});
+document.getElementById('floating-backtotop')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+document.addEventListener('DOMContentLoaded',()=>{initHeroSlider();initTestimonials();renderProducts();updateCartState();});
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/ecommerce-fashion-store" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">ecommerce</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Milan Fashion Store</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/ecommerce-perfume-store" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">ecommerce</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">L'Élixir Perfume</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/ecommerce-tech-shop" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">ecommerce</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Munich Tech Shop</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

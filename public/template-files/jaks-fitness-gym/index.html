@@ -1,0 +1,3147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="jaks.dev vault, jack-codes.com, free website templates, free html templates, responsive web design, premium templates, free download, GitHub, modern website layouts, fitness gym workout club site, high performance athletic center template, strength training gym layout, personal fitness coaching portfolio, group workout classes scheduler, crossfit athletic training html, bodybuilding gym member platform, cardio fitness health studio, membership pricing tables">
+  <meta name="author" content="jack-codes.com">
+  <meta property="og:url" content="https://templates.jack-codes.com/templates/fitness-gym">
+  <link class="brand-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berlin Gym & Training — Free Fitness Template</title>
+  <meta name="description" content="Energetic and powerful athletic club homepage including class trainers, class planner schedules, and Euro pricing packages. MIT licensed, free download.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Berlin Gym &amp; Training — Free Fitness Template">
+  <meta property="og:description" content="Energetic and powerful athletic club homepage including class trainers, class planner schedules, and Euro pricing packages. MIT licensed, free download.">
+  <meta property="og:image" content="https://templates.jack-codes.com/images/fitness_gym.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Berlin Gym &amp; Training — Free Fitness Template">
+  <meta name="twitter:description" content="Energetic and powerful athletic club homepage including class trainers, class planner schedules, and Euro pricing packages. MIT licensed, free download.">
+  <meta name="twitter:image" content="https://templates.jack-codes.com/images/fitness_gym.webp">
+    <!-- Google Fonts: Outfit (Aggressive Headlines) & Inter (Clean Body Text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --bg-ultra-dark: #060608;
+            --bg-dark: #0c0c10;
+            --bg-card: #13131a;
+            --bg-card-hover: #1b1b24;
+            --border-color: #22222d;
+            --border-glow: #2f2f3e;
+            
+            /* High-Voltage Accent Palette */
+            --accent-orange: #ff5500;
+            --accent-orange-rgb: 255, 85, 0;
+            --accent-yellow: #ccff00;
+            --accent-yellow-rgb: 204, 255, 0;
+            
+            --text-light: #ffffff;
+            --text-gray: #a1a1aa;
+            --text-muted: #6b7280;
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --neon-shadow-orange: 0 0 15px rgba(255, 85, 0, 0.4);
+            --neon-shadow-yellow: 0 0 15px rgba(204, 255, 0, 0.4);
+            
+            --clip-slant: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+            --clip-slant-right: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+            --clip-badge: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        }
+
+        /* --- CSS RESET & BASE STYLES --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-ultra-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-ultra-dark);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+            background: none;
+            border: none;
+            color: inherit;
+            outline: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-ultra-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-glow);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-orange);
+        }
+
+        /* --- GLOBAL UTILITIES & DECORATIONS --- */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .outline-text {
+            font-family: var(--font-display);
+            font-weight: 900;
+            text-transform: uppercase;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+            color: transparent;
+            letter-spacing: 2px;
+            user-select: none;
+        }
+
+        .badge-orange {
+            background: rgba(255, 85, 0, 0.1);
+            color: var(--accent-orange);
+            border: 1px solid rgba(255, 85, 0, 0.3);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            clip-path: var(--clip-badge);
+            display: inline-block;
+        }
+
+        .badge-yellow {
+            background: rgba(204, 255, 0, 0.1);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(204, 255, 0, 0.3);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            clip-path: var(--clip-badge);
+            display: inline-block;
+        }
+
+        /* Aggressive Slanted Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 32px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: var(--text-light);
+            border: 2px solid var(--accent-orange);
+            box-shadow: var(--neon-shadow-orange);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--text-light);
+            color: var(--bg-ultra-dark);
+            border-color: var(--text-light);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--border-glow);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-yellow);
+            color: var(--accent-yellow);
+            box-shadow: var(--neon-shadow-yellow);
+            transform: scale(1.02);
+        }
+
+        .btn-small {
+            padding: 8px 18px;
+            font-size: 0.8rem;
+        }
+
+        /* --- HEADER NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(6, 6, 8, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-fast);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(6, 6, 8, 0.98);
+            border-bottom: 1px solid rgba(255, 85, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            transition: var(--transition-fast);
+        }
+
+        header.scrolled .header-container {
+            height: 65px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        .logo-slash {
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-shadow: var(--neon-shadow-orange);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: var(--transition-fast);
+            box-shadow: var(--neon-shadow-orange);
+        }
+
+        .nav-link:hover {
+            color: var(--text-light);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Mobile Hamburger */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--text-light);
+            transition: var(--transition-fast);
+            border-radius: 2px;
+        }
+
+        /* Hamburger Active State */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+            background-color: var(--accent-orange);
+        }
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+            background-color: var(--accent-orange);
+        }
+
+        /* --- HERO SECTION WITH BG PATTERNS --- */
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 130px;
+            padding-bottom: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-dark);
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 50px 50px;
+            overflow: hidden;
+        }
+
+        /* Hero Diagonal Lines & Glows */
+        .hero-bg-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-bg-line-1 {
+            position: absolute;
+            top: -20%;
+            left: 30%;
+            width: 300px;
+            height: 150%;
+            background: linear-gradient(185deg, rgba(255, 85, 0, 0.08) 0%, transparent 60%);
+            transform: rotate(35deg);
+        }
+
+        .hero-bg-line-2 {
+            position: absolute;
+            bottom: -50%;
+            right: 0%;
+            width: 400px;
+            height: 150%;
+            background: linear-gradient(20deg, rgba(204, 255, 0, 0.05) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+
+        .hero-floating-word {
+            position: absolute;
+            font-size: 15rem;
+            font-weight: 900;
+            opacity: 0.03;
+            line-height: 0.8;
+            top: 15%;
+            left: -5%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-tagline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.05;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            color: var(--accent-orange);
+            text-shadow: var(--neon-shadow-orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 85, 0, 0.3);
+            z-index: -1;
+        }
+
+        .hero-description {
+            color: var(--text-gray);
+            font-size: 1.15rem;
+            max-width: 580px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 32px;
+            width: 100%;
+            max-width: 580px;
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent-yellow);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+        }
+
+        /* --- HERO WIDGET: INTERACTIVE RATE CALCULATOR --- */
+        .calculator-widget {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .calculator-widget::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow));
+        }
+
+        .calculator-widget:hover {
+            border-color: rgba(255, 85, 0, 0.4);
+            box-shadow: 0 20px 50px rgba(255, 85, 0, 0.1);
+        }
+
+        .calc-header {
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .calc-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .calc-title span {
+            color: var(--accent-yellow);
+        }
+
+        .calc-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .calc-group {
+            margin-bottom: 20px;
+        }
+
+        .calc-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .calc-label-val {
+            color: var(--accent-orange);
+            font-weight: 800;
+        }
+
+        /* Modern styled slider */
+        .calc-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-color);
+            outline: none;
+            margin: 10px 0;
+        }
+
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent-orange);
+            cursor: pointer;
+            box-shadow: var(--neon-shadow-orange);
+            transition: transform 0.1s ease;
+        }
+
+        .calc-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+        }
+
+        /* Tier Selector Pills */
+        .tier-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .tier-pill {
+            background: var(--bg-ultra-dark);
+            border: 1px solid var(--border-color);
+            padding: 10px 6px;
+            text-align: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition-fast);
+        }
+
+        .tier-pill.active {
+            border-color: var(--accent-yellow);
+            color: var(--accent-yellow);
+            background: rgba(204, 255, 0, 0.05);
+            box-shadow: inset 0 0 10px rgba(204, 255, 0, 0.1);
+        }
+
+        /* Addon Options */
+        .addons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .addon-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-ultra-dark);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 0.85rem;
+            transition: var(--transition-fast);
+        }
+
+        .addon-checkbox input {
+            display: none;
+        }
+
+        .addon-custom-check {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border-glow);
+            border-radius: 3px;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: var(--bg-ultra-dark);
+            transition: var(--transition-fast);
+        }
+
+        .addon-checkbox.active {
+            border-color: rgba(255, 85, 0, 0.3);
+            background: rgba(255, 85, 0, 0.02);
+        }
+
+        .addon-checkbox.active .addon-custom-check {
+            background: var(--accent-orange);
+            border-color: var(--accent-orange);
+            color: var(--text-light);
+        }
+
+        /* Total Output Panel */
+        .calc-output {
+            background: var(--bg-ultra-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 18px;
+            text-align: center;
+            margin-top: 24px;
+            position: relative;
+        }
+
+        .calc-output-price {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-light);
+            line-height: 1.1;
+        }
+
+        .calc-output-price span {
+            color: var(--accent-orange);
+        }
+
+        .calc-output-desc {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calc-submit-btn {
+            width: 100%;
+            margin-top: 18px;
+        }
+
+        /* --- FEATURE HIGHLIGHTS SECTION --- */
+        .features-section {
+            padding: 100px 0;
+            background: var(--bg-ultra-dark);
+            position: relative;
+            z-index: 3;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+        .section-subtitle {
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent-orange);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-orange);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 85, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-card:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 85, 0, 0.1);
+            border: 1px solid rgba(255, 85, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            color: var(--accent-orange);
+        }
+
+        .feature-icon-wrapper svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .feature-h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- CLASS SCHEDULE SECTION --- */
+        .schedule-section {
+            padding: 100px 0;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .schedule-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .schedule-tab {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 14px 28px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition-fast);
+            color: var(--text-gray);
+        }
+
+        .schedule-tab:hover {
+            border-color: var(--accent-yellow);
+            color: var(--text-light);
+        }
+
+        .schedule-tab.active {
+            background: var(--accent-yellow);
+            color: var(--bg-ultra-dark);
+            border-color: var(--accent-yellow);
+            box-shadow: var(--neon-shadow-yellow);
+            transform: skewX(-6deg);
+        }
+
+        /* Interactive Grid Layout for Classes */
+        .schedule-grid-container {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .schedule-day-pane {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            animation: fadeInTab 0.4s ease forwards;
+        }
+
+        .schedule-day-pane.active {
+            display: flex;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .schedule-row {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--border-glow);
+            border-radius: 6px;
+            padding: 24px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1.8fr 1.2fr 1fr 1fr;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .schedule-row:hover {
+            border-color: rgba(204, 255, 0, 0.3);
+            border-left-color: var(--accent-yellow);
+            transform: scale(1.01);
+            background: var(--bg-card-hover);
+        }
+
+        .sched-time {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+        }
+
+        .sched-time svg {
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+        }
+
+        .sched-class {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sched-class-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .sched-trainer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sched-trainer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2a2a35;
+            border: 2px solid var(--border-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: var(--accent-yellow);
+        }
+
+        .sched-trainer-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sched-trainer-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .sched-trainer-role {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .sched-intensity {
+            display: inline-flex;
+        }
+
+        .sched-action {
+            justify-self: end;
+        }
+
+        /* --- MEMBERSHIP PRICING CARDS --- */
+        .membership-section {
+            padding: 100px 0;
+            background: var(--bg-ultra-dark);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 48px 36px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            overflow: hidden;
+        }
+
+        /* Special highlights for Best Value card */
+        .price-card.featured {
+            border-color: var(--accent-orange);
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 85, 0, 0.03) 100%);
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(255, 85, 0, 0.08);
+        }
+
+        .price-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--accent-orange);
+            color: var(--text-light);
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            padding: 6px 40px;
+            transform: rotate(45deg);
+            box-shadow: var(--neon-shadow-orange);
+        }
+
+        .price-card.elite {
+            border-color: var(--accent-yellow);
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(204, 255, 0, 0.03) 100%);
+        }
+
+        /* Neon Hover Glow Borders */
+        .price-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--accent-yellow);
+            box-shadow: var(--neon-shadow-yellow);
+        }
+
+        .price-card.featured:hover {
+            border-color: var(--accent-orange);
+            box-shadow: var(--neon-shadow-orange);
+        }
+
+        .price-header {
+            margin-bottom: 32px;
+        }
+
+        .price-name {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .price-amount {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .price-currency {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-orange);
+        }
+
+        .price-card.elite .price-currency {
+            color: var(--accent-yellow);
+        }
+
+        .price-num {
+            font-family: var(--font-display);
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .price-period {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .price-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .price-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        .price-feature-item.disabled {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .price-feature-item svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .price-feature-item svg.icon-check {
+            color: var(--accent-yellow);
+        }
+
+        .price-card.featured svg.icon-check {
+            color: var(--accent-orange);
+        }
+
+        .price-feature-item svg.icon-cross {
+            color: var(--text-muted);
+        }
+
+        .price-cta {
+            width: 100%;
+        }
+
+        /* --- TRAINERS PROFILES SECTION --- */
+        .trainers-section {
+            padding: 100px 0;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .trainer-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .trainer-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .trainer-img-wrapper {
+            position: relative;
+            height: 380px;
+            background: #191922;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        /* Aesthetic Grid overlay to simulate dynamic athlete photography */
+        .trainer-img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, var(--bg-card) 5%, rgba(12, 12, 16, 0) 60%);
+            z-index: 2;
+        }
+
+        /* Abstract athlete graphic element */
+        .trainer-graphic {
+            width: 80%;
+            height: 90%;
+            opacity: 0.85;
+            transition: var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .trainer-card:hover .trainer-graphic {
+            transform: scale(1.08) translateY(-5px);
+            filter: drop-shadow(0 0 15px rgba(255, 85, 0, 0.5));
+        }
+
+        /* Quote bubble overlay on hover */
+        .trainer-quote {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(6, 6, 8, 0.9);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 12px 18px;
+            font-size: 0.8rem;
+            font-style: italic;
+            border-radius: 4px;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .trainer-card:hover .trainer-quote {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .trainer-info {
+            padding: 24px 32px 32px;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .trainer-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .trainer-specialty {
+            color: var(--accent-orange);
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .trainer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .trainer-social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-ultra-dark);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            color: var(--text-gray);
+        }
+
+        .trainer-social-link:hover {
+            color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+            box-shadow: var(--neon-shadow-yellow);
+            transform: translateY(-3px);
+        }
+
+        .trainer-social-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* --- HIGH CONVERSION BOOKING FORM --- */
+        .booking-section {
+            padding: 100px 0;
+            background: var(--bg-ultra-dark);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-bg-outline {
+            position: absolute;
+            bottom: 0;
+            right: -5%;
+            font-size: 16rem;
+            opacity: 0.02;
+            z-index: 1;
+            font-family: var(--font-display);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.8;
+            pointer-events: none;
+        }
+
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .booking-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .booking-text h2 span {
+            color: var(--accent-orange);
+        }
+
+        .booking-text p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .booking-benefits-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .booking-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .booking-benefit-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .booking-benefit-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .booking-benefit-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Booking Form Card */
+        .booking-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 48px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .booking-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-orange);
+        }
+
+        .form-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+        }
+
+        .form-label {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-gray);
+        }
+
+        .form-input {
+            background: var(--bg-ultra-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 14px 18px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+            width: 100%;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 10px rgba(255, 85, 0, 0.15);
+            background: var(--bg-card);
+        }
+
+        select.form-input {
+            appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a1a1aa'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        select.form-input option {
+            background-color: var(--bg-card);
+            color: var(--text-light);
+        }
+
+        .booking-submit {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        /* Success Message Trigger */
+        .form-success-card {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeInTab 0.5s ease forwards;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(204, 255, 0, 0.1);
+            color: var(--accent-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-yellow);
+            margin-bottom: 24px;
+            box-shadow: var(--neon-shadow-yellow);
+            animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); }
+            80% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .success-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .success-message {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 360px;
+        }
+
+        /* --- PREMIER DETAILED FOOTER --- */
+        footer {
+            background: var(--bg-ultra-dark);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-orange);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            transform: translateX(4px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .footer-hours-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-hour-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .footer-hour-day {
+            font-weight: 600;
+        }
+
+        .footer-hour-time {
+            color: var(--accent-yellow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .calculator-widget {
+                max-width: 550px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .features-grid,
+            .membership-grid,
+            .trainers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+
+            .booking-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-ultra-dark);
+                flex-direction: column;
+                padding: 60px 24px;
+                gap: 24px;
+                transition: var(--transition-smooth);
+                border-top: 1px solid var(--border-color);
+                align-items: flex-start;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .header-actions .btn {
+                display: none; /* Hide top Join Now on mobile to avoid cramming */
+            }
+
+            header.scrolled .nav-links {
+                top: 65px;
+                height: calc(100vh - 65px);
+            }
+
+            .features-grid,
+            .membership-grid,
+            .trainers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 24px;
+            }
+
+            .sched-action {
+                justify-self: start;
+                width: 100%;
+            }
+
+            .sched-action .btn {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Interactive Pulsing Keyframe for Glowing logo */
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 10px rgba(255, 85, 0, 0.4); opacity: 0.9; }
+            50% { text-shadow: 0 0 25px rgba(255, 85, 0, 0.8); opacity: 1; }
+            100% { text-shadow: 0 0 10px rgba(255, 85, 0, 0.4); opacity: 0.9; }
+        }
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Berlin Gym & Training",
+    "description": "Energetic and powerful athletic club homepage including class trainers, class planner schedules, and Euro pricing packages. MIT licensed, free download.",
+    "url": "https://templates.jack-codes.com/templates/fitness-gym",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jaks",
+      "url": "https://jack-codes.com/"
+    },
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+    <!-- JAKS.dev Vault Template Showcase Bar -->
+  <style>
+    /* Adjust template layout when showcase bar is present */
+    header:not(#jaksShowcaseBar), .header:not(#jaksShowcaseBar), .navbar, .nav-bar, #mainHeader, #header {
+      top: 50px !important;
+    }
+    #jaksShowcaseBar {
+      top: 0 !important;
+      z-index: 2147483647 !important;
+    }
+    body {
+      padding-top: 50px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+  <div id="jaksShowcaseBar" style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(8, 8, 13, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; z-index: 999999; font-family: 'Inter', sans-serif; box-sizing: border-box; color: #e8e8f0; transition: all 0.3s ease;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: #4F46E5; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;">JAKS<span style="color: #8b5cf6;">.dev</span> <span style="font-weight: 800; color: #f3f4f6;">Vault</span></span>
+      </a>
+      <span style="display: inline-block; padding: 2px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: #a5b4fc; margin-left: 6px;">FREE DOWNLOAD</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">&larr; Back to Vault</a>
+      <a href="https://jack-codes.com/" target="_blank" style="font-size: 0.8rem; font-weight: 500; color: #8888a8; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.2s ease; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); font-family: inherit;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.color='#8888a8';this.style.background='rgba(255, 255, 255, 0.03)'">Visit Portfolio</a>
+      <a href="https://github.com/jakscoduxdev-netizen/JakDEvTemplates/blob/main/templates/fitness-gym.html" target="_blank" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-decoration: none; background: #4F46E5; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; font-family: inherit;" onmouseover="this.style.background='#4338ca';this.style.boxShadow='0 4px 20px rgba(79, 70, 229, 0.5)'" onmouseout="this.style.background='#4F46E5';this.style.boxShadow='0 4px 15px rgba(79, 70, 229, 0.3)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+    <!-- --- HEADER HEADER --- -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-slash">//</span> VULCAN <span class="logo-slash">GYM</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#schedule" class="nav-link">Class Schedulers</a>
+                <a href="#membership" class="nav-link">Membership Plans</a>
+                <a href="#trainers" class="nav-link">Trainers</a>
+                <a href="#book" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#book" class="btn btn-primary btn-small">Join Now</a>
+                <div class="mobile-menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO SECTION --- -->
+    <section class="hero-section" id="home">
+        <div class="hero-bg-lines">
+            <div class="hero-bg-line-1"></div>
+            <div class="hero-bg-line-2"></div>
+        </div>
+        <div class="hero-floating-word outline-text">DOMINATE</div>
+        
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-tagline">
+                    <span class="badge-orange">NO EXCUSES</span>
+                    <span class="badge-yellow">ONLY RESULTS</span>
+                </div>
+                <h1 class="hero-title">
+                    PULL. PUSH.<br><span>CONQUER.</span>
+                </h1>
+                <p class="hero-description">
+                    Forge your ultimate physique in our high-octane athletic arena. Combining scientific training methodologies, elite coaches, and state-of-the-art iron to build true functional excellence.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>15K+</h3>
+                        <p>Squats Smashed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>35+</h3>
+                        <p>Elite Rigs & Platforms</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Vicious Dedication</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE RATE CALCULATOR WIDGET -->
+            <div class="calculator-widget">
+                <div class="calc-header">
+                    <h3 class="calc-title">RATE <span>CALCULATOR</span></h3>
+                    <p class="calc-subtitle">Design your terms. View your dynamic rate.</p>
+                </div>
+                
+                <div class="calc-group">
+                    <div class="calc-label">
+                        <span>Duration</span>
+                        <span class="calc-label-val" id="durationVal">3 Months</span>
+                    </div>
+                    <input type="range" class="calc-slider" id="durationSlider" min="1" max="12" value="3">
+                </div>
+
+                <div class="calc-group">
+                    <div class="calc-label">
+                        <span>Membership Level</span>
+                    </div>
+                    <div class="tier-selector">
+                        <div class="tier-pill active" data-tier="basic" data-base="39">Iron</div>
+                        <div class="tier-pill" data-tier="pro" data-base="69">Titanium</div>
+                        <div class="tier-pill" data-tier="elite" data-base="99">Olympian</div>
+                    </div>
+                </div>
+
+                <div class="calc-group">
+                    <div class="calc-label">
+                        <span>Tailor-Made Add-ons</span>
+                    </div>
+                    <div class="addons-list">
+                        <label class="addon-checkbox" id="addonPTLabel">
+                            <input type="checkbox" id="addonPT" value="40">
+                            <span><span class="addon-custom-check">✔</span>Personal Trainer</span>
+                            <span>+$40/mo</span>
+                        </label>
+                        <label class="addon-checkbox" id="addonNutriLabel">
+                            <input type="checkbox" id="addonNutri" value="20">
+                            <span><span class="addon-custom-check">✔</span>Custom Diet Program</span>
+                            <span>+$20/mo</span>
+                        </label>
+                        <label class="addon-checkbox" id="addon247Label">
+                            <input type="checkbox" id="addon247" value="10">
+                            <span><span class="addon-custom-check">✔</span>24/7 Access Fob</span>
+                            <span>+$10/mo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="calc-output">
+                    <div class="calc-output-price" id="calcPrice">$0<span>/mo</span></div>
+                    <div class="calc-output-desc" id="calcDiscountInfo">Standard rate applied</div>
+                </div>
+
+                <a href="#book" class="btn btn-primary calc-submit-btn" id="calcCTA">Lock In This Rate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FEATURE HIGHLIGHTS SECTION --- -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-orange">BORN FOR BATTLE</span>
+                <h2 class="section-title">BUILT TO SHATTER <span>LIMITS</span></h2>
+            </div>
+
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Custom Barbell Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h12M6 21h12M12 3v18M3 7h18M3 17h18" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-h3">ELITE STRENGTH ZONE</h3>
+                    <p class="feature-desc">Unrivaled heavy lifting cages, customized weightlifting platforms, and over 10 tons of competition-certified calibrated iron discs.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Boxing Gloves Silhouette Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="9" width="20" height="12" rx="2" />
+                            <path d="M6 9V5a3 3 0 0 1 6 0v4M18 9V5a3 3 0 0 0-6 0" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-h3">TACTICAL FIGHT CLUB</h3>
+                    <p class="feature-desc">Full-size professional sparring ring with heavy bags and speedballs. Build razor-sharp boxing and combat conditioning skills.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Lightning Bold Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-h3">CARDIO MATRIX ZONE</h3>
+                    <p class="feature-desc">High-tech self-powered curved treadmills, heavy-resistance air bikes, and concept2 rowing machines for maximum metabolic fatigue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- INTERACTIVE WEEKLY CLASS SCHEDULE --- -->
+    <section class="schedule-section" id="schedule">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-yellow">WEEKLY WARFARE</span>
+                <h2 class="section-title">TACTICAL CLASS <span>SCHEDULE</span></h2>
+            </div>
+
+            <!-- Day Selector Pills -->
+            <div class="schedule-tabs-container">
+                <button class="schedule-tab active" data-day="monday">Mon</button>
+                <button class="schedule-tab" data-day="tuesday">Tue</button>
+                <button class="schedule-tab" data-day="wednesday">Wed</button>
+                <button class="schedule-tab" data-day="thursday">Thu</button>
+                <button class="schedule-tab" data-day="friday">Fri</button>
+                <button class="schedule-tab" data-day="saturday">Sat</button>
+                <button class="schedule-tab" data-day="sunday">Sun</button>
+            </div>
+
+            <!-- Schedule Grid Content -->
+            <div class="schedule-grid-container">
+
+                <!-- MONDAY PANE -->
+                <div class="schedule-day-pane active" id="pane-monday">
+                    <!-- Row 1 -->
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            06:00 AM - 07:15 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">ASYLUM SHRED METCON</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">High Intensity</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">JT</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Jax Thorne</span>
+                                <span class="sched-trainer-role">Cardio Lead</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ADVANCED</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Asylum Shred Metcon" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            09:00 AM - 10:15 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">IRON REBEL STRENGTH</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Power & Hypertrophy</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">MS</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Marcus Stone</span>
+                                <span class="sched-trainer-role">Strength Head</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ALL LEVELS</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Iron Rebel Strength" data-tier="Iron">Book Spot</a>
+                        </div>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            06:30 PM - 07:45 PM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">CHAMPIONSHIP HEAVY BAG</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Boxing Technique</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">SP</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Svetlana Petrova</span>
+                                <span class="sched-trainer-role">Combat Coach</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">INTERMEDIATE</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Championship Heavy Bag" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TUESDAY PANE -->
+                <div class="schedule-day-pane" id="pane-tuesday">
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            07:00 AM - 08:15 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">OLYMPIAN BARBELL CLUB</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Olympic Weightlifting</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">MS</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Marcus Stone</span>
+                                <span class="sched-trainer-role">Strength Head</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ADVANCED</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Olympian Barbell Club" data-tier="Olympian">Book Spot</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            05:30 PM - 06:45 PM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">HIGH-VELOCITY BOXING SESSIONS</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Tactical Defense</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">SP</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Svetlana Petrova</span>
+                                <span class="sched-trainer-role">Combat Coach</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ALL LEVELS</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="High-Velocity Boxing Sessions" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEDNESDAY PANE -->
+                <div class="schedule-day-pane" id="pane-wednesday">
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            06:00 AM - 07:15 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">ASYLUM SHRED METCON</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Metabolic Inferno</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">JT</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Jax Thorne</span>
+                                <span class="sched-trainer-role">Cardio Lead</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ADVANCED</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Asylum Shred Metcon" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            06:30 PM - 07:45 PM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">IRON REBEL POWERLIFTING</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Bench / Squat / Deadlift</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">MS</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Marcus Stone</span>
+                                <span class="sched-trainer-role">Strength Head</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ALL LEVELS</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Iron Rebel Powerlifting" data-tier="Iron">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THURSDAY PANE -->
+                <div class="schedule-day-pane" id="pane-thursday">
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            08:00 AM - 09:15 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">SWEAT & VELOCITY</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">VO2 Max Endurance</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">JT</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Jax Thorne</span>
+                                <span class="sched-trainer-role">Cardio Lead</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">INTERMEDIATE</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Sweat & Velocity" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            07:00 PM - 08:15 PM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">TACTICAL GLADIATOR DRILLS</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Prizefighter Sparring</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">SP</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Svetlana Petrova</span>
+                                <span class="sched-trainer-role">Combat Coach</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ADVANCED</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Tactical Gladiator Drills" data-tier="Olympian">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FRIDAY PANE -->
+                <div class="schedule-day-pane" id="pane-friday">
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            06:00 AM - 07:15 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">ASYLUM SHRED METCON</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">HIIT Power</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">JT</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Jax Thorne</span>
+                                <span class="sched-trainer-role">Cardio Lead</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ADVANCED</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Asylum Shred Metcon" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            05:30 PM - 06:45 PM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">OLYMPIAN RIG DOMINANCE</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Advanced Calisthenics & Rings</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">MS</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Marcus Stone</span>
+                                <span class="sched-trainer-role">Strength Head</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ADVANCED</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Olympian Rig Dominance" data-tier="Olympian">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SATURDAY PANE -->
+                <div class="schedule-day-pane" id="pane-saturday">
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            09:00 AM - 10:30 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">BEAST CROSS-MUTATION</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Strongman & Partner WODs</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">ALL</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Team VULCAN</span>
+                                <span class="sched-trainer-role">All Coaches</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ALL LEVELS</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Beast Cross-Mutation" data-tier="Titanium">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUNDAY PANE -->
+                <div class="schedule-day-pane" id="pane-sunday">
+                    <div class="schedule-row">
+                        <div class="sched-time">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            10:00 AM - 11:30 AM
+                        </div>
+                        <div class="sched-class">
+                            <span class="sched-class-name">TACTICAL RESET & MOBILITY</span>
+                            <span class="badge-orange" style="align-self: flex-start; margin-top: 4px;">Myofascial Release & Flow</span>
+                        </div>
+                        <div class="sched-trainer">
+                            <div class="sched-trainer-avatar">MS</div>
+                            <div class="sched-trainer-info">
+                                <span class="sched-trainer-name">Marcus Stone</span>
+                                <span class="sched-trainer-role">Strength Head</span>
+                            </div>
+                        </div>
+                        <div class="sched-intensity">
+                            <span class="badge-yellow">ALL LEVELS</span>
+                        </div>
+                        <div class="sched-action">
+                            <a href="#book" class="btn btn-secondary btn-small sched-book-trigger" data-class="Tactical Reset & Mobility" data-tier="Iron">Book Spot</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MEMBERSHIP PRICING SECTION --- -->
+    <section class="membership-section" id="membership">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-orange">SACRIFICE & REWARD</span>
+                <h2 class="section-title">CHOOSE YOUR <span>CONTRACT</span></h2>
+            </div>
+
+            <div class="membership-grid">
+                <!-- Tier 1 -->
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3 class="price-name">IRON REBELLION</h3>
+                        <div class="price-amount">
+                            <span class="price-currency">$</span>
+                            <span class="price-num">39</span>
+                            <span class="price-period">/mo</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="price-features-list">
+                        <li class="price-feature-item">
+                            <!-- Custom SVG Check -->
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Standard hours access (08:00 - 22:00)
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Full strength locker & amenities
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            2 Guest passes per month
+                        </li>
+                        <li class="price-feature-item disabled">
+                            <!-- Custom SVG Cross -->
+                            <svg class="icon-cross" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            Unlimited 24/7 keycard entry
+                        </li>
+                        <li class="price-feature-item disabled">
+                            <svg class="icon-cross" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            Access to all classes & ring drills
+                        </li>
+                    </ul>
+
+                    <a href="#book" class="btn btn-secondary price-cta select-plan-btn" data-plan="Iron Rebellion" data-price="39">Select Plan</a>
+                </div>
+
+                <!-- Tier 2 (Featured) -->
+                <div class="price-card featured">
+                    <div class="price-header">
+                        <h3 class="price-name">TITANIUM BEAST</h3>
+                        <div class="price-amount">
+                            <span class="price-currency">$</span>
+                            <span class="price-num">69</span>
+                            <span class="price-period">/mo</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="price-features-list">
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Unlimited 24/7 keycard access
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Access to all classes & combat zone
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            5 Guest passes per month
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Quarterly InBody Bio-scan (+$50 val)
+                        </li>
+                        <li class="price-feature-item disabled">
+                            <svg class="icon-cross" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            1-on-1 Dedicated coach (1hr/wk)
+                        </li>
+                    </ul>
+
+                    <a href="#book" class="btn btn-primary price-cta select-plan-btn" data-plan="Titanium Beast" data-price="69">Select Plan</a>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="price-card elite">
+                    <div class="price-header">
+                        <h3 class="price-name" style="color: var(--accent-yellow);">OLYMPIAN SHRED</h3>
+                        <div class="price-amount">
+                            <span class="price-currency">$</span>
+                            <span class="price-num">99</span>
+                            <span class="price-period">/mo</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="price-features-list">
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            24/7 Keycard + Priority locker area
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Unlimited classes & combat drills
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Unlimited guest passes (1 per visit)
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Monthly InBody Bio-scan & Nutrition plan
+                        </li>
+                        <li class="price-feature-item">
+                            <svg class="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            1-on-1 Dedicated coach (1hr/wk)
+                        </li>
+                    </ul>
+
+                    <a href="#book" class="btn btn-secondary price-cta select-plan-btn" data-plan="Olympian Shred" data-price="99">Select Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- TRAINERS SECTION --- -->
+    <section class="trainers-section" id="trainers">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-yellow">COUNCIL OF IRON</span>
+                <h2 class="section-title">ELITE TRAINING <span>COACHES</span></h2>
+            </div>
+
+            <div class="trainers-grid">
+                <!-- Trainer 1 -->
+                <div class="trainer-card">
+                    <div class="trainer-img-wrapper">
+                        <div class="trainer-quote">"Strength is not a choice, it is an unrelenting responsibility."</div>
+                        <div class="trainer-img-overlay"></div>
+                        <!-- Stylized SVG Bodybuilder Athlete Silhouette -->
+                        <svg class="trainer-graphic" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet">
+                            <defs>
+                                <linearGradient id="gradient-marcus" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff5500" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="#121215" stop-opacity="1"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Silhouette -->
+                            <path d="M50,15 C45,15 42,20 42,25 C42,30 45,33 50,33 C55,33 58,30 58,25 C58,20 55,15 50,15 Z M25,45 C28,35 38,32 50,32 C62,32 72,35 75,45 C77,52 75,65 72,85 C70,95 62,100 50,100 C38,100 30,95 28,85 C25,65 23,52 25,45 Z" fill="url(#gradient-marcus)" />
+                            <!-- Abstract glowing barbell behind him -->
+                            <rect x="15" y="48" width="70" height="4" rx="2" fill="#ff5500" opacity="0.6"/>
+                            <circle cx="15" cy="50" r="8" fill="#ff5500" opacity="0.8"/>
+                            <circle cx="85" cy="50" r="8" fill="#ff5500" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Marcus "The Anvil" Stone</h3>
+                        <p class="trainer-specialty">Head of Olympic Strength & Rigs</p>
+                        <div class="trainer-socials">
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainer 2 -->
+                <div class="trainer-card">
+                    <div class="trainer-img-wrapper">
+                        <div class="trainer-quote">"If you're not sweating blood, you're just dancing."</div>
+                        <div class="trainer-img-overlay"></div>
+                        <!-- Stylized SVG Boxing Athlete Silhouette -->
+                        <svg class="trainer-graphic" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet">
+                            <defs>
+                                <linearGradient id="gradient-svetlana" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#ccff00" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="#121215" stop-opacity="1"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M50,12 C44,12 40,17 40,23 C40,29 44,32 50,32 C56,32 60,29 60,23 C60,17 56,12 50,12 Z M30,40 C32,32 40,30 50,30 C60,30 68,32 70,40 C72,48 70,60 67,80 C65,90 58,95 50,95 C42,95 35,90 33,80 C30,60 28,48 30,40 Z" fill="url(#gradient-svetlana)" />
+                            <!-- Glowing fists -->
+                            <circle cx="28" cy="42" r="6" fill="#ccff00" opacity="0.7"/>
+                            <circle cx="72" cy="42" r="6" fill="#ccff00" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Svetlana "Viper" Petrova</h3>
+                        <p class="trainer-specialty">Elite Boxing & Conditioning</p>
+                        <div class="trainer-socials">
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainer 3 -->
+                <div class="trainer-card">
+                    <div class="trainer-img-wrapper">
+                        <div class="trainer-quote">"Pain is just fuel. Fill your tank and burn it."</div>
+                        <div class="trainer-img-overlay"></div>
+                        <!-- Stylized SVG Runner Athlete Silhouette -->
+                        <svg class="trainer-graphic" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet">
+                            <defs>
+                                <linearGradient id="gradient-jax" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff5500" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="#121215" stop-opacity="1"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M48,10 C42,10 38,15 38,21 C38,27 42,30 48,30 C54,30 58,27 58,21 C58,15 54,10 48,10 Z M28,38 C31,30 41,28 48,28 C55,28 65,30 68,38 C70,45 68,60 63,80 C60,90 53,95 45,95 C37,95 31,90 29,80 C24,60 25,45 28,38 Z" fill="url(#gradient-jax)" />
+                            <!-- Abstract running tracks behind -->
+                            <path d="M10,80 L90,80 M20,85 L80,85" stroke="#ff5500" stroke-width="2" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Jax "Volt" Thorne</h3>
+                        <p class="trainer-specialty">Metcon Cardio Specialist</p>
+                        <div class="trainer-socials">
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- HIGH CONVERSION BOOKING FORM --- -->
+    <section class="booking-section" id="book">
+        <div class="booking-bg-outline outline-text">NO LIMITS</div>
+        <div class="container booking-container">
+            <div class="booking-text">
+                <h2>READY TO BECOME <span>UNBREAKABLE?</span></h2>
+                <p>Don't wait for another Monday. Claim your physical evolution today. Fill out our rapid application form, locked with premium dynamic discounts, and our coaches will forge your pathway to victory.</p>
+                
+                <div class="booking-benefits-list">
+                    <!-- Item 1 -->
+                    <div class="booking-benefit-item">
+                        <svg class="booking-benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <div>
+                            <h4 class="booking-benefit-title">Zero Risk Activation</h4>
+                            <p class="booking-benefit-desc">Your first 3 workouts are completely backed by our Iron Guarantee. Love it or walk away.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="booking-benefit-item">
+                        <svg class="booking-benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <div>
+                            <h4 class="booking-benefit-title">Rapid Coach Pairing</h4>
+                            <p class="booking-benefit-desc">We pair you based on your preferred discipline (Strength, Boxing, Cardio, CrossFit) within 12 hours.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="booking-benefit-item">
+                        <svg class="booking-benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div>
+                            <h4 class="booking-benefit-title">Tailor-Made Rates Saved</h4>
+                            <p class="booking-benefit-desc">Calculated duration values from the hero widget are saved automatically when you complete this form.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div class="booking-card">
+                <div id="bookingFormContainer">
+                    <h3 class="form-title">INITIATE PROGRESSION</h3>
+                    <p class="form-subtitle">Lock in your premium membership tier today.</p>
+                    
+                    <form class="booking-form" id="gymRegistrationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Full Name</label>
+                                <input type="text" class="form-input" id="fullName" placeholder="e.g. John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" class="form-input" id="email" placeholder="e.g. john@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" class="form-input" id="phone" placeholder="e.g. +1 234 567 890" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="discipline">Preferred Discipline</label>
+                                <select class="form-input" id="discipline" required>
+                                    <option value="" disabled selected>Select Discipline</option>
+                                    <option value="strength">Heavy Strength & Olympic Rigs</option>
+                                    <option value="boxing">Tactical Fight Club / Boxing</option>
+                                    <option value="cardio">High-Intensity Metcon Cardio</option>
+                                    <option value="crossfit">Cross-Mutation / Strongman</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="membershipTier">Target Membership Tier</label>
+                            <select class="form-input" id="membershipTier" required>
+                                <option value="iron">Iron Rebellion (Basic - $39/mo)</option>
+                                <option value="titanium" selected>Titanium Beast (Pro - $69/mo)</option>
+                                <option value="olympian">Olympian Shred (Elite - $99/mo)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="sessionType">Select Target Class Spot (Optional)</label>
+                            <select class="form-input" id="sessionType">
+                                <option value="general" selected>General Membership (No initial class)</option>
+                                <option value="Asylum Shred Metcon">Asylum Shred Metcon (Jax Thorne)</option>
+                                <option value="Iron Rebel Strength">Iron Rebel Strength (Marcus Stone)</option>
+                                <option value="Championship Heavy Bag">Championship Heavy Bag (Svetlana Petrova)</option>
+                                <option value="Olympian Barbell Club">Olympian Barbell Club (Marcus Stone)</option>
+                                <option value="High-Velocity Boxing Sessions">High-Velocity Boxing Sessions (Svetlana Petrova)</option>
+                                <option value="Iron Rebel Powerlifting">Iron Rebel Powerlifting (Marcus Stone)</option>
+                                <option value="Sweat & Velocity">Sweat & Velocity (Jax Thorne)</option>
+                                <option value="Tactical Gladiator Drills">Tactical Gladiator Drills (Svetlana Petrova)</option>
+                                <option value="Olympian Rig Dominance">Olympian Rig Dominance (Marcus Stone)</option>
+                                <option value="Beast Cross-Mutation">Beast Cross-Mutation (All Coaches)</option>
+                                <option value="Tactical Reset & Mobility">Tactical Reset & Mobility (Marcus Stone)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary booking-submit">SUBMIT REGISTRATION APPLICATION</button>
+                    </form>
+                </div>
+
+                <!-- SUCCESS MESSAGE PANE -->
+                <div class="form-success-card" id="bookingSuccessContainer">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                    </div>
+                    <h3 class="success-title">APPLICATION FILED!</h3>
+                    <p class="success-message" id="successDetailText">Your rate plan has been saved. One of our head coaches will contact you via text within the hour to activate your access key fob.</p>
+                    <button class="btn btn-secondary btn-small" id="successResetBtn">File Another Request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PREMIER DETAILED FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-slash">//</span> VULCAN <span class="logo-slash">GYM</span>
+                    </a>
+                    <p class="footer-desc">A premium athletic performance laboratory. We engineer physical resilience through unyielding iron, tactical conditioning, and expert coaching.</p>
+                    <div class="trainer-socials" style="justify-content: flex-start;">
+                        <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="trainer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div>
+                    <h4 class="footer-title">TACTICAL MAP</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home Base</a></li>
+                        <li><a href="#features">Iron Features</a></li>
+                        <li><a href="#schedule">Class Schedulers</a></li>
+                        <li><a href="#membership">Membership Pricing</a></li>
+                        <li><a href="#trainers">Coaching Council</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact details -->
+                <div>
+                    <h4 class="footer-title">HQ COMMUNICATOR</h4>
+                    <div class="footer-contact-item">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span>800 Titanium Way, Sector 4,<br>Powerhouse District, NY 10013</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <span>HQ Direct: +1 (800) 555-IRON</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span>recruit@vulcanathletics.com</span>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h4 class="footer-title">MUTATION HOURS</h4>
+                    <ul class="footer-hours-list">
+                        <li class="footer-hour-row">
+                            <span class="footer-hour-day">Mon - Fri</span>
+                            <span class="footer-hour-time">24 Hours Access</span>
+                        </li>
+                        <li class="footer-hour-row">
+                            <span class="footer-hour-day">Saturday</span>
+                            <span class="footer-hour-time">05:00 AM - 10:00 PM</span>
+                        </li>
+                        <li class="footer-hour-row">
+                            <span class="footer-hour-day">Sunday</span>
+                            <span class="footer-hour-time">06:00 AM - 08:00 PM</span>
+                        </li>
+                        <li class="footer-hour-row">
+                            <span class="footer-hour-day">Coaches Present</span>
+                            <span class="footer-hour-time">06:00 AM - 09:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Area -->
+            <div class="footer-bottom">
+                <span class="copyright-text">© 2026 VULCAN GYM INC. ALL RIGHTS RESERVED. FORGED BY MASTER FRONT-END DEVELOPERS.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Protocol</a>
+                    <a href="#">Terms of War</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- JAVASCRIPT FUNCTIONALITY --- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            /* ==========================================================================
+               1. HEADER TRANSITION ON SCROLL & SCROLL SPY
+               ========================================================================== */
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            /* ==========================================================================
+               2. MOBILE MENU HAMBURGER INTERACTION
+               ========================================================================== */
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navLinkItems = document.querySelectorAll('.nav-link');
+
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navLinkItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            /* ==========================================================================
+               3. INTERACTIVE MEMBERSHIP RATE CALCULATOR
+               ========================================================================== */
+            const durationSlider = document.getElementById('durationSlider');
+            const durationVal = document.getElementById('durationVal');
+            const tierPills = document.querySelectorAll('.tier-pill');
+            const calcPrice = document.getElementById('calcPrice');
+            const calcDiscountInfo = document.getElementById('calcDiscountInfo');
+            const addonPT = document.getElementById('addonPT');
+            const addonNutri = document.getElementById('addonNutri');
+            const addon247 = document.getElementById('addon247');
+            const addonPTLabel = document.getElementById('addonPTLabel');
+            const addonNutriLabel = document.getElementById('addonNutriLabel');
+            const addon247Label = document.getElementById('addon247Label');
+            const calcCTA = document.getElementById('calcCTA');
+            const membershipSelectDropdown = document.getElementById('membershipTier');
+
+            let activeBasePrice = 39; // default 'Iron' base
+            let activeTierName = 'Iron';
+
+            // Addon dynamic active state styling toggles
+            function toggleAddonClass(checkbox, label) {
+                if (checkbox.checked) {
+                    label.classList.add('active');
+                } else {
+                    label.classList.remove('active');
+                }
+            }
+
+            addonPT.addEventListener('change', () => toggleAddonClass(addonPT, addonPTLabel));
+            addonNutri.addEventListener('change', () => toggleAddonClass(addonNutri, addonNutriLabel));
+            addon247.addEventListener('change', () => toggleAddonClass(addon247, addon247Label));
+
+            function updateRate() {
+                const months = parseInt(durationSlider.value);
+                durationVal.innerText = `${months} ${months === 1 ? 'Month' : 'Months'}`;
+
+                // Calculate base duration discount
+                let discountPercent = 0;
+                if (months >= 3 && months < 6) {
+                    discountPercent = 5; // 5% discount
+                } else if (months >= 6 && months < 12) {
+                    discountPercent = 10; // 10% discount
+                } else if (months === 12) {
+                    discountPercent = 20; // 20% massive annual loyalty discount!
+                }
+
+                // Addons pricing summation
+                let addonsTotal = 0;
+                if (addonPT.checked) addonsTotal += parseFloat(addonPT.value);
+                if (addonNutri.checked) addonsTotal += parseFloat(addonNutri.value);
+                if (addon247.checked) addonsTotal += parseFloat(addon247.value);
+
+                // Perform calculation
+                const discountedBase = activeBasePrice * (1 - (discountPercent / 100));
+                const finalMonthlyRate = Math.round(discountedBase + addonsTotal);
+
+                // Update DOM
+                calcPrice.innerHTML = `$${finalMonthlyRate}<span>/mo</span>`;
+                
+                if (discountPercent > 0) {
+                    calcDiscountInfo.innerHTML = `<span style="color: var(--accent-yellow); font-weight: 800;">${discountPercent}% OFF</span> duration contract lock-in applied!`;
+                } else {
+                    calcDiscountInfo.innerHTML = "Standard monthly contract rate applies";
+                }
+            }
+
+            // Tier selection click handler
+            tierPills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    tierPills.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    activeBasePrice = parseFloat(this.getAttribute('data-base'));
+                    activeTierName = this.innerText;
+                    
+                    // Auto match the booking form select dropdown as user changes calculator!
+                    const tierKey = this.getAttribute('data-tier');
+                    membershipSelectDropdown.value = tierKey;
+                    
+                    updateRate();
+                });
+            });
+
+            // Slider drag change updates
+            durationSlider.addEventListener('input', updateRate);
+            addonPT.addEventListener('change', updateRate);
+            addonNutri.addEventListener('change', updateRate);
+            addon247.addEventListener('change', updateRate);
+
+            // Sync booking form select with calculator tiers
+            membershipSelectDropdown.addEventListener('change', function() {
+                const selectedVal = this.value;
+                tierPills.forEach(p => {
+                    p.classList.remove('active');
+                    if (p.getAttribute('data-tier') === selectedVal) {
+                        p.classList.add('active');
+                        activeBasePrice = parseFloat(p.getAttribute('data-base'));
+                        activeTierName = p.innerText;
+                    }
+                });
+                updateRate();
+            });
+
+            // Init call
+            updateRate();
+
+            // Set CTA behavior to scroll to booking card & print calculations in select
+            calcCTA.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#book').scrollIntoView({ behavior: 'smooth' });
+                // Make visual indicator glow in the form
+                const targetInput = document.getElementById('membershipTier');
+                targetInput.focus();
+                targetInput.style.borderColor = 'var(--accent-yellow)';
+                setTimeout(() => {
+                    targetInput.style.borderColor = 'var(--border-color)';
+                }, 2000);
+            });
+
+            /* ==========================================================================
+               4. INTERACTIVE WEEKLY CLASS SCHEDULE TABLE DAY-PILL FILTERING
+               ========================================================================== */
+            const scheduleTabs = document.querySelectorAll('.schedule-tab');
+            const dayPanes = document.querySelectorAll('.schedule-day-pane');
+
+            scheduleTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetDay = this.getAttribute('data-day');
+
+                    // Set active tab styling
+                    scheduleTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Filter panes
+                    dayPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        if (pane.id === `pane-${targetDay}`) {
+                            pane.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Schedule Row "Book Spot" click handlers
+            const scheduleBookTriggers = document.querySelectorAll('.sched-book-trigger');
+            const sessionSelectDropdown = document.getElementById('sessionType');
+
+            scheduleBookTriggers.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const className = this.getAttribute('data-class');
+                    const classTier = this.getAttribute('data-tier');
+
+                    // Pre-select matching class name in booking dropdown
+                    sessionSelectDropdown.value = className;
+
+                    // Automatically pre-select class Tier
+                    if (classTier === 'Iron') {
+                        membershipSelectDropdown.value = 'iron';
+                    } else if (classTier === 'Titanium') {
+                        membershipSelectDropdown.value = 'titanium';
+                    } else if (classTier === 'Olympian') {
+                        membershipSelectDropdown.value = 'olympian';
+                    }
+                    
+                    // Sync calculator pills to reflect
+                    tierPills.forEach(p => {
+                        p.classList.remove('active');
+                        if (p.getAttribute('data-tier') === membershipSelectDropdown.value) {
+                            p.classList.add('active');
+                            activeBasePrice = parseFloat(p.getAttribute('data-base'));
+                            activeTierName = p.innerText;
+                        }
+                    });
+                    
+                    updateRate();
+
+                    // Scroll to form smooth
+                    document.querySelector('#book').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Flash focus indicator on class selector
+                    sessionSelectDropdown.focus();
+                    sessionSelectDropdown.style.borderColor = 'var(--accent-orange)';
+                    setTimeout(() => {
+                        sessionSelectDropdown.style.borderColor = 'var(--border-color)';
+                    }, 2000);
+                });
+            });
+
+            /* ==========================================================================
+               5. MEMBERSHIP PRICING CARDS - PLAN SELECT BUTTON COUPLING
+               ========================================================================== */
+            const selectPlanBtns = document.querySelectorAll('.select-plan-btn');
+
+            selectPlanBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const planName = this.getAttribute('data-plan');
+                    
+                    if (planName === 'Iron Rebellion') {
+                        membershipSelectDropdown.value = 'iron';
+                    } else if (planName === 'Titanium Beast') {
+                        membershipSelectDropdown.value = 'titanium';
+                    } else if (planName === 'Olympian Shred') {
+                        membershipSelectDropdown.value = 'olympian';
+                    }
+
+                    // Sync the calculator too
+                    tierPills.forEach(p => {
+                        p.classList.remove('active');
+                        if (p.getAttribute('data-tier') === membershipSelectDropdown.value) {
+                            p.classList.add('active');
+                            activeBasePrice = parseFloat(p.getAttribute('data-base'));
+                            activeTierName = p.innerText;
+                        }
+                    });
+                    
+                    updateRate();
+
+                    document.querySelector('#book').scrollIntoView({ behavior: 'smooth' });
+                    membershipSelectDropdown.focus();
+                });
+            });
+
+            /* ==========================================================================
+               6. HIGH-CONVERSION BOOKING FORM HANDLER & SUCCESS CARD
+               ========================================================================== */
+            const gymForm = document.getElementById('gymRegistrationForm');
+            const bookingFormContainer = document.getElementById('bookingFormContainer');
+            const bookingSuccessContainer = document.getElementById('bookingSuccessContainer');
+            const successDetailText = document.getElementById('successDetailText');
+            const successResetBtn = document.getElementById('successResetBtn');
+
+            gymForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Fetch form data elements
+                const userFullName = document.getElementById('fullName').value;
+                const userEmail = document.getElementById('email').value;
+                const userTierSelect = document.getElementById('membershipTier');
+                const userTierLabel = userTierSelect.options[userTierSelect.selectedIndex].text;
+                const userClassSelect = document.getElementById('sessionType');
+                const userClassLabel = userClassSelect.options[userClassSelect.selectedIndex].text;
+
+                // Capture duration and total calculation rates
+                const monthsContract = durationSlider.value;
+                const calculatedFinalRate = calcPrice.innerText.split('/')[0]; // grab the calculated price e.g. $59
+
+                // Personalize the success message with neon rate guarantees!
+                successDetailText.innerHTML = `
+                    Hail, <strong>${userFullName}</strong>! Your application for the <strong>${userTierLabel}</strong> is registered.<br><br>
+                    <strong>LOCKED RATE RATE:</strong> ${calculatedFinalRate}/mo for a <strong>${monthsContract}-month</strong> duration lock.<br>
+                    <strong>SPOT HELD:</strong> ${userClassLabel === 'General Membership (No initial class)' ? 'General Open Facility Access' : userClassLabel}.<br><br>
+                    Head Coach Marcus will contact you at <strong>${userEmail}</strong> within 12 hours with your barcode access details. Get ready to conquer.
+                `;
+
+                // Fade-out/Fade-in transition to success state
+                bookingFormContainer.style.display = 'none';
+                bookingSuccessContainer.style.display = 'flex';
+            });
+
+            // Reset form behavior to register another applicant
+            successResetBtn.addEventListener('click', function() {
+                gymForm.reset();
+                bookingSuccessContainer.style.display = 'none';
+                bookingFormContainer.style.display = 'block';
+                updateRate(); // restore standard values
+            });
+        });
+    </script>
+
+  <!-- Related Templates -->
+  <section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:3rem 0;margin-top:2rem">
+    <div style="max-width:900px;margin:0 auto;padding:0 2rem">
+      <h2 style="font-size:1.25rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;font-family:sans-serif">Related Free Templates</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="/templates/fitness-yoga" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">fitness</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Oslo Yoga Studio</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+    <a href="/templates/medical-health-clinic" style="display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;margin-bottom:.25rem">fitness</div>
+        <div style="font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.25rem">Vienna Private Clinic</div>
+        <div style="font-size:.8rem;color:#64748b">Free HTML Template →</div>
+      </div>
+    </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/" style="display:inline-flex;align-items:center;gap:.5rem;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:.75rem 1.75rem;border-radius:100px;text-decoration:none;font-family:sans-serif">Browse All 26 Free Templates →</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
