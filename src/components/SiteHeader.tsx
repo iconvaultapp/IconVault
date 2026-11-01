@@ -102,20 +102,20 @@ export const SiteHeader = () => {
 
   return (
     <header className="sticky top-3 z-[100] mx-auto mt-4 w-full max-w-[1440px] px-4 sm:px-6">
-      <div className="flex items-center gap-4 rounded-full bg-white/90 px-5 py-2.5 shadow-[0_10px_40px_rgb(0_0_0/0.08)] ring-1 ring-black/[0.04] backdrop-blur-xl">
+      <div className="flex items-center gap-3 rounded-full bg-white/90 px-4 py-2.5 shadow-[0_10px_40px_rgb(0_0_0/0.08)] ring-1 ring-black/[0.04] backdrop-blur-xl">
           <Brand />
-          <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-0 xl:flex">
             {primaryLinks.slice(0, 3).map((link) =>
               link.path === "/app" ? (
                 <div
                   key={link.path}
-                  className="relative"
+                  className="relative shrink-0"
                   onMouseEnter={() => setOpenMenu("Browse")}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
                   <Link
                     to={link.path}
-                    className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    className="focus-ring inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] 2xl:text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     activeProps={{ className: "text-foreground bg-muted" }}
                   >
                     {link.label}
@@ -151,14 +151,14 @@ export const SiteHeader = () => {
               ) : link.path === "/ui-components" ? (
                 <div
                   key={link.path}
-                  className="relative"
+                  className="relative shrink-0"
                   onMouseEnter={() => setOpenMenu("UIComponents")}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
                   <Link
                     to={link.path}
                     search={{ open: undefined }}
-                    className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    className="focus-ring inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] 2xl:text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     activeProps={{ className: "text-foreground bg-muted" }}
                   >
                     {link.label}
@@ -196,7 +196,7 @@ export const SiteHeader = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="focus-ring shrink-0 whitespace-nowrap rounded-full px-2 py-2 text-[13px] 2xl:text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   activeProps={{ className: "text-foreground bg-muted" }}
                 >
                   {link.label}
@@ -208,13 +208,13 @@ export const SiteHeader = () => {
                 like every other menu item now: plain text + chevron, no teal
                 pill. Its mega-menu dropdown is unchanged. */}
             <div
-              className="relative"
+              className="relative shrink-0"
               onMouseEnter={() => setOpenMenu("Tools")}
               onMouseLeave={() => setOpenMenu(null)}
             >
               <Link
                 to="/tools"
-                className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="focus-ring inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] 2xl:text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 activeProps={{ className: "text-foreground bg-muted" }}
               >
                 Tools
@@ -254,7 +254,7 @@ export const SiteHeader = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="focus-ring rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="focus-ring shrink-0 whitespace-nowrap rounded-full px-2 py-2 text-[13px] 2xl:text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 activeProps={{ className: "text-foreground bg-muted" }}
               >
                 {link.label}
@@ -262,11 +262,11 @@ export const SiteHeader = () => {
             ))}
 
             <div
-              className="relative"
+              className="relative shrink-0"
               onMouseEnter={() => setOpenMenu("Developers")}
               onMouseLeave={() => setOpenMenu(null)}
             >
-              <button className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+              <button className="focus-ring inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] 2xl:text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
                 Developers
                 <ChevronDown
                   className={cn(
@@ -306,7 +306,7 @@ export const SiteHeader = () => {
           {!hideOpenApp && (
             <Link
               to="/app"
-              className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
+              className="focus-ring hidden shrink-0 whitespace-nowrap rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
             >
               Open App
             </Link>

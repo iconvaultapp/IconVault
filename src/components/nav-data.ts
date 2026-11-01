@@ -58,7 +58,7 @@ export const navSections: NavSection[] = [
       { icon: Upload, label: "Upload Custom Icons", path: "/upload", desc: "Bring your own SVGs" },
       { icon: Code2, label: "Export Design Tokens", path: "/design-tokens", desc: "CSS, JSON, Tailwind" },
       { icon: ImageIcon, label: "Illustrations", path: "/illustrations", desc: "386 free SVG illustrations" },
-      { icon: LayoutTemplate, label: "Templates", path: "/templates", desc: "36 website templates, 30 free" },
+      { icon: LayoutTemplate, label: "Templates", path: "/templates", desc: "35 website templates, 29 free" },
       { icon: Sparkles, label: "Animated Icons", path: "/animated-icons", desc: "625 animated icons, 613 free" },
       { icon: Users, label: "Community Showcase", path: "/showcase", desc: "Projects built with IconVault" },
       { icon: Palette, label: "Original Collections", path: "/original", desc: "60 original AI, Diwali & Desi icons" },

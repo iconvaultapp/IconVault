@@ -167,7 +167,6 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/mockups", changefreq: "weekly", priority: "0.8" },
   { path: "/templates/3d-aurelis", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/adminlte-dashboard", changefreq: "monthly", priority: "0.6" },
-  { path: "/templates/hugo-papermod", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/jaks-agency-digital", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/jaks-agency-marketing-hub", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/jaks-agriculture-plant-scan", changefreq: "monthly", priority: "0.6" },

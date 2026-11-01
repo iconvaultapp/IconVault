@@ -6,7 +6,7 @@
 // and nothing here costs a render-blocking download.
 //
 // HONEST COUNTS ONLY: a count is shown only when it comes from a verified
-// data file. Templates (36) and animated icons (625) come from the v55
+// data file. Templates (35) and animated icons (625) come from the v55
 // data files; original collections come from ORIGINAL_COLLECTIONS below
 // (AI Tools 20, Diwali 20, Desi UI 20, total 60). There is NO Holi
 // collection in the v55 data, so none is claimed here. Mockup counts

@@ -62,10 +62,9 @@ function Page() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((t) => (
             <article key={t.slug} className="flex flex-col rounded-2xl border border-border bg-card p-5">
-              {/* v58: real preview image per card (author screenshot for
-                  hugo-papermod, headless screenshot of the entry page for
-                  the other 33) — NOT a scaled live iframe (34 full pages
-                  in one grid would be heavy) and not a restyled blank area. */}
+              {/* v58: real preview image per card (headless screenshot of the entry page)
+                  — NOT a scaled live iframe (35 full pages in one grid would be heavy)
+                  and not a restyled blank area. */}
               <img
                 src={t.preview}
                 alt={`Preview of the ${t.title} template`}
@@ -84,9 +83,7 @@ function Page() {
                 {t.source} · {t.license} · {t.category}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                {t.type.startsWith("hugo-theme")
-                  ? "Hugo theme download — not a static preview."
-                  : `${t.files.length} file${t.files.length === 1 ? "" : "s"} · live preview on the detail page.`}
+                {`${t.files.length} file${t.files.length === 1 ? "" : "s"} · live preview on the detail page.`}
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <Link
@@ -94,7 +91,7 @@ function Page() {
                   params={{ slug: t.slug }}
                   className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
                 >
-                  {t.type.startsWith("hugo-theme") ? "View download" : "Preview"}
+                  Preview
                 </Link>
                 <PremiumGate premium={t.premium} label={t.title}>
                   <ZipDownloadButton slug={t.slug} files={t.files} basePath="/template-files" label="Download .zip" />
@@ -117,8 +114,7 @@ function Page() {
             StartBootstrap agency template&apos;s contact form uses StartBootstrap&apos;s SB Forms
             service (form submissions go to the original author&apos;s service, not IconVault).
             AdminLTE is a curated 2-page subset — its omitted demo-page links were de-linked in the
-            served copy so they do not 404. PaperMod is a Hugo theme, so it is a download, not a
-            preview. JAKS.dev templates had the author&apos;s Google Analytics snippet removed and
+            served copy so they do not 404. JAKS.dev templates had the author&apos;s Google Analytics snippet removed and
             their canonical links to the original site dropped in the served copy.
           </p>
         </section>

@@ -23,7 +23,7 @@ export const UserMenu = ({ compact = false }: { compact?: boolean }) => {
     return (
       <Link
         to="/auth"
-        className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium transition-all hover:border-primary/40 hover:text-primary"
+        className="focus-ring inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium transition-all hover:border-primary/40 hover:text-primary"
       >
         <LogIn className="h-4 w-4" />
         {compact ? "" : "Sign in"}

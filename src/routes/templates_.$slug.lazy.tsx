@@ -29,9 +29,8 @@ function Page() {
     );
   }
 
-  const isHugo = t.type.startsWith("hugo-theme");
   const isAdminLte = t.slug === "adminlte-dashboard";
-  // Long file lists (Papermod has 123) collapse to the first 12 + a toggle,
+  // Long file lists (startbootstrap-agency has 26) collapse to the first 12 + a toggle,
   // so the detail page is not a wall of filenames after the preview.
   const visibleFiles = showAllFiles || t.files.length <= 12 ? t.files : t.files.slice(0, 12);
   // Preview policy (audit G4, recorded explicitly): the live iframe preview
@@ -61,16 +60,6 @@ function Page() {
           <p className="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">{t.note}</p>
         )}
 
-        {isHugo ? (
-          <section className="rounded-2xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold">Hugo theme download</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              PaperMod is a Hugo theme, not a static page, so there is no live preview here. Download
-              the theme folder below, drop it into your Hugo site&apos;s <code>themes/</code> folder,
-              and follow the theme&apos;s own setup docs to render it with Hugo.
-            </p>
-          </section>
-        ) : (
           <section className="overflow-hidden rounded-2xl border border-border bg-card">
             <iframe
               title={`${t.title} preview`}
@@ -90,24 +79,21 @@ function Page() {
               )}
             </p>
           </section>
-        )}
 
         <section className="flex flex-wrap items-center gap-3">
           <PremiumGate premium={t.premium} label={t.title}>
             <ZipDownloadButton slug={t.slug} files={t.files} basePath="/template-files" />
           </PremiumGate>
-          {!isHugo && (
-            <PremiumGate premium={t.premium} label={t.title}>
-              <a
-                href={`/template-files/${t.slug}/${t.entry}`}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
-              >
-                Open full preview
-              </a>
-            </PremiumGate>
-          )}
+          <PremiumGate premium={t.premium} label={t.title}>
+            <a
+              href={`/template-files/${t.slug}/${t.entry}`}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
+            >
+              Open full preview
+            </a>
+          </PremiumGate>
           {isAdminLte && (
             <PremiumGate premium={t.premium} label={t.title}>
               <a
