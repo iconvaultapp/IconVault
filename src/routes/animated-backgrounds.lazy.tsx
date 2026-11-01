@@ -157,11 +157,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Animated backgrounds"
       title="Animated backgrounds demo"
       description="Three live Vanta effects, waves, birds and fog, in the site theme. A demo only: these effects do not run on the homepage, tool pages or icon pages."
     >
-      <div className="mx-auto max-w-5xl space-y-6">
+      <div className="w-full space-y-6">
         <GsapMotion>
           <p className="leading-relaxed text-muted-foreground">
             Pick an effect below. three.js and the effect code load only on this page, only

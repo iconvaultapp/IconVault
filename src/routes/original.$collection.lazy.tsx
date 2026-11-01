@@ -26,7 +26,7 @@ function Page() {
 
   if (!coll) {
     return (
-      <PageShell eyebrow="Original collections" title="Collection not found" description="This collection does not exist.">
+      <PageShell fluid eyebrow="Original collections" title="Collection not found" description="This collection does not exist.">
         <p className="text-sm text-muted-foreground">
           <Link to="/original" className="font-medium text-primary hover:underline">
             Browse all original collections
@@ -50,11 +50,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Original collection"
       title={coll.title}
       description={`${coll.description} ${coll.icons.length} icons. Free to browse; downloads need a free account.`}
     >
-      <div className="mx-auto max-w-6xl space-y-6">
+      <div className="w-full space-y-6">
         <Link to="/original" className="text-sm font-medium text-primary hover:underline">
           ← All original collections
         </Link>

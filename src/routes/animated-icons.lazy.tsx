@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import PageShell from "@/components/PageShell";
@@ -23,7 +23,10 @@ const PACK_LABELS: Record<string, string> = {
 function Page() {
   const [query, setQuery] = useState("");
   const [pack, setPack] = useState("all");
-  const [page, setPage] = useState(0);
+  // v59 infinite scroll: visibleCount starts at one page (60) and grows
+  // by 60 each time the sentinel scrolls into view, capped at the
+  // filtered total. Filter/search changes reset it to 60.
+  const [visibleCount, setVisibleCount] = useState(60);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -34,17 +37,40 @@ function Page() {
     });
   }, [query, pack]);
 
-  const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const safePage = Math.min(page, pageCount - 1);
-  const visible = filtered.slice(safePage * PAGE_SIZE, safePage * PAGE_SIZE + PAGE_SIZE);
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
+  // Sentinel pattern reused from BrowsePage: a callback ref so the
+  // observer always tracks the CURRENT sentinel node (a plain ref +
+  // effect can go stale when React swaps the node during re-renders).
+  const totalRef = useRef(0);
+  totalRef.current = filtered.length;
+  const sentinelObserver = useRef<IntersectionObserver | null>(null);
+  const sentinelRef = useCallback((el: HTMLDivElement | null) => {
+    sentinelObserver.current?.disconnect();
+    sentinelObserver.current = null;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisibleCount((n) => (n < totalRef.current ? Math.min(n + PAGE_SIZE, totalRef.current) : n));
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(el);
+    sentinelObserver.current = io;
+  }, []);
+  useEffect(() => () => sentinelObserver.current?.disconnect(), []);
 
   return (
     <PageShell
+      fluid
       eyebrow="Animated icons"
       title="Free animated icons"
       description={`${ANIMATED_TOTAL} free MIT-licensed animated icons. Everything previews live here; downloads are free except ${ANIMATED_PREMIUM} curated Meteocons Pro picks. "Pro pick" means a curated favourite — never exclusive content.`}
     >
-      <div className="mx-auto max-w-6xl space-y-6">
+      <div className="w-full space-y-6">
         <section className="rounded-2xl border border-border bg-card p-5">
           <h2 className="text-base font-semibold">Already in the IconVault library</h2>
           <p className="mt-1 text-sm text-muted-foreground">
@@ -75,7 +101,7 @@ function Page() {
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
-                setPage(0);
+                setVisibleCount(60);
               }}
               placeholder="Search animated icons…"
               className="w-full rounded-full border border-border bg-card py-2.5 pl-9 pr-4 text-sm outline-none focus:ring-2 focus:ring-primary"
@@ -85,7 +111,7 @@ function Page() {
             value={pack}
             onChange={(e) => {
               setPack(e.target.value);
-              setPage(0);
+              setVisibleCount(60);
             }}
             className="rounded-full border border-border bg-card px-4 py-2.5 text-sm"
             aria-label="Filter by pack"
@@ -100,7 +126,7 @@ function Page() {
         </div>
 
         <p className="text-sm text-muted-foreground">
-          Showing {visible.length} of {filtered.length} icons (page {safePage + 1} of {pageCount})
+          Showing {visible.length} of {filtered.length} icons
         </p>
 
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
@@ -111,7 +137,7 @@ function Page() {
               params={{ slug: a.slug }}
               className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 text-center hover:border-primary"
             >
-              <AnimatedPreview item={a} size={56} />
+              <AnimatedPreview item={a} size={76} interactive={false} />
               <span className="text-xs font-medium leading-tight">{a.title}</span>
               <span className="text-[11px] text-muted-foreground">
                 {a.packName} · {a.format}
@@ -128,27 +154,20 @@ function Page() {
           </p>
         )}
 
-        <div className="flex items-center justify-center gap-3">
-          <button
-            type="button"
-            disabled={safePage === 0}
-            onClick={() => setPage(safePage - 1)}
-            className="rounded-full border border-border px-4 py-2 text-sm font-medium disabled:opacity-40"
-          >
-            ← Previous
-          </button>
-          <span className="text-sm text-muted-foreground">
-            Page {safePage + 1} of {pageCount}
-          </span>
-          <button
-            type="button"
-            disabled={safePage >= pageCount - 1}
-            onClick={() => setPage(safePage + 1)}
-            className="rounded-full border border-border px-4 py-2 text-sm font-medium disabled:opacity-40"
-          >
-            Next →
-          </button>
-        </div>
+        {/* v59 infinite-scroll sentinel: when it scrolls near the viewport
+            the next 60 icons append. The sentinel stays mounted while
+            more icons remain, so scrolling never dead-ends; the loading
+            line below it holds layout steady (no jumps). */}
+        {hasMore && (
+          <div ref={sentinelRef} className="py-2 text-center text-sm text-muted-foreground" aria-live="polite">
+            Loading more icons…
+          </div>
+        )}
+        {!hasMore && filtered.length > 0 && (
+          <p className="py-2 text-center text-sm text-muted-foreground">
+            Showing all {filtered.length} icons.
+          </p>
+        )}
 
         <section className="rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
           <h2 className="text-base font-semibold text-foreground">Notes on this gallery</h2>

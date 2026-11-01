@@ -24,11 +24,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Wallpapers"
       title="Original wallpapers"
       description={`${WALLPAPERS_TOTAL} original wallpapers, made in code in the IconVault theme. Preview free. Downloads need a free account.`}
     >
-      <div className="mx-auto max-w-6xl space-y-6">
+      <div className="w-full space-y-6">
         <div className="flex flex-col gap-3 sm:flex-row">
           <label className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

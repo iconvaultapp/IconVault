@@ -48,6 +48,11 @@ const StyleChips = lazy(() => import("@/components/home/StyleChips"));
 // below it: the cards carry no images, only Lucide icons, and the section
 // sits below the fold, so it stays out of the entry chunk.
 const V56Home = lazy(() => import("@/components/home/V56Home"));
+// v59: live animated-icons showcase strip, directly after V56Home.
+// Lazy like V56Home: it imports the 294KB animated-icons data file, but
+// the homepage already pays that cost via V56Home's ANIMATED_TOTAL, and
+// the section sits below the fold. Never import the gallery route file.
+const AnimatedIconsHome = lazy(() => import("@/components/home/AnimatedIconsHome"));
 const ToolsTeaser = lazy(() => import("@/components/home/ToolsTeaser"));
 const MarqueeBand = lazy(() => import("@/components/home/MarqueeBand"));
 const CodeShowcaseCard = lazy(() => import("@/components/home/CodeShowcaseCard"));
@@ -385,6 +390,13 @@ function Landing() {
         <Suspense fallback={null}>
           <div className="cv-auto">
             <V56Home />
+          </div>
+        </Suspense>
+
+        {/* v59: live animated-icons showcase strip (real previews, not a link card) */}
+        <Suspense fallback={null}>
+          <div className="cv-auto">
+            <AnimatedIconsHome />
           </div>
         </Suspense>
 

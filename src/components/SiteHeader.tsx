@@ -11,6 +11,14 @@ const primaryLinks = [
   { label: "Illustrations", path: "/illustrations" },
   { label: "UI Components", path: "/ui-components" },
   { label: "Collections", path: "/collections" },
+  // v59: Animated Icons sits immediately after Collections (addition
+  // only — Collections and every other item stay). Desktop order is
+  // Browse icons, Illustrations, UI Components, [Tools], Collections,
+  // Animated Icons, Pricing, [Developers]; the mobile panel picks it up
+  // automatically via primaryLinks.map below. Active state needs no
+  // override: TanStack Link defaults to fuzzy matching (exact: false),
+  // so /animated-icons/<slug> detail pages highlight the tab too.
+  { label: "Animated Icons", path: "/animated-icons" },
   { label: "Pricing", path: "/pro" },
 ];
 // Blog + Changelog as Developers-tab submenu items (Sameer 2026-10-26),

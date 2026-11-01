@@ -15,7 +15,7 @@ function Page() {
 
   if (!t) {
     return (
-      <PageShell eyebrow="Templates" title="Template not found" description="This template does not exist in the gallery.">
+      <PageShell fluid eyebrow="Templates" title="Template not found" description="This template does not exist in the gallery.">
         <p className="text-sm text-muted-foreground">
           <Link to="/templates" className="font-medium text-primary hover:underline">
             Browse all templates
@@ -30,11 +30,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Template"
       title={t.title}
       description={`${t.source} · ${t.license} licensed · ${t.category} · ${t.files.length} file${t.files.length === 1 ? "" : "s"}`}
     >
-      <div className="mx-auto max-w-6xl space-y-6">
+      <div className="w-full space-y-6">
         <div className="flex flex-wrap items-center gap-3">
           {t.premium && <ProPickBadge />}
           <span className="text-sm text-muted-foreground">{t.source}</span>

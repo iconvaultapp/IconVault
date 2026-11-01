@@ -149,11 +149,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Customizer"
       title="Icon customizer"
       description="Pick any icon from the library, change its color, size and stroke width, and share it. Previews and share links are free for everyone; file downloads need a free account."
     >
-      <div className="mx-auto max-w-6xl grid gap-6 lg:grid-cols-[1fr_340px]">
+      <div className="w-full grid gap-6 lg:grid-cols-[1fr_340px]">
         <section className="space-y-4">
           <label className="relative block">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

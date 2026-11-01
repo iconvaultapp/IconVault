@@ -14,6 +14,11 @@ interface PageShellProps {
   wide?: boolean;
   /** Wide content for /tools pages: capped at 1440px, comfortable side gaps. */
   fullWidth?: boolean;
+  /** v59 fluid: NO max-w-* cap at all — content goes edge-to-edge.
+      Unlike fullWidth (still capped at 1440px, used by other pages),
+      fluid is only for the 8 v59 sections. Site chrome (header pill,
+      footer) deliberately stays at 1440px — content only goes full width. */
+  fluid?: boolean;
   /** Compact hero on mobile only (tighter spacing, slightly smaller title).
       Used by ToolPageShell so all 578 tool pages share one mobile hero. */
   compactHero?: boolean;
@@ -28,6 +33,7 @@ export const PageShell = ({
   children,
   wide = false,
   fullWidth = false,
+  fluid = false,
   compactHero = false,
 }: PageShellProps) => (
   <div className="flex min-h-screen flex-col bg-background">
@@ -39,12 +45,14 @@ export const PageShell = ({
         <div className="pointer-events-none absolute -left-20 bottom-[-6rem] h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
         <div
           className={cn(
-            fullWidth
-              ? "relative mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-12 text-center sm:px-6 sm:py-14"
-              : cn(
-                  "relative mx-auto grid gap-6 px-5 py-14 sm:py-16 lg:px-8",
-                  wide ? "max-w-7xl" : "max-w-5xl",
-                ),
+            fluid
+              ? "relative grid w-full gap-6 px-4 py-12 text-center sm:px-6 sm:py-14"
+              : fullWidth
+                ? "relative mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-12 text-center sm:px-6 sm:py-14"
+                : cn(
+                    "relative mx-auto grid gap-6 px-5 py-14 sm:py-16 lg:px-8",
+                    wide ? "max-w-7xl" : "max-w-5xl",
+                  ),
             compactHero && "gap-4 py-8 sm:gap-6 sm:py-14",
           )}
         >
@@ -62,7 +70,7 @@ export const PageShell = ({
               <p
                 className={cn(
                   "mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg",
-                  fullWidth && "mx-auto",
+                  (fullWidth || fluid) && "mx-auto",
                   compactHero && "mt-3 text-[15px] sm:mt-4 sm:text-lg",
                 )}
               >
@@ -70,7 +78,7 @@ export const PageShell = ({
               </p>
             )}
             {actions && (
-              <div className={cn("mt-7 flex flex-wrap gap-3", fullWidth && "justify-center")}>
+              <div className={cn("mt-7 flex flex-wrap gap-3", (fullWidth || fluid) && "justify-center")}>
                 {actions}
               </div>
             )}
@@ -81,9 +89,11 @@ export const PageShell = ({
 
       <div
         className={
-          fullWidth
-            ? "mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10"
-            : cn("mx-auto px-5 py-14 lg:px-8", wide ? "max-w-7xl" : "max-w-5xl")
+          fluid
+            ? "w-full px-4 py-8 sm:px-6 sm:py-10"
+            : fullWidth
+              ? "mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10"
+              : cn("mx-auto px-5 py-14 lg:px-8", wide ? "max-w-7xl" : "max-w-5xl")
         }
       >
         {children}

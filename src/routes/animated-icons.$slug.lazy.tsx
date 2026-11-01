@@ -21,7 +21,7 @@ function Page() {
 
   if (!item) {
     return (
-      <PageShell eyebrow="Animated icons" title="Icon not found" description="This animated icon does not exist in the gallery.">
+      <PageShell fluid eyebrow="Animated icons" title="Icon not found" description="This animated icon does not exist in the gallery.">
         <p className="text-sm text-muted-foreground">
           <Link to="/animated-icons" className="font-medium text-primary hover:underline">
             Browse all animated icons
@@ -49,11 +49,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Animated icon"
       title={item.title}
       description={`${item.packName} · ${item.license} licensed · ${item.format}${item.animated ? "" : " · static SVG (Lottie version animated)"}`}
     >
-      <div className="mx-auto max-w-4xl space-y-6">
+      <div className="w-full space-y-6">
         <div className="flex flex-wrap items-center gap-3">
           {item.premium && <ProPickBadge />}
           <span className="text-sm text-muted-foreground">{item.packName}</span>

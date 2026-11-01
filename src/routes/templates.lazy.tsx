@@ -24,11 +24,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Templates"
       title="Free website templates"
       description={`${TEMPLATES_TOTAL} free MIT-licensed website templates. Preview each one, then download the files. Everything here is open-source — "Pro pick" just means a curated favourite whose download needs Pro; it is not exclusive content.`}
     >
-      <div className="mx-auto max-w-6xl space-y-6">
+      <div className="w-full space-y-6">
         <div className="flex flex-col gap-3 sm:flex-row">
           <label className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

@@ -15,7 +15,7 @@ function Page() {
 
   if (!item) {
     return (
-      <PageShell eyebrow="Wallpapers" title="Wallpaper not found" description="This wallpaper does not exist in the gallery.">
+      <PageShell fluid eyebrow="Wallpapers" title="Wallpaper not found" description="This wallpaper does not exist in the gallery.">
         <p className="text-sm text-muted-foreground">
           <Link to="/wallpapers" className="font-medium text-primary hover:underline">
             Browse all wallpapers
@@ -30,7 +30,7 @@ function Page() {
 
   if (!mobile || !desktop) {
     return (
-      <PageShell eyebrow="Wallpapers" title="Wallpaper not found" description="This wallpaper does not exist in the gallery.">
+      <PageShell fluid eyebrow="Wallpapers" title="Wallpaper not found" description="This wallpaper does not exist in the gallery.">
         <p className="text-sm text-muted-foreground">
           <Link to="/wallpapers" className="font-medium text-primary hover:underline">
             Browse all wallpapers
@@ -42,11 +42,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Wallpaper"
       title={item.title}
       description={`${item.category} · Original artwork generated in code · Mobile 1080x1920 · Desktop 1920x1080 · WebP and JPG`}
     >
-      <div className="mx-auto max-w-6xl space-y-6">
+      <div className="w-full space-y-6">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-sm text-muted-foreground">{item.category}</span>
           <Link to="/wallpapers" className="text-sm font-medium text-primary hover:underline">

@@ -80,11 +80,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Community showcase"
       title="Built with IconVault"
       description="Real projects built with IconVault icons, shared by their creators. Nothing here is invented — every entry below was submitted by its creator and approved. Free to browse."
     >
-      <div className="mx-auto max-w-6xl space-y-10">
+      <div className="w-full space-y-10">
         <section className="space-y-4">
           <h2 className="text-lg font-semibold">Showcase ({entries.length})</h2>
           {!loaded && <p className="text-sm text-muted-foreground">Loading…</p>}

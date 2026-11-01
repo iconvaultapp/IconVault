@@ -131,11 +131,12 @@ function Page() {
 
   return (
     <PageShell
+      fluid
       eyebrow="Mockups"
       title="Mockup tool and free mockup templates"
       description={`Turn a screenshot into a device mockup right here, or start from one of ${MOCKUPS_TOTAL} original HTML mockup templates. Your screenshot never leaves your browser. Previews are free; downloads need a free account.`}
     >
-      <div className="mx-auto max-w-6xl space-y-10">
+      <div className="w-full space-y-10">
         {/* ---------------- Mockup tool ---------------- */}
         <section aria-label="Mockup tool" className="rounded-2xl border border-border bg-card p-5 sm:p-6">
           <h2 className="text-xl font-semibold">Mockup tool</h2>

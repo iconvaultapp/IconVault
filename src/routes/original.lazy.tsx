@@ -9,11 +9,12 @@ export const Route = createLazyFileRoute("/original")({
 function Page() {
   return (
     <PageShell
+      fluid
       eyebrow="Original collections"
       title="Drawn by IconVault"
       description={`${ORIGINAL_TOTAL} original icons, hand-drawn for this release — not copied, scraped or traced from any existing set. Free to browse; downloads need a free account, like everything else on the site.`}
     >
-      <div className="mx-auto max-w-6xl grid gap-4 sm:grid-cols-3">
+      <div className="w-full grid gap-4 sm:grid-cols-3">
         {ORIGINAL_COLLECTIONS.map((c) => (
           <Link
             key={c.slug}
