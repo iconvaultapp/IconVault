@@ -2,7 +2,7 @@
 //
 // GSAP (GreenSock, standard free licence) is used for subtle entrance and
 // scroll animations on MARKETING pages only: the homepage "New in v56"
-// cards and the /animated-backgrounds intro. It is NOT wired into /about
+// cards. It is NOT wired into /about
 // (deliberate v56 decision: /about already animates with the existing
 // Reveal component, and double animation would risk visual glitches).
 // It is never used on tool, icon or download pages.

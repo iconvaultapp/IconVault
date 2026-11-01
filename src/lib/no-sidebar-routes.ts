@@ -15,7 +15,6 @@ export const NO_SIDEBAR_PREFIXES = [
   "/showcase",
   "/original",
   "/mockups",
-  "/animated-backgrounds",
 ] as const;
 
 /** True when `pathname` is one of the no-sidebar sections or a sub-page of one. */

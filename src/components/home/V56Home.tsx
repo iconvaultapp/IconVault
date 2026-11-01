@@ -1,12 +1,12 @@
 // Homepage "New in v56" section (v56, lazy-loaded below the fold).
 // Cards and links for /templates, /animated-icons, /showcase,
-// the original collections, /mockups and /animated-backgrounds, following the IllustrationsHome
+// the original collections and /mockups, following the IllustrationsHome
 // pattern: a centred header, a surface-card grid, no images at all, only
 // Lucide icons and CSS gradients, so nothing heavy sits above the fold
 // and nothing here costs a render-blocking download.
 //
 // HONEST COUNTS ONLY: a count is shown only when it comes from a verified
-// data file. Templates (34) and animated icons (625) come from the v55
+// data file. Templates (36) and animated icons (625) come from the v55
 // data files; original collections come from ORIGINAL_COLLECTIONS below
 // (AI Tools 20, Diwali 20, Desi UI 20, total 60). There is NO Holi
 // collection in the v55 data, so none is claimed here. Mockup counts
@@ -27,7 +27,6 @@ import {
   Palette,
   Sparkles,
   Users,
-  Waves,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import GsapMotion from "@/components/GsapMotion";
@@ -91,13 +90,6 @@ const CARDS: V56Card[] = [
     badge: MOCKUP_COUNT > 0 ? `${MOCKUP_COUNT} frames` : "Free",
     desc: "Device frames for screenshots and presentations. Drop in a screenshot, export a polished mockup.",
     to: "/mockups",
-  },
-  {
-    icon: Waves,
-    title: "Animated backgrounds",
-    badge: "Live demo",
-    desc: "Waves, birds and fog, rendered live with Vanta. A demo only, never a site background.",
-    to: "/animated-backgrounds",
   },
 ];
 

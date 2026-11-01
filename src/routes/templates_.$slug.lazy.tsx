@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import PageShell from "@/components/PageShell";
 import RouteError from "@/components/RouteError";
@@ -13,6 +14,8 @@ export const Route = createLazyFileRoute("/templates_/$slug")({
 function Page() {
   const { slug } = Route.useParams();
   const t = TEMPLATES.find((x) => x.slug === slug);
+  const { isPro } = usePlan();
+  const [showAllFiles, setShowAllFiles] = useState(false);
 
   if (!t) {
     return (
@@ -28,7 +31,9 @@ function Page() {
 
   const isHugo = t.type.startsWith("hugo-theme");
   const isAdminLte = t.slug === "adminlte-dashboard";
-  const { isPro } = usePlan();
+  // Long file lists (Papermod has 123) collapse to the first 12 + a toggle,
+  // so the detail page is not a wall of filenames after the preview.
+  const visibleFiles = showAllFiles || t.files.length <= 12 ? t.files : t.files.slice(0, 12);
   // Preview policy (audit G4, recorded explicitly): the live iframe preview
   // stays free for every template — viewing is free, per the v55 rule. Only
   // TAKING files is gated for Pro picks: the zip, the file links below, and
@@ -120,7 +125,7 @@ function Page() {
         <section className="rounded-2xl border border-border bg-card p-5">
           <h2 className="text-base font-semibold">Files included ({t.files.length})</h2>
           <ul className="mt-3 grid gap-1 text-sm text-muted-foreground sm:grid-cols-2">
-            {t.files.map((f) => (
+            {visibleFiles.map((f) => (
               <li key={f}>
                 {!t.premium || isPro ? (
                   <a href={`/template-files/${t.slug}/${f}`} target="_blank" rel="noreferrer" className="hover:underline">
@@ -132,6 +137,15 @@ function Page() {
               </li>
             ))}
           </ul>
+          {t.files.length > 12 && (
+            <button
+              type="button"
+              onClick={() => setShowAllFiles((v) => !v)}
+              className="mt-3 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
+            >
+              {showAllFiles ? "Show fewer files" : `Show all ${t.files.length} files`}
+            </button>
+          )}
           {t.premium && !isPro && (
             <p className="mt-3 text-xs text-muted-foreground">
               File links unlock with Pro — this is a curated Pro pick, so individual files open only after upgrading.

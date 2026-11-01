@@ -14,7 +14,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdminLoginRouteImport } from './routes/admin-login'
 import { Route as AiSearchRouteImport } from './routes/ai-search'
-import { Route as AnimatedBackgroundsRouteImport } from './routes/animated-backgrounds'
 import { Route as AnimatedIconsRouteImport } from './routes/animated-icons'
 import { Route as ApiAccessRouteImport } from './routes/api-access'
 import { Route as AppRouteImport } from './routes/app'
@@ -674,13 +673,6 @@ const AiSearchRoute = AiSearchRouteImport.update({
   path: '/ai-search',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/ai-search.lazy').then((d) => d.Route))
-const AnimatedBackgroundsRoute = AnimatedBackgroundsRouteImport.update({
-  id: '/animated-backgrounds',
-  path: '/animated-backgrounds',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/animated-backgrounds.lazy').then((d) => d.Route),
-)
 const AnimatedIconsRoute = AnimatedIconsRouteImport.update({
   id: '/animated-icons',
   path: '/animated-icons',
@@ -5244,7 +5236,6 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
-  '/animated-backgrounds': typeof AnimatedBackgroundsRoute
   '/animated-icons': typeof AnimatedIconsRoute
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
@@ -5885,7 +5876,6 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
-  '/animated-backgrounds': typeof AnimatedBackgroundsRoute
   '/animated-icons': typeof AnimatedIconsRoute
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
@@ -6527,7 +6517,6 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/admin-login': typeof AdminLoginRoute
   '/ai-search': typeof AiSearchRoute
-  '/animated-backgrounds': typeof AnimatedBackgroundsRoute
   '/animated-icons': typeof AnimatedIconsRoute
   '/api-access': typeof ApiAccessRoute
   '/app': typeof AppRoute
@@ -7170,7 +7159,6 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-login'
     | '/ai-search'
-    | '/animated-backgrounds'
     | '/animated-icons'
     | '/api-access'
     | '/app'
@@ -7811,7 +7799,6 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-login'
     | '/ai-search'
-    | '/animated-backgrounds'
     | '/animated-icons'
     | '/api-access'
     | '/app'
@@ -8452,7 +8439,6 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-login'
     | '/ai-search'
-    | '/animated-backgrounds'
     | '/animated-icons'
     | '/api-access'
     | '/app'
@@ -9094,7 +9080,6 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AiSearchRoute: typeof AiSearchRoute
-  AnimatedBackgroundsRoute: typeof AnimatedBackgroundsRoute
   AnimatedIconsRoute: typeof AnimatedIconsRoute
   ApiAccessRoute: typeof ApiAccessRoute
   AppRoute: typeof AppRoute
@@ -9765,13 +9750,6 @@ declare module '@tanstack/react-router' {
       path: '/ai-search'
       fullPath: '/ai-search'
       preLoaderRoute: typeof AiSearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/animated-backgrounds': {
-      id: '/animated-backgrounds'
-      path: '/animated-backgrounds'
-      fullPath: '/animated-backgrounds'
-      preLoaderRoute: typeof AnimatedBackgroundsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/animated-icons': {
@@ -14214,7 +14192,6 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRoute,
   AdminLoginRoute: AdminLoginRoute,
   AiSearchRoute: AiSearchRoute,
-  AnimatedBackgroundsRoute: AnimatedBackgroundsRoute,
   AnimatedIconsRoute: AnimatedIconsRoute,
   ApiAccessRoute: ApiAccessRoute,
   AppRoute: AppRoute,

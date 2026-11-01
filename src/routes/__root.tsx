@@ -9,7 +9,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { useServerFn } from "@tanstack/react-start";
@@ -17,16 +17,20 @@ import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { recordReferral } from "@/lib/admin.functions";
 import { PlanProvider } from "@/hooks/usePlan";
 import { SignInPromptProvider } from "@/hooks/useSignInPrompt";
-import { SignInPrompt } from "@/components/SignInPrompt";
+// v65 entry trim: SignInPrompt and PromoPopup are conditional UI (prompt only
+// fires on a gated download; popup is delayed + localStorage-gated), so they
+// load lazily instead of sitting in the entry chunk. DownloadGateListener
+// stays eager — it is what triggers the prompt. Same for the 404-only art
+// below: NotFoundArt carries IllustrationArt + illustrations-data with it.
+const SignInPrompt = lazy(() => import("@/components/SignInPrompt"));
 import { DownloadGateListener } from "@/components/DownloadGateListener";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { ArrowLeft, Box, Compass, Search, Shapes } from "lucide-react";
 import { usePageTracking } from "@/hooks/useAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
-import PromoPopup from "@/components/PromoPopup";
-import IllustrationArt from "@/components/IllustrationArt";
-import { getIllustration } from "@/lib/illustrations-data";
+const PromoPopup = lazy(() => import("@/components/PromoPopup"));
+const NotFoundArt = lazy(() => import("@/components/NotFoundArt"));
 import GlobalSidebar from "@/components/GlobalSidebar";
 import { isNoSidebarRoute } from "@/lib/no-sidebar-routes";
 import { FavouritesProvider } from "@/hooks/useFavourites";
@@ -95,12 +99,11 @@ function NotFoundComponent() {
           spot below.
         </p>
 
-        <IllustrationArt
-          entry={getIllustration("flowbite", "laptop-404-not-found-error")}
-          color="#0d7a68"
-          className="mx-auto mt-7 h-32 w-full max-w-xs sm:h-40 sm:max-w-sm"
-          title="Illustration of a laptop showing a 404 error"
-        />
+        <Suspense
+          fallback={<div className="mx-auto mt-7 h-32 w-full max-w-xs sm:h-40 sm:max-w-sm" />}
+        >
+          <NotFoundArt />
+        </Suspense>
 
         <form
           className="mx-auto mt-8 flex max-w-md items-center gap-2"
@@ -444,9 +447,13 @@ function RootComponent() {
                     )}
                   </div>
                   {!bare && <MobileTabBar />}
-                  <SignInPrompt />
+                  <Suspense fallback={null}>
+                    <SignInPrompt />
+                  </Suspense>
                   <DownloadGateListener />
-                  <PromoPopup />
+                  <Suspense fallback={null}>
+                    <PromoPopup />
+                  </Suspense>
                   <CookieConsent />
                   <Toaster position="bottom-right" />
                 </TooltipProvider>

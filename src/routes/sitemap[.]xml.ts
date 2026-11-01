@@ -162,9 +162,9 @@ const getEntries = (): SitemapEntry[] => [
   { path: "/original/desi-ui", changefreq: "monthly", priority: "0.7" },
   // v56 landing pages. Mockups has no detail route (gallery + tool on
   // one page), so it has no detail entries. Wallpapers were removed in
-  // v61 (founder decision) and have no entries here.
+  // v61 (founder decision) and have no entries here. Animated backgrounds
+  // were removed in v64 (founder decision) and also have no entries here.
   { path: "/mockups", changefreq: "weekly", priority: "0.8" },
-  { path: "/animated-backgrounds", changefreq: "monthly", priority: "0.7" },
   { path: "/templates/3d-aurelis", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/adminlte-dashboard", changefreq: "monthly", priority: "0.6" },
   { path: "/templates/hugo-papermod", changefreq: "monthly", priority: "0.6" },
