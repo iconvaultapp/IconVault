@@ -44,7 +44,7 @@ const BlogTeaser = lazy(() => import("@/components/home/BlogTeaser"));
 // from this file into components/home/ for the same reason.)
 const StyleChips = lazy(() => import("@/components/home/StyleChips"));
 // v56: templates, animated icons, showcase, originals,
-// wallpapers, mockups and animated backgrounds. Lazy like the sections
+// mockups and animated backgrounds. Lazy like the sections
 // below it: the cards carry no images, only Lucide icons, and the section
 // sits below the fold, so it stays out of the entry chunk.
 const V56Home = lazy(() => import("@/components/home/V56Home"));
@@ -386,7 +386,7 @@ function Landing() {
         <ComponentsHome />
 
         {/* New in v56: templates, animated icons, showcase,
-            original collections, wallpapers, mockups, animated backgrounds */}
+            original collections, mockups, animated backgrounds */}
         <Suspense fallback={null}>
           <div className="cv-auto">
             <V56Home />

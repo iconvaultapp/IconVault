@@ -1,7 +1,6 @@
 // Homepage "New in v56" section (v56, lazy-loaded below the fold).
 // Cards and links for /templates, /animated-icons, /showcase,
-// the original collections, /wallpapers (including 3D-look designs),
-// /mockups and /animated-backgrounds, following the IllustrationsHome
+// the original collections, /mockups and /animated-backgrounds, following the IllustrationsHome
 // pattern: a centred header, a surface-card grid, no images at all, only
 // Lucide icons and CSS gradients, so nothing heavy sits above the fold
 // and nothing here costs a render-blocking download.
@@ -10,20 +9,19 @@
 // data file. Templates (34) and animated icons (625) come from the v55
 // data files; original collections come from ORIGINAL_COLLECTIONS below
 // (AI Tools 20, Diwali 20, Desi UI 20, total 60). There is NO Holi
-// collection in the v55 data, so none is claimed here. Wallpaper and
-// mockup counts come from the v56 data files (see the dependency note at
-// the bottom); when those files report zero items, no count is shown
+// collection in the v55 data, so none is claimed here. Mockup counts
+// come from the v56 data file (see the dependency note at
+// the bottom); when that file reports zero items, no count is shown
 // rather than an invented one. The showcase card links to /showcase, whose
 // empty state is honest by design, so no entries are faked here either.
 //
 // Pro note, kept narrow on purpose: Pro $19 is mentioned only for premium
 // templates and animations bundles. Showcase browsing,
-// original collections browsing and basic wallpaper downloads are free.
+// original collections browsing and basic mockup exports are free.
 
 import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  Image as ImageIcon,
   LayoutTemplate,
   MonitorSmartphone,
   Palette,
@@ -36,12 +34,11 @@ import GsapMotion from "@/components/GsapMotion";
 import { TEMPLATES_TOTAL, TEMPLATES_PREMIUM } from "@/lib/templates-data";
 import { ANIMATED_TOTAL } from "@/lib/animated-icons-data";
 import { ORIGINAL_COLLECTIONS, ORIGINAL_TOTAL } from "@/lib/original-icons-data";
-// v56 data-file dependency: these modules are owned by the wallpapers and
-// mockups teams and must export array data by the final build. The counts
-// below resolve defensively (any of the plausible export names, array
+// v56 data-file dependency: this module is owned by the mockups team
+// and must export array data by the final build. The count below
+// resolves defensively (any of the plausible export names, array
 // only), so an unexpected export shape shows no count instead of a wrong
 // one. See the final v56 report for the contract names.
-import * as wallpapersMod from "@/lib/wallpapers-data";
 import * as mockupsMod from "@/lib/mockups-data";
 
 function arrayFrom(mod: unknown, keys: string[]): unknown[] {
@@ -54,7 +51,6 @@ function arrayFrom(mod: unknown, keys: string[]): unknown[] {
   return [];
 }
 
-const WALLPAPER_COUNT = arrayFrom(wallpapersMod, ["WALLPAPERS"]).length;
 const MOCKUP_COUNT = arrayFrom(mockupsMod, ["MOCKUP_FRAMES", "FRAMES", "MOCKUPS"]).length;
 
 const FREE_TEMPLATE_COUNT = TEMPLATES_TOTAL - TEMPLATES_PREMIUM;
@@ -90,13 +86,6 @@ const CARDS: V56Card[] = [
     to: "/showcase",
   },
   {
-    icon: ImageIcon,
-    title: "Wallpapers",
-    badge: WALLPAPER_COUNT > 0 ? `${WALLPAPER_COUNT} wallpapers` : "Free basic downloads",
-    desc: "Desktop and mobile wallpapers, including 3D-look designs.",
-    to: "/wallpapers",
-  },
-  {
     icon: MonitorSmartphone,
     title: "Mockups",
     badge: MOCKUP_COUNT > 0 ? `${MOCKUP_COUNT} frames` : "Free",
@@ -121,7 +110,7 @@ export const V56Home = () => {
             <Sparkles className="h-3.5 w-3.5" /> New in v56
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            More than icons: templates, wallpapers and more
+            More than icons: templates, mockups and more
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
             Free to browse, with downloads behind a free account, like the rest of the site.

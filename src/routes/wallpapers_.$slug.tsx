@@ -1,9 +1,15 @@
-// /wallpapers/$slug - route definition (head only; no data import, so the
-// gallery data file is not pulled into the entry chunk). UI: wallpapers_.$slug.lazy.tsx
+// /wallpapers/$slug - REMOVED (founder decision, IconVault v61, 2026-11-01):
+// detail pages redirect to the homepage, same as the gallery route.
+// UI: wallpapers_.$slug.lazy.tsx (never renders while the redirect is in
+// place).
 
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/wallpapers_/$slug")({
+  // v61: wallpapers section removed — every visit lands on home.
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   head: ({ params }) => {
     const title = params.slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     return {

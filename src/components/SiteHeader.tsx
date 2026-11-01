@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { BookOpen, ChevronDown, History, Layers, LayoutGrid, Menu, X } from "lucide-react";
+import { BookOpen, ChevronDown, History, Layers, LayoutGrid, Menu, Sparkles, X } from "lucide-react";
 import logoUrl from "@/assets/iconvault-logo.svg";
 import { navSections } from "@/components/nav-data";
 import UserMenu from "@/components/UserMenu";
@@ -11,14 +11,14 @@ const primaryLinks = [
   { label: "Illustrations", path: "/illustrations" },
   { label: "UI Components", path: "/ui-components" },
   { label: "Collections", path: "/collections" },
-  // v59: Animated Icons sits immediately after Collections (addition
-  // only — Collections and every other item stay). Desktop order is
-  // Browse icons, Illustrations, UI Components, [Tools], Collections,
-  // Animated Icons, Pricing, [Developers]; the mobile panel picks it up
-  // automatically via primaryLinks.map below. Active state needs no
-  // override: TanStack Link defaults to fuzzy matching (exact: false),
-  // so /animated-icons/<slug> detail pages highlight the tab too.
-  { label: "Animated Icons", path: "/animated-icons" },
+  // v61 (Sameer 2026-11-01): Animated Icons moved into the UI Components
+  // hover submenu; its top-level slot now holds Website Templates.
+  // Desktop order is Browse icons, Illustrations, UI Components,
+  // [Tools], Collections, Website Templates, Pricing, [Developers];
+  // the mobile panel picks it up automatically via primaryLinks.map
+  // below. Animated Icons detail pages highlight their submenu item
+  // via activeProps on the submenu link.
+  { label: "Website Templates", path: "/templates" },
   { label: "Pricing", path: "/pro" },
 ];
 // Blog + Changelog as Developers-tab submenu items (Sameer 2026-10-26),
@@ -33,6 +33,12 @@ const DEVELOPER_TAB_LINKS = [
 const BROWSE_SUBMENU = [
   { label: "Libraries", path: "/libraries", desc: "All 239 icon sets, side by side", icon: Layers },
   { label: "Browse by category", path: "/categories", desc: "215 curated categories", icon: LayoutGrid },
+] as const;
+
+// Hover sub-menu under "UI Components" (Sameer 2026-11-01): Animated Icons
+// moved here from its top-level tab; Website Templates took that slot.
+const UI_COMPONENTS_SUBMENU = [
+  { label: "Animated Icons", path: "/animated-icons", desc: "625 free animated icons", icon: Sparkles },
 ] as const;
 
 export const Brand = ({ className }: { className?: string }) => {
@@ -127,6 +133,50 @@ export const SiteHeader = () => {
                           <Link
                             key={sub.path}
                             to={sub.path}
+                            className="group flex items-start gap-2.5 rounded-xl p-2.5 transition-colors hover:bg-muted"
+                          >
+                            <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform group-hover:scale-110">
+                              <sub.icon className="h-3.5 w-3.5" />
+                            </span>
+                            <span className="min-w-0">
+                              <span className="block truncate text-sm font-medium">{sub.label}</span>
+                              <span className="block truncate text-xs text-muted-foreground">{sub.desc}</span>
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : link.path === "/ui-components" ? (
+                <div
+                  key={link.path}
+                  className="relative"
+                  onMouseEnter={() => setOpenMenu("UIComponents")}
+                  onMouseLeave={() => setOpenMenu(null)}
+                >
+                  <Link
+                    to={link.path}
+                    search={{ open: undefined }}
+                    className="focus-ring inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    activeProps={{ className: "text-foreground bg-muted" }}
+                  >
+                    {link.label}
+                    <ChevronDown
+                      className={cn(
+                        "h-3.5 w-3.5 transition-transform duration-300",
+                        openMenu === "UIComponents" && "rotate-180",
+                      )}
+                    />
+                  </Link>
+                  {openMenu === "UIComponents" && (
+                    <div className="animate-pop absolute left-0 top-full w-72 pt-2">
+                      <div className="grid gap-1 rounded-2xl border border-border bg-popover p-2 shadow-lift">
+                        {UI_COMPONENTS_SUBMENU.map((sub) => (
+                          <Link
+                            key={sub.path}
+                            to={sub.path}
+                            activeProps={{ className: "bg-muted" }}
                             className="group flex items-start gap-2.5 rounded-xl p-2.5 transition-colors hover:bg-muted"
                           >
                             <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary transition-transform group-hover:scale-110">
@@ -306,6 +356,18 @@ export const SiteHeader = () => {
                 </Link>
                 {link.path === "/app" &&
                   BROWSE_SUBMENU.map((sub) => (
+                    <Link
+                      key={sub.path}
+                      to={sub.path}
+                      onClick={closeMobileMenu}
+                      className="flex items-center gap-2.5 rounded-xl py-2 pl-9 pr-3 text-sm text-muted-foreground transition-colors hover:bg-muted"
+                    >
+                      <sub.icon className="h-4 w-4 text-primary" />
+                      {sub.label}
+                    </Link>
+                  ))}
+                {link.path === "/ui-components" &&
+                  UI_COMPONENTS_SUBMENU.map((sub) => (
                     <Link
                       key={sub.path}
                       to={sub.path}

@@ -14,7 +14,6 @@ export const NO_SIDEBAR_PREFIXES = [
   "/customizer",
   "/showcase",
   "/original",
-  "/wallpapers",
   "/mockups",
   "/animated-backgrounds",
 ] as const;

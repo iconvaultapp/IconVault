@@ -1,10 +1,21 @@
-// /wallpapers - route definition (head only). UI lives in wallpapers.lazy.tsx
-// (lean-route pattern: this file must stay import-free apart from the router
-// so the gallery data file is not pulled into the entry chunk).
+// /wallpapers - REMOVED (founder decision, IconVault v61, 2026-11-01):
+// the whole section redirects to the homepage, including old detail
+// links. Route/component files are deliberately NOT deleted: an
+// extract-over deploy would keep deploying them from the founder's repo
+// anyway. Revert = remove the beforeLoad redirect below. UI lives in
+// wallpapers.lazy.tsx (never renders while the redirect is in place).
+// The static files were dropped from this tree (public/wallpapers/);
+// on an extract-over deploy they stay in the founder's repo but are
+// unreachable (no route, no link, not in the sitemap) — delete that
+// folder from the repo to remove the files too.
 
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/wallpapers")({
+  // v61: wallpapers section removed — every visit lands on home.
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   head: () => ({
     meta: [
       { title: "30 Original Wallpapers - 3D, Gradient, Geometric and Nature | IconVault" },
