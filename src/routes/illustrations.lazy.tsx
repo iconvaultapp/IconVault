@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Check, Copy, Download, Moon, Search, Sun, X } from "lucide-react";
-import { downloadWithGate } from "@/lib/download-guard";
+import { downloadWithGate, requestAuth } from "@/lib/download-guard";
+import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -107,6 +108,7 @@ function EditorModal({
   const [size, setSize] = useState(1024);
   const [busy, setBusy] = useState(false);
   const [copied, setCopied] = useState(false);
+  const { user } = useAuth();
   const pack = packOf(entry);
   const activeTheme = themeFor(entry, theme);
 
@@ -177,6 +179,11 @@ function EditorModal({
   };
 
   const copySvg = async () => {
+    // v68: illustration SVG copy is gated behind sign-in, like downloads.
+    if (!user) {
+      requestAuth("Sign in to copy code — it's free.");
+      return;
+    }
     let svg: string;
     try {
       svg = await buildSvg();

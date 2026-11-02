@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Copy, Download, Search, X } from "lucide-react";
-import { downloadWithGate } from "@/lib/download-guard";
+import { downloadWithGate, requestAuth } from "@/lib/download-guard";
+import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 import PageShell from "@/components/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -97,6 +98,7 @@ async function copyText(text: string, okMsg: string) {
 }
 
 function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () => void }) {
+  const { user } = useAuth();
   const [tab, setTab] = useState<CodeTab>("html");
   const [copied, setCopied] = useState(false);
   const tabs: Array<{ id: CodeTab; label: string }> = [
@@ -124,6 +126,10 @@ function DetailModal({ entry, onClose }: { entry: UiComponentEntry; onClose: () 
   }, [entry]);
 
   const onCopy = async () => {
+    if (!user) {
+      requestAuth("Sign in to copy code — it's free.");
+      return;
+    }
     if (await copyText(code, "Code copied")) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);

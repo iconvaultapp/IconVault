@@ -5,6 +5,8 @@ import RouteError from "@/components/RouteError";
 import { TEMPLATES } from "@/lib/templates-data";
 import { PremiumGate, ProPickBadge, ZipDownloadButton } from "@/components/V55Download";
 import { usePlan } from "@/hooks/usePlan";
+import { useAuth } from "@/hooks/useAuth";
+import { requestAuth } from "@/lib/download-guard";
 
 export const Route = createLazyFileRoute("/templates_/$slug")({
   component: Page,
@@ -15,6 +17,7 @@ function Page() {
   const { slug } = Route.useParams();
   const t = TEMPLATES.find((x) => x.slug === slug);
   const { isPro } = usePlan();
+  const { user } = useAuth();
   const [showAllFiles, setShowAllFiles] = useState(false);
 
   if (!t) {
@@ -114,9 +117,24 @@ function Page() {
             {visibleFiles.map((f) => (
               <li key={f}>
                 {!t.premium || isPro ? (
-                  <a href={`/template-files/${t.slug}/${f}`} target="_blank" rel="noreferrer" className="hover:underline">
-                    {f}
-                  </a>
+                  user ? (
+                    <a href={`/template-files/${t.slug}/${f}`} target="_blank" rel="noreferrer" className="hover:underline">
+                      {f}
+                    </a>
+                  ) : (
+                    // v68: free-template file links were plain hrefs — a
+                    // signed-out visitor could open every file without
+                    // signing in, bypassing the download gate. Anonymous
+                    // visitors get the sign-in prompt instead; the href
+                    // itself only renders once signed in.
+                    <button
+                      type="button"
+                      onClick={() => requestAuth("Sign in to view files — it's free.")}
+                      className="hover:underline"
+                    >
+                      {f}
+                    </button>
+                  )
                 ) : (
                   <span>{f}</span>
                 )}

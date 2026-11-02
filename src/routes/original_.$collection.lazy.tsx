@@ -4,7 +4,8 @@ import { Check, Copy, Download, Search } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import RouteError from "@/components/RouteError";
 import { ORIGINAL_COLLECTIONS } from "@/lib/original-icons-data";
-import { downloadUrlWithGate } from "@/lib/download-guard";
+import { downloadUrlWithGate, requestAuth } from "@/lib/download-guard";
+import { useAuth } from "@/hooks/useAuth";
 
 export const Route = createLazyFileRoute("/original_/$collection")({
   component: Page,
@@ -13,6 +14,7 @@ export const Route = createLazyFileRoute("/original_/$collection")({
 
 function Page() {
   const { collection } = Route.useParams();
+  const { user } = useAuth();
   const [query, setQuery] = useState("");
   const [copied, setCopied] = useState("");
   const coll = ORIGINAL_COLLECTIONS.find((c) => c.slug === collection);
@@ -37,6 +39,11 @@ function Page() {
   }
 
   const copySvg = async (icon: { slug: string; file: string }) => {
+    // v68: original-icon SVG copy is gated behind sign-in, like downloads.
+    if (!user) {
+      requestAuth("Sign in to copy code — it's free.");
+      return;
+    }
     try {
       const res = await fetch(`/original-icons/${coll.slug}/${icon.file}`);
       const text = await res.text();

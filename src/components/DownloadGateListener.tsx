@@ -56,7 +56,8 @@ export function DownloadGateListener() {
   const drained = useRef(false);
 
   useEffect(() => {
-    const onRequire = () => prompt("Sign in to download — it's free.");
+    const onRequire = (e: Event) =>
+      prompt((e as CustomEvent<{ message?: string }>).detail?.message ?? "Sign in to download — it's free.");
     window.addEventListener(REQUIRE_AUTH_EVENT, onRequire);
     return () => window.removeEventListener(REQUIRE_AUTH_EVENT, onRequire);
   }, [prompt]);

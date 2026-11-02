@@ -2,13 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Check, Copy } from "lucide-react";
 import type { AnimatedIconEntry } from "@/lib/animated-icons-data";
+import { useAuth } from "@/hooks/useAuth";
+import { requestAuth } from "@/lib/download-guard";
 
 // Side code panel for animated-icon detail pages: preview stays on the left,
 // the reusable code sits on the right, so users can copy it without downloading.
 // Code is fetched from the same static files the Download buttons serve, so the
-// bundle stays metadata-only (see animated-icons-data.ts). Copy is ungated for
-// free items; Pro picks show an upgrade prompt instead of code, matching their
-// gated downloads — otherwise the panel would give Pro content away for free.
+// bundle stays metadata-only (see animated-icons-data.ts). v68: copy is gated
+// behind sign-in for ALL items (founder's 2 Nov QA decision); Pro picks show
+// an upgrade prompt instead of code, matching their gated downloads — otherwise
+// the panel would give Pro content away for free.
 
 interface Tab {
   id: string;
@@ -76,6 +79,7 @@ function tabsFor(item: AnimatedIconEntry): Tab[] {
 }
 
 export function AnimatedCodePanel({ item }: { item: AnimatedIconEntry }) {
+  const { user } = useAuth();
   const tabs = useMemo(() => tabsFor(item), [item]);
   const [activeId, setActiveId] = useState(tabs[0]?.id ?? "");
   const [texts, setTexts] = useState<Record<string, string>>({});
@@ -145,6 +149,10 @@ export function AnimatedCodePanel({ item }: { item: AnimatedIconEntry }) {
 
   const copy = async () => {
     if (!content) return;
+    if (!user) {
+      requestAuth("Sign in to copy code — it's free.");
+      return;
+    }
     try {
       await navigator.clipboard.writeText(content);
       setCopied(true);

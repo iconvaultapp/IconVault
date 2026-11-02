@@ -4,7 +4,8 @@ import { toast } from "sonner";
 import { parseIconId, getIconSvgUrl, fetchIconSvg } from "@/lib/iconify";
 import { useFavourites } from "@/hooks/useFavourites";
 import { useCollections } from "@/hooks/useCollections";
-import { downloadWithGate } from "@/lib/download-guard";
+import { useAuth } from "@/hooks/useAuth";
+import { downloadWithGate, requestAuth } from "@/lib/download-guard";
 import { cn } from "@/lib/utils";
 import { brandFilename } from "@/lib/logo-builder";
 
@@ -73,6 +74,7 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
   const [newColName, setNewColName] = useState("");
   const { isFavourite, toggleFavourite } = useFavourites();
   const { collections, createCollection, addToCollection } = useCollections();
+  const { user } = useAuth();
   const { prefix, name } = parseIconId(iconId);
   const fav = isFavourite(iconId);
 
@@ -127,8 +129,14 @@ export const IconifyDetail = ({ iconId, onClose, onAddToRecent }: IconifyDetailP
     setColoredSvg(colored);
   }, [svgContent, color, useOriginal]);
 
-  // v55: copy-to-clipboard is NOT gated (copy is not a download).
+  // v68: code copy is gated behind sign-in (founder's 2 Nov QA decision:
+  // signed-out users must neither download nor copy icon/animation code).
+  // Share-link copy below stays ungated — a page URL is not code.
   const copyText = (text: string, label: string) => {
+    if (!user) {
+      requestAuth("Sign in to copy code — it's free.");
+      return;
+    }
     void navigator.clipboard.writeText(text);
     setCopied(label);
     toast.success(`Copied ${label}`);

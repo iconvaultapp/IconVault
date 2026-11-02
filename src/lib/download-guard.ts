@@ -74,6 +74,21 @@ export const requestAuthForDownload = () => {
   }
 };
 
+/**
+ * v68 — ask for sign-in WITHOUT parking a download (copy gates, view-only
+ * file links). After login the user simply retries the action; unlike
+ * downloads, copies are not auto-resumed.
+ */
+export const requestAuth = (message?: string) => {
+  try {
+    window.dispatchEvent(
+      new CustomEvent(REQUIRE_AUTH_EVENT, { detail: message ? { message } : undefined }),
+    );
+  } catch {
+    /* ignore */
+  }
+};
+
 const triggerBlobDownload = (blob: Blob, filename: string) => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
