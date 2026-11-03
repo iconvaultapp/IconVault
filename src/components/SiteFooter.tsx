@@ -147,9 +147,9 @@ export const SiteFooter = () => {
           </p>
           <p className="font-mono">Built for designers and engineers who move fast.</p>
           <a
-  href="https://www.codehype.ai/product/iconvault?utm_source=codehype_badge"
-  target="_blank"
-  rel="noopener noreferrer"
+          href="https://www.codehype.ai/product/iconvault?utm_source=codehype_badge"
+            target="_blank"
+           rel="noopener noreferrer"
 >
   <img
     src="https://www.codehype.ai/badges/iconvault.svg?variant=find-us&v=20"
