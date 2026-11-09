@@ -146,23 +146,7 @@ export const SiteFooter = () => {
             </button>
           </p>
           <p className="font-mono">Built for designers and engineers who move fast.</p>
-          <a
-          href="https://www.codehype.ai/product/iconvault?utm_source=codehype_badge"
-            target="_blank"
-           rel="noopener noreferrer"
->
-  <img
-    src="https://www.codehype.ai/badges/iconvault.svg?variant=find-us&v=20"
-    alt="Featured on CodeHype"
-    width={180}
-    height={65}
-    loading="lazy"
-    decoding="async"
-    style={{ display: "inline-block", border: 0, width: "100%", maxWidth: 180, height: "auto", maxHeight: 65 }}
-  />
-</a>
-
-          <div className="flex items-center gap-5">
+         <div className="flex items-center gap-5">
             <Link to="/about" className="transition-colors hover:text-primary">
               About
             </Link>
